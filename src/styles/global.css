@@ -434,3 +434,12 @@ main:has(> .newsletter-band:last-child) > .newsletter-band { border-bottom-color
   .nl-form .button { width: 100%; }
 }
 html, body { overflow-x: clip; }
+
+/* Newsletter form extras */
+.nl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.nl-optin { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font: 400 13px/1.45 var(--sans); color: var(--ink-2); cursor: pointer; }
+.nl-optin input { margin-top: 2px; accent-color: var(--accent); flex: none; }
+.nl-note a { color: var(--muted); }
+.article-signup { background: var(--surface); border: 1px solid var(--rule); padding: 22px 24px 18px; }
+.article-signup > h2 { border-top: 0; padding-top: 0; font: 560 1.5rem/1.2 var(--serif); letter-spacing: -0.01em; text-transform: none; margin-bottom: 6px; }
+.article-signup > p { margin: 0 0 14px; color: var(--ink-2); font-size: 1.02rem; }
