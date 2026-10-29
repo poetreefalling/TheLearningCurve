@@ -50,8 +50,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 
 | # | Working title | Keyword | Vol · SD | Kind | Status |
 |---|---|---|---|---|---|
-| 1 | An Online Course Design Checklist, Grounded in the Research | online course design checklist | check | guide | next |
-| 2 | Instructional Design Jobs for Former Teachers: Where Your Skills Transfer | instructional design jobs for former teachers | 880 · 16 | guide | todo |
+| 1 | An Online Course Design Checklist, Grounded in the Research | online course design checklist | 10 · 10 | guide | in PR (Fri 30 Oct 12:00) |
+| 2 | Instructional Design Jobs for Former Teachers: Where Your Skills Transfer | instructional design jobs for former teachers | 880 · 16 | guide |next |
 | 3 | AI in eLearning: What's Changed This Term | ai in elearning | 70 · 25 | trends | todo |
 | 4 | Cognitive Load: How Much Content Belongs in One Lesson? | cognitive load theory in online courses | check | library | todo |
 | 5 | Entry-Level Instructional Design Jobs: What Employers Ask For | instructional design entry level jobs | 720 · 9 | guide | todo |
