@@ -107,15 +107,10 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 560; line-height: 1.12;
   padding: 14px 0 0;
 }
 .masthead-wordmark {
-  display: block; text-align: center; text-decoration: none; color: var(--ink);
-  font-family: var(--serif);
-  font-size: clamp(2.4rem, 7.5vw, 5.2rem);
-  font-weight: 520;
-  letter-spacing: -0.025em;
-  line-height: 1;
-  padding: 20px 0 18px;
-  font-variation-settings: 'opsz' 72;
+  display: block; width: min(620px, 80vw); margin: 0 auto; padding: 22px 0 18px;
+  color: var(--ink); line-height: 0;
 }
+.masthead-wordmark svg { display: block; width: 100%; height: auto; }
 .masthead-rules { border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule-strong); height: 4px; }
 .masthead-nav { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 0; }
 .nav-links { display: flex; gap: 28px; justify-content: center; flex: 1; overflow-x: auto; scrollbar-width: none; }
@@ -152,7 +147,8 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 560; line-height: 1.12;
 }
 .compact-bar.is-shown { transform: none; }
 .compact-inner { display: flex; align-items: center; gap: 24px; height: 52px; }
-.compact-wordmark { font: 560 20px/1 var(--serif); letter-spacing: -0.015em; text-decoration: none; color: var(--ink); white-space: nowrap; }
+.compact-wordmark { display: block; color: var(--ink); line-height: 0; flex: none; }
+.compact-wordmark svg { height: 22px; width: auto; display: block; }
 .compact-inner .nav-links { justify-content: flex-start; gap: 22px; }
 @media (prefers-reduced-motion: reduce) { .compact-bar { transition: none; } }
 
@@ -169,7 +165,8 @@ h1, h2, h3, h4 { font-family: var(--serif); font-weight: 560; line-height: 1.12;
 
 .site-footer { margin-top: 96px; border-top: 1px solid var(--rule-strong); padding: 40px 0 56px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: var(--gutter); }
-.footer-name { font: 560 26px/1.1 var(--serif); letter-spacing: -0.015em; margin-bottom: 10px; }
+.footer-name { width: 220px; margin-bottom: 14px; color: var(--ink); line-height: 0; }
+.footer-name svg { width: 100%; height: auto; display: block; }
 .footer-grid p { font: 400 14px/1.55 var(--sans); color: var(--muted); max-width: 420px; margin: 0 0 8px; }
 .footer-grid ul { list-style: none; margin: 0; padding: 0; font: 400 14px/2 var(--sans); }
 .footer-grid a { color: var(--ink); text-decoration: none; }

@@ -1,12 +1,13 @@
 ---
 import { SITE, SECTIONS } from '../site.config';
+import Wordmark from './Wordmark.astro';
 ---
 
 <footer class="site-footer">
   <div class="wrap">
     <div class="footer-grid">
       <div>
-        <div class="footer-name">{SITE.name}</div>
+        <div class="footer-name" role="img" aria-label={SITE.name}><Wordmark /></div>
         <p>{SITE.description}</p>
         <p>Independent. Reader-supported through affiliate links. <a href="/disclosure/">See our disclosure.</a></p>
       </div>

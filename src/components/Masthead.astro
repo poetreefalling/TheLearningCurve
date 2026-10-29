@@ -1,5 +1,6 @@
 ---
 import { SITE, SECTIONS } from '../site.config';
+import Wordmark from './Wordmark.astro';
 
 interface Props { current?: string }
 const { current } = Astro.props;
@@ -18,7 +19,7 @@ const links = [
       <span data-today>{today}</span>
       <span class="tagline">{SITE.tagline}</span>
     </div>
-    <a class="masthead-wordmark" href="/" aria-label={`${SITE.name} home`}>{SITE.name}</a>
+    <a class="masthead-wordmark" href="/" aria-label={`${SITE.name} home`}><Wordmark /></a>
     <div class="masthead-rules" aria-hidden="true"></div>
     <nav class="masthead-nav" aria-label="Sections">
       <span class="nav-spacer" aria-hidden="true"></span>
@@ -40,7 +41,7 @@ const links = [
 
 <div class="compact-bar" aria-hidden="true">
   <div class="wrap compact-inner">
-    <a class="compact-wordmark" href="/" tabindex="-1">{SITE.name}</a>
+    <a class="compact-wordmark" href="/" tabindex="-1" aria-label={SITE.name}><Wordmark /></a>
     <div class="nav-links">
       {links.map((l) => <a href={l.href} tabindex="-1">{l.label}</a>)}
     </div>

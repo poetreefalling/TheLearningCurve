@@ -1,0 +1,7 @@
+---
+// The Learning Curve wordmark, inlined so it takes the text colour (light and dark themes).
+import svg from '../assets/logo-wordmark.svg?raw';
+interface Props { class?: string }
+const markup = svg.replace('<svg ', `<svg class="${Astro.props.class ?? ''}" aria-hidden="true" focusable="false" `);
+---
+<Fragment set:html={markup} />

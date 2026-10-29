@@ -2,6 +2,8 @@
 
 | File | What it is | Status |
 |---|---|---|
+| `logo-wordmark-original.png` | Jim's wordmark as supplied | Added |
+| `logo-wordmark.svg` | The wordmark traced to a vector; a copy in `src/assets/` is used in the masthead, sticky bar and footer, and takes the text colour in both themes | Added |
 | `documentary-reference.webp` | Style reference for documentary heroes: candid, window-lit, film grain, muted warm colour | Added (Jim's pick from the style tests) |
 | `references/` | The other documentary tests Jim approved, kept for comparison | Added |
 | `risograph-reference.webp` | Style reference for risograph heroes: navy and ochre on off-white, grain, misregistration | **Still needed** |
