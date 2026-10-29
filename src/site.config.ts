@@ -10,9 +10,9 @@ export const SITE = {
     url: '/about/',
   },
   timezone: 'Australia/Sydney',
-  // Newsletter provider. Leave null until Jim chooses one; the form then shows "Coming soon".
-  // Example: { provider: 'beehiiv', action: 'https://embeds.beehiiv.com/...' }
-  newsletter: null as null | { provider: string; action: string },
+  // Newsletter: Beehiiv, via the /api/subscribe function (functions/api/subscribe.ts).
+  // Set to null to switch every sign-up form back to "Coming soon".
+  newsletter: { provider: 'beehiiv' } as null | { provider: string },
   // Cloudflare Web Analytics token (cookieless). Leave null to disable.
   analyticsToken: null as null | string,
 };

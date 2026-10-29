@@ -13,7 +13,7 @@ export default defineConfig({
     mdx(),
     sitemap({
       // Utility pages stay out of the sitemap
-      filter: (page) => !/\/(search|404)\/?$/.test(page),
+      filter: (page) => !/\/(search|404|newsletter\/thanks)\/?$/.test(page),
     }),
   ],
 });

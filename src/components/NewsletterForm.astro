@@ -1,10 +1,52 @@
 ---
+// Newsletter sign-up. Posts to /api/subscribe (functions/api/subscribe.ts), which adds the reader
+// to Beehiiv. Works without JavaScript; with it, the form submits in place.
 import { SITE } from '../site.config';
-const nl = SITE.newsletter;
+interface Props { placement?: string }
+const { placement = 'site' } = Astro.props;
+const on = SITE.newsletter !== null;
+const id = `nl-${placement}`;
 ---
-<form class="nl-form" method="post" action={nl?.action} target={nl ? '_blank' : undefined}>
-  <label class="visually-hidden" for="nl-email">Email address</label>
-  <input id="nl-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required disabled={!nl} />
-  <button class="button" type="submit" disabled={!nl}>{nl ? 'Subscribe' : 'Coming soon'}</button>
+<form class="nl-form-wrap" method="post" action="/api/subscribe" data-newsletter>
+  <input type="hidden" name="placement" value={placement} />
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  <div class="nl-hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="nl-form">
+    <label class="visually-hidden" for={`${id}-email`}>Email address</label>
+    <input id={`${id}-email`} name="email" type="email" placeholder="you@example.com" autocomplete="email" required disabled={!on} />
+    <button class="button" type="submit" disabled={!on}>{on ? 'Subscribe' : 'Coming soon'}</button>
+  </div>
+  {on && (
+    <label class="nl-optin">
+      <input type="checkbox" name="credentialcraft" value="yes" />
+      <span>Also send me occasional updates from CredentialCraft, the course-design studio run by our founder.</span>
+    </label>
+  )}
+  <p class="nl-note" role="status" aria-live="polite">
+    {on ? <>Free, once a month. Unsubscribe any time. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
+  </p>
 </form>
-<p class="nl-note">{nl ? 'One email a week. Unsubscribe any time.' : 'The weekly newsletter opens soon.'}</p>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const note = form.querySelector<HTMLElement>('.nl-note')!;
+      const button = form.querySelector<HTMLButtonElement>('button')!;
+      const body = Object.fromEntries(new FormData(form).entries());
+      button.disabled = true;
+      note.textContent = 'Subscribing…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const json = await res.json();
+        note.textContent = json.message;
+        if (res.ok) form.querySelector<HTMLInputElement>('input[type=email]')!.value = '';
+      } catch {
+        note.textContent = 'Something went wrong. Please try again.';
+      }
+      button.disabled = false;
+    });
+  });
+</script>
