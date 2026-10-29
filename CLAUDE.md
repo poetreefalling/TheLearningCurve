@@ -39,13 +39,13 @@ commissions pay its way; they never decide what gets written or how a platform s
 ## Twice-daily article (scheduled routine)
 
 Articles publish at **12:00 and 00:00 Sydney time**, 14 a week. This routine runs twice a day
-and each run drafts **exactly one** article for a slot at least 24 hours away, then opens a pull
-request for Jim. Jim's merge is the approval. If the draft isn't good enough, open no PR: an
+(about 08:45 and 20:45 Sydney) and each run drafts **exactly one** article for the next slot at
+least 12 hours away, so Jim has a morning or an evening to review it, then opens a pull request. Jim's merge is the approval. If the draft isn't good enough, open no PR: an
 empty slot is better than a weak article.
 
 1. **Pick the slot.** List the `published` datetimes of every article on `main` and in open
    pull requests from `article/` branches. Take the earliest free 12:00 or 00:00 Sydney slot
-   that is at least 24 hours from now. If every slot in the next 72 hours is taken, stop and
+   that is at least 12 hours from now. If every slot in the next 72 hours is taken, stop and
    report (Jim is behind on reviews; don't pile up more).
 2. **Pick the article.** Read `docs/backlog.md`.
    - If a flagship is pinned to the week the slot falls in and isn't `done` or `in PR`, take it.

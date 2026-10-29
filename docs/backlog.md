@@ -25,9 +25,12 @@ looks the keyword up before writing and records the figures in the PR.
 
 ## Flagships (one per week)
 
+The twice-daily cadence started on Friday 30 October 2026 with the ADDIE article. Flagships keep
+their pinned weeks; the queue fills every other slot.
+
 | Week of | Title | Keyword | Vol · SD | Kind | Hero | Status |
 |---|---|---|---|---|---|---|
-| 9 Nov 2026 | The ADDIE Model, Explained by a Working Course Designer | instructional design addie model | 1,300 · 10 | guide | risograph | todo |
+| 9 Nov 2026 | The ADDIE Model, Explained by a Working Course Designer | instructional design addie model | 1,300 · 10 | guide | documentary | in PR (launch article, Fri 30 Oct 00:00) |
 | 16 Nov 2026 | Retrieval Practice: What the Research Says, Plus a Free Grid Template | retrieval practice grid | 2,400 · 17 | library | documentary | todo |
 | 23 Nov 2026 | Teachable vs Thinkific: A Learning Designer's Comparison | teachable vs thinkific | 320 · 27 | comparison | screenshot | todo |
 | 30 Nov 2026 | Worked Examples: How to Teach a Complex Skill Online | worked examples | 720 · 19 | library | documentary | todo |
