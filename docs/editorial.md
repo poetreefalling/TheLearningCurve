@@ -185,8 +185,8 @@ Use with `brand/documentary-reference.webp`. Fill the brackets; keep the rest wo
 > Screens show only soft, unreadable blur. No text, no logos, no brand marks, no watermarks,
 > no glossy stock-photo styling.
 
-Alt text describes what's in the photo plainly. Caption is optional. The credit is always
-"AI-generated illustration".
+Alt text describes what's in the photo plainly. Caption is optional. Documentary images carry no
+per-image credit; the footer, About and Disclosure pages say they are AI-generated illustrations.
 
 Vary people across the series: age, gender, background, setting (homes, libraries, offices,
 classrooms, studios, Australia and elsewhere). Check the last ten heroes before choosing.

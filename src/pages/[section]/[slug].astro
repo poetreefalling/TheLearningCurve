@@ -121,7 +121,9 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
 
     <figure class="hero wide">
       <img src={heroSrc(a)} srcset={heroSrcset(a)} sizes="(min-width: 992px) 960px, calc(100vw - 32px)" alt={d.hero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" />
-      <figcaption>{d.hero.caption}<span class="credit">{heroCredit(a)}</span></figcaption>
+      {(d.hero.caption || heroCredit(a)) && (
+        <figcaption>{d.hero.caption}{heroCredit(a) && <span class="credit">{heroCredit(a)}</span>}</figcaption>
+      )}
     </figure>
 
     <section class="short-answer measure" aria-label="The short answer">
