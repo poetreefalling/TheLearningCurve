@@ -1,0 +1,10 @@
+---
+// <PlatformLink id="thinkific">Thinkific</PlatformLink>. Uses the affiliate link once Jim has set one.
+import { getEntry } from 'astro:content';
+interface Props { id: string }
+const p = await getEntry('platforms', Astro.props.id);
+if (!p) throw new Error(`PlatformLink: no platform "${Astro.props.id}" in src/data/platforms.json`);
+const href = p.data.affiliateUrl ?? p.data.url;
+const rel = p.data.affiliateUrl ? 'sponsored noopener' : 'noopener';
+---
+<a href={href} rel={rel}><slot>{p.data.name}</slot></a>

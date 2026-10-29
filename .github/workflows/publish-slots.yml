@@ -1,0 +1,20 @@
+# Rebuilds the live site at each publishing slot (12:00 and 00:00 Sydney time), so
+# future-dated articles go live on time. Two of the four runs line up with the slots in
+# summer (AEDT, UTC+11) and the other two in winter (AEST, UTC+10); the extra builds are harmless.
+name: Publish scheduled articles
+
+on:
+  schedule:
+    - cron: '1 1,2,13,14 * * *'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Cloudflare Pages build
+        env:
+          HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
+        run: |
+          if [ -z "$HOOK" ]; then echo "CF_DEPLOY_HOOK secret is not set"; exit 1; fi
+          curl -fsS -X POST "$HOOK"

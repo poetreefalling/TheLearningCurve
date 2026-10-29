@@ -1,0 +1,19 @@
+---
+import Base from '../layouts/Base.astro';
+import { getArticles, urlOf } from '../lib/articles';
+const library = (await getArticles('library')).slice(0, 6);
+---
+<Base title="Page not found" description="This page doesn't exist, or hasn't been published yet." noindex>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>We couldn't find that page</h1>
+      <p>It may have moved, or it may not be published yet. Try <a href="/search/">searching</a>, or start with the library.</p>
+    </header>
+    {library.length > 0 && (
+      <ul class="library-list measure" style="margin-left:0">
+        {library.map((a) => <li><div><a href={urlOf(a)}>{a.data.title}</a><p>{a.data.library?.question}</p></div></li>)}
+      </ul>
+    )}
+    <p><a class="button" href="/">Go to the front page</a></p>
+  </div>
+</Base>

@@ -1,0 +1,88 @@
+---
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { SITE, SECTIONS, type SectionKey } from '../../site.config';
+import { getArticles, urlOf, formatDate, type Article } from '../../lib/articles';
+
+export function getStaticPaths() {
+  return Object.keys(SECTIONS).map((section) => ({ params: { section } }));
+}
+
+const section = Astro.params.section as SectionKey;
+const meta = SECTIONS[section];
+const items = await getArticles(section);
+const [lead, ...rest] = items;
+
+// The library is grouped by principle, like a reference shelf
+const byPrinciple = new Map<string, Article[]>();
+if (section === 'library') {
+  for (const a of items) {
+    const k = a.data.library?.principle ?? 'Other';
+    byPrinciple.set(k, [...(byPrinciple.get(k) ?? []), a]);
+  }
+}
+
+const jsonLd = [{
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: `${meta.label} | ${SITE.name}`,
+  description: meta.blurb,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: items.slice(0, 50).map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: new URL(urlOf(a), SITE.url).href, name: a.data.title })),
+  },
+}];
+---
+
+<Base title={meta.label} description={meta.blurb} jsonLd={jsonLd} current={section}>
+  <div class="wrap">
+    <header class="page-head">
+      <h1>{meta.label}</h1>
+      <p>{meta.blurb}</p>
+    </header>
+
+    {items.length === 0 && (
+      <div class="empty">
+        <h2>Coming soon</h2>
+        <p>The first {meta.label.toLowerCase()} pieces publish from 9 November 2026. <a href="/newsletter/">Get them by email.</a></p>
+      </div>
+    )}
+
+    {section === 'library' && items.length > 0 && (
+      [...byPrinciple.entries()].map(([principle, list]) => (
+        <section class="principle-group">
+          <div class="section-head"><h2>{principle}</h2></div>
+          <ul class="library-list">
+            {list.map((a) => (
+              <li>
+                <div>
+                  <a href={urlOf(a)}>{a.data.title}</a>
+                  <p>{a.data.library?.question}</p>
+                  <div class="meta">Last reviewed {formatDate(a.data.library!.lastReviewed)}</div>
+                </div>
+                <span class={`evidence ${a.data.library?.evidence}`}>{a.data.library?.evidence} evidence</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    )}
+
+    {section !== 'library' && lead && (
+      <>
+        <div class="lead-grid" style="padding-top:0">
+          <ArticleCard article={lead} variant="lead" eager />
+          <div class="lead-side">
+            {rest.slice(0, 3).map((a) => <ArticleCard article={a} variant="text" />)}
+          </div>
+        </div>
+        {rest.length > 3 && (
+          <>
+            <div class="section-head"><h2>More {meta.label.toLowerCase()}</h2></div>
+            <ul class="river">{rest.slice(3).map((a) => <li><ArticleCard article={a} variant="river" /></li>)}</ul>
+          </>
+        )}
+      </>
+    )}
+  </div>
+</Base>

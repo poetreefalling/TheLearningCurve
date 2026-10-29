@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/newsreader/opsz.css';
+import '@fontsource-variable/newsreader/opsz-italic.css';
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import Masthead from '../components/Masthead.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../site.config';
+import { SHOW_UNPUBLISHED } from '../lib/articles';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  ogImage?: string;
+  ogType?: 'website' | 'article';
+  noindex?: boolean;
+  current?: string;
+}
+
+const { title, description, jsonLd = [], ogImage, ogType = 'website', noindex = false, current } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const fullTitle = title === SITE.name ? `${SITE.name}: ${SITE.tagline}` : `${title} | ${SITE.name}`;
+const og = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og-default.jpg', Astro.site).href;
+// Preview builds must never be indexed
+const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
+---
+
+<!doctype html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('theme');
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content={robots} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#121314" media="(prefers-color-scheme: dark)" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={og} />
+    <meta property="og:locale" content="en_AU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <slot name="head" />
+    {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    {SITE.analyticsToken && (
+      <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.analyticsToken })}></script>
+    )}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Masthead current={current} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <script is:inline>
+      document.querySelectorAll('.theme-toggle').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          const root = document.documentElement;
+          const now = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          const next = now === 'dark' ? 'light' : 'dark';
+          root.dataset.theme = next;
+          try { localStorage.setItem('theme', next); } catch {}
+        }),
+      );
+      const masthead = document.querySelector('.masthead');
+      const bar = document.querySelector('.compact-bar');
+      if (masthead && bar && 'IntersectionObserver' in window) {
+        new IntersectionObserver(([e]) => bar.classList.toggle('is-shown', !e.isIntersecting)).observe(masthead);
+      }
+      const today = document.querySelector('[data-today]');
+      if (today) {
+        today.textContent = new Intl.DateTimeFormat('en-AU', {
+          timeZone: 'Australia/Sydney', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+        }).format(new Date());
+      }
+    </script>
+  </body>
+</html>

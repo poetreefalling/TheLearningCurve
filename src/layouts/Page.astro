@@ -1,0 +1,16 @@
+---
+import Base from './Base.astro';
+interface Props { title: string; description: string; standfirst?: string; jsonLd?: object[]; noindex?: boolean }
+const { title, description, standfirst, jsonLd, noindex } = Astro.props;
+---
+<Base title={title} description={description} jsonLd={jsonLd} noindex={noindex}>
+  <article class="wrap">
+    <header class="article-head measure">
+      <h1>{title}</h1>
+      {standfirst && <p class="standfirst">{standfirst}</p>}
+    </header>
+    <div class="page-body measure" style="margin-top:32px">
+      <slot />
+    </div>
+  </article>
+</Base>

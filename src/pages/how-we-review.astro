@@ -1,0 +1,55 @@
+---
+import Page from '../layouts/Page.astro';
+const learning = [
+  ['Retrieval', 'Quizzes with varied question types, question banks, randomisation and retake rules, and practice that\'s easy to place throughout a course.', 'Quizzes are absent, or only possible at the end of a course.'],
+  ['Assessment', 'Assignments, rubrics, instructor feedback and graded submissions.', 'Multiple choice only, with no feedback.'],
+  ['Credentials', 'Configurable certificates and completion rules, with verifiable or shareable credentials such as Open Badges.', 'No certificates, or one fixed template.'],
+  ['Learner analytics', 'Per-learner and per-question data, drop-off by lesson, and exports.', 'Enrolment counts only.'],
+];
+const business = [
+  ['Pricing', 'Clear plans, no transaction fees at the tested tier, and fair value for a small creator.', 'Opaque or fee-heavy.'],
+  ['Payments', 'Subscriptions, bundles, coupons, payment plans and tax handling.', 'One-off payments only.'],
+  ['Marketing', 'Landing pages, email, affiliates and upsells built in.', 'Needs third-party tools for the basics.'],
+];
+---
+<Page
+  title="How we review"
+  description="The published method behind every Learning Curve platform review: seven criteria, weighted 60% on learning design and 40% on business tools."
+  standfirst="Every platform is scored the same way, with learning design weighted above business tools."
+>
+  <p>
+    Most course-platform reviews compare price lists and marketing features. Ours start with a different question:
+    how well does this platform help the people taking your course actually learn? Each criterion below maps to
+    research in our <a href="/library/">library</a>.
+  </p>
+  <h2>How we test</h2>
+  <ul>
+    <li>We build a real course on each platform: modules, quizzes, an assignment and a certificate.</li>
+    <li>We compare like with like: the cheapest plan that includes certificates.</li>
+    <li>Screenshots come from our own test accounts.</li>
+    <li>Prices are checked on the date shown in each review.</li>
+  </ul>
+  <h2>Learning design: 60% of the score</h2>
+  <div class="table-scroll">
+    <table class="data">
+      <thead><tr><th scope="col">Criterion</th><th scope="col">5 means</th><th scope="col">1 means</th></tr></thead>
+      <tbody>{learning.map(([c, hi, lo]) => <tr><th scope="row">{c}</th><td>{hi}</td><td>{lo}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <h2>Business tools: 40% of the score</h2>
+  <div class="table-scroll">
+    <table class="data">
+      <thead><tr><th scope="col">Criterion</th><th scope="col">5 means</th><th scope="col">1 means</th></tr></thead>
+      <tbody>{business.map(([c, hi, lo]) => <tr><th scope="row">{c}</th><td>{hi}</td><td>{lo}</td></tr>)}</tbody>
+    </table>
+  </div>
+  <h2>The overall score</h2>
+  <p>
+    Each criterion is scored from 1 to 5. The overall score is the average of the learning design scores, weighted
+    60%, plus the average of the business scores, weighted 40%, rounded to one decimal place.
+  </p>
+  <p>
+    Scores change only when a platform changes or we test it again; each review shows when it was last updated.
+    Affiliate commissions never affect a score. See our <a href="/disclosure/">disclosure</a>.
+  </p>
+</Page>

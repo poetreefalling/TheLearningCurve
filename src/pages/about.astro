@@ -1,0 +1,50 @@
+---
+import Page from '../layouts/Page.astro';
+import { SITE } from '../site.config';
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${SITE.name}`,
+  mainEntity: { '@type': 'Person', name: SITE.author.name, url: `${SITE.url}/about/`, sameAs: ['https://www.imdb.com/name/nm2420157/'], jobTitle: 'Learning designer and filmmaker' },
+}];
+---
+<Page
+  title="About"
+  description="The Learning Curve is an independent publication on how to design online courses that work, founded by learning designer and filmmaker Jim Lounsbury."
+  standfirst="An independent publication on how to design online courses that work."
+  jsonLd={jsonLd}
+>
+  <p>
+    Most advice about building online courses is written to sell you a platform. Most research on how people learn is
+    written for other researchers. The Learning Curve sits between the two: it reads the research, explains what it
+    means for a real course, and judges the platforms on how well they help people learn.
+  </p>
+  <h2>What we publish</h2>
+  <ul>
+    <li><strong>The Library:</strong> one evergreen page per learning principle, each re-checked against new research every year.</li>
+    <li><strong>Guides:</strong> practical course design and instructional design, grounded in the evidence.</li>
+    <li><strong>Reviews:</strong> course platforms scored with <a href="/how-we-review/">one published method</a>, from hands-on testing.</li>
+    <li><strong>Trends:</strong> dated news on where online education is going, and what it means for people who build courses.</li>
+  </ul>
+  <h2>Who's behind it</h2>
+  <p>
+    The Learning Curve was founded by Jim Lounsbury, a learning designer and documentary filmmaker based in Sydney.
+    Jim works in educational development at Avondale University, designing course content and microcredentials, and
+    runs CredentialCraft, a course-design studio. Alongside that, he has spent his career making
+    documentaries and factual television in more than 40 countries, for clients including National Geographic.
+  </p>
+  <p>
+    That mix shapes the publication: a learning designer's respect for evidence, and a filmmaker's sense of what
+    keeps people watching.
+  </p>
+  <h2>How we work</h2>
+  <p>
+    We use AI tools to help research and draft articles. Every article is reviewed, edited and approved by Jim before
+    it is published, every research claim links to its source, and every platform claim is checked in the platform
+    itself. Documentary-style photographs on this site are AI-generated illustrations and are credited as such.
+  </p>
+  <p>
+    The site earns money through affiliate links, which never decide what we cover or how we score it. The
+    <a href="/disclosure/">disclosure page</a> has the details.
+  </p>
+  <h2>Get in touch</h2>
+  <p>Corrections, research we should read, or a platform we should test: <a href="mailto:hello@thelearningcurve.net">hello@thelearningcurve.net</a>.</p>
+</Page>

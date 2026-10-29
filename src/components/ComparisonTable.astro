@@ -1,0 +1,22 @@
+---
+import { getEntry } from 'astro:content';
+interface Props { }
+const a = Astro.locals.article;
+if (!a?.data.comparison) throw new Error('ComparisonTable needs a `comparison` block in the frontmatter');
+const cmp = a.data.comparison;
+const ids = Object.keys(cmp.bestFor);
+const names = await Promise.all(ids.map(async (id) => (await getEntry('platforms', id))?.data.name ?? id));
+---
+<div class="table-scroll wide-block">
+  <table class="data">
+    <thead>
+      <tr><th scope="col">Criterion</th>{names.map((n) => <th scope="col">{n}</th>)}</tr>
+    </thead>
+    <tbody>
+      {cmp.rows.map((row) => (
+        <tr><th scope="row">{row.criterion}</th>{ids.map((id) => <td>{row.values[id] ?? '–'}</td>)}</tr>
+      ))}
+      <tr class="best"><th scope="row">Best for</th>{ids.map((id) => <td>{cmp.bestFor[id]}</td>)}</tr>
+    </tbody>
+  </table>
+</div>

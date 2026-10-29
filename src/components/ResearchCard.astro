@@ -1,0 +1,24 @@
+---
+// Use in an article body as <ResearchCard n={0} />. The card's words come from the article's
+// frontmatter (researchCards[n]) and its citation from sources[sourceIndex]; nothing is typed here.
+interface Props { n: number }
+const { n } = Astro.props;
+const a = Astro.locals.article;
+if (!a) throw new Error('ResearchCard can only be used inside an article');
+const card = a.data.researchCards[n];
+if (!card) throw new Error(`${a.id}: <ResearchCard n={${n}} /> has no researchCards[${n}]`);
+const src = a.data.sources[card.sourceIndex];
+const [before, after] = [card.excerpt.slice(0, card.excerpt.indexOf(card.highlight)), card.excerpt.slice(card.excerpt.indexOf(card.highlight) + card.highlight.length)];
+const link = src.doi ? `https://doi.org/${src.doi}` : src.url;
+---
+
+<aside class="research-card" aria-label="From the research">
+  <div class="label">From the research</div>
+  <blockquote cite={link}>
+    “{before}<mark>{card.highlight}</mark>{after}”
+  </blockquote>
+  <div class="cite">
+    {src.authors} ({src.year}). {src.title}.{src.journal && <> <i>{src.journal}</i>.</>}{card.page && ` p. ${card.page}.`}{' '}
+    <a href={link} rel="noopener">{src.doi ? `doi.org/${src.doi}` : 'Source'}</a>
+  </div>
+</aside>

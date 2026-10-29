@@ -1,0 +1,8 @@
+---
+interface Props { src: string; alt: string; caption?: string; credit?: string; wide?: boolean; width?: number; height?: number }
+const { src, alt, caption, credit, wide = false, width = 1600, height = 1000 } = Astro.props;
+---
+<figure class={`figure ${wide ? 'wide-block' : ''}`}>
+  <img src={src} alt={alt} width={width} height={height} loading="lazy" decoding="async" />
+  {(caption || credit) && <figcaption>{caption}{credit && <span class="credit">{credit}</span>}</figcaption>}
+</figure>
