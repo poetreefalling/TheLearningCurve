@@ -1,0 +1,184 @@
+---
+import { render, getEntry } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import ResearchCard from '../../components/ResearchCard.astro';
+import Chart from '../../components/Chart.astro';
+import Callout from '../../components/Callout.astro';
+import Figure from '../../components/Figure.astro';
+import PlatformLink from '../../components/PlatformLink.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import Scorecard from '../../components/Scorecard.astro';
+import AuthorBox from '../../components/AuthorBox.astro';
+import { SITE, SECTIONS } from '../../site.config';
+import {
+  type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
+  readingTime, formatDate, formatSlot,
+} from '../../lib/articles';
+import { overall } from '../../lib/score';
+
+export async function getStaticPaths() {
+  const all = await getArticles();
+  return all.map((article) => ({
+    params: { section: article.data.section, slug: slugOf(article) },
+    props: { article, all },
+  }));
+}
+
+interface Props { article: Article; all: Article[] }
+const { article: a, all } = Astro.props;
+const d = a.data;
+Astro.locals.article = a;
+const { Content } = await render(a);
+
+const url = new URL(urlOf(a), SITE.url).href;
+const affiliate = await hasAffiliateLinks(a);
+const live = isLive(a);
+const section = SECTIONS[d.section];
+
+// Related: same library principle or platform first, then the same section
+const platformIds = new Set([...d.platforms.map((p) => p.id), d.review?.platform.id].filter(Boolean));
+const relatedScore = (o: Article) =>
+  (d.library && o.data.library?.principle === d.library.principle ? 3 : 0) +
+  (o.data.platforms.some((p) => platformIds.has(p.id)) || (o.data.review && platformIds.has(o.data.review.platform.id)) ? 2 : 0) +
+  (o.data.section === d.section ? 1 : 0);
+const related = all
+  .filter((o) => o.id !== a.id)
+  .map((o) => ({ o, s: relatedScore(o) }))
+  .sort((x, y) => y.s - x.s || y.o.data.published.valueOf() - x.o.data.published.valueOf())
+  .slice(0, 3)
+  .map((x) => x.o);
+
+const author = { '@type': 'Person', name: SITE.author.name, url: new URL(SITE.author.url, SITE.url).href };
+const jsonLd: object[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': d.kind === 'trends' ? 'NewsArticle' : 'Article',
+    headline: d.title,
+    description: d.description,
+    image: [new URL(heroSrc(a, '-og'), SITE.url).href],
+    datePublished: d.published.toISOString(),
+    dateModified: (d.updated ?? d.library?.lastReviewed ?? d.published).toISOString(),
+    author,
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url, logo: { '@type': 'ImageObject', url: `${SITE.url}/icon-512.png` } },
+    mainEntityOfPage: url,
+    ...(d.sources.length && { citation: d.sources.map((s) => (s.doi ? `https://doi.org/${s.doi}` : s.url)) }),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: d.faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.url + '/' },
+      { '@type': 'ListItem', position: 2, name: section.label, item: `${SITE.url}/${d.section}/` },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+if (d.review) {
+  const platform = (await getEntry('platforms', d.review.platform.id))?.data.name ?? d.review.platform.id;
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'Review',
+    name: d.title,
+    author,
+    datePublished: d.published.toISOString(),
+    reviewBody: d.review.verdict,
+    itemReviewed: { '@type': 'SoftwareApplication', name: platform, applicationCategory: 'EducationalApplication', operatingSystem: 'Web' },
+    reviewRating: { '@type': 'Rating', ratingValue: overall(d.review.scores), bestRating: 5, worstRating: 1 },
+  });
+}
+
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable };
+---
+
+<Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section}>
+  <meta slot="head" property="article:published_time" content={d.published.toISOString()} />
+  <article class="wrap" data-pagefind-body>
+    <header class="article-head measure">
+      <a class="kicker" href={`/${d.section}/`}>{d.kicker}</a>
+      <h1>{d.title}</h1>
+      <p class="standfirst">{d.standfirst}</p>
+      <div class="byline">
+        <span>By <a href="/about/"><strong>{SITE.author.name}</strong></a></span>
+        <span><time datetime={d.published.toISOString()}>{formatDate(d.published)}</time></span>
+        {d.updated && <span>Updated <time datetime={d.updated.toISOString()}>{formatDate(d.updated)}</time></span>}
+        {d.library && <span>Last reviewed <time datetime={d.library.lastReviewed.toISOString()}>{formatDate(d.library.lastReviewed)}</time></span>}
+        <span>{readingTime(a)} min read</span>
+      </div>
+      {!live && (
+        <p class="scheduled-banner" data-pagefind-ignore>
+          {d.draft ? 'Draft: not published.' : `Scheduled: publishes ${formatSlot(d.published)} Sydney time.`} This preview is for review only.
+        </p>
+      )}
+    </header>
+
+    <figure class="hero wide">
+      <img src={heroSrc(a)} srcset={heroSrcset(a)} sizes="(min-width: 992px) 960px, calc(100vw - 32px)" alt={d.hero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" />
+      <figcaption>{d.hero.caption}<span class="credit">{heroCredit(a)}</span></figcaption>
+    </figure>
+
+    <section class="short-answer measure" aria-label="The short answer">
+      <div class="label">The short answer</div>
+      <p>{d.summary}</p>
+    </section>
+
+    <section class="takeaways measure" aria-label="Key takeaways">
+      <h2>Key takeaways</h2>
+      <ul>{d.keyTakeaways.map((t) => <li>{t}</li>)}</ul>
+    </section>
+
+    {affiliate && (
+      <p class="disclosure-note measure">
+        Some links on this page are affiliate links: if you sign up through one, we may earn a commission at no cost to
+        you. It never affects how we score a platform. <a href="/disclosure/">How we're funded</a>.
+      </p>
+    )}
+
+    {d.review && <Scorecard article={a} />}
+
+    <div class="prose">
+      <Content components={components} />
+    </div>
+
+    <section class="end-section measure faq" aria-labelledby="faq-h">
+      <h2 id="faq-h">Questions people ask</h2>
+      {d.faqs.map((f) => (
+        <details>
+          <summary>{f.q}</summary>
+          <p>{f.a}</p>
+        </details>
+      ))}
+    </section>
+
+    {d.sources.length > 0 && (
+      <section class="end-section measure sources" aria-labelledby="src-h">
+        <h2 id="src-h">Sources</h2>
+        <ol>
+          {d.sources.map((s) => (
+            <li>
+              {s.authors} ({s.year}). {s.title}.{s.journal && <> <i>{s.journal}</i>.</>}{' '}
+              <a href={s.doi ? `https://doi.org/${s.doi}` : s.url} rel="noopener">{s.doi ? `https://doi.org/${s.doi}` : s.url}</a>
+            </li>
+          ))}
+        </ol>
+      </section>
+    )}
+
+    <section class="end-section measure" aria-label="About the author" data-pagefind-ignore>
+      <AuthorBox />
+    </section>
+  </article>
+
+  {related.length > 0 && (
+    <div class="wrap" data-pagefind-ignore>
+      <div class="section-head"><h2>Read next</h2></div>
+      <div class="grid-3">{related.map((r) => <ArticleCard article={r} />)}</div>
+    </div>
+  )}
+</Base>

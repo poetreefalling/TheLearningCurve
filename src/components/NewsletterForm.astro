@@ -1,0 +1,10 @@
+---
+import { SITE } from '../site.config';
+const nl = SITE.newsletter;
+---
+<form class="nl-form" method="post" action={nl?.action} target={nl ? '_blank' : undefined}>
+  <label class="visually-hidden" for="nl-email">Email address</label>
+  <input id="nl-email" name="email" type="email" placeholder="you@example.com" autocomplete="email" required disabled={!nl} />
+  <button class="button" type="submit" disabled={!nl}>{nl ? 'Subscribe' : 'Coming soon'}</button>
+</form>
+<p class="nl-note">{nl ? 'One email a week. Unsubscribe any time.' : 'The weekly newsletter opens soon.'}</p>

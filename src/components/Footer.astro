@@ -1,0 +1,32 @@
+---
+import { SITE, SECTIONS } from '../site.config';
+import Wordmark from './Wordmark.astro';
+---
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-name" role="img" aria-label={SITE.name}><Wordmark /></div>
+        <p>{SITE.description}</p>
+        <p>Independent. Reader-supported through affiliate links. <a href="/disclosure/">See our disclosure.</a></p>
+      </div>
+      <div>
+        <ul>
+          {Object.entries(SECTIONS).map(([k, s]) => <li><a href={`/${k}/`}>{s.label}</a></li>)}
+          <li><a href="/newsletter/">Newsletter</a></li>
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/how-we-review/">How we review</a></li>
+          <li><a href="/disclosure/">Disclosure</a></li>
+          <li><a href="/search/">Search</a></li>
+          <li><a href="/rss.xml">RSS</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer-small">© {new Date().getFullYear()} {SITE.name}. Documentary-style images are AI-generated illustrations, credited as such.</p>
+  </div>
+</footer>

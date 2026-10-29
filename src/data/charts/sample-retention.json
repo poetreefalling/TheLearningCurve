@@ -1,0 +1,19 @@
+{
+  "title": "Sample chart: practice testing beats re-reading one week later",
+  "subtitle": "PLACEHOLDER DATA for template testing, not from any study",
+  "type": "groupedBar",
+  "unit": "% recalled on the final test",
+  "highlight": "Practice test",
+  "series": [
+    { "label": "After 5 minutes", "values": { "Re-read": 80, "Practice test": 75 } },
+    { "label": "After 2 days", "values": { "Re-read": 55, "Practice test": 68 } },
+    { "label": "After 1 week", "values": { "Re-read": 40, "Practice test": 60 } }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Placeholder, A.",
+    "year": 2026,
+    "url": "https://thelearningcurve.net/",
+    "figureOrTable": "Sample data"
+  }
+}

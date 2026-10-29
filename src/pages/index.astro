@@ -1,0 +1,75 @@
+---
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { SITE } from '../site.config';
+import { getArticles } from '../lib/articles';
+
+const all = await getArticles();
+const lead = all.find((a) => a.data.featured) ?? all[0];
+const others = all.filter((a) => a !== lead);
+const side = others.slice(0, 3);
+const library = all.filter((a) => a.data.section === 'library').slice(0, 4);
+const reviews = all.filter((a) => a.data.section === 'reviews').slice(0, 3);
+const shown = new Set([lead, ...side].filter(Boolean));
+const river = others.filter((a) => !shown.has(a)).slice(0, 12);
+
+const jsonLd = [
+  { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url, potentialAction: { '@type': 'SearchAction', target: `${SITE.url}/search/?q={query}`, 'query-input': 'required name=query' } },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon-512.png`, founder: { '@type': 'Person', name: SITE.author.name } },
+];
+---
+
+<Base title={SITE.name} description={SITE.description} jsonLd={jsonLd}>
+  <div class="wrap">
+    {!lead && (
+      <div class="empty">
+        <h2>The first issue is on its way</h2>
+        <p>
+          The Learning Curve publishes from 9 November 2026: the research on how people learn, practical course design,
+          and honest reviews of the platforms. <a href="/about/">About the publication</a>.
+        </p>
+      </div>
+    )}
+
+    {lead && (
+      <section class="lead-grid" aria-label="Top stories">
+        <ArticleCard article={lead} variant="lead" eager />
+        <div class="lead-side">
+          {side.map((a) => <ArticleCard article={a} variant="text" />)}
+        </div>
+      </section>
+    )}
+
+    {library.length > 0 && (
+      <section aria-labelledby="lib-h">
+        <div class="section-head"><h2 id="lib-h">From the Library</h2><a href="/library/">The full library →</a></div>
+        <div class="grid-4">{library.map((a) => <ArticleCard article={a} />)}</div>
+      </section>
+    )}
+
+    {river.length > 0 && (
+      <section aria-labelledby="latest-h">
+        <div class="section-head"><h2 id="latest-h">Latest</h2></div>
+        <ul class="river">{river.map((a) => <li><ArticleCard article={a} variant="river" /></li>)}</ul>
+      </section>
+    )}
+
+    {reviews.length > 0 && (
+      <section aria-labelledby="rev-h">
+        <div class="section-head"><h2 id="rev-h">Reviews</h2><a href="/how-we-review/">How we review →</a></div>
+        <div class="grid-3">{reviews.map((a) => <ArticleCard article={a} />)}</div>
+      </section>
+    )}
+  </div>
+
+  <section class="newsletter-band" aria-labelledby="nl-h">
+    <div class="wrap newsletter-inner">
+      <div>
+        <h2 id="nl-h">The week in learning design</h2>
+        <p>New research, what it means for your course, and one platform worth a look. Once a week.</p>
+      </div>
+      <div><NewsletterForm /></div>
+    </div>
+  </section>
+</Base>

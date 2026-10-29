@@ -1,0 +1,120 @@
+---
+// <Chart id="roediger-karpicke-2006" /> draws src/data/charts/<id>.json as an SVG at build time.
+// One house style: ink text, light rules, the series the title is about in the accent colour,
+// values labelled on the marks, and a source line. No client-side JavaScript.
+import { getEntry } from 'astro:content';
+
+interface Props { id: string }
+const entry = await getEntry('charts', Astro.props.id);
+if (!entry) throw new Error(`Chart: no src/data/charts/${Astro.props.id}.json`);
+const c = entry.data;
+
+const W = 680;
+const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const fmt = (v: number) => (Math.abs(v) >= 100 ? Math.round(v).toString() : (Math.round(v * 10) / 10).toString());
+const unitSuffix = c.unit.trim().startsWith('%') ? '%' : '';
+
+// Series names (grouped bars and lines)
+const seriesNames = c.type === 'groupedBar' || c.type === 'line'
+  ? [...new Set(c.series.flatMap((r) => Object.keys(r.values ?? {})))]
+  : [];
+const others = ['var(--chart-base)', 'var(--ochre)', 'var(--muted)'];
+const colourFor = (name: string, i: number) => {
+  if (c.highlight) return name === c.highlight ? 'var(--accent)' : others[(i) % others.length];
+  return i === 0 ? 'var(--accent)' : others[(i - 1) % others.length];
+};
+
+let H = 0;
+let svg = '';
+
+if (c.type === 'bar' || c.type === 'groupedBar') {
+  const names = c.type === 'bar' ? ['value'] : seriesNames;
+  const vals = c.series.flatMap((r) => (c.type === 'bar' ? [r.value ?? 0] : names.map((n) => r.values?.[n] ?? 0)));
+  const max = c.yMax ?? Math.max(...vals) * 1.08;
+  const barH = 18, gap = 6, labelH = 22, groupGap = 18, left = 0, right = 56;
+  const x = (v: number) => left + (v / max) * (W - left - right);
+  let y = 0;
+  for (const row of c.series) {
+    svg += `<text x="0" y="${y + 15}" font-size="14">${esc(row.label)}</text>`;
+    y += labelH;
+    names.forEach((n, i) => {
+      const v = c.type === 'bar' ? row.value ?? 0 : row.values?.[n] ?? 0;
+      const fill = c.type === 'bar'
+        ? (c.highlight ? (row.label === c.highlight ? 'var(--accent)' : 'var(--chart-base)') : 'var(--accent)')
+        : colourFor(n, i);
+      svg += `<rect x="${left}" y="${y}" width="${Math.max(1, x(v) - left)}" height="${barH}" fill="${fill}" />`;
+      svg += `<text x="${x(v) + 8}" y="${y + 14}" font-size="13" font-weight="600" style="font-variant-numeric:tabular-nums">${fmt(v)}${unitSuffix}</text>`;
+      y += barH + gap;
+    });
+    y += groupGap - gap;
+  }
+  H = y - groupGap + gap;
+}
+
+if (c.type === 'line') {
+  const all = c.series.flatMap((r) => Object.values(r.values ?? {}));
+  const max = c.yMax ?? Math.ceil(Math.max(...all) * 1.1);
+  const top = 10, bottom = 30, left = 36, right = 90, h = 300;
+  H = h;
+  const px = (i: number) => left + (i / Math.max(1, c.series.length - 1)) * (W - left - right);
+  const py = (v: number) => top + (1 - v / max) * (h - top - bottom);
+  for (let t = 0; t <= 4; t++) {
+    const v = (max / 4) * t;
+    svg += `<line class="grid" x1="${left}" x2="${W - right}" y1="${py(v)}" y2="${py(v)}" stroke-width="1" />`;
+    svg += `<text class="axis-label" x="${left - 8}" y="${py(v) + 4}" font-size="12" text-anchor="end">${fmt(v)}</text>`;
+  }
+  c.series.forEach((r, i) => {
+    svg += `<text class="axis-label" x="${px(i)}" y="${h - 8}" font-size="12" text-anchor="middle">${esc(r.label)}</text>`;
+  });
+  seriesNames.forEach((n, si) => {
+    const pts = c.series.map((r, i) => [px(i), py(r.values?.[n] ?? 0)] as const);
+    const col = colourFor(n, si);
+    svg += `<polyline fill="none" stroke="${col}" stroke-width="2.5" points="${pts.map((p) => p.join(',')).join(' ')}" />`;
+    pts.forEach(([X, Y]) => (svg += `<circle cx="${X}" cy="${Y}" r="3.5" fill="${col}" />`));
+    const last = pts[pts.length - 1];
+    const lastV = c.series[c.series.length - 1].values?.[n] ?? 0;
+    svg += `<text x="${last[0] + 10}" y="${last[1] + 4}" font-size="13" font-weight="600">${fmt(lastV)}${unitSuffix} ${esc(n)}</text>`;
+  });
+}
+
+if (c.type === 'dotRange') {
+  const lows = c.series.map((r) => r.low ?? r.value ?? 0);
+  const highs = c.series.map((r) => r.high ?? r.value ?? 0);
+  const min = Math.min(0, ...lows), max = Math.max(0, ...highs);
+  const pad = (max - min) * 0.08;
+  const left = 0, right = 20, rowH = 46;
+  const x = (v: number) => left + ((v - (min - pad)) / (max - min + 2 * pad)) * (W - left - right);
+  H = c.series.length * rowH + 24;
+  svg += `<line class="grid" x1="${x(0)}" x2="${x(0)}" y1="0" y2="${H - 24}" stroke-width="1.5" />`;
+  svg += `<text class="axis-label" x="${x(0)}" y="${H - 6}" font-size="12" text-anchor="middle">0</text>`;
+  c.series.forEach((r, i) => {
+    const y = i * rowH;
+    const fill = c.highlight && r.label !== c.highlight ? 'var(--chart-base)' : 'var(--accent)';
+    svg += `<text x="0" y="${y + 14}" font-size="14">${esc(r.label)}</text>`;
+    if (r.low != null && r.high != null) {
+      svg += `<line x1="${x(r.low)}" x2="${x(r.high)}" y1="${y + 30}" y2="${y + 30}" stroke="${fill}" stroke-width="2" />`;
+    }
+    svg += `<circle cx="${x(r.value ?? 0)}" cy="${y + 30}" r="6" fill="${fill}" />`;
+    svg += `<text x="${x(r.high ?? r.value ?? 0) + 10}" y="${y + 34}" font-size="13" font-weight="600">${fmt(r.value ?? 0)}</text>`;
+  });
+}
+
+const s = c.source;
+const link = s.doi ? `https://doi.org/${s.doi}` : s.url;
+const alt = `${c.title}. ${c.series.map((r) => `${r.label}: ${r.value ?? Object.entries(r.values ?? {}).map(([k, v]) => `${k} ${v}`).join(', ')}`).join('; ')}.`;
+---
+
+<figure class="chart">
+  <h3 class="chart-title">{c.title}</h3>
+  <p class="chart-sub">{c.subtitle ? `${c.subtitle} · ` : ''}{c.unit}</p>
+  {seriesNames.length > 1 && (
+    <div class="legend" aria-hidden="true">
+      {seriesNames.map((n, i) => <span style={`--c:${colourFor(n, i)}`}>{n}</span>)}
+    </div>
+  )}
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={alt} set:html={svg} />
+  <figcaption class="chart-source">
+    Source: {s.authors} ({s.year}), {s.figureOrTable}.{' '}
+    {link && <a href={link} rel="noopener">{s.doi ? `doi.org/${s.doi}` : 'View source'}</a>}
+  </figcaption>
+</figure>

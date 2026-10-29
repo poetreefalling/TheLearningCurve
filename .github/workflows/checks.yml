@@ -1,0 +1,18 @@
+# Runs the production checks on every pull request, so an article with an unresolved
+# [JIM: …] or [TO VERIFY: …] flag shows a failing check before it can be merged.
+name: Publish checks
+
+on:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - run: npm run build:production

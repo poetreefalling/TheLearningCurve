@@ -1,0 +1,16 @@
+---
+import { formatDate } from '../lib/articles';
+const r = Astro.locals.article?.data.review;
+if (!r) throw new Error('PriceTable is for reviews (needs a `review` block)');
+---
+{r.prices.length > 0 && (
+  <div class="table-scroll">
+    <table class="data">
+      <thead><tr><th scope="col">Plan</th><th scope="col">Per month</th><th scope="col">What it includes</th></tr></thead>
+      <tbody>
+        {r.prices.map((p) => (<tr><th scope="row">{p.plan}</th><td>{p.monthly}</td><td>{p.includes}</td></tr>))}
+      </tbody>
+    </table>
+    <p class="caption">Prices in USD, checked on {formatDate(r.pricesCheckedOn)}. Check the platform's pricing page before you buy.</p>
+  </div>
+)}

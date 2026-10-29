@@ -1,0 +1,41 @@
+---
+import type { Article } from '../lib/articles';
+import { formatDate } from '../lib/articles';
+import { LEARNING, BUSINESS, LABELS, overall } from '../lib/score';
+interface Props { article: Article }
+const r = Astro.props.article.data.review!;
+const total = overall(r.scores);
+const groups = [
+  { title: 'Learning design · 60%', keys: LEARNING },
+  { title: 'Business tools · 40%', keys: BUSINESS },
+];
+---
+<section class="scorecard measure" aria-label="Scorecard">
+  <div class="scorecard-head">
+    <div class="scorecard-overall">{total.toFixed(1)}<small> / 5</small></div>
+    <p class="scorecard-verdict">{r.verdict}</p>
+  </div>
+  <div class="scorecard-groups">
+    {groups.map((g) => (
+      <div class="scorecard-group">
+        <h3>{g.title}</h3>
+        {g.keys.map((k) => (
+          <div class="score-row">
+            <span>{LABELS[k]}</span>
+            <span class="bar" aria-hidden="true"><span style={`width:${(r.scores[k] / 5) * 100}%`}></span></span>
+            <b>{r.scores[k]}</b>
+            {r.notes[k] && <small>{r.notes[k]}</small>}
+          </div>
+        ))}
+      </div>
+    ))}
+  </div>
+  <div class="scorecard-foot">
+    <div><strong>Best for</strong>{r.bestFor}</div>
+    <div><strong>Look elsewhere if</strong>{r.lookElsewhereIf}</div>
+  </div>
+  <div class="scorecard-foot">
+    <div><strong>Tested</strong>{formatDate(r.testedOn)} on {r.plan}</div>
+    <div><strong>Method</strong><a href="/how-we-review/">How we review</a></div>
+  </div>
+</section>

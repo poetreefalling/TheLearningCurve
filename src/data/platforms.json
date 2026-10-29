@@ -1,0 +1,30 @@
+[
+  {
+    "id": "thinkific",
+    "name": "Thinkific",
+    "url": "https://www.thinkific.com/",
+    "affiliateUrl": null,
+    "programNotes": "PartnerStack. Not yet applied."
+  },
+  {
+    "id": "learnworlds",
+    "name": "LearnWorlds",
+    "url": "https://www.learnworlds.com/",
+    "affiliateUrl": null,
+    "programNotes": "PartnerStack. Not yet applied. No PPC directly to learnworlds.com."
+  },
+  {
+    "id": "teachable",
+    "name": "Teachable",
+    "url": "https://teachable.com/",
+    "affiliateUrl": null,
+    "programNotes": "PartnerStack. Not yet applied."
+  },
+  {
+    "id": "kajabi",
+    "name": "Kajabi",
+    "url": "https://kajabi.com/",
+    "affiliateUrl": null,
+    "programNotes": "Kajabi partner portal. Requires a paid Kajabi plan."
+  }
+]

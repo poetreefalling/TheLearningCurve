@@ -1,0 +1,44 @@
+---
+import { type Article, urlOf, heroSrc, heroSrcset, formatDate } from '../lib/articles';
+import { overall } from '../lib/score';
+
+interface Props {
+  article: Article;
+  variant?: 'lead' | 'standard' | 'text' | 'river';
+  showImage?: boolean;
+  showStandfirst?: boolean;
+  eager?: boolean;
+}
+const { article: a, variant = 'standard', showImage = variant !== 'text', showStandfirst = variant !== 'standard', eager = false } = Astro.props;
+const d = a.data;
+const score = d.review ? overall(d.review.scores) : null;
+const img = variant === 'lead' ? heroSrc(a) : heroSrc(a, '-card');
+---
+
+<a class={`card card-${variant}`} href={urlOf(a)}>
+  {showImage && (
+    <img
+      src={img}
+      srcset={variant === 'lead' ? heroSrcset(a) : undefined}
+      sizes={variant === 'lead' ? '(min-width: 760px) 66vw, 100vw' : undefined}
+      alt=""
+      width={variant === 'lead' ? 1600 : 800}
+      height={variant === 'lead' ? 900 : 533}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchpriority={eager ? 'high' : undefined}
+      decoding="async"
+    />
+  )}
+  <div>
+    <span class="kicker">{d.kicker}</span>
+    <h3>{d.title}</h3>
+    {showStandfirst && <p>{d.standfirst}</p>}
+    {score !== null && (
+      <span class="score-chip">
+        <span class="bar" aria-hidden="true"><span style={`width:${(score / 5) * 100}%`}></span></span>
+        {score.toFixed(1)} / 5
+      </span>
+    )}
+    <div class="meta">{d.library ? `Last reviewed ${formatDate(d.library.lastReviewed)}` : formatDate(d.published)}{d.draft && ' · Draft'}</div>
+  </div>
+</a>
