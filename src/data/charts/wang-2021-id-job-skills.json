@@ -1,0 +1,23 @@
+{
+  "title": "Collaboration was named in 77% of instructional design job ads, more than any other skill",
+  "subtitle": "Share of 1,030 US job announcements naming each skill, collected September to October 2019",
+  "type": "bar",
+  "unit": "% of job announcements",
+  "highlight": "Collaboration skills",
+  "series": [
+    { "label": "Collaboration skills", "value": 77.18 },
+    { "label": "Content development skills", "value": 65.92 },
+    { "label": "Oral and written communication skills", "value": 56.41 },
+    { "label": "Video production skills", "value": 33.88 },
+    { "label": "Project management skills", "value": 30.29 },
+    { "label": "Interpersonal communication skills", "value": 29.51 }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Wang, X., Chen, Y., Ritzhaupt, A. D., & Martin, F.",
+    "year": 2021,
+    "doi": "10.1111/ijtd.12209",
+    "url": "https://ibstpi.org/wp-content/uploads/2021/11/75_IJTD2021_ExaminingCompetenciesInstructionalDesignProfessional.pdf",
+    "figureOrTable": "Table B"
+  }
+}
