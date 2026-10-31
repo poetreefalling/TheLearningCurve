@@ -22,6 +22,12 @@ const id = `nl-${placement}`;
       <span>Also send me occasional updates from CredentialCraft, the course-design studio run by our founder.</span>
     </label>
   )}
+  <div class="nl-done" hidden tabindex="-1">
+    <p class="nl-done-title">You're subscribed.</p>
+    <p class="nl-done-text">We've sent a welcome email to <strong data-nl-email></strong>. If it isn't in your inbox in a few minutes, check your spam or promotions folder.</p>
+    <p class="nl-done-text" data-nl-cc hidden>You'll also get occasional updates from CredentialCraft.</p>
+    <button type="button" class="nl-again">Use a different address</button>
+  </div>
   <p class="nl-note" role="status" aria-live="polite">
     {on ? <>Free, once a month. Unsubscribe any time. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
   </p>
@@ -31,20 +37,47 @@ const id = `nl-${placement}`;
   document.querySelectorAll<HTMLFormElement>('form[data-newsletter]').forEach((form) => {
     if (form.dataset.bound) return;
     form.dataset.bound = '1';
+    const note = form.querySelector<HTMLElement>('.nl-note')!;
+    const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const emailInput = form.querySelector<HTMLInputElement>('input[type=email]')!;
+    const fields = form.querySelectorAll<HTMLElement>('.nl-form, .nl-optin');
+    const done = form.querySelector<HTMLElement>('.nl-done')!;
+    const defaultNote = note.innerHTML;
+
+    const showForm = () => {
+      done.hidden = true;
+      fields.forEach((el) => (el.hidden = false));
+      note.hidden = false;
+      note.innerHTML = defaultNote;
+      note.classList.remove('nl-error');
+      emailInput.focus();
+    };
+    done.querySelector('.nl-again')!.addEventListener('click', showForm);
+
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const note = form.querySelector<HTMLElement>('.nl-note')!;
-      const button = form.querySelector<HTMLButtonElement>('button')!;
       const body = Object.fromEntries(new FormData(form).entries());
       button.disabled = true;
+      note.classList.remove('nl-error');
       note.textContent = 'Subscribing…';
       try {
         const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
-        const json = await res.json();
-        note.textContent = json.message;
-        if (res.ok) form.querySelector<HTMLInputElement>('input[type=email]')!.value = '';
+        const json = await res.json().catch(() => ({ message: 'Something went wrong. Please try again.' }));
+        if (res.ok) {
+          done.querySelector<HTMLElement>('[data-nl-email]')!.textContent = String(body.email ?? '').trim();
+          done.querySelector<HTMLElement>('[data-nl-cc]')!.hidden = body.credentialcraft !== 'yes';
+          fields.forEach((el) => (el.hidden = true));
+          note.hidden = true;
+          done.hidden = false;
+          done.focus();
+          emailInput.value = '';
+        } else {
+          note.textContent = json.message;
+          note.classList.add('nl-error');
+        }
       } catch {
         note.textContent = 'Something went wrong. Please try again.';
+        note.classList.add('nl-error');
       }
       button.disabled = false;
     });

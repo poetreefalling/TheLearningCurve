@@ -446,6 +446,14 @@ html, body { overflow-x: clip; }
 .nl-optin { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font: 400 13px/1.45 var(--sans); color: var(--ink-2); cursor: pointer; }
 .nl-optin input { margin-top: 2px; accent-color: var(--accent); flex: none; }
 .nl-note a { color: var(--muted); }
+.nl-note.nl-error { color: var(--ink); font-weight: 600; }
+.nl-done { border-left: 3px solid var(--ochre); padding: 4px 0 4px 16px; outline: none; }
+.nl-done .nl-done-title { font: 600 1.35rem/1.25 var(--serif); color: var(--ink); margin: 0; }
+.nl-done .nl-done-text { font: 400 15px/1.5 var(--sans); color: var(--ink-2); margin: 8px 0 0; }
+.nl-done-text strong { color: var(--ink); font-weight: 600; word-break: break-all; }
+.nl-again { margin-top: 12px; background: none; border: 0; padding: 0; font: 400 13px/1.4 var(--sans); color: var(--muted); text-decoration: underline; cursor: pointer; }
+.nl-again:hover { color: var(--ink); }
+.nl-form-wrap [hidden] { display: none !important; }
 .article-signup { background: var(--surface); border: 1px solid var(--rule); padding: 22px 24px 18px; }
 .article-signup > h2 { border-top: 0; padding-top: 0; font: 560 1.5rem/1.2 var(--serif); letter-spacing: -0.01em; text-transform: none; margin-bottom: 6px; }
 .article-signup > p { margin: 0 0 14px; color: var(--ink-2); font-size: 1.02rem; }
