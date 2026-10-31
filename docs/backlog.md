@@ -3,7 +3,8 @@
 The ranked queue for the twice-daily routine. Statuses: `done`, `in PR`, `next` (exactly one),
 `todo`, `blocked` (with a reason).
 
-Volume · SD are Ubersuggest US figures pulled 29 October 2026. "check" means the routine
+Volume · SD are Ubersuggest US figures pulled 29 October 2026 (rows 1–40) and 1 November 2026
+(rows 41–101, the November keyword refresh). "check" means the routine
 looks the keyword up before writing and records the figures in the PR.
 
 ## Rules
@@ -90,6 +91,67 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 38 | Open Badges and Verifiable Credentials, Explained | open badges | check | trends | todo |
 | 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect | check | library | todo |
 | 40 | How to Pilot a Course Before Launch | how to test an online course | check | guide | todo |
+| 41 | What Is Scaffolding in Education? A Guide for Course Designers | what scaffolding in education | 5,400 · 7 | library | todo |
+| 42 | Instructional Design Jobs: Where the Work Is and What It Asks For | jobs instructional design | 14,800 · 21 | guide | todo |
+| 43 | Instructional Design Models Compared: ADDIE, SAM, Dick and Carey and More | instructional design models | 390 · 28 | guide | todo |
+| 44 | Instructional Design Portfolio Examples Hiring Managers Remember | instructional design portfolio examples | 260 · 18 | guide | todo |
+| 45 | Digital Badges on LinkedIn: What Changed | linkedin digital badges | 140 · 19 | trends | todo |
+| 46 | Types of Scaffolding, With Online Course Examples | types of scaffolding in education | 90 · 21 | library | todo |
+| 47 | Instructional Design for Trainers: Turning a Workshop Into a Course | instructional design for trainers | 390 · 24 | guide | todo |
+| 48 | Free Online Course Creation: What You Can Do Without Paying | free online course creation | 720 · 14 | guide | todo |
+| 49 | Kajabi vs Teachable: Which Supports Learning Better? | kajabi versus teachable | 590 · 25 | comparison | todo |
+| 50 | Instructional Design Internships: How to Find One and What You'll Do | instructional design internship | 590 · 22 | guide | todo |
+| 51 | Principles of Learning Science Every Course Builder Should Know | principles of learning science | 210 · 22 | library | todo |
+| 52 | Instructional Design Salary: What the Data Shows | instructional design salary | 260 · 14 | guide | todo |
+| 53 | Instructional Design Tools: What You Need and What You Don't | instructional design tools | 170 · 21 | guide | todo |
+| 54 | Digital Badge Examples From Employers and Universities | digital badges examples | 140 · 21 | trends | todo |
+| 55 | Part-Time Instructional Design Jobs: Where to Look | instructional design jobs part time | 320 · 10 | guide | todo |
+| 56 | Gamification in eLearning: Examples and What the Evidence Says | examples of gamification in elearning | 40 · 25 | library | todo |
+| 57 | Instructional Design Examples, Annotated | instructional design examples | 170 · 21 | guide | todo |
+| 58 | LearnWorlds Pricing Explained | learnworlds price | 320 · 20 | review | todo |
+| 59 | Instructional Design Contract Work: How Freelance Projects Run | instructional design contract work | 260 · 12 | guide | todo |
+| 60 | The Kemp Model of Instructional Design, Explained | kemp model instructional design | 70 · 6 | guide | todo |
+| 61 | Over-Scaffolding: When Support Gets in the Way | over scaffolding in education | 30 · 27 | library | todo |
+| 62 | Corporate Instructional Design Jobs: What Changes From Education | corporate instructional design jobs | 140 · 23 | guide | todo |
+| 63 | AI Tools for Instructional Design: What Shipped This Month | ai tools for instructional design | 70 · 10 | trends | todo |
+| 64 | Agile Instructional Design: Running a Course Build in Sprints | agile instructional design | 70 · 24 | guide | todo |
+| 65 | How to Create a Course on Teachable, Step by Step | how to create a course on teachable | 50 · 24 | guide | todo |
+| 66 | Affective Learning Objectives: Examples for Attitudes and Values | affective domain learning objectives examples | 40 · 27 | guide | todo |
+| 67 | What Is Thinkific? A Learning Designer's Overview | what is thinkific | 210 · 21 | review | todo |
+| 68 | Working as an Instructional Design Consultant | instructional design consultant | 170 · 25 | guide | todo |
+| 69 | Differentiation and Scaffolding in Online Courses | differentiation and scaffolding in education | 30 · 23 | library | todo |
+| 70 | An Instructional Design Template for Your Next Course | instructional design template | 70 · 27 | guide | todo |
+| 71 | Instructional Design Resume Examples | instructional design resume examples | 70 · 21 | guide | todo |
+| 72 | Microcredentials for Teachers: The Latest Programs | microcredentials for teachers | 90 · 28 | trends | todo |
+| 73 | Creating Digital Badges for Your Course | create digital badges | 50 · 11 | guide | todo |
+| 74 | Project Management for Instructional Design | project management instructional design | 70 · 18 | guide | todo |
+| 75 | Instructional Design Jobs in Higher Education | instructional design jobs in higher education | 70 · 26 | guide | todo |
+| 76 | Thinkific Alternatives, Judged on Learning | thinkific alternative | 140 · 30 | comparison | todo |
+| 77 | Is Instructional Design a Good Career? | is instructional design a good career | 50 · 28 | guide | todo |
+| 78 | Instructional Design Job Descriptions, Decoded | instructional design job description | 50 · 27 | guide | todo |
+| 79 | Thinkific Course Examples Worth Studying | thinkific courses examples | 30 · 23 | guide | todo |
+| 80 | Freelance Instructional Design: Finding Your First Clients | freelance instructional design | 70 · 25 | guide | todo |
+| 81 | Tech-Industry Microcredentials: AWS and the Latest Moves | aws microcredentials | 140 · 30 | trends | todo |
+| 82 | Instructional Design Strategies That Hold Up in the Research | instructional design strategies | 50 · 26 | guide | todo |
+| 83 | LearnWorlds Alternatives | learnworlds alternative | 40 · 10 | comparison | todo |
+| 84 | Digital Promise Microcredentials: What's New | digital promise microcredentials | 140 · 29 | trends | todo |
+| 85 | Teachable Cost: Plans and Fees Explained | teachable cost | 50 · 14 | review | todo |
+| 86 | University AI Microcredentials: Who's Launching What | purdue ai microcredentials | 50 · 28 | trends | todo |
+| 87 | Skool vs Teachable | skool vs teachable | 70 · 18 | comparison | todo |
+| 88 | Online Learning Trends: What the Latest Data Shows | online learning trends | 50 · 23 | trends | todo |
+| 89 | Thinkific Plus: What It Costs and Who It's For | how much is thinkific plus | 50 · 19 | review | todo |
+| 90 | How Digital Badges Are Showing Up at Work | how are digital badges showing up in the workplace | 40 · 29 | trends | todo |
+| 91 | Podia vs Teachable | podia vs teachable | 40 · 25 | comparison | todo |
+| 92 | Instructional Design Conferences: What's Coming and What's Worth Attending | instructional design conferences | 110 · 20 | trends | todo |
+| 93 | Thinkific Course Builder Review | thinkific course builder | 50 · 22 | review | todo |
+| 94 | Google's Microcredentials and Career Certificates: Latest Moves | google microcredentials | 30 · 23 | trends | todo |
+| 95 | Teachable vs Udemy: Your Own School or a Marketplace? | teachable vs udemy | 40 · 16 | comparison | todo |
+| 96 | Microcredential Courses: What Universities Launched This Term | microcredentials course | 50 · 21 | trends | todo |
+| 97 | Accredible Digital Badges Review | accredible digital badges | 40 · 23 | review | todo |
+| 98 | Online Learning in Higher Education: This Term's Developments | online learning trends in higher education | 10 · 5 | trends | todo |
+| 99 | Udemy vs Thinkific | udemy vs thinkific | 30 · 21 | comparison | todo |
+| 100 | Teachable vs LearnDash | teachable vs learndash | 30 · 16 | comparison | todo |
+| 101 | Thinkific Communities Review | thinkific communities | 40 · 25 | review | todo |
 
 ## Later (higher difficulty, revisit once the domain has authority)
 
