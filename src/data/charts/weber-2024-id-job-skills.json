@@ -1,0 +1,23 @@
+{
+  "title": "Written communication was named in 72% of instructional design job ads, more than any other general skill",
+  "subtitle": "Share of 130 US instructional design postings on Indeed naming each skill, May 2023",
+  "type": "bar",
+  "unit": "% of job postings",
+  "highlight": "Written communication",
+  "series": [
+    { "label": "Written communication", "value": 71.5 },
+    { "label": "Oral communication", "value": 66.2 },
+    { "label": "Collaboration", "value": 45.4 },
+    { "label": "Organisation", "value": 36.2 },
+    { "label": "Problem-solving", "value": 32.3 },
+    { "label": "Managing projects", "value": 29.2 }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Weber, N. L., McCarthy, C., Campbell, K., & Bauer, H.",
+    "year": 2024,
+    "doi": "10.30935/cedtech/14606",
+    "url": "https://cedtech.editorialpark.com/download/what-are-employers-expecting-from-instructional-design-and-learning-technology-professionals-across-14606.pdf",
+    "figureOrTable": "Table 7"
+  }
+}
