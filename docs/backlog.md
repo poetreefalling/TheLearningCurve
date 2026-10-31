@@ -52,8 +52,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 |---|---|---|---|---|---|
 | 1 | An Online Course Design Checklist, Grounded in the Research | online course design checklist | 10 · 10 | guide | done (Fri 30 Oct 12:00) |
 | 2 | Instructional Design Jobs for Former Teachers: Where Your Skills Transfer | instructional design jobs for former teachers | 880 · 16 | guide | done (Sat 31 Oct 00:00) |
-| 3 | AI in eLearning: What's Changed This Term | ai in elearning | 70 · 25 | trends | in PR (Sat 31 Oct 12:00) |
-| 4 | Cognitive Load: How Much Content Belongs in One Lesson? | cognitive load theory instructional design (row keyword "cognitive load theory in online courses" had 0 US/AU volume) | 20 · 5 | library | in PR (Sun 1 Nov 00:00) |
+| 3 | AI in eLearning: What's Changed This Term | ai in elearning | 70 · 25 | trends | done (Sat 31 Oct 12:00) |
+| 4 | Cognitive Load: How Much Content Belongs in One Lesson? | cognitive load theory instructional design (row keyword "cognitive load theory in online courses" had 0 US/AU volume) | 20 · 5 | library | done (Sun 1 Nov 00:00) |
 | 5 | Entry-Level Instructional Design Jobs: What Employers Ask For | instructional design entry level jobs | 720 · 9 | guide | next |
 | 6 | How to Write Learning Objectives Learners Can Actually Meet | how to write learning objectives | check | guide | todo |
 | 7 | Microcredentials: The Latest Moves From Universities and Employers | microcredentials news | check | trends | todo |
