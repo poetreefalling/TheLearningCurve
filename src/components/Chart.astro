@@ -11,7 +11,9 @@ const c = entry.data;
 
 const W = 680;
 const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-const fmt = (v: number) => (Math.abs(v) >= 100 ? Math.round(v).toString() : (Math.round(v * 10) / 10).toString());
+// Small values (effect sizes) keep two decimals so they match the source table exactly.
+const fmt = (v: number) =>
+  Math.abs(v) >= 100 ? Math.round(v).toString() : Math.abs(v) < 10 ? (Math.round(v * 100) / 100).toString() : (Math.round(v * 10) / 10).toString();
 const unitSuffix = c.unit.trim().startsWith('%') ? '%' : '';
 
 // Series names (grouped bars and lines)

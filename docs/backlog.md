@@ -57,10 +57,10 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 4 | Cognitive Load: How Much Content Belongs in One Lesson? | cognitive load theory instructional design (row keyword "cognitive load theory in online courses" had 0 US/AU volume) | 20 · 5 | library | done (Sun 1 Nov 00:00) |
 | 5 | Entry-Level Instructional Design Jobs: What Employers Ask For | instructional design entry level jobs | 720 · 9 | guide | done (Sun 1 Nov 12:00) |
 | 6 | How to Write Learning Objectives Learners Can Actually Meet | how to write learning objectives | 590 · 27 | guide | done (Mon 2 Nov 00:00) |
-| 7 | Microcredentials: The Latest Moves From Universities and Employers | micro credentials in higher education (row keyword "microcredentials news" had 0 US/AU volume) | 90 · 18 | trends | in PR (Mon 2 Nov 12:00) |
-| 8 | Dual Coding: Making Visuals and Narration Work Together | dual coding | check | library | next |
+| 7 | Microcredentials: The Latest Moves From Universities and Employers | micro credentials in higher education (row keyword "microcredentials news" had 0 US/AU volume) | 90 · 18 | trends | done (Mon 2 Nov 12:00) |
+| 8 | Dual Coding: Making Visuals and Narration Work Together | dual coding theory and education (row keyword "dual coding" is 1,300 · 47 US, too hard for now) | 40 · 26 | library | in PR (Tue 3 Nov 00:00) |
 | 9 | Thinkific Review: A Learning Designer's Verdict | thinkific review | 480 · 28 | review | todo |
-| 10 | How to Create an Online Course That Sells (and Teaches) | how to create an online course that sells | 140 · 27 | guide | todo |
+| 10 | How to Create an Online Course That Sells (and Teaches) | how to create an online course that sells | 140 · 27 | guide | next |
 | 11 | Feedback That Improves Performance: What the Research Says | effective feedback in online learning | check | library | todo |
 | 12 | Thinkific Pricing Explained: Which Plan Do You Actually Need? | thinkific pricing | 1,000 · 29 | review | todo |
 | 13 | Course Platforms: What Shipped This Month | course platform updates | check | trends | todo |
