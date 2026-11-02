@@ -1,0 +1,24 @@
+{
+  "title": "Words with pictures beat words alone, with an effect size of 1.35 across 13 tests",
+  "subtitle": "Effect sizes Mayer reports for seven design principles about pairing words and pictures, from his research group's experiments",
+  "type": "bar",
+  "unit": "effect size",
+  "highlight": "Multimedia (words + pictures)",
+  "series": [
+    { "label": "Multimedia (words + pictures)", "value": 1.35 },
+    { "label": "Temporal contiguity", "value": 1.31 },
+    { "label": "Modality (narrate, don't caption)", "value": 1.0 },
+    { "label": "Coherence (cut extras)", "value": 0.86 },
+    { "label": "Spatial contiguity", "value": 0.82 },
+    { "label": "Signalling", "value": 0.69 },
+    { "label": "Redundancy (adding printed text)", "value": 0.1 }
+  ],
+  "yMax": 1.5,
+  "source": {
+    "authors": "Mayer, R. E.",
+    "year": 2024,
+    "doi": "10.1007/s10648-023-09842-1",
+    "url": "https://link.springer.com/content/pdf/10.1007/s10648-023-09842-1.pdf",
+    "figureOrTable": "Table 6"
+  }
+}
