@@ -64,8 +64,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 11 | Feedback That Improves Performance: What the Research Says | characteristics of effective feedback (row keyword "effective feedback in online learning" had 0 US volume) | 70 · 21 | library | in PR (Wed 4 Nov 00:00) |
 | 12 | Thinkific Pricing Explained: Which Plan Do You Actually Need? | thinkific pricing | 1,000 · 29 | review | todo |
 | 13 | Course Platforms: What Shipped This Month | ai course creation (row keyword "course platform updates" had 0 US volume) | 50 · 23 | trends | in PR (Wed 4 Nov 12:00) |
-| 14 | Microlearning, Defined: When Short Lessons Work | microlearning defined | 260 · 22 | library | next |
-| 15 | How to Storyboard an eLearning Module | elearning storyboard | check | guide | todo |
+| 14 | Microlearning, Defined: When Short Lessons Work | microlearning defined | 260 · 22 | library | in PR (Thu 5 Nov 00:00) |
+| 15 | How to Storyboard an eLearning Module | elearning storyboard | check | guide | next |
 | 16 | Are Microcredentials Worth It? What Learners and Employers Say | are microcredentials worth it | 50 · 22 | trends | todo |
 | 17 | Teachable Alternatives: Better Fits for Different Courses | teachable alternatives | 140 · 16 | comparison | todo |
 | 18 | The Testing Effect: Why Quizzes Teach as Well as Test | testing effect | check | library | todo |
