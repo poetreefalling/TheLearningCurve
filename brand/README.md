@@ -7,6 +7,7 @@
 | `favicon-original.png` | Jim's C mark as supplied; the browser-tab and app icons in `public/` are made from it | Added |
 | `documentary-reference.webp` | Style reference for documentary heroes: candid, window-lit, film grain, muted warm colour | Added (Jim's pick from the style tests) |
 | `references/` | The other documentary tests Jim approved, kept for comparison | Added |
+| `references/direction-*.webp` | Samples of the brighter direction (November 2026): a learner on a phone in a student room, a workplace pair on a tablet, a mature-age student in a campus library. Examples only; don't reuse them as heroes | Added |
 | `risograph-reference.webp` | Style reference for risograph heroes: navy and ochre on off-white, grain, misregistration | **Still needed** |
 | `originals/` | Full-size originals of every hero, as `<slug>.webp` (quality 92) | Written by the routine |
 | `screenshots/<platform>/` | Jim's own screenshots from testing | Jim |
