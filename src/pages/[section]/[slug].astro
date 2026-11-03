@@ -12,6 +12,7 @@ import PriceTable from '../../components/PriceTable.astro';
 import Scorecard from '../../components/Scorecard.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import ShareButtons from '../../components/ShareButtons.astro';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -112,6 +113,7 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
         {d.library && <span>Last reviewed <time datetime={d.library.lastReviewed.toISOString()}>{formatDate(d.library.lastReviewed)}</time></span>}
         <span>{readingTime(a)} min read</span>
       </div>
+      <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="top" />
       {!live && (
         <p class="scheduled-banner" data-pagefind-ignore>
           {d.draft ? 'Draft: not published.' : `Scheduled: publishes ${formatSlot(d.published)} Sydney time.`} This preview is for review only.
@@ -147,6 +149,10 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
 
     <div class="prose">
       <Content components={components} />
+    </div>
+
+    <div class="measure">
+      <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="end" />
     </div>
 
     <section class="end-section measure faq" aria-labelledby="faq-h">
