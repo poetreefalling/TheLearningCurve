@@ -60,7 +60,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 7 | Microcredentials: The Latest Moves From Universities and Employers | micro credentials in higher education (row keyword "microcredentials news" had 0 US/AU volume) | 90 · 18 | trends | done (Mon 2 Nov 12:00) |
 | 8 | Dual Coding: Making Visuals and Narration Work Together | dual coding theory and education (row keyword "dual coding" is 1,300 · 47 US, too hard for now) | 40 · 26 | library | done (Tue 3 Nov 00:00) |
 | 9 | Thinkific Review: A Learning Designer's Verdict | thinkific review | 480 · 28 | review | todo |
-| 10 | How to Create an Online Course That Sells (and Teaches) | how to create an online course that sells | 140 · 27 | guide | in PR (Tue 3 Nov 12:00) |
+| 10 | How to Create an Online Course That Sells (and Teaches) | how to create an online course that sells | 140 · 27 | guide | done (Tue 3 Nov 12:00) |
 | 11 | Feedback That Improves Performance: What the Research Says | characteristics of effective feedback (row keyword "effective feedback in online learning" had 0 US volume) | 70 · 21 | library | in PR (Wed 4 Nov 00:00) |
 | 12 | Thinkific Pricing Explained: Which Plan Do You Actually Need? | thinkific pricing | 1,000 · 29 | review | todo |
 | 13 | Course Platforms: What Shipped This Month | ai course creation (row keyword "course platform updates" had 0 US volume) | 50 · 23 | trends | in PR (Wed 4 Nov 12:00) |
