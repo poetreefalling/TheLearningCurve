@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Review desk · The Learning Curve</title>
+<link rel="icon" href="/favicon.ico">
+<style>
+  :root {
+    --paper: #f7f4ee; --surface: #ffffff; --ink: #16181d; --ink-2: #3a3c42; --muted: #6a6660;
+    --rule: #e3ded4; --accent: #1f2e4d; --flag: #fde68a; --ok: #2f6b3a; --ok-bg: #e4f1e5;
+    --warn: #8a5a00; --warn-bg: #fdf1d6; --bad: #9b2c2c; --bad-bg: #fbe4e4;
+    --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    --serif: Georgia, 'Times New Roman', serif;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121314; --surface: #1b1c1e; --ink: #eeebe5; --ink-2: #cfcbc3; --muted: #a39f98;
+      --rule: #2e2f31; --accent: #9db1da; --flag: #6b5410; --ok: #8fd19b; --ok-bg: #1d3322;
+      --warn: #f0c46b; --warn-bg: #3a2e12; --bad: #f19a9a; --bad-bg: #3d1c1c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--sans); }
+  header { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  .bar { max-width: 960px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 16px; }
+  .bar strong { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+  .bar span { color: var(--muted); font-size: 14px; }
+  .bar .spacer { flex: 1; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 80px; }
+  h1 { font-family: var(--serif); font-weight: 600; font-size: 28px; line-height: 1.2; margin: 0 0 6px; }
+  h2 { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 32px 0 12px; }
+  p { margin: 0 0 12px; }
+  .muted { color: var(--muted); }
+  .small { font-size: 14px; }
+  a { color: var(--accent); }
+  button, .btn {
+    font: 600 15px var(--sans); border-radius: 8px; padding: 10px 16px; cursor: pointer;
+    border: 1px solid var(--rule); background: var(--surface); color: var(--ink); text-decoration: none; display: inline-block;
+  }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+  button.link { border: 0; background: none; padding: 0; color: var(--accent); font-weight: 500; text-decoration: underline; }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  .card { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
+  .item { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  .item .grow { flex: 1; min-width: 240px; }
+  .slot { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .item h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 2px 0 8px; line-height: 1.25; }
+  .pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-right: 6px; }
+  .pill.ok { background: var(--ok-bg); color: var(--ok); }
+  .pill.warn { background: var(--warn-bg); color: var(--warn); }
+  .pill.bad { background: var(--bad-bg); color: var(--bad); }
+  .context { font-family: var(--serif); font-size: 17px; background: var(--paper); border-radius: 8px; padding: 12px 14px; margin: 10px 0 12px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  mark { background: var(--flag); color: inherit; padding: 0 2px; border-radius: 3px; }
+  textarea, input[type=password] {
+    width: 100%; font: 16px/1.5 var(--sans); color: var(--ink); background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 8px; padding: 10px 12px;
+  }
+  textarea:focus, input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+  textarea.full { font: 14px/1.6 var(--mono); min-height: 70vh; }
+  .choice { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+  .choice button { font-weight: 500; padding: 7px 12px; font-size: 14px; }
+  .choice button[aria-pressed=true] { border-color: var(--accent); outline: 1px solid var(--accent); }
+  .actions { position: sticky; bottom: 0; background: var(--paper); border-top: 1px solid var(--rule); padding: 14px 0; margin-top: 24px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+  .notice { border-radius: 10px; padding: 12px 14px; margin: 0 0 16px; font-size: 15px; }
+  .notice.ok { background: var(--ok-bg); color: var(--ok); }
+  .notice.bad { background: var(--bad-bg); color: var(--bad); }
+  .notice.warn { background: var(--warn-bg); color: var(--warn); }
+  .login { max-width: 380px; margin: 12vh auto 0; }
+  .login label { display: block; font-weight: 600; margin-bottom: 6px; }
+  ol.sources { padding-left: 20px; } ol.sources li { margin-bottom: 8px; }
+  blockquote { margin: 8px 0; padding: 8px 14px; border-left: 3px solid var(--rule); font-family: var(--serif); font-size: 17px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <strong>The Learning Curve</strong><span>Review desk</span>
+    <div class="spacer"></div>
+    <button class="link hidden" id="logout">Sign out</button>
+  </div>
+</header>
+<main id="app"><p class="muted">Loading…</p></main>
+
+<script>
+const app = document.getElementById('app');
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+let state = { items: [], current: null, notice: null, pollTimer: null };
+
+async function api(path, options = {}) {
+  const res = await fetch('/api/admin/' + path, {
+    credentials: 'same-origin',
+    headers: options.body ? { 'Content-Type': 'application/json' } : {},
+    ...options,
+    body: options.body ? JSON.stringify(options.body) : undefined,
+  });
+  const data = await res.json().catch(() => ({}));
+  if (res.status === 401 && path !== 'login') { showLogin(); throw new Error('signed-out'); }
+  if (!res.ok) throw new Error(data.error || 'Something went wrong (' + res.status + ').');
+  return data;
+}
+
+function notice() {
+  if (!state.notice) return '';
+  const n = state.notice; state.notice = null;
+  return `<div class="notice ${n.kind}">${esc(n.text)}</div>`;
+}
+
+// ---------- login ----------
+function showLogin(message) {
+  clearTimeout(state.pollTimer);
+  document.getElementById('logout').classList.add('hidden');
+  app.innerHTML = `
+    <form class="login card" id="loginForm">
+      <h1>Sign in</h1>
+      <p class="muted small">Articles waiting for your review, in one place.</p>
+      ${message ? `<div class="notice bad">${esc(message)}</div>` : ''}
+      <label for="pw">Password</label>
+      <input type="password" id="pw" autocomplete="current-password" required autofocus>
+      <p></p>
+      <button class="primary" type="submit">Sign in</button>
+    </form>`;
+  document.getElementById('loginForm').onsubmit = async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button'); btn.disabled = true; btn.textContent = 'Signing in…';
+    try { await api('login', { method: 'POST', body: { password: document.getElementById('pw').value } }); loadQueue(); }
+    catch (err) { showLogin(err.message); }
+  };
+}
+
+document.getElementById('logout').onclick = async () => { await api('logout', { method: 'POST' }).catch(() => {}); showLogin(); };
+
+// ---------- queue ----------
+function checksPill(c, flags) {
+  if (flags > 0) return ''; // the check always fails while items are unfixed, so don't alarm
+  return c === 'passing' ? '<span class="pill ok">Site check passed</span>'
+    : c === 'pending' ? '<span class="pill warn">Site check running</span>'
+    : '<span class="pill bad">Site check failing</span>';
+}
+function flagsPill(n) {
+  return n === 0 ? '<span class="pill ok">Nothing to fix</span>' : `<span class="pill warn">${n} ${n === 1 ? 'item' : 'items'} to fix</span>`;
+}
+
+async function loadQueue() {
+  clearTimeout(state.pollTimer);
+  document.getElementById('logout').classList.remove('hidden');
+  app.innerHTML = '<p class="muted">Loading the articles waiting for you…</p>';
+  try {
+    const data = await api('queue');
+    state.items = data.items;
+    renderQueue();
+  } catch (e) { if (e.message !== 'signed-out') app.innerHTML = `<div class="notice bad">${esc(e.message)}</div>`; }
+}
+
+function renderQueue() {
+  const items = state.items;
+  app.innerHTML = notice() + `
+    <h1>Waiting for you</h1>
+    <p class="muted">${items.length ? `${items.length} ${items.length === 1 ? 'article' : 'articles'}, earliest slot first. Fix the highlighted items, then publish.` : 'Nothing waiting. New drafts appear here after each run.'}</p>
+    ${items.map((it, i) => it.articles.map((a) => `
+      <div class="card item">
+        <div class="grow">
+          <div class="slot">${esc(a.slot)} · ${esc(cap(a.section))}</div>
+          <h3>${esc(a.title)}</h3>
+          ${flagsPill(a.flags.length)} ${checksPill(it.checks, a.flags.length)}
+        </div>
+        <button class="primary" data-open="${i}" data-path="${esc(a.path)}">Review</button>
+      </div>`).join('')).join('')}
+    <p class="small muted">Edits here are saved to the article's draft. Publishing makes it go live at its slot.</p>`;
+  app.querySelectorAll('[data-open]').forEach((b) => b.onclick = () => openArticle(state.items[b.dataset.open].number, b.dataset.path));
+}
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// ---------- one article ----------
+async function openArticle(prNumber, path, keepNotice) {
+  clearTimeout(state.pollTimer);
+  if (!keepNotice) state.notice = null;
+  app.innerHTML = '<p class="muted">Opening the article…</p>';
+  try {
+    const [queueData, file] = await Promise.all([api('queue'), api(`file?pr=${prNumber}&path=${encodeURIComponent(path)}`)]);
+    state.items = queueData.items;
+    const item = state.items.find((x) => x.number === prNumber);
+    if (!item) { state.notice = { kind: 'ok', text: 'That article is no longer waiting for review.' }; return renderQueue(); }
+    const article = item.articles.find((a) => a.path === path);
+    state.current = { item, article, file, choices: article.flags.map(() => ({ mode: 'fix', text: '' })), fullEdit: false };
+    renderArticle();
+    if (item.checks === 'pending') state.pollTimer = setTimeout(() => refreshChecks(prNumber, path), 20000);
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<div class="notice bad">${esc(e.message)}</div><button id="back">Back to the list</button>`;
+    document.getElementById('back').onclick = loadQueue;
+  }
+}
+
+async function refreshChecks(prNumber, path) {
+  if (!state.current || state.current.item.number !== prNumber) return;
+  try {
+    const data = await api('queue');
+    const item = data.items.find((x) => x.number === prNumber);
+    if (!item) return;
+    const changed = item.checks !== state.current.item.checks;
+    state.current.item.checks = item.checks;
+    if (changed && !state.current.fullEdit && !hasUnsavedFixes()) renderArticle();
+    if (item.checks === 'pending') state.pollTimer = setTimeout(() => refreshChecks(prNumber, path), 20000);
+  } catch {}
+}
+
+function hasUnsavedFixes() {
+  return state.current.choices.some((c) => c.mode === 'remove' || c.text.trim());
+}
+
+// Show a paragraph as a reader would see it: no markdown marks, links or component code
+const NAMES = { thinkific: 'Thinkific', learnworlds: 'LearnWorlds', teachable: 'Teachable', kajabi: 'Kajabi' };
+function readable(text) {
+  return text
+    .replace(/<PlatformLink\s+id="([^"]+)"\s*\/>/g, (_, id) => NAMES[id] || id)
+    .replace(/<[A-Z][^>]*\/>/g, '')
+    .replace(/\[([^\]]+)\]\((?:[^()]|\([^)]*\))*\)/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/(^|\s)_([^_]+)_/g, '$1$2')
+    .replace(/^#+\s*/gm, '')
+    .replace(/^\s*(\d+\.|[-*])\s+/gm, '$1 ')
+    .replace(/\n(?!\d+\. |- )/g, ' ');
+}
+function highlight(context, flag) {
+  const parts = context.split(flag);
+  if (parts.length < 2) return esc(readable(context));
+  return parts.map((p) => esc(readable(p))).join('<mark>' + esc(flag) + '</mark>');
+}
+
+function renderArticle() {
+  const { item, article, choices, fullEdit, file } = state.current;
+  const n = article.flags.length;
+  const canPublish = n === 0 && item.checks === 'passing';
+  const why = n ? `Resolve the ${n === 1 ? 'item' : `${n} items`} above first.`
+    : item.checks === 'pending' ? 'The site check is running on your latest save (about 2 minutes). This page updates by itself.'
+    : item.checks === 'failing' ? 'The site check failed on the latest version. Ask Claude to look at it.'
+    : 'Ready to publish.';
+
+  app.innerHTML = notice() + `
+    <p><button class="link" id="back">← All articles</button></p>
+    <div class="slot">${esc(article.slot)} · ${esc(cap(article.section))}</div>
+    <h1>${esc(article.title)}</h1>
+    <p>${flagsPill(n)} ${checksPill(item.checks, n)}</p>
+    <p class="small"><a href="${esc(article.previewUrl)}" target="_blank" rel="noopener">Open the preview ↗</a>
+      <span class="muted"> · the preview updates a few minutes after each save</span></p>
+
+    <div id="fixView" class="${fullEdit ? 'hidden' : ''}">
+      <h2>To fix before publishing</h2>
+      ${n === 0 ? '<p class="muted">Nothing left to fix.</p>' : article.flags.map((f, i) => `
+        <div class="card">
+          <div class="small muted">Line ${f.line} · ${f.text.startsWith('[JIM') ? 'Your input needed' : 'Fact to check'}</div>
+          <div class="context">${highlight(f.context, f.text)}</div>
+          <div class="choice" role="group">
+            <button type="button" data-mode="fix" data-i="${i}" aria-pressed="${choices[i].mode === 'fix'}">Replace the highlight with my text</button>
+            <button type="button" data-mode="remove" data-i="${i}" aria-pressed="${choices[i].mode === 'remove'}">Just remove the highlight</button>
+          </div>
+          <textarea rows="3" data-text="${i}" class="${choices[i].mode === 'remove' ? 'hidden' : ''}"
+            placeholder="Type what should appear in place of the highlighted text">${esc(choices[i].text)}</textarea>
+          ${choices[i].mode === 'remove' ? '<p class="small muted">The highlighted text will be deleted and the rest of the paragraph kept as it is.</p>' : ''}
+        </div>`).join('')}
+
+      ${article.cards.length ? `
+        <h2>Quotes to check against the source</h2>
+        <p class="small muted">Each quote must match the source word for word.</p>
+        ${article.cards.map((c) => `
+          <div class="card">
+            <blockquote>${esc(c.excerpt)}</blockquote>
+            ${c.source ? `<div class="small">${esc(c.source.authors)} (${esc(c.source.year)}). <a href="${esc(c.source.doi ? 'https://doi.org/' + c.source.doi : c.source.url)}" target="_blank" rel="noopener">${esc(c.source.title)} ↗</a></div>` : ''}
+          </div>`).join('')}` : ''}
+
+      ${article.sources.length ? `
+        <h2>Sources</h2>
+        <ol class="sources small">${article.sources.map((s) => `<li>${esc(s.authors)} (${esc(s.year)}). <a href="${esc(s.doi ? 'https://doi.org/' + s.doi : s.url)}" target="_blank" rel="noopener">${esc(s.title)}</a></li>`).join('')}</ol>` : ''}
+
+      <p><button class="link" id="toFull">Edit the whole article instead</button></p>
+    </div>
+
+    <div id="fullView" class="${fullEdit ? '' : 'hidden'}">
+      <h2>Whole article</h2>
+      <p class="small muted">The settings block between the --- lines must stay as it is, apart from wording inside quotes.
+        In the article text, avoid the characters { } and &lt;, which the site treats as code.</p>
+      <textarea class="full" id="fullText" spellcheck="true">${esc(file.content)}</textarea>
+      <p><button class="link" id="toFix">Back to the list of fixes</button></p>
+    </div>
+
+    <div class="actions">
+      <button class="primary" id="save">${fullEdit ? 'Save article' : 'Save fixes'}</button>
+      <button id="publish" ${canPublish ? '' : 'disabled'}>Publish</button>
+      <span class="small muted">${esc(why)}</span>
+    </div>`;
+
+  document.getElementById('back').onclick = () => { if (!unsavedOk()) return; loadQueue(); };
+  app.querySelectorAll('[data-mode]').forEach((b) => b.onclick = () => {
+    syncTexts(); state.current.choices[b.dataset.i].mode = b.dataset.mode; renderArticle();
+  });
+  document.getElementById('toFull').onclick = () => { syncTexts(); state.current.fullEdit = true; renderArticle(); };
+  document.getElementById('toFix').onclick = () => { state.current.fullEdit = false; renderArticle(); };
+  document.getElementById('save').onclick = saveCurrent;
+  document.getElementById('publish').onclick = publishCurrent;
+}
+
+function syncTexts() {
+  app.querySelectorAll('[data-text]').forEach((t) => state.current.choices[t.dataset.text].text = t.value);
+}
+
+function unsavedOk() {
+  if (!state.current) return true;
+  syncTexts();
+  const fullChanged = state.current.fullEdit && document.getElementById('fullText').value !== state.current.file.content;
+  if (hasUnsavedFixes() || fullChanged) return confirm('You have changes you haven\'t saved. Leave without saving?');
+  return true;
+}
+
+function applyFixes(content) {
+  const { article, choices } = state.current;
+  let out = content, applied = 0;
+  for (let i = 0; i < article.flags.length; i++) {
+    const flag = article.flags[i].text, c = choices[i];
+    if (c.mode === 'fix' && !c.text.trim()) continue;
+    if (c.mode === 'fix') {
+      const text = c.text.trim();
+      if (/[{}<]/.test(text)) throw new Error('Please avoid the characters { } and < in your text: the site treats them as code.');
+      if (!out.includes(flag)) continue;
+      out = out.replace(flag, () => text);
+    } else {
+      const lines = out.split('\n');
+      const li = lines.findIndex((l) => l.includes(flag));
+      if (li < 0) continue;
+      if (lines[li].trim() === flag) {
+        // The flag is a whole paragraph: drop the line and one surrounding blank line
+        lines.splice(li, 1);
+        if (lines[li] !== undefined && lines[li].trim() === '' && li > 0 && lines[li - 1].trim() === '') lines.splice(li, 1);
+      } else {
+        lines[li] = lines[li].replace(' ' + flag, '').replace(flag + ' ', '').replace(flag, '').replace(/\s+$/, '');
+      }
+      out = lines.join('\n');
+    }
+    applied++;
+  }
+  return { out, applied };
+}
+
+async function saveCurrent() {
+  const btn = document.getElementById('save');
+  const { item, article, file } = state.current;
+  let content;
+  try {
+    if (state.current.fullEdit) {
+      content = document.getElementById('fullText').value;
+    } else {
+      syncTexts();
+      const r = applyFixes(file.content);
+      if (!r.applied) { state.notice = { kind: 'warn', text: 'Nothing to save yet: type a replacement or choose "Just remove the highlight" for at least one item.' }; return renderArticle(); }
+      content = r.out;
+    }
+  } catch (e) { state.notice = { kind: 'bad', text: e.message }; return renderArticle(); }
+
+  btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const res = await api('save', { method: 'POST', body: { pr: item.number, path: article.path, content, sha: file.sha } });
+    state.notice = res.unchanged
+      ? { kind: 'warn', text: 'No changes to save.' }
+      : { kind: 'ok', text: 'Saved. The site check runs again now (about 2 minutes), and the preview updates a few minutes later.' };
+    openArticle(item.number, article.path, true);
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message }; renderArticle();
+  }
+}
+
+async function publishCurrent() {
+  const { item, article } = state.current;
+  const past = new Date(article.published).getTime() <= Date.now();
+  if (!confirm(past ? `Publish "${article.title}"? Its slot has passed, so it goes live in a few minutes.` : `Publish "${article.title}"? It goes live at ${article.slot} (Sydney time).`)) return;
+  const btn = document.getElementById('publish'); btn.disabled = true; btn.textContent = 'Publishing…';
+  try {
+    const res = await api('publish', { method: 'POST', body: { pr: item.number } });
+    state.current = null;
+    state.notice = { kind: 'ok', text: res.message };
+    loadQueue();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message }; renderArticle();
+  }
+}
+
+window.addEventListener('beforeunload', (e) => {
+  if (!state.current) return;
+  try { syncTexts(); } catch {}
+  if (hasUnsavedFixes()) { e.preventDefault(); e.returnValue = ''; }
+});
+
+// Start
+api('session').then(loadQueue).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });
+</script>
+</body>
+</html>
