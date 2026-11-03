@@ -35,6 +35,9 @@ commissions pay its way; they never decide what gets written or how a platform s
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.
 - `docs/affiliates.md` holds the affiliate program terms and rules.
+- Jim reviews drafts at thelearningcurve.net/admin (the review desk, `docs/admin.md`). It finds
+  flags with the same `[JIM: …]` / `[TO VERIFY: …]` pattern and publishes by merging the PR, so
+  keep flags in that exact form and keep every article PR on an `article/` branch.
 
 ## Twice-daily article (scheduled routine)
 
