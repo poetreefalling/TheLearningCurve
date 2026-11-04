@@ -586,7 +586,10 @@ html, body { overflow-x: clip; }
 
 /* Headline figures that count up */
 .stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 2.4em auto; padding: 20px 0; border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); }
-.stat-value { font: 600 clamp(2.2rem, 4.5vw, 3.2rem)/1 var(--sans); color: var(--ink); letter-spacing: -0.01em; }
+/* Each figure sizes to its own column, so long values like "US$102.8B" never spill into the next one */
+.stat { min-width: 0; container-type: inline-size; }
+.stat-value { font: 600 clamp(1.5rem, 3.6vw, 3.2rem)/1 var(--sans); color: var(--ink); letter-spacing: -0.01em; white-space: nowrap; }
+@supports (font-size: 1cqi) { .stat-value { font-size: clamp(1.5rem, 16cqi, 3.2rem); } }
 .stat-label { font: 400 14.5px/1.45 var(--sans); color: var(--ink-2); margin: 10px 0 6px; }
 .stat-source { font: 400 12px/1.4 var(--sans); margin: 0; }
 .stat-source a { color: var(--muted); }
