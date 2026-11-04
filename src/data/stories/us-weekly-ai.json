@@ -1,0 +1,31 @@
+{
+  "title": "US students use AI weekly more often than their instructors do",
+  "subtitle": "Share using generative AI at least weekly, US colleges and universities, 2025",
+  "type": "bar",
+  "format": "percent",
+  "yMax": 100,
+  "categories": [
+    "Students",
+    "Instructors"
+  ],
+  "series": [
+    {
+      "id": "weekly",
+      "label": "Weekly GenAI use",
+      "values": [
+        42,
+        30
+      ]
+    }
+  ],
+  "notes": [
+    "Over 3,300 students, instructors and administrators at more than 900 US institutions, with a focus on introductory and developmental courses."
+  ],
+  "sources": [
+    {
+      "label": "Tyton Partners, Time for Class 2025",
+      "url": "https://tytonpartners.com/time-for-class-2025/",
+      "figureOrTable": "Report summary"
+    }
+  ]
+}
