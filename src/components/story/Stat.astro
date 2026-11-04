@@ -1,0 +1,16 @@
+---
+// <Stat value="54" suffix="%" label="…" source="…" href="…" />
+// The number counts up when it scrolls into view; the label says what it measures.
+interface Props { value: string; prefix?: string; suffix?: string; label: string; source: string; href: string }
+const { value, prefix = '', suffix = '', label, source, href } = Astro.props;
+const decimals = (value.split('.')[1] ?? '').length;
+const shown = `${prefix}${Number(value).toLocaleString('en-AU', { minimumFractionDigits: decimals, maximumFractionDigits: decimals })}${suffix}`;
+---
+<div class="stat" data-stat data-value={value} data-prefix={prefix} data-suffix={suffix}>
+  <div class="stat-value" data-stat-value>{shown}</div>
+  <p class="stat-label">{label}</p>
+  <p class="stat-source"><a href={href} rel="noopener">{source}</a></p>
+</div>
+<script>
+  import '../../scripts/datastory';
+</script>

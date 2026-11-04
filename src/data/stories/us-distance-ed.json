@@ -1,0 +1,167 @@
+{
+  "title": "A quarter of US college students now study entirely online",
+  "subtitle": "Share of students in US degree-granting institutions, by distance-education status, each fall",
+  "type": "line",
+  "format": "percent",
+  "yMax": 100,
+  "categories": [
+    "2012",
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023"
+  ],
+  "series": [
+    {
+      "id": "exclusive",
+      "label": "Exclusively online",
+      "values": [
+        12.8,
+        13.1,
+        14.0,
+        14.4,
+        15.0,
+        15.7,
+        16.6,
+        17.6,
+        46.7,
+        30.3,
+        26.4,
+        26.1
+      ]
+    },
+    {
+      "id": "some",
+      "label": "Some courses online",
+      "values": [
+        13.6,
+        14.1,
+        14.5,
+        15.4,
+        16.8,
+        18.0,
+        18.7,
+        19.7,
+        28.0,
+        29.7,
+        27.9,
+        28.0
+      ]
+    },
+    {
+      "id": "none",
+      "label": "No online courses",
+      "values": [
+        73.6,
+        72.9,
+        71.5,
+        70.2,
+        68.2,
+        66.3,
+        64.7,
+        62.8,
+        25.3,
+        39.9,
+        45.8,
+        45.9
+      ]
+    }
+  ],
+  "views": {
+    "before": {
+      "upTo": 7,
+      "highlight": [
+        "exclusive"
+      ],
+      "annotations": [
+        {
+          "at": 7,
+          "series": "exclusive",
+          "text": "17.6% in 2019"
+        }
+      ]
+    },
+    "spike": {
+      "upTo": 8,
+      "highlight": [
+        "exclusive",
+        "none"
+      ],
+      "annotations": [
+        {
+          "at": 8,
+          "series": "exclusive",
+          "text": "46.7% in fall 2020"
+        }
+      ]
+    },
+    "settle": {
+      "highlight": [
+        "exclusive"
+      ],
+      "annotations": [
+        {
+          "at": 11,
+          "series": "exclusive",
+          "text": "26.1% in 2023"
+        }
+      ]
+    },
+    "mixed": {
+      "highlight": [
+        "exclusive",
+        "some"
+      ],
+      "annotations": [
+        {
+          "at": 11,
+          "series": "some",
+          "text": "28.0% take some courses online"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Fall 2023 figures use provisional IPEDS data.",
+    "Each Digest edition reports two fall years; the series joins six editions of the same table."
+  ],
+  "sources": [
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2012–13)",
+      "url": "https://nces.ed.gov/programs/digest/d14/tables/dt14_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    },
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2014–15)",
+      "url": "https://nces.ed.gov/programs/digest/d16/tables/dt16_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    },
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2016–17)",
+      "url": "https://nces.ed.gov/programs/digest/d18/tables/dt18_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    },
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2018–19)",
+      "url": "https://nces.ed.gov/programs/digest/d20/tables/dt20_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    },
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2020–21)",
+      "url": "https://nces.ed.gov/programs/digest/d22/tables/dt22_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    },
+    {
+      "label": "NCES, Digest of Education Statistics, Table 311.15 (fall 2022–23)",
+      "url": "https://nces.ed.gov/programs/digest/d24/tables/dt24_311.15.asp",
+      "figureOrTable": "Table 311.15"
+    }
+  ]
+}
