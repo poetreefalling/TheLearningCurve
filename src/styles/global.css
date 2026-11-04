@@ -579,9 +579,12 @@ html, body { overflow-x: clip; }
   .scrolly-card { background: var(--surface); border: 1px solid var(--rule); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1); padding: 16px 18px; font-size: 1rem; }
   .scrolly-step:not(.is-active) .scrolly-card { opacity: 1; }
   .scrolly .story-sub { margin-bottom: 6px; }
+  /* While a text card slides over the chart, dim the chart so the card reads clearly */
+  .scrolly-graphic::after { content: ''; position: absolute; inset: 0; background: rgba(0, 0, 0, 0.15); opacity: 0; transition: opacity 0.3s; pointer-events: none; }
+  .scrolly.is-covered .scrolly-graphic::after { opacity: 1; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .scrolly-card, .dv-line, .dv-col { transition: none; }
+  .scrolly-card, .dv-line, .dv-col, .scrolly-graphic::after { transition: none; }
 }
 
 /* Headline figures that count up */
