@@ -466,6 +466,23 @@ for (const sec of document.querySelectorAll<HTMLElement>('[data-scrolly]')) {
     for (const e of entries) if (e.isIntersecting) activate(e.target as HTMLElement);
   }, { rootMargin: mobile ? '-72% 0px -20% 0px' : '-45% 0px -45% 0px' });
   steps.forEach((s) => io.observe(s));
+
+  // On phones the cards scroll over the sticky chart: dim the chart while any card overlaps it.
+  const graphic = sec.querySelector<HTMLElement>('.scrolly-graphic');
+  const cards = [...sec.querySelectorAll<HTMLElement>('.scrolly-card')];
+  const narrowQ = window.matchMedia('(max-width: 899px)');
+  let ticking = false;
+  const checkCover = () => {
+    ticking = false;
+    if (!graphic || !narrowQ.matches) return sec.classList.remove('is-covered');
+    const g = graphic.getBoundingClientRect();
+    const covered = cards.some((c) => { const r = c.getBoundingClientRect(); return r.top < g.bottom - 8 && r.bottom > g.top + 8; });
+    sec.classList.toggle('is-covered', covered);
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(checkCover); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  checkCover();
 }
 
 // ---- stat counters ----
