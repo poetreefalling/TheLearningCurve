@@ -232,7 +232,17 @@ class StoryChart {
             draws.push(() => { const g = this.geo[key] ?? target[key]; p.setAttribute('d', colPath(g[0], g[1], g[2], g[3])); });
             if (show && (!focus || focus.includes(k)) && (vs.length === 1)) {
               const lbl = el('text', { class: 'dv-val', x: x0 + gw / 2, y: top - 6, 'text-anchor': 'middle' }, svg);
-              if (!narrow || focus?.includes(k) || k === upTo) lbl.textContent = format(d.format, v!) + (s.estimate?.[k] ? '*' : '');
+              if (!narrow || focus?.includes(k) || k === upTo) {
+                // Fit the label to its own column so neighbours never collide: drop the currency
+                // prefix first, then shrink the text (down to 10px) if it still doesn't fit.
+                const star = s.estimate?.[k] ? '*' : '';
+                const room = band - 6;
+                let text = format(d.format, v!) + star;
+                if (textW(text) > room) text = text.replace(/^US\$/, '');
+                lbl.textContent = text;
+                const w = textW(text);
+                if (w > room) (lbl as SVGTextElement).style.fontSize = `${Math.max(10, Math.floor((13 * room) / w))}px`;
+              }
             }
           });
         });
