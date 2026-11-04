@@ -47,6 +47,7 @@
   .item { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .item .grow { flex: 1; min-width: 240px; }
   .slot { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .slot .prnum { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   .item h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 2px 0 8px; line-height: 1.25; }
   .pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-right: 6px; }
   .pill.ok { background: var(--ok-bg); color: var(--ok); }
@@ -163,7 +164,7 @@ function renderQueue() {
     ${items.map((it, i) => it.articles.map((a) => `
       <div class="card item">
         <div class="grow">
-          <div class="slot">${esc(a.slot)} · ${esc(cap(a.section))}</div>
+          <div class="slot">${esc(a.slot)} · ${esc(cap(a.section))} · <a href="${esc(it.url)}" target="_blank" rel="noopener" class="prnum">#${esc(it.number)}</a></div>
           <h3>${esc(a.title)}</h3>
           ${flagsPill(a.flags.length)} ${checksPill(it.checks, a.flags.length)}
         </div>
@@ -242,7 +243,7 @@ function renderArticle() {
 
   app.innerHTML = notice() + `
     <p><button class="link" id="back">← All articles</button></p>
-    <div class="slot">${esc(article.slot)} · ${esc(cap(article.section))}</div>
+    <div class="slot">${esc(article.slot)} · ${esc(cap(article.section))} · <a href="${esc(item.url)}" target="_blank" rel="noopener" class="prnum">#${esc(item.number)}</a></div>
     <h1>${esc(article.title)}</h1>
     <p>${flagsPill(n)} ${checksPill(item.checks, n)}</p>
     <p class="small"><a href="${esc(article.previewUrl)}" target="_blank" rel="noopener">Open the preview ↗</a>
@@ -327,17 +328,18 @@ function applyFixes(content) {
       if (!out.includes(flag)) continue;
       out = out.replace(flag, () => text);
     } else {
-      const lines = out.split('\n');
-      const li = lines.findIndex((l) => l.includes(flag));
-      if (li < 0) continue;
-      if (lines[li].trim() === flag) {
-        // The flag is a whole paragraph: drop the line and one surrounding blank line
-        lines.splice(li, 1);
-        if (lines[li] !== undefined && lines[li].trim() === '' && li > 0 && lines[li - 1].trim() === '') lines.splice(li, 1);
+      const at = out.indexOf(flag);
+      if (at < 0) continue;
+      const before = out.slice(0, at), after = out.slice(at + flag.length);
+      if (/(^|\n\n)$/.test(before) && /^(\n\n|\n?$)/.test(after)) {
+        // The flag is a whole paragraph (it may wrap over several lines): drop it and one blank line
+        out = before + after.replace(/^\n\n?/, '');
       } else {
-        lines[li] = lines[li].replace(' ' + flag, '').replace(flag + ' ', '').replace(flag, '').replace(/\s+$/, '');
+        // Inside a sentence: drop the flag, keeping one space between the words either side
+        const left = before.replace(/[ \t]+$/, ''), right = after.replace(/^[ \t]+/, '');
+        const space = /\S$/.test(left) && /^[^\s.,;:!?)]/.test(right) ? ' ' : '';
+        out = left + space + right;
       }
-      out = lines.join('\n');
     }
     applied++;
   }
