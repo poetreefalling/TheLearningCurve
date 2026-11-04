@@ -132,6 +132,8 @@ dressed as facts. A trends piece that's really evergreen should become a guide i
   "(CredentialCraft is the course-design company run by this site's founder.)"
 - CredentialCraft is never ranked, scored against the platforms, or placed in a "best of" list.
   Case studies need the client's permission; Jim provides them.
+- Images showing CredentialCraft (its name, logo or screens) are allowed and need no disclaimer.
+  The ownership note above applies to mentions in the text.
 
 ## 9. The review method (published at /how-we-review/)
 
@@ -170,7 +172,9 @@ Every article has one hero image. Choose the style:
 | Screenshot | Reviews, when Jim has supplied one | Reviews only |
 
 Never put words, numbers, charts or diagrams in a generated image. Those are research cards
-and charts, which the site builds from source data.
+and charts, which the site builds from source data. The one exception: an image Jim has approved that shows
+CredentialCraft (for example its course screens) may show its name and readable screen text. Don't
+flag or replace those.
 
 ### Documentary: what to show
 
