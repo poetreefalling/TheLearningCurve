@@ -13,6 +13,7 @@ import Scorecard from '../../components/Scorecard.astro';
 import AuthorBox from '../../components/AuthorBox.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
+import ReaderCheck from '../../components/ReaderCheck.astro';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -150,6 +151,8 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
     <div class="prose">
       <Content components={components} />
     </div>
+
+    {d.readerCheck && <ReaderCheck article={a} />}
 
     <div class="measure">
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="end" />

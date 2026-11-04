@@ -1,0 +1,185 @@
+---
+// The quiz or poll at the end of an article. The reader answers every question, then sees how
+// all readers answered, as a bar chart per question; a quiz also shows the right answer and why.
+// Results come from /api/check/<slug> (functions/api/check/[slug].ts). Styles: global.css.
+import type { Article } from '../lib/articles';
+import { slugOf } from '../lib/articles';
+
+interface Props { article: Article }
+const a = Astro.props.article;
+const rc = a.data.readerCheck!;
+const slug = slugOf(a);
+const quiz = rc.kind === 'quiz';
+const id = `rc-${slug}`;
+---
+
+<section
+  class="reader-check end-section measure"
+  data-reader-check
+  data-slug={slug}
+  data-kind={rc.kind}
+  aria-labelledby={`${id}-h`}
+  data-pagefind-ignore
+>
+  <h2 id={`${id}-h`}>{quiz ? 'Check your understanding' : 'Reader poll'}</h2>
+  <p class="rc-intro">
+    {quiz
+      ? 'Three quick questions on this article. Recalling it now helps it stick.'
+      : rc.questions.length === 1
+        ? 'One quick question about how you work.'
+        : `${rc.questions.length === 2 ? 'Two' : 'Three'} quick questions about how you work.`}
+  </p>
+  <p class="rc-cta" data-rc-cta>Answer to see the results</p>
+
+  <form data-rc-form novalidate>
+    {rc.questions.map((q, qi) => (
+      <fieldset class="rc-q" data-q={qi} data-answer={quiz ? q.answer : undefined}>
+        <legend>{rc.questions.length > 1 && <span class="rc-num">{qi + 1}.</span>} {q.q}</legend>
+        <div class="rc-opts">
+          {q.options.map((o, oi) => (
+            <label class="rc-opt" data-opt={oi}>
+              <input type="radio" name={`${id}-q${qi}`} value={oi} />
+              <span class="rc-text">{o}</span>
+              <span class="rc-tag" aria-hidden="true"></span>
+              <span class="rc-pct"></span>
+              <span class="rc-bar" aria-hidden="true"><span class="rc-fill"></span></span>
+            </label>
+          ))}
+        </div>
+        {quiz && <p class="rc-why" hidden><span class="rc-verdict"></span> {q.why}</p>}
+      </fieldset>
+    ))}
+    <div class="rc-actions">
+      <button type="submit" class="button rc-submit" disabled>{quiz ? 'Check my answers' : 'See the results'}</button>
+      <span class="rc-progress" data-rc-progress>{`0 of ${rc.questions.length} answered`}</span>
+    </div>
+  </form>
+
+  <p class="rc-status" data-rc-status aria-live="polite"></p>
+  <p class="rc-note" data-rc-note hidden>
+    {quiz
+      ? 'Bars show how readers of this page answered. Answers are anonymous.'
+      : 'Bars show how readers of this page answered. Answers are anonymous. It is a reader poll, not a representative survey.'}
+  </p>
+  <noscript><p class="rc-note">Turn on JavaScript to answer and see the results.</p></noscript>
+</section>
+
+<script>
+  type Results = { kind: 'quiz' | 'poll'; total: number; counts: number[][] };
+
+  const KEY = (slug: string) => `tlc-check:${slug}`;
+  const load = (slug: string): number[] | null => {
+    try {
+      const v = JSON.parse(localStorage.getItem(KEY(slug)) ?? 'null');
+      return Array.isArray(v) ? v : null;
+    } catch {
+      return null;
+    }
+  };
+  const save = (slug: string, answers: number[]) => {
+    try {
+      localStorage.setItem(KEY(slug), JSON.stringify(answers));
+    } catch {
+      /* private mode: results still show, just not remembered */
+    }
+  };
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-reader-check]')) {
+    const slug = root.dataset.slug!;
+    const quiz = root.dataset.kind === 'quiz';
+    const form = root.querySelector<HTMLFormElement>('[data-rc-form]')!;
+    const qs = [...root.querySelectorAll<HTMLFieldSetElement>('.rc-q')];
+    const button = root.querySelector<HTMLButtonElement>('.rc-submit')!;
+    const progress = root.querySelector<HTMLElement>('[data-rc-progress]')!;
+    const status = root.querySelector<HTMLElement>('[data-rc-status]')!;
+    const note = root.querySelector<HTMLElement>('[data-rc-note]')!;
+    const cta = root.querySelector<HTMLElement>('[data-rc-cta]')!;
+
+    const chosen = () =>
+      qs.map((fs) => {
+        const el = fs.querySelector<HTMLInputElement>('input:checked');
+        return el ? Number(el.value) : -1;
+      });
+    const update = () => {
+      const n = chosen().filter((v) => v >= 0).length;
+      progress.textContent = `${n} of ${qs.length} answered`;
+      button.disabled = n < qs.length;
+    };
+    form.addEventListener('change', update);
+
+    const reveal = (answers: number[], results: Results | null) => {
+      root.classList.add('rc-done');
+      if (results) root.classList.add('rc-has-results');
+      cta.hidden = true;
+      form.querySelectorAll('input').forEach((i) => (i.disabled = true));
+      let right = 0;
+      qs.forEach((fs, qi) => {
+        const correct = quiz ? Number(fs.dataset.answer) : -1;
+        const counts = results?.counts[qi] ?? [];
+        const sum = counts.reduce((s, v) => s + v, 0);
+        if (quiz && answers[qi] === correct) right++;
+        fs.querySelectorAll<HTMLElement>('.rc-opt').forEach((opt) => {
+          const oi = Number(opt.dataset.opt);
+          const mine = answers[qi] === oi;
+          const input = opt.querySelector('input')!;
+          input.checked = mine;
+          opt.classList.toggle('is-mine', mine);
+          opt.classList.toggle('is-correct', quiz && oi === correct);
+          opt.classList.toggle('is-wrong', quiz && mine && oi !== correct);
+          const tags = [quiz && oi === correct ? 'Correct answer' : '', mine ? 'Your answer' : ''].filter(Boolean);
+          opt.querySelector('.rc-tag')!.textContent = tags.join(' · ');
+          if (results) {
+            const pct = sum ? Math.round((counts[oi] / sum) * 100) : 0;
+            opt.querySelector('.rc-pct')!.textContent = `${pct}%`;
+            opt.querySelector<HTMLElement>('.rc-fill')!.style.width = `${pct}%`;
+            opt.setAttribute('aria-label', `${opt.querySelector('.rc-text')!.textContent}: ${pct}% of readers${tags.length ? `. ${tags.join(', ')}` : ''}`);
+          }
+        });
+        const why = fs.querySelector<HTMLElement>('.rc-why');
+        if (why) {
+          why.hidden = false;
+          why.querySelector('.rc-verdict')!.textContent = answers[qi] === correct ? 'Right.' : 'Not quite.';
+        }
+      });
+      form.querySelector('.rc-actions')!.setAttribute('hidden', '');
+      const score = quiz ? `You got ${right} of ${qs.length}. ` : '';
+      if (results) {
+        const n = results.total;
+        status.textContent = `${score}${n.toLocaleString('en-AU')} ${n === 1 ? 'reader has' : 'readers have'} answered so far.`;
+        note.hidden = false;
+      } else {
+        status.textContent = `${score}${quiz ? '' : 'Thanks for answering. '}Other readers' results aren't available right now.`;
+      }
+    };
+
+    const request = async (answers: number[] | null): Promise<Results | null> => {
+      try {
+        const res = await fetch(`/api/check/${slug}`, answers
+          ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ answers }) }
+          : { headers: { Accept: 'application/json' } });
+        if (!res.ok) return null;
+        const data = (await res.json()) as Results;
+        return Array.isArray(data.counts) ? data : null;
+      } catch {
+        return null;
+      }
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const answers = chosen();
+      if (answers.some((v) => v < 0)) return;
+      button.disabled = true;
+      status.textContent = 'Loading the results…';
+      save(slug, answers);
+      reveal(answers, await request(answers));
+    });
+
+    // Answered on an earlier visit: show the results straight away
+    const previous = load(slug);
+    if (previous && previous.length === qs.length) {
+      status.textContent = 'Loading the results…';
+      request(null).then((r) => reveal(previous, r));
+    }
+  }
+</script>
