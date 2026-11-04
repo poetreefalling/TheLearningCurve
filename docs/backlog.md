@@ -38,6 +38,7 @@ their pinned weeks; the queue fills every other slot.
 | 7 Dec 2026 | What Are Microcredentials, and Are They Worth It? | what are microcredentials | 590 · 15 | trends | documentary | todo |
 | 14 Dec 2026 | Kajabi Review: How Well Does It Support Learning? | kajabi review | 480 · 16 | review | screenshot | todo |
 | 21 Dec 2026 | Spaced Repetition: Scheduling Review Across a Course | spaced repetition scheduler | 260 · 13 | library | risograph | todo |
+| 28 Dec 2026 | eLearning Industry Trends: Where the Growth Is, From the Filings | elearning industry trends | 50 · 42 | trends (data story) | documentary | in PR (Mon 28 Dec 12:00) |
 | 4 Jan 2027 | Microlearning: What the Evidence Supports, With Examples | microlearning example | 320 · 23 | library | documentary | todo |
 | 11 Jan 2027 | The Best Kajabi Alternatives, Ranked by How Well Students Learn | kajabi alternatives | 260 · 21 | comparison | documentary | todo |
 | 18 Jan 2027 | Interleaving: Should Your Lessons Mix Topics? | interleaving learning strategy | check | library | risograph | todo |
