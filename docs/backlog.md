@@ -152,6 +152,9 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 99 | Udemy vs Thinkific | udemy vs thinkific | 30 · 21 | comparison | todo |
 | 100 | Teachable vs LearnDash | teachable vs learndash | 30 · 16 | comparison | todo |
 | 101 | Thinkific Communities Review | thinkific communities | 40 · 25 | review | todo |
+| 102 | Designing Online Courses for Low Bandwidth and Offline Learners | low bandwidth online learning (also: offline elearning 10 · 18, offline learning platform 10 · 22; checked 4 Nov 2026) | 10 · 5 | guide | todo |
+
+Row 102 brief (from an idea Jim sent, 4 Nov 2026): a vendor-neutral guide for course designers whose learners have slow, costly or patchy connections. Cover what goes wrong (buffering video, large downloads, dropped live sessions, assessments that need a connection), then the design responses: lightweight pages and media, offline downloads with sync, adaptive or low-resolution video with audio, transcript and slide alternatives, mobile-first layouts, and what to check in a platform (offline apps, PWA support, download options) with `[TO VERIFY]` on every platform claim. Find primary sources on connectivity and mobile learning (for example ITU or GSMA data, and studies of low-bandwidth or offline course delivery). Write it fresh: don't reuse wording from the source article.
 
 ## Later (higher difficulty, revisit once the domain has authority)
 
