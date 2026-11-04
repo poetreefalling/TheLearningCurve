@@ -1,0 +1,20 @@
+{
+  "title": "Feedback rich in information had an effect size of 0.99, about four times that of rewards or punishment",
+  "subtitle": "Average effect on learning by the information content of the feedback, from a meta-analysis of 435 studies",
+  "type": "bar",
+  "unit": "effect size (d)",
+  "highlight": "High-information feedback",
+  "series": [
+    { "label": "Reinforcement or punishment", "value": 0.24 },
+    { "label": "Corrective (right or wrong, plus the answer)", "value": 0.46 },
+    { "label": "High-information feedback", "value": 0.99 }
+  ],
+  "yMax": 1.2,
+  "source": {
+    "authors": "Wisniewski, B., Zierer, K., & Hattie, J.",
+    "year": 2020,
+    "doi": "10.3389/fpsyg.2019.03087",
+    "url": "https://opus.bibliothek.uni-augsburg.de/opus4/files/71009/fpsyg-10-03087.pdf",
+    "figureOrTable": "Table 3"
+  }
+}
