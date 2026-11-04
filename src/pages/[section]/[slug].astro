@@ -112,6 +112,7 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
         <span><time datetime={d.published.toISOString()}>{formatDate(d.published)}</time></span>
         {d.updated && <span>Updated <time datetime={d.updated.toISOString()}>{formatDate(d.updated)}</time></span>}
         {d.library && <span>Last reviewed <time datetime={d.library.lastReviewed.toISOString()}>{formatDate(d.library.lastReviewed)}</time></span>}
+        {d.library && <span><a href="/library/evidence-map/">{d.library.evidence[0].toUpperCase() + d.library.evidence.slice(1)} evidence</a></span>}
         <span>{readingTime(a)} min read</span>
       </div>
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="top" />

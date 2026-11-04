@@ -62,6 +62,28 @@ const researchCard = z.object({
   page: z.string().optional(),
 });
 
+// Groups on the evidence map, in display order
+export const LIBRARY_CATEGORIES = [
+  'Memory and practice',
+  'Presenting information',
+  'Feedback and assessment',
+  'Course structure',
+  'Motivation and engagement',
+] as const;
+
+// Popular claims about learning that the evidence doesn't back, shown on the evidence map
+const myths = defineCollection({
+  loader: file('src/data/myths.json'),
+  schema: z.object({
+    claim: z.string().max(140), // the popular version, in quotes on the page
+    rating: z.enum(['Not supported', 'Overstated']),
+    summary: z.string().max(500), // what the evidence says, in two or three sentences
+    sources: z.array(z.object({ label: z.string(), url: z.string().url() })).min(1),
+    article: z.string().optional(), // slug of our full article; linked once it's live
+    related: z.array(z.string()).default([]), // slugs of library entries to point to instead
+  }),
+});
+
 const score = z.number().min(1).max(5);
 
 // The quiz or poll at the end of an article ("reader check"). Readers answer, then see how
@@ -137,6 +159,9 @@ const articles = defineCollection({
           question: z.string(),
           evidence: z.enum(['strong', 'moderate', 'emerging']),
           lastReviewed: z.coerce.date(),
+          // The evidence map (/library/evidence-map/): one plain sentence on what to do, and a group
+          verdict: z.string().max(160).optional(),
+          category: z.enum(LIBRARY_CATEGORIES).optional(),
         })
         .optional(),
       readerCheck: readerCheck.optional(),
@@ -204,4 +229,4 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles };
+export const collections = { platforms, charts, articles, myths };
