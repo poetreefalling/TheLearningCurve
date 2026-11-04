@@ -128,8 +128,8 @@ dressed as facts. A trends piece that's really evergreen should become a guide i
   "Some links on this page are affiliate links: if you sign up through one, we may earn a
   commission at no cost to you. It never affects how we score a platform.
   [How we're funded](/disclosure/)."
-- Any mention of CredentialCraft carries, at first mention:
-  "(CredentialCraft is the course-design company run by this site's founder.)"
+- CredentialCraft (Jim's own business) needs no disclaimer or ownership note, in the text or in
+  images (its name, logo or screens).
 - CredentialCraft is never ranked, scored against the platforms, or placed in a "best of" list.
   Case studies need the client's permission; Jim provides them.
 
@@ -170,7 +170,9 @@ Every article has one hero image. Choose the style:
 | Screenshot | Reviews, when Jim has supplied one | Reviews only |
 
 Never put words, numbers, charts or diagrams in a generated image. Those are research cards
-and charts, which the site builds from source data.
+and charts, which the site builds from source data. The one exception: an image Jim has approved that shows
+CredentialCraft (for example its course screens) may show its name and readable screen text. Don't
+flag or replace those.
 
 ### Documentary: what to show
 
