@@ -169,17 +169,19 @@ function frontmatter(content: string) {
 }
 
 function flagsIn(content: string) {
+  // Match across the whole text, not line by line: a flag can wrap onto the next line, and the
+  // build check (src/lib/articles.ts) counts those too.
   const lines = content.split('\n');
   const out: { text: string; line: number; context: string }[] = [];
-  lines.forEach((line, i) => {
-    for (const m of line.matchAll(FLAG)) {
-      // The paragraph around the flag, so Jim sees what it belongs to
-      let a = i, b = i;
-      while (a > 0 && lines[a - 1].trim() !== '' && !lines[a - 1].startsWith('---')) a--;
-      while (b < lines.length - 1 && lines[b + 1].trim() !== '') b++;
-      out.push({ text: m[0], line: i + 1, context: lines.slice(a, b + 1).join('\n') });
-    }
-  });
+  for (const m of content.matchAll(FLAG)) {
+    const start = content.slice(0, m.index).split('\n').length - 1;
+    const end = start + m[0].split('\n').length - 1;
+    // The paragraph around the flag, so Jim sees what it belongs to
+    let a = start, b = end;
+    while (a > 0 && lines[a - 1].trim() !== '' && !lines[a - 1].startsWith('---')) a--;
+    while (b < lines.length - 1 && lines[b + 1].trim() !== '') b++;
+    out.push({ text: m[0], line: start + 1, context: lines.slice(a, b + 1).join('\n') });
+  }
   return out;
 }
 
