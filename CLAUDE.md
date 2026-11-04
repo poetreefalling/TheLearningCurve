@@ -35,6 +35,9 @@ commissions pay its way; they never decide what gets written or how a platform s
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.
 - `docs/affiliates.md` holds the affiliate program terms and rules.
+- Jim reviews drafts at thelearningcurve.net/admin (the review desk, `docs/admin.md`). It finds
+  flags with the same `[JIM: …]` / `[TO VERIFY: …]` pattern and publishes by merging the PR, so
+  keep flags in that exact form and keep every article PR on an `article/` branch.
 
 ## Twice-daily article (scheduled routine)
 
@@ -63,7 +66,9 @@ empty slot is better than a weak article.
    - Reviews: work from Jim's testing notes plus the platform's own current pricing and help
      pages. Record the date you checked prices.
 4. **Write** to `docs/editorial.md`: the voice, the shape for this kind of article, and every
-   schema field. Australian/British spelling.
+   schema field. Australian/British spelling. Library, guide and trends articles end with a
+   `readerCheck`: a quiz or a poll, chosen and written by the rules in `docs/editorial.md`
+   section 11 (trends always a poll; library and guides alternate with the previous one).
 5. **Hard rules.**
    - Never invent a statistic, study, quote, client, result or feature. If you can't link it,
      cut it.
@@ -103,6 +108,7 @@ empty slot is better than a weak article.
      - every `[JIM:]` and `[TO VERIFY]` item as a checklist
      - each research card and chart with its source link, for Jim to check against the paper
      - the image and its style
+     - the reader check: quiz or poll, and why that kind (the previous article's kind)
    - Never push to `main`, and never merge.
 10. **If anything blocks you** (build won't pass, a connector is down, no `next` row, nothing
     citable for a research claim, no image that passes after one regeneration), open no PR and

@@ -30,6 +30,9 @@ export const heroCredit = (a: Article) =>
     screenshot: 'Screenshot: The Learning Curve',
   })[a.data.hero.style];
 
+// Library, guide and trends articles published from this slot on must end with a quiz or poll.
+const READER_CHECKS_FROM = new Date('2026-11-06T00:00:00+11:00');
+
 const FLAG = /\[(JIM|TO VERIFY)\b[^\]]*\]/;
 
 let checked = false;
@@ -50,6 +53,12 @@ function check(all: Article[]) {
         problems.push(`${where}: chart "${c.id}" is never placed (add <Chart id="${c.id}" /> in the body)`);
       }
     });
+    if (
+      PUBLISH_CHECKS && !a.data.draft && !a.data.readerCheck &&
+      ['library', 'guide', 'trends'].includes(a.data.kind) && a.data.published >= READER_CHECKS_FROM
+    ) {
+      problems.push(`${where}: needs a readerCheck (a quiz or a poll; see docs/editorial.md section 11)`);
+    }
     if (PUBLISH_CHECKS && !a.data.draft) {
       const flagged = [body, JSON.stringify(a.data)].join('\n').match(FLAG);
       if (flagged) problems.push(`${where}: still contains ${flagged[0].slice(0, 60)}… Resolve it or set draft: true.`);

@@ -165,31 +165,48 @@ Every article has one hero image. Choose the style:
 
 | Style | When | Share |
 |---|---|---|
-| Documentary | Default. Anything with a human situation: someone studying, teaching, designing, filming a lesson | About 80% |
+| Documentary | Default. Anything with a human situation: someone taking a course, learning at work, studying on campus, designing or filming a lesson | About 80% |
 | Risograph | Ideas people can't show: a design model, a memory effect, a process | About 20% |
 | Screenshot | Reviews, when Jim has supplied one | Reviews only |
 
 Never put words, numbers, charts or diagrams in a generated image. Those are research cards
 and charts, which the site builds from source data.
 
+### Documentary: what to show
+
+Real and observed, but in brighter, more contemporary places than a cluttered back office:
+the kind of space a reader would like to work or study in. Rotate through four scenes, and
+check the last ten heroes so the series keeps moving:
+
+| Scene | What it looks like | Share |
+|---|---|---|
+| **Learners taking a course** | Someone working through a lesson on a phone, tablet or laptop: in a dorm room, on a train, at a café window, on a sofa, at a kitchen bench, between shifts | About a third |
+| **Business and workplace learning** | Professionals in modern offices, co-working spaces, glass-walled meeting rooms or training rooms: an L&D lead planning a programme, a team in a workshop, a manager doing a module at their desk | About a quarter |
+| **Education institutions** | University campuses, modern libraries, lecture theatres, seminar rooms, TAFE and college workshops, teaching studios | About a quarter |
+| **Course builders at work** | Designing, storyboarding, scripting or filming a course, in a bright home studio, studio office or shared workspace | The rest |
+
+Match the scene to the article where you can (a workplace scene for corporate L&D, a campus
+for higher education, a learner on a phone for microlearning). Never use the same scene type
+three heroes in a row. Vary people across the series: age, gender, background, and places in
+Australia and elsewhere.
+
 ### Documentary prompt template
 
 Use with `brand/documentary-reference.webp`. Fill the brackets; keep the rest word for word.
 
-> Candid documentary photograph, observed not posed. [ONE PERSON OR TWO PEOPLE, ordinary
-> clothes, any age and background] [DOING THE SPECIFIC ACTIVITY, e.g. sketching a course
-> outline on paper beside a laptop] in [A REAL, LIVED-IN PLACE, e.g. a small home office with
-> books and a mug]. Faces turned away, in profile or softly out of focus; hands and paper are
-> the sharpest part of the frame. Soft window light from one side, natural shadows. 35mm film
-> look, fine grain, muted warm colours, slightly imperfect framing, shallow depth of field.
-> Screens show only soft, unreadable blur. No text, no logos, no brand marks, no watermarks,
-> no glossy stock-photo styling.
+> Candid documentary photograph, observed not posed, in a bright, contemporary, well-designed
+> space. [ONE PERSON OR TWO PEOPLE, everyday or smart-casual clothes, any age and background]
+> [DOING THE SPECIFIC ACTIVITY, e.g. working through a course lesson on a tablet] in [A REAL,
+> ASPIRATIONAL PLACE, e.g. a light-filled university library with timber and plants]. Faces
+> turned away, in profile or softly out of focus; hands and the device or paper are the
+> sharpest part of the frame. Natural daylight, clean true-to-life colour with gentle warmth,
+> soft shadows. 35mm film look, light fine grain, slightly imperfect framing, shallow depth of
+> field. Screens show only a soft, unreadable blur of a lesson layout. Use the reference image
+> for photographic style only, not its people, room or objects. No text, no logos, no brand
+> marks, no watermarks, no glossy stock-photo styling, no staged smiles at the camera.
 
 Alt text describes what's in the photo plainly. Caption is optional. Documentary images carry no
 per-image credit; the footer, About and Disclosure pages say they are AI-generated illustrations.
-
-Vary people across the series: age, gender, background, setting (homes, libraries, offices,
-classrooms, studios, Australia and elsewhere). Check the last ten heroes before choosing.
 
 ### Risograph prompt template
 
@@ -209,3 +226,68 @@ Reject and regenerate once if it has: any text or pseudo-text, a logo, malformed
 extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
 subject that doesn't match the article. If the second attempt also fails, stop and report;
 don't publish a weak image.
+
+## 11. Reader checks: the quiz or poll at the end
+
+Every library, guide and trends article ends with a `readerCheck` in its frontmatter. The site
+shows it after the article body with "Answer to see the results", then a bar chart of how all
+readers answered. How it works and the setup are in `docs/reader-checks.md`.
+
+### Which kind
+
+- **Trends:** always a poll.
+- **Library and guides:** alternate. Look at the most recent library or guide article by
+  `published`, on `main` and in open `article/` PRs, and use the other kind. (If that one has
+  none, use a quiz.)
+- **Reviews and comparisons:** none. A poll next to a score would read as part of the score.
+
+### Quiz (`kind: quiz`): exactly three questions
+
+- Test the ideas that matter, usually the key takeaways: the finding, the rule of thumb, the
+  common mistake. Not trivia (a year, a page number, an author's first name).
+- Every right answer must be stated in the article itself, so a careful reader can get all three.
+  Never introduce a fact here that isn't in the body.
+- Four options (three is fine for a yes/no-style question). Wrong options are plausible: the
+  popular misconception, the half-right version, the thing a rushed reader would pick. No
+  "all of the above", no jokes, no trick wording.
+- Vary which position holds the right answer (`answer` is its index, from 0).
+- `why`: one or two sentences, at most about 40 words, saying why the answer is right in the
+  article's terms, with the number or source if there is one. It reads after "Right." or
+  "Not quite.", so it must make sense after either.
+
+### Poll (`kind: poll`): one to three questions
+
+- About the reader's own work, linked to the article's topic: their practice (when they test,
+  how long their lessons are), the LMS or platform they use, the kind of courses they build, the
+  software they prefer.
+- Neutral wording that doesn't hint at a right answer. "When do you write your objectives?",
+  not "Do you skip objectives?"
+- Options are mutually exclusive and cover the common cases, ending with "Something else" or
+  "None" where needed. Up to six options. Platform and tool names are fine; keep them neutral
+  and never favour a platform with an affiliate program.
+- Never ask for anything personal or identifying: no names, employers, locations, pay, health
+  or age.
+- Poll results are not research. Never quote them in an article as a statistic or a finding.
+
+### Format
+
+```yaml
+readerCheck:
+  kind: quiz
+  questions:
+    - q: "In Mayer's table of design principles, which had the largest effect?"
+      options:
+        - "Adding printed text to narration (redundancy)"
+        - "Words with relevant pictures (multimedia)"
+        - "Cutting extras (coherence)"
+        - "Highlighting what matters (signalling)"
+      answer: 1
+      why: "Words with pictures had an effect size of 1.35 across 13 tests, the largest in the table."
+```
+
+A poll has the same shape without `answer` and `why`. Questions at most 200 characters, options
+at most 120. The build checks the rules above (quiz has three questions with answers, trends is a
+poll, reviews have none).
+
+Once an article is live, don't change its options: readers' answers are counted against their
+position. Fix a typo in the wording if you need to; anything bigger, ask Jim to reset the results.
