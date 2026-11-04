@@ -1,0 +1,49 @@
+{
+  "title": "US employees got a third fewer training hours in 2025 than in 2022",
+  "subtitle": "Average hours of training per employee, US organisations with 100 or more employees",
+  "type": "column",
+  "format": "number",
+  "categories": [
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "hours",
+      "label": "Hours per employee",
+      "values": [
+        62,
+        57,
+        47,
+        40
+      ]
+    }
+  ],
+  "notes": [
+    "Each year is a separate survey weighted to the US company universe, not the same companies tracked over time."
+  ],
+  "sources": [
+    {
+      "label": "Training magazine, 2022 Training Industry Report",
+      "url": "https://trainingmag.com/2022-training-industry-report/",
+      "figureOrTable": "Hours of training per employee"
+    },
+    {
+      "label": "Training magazine, 2023 Training Industry Report",
+      "url": "https://trainingmag.com/2023-training-industry-report/",
+      "figureOrTable": "Hours of training per employee"
+    },
+    {
+      "label": "Training magazine, 2024 Training Industry Report",
+      "url": "https://trainingmag.com/2024-training-industry-report/",
+      "figureOrTable": "Hours of training per employee"
+    },
+    {
+      "label": "Training magazine, 2025 Training Industry Report",
+      "url": "https://trainingmag.com/2025-training-industry-report/",
+      "figureOrTable": "Hours of training per employee"
+    }
+  ]
+}

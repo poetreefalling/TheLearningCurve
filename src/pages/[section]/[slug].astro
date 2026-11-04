@@ -14,6 +14,11 @@ import AuthorBox from '../../components/AuthorBox.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
 import ReaderCheck from '../../components/ReaderCheck.astro';
+import DataChart from '../../components/story/DataChart.astro';
+import Scrolly from '../../components/story/Scrolly.astro';
+import Step from '../../components/story/Step.astro';
+import StatGrid from '../../components/story/StatGrid.astro';
+import Stat from '../../components/story/Stat.astro';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -97,7 +102,7 @@ if (d.review) {
   });
 }
 
-const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable };
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat };
 ---
 
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section}>

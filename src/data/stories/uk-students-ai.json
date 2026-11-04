@@ -1,0 +1,57 @@
+{
+  "title": "Almost every UK undergraduate now uses AI",
+  "subtitle": "Share of full-time UK undergraduates who use AI tools in at least one way",
+  "type": "line",
+  "format": "percent",
+  "yMax": 100,
+  "categories": [
+    "2024",
+    "2025",
+    "2026"
+  ],
+  "series": [
+    {
+      "id": "any",
+      "label": "Use AI in at least one way",
+      "values": [
+        66,
+        92,
+        95
+      ]
+    }
+  ],
+  "views": {
+    "start": {
+      "upTo": 0
+    },
+    "jump": {
+      "upTo": 1,
+      "annotations": [
+        {
+          "at": 1,
+          "series": "any",
+          "text": "92%"
+        }
+      ]
+    },
+    "now": {
+      "annotations": [
+        {
+          "at": 2,
+          "series": "any",
+          "text": "95% in 2026"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Polled each December before the report year. 2025 and 2026 by Savanta (n = 1,054 in 2026); the 2024 polling was done by UCAS."
+  ],
+  "sources": [
+    {
+      "label": "HEPI and Kortext, Student Generative AI Survey 2026 (HEPI Report 199)",
+      "url": "https://www.hepi.ac.uk/wp-content/uploads/2026/03/HEPI-Report-199-Gen-AI-Survey-2026.pdf",
+      "figureOrTable": "Figure 1"
+    }
+  ]
+}

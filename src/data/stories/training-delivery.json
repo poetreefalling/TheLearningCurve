@@ -1,0 +1,55 @@
+{
+  "title": "Online learning is the biggest share of workplace training, and AI is starting to show",
+  "subtitle": "Share of training hours by delivery method, US organisations",
+  "type": "groupedBar",
+  "format": "percent",
+  "yMax": 40,
+  "categories": [
+    "Online or computer-based",
+    "Instructor-led classroom",
+    "Virtual classroom",
+    "Blended",
+    "Mobile",
+    "Social",
+    "AI"
+  ],
+  "series": [
+    {
+      "id": "y2024",
+      "label": "2024",
+      "values": [
+        34,
+        27,
+        27,
+        24,
+        3,
+        5,
+        0.8
+      ]
+    },
+    {
+      "id": "y2025",
+      "label": "2025",
+      "values": [
+        34,
+        28,
+        24,
+        22,
+        6,
+        6,
+        2
+      ]
+    }
+  ],
+  "notes": [
+    "Methods overlap, so shares add up to more than 100%.",
+    "AR/VR, under 1% in 2025 (3% in 2024), is left out because no exact 2025 value was published."
+  ],
+  "sources": [
+    {
+      "label": "Training magazine, 2025 Training Industry Report",
+      "url": "https://trainingmag.com/2025-training-industry-report/",
+      "figureOrTable": "Delivery methods"
+    }
+  ]
+}

@@ -19,6 +19,10 @@ commissions pay its way; they never decide what gets written or how a platform s
 - Components available in an article body, with no import needed: `<ResearchCard n={0} />`,
   `<Chart id="<chart-id>" />`, `<Callout>…</Callout>`, `<Figure src alt caption credit />`,
   `<PlatformLink id="thinkific" />`, and in reviews `<PriceTable />` and `<ComparisonTable />`.
+  Data stories also have interactive charts from `src/data/stories/<id>.json`: `<DataChart id="…" />`,
+  `<Scrolly chart="…"><Step view="…">…</Step></Scrolly>` (the chart sticks and changes as each
+  step scrolls past) and `<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`.
+  `src/content/articles/trends/sample-data-story.mdx` shows them all.
   Every research card and chart listed in the frontmatter must be placed in the body. MDX
   treats `{`, `}` and `<` as code, so don't use them in prose.
 - Editor flags (`[JIM: …]`, `[TO VERIFY: …]`) show highlighted on preview builds. Production

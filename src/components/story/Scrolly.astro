@@ -1,0 +1,15 @@
+---
+// <Scrolly chart="us-distance-ed"> <Step view="before">…</Step> … </Scrolly>
+// The chart sticks while the steps scroll past; each step sets the chart's view.
+import DataChart from './DataChart.astro';
+interface Props { chart: string }
+---
+<section class="scrolly" data-scrolly>
+  <div class="scrolly-graphic">
+    <DataChart id={Astro.props.chart} part="graphic" />
+  </div>
+  <div class="scrolly-steps">
+    <slot />
+  </div>
+</section>
+<DataChart id={Astro.props.chart} part="meta" />

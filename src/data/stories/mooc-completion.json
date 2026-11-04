@@ -1,0 +1,76 @@
+{
+  "title": "Only 3–6% of MOOC participants finish, but about half of paying learners do",
+  "subtitle": "Share completing HarvardX and MITx courses, by group and academic year",
+  "type": "line",
+  "format": "percent",
+  "yMax": 60,
+  "categories": [
+    "2013–14",
+    "2014–15",
+    "2015–16",
+    "2016–17",
+    "2017–18"
+  ],
+  "series": [
+    {
+      "id": "verified",
+      "label": "Paid for a certificate",
+      "values": [
+        44.23,
+        50.17,
+        49.73,
+        56.43,
+        46.02
+      ]
+    },
+    {
+      "id": "intended",
+      "label": "Said they intended to finish",
+      "values": [
+        11.51,
+        17.74,
+        16.44,
+        16.13,
+        15.42
+      ]
+    },
+    {
+      "id": "all",
+      "label": "All participants",
+      "values": [
+        4.96,
+        5.91,
+        4.13,
+        3.98,
+        3.13
+      ]
+    }
+  ],
+  "views": {
+    "all": {
+      "highlight": [
+        "all"
+      ]
+    },
+    "intended": {
+      "highlight": [
+        "intended"
+      ]
+    },
+    "verified": {
+      "highlight": [
+        "verified"
+      ]
+    }
+  },
+  "notes": [
+    "5.63 million learners and 12.67 million course registrations, 2012 to May 2018. The intending and paying groups overlap."
+  ],
+  "sources": [
+    {
+      "label": "Reich & Ruipérez-Valiente (2019), The MOOC pivot, Science",
+      "url": "https://doi.org/10.1126/science.aav7958",
+      "figureOrTable": "Table S3"
+    }
+  ]
+}
