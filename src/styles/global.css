@@ -326,7 +326,6 @@ figcaption .credit { text-transform: uppercase; letter-spacing: 0.06em; font-siz
 .prose hr { border: 0; border-top: 1px solid var(--rule); margin: 2.4em auto; }
 .prose strong { font-weight: 650; }
 .prose code { font-size: 0.85em; background: var(--surface); border: 1px solid var(--rule); padding: 1px 5px; }
-.prose table { font: 400 15px/1.45 var(--sans); width: 100%; border-collapse: collapse; }
 .prose .wide-block { max-width: var(--wide); }
 .prose .table-scroll { overflow-x: auto; margin: 2em auto; }
 mark.editor-flag { background: var(--flag); color: var(--ink); font: 600 0.82em/1.3 var(--sans); padding: 1px 4px; font-style: normal; }
@@ -445,12 +444,29 @@ main:has(> .newsletter-band:last-child) > .newsletter-band { border-bottom-color
 }
 html, body { overflow-x: clip; }
 
-/* Markdown tables inside articles use the house data-table style */
-.prose table { font: 400 14.5px/1.45 var(--sans); font-variant-numeric: tabular-nums; margin: 1.6em auto 1.8em; display: table; }
-.prose th, .prose td { text-align: left; vertical-align: top; padding: 11px 10px; border-bottom: 1px solid var(--rule); }
-.prose thead th { font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); font-weight: 600; border-bottom: 1px solid var(--rule-strong); }
-.prose tbody td:first-child { font-weight: 600; white-space: nowrap; }
-@media (max-width: 640px) { .prose table { display: block; overflow-x: auto; } }
+/* Markdown tables inside articles (wrapped and labelled at build time by src/lib/rehype-tables.mjs).
+   Desktop: the house data-table style, columns sharing the width and wrapping.
+   Phones: each row becomes a stacked card, the first cell as its heading and every other
+   cell under a small label repeating its column header, so nothing scrolls sideways. */
+.prose .table-wrap { margin: 1.8em auto 2em; overflow-x: auto; }
+.prose table { width: 100%; border-collapse: collapse; font: 400 15px/1.5 var(--sans); font-variant-numeric: tabular-nums; }
+.prose th, .prose td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--rule); }
+.prose th:last-child, .prose td:last-child { padding-right: 0; }
+.prose thead th { font: 600 11.5px/1.35 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-bottom: 10px; border-bottom: 1px solid var(--rule-strong); }
+.prose tbody td:first-child { font-weight: 600; color: var(--ink); }
+.prose tbody td { color: var(--ink-2); }
+.prose table[data-cols="3"] td:first-child, .prose table[data-cols="3"] th:first-child { width: 30%; }
+.prose table[data-cols="2"] td:first-child, .prose table[data-cols="2"] th:first-child { width: 38%; }
+@media (max-width: 640px) {
+  .prose .table-wrap { overflow: visible; margin: 1.6em auto 1.8em; border-top: 1px solid var(--rule-strong); }
+  .prose .table-wrap table, .prose .table-wrap tbody, .prose .table-wrap tr, .prose .table-wrap td { display: block; width: auto; }
+  .prose .table-wrap thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .prose .table-wrap tr { padding: 16px 0 14px; border-bottom: 1px solid var(--rule); }
+  .prose .table-wrap td { border: 0; padding: 0; }
+  .prose .table-wrap table[data-cols] td:first-child, .prose .table-wrap td:first-child { font: 600 17px/1.35 var(--sans); color: var(--ink); margin-bottom: 8px; width: auto; }
+  .prose .table-wrap td + td { font-size: 15.5px; line-height: 1.5; margin-top: 10px; }
+  .prose .table-wrap td + td[data-label]::before { content: attr(data-label); display: block; font: 600 11px/1.3 var(--sans); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+}
 /* Newsletter form extras */
 .nl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .nl-optin { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font: 400 13px/1.45 var(--sans); color: var(--ink-2); cursor: pointer; }
