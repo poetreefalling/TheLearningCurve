@@ -128,12 +128,10 @@ dressed as facts. A trends piece that's really evergreen should become a guide i
   "Some links on this page are affiliate links: if you sign up through one, we may earn a
   commission at no cost to you. It never affects how we score a platform.
   [How we're funded](/disclosure/)."
-- Any mention of CredentialCraft carries, at first mention:
-  "(CredentialCraft is the course-design company run by this site's founder.)"
+- CredentialCraft (Jim's own business) needs no disclaimer or ownership note, in the text or in
+  images (its name, logo or screens).
 - CredentialCraft is never ranked, scored against the platforms, or placed in a "best of" list.
   Case studies need the client's permission; Jim provides them.
-- Images showing CredentialCraft (its name, logo or screens) are allowed and need no disclaimer.
-  The ownership note above applies to mentions in the text.
 
 ## 9. The review method (published at /how-we-review/)
 
