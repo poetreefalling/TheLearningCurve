@@ -226,3 +226,68 @@ Reject and regenerate once if it has: any text or pseudo-text, a logo, malformed
 extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
 subject that doesn't match the article. If the second attempt also fails, stop and report;
 don't publish a weak image.
+
+## 11. Reader checks: the quiz or poll at the end
+
+Every library, guide and trends article ends with a `readerCheck` in its frontmatter. The site
+shows it after the article body with "Answer to see the results", then a bar chart of how all
+readers answered. How it works and the setup are in `docs/reader-checks.md`.
+
+### Which kind
+
+- **Trends:** always a poll.
+- **Library and guides:** alternate. Look at the most recent library or guide article by
+  `published`, on `main` and in open `article/` PRs, and use the other kind. (If that one has
+  none, use a quiz.)
+- **Reviews and comparisons:** none. A poll next to a score would read as part of the score.
+
+### Quiz (`kind: quiz`): exactly three questions
+
+- Test the ideas that matter, usually the key takeaways: the finding, the rule of thumb, the
+  common mistake. Not trivia (a year, a page number, an author's first name).
+- Every right answer must be stated in the article itself, so a careful reader can get all three.
+  Never introduce a fact here that isn't in the body.
+- Four options (three is fine for a yes/no-style question). Wrong options are plausible: the
+  popular misconception, the half-right version, the thing a rushed reader would pick. No
+  "all of the above", no jokes, no trick wording.
+- Vary which position holds the right answer (`answer` is its index, from 0).
+- `why`: one or two sentences, at most about 40 words, saying why the answer is right in the
+  article's terms, with the number or source if there is one. It reads after "Right." or
+  "Not quite.", so it must make sense after either.
+
+### Poll (`kind: poll`): one to three questions
+
+- About the reader's own work, linked to the article's topic: their practice (when they test,
+  how long their lessons are), the LMS or platform they use, the kind of courses they build, the
+  software they prefer.
+- Neutral wording that doesn't hint at a right answer. "When do you write your objectives?",
+  not "Do you skip objectives?"
+- Options are mutually exclusive and cover the common cases, ending with "Something else" or
+  "None" where needed. Up to six options. Platform and tool names are fine; keep them neutral
+  and never favour a platform with an affiliate program.
+- Never ask for anything personal or identifying: no names, employers, locations, pay, health
+  or age.
+- Poll results are not research. Never quote them in an article as a statistic or a finding.
+
+### Format
+
+```yaml
+readerCheck:
+  kind: quiz
+  questions:
+    - q: "In Mayer's table of design principles, which had the largest effect?"
+      options:
+        - "Adding printed text to narration (redundancy)"
+        - "Words with relevant pictures (multimedia)"
+        - "Cutting extras (coherence)"
+        - "Highlighting what matters (signalling)"
+      answer: 1
+      why: "Words with pictures had an effect size of 1.35 across 13 tests, the largest in the table."
+```
+
+A poll has the same shape without `answer` and `why`. Questions at most 200 characters, options
+at most 120. The build checks the rules above (quiz has three questions with answers, trends is a
+poll, reviews have none).
+
+Once an article is live, don't change its options: readers' answers are counted against their
+position. Fix a typo in the wording if you need to; anything bigger, ask Jim to reset the results.

@@ -449,3 +449,48 @@ html, body { overflow-x: clip; }
 .article-signup { background: var(--surface); border: 1px solid var(--rule); padding: 22px 24px 18px; }
 .article-signup > h2 { border-top: 0; padding-top: 0; font: 560 1.5rem/1.2 var(--serif); letter-spacing: -0.01em; text-transform: none; margin-bottom: 6px; }
 .article-signup > p { margin: 0 0 14px; color: var(--ink-2); font-size: 1.02rem; }
+
+/* Reader check: the quiz or poll at the end of an article (src/components/ReaderCheck.astro) */
+.reader-check .rc-intro { margin: 10px 0 2px; color: var(--ink-2); font-size: 1.05rem; }
+.reader-check .rc-cta { margin: 0 0 18px; font: 600 14px/1.4 var(--sans); color: var(--accent); }
+.reader-check form { margin: 0; }
+.rc-q { border: 0; margin: 0 0 22px; padding: 16px 0 0; border-top: 1px solid var(--rule); min-width: 0; }
+.rc-q legend { font-weight: 560; font-size: 1.15rem; line-height: 1.4; padding: 0; margin-bottom: 10px; float: left; width: 100%; }
+.rc-q legend + * { clear: both; }
+.rc-num { font: 600 14px var(--sans); color: var(--muted); margin-right: 2px; }
+.rc-opts { display: grid; gap: 8px; }
+.rc-opt {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center; column-gap: 10px;
+  border: 1px solid var(--rule); background: var(--surface); padding: 10px 12px; cursor: pointer;
+  font: 400 15px/1.4 var(--sans); color: var(--ink);
+}
+.rc-opt:hover { border-color: var(--ink-2); }
+.rc-opt:has(input:checked) { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.rc-opt:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.rc-opt input { margin: 0; accent-color: var(--accent); width: 16px; height: 16px; }
+.rc-tag, .rc-pct, .rc-bar { display: none; }
+.rc-actions[hidden] { display: none; }
+.rc-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 4px; }
+.rc-progress { font: 400 13px var(--sans); color: var(--muted); }
+.rc-status { font: 500 15px/1.5 var(--sans); margin: 4px 0 0; }
+.rc-status:empty { display: none; }
+.rc-note { font: 400 13px/1.5 var(--sans); color: var(--muted); margin: 6px 0 0; }
+.rc-why { margin: 10px 0 0; font-size: 1.02rem; color: var(--ink-2); }
+.rc-verdict { font: 600 14px var(--sans); color: var(--ink); }
+
+/* After answering: each option becomes a labelled bar */
+.rc-done .rc-opt { cursor: default; grid-template-columns: 1fr auto; row-gap: 6px; box-shadow: none; border-color: var(--rule); }
+.rc-done .rc-opt:hover { border-color: var(--rule); }
+.rc-done .rc-opt input { display: none; }
+.rc-done .rc-tag:not(:empty) { display: block; grid-column: 1 / -1; grid-row: 1; font: 600 11px/1 var(--sans); letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); }
+.rc-done .rc-opt.is-correct .rc-tag { color: var(--accent); }
+.rc-done .rc-opt.is-wrong .rc-tag { color: var(--ochre); }
+.rc-has-results .rc-pct { display: block; font: 600 14px var(--sans); font-variant-numeric: tabular-nums; }
+.rc-has-results .rc-bar { display: block; grid-column: 1 / -1; height: 10px; background: var(--rule); }
+.rc-fill { display: block; height: 100%; width: 0; background: var(--chart-base); transition: width 0.6s ease; }
+.rc-done[data-kind='poll'] .is-mine .rc-fill,
+.rc-done[data-kind='quiz'] .is-correct .rc-fill { background: var(--accent); }
+.rc-done[data-kind='quiz'] .is-wrong .rc-fill { background: var(--ochre); }
+.rc-done[data-kind='quiz'] .is-correct { border-color: var(--accent); }
+.rc-done .is-mine { border-color: var(--ink-2); }
+@media (prefers-reduced-motion: reduce) { .rc-fill { transition: none; } }

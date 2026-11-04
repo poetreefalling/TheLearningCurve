@@ -64,6 +64,19 @@ const researchCard = z.object({
 
 const score = z.number().min(1).max(5);
 
+// The quiz or poll at the end of an article ("reader check"). Readers answer, then see how
+// everyone else answered as a bar chart. Rules for writing them: docs/editorial.md section 11.
+const checkQuestion = z.object({
+  q: z.string().max(200),
+  options: z.array(z.string().max(120)).min(2).max(6),
+  answer: z.number().int().min(0).optional(), // quiz only: index of the correct option
+  why: z.string().max(400).optional(), // quiz only: one line on why that answer is right
+});
+const readerCheck = z.object({
+  kind: z.enum(['quiz', 'poll']),
+  questions: z.array(checkQuestion).min(1).max(3),
+});
+
 const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z
@@ -126,6 +139,7 @@ const articles = defineCollection({
           lastReviewed: z.coerce.date(),
         })
         .optional(),
+      readerCheck: readerCheck.optional(),
       faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
       sources: z.array(source).default([]),
       featured: z.boolean().default(false),
@@ -161,6 +175,28 @@ const articles = defineCollection({
           ctx.addIssue({ code: 'custom', message: `researchCards[${i}]: sourceIndex ${card.sourceIndex} has no matching source` });
         }
       });
+      if (a.readerCheck) {
+        const rc = a.readerCheck;
+        if (a.kind === 'review' || a.kind === 'comparison') {
+          ctx.addIssue({ code: 'custom', message: 'Reviews and comparisons have no readerCheck (a poll must never sit next to a score)' });
+        }
+        if (a.kind === 'trends' && rc.kind !== 'poll') {
+          ctx.addIssue({ code: 'custom', message: 'A trends article\'s readerCheck is always a poll' });
+        }
+        if (rc.kind === 'quiz' && rc.questions.length !== 3) {
+          ctx.addIssue({ code: 'custom', message: `A quiz has exactly 3 questions (this one has ${rc.questions.length})` });
+        }
+        rc.questions.forEach((q, i) => {
+          if (rc.kind === 'quiz') {
+            if (q.answer === undefined || q.answer >= q.options.length) {
+              ctx.addIssue({ code: 'custom', message: `readerCheck.questions[${i}]: a quiz question needs an answer that is the index of one of its options` });
+            }
+            if (!q.why) ctx.addIssue({ code: 'custom', message: `readerCheck.questions[${i}]: a quiz question needs a why` });
+          } else if (q.answer !== undefined || q.why) {
+            ctx.addIssue({ code: 'custom', message: `readerCheck.questions[${i}]: a poll has no right answer, so no answer or why` });
+          }
+        });
+      }
       const words = a.summary.trim().split(/\s+/).length;
       if (words < 35 || words > 70) {
         ctx.addIssue({ code: 'custom', message: `summary is ${words} words; aim for 40-60` });
