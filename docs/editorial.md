@@ -227,6 +227,10 @@ extra fingers, a sharp, centred face looking at the camera, a glossy commercial 
 subject that doesn't match the article. If the second attempt also fails, stop and report;
 don't publish a weak image.
 
+Never reuse an image. Each article has its own hero; reusing another article's (even as a
+placeholder) makes the site look templated, and the build now fails when two published articles
+share one.
+
 ## 11. Reader checks: the quiz or poll at the end
 
 Every library, guide and trends article ends with a `readerCheck` in its frontmatter. The site

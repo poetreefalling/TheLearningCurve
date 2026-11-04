@@ -95,6 +95,10 @@ empty slot is better than a weak article.
    glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
    per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
+   Every article gets its own image: never reuse or copy another article's hero, a sample's, or
+   a reference image as a placeholder. The build fails if two published articles share a hero
+   (it compares image fingerprints, so re-encoded copies are caught). If you can't produce a new
+   image that passes, open no PR.
 7. **Update `docs/backlog.md`.** Mark the row `in PR` with the slot, and mark the next `todo`
    row `next`.
 8. **Build.** Run `npm ci && npm run build`. Fix anything that fails. (Flags don't fail this
