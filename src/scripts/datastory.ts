@@ -219,6 +219,14 @@ class StoryChart {
         // columns
         const vs = this.visibleSeries();
         const gw = Math.min(24, (band * 0.7) / vs.length);
+        // Value labels fit their column, decided once per chart so every label matches:
+        // drop the currency prefix if the longest label is too wide, then shrink (to 10px) if needed.
+        const room = band - 6;
+        const raw = vs.flatMap(({ s }) => s.values.map((v, k) => (v == null ? '' : format(d.format, v) + (s.estimate?.[k] ? '*' : ''))));
+        const strip = Math.max(0, ...raw.map((t) => textW(t))) > room;
+        const fit = (t: string) => (strip ? t.replace(/^US\$/, '') : t);
+        const widest = Math.max(1, ...raw.map((t) => textW(fit(t))));
+        const valSize = widest > room ? Math.max(10, Math.floor((13 * room) / widest)) : 0;
         vs.forEach(({ s, i }, j) => {
           s.values.forEach((v, k) => {
             const key = `col:${s.id}:${k}`;
@@ -233,15 +241,8 @@ class StoryChart {
             if (show && (!focus || focus.includes(k)) && (vs.length === 1)) {
               const lbl = el('text', { class: 'dv-val', x: x0 + gw / 2, y: top - 6, 'text-anchor': 'middle' }, svg);
               if (!narrow || focus?.includes(k) || k === upTo) {
-                // Fit the label to its own column so neighbours never collide: drop the currency
-                // prefix first, then shrink the text (down to 10px) if it still doesn't fit.
-                const star = s.estimate?.[k] ? '*' : '';
-                const room = band - 6;
-                let text = format(d.format, v!) + star;
-                if (textW(text) > room) text = text.replace(/^US\$/, '');
-                lbl.textContent = text;
-                const w = textW(text);
-                if (w > room) (lbl as SVGTextElement).style.fontSize = `${Math.max(10, Math.floor((13 * room) / w))}px`;
+                lbl.textContent = fit(format(d.format, v!) + (s.estimate?.[k] ? '*' : ''));
+                if (valSize) (lbl as SVGTextElement).style.fontSize = `${valSize}px`;
               }
             }
           });
