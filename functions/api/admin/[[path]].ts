@@ -9,6 +9,11 @@
 //
 // The desk only touches open pull requests from `article/` branches: it reads their articles,
 // commits Jim's edits to the same branch, and merges the PR when he presses Publish.
+//
+// The ad manager (Ads tab) reads src/data/ads.json from the default branch and saves it, plus any
+// new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
+// The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
+// can't break the build.
 
 interface Env {
   ADMIN_PASSWORD?: string;
@@ -43,6 +48,8 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     }
     if (route === 'save' && request.method === 'POST') return json(200, await save(gh, await request.json()));
     if (route === 'publish' && request.method === 'POST') return await publish(gh, await request.json());
+    if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
+    if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
     return json(404, { error: 'Not found.' });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -332,6 +339,107 @@ async function publish(gh: GH, body: any) {
       ? `Published. Its slot (${slots}) has already passed, so it goes live in a few minutes.`
       : `Published. It goes live at its slot (${slots}, Sydney time).`,
   });
+}
+
+
+// ---------- ads ----------
+
+const ADS_PATH = 'src/data/ads.json';
+const AD_SLOTS = ['billboard', 'rectangle', 'halfpage', 'card'] as const;
+const AD_IMAGE = /^\/ads\/[a-z0-9][a-z0-9._-]*\.(webp|jpe?g|png|gif)$/i;
+const UPLOAD_NAME = /^[a-z0-9][a-z0-9._-]{0,100}\.(webp|jpe?g|png|gif)$/i;
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+const MAX_IMAGE = 1_500_000;
+
+async function defaultBranch(gh: GH) {
+  const repo = await gh('');
+  return String(repo.default_branch || 'main');
+}
+
+async function readAds(gh: GH) {
+  const branch = await defaultBranch(gh);
+  const file = await gh(`/contents/${ADS_PATH}?ref=${encodeURIComponent(branch)}`);
+  return { config: JSON.parse(decode(file.content)), sha: file.sha as string, branch };
+}
+
+function checkAds(c: any) {
+  const bad = (m: string) => { throw new Problem(400, m); };
+  if (!c || typeof c !== 'object') bad('The ad settings are missing.');
+  const n = c.network ?? {};
+  if (typeof n.enabled !== 'boolean') bad('Network: choose on or off.');
+  if (n.client && !/^ca-pub-\d{10,20}$/.test(n.client)) bad('Network: the AdSense publisher ID looks like ca-pub-1234567890123456.');
+  if (n.enabled && !n.client) bad('Network: add the AdSense publisher ID before switching it on.');
+  for (const k of ['billboard', 'rectangle', 'halfpage']) {
+    if (n.slots?.[k] && !/^\d+$/.test(n.slots[k])) bad(`Network: the ${k} ad unit ID should be digits only.`);
+  }
+  if (!Array.isArray(c.campaigns)) bad('Campaigns are missing.');
+  const ids = new Set<string>();
+  c.campaigns.forEach((k: any, i: number) => {
+    const where = `Campaign ${i + 1}${k?.name ? ` (${k.name})` : ''}`;
+    if (!k.id || ids.has(k.id)) bad(`${where}: missing or repeated id.`);
+    ids.add(k.id);
+    if (!k.name || String(k.name).length > 120) bad(`${where}: give it a name (up to 120 characters).`);
+    if (!k.sponsor || String(k.sponsor).length > 80) bad(`${where}: add the sponsor's name.`);
+    if (!AD_SLOTS.includes(k.slot)) bad(`${where}: choose a slot.`);
+    if (!['home', 'articles', 'both'].includes(k.pages)) bad(`${where}: choose where it shows.`);
+    if (!AD_IMAGE.test(String(k.image ?? ''))) bad(`${where}: add an image.`);
+    if (!k.alt || String(k.alt).length < 3 || String(k.alt).length > 200) bad(`${where}: describe the image for screen readers (3 to 200 characters).`);
+    try { if (new URL(k.url).protocol !== 'https:') throw 0; } catch { bad(`${where}: the link must be a full https:// address.`); }
+    if (!DAY.test(k.start) || !DAY.test(k.end)) bad(`${where}: add a start and an end date.`);
+    if (k.end < k.start) bad(`${where}: it ends before it starts.`);
+    if (k.slot === 'card' && !k.headline) bad(`${where}: a sponsored card needs a headline.`);
+    if (k.headline && String(k.headline).length > 90) bad(`${where}: keep the headline to 90 characters.`);
+    if (k.text && String(k.text).length > 160) bad(`${where}: keep the line of text to 160 characters.`);
+    if (typeof k.active !== 'boolean') bad(`${where}: choose whether it's running or paused.`);
+  });
+}
+
+async function commitFiles(gh: GH, branch: string, files: { path: string; base64: string }[], message: string) {
+  const ref = await gh(`/git/ref/heads/${encodeURIComponent(branch)}`);
+  const base = await gh(`/git/commits/${ref.object.sha}`);
+  const tree = await Promise.all(files.map(async (f) => {
+    const blob = await gh('/git/blobs', { method: 'POST', body: JSON.stringify({ content: f.base64, encoding: 'base64' }) });
+    return { path: f.path, mode: '100644', type: 'blob', sha: blob.sha };
+  }));
+  const newTree = await gh('/git/trees', { method: 'POST', body: JSON.stringify({ base_tree: base.tree.sha, tree }) });
+  const commit = await gh('/git/commits', { method: 'POST', body: JSON.stringify({ message, tree: newTree.sha, parents: [ref.object.sha] }) });
+  await gh(`/git/refs/heads/${encodeURIComponent(branch)}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
+  return commit.sha as string;
+}
+
+async function saveAds(gh: GH, body: any) {
+  const config = body?.config;
+  checkAds(config);
+  const current = await readAds(gh);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'The ad settings changed since you opened them (perhaps in another tab). Reload, then make your change again.');
+  }
+  const uploads: any[] = Array.isArray(body?.uploads) ? body.uploads : [];
+  const used = new Set(config.campaigns.map((k: any) => k.image));
+  const files = uploads
+    .filter((u) => used.has(`/ads/${u?.name}`)) // drop images for campaigns removed before saving
+    .map((u) => {
+      if (!UPLOAD_NAME.test(String(u?.name ?? ''))) throw new Problem(400, 'An image has an unusable file name.');
+      const data = String(u?.data ?? '').replace(/^data:[^,]*,/, '');
+      if (data.length * 0.75 > MAX_IMAGE) throw new Problem(400, `${u.name} is too large: keep ad images under 1.5 MB (WebP or JPEG at the slot's size is plenty).`);
+      return { path: `public/ads/${u.name}`, base64: data };
+    });
+  const text = JSON.stringify(config, null, 2) + '\n';
+  if (!files.length && text === JSON.stringify(current.config, null, 2) + '\n') return { ok: true, unchanged: true, sha: current.sha };
+  files.push({ path: ADS_PATH, base64: encode(text) });
+  const summary = String(body?.summary ?? '').slice(0, 120) || 'update ad settings';
+  await commitFiles(gh, current.branch, files, `Ads: ${summary} (via the ad manager)`);
+  return { ok: true, sha: await blobSha(text) };
+}
+
+// The SHA GitHub gives a file's contents, so the next save can check nothing changed in between
+async function blobSha(text: string) {
+  const bytes = new TextEncoder().encode(text);
+  const head = new TextEncoder().encode(`blob ${bytes.length}\0`);
+  const all = new Uint8Array(head.length + bytes.length);
+  all.set(head); all.set(bytes, head.length);
+  const d = await crypto.subtle.digest('SHA-1', all);
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 // ---------- helpers ----------
