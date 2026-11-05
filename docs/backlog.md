@@ -138,7 +138,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 85 | Teachable Cost: Plans and Fees Explained | teachable cost | 50 · 14 | review | todo |
 | 86 | University AI Microcredentials: Who's Launching What | purdue ai microcredentials | 50 · 28 | trends | todo |
 | 87 | Skool vs Teachable | skool vs teachable | 70 · 18 | comparison | todo |
-| 88 | Online Learning Trends: What the Latest Data Shows | online learning trends | 50 · 23 | trends | todo |
+| 88 | Online Learning Trends: What the Latest Data Shows | online learning trends | 50 · 23 | trends | in PR (Tue 1 Dec 12:00) |
 | 89 | Thinkific Plus: What It Costs and Who It's For | how much is thinkific plus | 50 · 19 | review | todo |
 | 90 | How Digital Badges Are Showing Up at Work | how are digital badges showing up in the workplace | 40 · 29 | trends | todo |
 | 91 | Podia vs Teachable | podia vs teachable | 40 · 25 | comparison | todo |
