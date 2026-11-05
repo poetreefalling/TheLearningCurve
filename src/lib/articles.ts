@@ -59,6 +59,12 @@ function check(all: Article[]) {
     ) {
       problems.push(`${where}: needs a readerCheck (a quiz or a poll; see docs/editorial.md section 11)`);
     }
+    if (
+      PUBLISH_CHECKS && !a.data.draft && a.data.library && a.data.published >= READER_CHECKS_FROM &&
+      (!a.data.library.verdict || !a.data.library.category)
+    ) {
+      problems.push(`${where}: library needs a verdict and a category for the evidence map (docs/editorial.md section 5)`);
+    }
     if (PUBLISH_CHECKS && !a.data.draft) {
       const flagged = [body, JSON.stringify(a.data)].join('\n').match(FLAG);
       if (flagged) problems.push(`${where}: still contains ${flagged[0].slice(0, 60)}… Resolve it or set draft: true.`);
