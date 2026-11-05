@@ -2,11 +2,14 @@
 import '@fontsource-variable/newsreader/opsz.css';
 import '@fontsource-variable/newsreader/opsz-italic.css';
 import '@fontsource-variable/inter';
+import '@fontsource-variable/fraunces/opsz.css';
+import '@fontsource-variable/inter-tight';
 import '../styles/global.css';
 import Masthead from '../components/Masthead.astro';
 import Footer from '../components/Footer.astro';
 import { SITE } from '../site.config';
 import { SHOW_UNPUBLISHED } from '../lib/articles';
+import { ADS, networkReady } from '../lib/ads';
 
 interface Props {
   title: string;
@@ -16,9 +19,13 @@ interface Props {
   ogType?: 'website' | 'article';
   noindex?: boolean;
   current?: string;
+  masthead?: 'full' | 'slim';
+  /** False on pages that must not carry network ads (reviews, comparisons, plain pages). */
+  ads?: boolean;
 }
 
-const { title, description, jsonLd = [], ogImage, ogType = 'website', noindex = false, current } = Astro.props;
+const { title, description, jsonLd = [], ogImage, ogType = 'website', noindex = false, current, masthead = 'full', ads = false } = Astro.props;
+const adNetwork = ads && networkReady();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === SITE.name ? `${SITE.name}: ${SITE.tagline}` : `${title} | ${SITE.name}`;
 const og = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og-default.jpg', Astro.site).href;
@@ -47,8 +54,7 @@ const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follo
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <meta name="theme-color" content="#f7f4ee" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#121314" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#F6C847" />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:type" content={ogType} />
     <meta property="og:title" content={title} />
@@ -59,13 +65,16 @@ const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follo
     <meta name="twitter:card" content="summary_large_image" />
     <slot name="head" />
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    {adNetwork && (
+      <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS.network.client}`} crossorigin="anonymous"></script>
+    )}
     {SITE.analyticsToken && (
       <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.analyticsToken })}></script>
     )}
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
-    <Masthead current={current} />
+    <Masthead current={current} variant={masthead} />
     <main id="main">
       <slot />
     </main>
@@ -85,6 +94,9 @@ const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follo
       if (masthead && bar && 'IntersectionObserver' in window) {
         new IntersectionObserver(([e]) => bar.classList.toggle('is-shown', !e.isIntersecting)).observe(masthead);
       }
+      // A campaign whose end date has passed since the last build comes down at once
+      const sydney = new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Sydney', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      document.querySelectorAll('[data-ad-end]').forEach((el) => { if (el.getAttribute('data-ad-end') < sydney) el.remove(); });
       const today = document.querySelector('[data-today]');
       if (today) {
         today.textContent = new Intl.DateTimeFormat('en-AU', {
