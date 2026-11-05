@@ -23,6 +23,11 @@ commissions pay its way; they never decide what gets written or how a platform s
   `<Scrolly chart="…"><Step view="…">…</Step></Scrolly>` (the chart sticks and changes as each
   step scrolls past) and `<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`.
   `src/content/articles/trends/sample-data-story.mdx` shows them all.
+  Features can also use interactive widgets from `src/components/feature/`: `<DayBudget />` (share out
+  a working day with sliders), `<ConditionsCheck title="…" items={[…]} />` (a reflection checklist),
+  `<EvidenceMap id="…" />` (sources by cluster, from `src/data/evidence/<id>.json`; link to an entry
+  with `#ev-<source>`) and `<ReaderPoll />` (places the reader check inside the body; needs
+  `readerCheck.placement: inline`).
   Every research card and chart listed in the frontmatter must be placed in the body. MDX
   treats `{`, `}` and `<` as code, so don't use them in prose.
 - Editor flags (`[JIM: …]`, `[TO VERIFY: …]`) show highlighted on preview builds. Production

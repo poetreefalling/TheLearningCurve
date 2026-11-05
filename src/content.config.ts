@@ -122,6 +122,8 @@ const checkQuestion = z.object({
 const readerCheck = z.object({
   kind: z.enum(['quiz', 'poll']),
   questions: z.array(checkQuestion).min(1).max(3),
+  // 'end' (default): after the article body. 'inline': wherever the body places <ReaderPoll />.
+  placement: z.enum(['end', 'inline']).default('end'),
 });
 
 const articles = defineCollection({
@@ -251,4 +253,41 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles, stories };
+// In-article evidence maps (src/data/evidence/<id>.json), drawn by <EvidenceMap id="…" />: the
+// sources behind a feature, grouped into clusters, each with its method, the finding used and its limits.
+const evidence = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/evidence' }),
+  schema: z
+    .object({
+      title: z.string(),
+      intro: z.string(),
+      clusters: z.array(z.object({
+        id: z.string(),
+        name: z.string(),
+        question: z.string(),
+        sources: z.array(z.string()).min(1),
+      })).min(1).max(6),
+      sources: z.record(z.object({
+        name: z.string(),
+        publisher: z.string(),
+        date: z.string(),
+        type: z.string(), // "Vendor survey", "Official statistics", "Meta-analysis"…
+        method: z.string(),
+        findings: z.array(z.string()).min(1),
+        limits: z.string(),
+        url: z.string().url(),
+      })),
+    })
+    .superRefine((m, ctx) => {
+      const used = new Set<string>();
+      m.clusters.forEach((c) => c.sources.forEach((s) => {
+        used.add(s);
+        if (!m.sources[s]) ctx.addIssue({ code: 'custom', message: `cluster "${c.id}": unknown source "${s}"` });
+      }));
+      Object.keys(m.sources).forEach((s) => {
+        if (!used.has(s)) ctx.addIssue({ code: 'custom', message: `source "${s}" is in no cluster` });
+      });
+    }),
+});
+
+export const collections = { platforms, charts, articles, stories, evidence };

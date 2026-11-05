@@ -19,6 +19,10 @@ import Scrolly from '../../components/story/Scrolly.astro';
 import Step from '../../components/story/Step.astro';
 import StatGrid from '../../components/story/StatGrid.astro';
 import Stat from '../../components/story/Stat.astro';
+import ReaderPoll from '../../components/ReaderPoll.astro';
+import DayBudget from '../../components/feature/DayBudget.astro';
+import ConditionsCheck from '../../components/feature/ConditionsCheck.astro';
+import EvidenceMap from '../../components/feature/EvidenceMap.astro';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -102,7 +106,7 @@ if (d.review) {
   });
 }
 
-const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat };
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, ReaderPoll, DayBudget, ConditionsCheck, EvidenceMap };
 ---
 
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section}>
@@ -157,7 +161,7 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
       <Content components={components} />
     </div>
 
-    {d.readerCheck && <ReaderCheck article={a} />}
+    {d.readerCheck && d.readerCheck.placement !== 'inline' && <ReaderCheck article={a} />}
 
     <div class="measure">
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="end" />

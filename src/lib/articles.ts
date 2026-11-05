@@ -59,6 +59,13 @@ function check(all: Article[]) {
     ) {
       problems.push(`${where}: needs a readerCheck (a quiz or a poll; see docs/editorial.md section 11)`);
     }
+    const inlinePoll = body.includes('<ReaderPoll');
+    if (a.data.readerCheck?.placement === 'inline' && !inlinePoll) {
+      problems.push(`${where}: readerCheck.placement is "inline" but the body has no <ReaderPoll />`);
+    }
+    if (inlinePoll && a.data.readerCheck?.placement !== 'inline') {
+      problems.push(`${where}: the body places <ReaderPoll /> but readerCheck.placement isn't "inline"`);
+    }
     if (PUBLISH_CHECKS && !a.data.draft) {
       const flagged = [body, JSON.stringify(a.data)].join('\n').match(FLAG);
       if (flagged) problems.push(`${where}: still contains ${flagged[0].slice(0, 60)}… Resolve it or set draft: true.`);

@@ -1,0 +1,64 @@
+---
+// <ConditionsCheck title="…" items={["…", "…"]} /> — a reflection checklist: readers tick the
+// statements true of their workplace and see a count with a short reading. Nothing is stored or
+// sent. Not a validated assessment, and it says so.
+interface Props { title: string; intro?: string; items: string[] }
+const { title, intro, items } = Astro.props;
+const n = items.length;
+---
+
+<figure class="fw fw-check" data-conditions-check data-total={n} data-pagefind-ignore>
+  <div class="fw-label">Check your workplace</div>
+  <h3 class="fw-title">{title}</h3>
+  {intro && <p class="fw-sub">{intro}</p>}
+  <fieldset class="cc-list">
+    <legend class="cc-legend">Tick each statement that is true where you work.</legend>
+    {items.map((it, i) => (
+      <label class="cc-item">
+        <input type="checkbox" value={i} />
+        <span>{it}</span>
+      </label>
+    ))}
+  </fieldset>
+  <div class="cc-result" aria-live="polite">
+    <div class="cc-score"><span data-score>0</span><span class="cc-of">/{n}</span></div>
+    <p class="cc-read" data-read>Tick the statements above to see where your workplace stands.</p>
+  </div>
+  <figcaption class="fw-note">A reflection tool built from the evidence in this article, not a validated organisational assessment. Your answers stay in your browser; nothing is sent or stored.</figcaption>
+</figure>
+
+<style>
+  .fw .cc-list { border: 0; padding: 0; margin: 16px 0 0; display: grid; gap: 8px; }
+  .fw .cc-legend { font: 400 14px/1.4 var(--sans); color: var(--muted); padding: 0; margin-bottom: 8px; }
+  .fw .cc-item { display: grid; grid-template-columns: 22px 1fr; gap: 10px; align-items: start; font: 400 15.5px/1.45 var(--sans); color: var(--ink); padding: 10px 12px; border: 1px solid var(--rule); cursor: pointer; background: var(--paper); }
+  .fw .cc-item:has(input:checked) { border-color: var(--accent); }
+  .fw .cc-item input { width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+  .fw .cc-item input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .fw .cc-result { display: flex; gap: 16px; align-items: center; margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--rule); }
+  .fw .cc-score { font: 600 2.6rem/1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; flex: none; }
+  .fw .cc-of { font-size: 1.2rem; color: var(--muted); font-weight: 500; }
+  .fw .cc-read { font: 400 15px/1.5 var(--sans); color: var(--ink-2); margin: 0; }
+</style>
+
+<script>
+  const read = (k: number, n: number) => {
+    if (k === 0) return 'None yet. Training may be on offer, but the conditions that help people use it are missing.';
+    if (k <= Math.floor(n / 3)) return 'A few conditions are in place. The missing ones include the kind of support the research links to training being used on the job.';
+    if (k < n - 1) return 'Some of the conditions are there. The unticked ones are the places to start.';
+    if (k < n) return 'Nearly all of them. The one that is missing may be the cheapest to fix.';
+    return 'All of them. Few workplaces can say that.';
+  };
+  for (const root of document.querySelectorAll<HTMLElement>('[data-conditions-check]')) {
+    const n = Number(root.dataset.total);
+    const boxes = [...root.querySelectorAll<HTMLInputElement>('input[type=checkbox]')];
+    const score = root.querySelector<HTMLElement>('[data-score]')!;
+    const text = root.querySelector<HTMLElement>('[data-read]')!;
+    const update = () => {
+      const k = boxes.filter((b) => b.checked).length;
+      score.textContent = String(k);
+      text.textContent = read(k, n);
+    };
+    boxes.forEach((b) => b.addEventListener('change', update));
+    if (boxes.some((b) => b.checked)) update();
+  }
+</script>

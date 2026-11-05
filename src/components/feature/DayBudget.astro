@@ -1,0 +1,129 @@
+---
+// <DayBudget /> — "Build your working day": sliders share out an eight-hour day between competing
+// demands, and the time left for learning updates as they move. Illustrative, not time-use data.
+// Without JavaScript it shows the default day as a static breakdown.
+interface Item { id: string; label: string; hours: number }
+interface Props { hours?: number; items?: Item[]; title?: string }
+const {
+  hours = 8,
+  title = 'Build your working day',
+  items = [
+    { id: 'meetings', label: 'Meetings', hours: 2 },
+    { id: 'admin', label: 'Email and admin', hours: 1.5 },
+    { id: 'core', label: 'Core work and delivery', hours: 3 },
+    { id: 'interrupt', label: 'Unplanned interruptions', hours: 1 },
+  ],
+} = Astro.props;
+const left = hours - items.reduce((s, i) => s + i.hours, 0);
+const fmt = (h: number) => (Number.isInteger(h) ? `${h}` : h.toFixed(2).replace(/0$/, ''));
+---
+
+<figure class="fw fw-day" data-day-budget data-hours={hours} data-pagefind-ignore>
+  <div class="fw-label">Try it</div>
+  <h3 class="fw-title">{title}</h3>
+  <p class="fw-sub">An {hours}-hour day. Move the sliders to match a typical day in your job, and watch what's left for learning.</p>
+
+  <div class="db-bar" aria-hidden="true">
+    {items.map((it, i) => <span class={`db-seg db-c${i}`} data-seg={it.id} style={`flex-basis:${(it.hours / hours) * 100}%`}></span>)}
+    <span class="db-seg db-learn" data-seg="learn" style={`flex-basis:${(Math.max(left, 0) / hours) * 100}%`}></span>
+  </div>
+
+  <div class="db-rows">
+    {items.map((it, i) => (
+      <label class="db-row">
+        <span class="db-name"><span class={`db-dot db-c${i}`}></span>{it.label}</span>
+        <output class="db-val" data-out={it.id}>{fmt(it.hours)} {it.hours === 1 ? 'hr' : 'hrs'}</output>
+        <input type="range" min="0" max="6" step="0.25" value={it.hours} data-item={it.id} data-default={it.hours} aria-label={`${it.label}, hours`} />
+      </label>
+    ))}
+  </div>
+
+  <div class="db-result" aria-live="polite">
+    <div class="db-left"><span class="db-dot db-learn" aria-hidden="true"></span><span class="db-num" data-left>{fmt(left)}</span> <span class="db-unit" data-unit>hours left for learning</span></div>
+    <p class="db-verdict" data-verdict>Less than an hour: enough to click through a module, not enough to practise anything.</p>
+  </div>
+
+  <div class="db-actions">
+    <button type="button" class="db-reset" data-reset>Reset</button>
+  </div>
+  <figcaption class="fw-note">An illustrative day, not measured time-use data. The defaults are ours, chosen to start the thought experiment.</figcaption>
+</figure>
+
+<style>
+  .fw .db-bar { display: flex; height: 22px; margin: 18px 0 20px; background: var(--rule); overflow: hidden; border-radius: 2px; }
+  .fw .db-seg { display: block; flex-grow: 0; flex-shrink: 0; transition: flex-basis 0.25s ease; }
+  .fw .db-seg + .db-seg { box-shadow: inset 2px 0 0 var(--paper); }
+  .fw .db-c0 { background: var(--dv-1); }
+  .fw .db-c1 { background: var(--chart-base); }
+  .fw .db-c2 { background: var(--ink-2); }
+  .fw .db-c3 { background: var(--dv-3); }
+  .fw .db-learn { background: var(--ochre); }
+  .fw .db-rows { display: grid; gap: 14px; }
+  .fw .db-row { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 4px 12px; font: 400 15px/1.3 var(--sans); }
+  .fw .db-name { display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+  .fw .db-dot { width: 10px; height: 10px; border-radius: 2px; flex: none; }
+  .fw .db-val { font-weight: 600; font-variant-numeric: tabular-nums; color: var(--ink); }
+  .fw .db-row input { grid-column: 1 / -1; width: 100%; accent-color: var(--accent); margin: 0; min-height: 28px; }
+  .fw .db-result { margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--rule); }
+  .fw .db-left { font: 400 15px/1.2 var(--sans); color: var(--ink-2); display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .fw .db-left .db-dot { align-self: center; }
+  .fw .db-seg[hidden] { display: none; }
+  .fw-day.is-over .db-bar { outline: 2px solid var(--warn); outline-offset: 2px; }
+  .fw-day.is-over .db-left .db-dot { display: none; }
+  .fw .db-num { font: 600 clamp(2.2rem, 6vw, 3rem)/1 var(--sans); color: var(--ink); font-variant-numeric: tabular-nums; margin-right: 4px; }
+  .fw-day.is-over .db-num { color: var(--warn); }
+  .fw .db-verdict { font: 400 15px/1.5 var(--sans); color: var(--ink-2); margin: 10px 0 0; }
+  .fw .db-actions { margin-top: 14px; }
+  .fw .db-reset { font: 500 14px/1 var(--sans); background: transparent; color: var(--accent); border: 1px solid var(--rule); padding: 9px 14px; cursor: pointer; }
+  .fw .db-reset:hover { border-color: var(--accent); }
+  .fw .db-reset:focus-visible, .fw .db-row input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  @media (prefers-reduced-motion: reduce) { .fw .db-seg { transition: none; } }
+</style>
+
+<script>
+  const fmt = (h: number) => {
+    const r = Math.round(h * 100) / 100;
+    return Number.isInteger(r) ? `${r}` : r.toFixed(2).replace(/0$/, '');
+  };
+  const verdict = (left: number) => {
+    if (left < 0) return `You're ${fmt(-left)} hours over before any learning starts. Training happens after hours, or not at all.`;
+    if (left === 0) return 'Nothing left. A course would have to replace something else, or wait.';
+    if (left < 1) return 'Less than an hour: enough to click through a module, not enough to practise anything.';
+    if (left < 2) return 'Room for a short course, if nothing else lands on your desk today.';
+    return 'That is a protected learning block. How many of your weeks really look like this?';
+  };
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-day-budget]')) {
+    const total = Number(root.dataset.hours);
+    const inputs = [...root.querySelectorAll<HTMLInputElement>('input[data-item]')];
+    const leftEl = root.querySelector<HTMLElement>('[data-left]')!;
+    const unitEl = root.querySelector<HTMLElement>('[data-unit]')!;
+    const verdictEl = root.querySelector<HTMLElement>('[data-verdict]')!;
+    const seg = (id: string) => root.querySelector<HTMLElement>(`[data-seg="${id}"]`)!;
+
+    const update = () => {
+      const used = inputs.reduce((s, i) => s + Number(i.value), 0);
+      const left = Math.round((total - used) * 100) / 100;
+      const scale = Math.max(used, total); // when over, the bar shows the overrun squeezed into one day
+      for (const i of inputs) {
+        const v = Number(i.value);
+        root.querySelector<HTMLElement>(`[data-out="${i.dataset.item}"]`)!.textContent = `${fmt(v)} ${v === 1 ? 'hr' : 'hrs'}`;
+        i.setAttribute('aria-valuetext', `${fmt(v)} hours`);
+        seg(i.dataset.item!).style.flexBasis = `${(v / scale) * 100}%`;
+      }
+      const learn = seg('learn');
+      learn.style.flexBasis = `${(Math.max(left, 0) / scale) * 100}%`;
+      learn.hidden = left <= 0;
+      root.classList.toggle('is-over', left < 0);
+      leftEl.textContent = fmt(Math.abs(left));
+      unitEl.textContent = left < 0 ? 'hours over the day' : left === 1 ? 'hour left for learning' : 'hours left for learning';
+      verdictEl.textContent = verdict(left);
+    };
+    inputs.forEach((i) => i.addEventListener('input', update));
+    root.querySelector('[data-reset]')!.addEventListener('click', () => {
+      inputs.forEach((i) => (i.value = i.dataset.default!));
+      update();
+    });
+    update();
+  }
+</script>

@@ -1,0 +1,8 @@
+---
+// <ReaderPoll /> places the article's readerCheck inside the body instead of after it.
+// Needs `readerCheck.placement: inline` in the frontmatter (the build checks both ways).
+import ReaderCheck from './ReaderCheck.astro';
+const a = Astro.locals.article;
+if (!a?.data.readerCheck) throw new Error('<ReaderPoll /> needs a readerCheck in the frontmatter');
+---
+<ReaderCheck article={a} />
