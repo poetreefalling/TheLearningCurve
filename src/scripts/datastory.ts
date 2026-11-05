@@ -219,6 +219,14 @@ class StoryChart {
         // columns
         const vs = this.visibleSeries();
         const gw = Math.min(24, (band * 0.7) / vs.length);
+        // Value labels fit their column, decided once per chart so every label matches:
+        // drop the currency prefix if the longest label is too wide, then shrink (to 10px) if needed.
+        const room = band - 6;
+        const raw = vs.flatMap(({ s }) => s.values.map((v, k) => (v == null ? '' : format(d.format, v) + (s.estimate?.[k] ? '*' : ''))));
+        const strip = Math.max(0, ...raw.map((t) => textW(t))) > room;
+        const fit = (t: string) => (strip ? t.replace(/^US\$/, '') : t);
+        const widest = Math.max(1, ...raw.map((t) => textW(fit(t))));
+        const valSize = widest > room ? Math.max(10, Math.floor((13 * room) / widest)) : 0;
         vs.forEach(({ s, i }, j) => {
           s.values.forEach((v, k) => {
             const key = `col:${s.id}:${k}`;
@@ -232,7 +240,10 @@ class StoryChart {
             draws.push(() => { const g = this.geo[key] ?? target[key]; p.setAttribute('d', colPath(g[0], g[1], g[2], g[3])); });
             if (show && (!focus || focus.includes(k)) && (vs.length === 1)) {
               const lbl = el('text', { class: 'dv-val', x: x0 + gw / 2, y: top - 6, 'text-anchor': 'middle' }, svg);
-              if (!narrow || focus?.includes(k) || k === upTo) lbl.textContent = format(d.format, v!) + (s.estimate?.[k] ? '*' : '');
+              if (!narrow || focus?.includes(k) || k === upTo) {
+                lbl.textContent = fit(format(d.format, v!) + (s.estimate?.[k] ? '*' : ''));
+                if (valSize) (lbl as SVGTextElement).style.fontSize = `${valSize}px`;
+              }
             }
           });
         });
@@ -455,6 +466,23 @@ for (const sec of document.querySelectorAll<HTMLElement>('[data-scrolly]')) {
     for (const e of entries) if (e.isIntersecting) activate(e.target as HTMLElement);
   }, { rootMargin: mobile ? '-72% 0px -20% 0px' : '-45% 0px -45% 0px' });
   steps.forEach((s) => io.observe(s));
+
+  // On phones the cards scroll over the sticky chart: dim the chart while any card overlaps it.
+  const graphic = sec.querySelector<HTMLElement>('.scrolly-graphic');
+  const cards = [...sec.querySelectorAll<HTMLElement>('.scrolly-card')];
+  const narrowQ = window.matchMedia('(max-width: 899px)');
+  let ticking = false;
+  const checkCover = () => {
+    ticking = false;
+    if (!graphic || !narrowQ.matches) return sec.classList.remove('is-covered');
+    const g = graphic.getBoundingClientRect();
+    const covered = cards.some((c) => { const r = c.getBoundingClientRect(); return r.top < g.bottom - 8 && r.bottom > g.top + 8; });
+    sec.classList.toggle('is-covered', covered);
+  };
+  const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(checkCover); } };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  checkCover();
 }
 
 // ---- stat counters ----

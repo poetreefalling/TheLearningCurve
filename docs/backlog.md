@@ -63,14 +63,14 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 10 | How to Create an Online Course That Sells (and Teaches) | how to create an online course that sells | 140 · 27 | guide | done (Tue 3 Nov 12:00) |
 | 11 | Feedback That Improves Performance: What the Research Says | characteristics of effective feedback (row keyword "effective feedback in online learning" had 0 US volume) | 70 · 21 | library | done (Wed 4 Nov 00:00) |
 | 12 | Thinkific Pricing Explained: Which Plan Do You Actually Need? | thinkific pricing | 1,000 · 29 | review | todo |
-| 13 | Course Platforms: What Shipped This Month | ai course creation (row keyword "course platform updates" had 0 US volume) | 50 · 23 | trends | in PR (Wed 4 Nov 12:00) |
+| 13 | Course Platforms: What Shipped This Month | ai course creation (row keyword "course platform updates" had 0 US volume) | 50 · 23 | trends | done (Wed 4 Nov 12:00) |
 | 14 | Microlearning, Defined: When Short Lessons Work | microlearning defined | 260 · 22 | library | done (Thu 5 Nov 00:00) |
-| 15 | How to Storyboard an eLearning Module | elearning storyboard | 50 · 20 | guide | in PR (Thu 5 Nov 12:00) |
-| 16 | Are Microcredentials Worth It? What Learners and Employers Say | are microcredentials worth it | 50 · 22 | trends | next |
+| 15 | How to Storyboard an eLearning Module | elearning storyboard | 50 · 20 | guide | done (Thu 5 Nov 12:00) |
+| 16 | Are Microcredentials Worth It? What Learners and Employers Say | are microcredentials worth it | 50 · 22 | trends | blocked: duplicate of /trends/microcredentials-higher-education-this-term/ (targets "are micro credentials worth it" as a secondary keyword and FAQ) and of the 7 Dec flagship "What Are Microcredentials, and Are They Worth It?" |
 | 17 | Teachable Alternatives: Better Fits for Different Courses | teachable alternatives | 140 · 16 | comparison | todo |
-| 18 | The Testing Effect: Why Quizzes Teach as Well as Test | testing effect | check | library | todo |
-| 19 | Designing Course Quizzes That Make Learning Stick | how to design quiz questions | check | guide | todo |
-| 20 | Learning Styles: Why the Evidence Doesn't Support Them | learning styles myth | check | library | todo |
+| 18 | The Testing Effect: Why Quizzes Teach as Well as Test | testing effect | 1,900 · 33 | library | blocked: same principle as the 16 Nov retrieval practice flagship; Jim to decide whether to fold "testing effect" into the flagship as a secondary keyword |
+| 19 | Writing Multiple-Choice Questions That Teach as Well as Test | writing multiple choice questions (row keyword "how to design quiz questions" had 0 US volume) | 30 · 26 | guide | done (Fri 6 Nov 00:00) |
+| 20 | Learning Styles: Why the Evidence Doesn't Support Them | learning styles myth | check | library | next |
 | 21 | Kajabi Pricing Plans Compared | kajabi pricing plan | 210 · 28 | review | todo |
 | 22 | Online Education: The Research Worth Reading This Month | elearning research | check | trends | todo |
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
