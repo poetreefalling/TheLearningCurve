@@ -1,0 +1,23 @@
+{
+  "title": "Cutting extras from a screen had an effect size of 0.86 across 19 tests",
+  "subtitle": "Effect sizes Mayer reports for six principles a storyboard settles screen by screen, from his research group's experiments",
+  "type": "bar",
+  "unit": "effect size",
+  "highlight": "Coherence (cut extras)",
+  "series": [
+    { "label": "Modality (narrate, don't caption)", "value": 1.0 },
+    { "label": "Coherence (cut extras)", "value": 0.86 },
+    { "label": "Pre-training (name key terms first)", "value": 0.78 },
+    { "label": "Signalling (cue what matters)", "value": 0.69 },
+    { "label": "Segmenting (learner-paced chunks)", "value": 0.67 },
+    { "label": "Redundancy (no on-screen copy of narration)", "value": 0.1 }
+  ],
+  "yMax": 1.2,
+  "source": {
+    "authors": "Mayer, R. E.",
+    "year": 2024,
+    "doi": "10.1007/s10648-023-09842-1",
+    "url": "https://link.springer.com/content/pdf/10.1007/s10648-023-09842-1.pdf",
+    "figureOrTable": "Table 6"
+  }
+}
