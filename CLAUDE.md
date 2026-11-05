@@ -19,6 +19,10 @@ commissions pay its way; they never decide what gets written or how a platform s
 - Components available in an article body, with no import needed: `<ResearchCard n={0} />`,
   `<Chart id="<chart-id>" />`, `<Callout>…</Callout>`, `<Figure src alt caption credit />`,
   `<PlatformLink id="thinkific" />`, and in reviews `<PriceTable />` and `<ComparisonTable />`.
+  Data stories also have interactive charts from `src/data/stories/<id>.json`: `<DataChart id="…" />`,
+  `<Scrolly chart="…"><Step view="…">…</Step></Scrolly>` (the chart sticks and changes as each
+  step scrolls past) and `<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`.
+  `src/content/articles/trends/sample-data-story.mdx` shows them all.
   Every research card and chart listed in the frontmatter must be placed in the body. MDX
   treats `{`, `}` and `<` as code, so don't use them in prose.
 - Editor flags (`[JIM: …]`, `[TO VERIFY: …]`) show highlighted on preview builds. Production
@@ -31,6 +35,8 @@ commissions pay its way; they never decide what gets written or how a platform s
   `brand/originals/` as WebP. Charts: `src/data/charts/<id>.json`, drawn at build time.
 - Deploys: Cloudflare Pages builds `main`; pull requests get a preview URL. A GitHub Action
   rebuilds at each publishing slot so future-dated articles go live on time.
+- Ads: `src/data/ads.json`, managed by Jim in the Ads tab at /admin (`docs/ads.md`). Never add, edit
+  or remove a campaign or the AdSense settings unless Jim asks; never put ads on reviews or comparisons.
 - `docs/editorial.md` is the style guide: voice, article shapes, citation rules, review method
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.
@@ -95,6 +101,10 @@ empty slot is better than a weak article.
    glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
    per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
+   Every article gets its own image: never reuse or copy another article's hero, a sample's, or
+   a reference image as a placeholder. The build fails if two published articles share a hero
+   (it compares image fingerprints, so re-encoded copies are caught). If you can't produce a new
+   image that passes, open no PR.
 7. **Update `docs/backlog.md`.** Mark the row `in PR` with the slot, and mark the next `todo`
    row `next`.
 8. **Build.** Run `npm ci && npm run build`. Fix anything that fails. (Flags don't fail this

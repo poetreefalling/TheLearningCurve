@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Review desk · The Learning Curve</title>
+<title>Admin · The Learning Curve</title>
 <link rel="icon" href="/favicon.ico">
 <style>
   :root {
@@ -47,6 +47,7 @@
   .item { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
   .item .grow { flex: 1; min-width: 240px; }
   .slot { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .slot .prnum { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   .item h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; margin: 2px 0 8px; line-height: 1.25; }
   .pill { display: inline-block; font-size: 13px; font-weight: 600; padding: 3px 10px; border-radius: 999px; margin-right: 6px; }
   .pill.ok { background: var(--ok-bg); color: var(--ok); }
@@ -73,12 +74,38 @@
   ol.sources { padding-left: 20px; } ol.sources li { margin-bottom: 8px; }
   blockquote { margin: 8px 0; padding: 8px 14px; border-left: 3px solid var(--rule); font-family: var(--serif); font-size: 17px; }
   .hidden { display: none !important; }
+  .tabs { display: flex; gap: 4px; }
+  .tabs button { border: 0; background: none; padding: 8px 12px; font-weight: 600; color: var(--muted); border-radius: 8px; }
+  .tabs button[aria-current=page] { background: var(--paper); color: var(--ink); }
+  table.list { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.list th { text-align: left; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding: 8px 8px; border-bottom: 1px solid var(--rule); }
+  table.list td { padding: 10px 8px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  table.list td.acts { white-space: nowrap; text-align: right; }
+  table.list td.acts button { padding: 6px 10px; font-size: 14px; font-weight: 500; }
+  .thumb { width: 72px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--rule); background: var(--paper); display: block; }
+  .form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; }
+  .form .full { grid-column: 1 / -1; }
+  .form label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+  .form .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  input[type=text], input[type=url], input[type=date], select {
+    width: 100%; font: 16px/1.4 var(--sans); color: var(--ink); background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 8px; padding: 9px 11px;
+  }
+  .check { display: flex; gap: 10px; align-items: center; font-weight: 600; }
+  .check input { width: 18px; height: 18px; }
+  .preview { max-width: 100%; max-height: 260px; border: 1px solid var(--rule); border-radius: 6px; display: block; margin-top: 8px; }
+  .scroll { overflow-x: auto; }
+  @media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <strong>The Learning Curve</strong><span>Review desk</span>
+    <strong>The Learning Curve</strong>
+    <nav class="tabs hidden" id="tabs" aria-label="Admin">
+      <button type="button" data-tab="articles" aria-current="page">Articles</button>
+      <button type="button" data-tab="ads">Ads</button>
+    </nav>
     <div class="spacer"></div>
     <button class="link hidden" id="logout">Sign out</button>
   </div>
@@ -113,6 +140,7 @@ function notice() {
 function showLogin(message) {
   clearTimeout(state.pollTimer);
   document.getElementById('logout').classList.add('hidden');
+  document.getElementById('tabs').classList.add('hidden');
   app.innerHTML = `
     <form class="login card" id="loginForm">
       <h1>Sign in</h1>
@@ -126,7 +154,7 @@ function showLogin(message) {
   document.getElementById('loginForm').onsubmit = async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button'); btn.disabled = true; btn.textContent = 'Signing in…';
-    try { await api('login', { method: 'POST', body: { password: document.getElementById('pw').value } }); loadQueue(); }
+    try { await api('login', { method: 'POST', body: { password: document.getElementById('pw').value } }); start(); }
     catch (err) { showLogin(err.message); }
   };
 }
@@ -146,7 +174,7 @@ function flagsPill(n) {
 
 async function loadQueue() {
   clearTimeout(state.pollTimer);
-  document.getElementById('logout').classList.remove('hidden');
+  setTab('articles');
   app.innerHTML = '<p class="muted">Loading the articles waiting for you…</p>';
   try {
     const data = await api('queue');
@@ -163,7 +191,7 @@ function renderQueue() {
     ${items.map((it, i) => it.articles.map((a) => `
       <div class="card item">
         <div class="grow">
-          <div class="slot">${esc(a.slot)} · ${esc(cap(a.section))}</div>
+          <div class="slot">${esc(a.slot)} · ${esc(cap(a.section))} · <a href="${esc(it.url)}" target="_blank" rel="noopener" class="prnum">#${esc(it.number)}</a></div>
           <h3>${esc(a.title)}</h3>
           ${flagsPill(a.flags.length)} ${checksPill(it.checks, a.flags.length)}
         </div>
@@ -242,7 +270,7 @@ function renderArticle() {
 
   app.innerHTML = notice() + `
     <p><button class="link" id="back">← All articles</button></p>
-    <div class="slot">${esc(article.slot)} · ${esc(cap(article.section))}</div>
+    <div class="slot">${esc(article.slot)} · ${esc(cap(article.section))} · <a href="${esc(item.url)}" target="_blank" rel="noopener" class="prnum">#${esc(item.number)}</a></div>
     <h1>${esc(article.title)}</h1>
     <p>${flagsPill(n)} ${checksPill(item.checks, n)}</p>
     <p class="small"><a href="${esc(article.previewUrl)}" target="_blank" rel="noopener">Open the preview ↗</a>
@@ -327,17 +355,18 @@ function applyFixes(content) {
       if (!out.includes(flag)) continue;
       out = out.replace(flag, () => text);
     } else {
-      const lines = out.split('\n');
-      const li = lines.findIndex((l) => l.includes(flag));
-      if (li < 0) continue;
-      if (lines[li].trim() === flag) {
-        // The flag is a whole paragraph: drop the line and one surrounding blank line
-        lines.splice(li, 1);
-        if (lines[li] !== undefined && lines[li].trim() === '' && li > 0 && lines[li - 1].trim() === '') lines.splice(li, 1);
+      const at = out.indexOf(flag);
+      if (at < 0) continue;
+      const before = out.slice(0, at), after = out.slice(at + flag.length);
+      if (/(^|\n\n)$/.test(before) && /^(\n\n|\n?$)/.test(after)) {
+        // The flag is a whole paragraph (it may wrap over several lines): drop it and one blank line
+        out = before + after.replace(/^\n\n?/, '');
       } else {
-        lines[li] = lines[li].replace(' ' + flag, '').replace(flag + ' ', '').replace(flag, '').replace(/\s+$/, '');
+        // Inside a sentence: drop the flag, keeping one space between the words either side
+        const left = before.replace(/[ \t]+$/, ''), right = after.replace(/^[ \t]+/, '');
+        const space = /\S$/.test(left) && /^[^\s.,;:!?)]/.test(right) ? ' ' : '';
+        out = left + space + right;
       }
-      out = lines.join('\n');
     }
     applied++;
   }
@@ -394,8 +423,234 @@ window.addEventListener('beforeunload', (e) => {
   if (hasUnsavedFixes()) { e.preventDefault(); e.returnValue = ''; }
 });
 
+// ---------- tabs ----------
+function setTab(tab) {
+  document.getElementById('logout').classList.remove('hidden');
+  document.getElementById('tabs').classList.remove('hidden');
+  document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
+  if (location.hash !== (tab === 'ads' ? '#ads' : '')) history.replaceState(null, '', tab === 'ads' ? '#ads' : location.pathname);
+}
+document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
+  if (b.dataset.tab === 'ads') { if (unsavedOk()) { state.current = null; loadAds(); } }
+  else if (adsUnsavedOk()) loadQueue();
+});
+function start() { location.hash === '#ads' ? loadAds() : loadQueue(); }
+
+// ---------- ads ----------
+// The ad manager edits src/data/ads.json (rules: src/lib/ads.ts, docs/ads.md). Changes stay in this
+// page until "Save and publish", which commits them and any new images to the live site in one go.
+const SLOTS = {
+  billboard: { label: 'Billboard', size: '970 × 250', w: 970, h: 250, where: 'Home page between rows, and the end of each article' },
+  rectangle: { label: 'Medium rectangle', size: '300 × 250', w: 300, h: 250, where: 'Home page grid, and inside articles' },
+  halfpage: { label: 'Half page', size: '300 × 600', w: 300, h: 600, where: 'Sticky rail beside articles, on wide screens only' },
+  card: { label: 'Sponsored card', size: '1200 × 800', w: 1200, h: 800, where: 'Home page grid, styled like an article card' },
+};
+const PAGES = { both: 'Home page and articles', home: 'Home page only', articles: 'Articles only' };
+let ads = null; // { config, sha, saved, uploads: { name: dataUrl }, editing: index | 'new' | null, draft }
+
+const sydneyToday = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Sydney', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+function adStatus(k) {
+  const t = sydneyToday();
+  if (!k.active) return ['Paused', 'warn'];
+  if (k.end < t) return ['Ended', ''];
+  if (k.start > t) return ['Starts ' + fmtDay(k.start), 'warn'];
+  return ['Live', 'ok'];
+}
+const fmtDay = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+const adsDirty = () => ads && JSON.stringify(ads.config) !== ads.saved;
+function adsUnsavedOk() { return !adsDirty() || confirm('You have ad changes you haven\'t published. Leave without publishing?'); }
+const imgSrc = (path) => (ads.uploads[path.replace('/ads/', '')] || path);
+
+async function loadAds() {
+  clearTimeout(state.pollTimer);
+  setTab('ads');
+  app.innerHTML = '<p class="muted">Loading the ad settings…</p>';
+  try {
+    const data = await api('ads');
+    ads = { config: data.config, sha: data.sha, saved: JSON.stringify(data.config), uploads: {}, editing: null, draft: null };
+    renderAds();
+  } catch (e) { if (e.message !== 'signed-out') app.innerHTML = `<div class="notice bad">${esc(e.message)}</div>`; }
+}
+
+function renderAds() {
+  const c = ads.config, n = c.network;
+  const order = (k) => ({ Live: 0, Starts: 1, Paused: 2, Ended: 3 })[adStatus(k)[0].split(' ')[0]];
+  const rows = c.campaigns.map((k, i) => ({ k, i })).sort((a, b) => order(a.k) - order(b.k) || a.k.start.localeCompare(b.k.start));
+  app.innerHTML = notice() + `
+    <h1>Ads</h1>
+    <p class="muted">Direct sponsors show first. When a slot has no live sponsor, the ad network fills it (if it's switched on); otherwise the slot simply doesn't appear. Reviews and comparisons never carry ads.</p>
+    <p class="small muted">Saved changes go live about two minutes after you publish them. Campaigns start and end on their dates at the next scheduled rebuild (midnight or midday, Sydney time); an ended campaign also hides itself in readers' browsers straight away.</p>
+
+    <h2>Sponsors</h2>
+    ${c.campaigns.length ? `<div class="card scroll"><table class="list">
+      <thead><tr><th></th><th>Campaign</th><th>Slot</th><th>Dates</th><th>Status</th><th></th></tr></thead>
+      <tbody>${rows.map(({ k, i }) => { const [s, cls] = adStatus(k); return `<tr>
+        <td><img class="thumb" src="${esc(imgSrc(k.image))}" alt=""></td>
+        <td><strong>${esc(k.name)}</strong><div class="small muted">${esc(k.sponsor)} · ${esc(PAGES[k.pages])}</div></td>
+        <td class="small">${esc(SLOTS[k.slot].label)}</td>
+        <td class="small">${esc(fmtDay(k.start))} to ${esc(fmtDay(k.end))}</td>
+        <td><span class="pill ${cls}">${esc(s)}</span></td>
+        <td class="acts"><button type="button" data-edit="${i}">Edit</button> <button type="button" data-toggle="${i}">${k.active ? 'Pause' : 'Resume'}</button> <button type="button" data-del="${i}">Remove</button></td>
+      </tr>`; }).join('')}</tbody></table></div>`
+    : '<p class="muted">No sponsors booked yet.</p>'}
+    <p><button type="button" class="primary" id="addAd">Add a sponsor campaign</button></p>
+    <div id="adForm"></div>
+
+    <h2>Ad network (fallback)</h2>
+    <div class="card">
+      <div class="form">
+        <div class="full"><label class="check"><input type="checkbox" id="netOn" ${n.enabled ? 'checked' : ''}> Fill empty slots with Google AdSense</label>
+          <div class="hint">Turn this on once AdSense has approved the site and you've created the ad units below. Set up Google's consent message for European and UK visitors in AdSense (Privacy &amp; messaging) before switching on.</div></div>
+        <div class="full"><label for="netClient">AdSense publisher ID</label><input type="text" id="netClient" value="${esc(n.client)}" placeholder="ca-pub-1234567890123456" spellcheck="false">
+          <div class="hint">AdSense → Account → Account information. The site's ads.txt updates from this automatically.</div></div>
+        ${['billboard', 'rectangle', 'halfpage'].map((s) => `<div><label for="net-${s}">${esc(SLOTS[s].label)} ad unit ID</label><input type="text" id="net-${s}" value="${esc(n.slots[s] || '')}" inputmode="numeric" placeholder="e.g. 1234567890"><div class="hint">${esc(SLOTS[s].where)}</div></div>`).join('')}
+      </div>
+    </div>
+
+    <h2>Slot sizes</h2>
+    <div class="card scroll"><table class="list"><thead><tr><th>Slot</th><th>Image size</th><th>Where it shows</th></tr></thead>
+      <tbody>${Object.values(SLOTS).map((s) => `<tr><td><strong>${esc(s.label)}</strong></td><td class="small">${esc(s.size)} px (or twice that for sharp screens)</td><td class="small">${esc(s.where)}</td></tr>`).join('')}</tbody></table></div>
+
+    <div class="actions">
+      <button class="primary" id="saveAds" ${adsDirty() ? '' : 'disabled'}>Save and publish</button>
+      <span class="small muted">${adsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.'}</span>
+    </div>`;
+
+  app.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => editAd(Number(b.dataset.edit)));
+  app.querySelectorAll('[data-toggle]').forEach((b) => b.onclick = () => { const k = c.campaigns[b.dataset.toggle]; k.active = !k.active; renderAds(); });
+  app.querySelectorAll('[data-del]').forEach((b) => b.onclick = () => {
+    const k = c.campaigns[b.dataset.del];
+    if (confirm(`Remove "${k.name}"? It comes down when you publish.`)) { c.campaigns.splice(Number(b.dataset.del), 1); renderAds(); }
+  });
+  document.getElementById('addAd').onclick = () => editAd('new');
+  const net = () => {
+    n.enabled = document.getElementById('netOn').checked;
+    n.client = document.getElementById('netClient').value.trim();
+    ['billboard', 'rectangle', 'halfpage'].forEach((s) => n.slots[s] = document.getElementById('net-' + s).value.trim());
+    const btn = document.getElementById('saveAds'); btn.disabled = !adsDirty();
+  };
+  app.querySelectorAll('#netOn, #netClient, [id^=net-]').forEach((el) => el.oninput = el.onchange = net);
+  document.getElementById('saveAds').onclick = saveAds;
+  if (ads.editing !== null) renderAdForm();
+}
+
+function editAd(i) {
+  const t = sydneyToday();
+  ads.editing = i;
+  ads.draft = i === 'new'
+    ? { id: 'ad-' + Date.now().toString(36), name: '', sponsor: '', slot: 'rectangle', pages: 'both', image: '', alt: '', url: 'https://', headline: '', text: '', start: t, end: t, active: true }
+    : { headline: '', text: '', ...ads.config.campaigns[i] };
+  renderAds();
+  document.getElementById('adForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderAdForm() {
+  const d = ads.draft, s = SLOTS[d.slot];
+  const box = document.getElementById('adForm');
+  box.innerHTML = `<div class="card">
+    <h3 style="margin-top:0">${ads.editing === 'new' ? 'New sponsor campaign' : 'Edit campaign'}</h3>
+    <div class="form">
+      <div><label for="f-name">Campaign name</label><input type="text" id="f-name" value="${esc(d.name)}" placeholder="e.g. Acme LMS, November"><div class="hint">For you; readers don't see it.</div></div>
+      <div><label for="f-sponsor">Sponsor</label><input type="text" id="f-sponsor" value="${esc(d.sponsor)}" placeholder="e.g. Acme LMS"><div class="hint">Shown on sponsored cards.</div></div>
+      <div><label for="f-slot">Slot</label><select id="f-slot">${Object.entries(SLOTS).map(([k, v]) => `<option value="${k}" ${d.slot === k ? 'selected' : ''}>${esc(v.label)} (${esc(v.size)})</option>`).join('')}</select><div class="hint">${esc(s.where)}</div></div>
+      <div><label for="f-pages">Where it shows</label><select id="f-pages" ${d.slot === 'card' || d.slot === 'halfpage' ? 'disabled' : ''}>${Object.entries(PAGES).map(([k, v]) => `<option value="${k}" ${d.pages === k ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select>
+        <div class="hint">${d.slot === 'card' ? 'Sponsored cards only appear on the home page.' : d.slot === 'halfpage' ? 'The half page only appears beside articles.' : 'Never on reviews or comparisons.'}</div></div>
+      <div class="full"><label for="f-file">Image</label><input type="file" id="f-file" accept="image/webp,image/jpeg,image/png,image/gif">
+        <div class="hint">${esc(s.size)} px, or twice that for sharp screens. WebP or JPEG, under 1.5 MB.</div>
+        <div id="f-check" class="hint"></div>
+        ${d.image ? `<img class="preview" id="f-preview" src="${esc(imgSrc(d.image))}" alt="">` : ''}</div>
+      <div class="full"><label for="f-alt">Image description</label><input type="text" id="f-alt" value="${esc(d.alt)}" placeholder="What the ad says or shows, for screen readers"></div>
+      <div class="full"><label for="f-url">Link</label><input type="url" id="f-url" value="${esc(d.url)}" spellcheck="false"><div class="hint">The full address, starting https://. Add the sponsor's tracking tags (UTM) here if they want them.</div></div>
+      ${d.slot === 'card' ? `
+        <div class="full"><label for="f-headline">Headline</label><input type="text" id="f-headline" value="${esc(d.headline)}" maxlength="90"><div class="hint">Up to 90 characters. Shown under a "Sponsored" label.</div></div>
+        <div class="full"><label for="f-text">One line of text (optional)</label><input type="text" id="f-text" value="${esc(d.text)}" maxlength="160"></div>` : ''}
+      <div><label for="f-start">Starts</label><input type="date" id="f-start" value="${esc(d.start)}"></div>
+      <div><label for="f-end">Ends (last day it shows)</label><input type="date" id="f-end" value="${esc(d.end)}"></div>
+      <div class="full"><label class="check"><input type="checkbox" id="f-active" ${d.active ? 'checked' : ''}> Running (untick to pause it)</label></div>
+    </div>
+    <p></p>
+    <button type="button" class="primary" id="f-done">${ads.editing === 'new' ? 'Add campaign' : 'Keep changes'}</button>
+    <button type="button" id="f-cancel">Cancel</button>
+    <span class="small muted"> Then press Save and publish below.</span>
+  </div>`;
+
+  const read = () => {
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    Object.assign(d, { name: v('f-name'), sponsor: v('f-sponsor'), alt: v('f-alt'), url: v('f-url'), start: v('f-start'), end: v('f-end'), active: document.getElementById('f-active').checked });
+    if (d.slot === 'card') Object.assign(d, { headline: v('f-headline'), text: v('f-text') });
+  };
+  document.getElementById('f-slot').onchange = (e) => {
+    read(); d.slot = e.target.value;
+    if (d.slot === 'card') d.pages = 'home';
+    if (d.slot === 'halfpage') d.pages = 'articles';
+    renderAdForm();
+  };
+  document.getElementById('f-pages').onchange = (e) => { d.pages = e.target.value; };
+  document.getElementById('f-file').onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 1_500_000) { document.getElementById('f-check').textContent = 'That file is over 1.5 MB. Export it smaller (WebP or JPEG) and try again.'; return; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      read();
+      const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace('jpeg', 'jpg');
+      const slug = (d.sponsor || 'ad').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'ad';
+      const name = `${d.start || sydneyToday()}-${slug}-${d.slot}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
+      ads.uploads[name] = reader.result;
+      d.image = '/ads/' + name;
+      const img = new Image();
+      img.onload = () => {
+        const want = SLOTS[d.slot].w / SLOTS[d.slot].h, got = img.naturalWidth / img.naturalHeight;
+        const msg = Math.abs(got - want) / want > 0.04
+          ? `This image is ${img.naturalWidth} × ${img.naturalHeight}, a different shape from the ${SLOTS[d.slot].size} slot, so its edges will be cropped.`
+          : img.naturalWidth < SLOTS[d.slot].w ? `This image is ${img.naturalWidth} × ${img.naturalHeight}: smaller than the slot, so it may look soft.` : `Image fits the slot (${img.naturalWidth} × ${img.naturalHeight}).`;
+        renderAdForm();
+        document.getElementById('f-check').textContent = msg;
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  document.getElementById('f-cancel').onclick = () => { ads.editing = null; ads.draft = null; renderAds(); };
+  document.getElementById('f-done').onclick = () => {
+    read();
+    const problem = !d.name ? 'Give the campaign a name.' : !d.sponsor ? "Add the sponsor's name." : !d.image ? 'Choose an image.'
+      : d.alt.length < 3 ? 'Describe the image for screen readers.' : !/^https:\/\/[^\s/]+\.[^\s]+/.test(d.url) ? 'The link must be a full https:// address.'
+      : !d.start || !d.end ? 'Add a start and an end date.' : d.end < d.start ? 'The campaign ends before it starts.'
+      : d.slot === 'card' && !d.headline ? 'A sponsored card needs a headline.' : '';
+    if (problem) { document.getElementById('f-check').textContent = problem; document.getElementById('f-check').style.color = 'var(--bad)'; return; }
+    const clean = { id: d.id, name: d.name, sponsor: d.sponsor, slot: d.slot, pages: d.pages, image: d.image, alt: d.alt, url: d.url, start: d.start, end: d.end, active: d.active };
+    if (d.slot === 'card') { clean.headline = d.headline; if (d.text) clean.text = d.text; }
+    if (ads.editing === 'new') ads.config.campaigns.push(clean); else ads.config.campaigns[ads.editing] = clean;
+    ads.editing = null; ads.draft = null;
+    renderAds();
+  };
+}
+
+async function saveAds() {
+  const btn = document.getElementById('saveAds'); btn.disabled = true; btn.textContent = 'Publishing…';
+  const before = JSON.parse(ads.saved);
+  const names = (cs) => new Set(cs.map((k) => k.id));
+  const added = ads.config.campaigns.filter((k) => !names(before.campaigns).has(k.id)).map((k) => k.name);
+  const removed = before.campaigns.filter((k) => !names(ads.config.campaigns).has(k.id)).map((k) => k.name);
+  const summary = [added.length && 'add ' + added.join(', '), removed.length && 'remove ' + removed.join(', ')].filter(Boolean).join('; ') || 'update ad settings';
+  const used = new Set(ads.config.campaigns.map((k) => k.image.replace('/ads/', '')));
+  const uploads = Object.entries(ads.uploads).filter(([name]) => used.has(name)).map(([name, data]) => ({ name, data }));
+  try {
+    const res = await api('ads/save', { method: 'POST', body: { config: ads.config, sha: ads.sha, uploads, summary } });
+    ads.sha = res.sha; ads.saved = JSON.stringify(ads.config);
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: 'Published. The site rebuilds now; the changes are live in about two minutes.' };
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+  }
+  renderAds();
+}
+
+window.addEventListener('beforeunload', (e) => { if (adsDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
 // Start
-api('session').then(loadQueue).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });
+api('session').then(start).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });
 </script>
 </body>
 </html>

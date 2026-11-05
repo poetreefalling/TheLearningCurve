@@ -1,0 +1,94 @@
+{
+  "title": "EdTech venture funding fell almost 90% from its 2021 peak",
+  "subtitle": "Global EdTech venture capital investment, US$ billions",
+  "type": "column",
+  "format": "usd-billions",
+  "categories": [
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "vc",
+      "label": "Venture capital",
+      "values": [
+        7,
+        16.1,
+        20.8,
+        10.6,
+        3,
+        2.4,
+        2.6
+      ],
+      "estimate": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    }
+  ],
+  "views": {
+    "boom": {
+      "upTo": 2,
+      "focus": [
+        2
+      ]
+    },
+    "bust": {
+      "upTo": 5,
+      "focus": [
+        5
+      ]
+    },
+    "steady": {
+      "focus": [
+        6
+      ]
+    }
+  },
+  "notes": [
+    "2023 is HolonIQ's figure published on 18 December 2023, before the year ended, so it is shown as an estimate.",
+    "Each year's total is from that year's HolonIQ summary; HolonIQ sometimes revises earlier years."
+  ],
+  "sources": [
+    {
+      "label": "HolonIQ (28 Jan 2020)",
+      "url": "https://www.holoniq.com/notes/87bn-of-global-edtech-funding-predicted-to-2030",
+      "figureOrTable": "2019 total"
+    },
+    {
+      "label": "HolonIQ (5 Jan 2021)",
+      "url": "https://www.holoniq.com/notes/16-1b-of-global-edtech-venture-capital-in-2020",
+      "figureOrTable": "2020 total"
+    },
+    {
+      "label": "HolonIQ (3 Jan 2023)",
+      "url": "https://www.holoniq.com/notes/2022-edtech-vc-funding-totals-10-6b-down-from-20-8b-in-2021",
+      "figureOrTable": "2021 and 2022 totals"
+    },
+    {
+      "label": "HolonIQ (18 Dec 2023)",
+      "url": "https://www.holoniq.com/notes/2024-global-education-outlook",
+      "figureOrTable": "2023 estimate"
+    },
+    {
+      "label": "HolonIQ (15 Jan 2025)",
+      "url": "https://www.holoniq.com/notes/edtech-vc-reached-2-4b-for-2024-representing-the-lowest-level-of-investment-in-a-decade",
+      "figureOrTable": "2024 total"
+    },
+    {
+      "label": "HolonIQ (6 Feb 2026)",
+      "url": "https://www.holoniq.com/notes/edtech-hits-2-6b-in-investment-as-the-market-stabilizes-bigger-bets-in-ai-and-workforce-training",
+      "figureOrTable": "2025 total"
+    }
+  ]
+}

@@ -46,6 +46,53 @@ const charts = defineCollection({
   }),
 });
 
+// Interactive data-story charts (src/data/stories/<id>.json), drawn in the browser by
+// src/scripts/datastory.ts and animated by <Scrolly> steps or on scroll. Numbers only from the
+// cited source's own tables or figures, like the static charts.
+const storyView = z.object({
+  upTo: z.number().int().min(0).optional(), // reveal categories 0..upTo
+  highlight: z.array(z.string()).optional(), // series ids at full strength; others fade
+  focus: z.array(z.number().int().min(0)).optional(), // category indexes to emphasise (bars)
+  annotations: z.array(z.object({ at: z.number().int().min(0), series: z.string().optional(), text: z.string().max(60) })).default([]),
+});
+const stories = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/stories' }),
+  schema: z
+    .object({
+      title: z.string().max(120), // states the finding
+      subtitle: z.string().max(160),
+      type: z.enum(['line', 'column', 'bar', 'groupedBar']),
+      format: z.enum(['percent', 'number', 'compact', 'usd-billions', 'millions', 'sd']),
+      yMax: z.number().optional(),
+      categories: z.array(z.string()).min(1),
+      series: z.array(z.object({
+        id: z.string(),
+        label: z.string(),
+        values: z.array(z.number().nullable()),
+        estimate: z.array(z.boolean()).optional(),
+      })).min(1).max(3),
+      views: z.record(storyView).default({}),
+      notes: z.array(z.string()).default([]),
+      sources: z.array(z.object({ label: z.string(), url: z.string().url(), figureOrTable: z.string() })).min(1),
+    })
+    .superRefine((c, ctx) => {
+      c.series.forEach((s, i) => {
+        if (s.values.length !== c.categories.length)
+          ctx.addIssue({ code: 'custom', message: `series[${i}] has ${s.values.length} values for ${c.categories.length} categories` });
+        if (s.estimate && s.estimate.length !== c.categories.length)
+          ctx.addIssue({ code: 'custom', message: `series[${i}].estimate length must match categories` });
+      });
+      const ids = new Set(c.series.map((s) => s.id));
+      for (const [name, v] of Object.entries(c.views)) {
+        v.highlight?.forEach((h) => { if (!ids.has(h)) ctx.addIssue({ code: 'custom', message: `view "${name}": unknown series "${h}"` }); });
+        v.annotations.forEach((a) => {
+          if (a.at >= c.categories.length) ctx.addIssue({ code: 'custom', message: `view "${name}": annotation index ${a.at} out of range` });
+          if (a.series && !ids.has(a.series)) ctx.addIssue({ code: 'custom', message: `view "${name}": unknown series "${a.series}"` });
+        });
+      }
+    }),
+});
+
 const source = z.object({
   authors: z.string(), // "Roediger, H. L., & Karpicke, J. D."
   year: z.number(),
@@ -229,4 +276,4 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles, myths };
+export const collections = { platforms, charts, articles, myths, stories };

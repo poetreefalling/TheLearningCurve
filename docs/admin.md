@@ -1,4 +1,4 @@
-# Review desk (thelearningcurve.net/admin)
+# Admin: the review desk and the ad manager (thelearningcurve.net/admin)
 
 A password-protected page for reviewing drafts without using GitHub. It lists every open
 article pull request (branches starting `article/`), earliest slot first, and for each one:
@@ -13,6 +13,18 @@ article pull request (branches starting `article/`), earliest slot first, and fo
 Saving commits to the article's branch ("Edit via review desk: …"), so Claude and GitHub see the
 same text. If Claude changed the article after you opened it, the desk refuses to overwrite and
 asks you to reload.
+
+## Ads tab
+
+The ad manager: book sponsors into the ad slots, pause or remove them, and switch the AdSense
+fallback on or off. Changes stay on the page until **Save and publish**, which commits
+`src/data/ads.json` (and any new images, into `public/ads/`) to `main` in one commit; the live site
+rebuilds in about two minutes. How the slots work, the image sizes and the AdSense setup are in
+`docs/ads.md`.
+
+Saving needs the same token as the review desk (Contents: read and write). If `main` has branch
+protection that blocks direct commits, the save fails with GitHub's message: allow the token to
+push, or ask Claude to open a pull request with the change instead.
 
 ## One-time setup
 

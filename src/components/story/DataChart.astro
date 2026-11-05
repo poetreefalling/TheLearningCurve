@@ -1,0 +1,86 @@
+---
+// <DataChart id="edtech-vc" /> — an interactive chart from src/data/stories/<id>.json.
+// Inside <Scrolly> its view follows the steps; on its own it grows in when it scrolls into view.
+// Without JavaScript, the data table is the chart.
+import { getEntry } from 'astro:content';
+import { format } from '../../scripts/datastory-format';
+
+// part: 'all' (default), 'graphic' (title, legend, chart) or 'meta' (data table and sources).
+// <Scrolly> uses 'graphic' in the sticky panel and 'meta' after the steps.
+interface Props { id: string; view?: string; part?: 'all' | 'graphic' | 'meta' }
+const { id, view, part = 'all' } = Astro.props;
+const graphic = part !== 'meta', meta = part !== 'graphic';
+const entry = await getEntry('stories', id);
+if (!entry) throw new Error(`DataChart: no src/data/stories/${id}.json`);
+const c = entry.data;
+const json = JSON.stringify(c).replace(/</g, '\\u003c');
+---
+
+{graphic && (
+<figure class={`story-chart${meta ? '' : ' is-graphic-only'}`} data-story-chart data-view={view} id={`chart-${id}`}>
+  <h3 class="story-title">{c.title}</h3>
+  <p class="story-sub">{c.subtitle}</p>
+  <div class="story-legend" data-chart-legend></div>
+  <div class="story-canvas" data-chart-canvas>
+    <p class="story-fallback">Interactive chart. The figures are in the table below.</p>
+  </div>
+  {meta && <>
+  <details class="story-data">
+    <summary>Show the data</summary>
+    <div class="story-table-wrap">
+      <table>
+        <thead>
+          <tr><td></td>{c.series.map((s) => <th scope="col">{s.label}</th>)}</tr>
+        </thead>
+        <tbody>
+          {c.categories.map((cat, i) => (
+            <tr>
+              <th scope="row">{cat}{c.series.some((s) => s.estimate?.[i]) ? ' (estimate)' : ''}</th>
+              {c.series.map((s) => <td>{format(c.format, s.values[i], 'exact')}</td>)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <figcaption class="story-source">
+    {c.notes.length > 0 && <span class="story-note">{c.notes.join(' ') + ' '}</span>}
+    <span>
+      Source{c.sources.length > 1 ? 's' : ''}:{' '}
+      {c.sources.map((s, i) => (
+        <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.label}</a>, {s.figureOrTable}</>
+      ))}.
+    </span>
+  </figcaption>
+  </>}
+  <script type="application/json" set:html={json} />
+</figure>
+)}
+{!graphic && (
+  <div class="story-chart story-meta">
+    <details class="story-data">
+      <summary>Show the data: {c.title}</summary>
+      <div class="story-table-wrap">
+        <table>
+          <thead><tr><td></td>{c.series.map((s) => <th scope="col">{s.label}</th>)}</tr></thead>
+          <tbody>
+            {c.categories.map((cat, i) => (
+              <tr>
+                <th scope="row">{cat}{c.series.some((s) => s.estimate?.[i]) ? ' (estimate)' : ''}</th>
+                {c.series.map((s) => <td>{format(c.format, s.values[i], 'exact')}</td>)}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </details>
+    <p class="story-source">
+      {c.notes.length > 0 && <span class="story-note">{c.notes.join(' ') + ' '}</span>}
+      <span>Source{c.sources.length > 1 ? 's' : ''}:{' '}{c.sources.map((s, i) => (<>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.label}</a>, {s.figureOrTable}</>))}.</span>
+    </p>
+  </div>
+)}
+
+<script>
+  import '../../scripts/datastory';
+</script>
