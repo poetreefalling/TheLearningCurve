@@ -502,7 +502,7 @@ function renderAds() {
         <div class="full"><label class="check"><input type="checkbox" id="netOn" ${n.enabled ? 'checked' : ''}> Fill empty slots with Google AdSense</label>
           <div class="hint">Turn this on once AdSense has approved the site and you've created the ad units below. Set up Google's consent message for European and UK visitors in AdSense (Privacy &amp; messaging) before switching on.</div></div>
         <div class="full"><label for="netClient">AdSense publisher ID</label><input type="text" id="netClient" value="${esc(n.client)}" placeholder="ca-pub-1234567890123456" spellcheck="false">
-          <div class="hint">AdSense → Account → Account information. The site's ads.txt updates from this automatically.</div></div>
+          <div class="hint">AdSense → Account → Account information. Save it before you're approved, with the box above unticked: the site then carries Google's verification tag and ads.txt, and no ads show yet.</div></div>
         ${['billboard', 'rectangle', 'halfpage'].map((s) => `<div><label for="net-${s}">${esc(SLOTS[s].label)} ad unit ID</label><input type="text" id="net-${s}" value="${esc(n.slots[s] || '')}" inputmode="numeric" placeholder="e.g. 1234567890"><div class="hint">${esc(SLOTS[s].where)}</div></div>`).join('')}
       </div>
     </div>
