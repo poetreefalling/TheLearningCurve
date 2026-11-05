@@ -1,0 +1,13 @@
+{
+  "network": {
+    "enabled": false,
+    "provider": "adsense",
+    "client": "",
+    "slots": {
+      "billboard": "",
+      "rectangle": "",
+      "halfpage": ""
+    }
+  },
+  "campaigns": []
+}
