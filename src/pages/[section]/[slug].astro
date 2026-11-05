@@ -23,6 +23,8 @@ import ReaderPoll from '../../components/ReaderPoll.astro';
 import DayBudget from '../../components/feature/DayBudget.astro';
 import ConditionsCheck from '../../components/feature/ConditionsCheck.astro';
 import EvidenceMap from '../../components/feature/EvidenceMap.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import { adsAllowedFor, pickAd } from '../../lib/ads';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -106,12 +108,20 @@ if (d.review) {
   });
 }
 
+// Ads: none on reviews and comparisons. On wide screens a half-page sits in a sticky rail; below
+// that width (or when no half-page is booked) a medium rectangle goes inside the article instead.
+const adsOk = adsAllowedFor(d.kind);
+const rail = adsOk && !!pickAd('halfpage', 'article');
+const layout = rail ? 'article-layout has-rail' : 'article-layout';
+
 const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, ReaderPoll, DayBudget, ConditionsCheck, EvidenceMap };
 ---
 
-<Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section}>
+<Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section} masthead="slim" ads={adsOk}>
   <meta slot="head" property="article:published_time" content={d.published.toISOString()} />
-  <article class="wrap" data-pagefind-body>
+  <div data-pagefind-body>
+  <div class="band band-article">
+   <div class="wrap"><div class={layout}><div class="article-main">
     <header class="article-head measure">
       <a class="kicker" href={`/${d.section}/`}>{d.kicker}</a>
       <h1>{d.title}</h1>
@@ -130,7 +140,12 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
         </p>
       )}
     </header>
+   </div></div></div>
+  </div>
 
+  <article class="wrap">
+   <div class={layout}>
+   <div class="article-main">
     <figure class="hero wide">
       <img src={heroSrc(a)} srcset={heroSrcset(a)} sizes="(min-width: 992px) 960px, calc(100vw - 32px)" alt={d.hero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" />
       {(d.hero.caption || heroCredit(a)) && (
@@ -160,12 +175,30 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
     <div class="prose">
       <Content components={components} />
     </div>
+    {adsOk && (
+      <>
+        <AdSlot unit="rectangle" page="article" class={`ad-inline ${rail ? 'is-rail-fallback' : ''}`} />
+        <script is:inline>
+          // Move the in-article rectangle up to sit after the fifth paragraph (it stays at the end of
+          // shorter articles), so it falls mid-read rather than before the short answer or after the end.
+          (() => {
+            const ad = document.currentScript.previousElementSibling;
+            const prose = ad && ad.previousElementSibling;
+            if (!ad || !ad.classList.contains('ad-inline') || !prose) return;
+            const paras = prose.querySelectorAll(':scope > p');
+            if (paras.length >= 8) paras[4].after(ad);
+          })();
+        </script>
+      </>
+    )}
 
     {d.readerCheck && d.readerCheck.placement !== 'inline' && <ReaderCheck article={a} />}
 
     <div class="measure">
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="end" />
     </div>
+
+    {adsOk && <AdSlot unit="billboard" page="article" class="ad-end measure" />}
 
     <section class="end-section measure faq" aria-labelledby="faq-h">
       <h2 id="faq-h">Questions people ask</h2>
@@ -200,7 +233,13 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
       <p>New research, what it means for your course, and one platform worth a look. Free, once a month.</p>
       <NewsletterForm placement="article-end" />
     </section>
+   </div>
+   {rail && (
+     <div class="article-rail"><AdSlot unit="halfpage" page="article" class="ad-sticky" /></div>
+   )}
+   </div>
   </article>
+  </div>
 
   {related.length > 0 && (
     <div class="wrap" data-pagefind-ignore>

@@ -81,9 +81,9 @@ don't use a queue row.
 | 19 | Writing Multiple-Choice Questions That Teach as Well as Test | writing multiple choice questions (row keyword "how to design quiz questions" had 0 US volume) | 30 · 26 | guide | done (Fri 6 Nov 00:00) |
 | 20 | Learning Styles: Why the Evidence Doesn't Support Them | learning styles myth | check | library | next |
 | 21 | Kajabi Pricing Plans Compared | kajabi pricing plan | 210 · 28 | review | todo |
-| 22 | Online Education: The Research Worth Reading This Month | elearning research | check | trends | todo |
+| 22 | Online Education: The Research Worth Reading This Month | online learning research (row keyword "elearning research" is 10 · 20 US; kept as secondary). Angle: the University of Maryland course AI tutor trial | 20 · 14 | trends | in PR (Sat 7 Nov 00:00) |
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
-| 24 | Bloom's Taxonomy for Online Course Design | blooms taxonomy for course design | check | guide | todo |
+| 24 | Bloom's Taxonomy for Online Course Design | blooms taxonomy for course design | check | guide | next |
 | 25 | Elaboration: Getting Learners to Explain Why | elaboration learning strategy | check | library | todo |
 | 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | todo |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |

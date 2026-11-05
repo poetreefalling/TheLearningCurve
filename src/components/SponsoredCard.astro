@@ -1,0 +1,18 @@
+---
+// A direct sponsor's card in the home page grid. Styled like an article card so it sits in the
+// grid, but outlined and labelled "Sponsored", never in the editorial colours. No network fallback.
+import { pickAd } from '../lib/ads';
+const ad = pickAd('card', 'home');
+const k = ad?.kind === 'direct' ? ad.campaign : null;
+---
+
+{k && (
+  <a class="card card-sponsored" href={k.url} rel="sponsored noopener" target="_blank" data-pagefind-ignore data-ad-end={k.end}>
+    <img src={k.image} alt={k.alt} width="1200" height="800" loading="lazy" decoding="async" />
+    <div>
+      <span class="sponsored-tag"><span>Sponsored</span> {k.sponsor}</span>
+      <h3>{k.headline}</h3>
+      {k.text && <p>{k.text}</p>}
+    </div>
+  </a>
+)}

@@ -40,6 +40,8 @@ commissions pay its way; they never decide what gets written or how a platform s
   `brand/originals/` as WebP. Charts: `src/data/charts/<id>.json`, drawn at build time.
 - Deploys: Cloudflare Pages builds `main`; pull requests get a preview URL. A GitHub Action
   rebuilds at each publishing slot so future-dated articles go live on time.
+- Ads: `src/data/ads.json`, managed by Jim in the Ads tab at /admin (`docs/ads.md`). Never add, edit
+  or remove a campaign or the AdSense settings unless Jim asks; never put ads on reviews or comparisons.
 - `docs/editorial.md` is the style guide: voice, article shapes, citation rules, review method
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.

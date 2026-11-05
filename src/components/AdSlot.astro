@@ -1,0 +1,26 @@
+---
+// One ad slot. Shows the live direct campaign for this slot, else the AdSense unit, else nothing:
+// an empty slot takes no space. (The prop is `unit`, not `slot`: Astro reserves `slot`.) Labelled "Advertisement" and kept visually apart from editorial.
+import { pickAd, SLOTS, type SlotId, type Page } from '../lib/ads';
+
+interface Props { unit: Exclude<SlotId, 'card'>; page: Page; class?: string }
+const { unit: slot, page, class: cls = '' } = Astro.props;
+const ad = pickAd(slot, page);
+const spec = SLOTS[slot];
+---
+
+{ad && (
+  <aside class={`ad ad-${slot} ${cls}`} aria-label="Advertisement" data-pagefind-ignore data-ad-end={ad.kind === 'direct' ? ad.campaign.end : undefined}>
+    <div class="ad-label">Advertisement</div>
+    {ad.kind === 'direct' ? (
+      <a class="ad-box" href={ad.campaign.url} rel="sponsored noopener" target="_blank" style={`--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`}>
+        <img src={ad.campaign.image} alt={ad.campaign.alt} width={spec.width} height={spec.height} loading="lazy" decoding="async" />
+      </a>
+    ) : (
+      <div class="ad-box ad-network" style={`--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`}>
+        <ins class="adsbygoogle" style="display:block" data-ad-client={ad.client} data-ad-slot={ad.adSlot} data-ad-format={slot === 'halfpage' ? 'vertical' : slot === 'billboard' ? 'horizontal' : 'rectangle'} data-full-width-responsive="true"></ins>
+        <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    )}
+  </aside>
+)}
