@@ -1,8 +1,8 @@
 {
   "network": {
-    "enabled": false,
+    "enabled": true,
     "provider": "adsense",
-    "client": "",
+    "client": "ca-pub-9489672162391954",
     "slots": {
       "billboard": "",
       "rectangle": "",
