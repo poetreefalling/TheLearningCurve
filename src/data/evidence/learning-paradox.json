@@ -1,0 +1,126 @@
+{
+  "title": "The anatomy of the learning paradox",
+  "intro": "The seven sources behind this feature, grouped by the question each helps answer. Select a source to see how it was done, what we took from it and where its limits are.",
+  "clusters": [
+    {
+      "id": "capacity",
+      "name": "Capacity to learn",
+      "question": "Do people have the time and attention to learn at work?",
+      "sources": ["talentlms", "abs", "oecd", "microsoft"]
+    },
+    {
+      "id": "effectiveness",
+      "name": "Learning that lasts",
+      "question": "Does training turn into skills people use on the job?",
+      "sources": ["hughes", "talentlms"]
+    },
+    {
+      "id": "culture",
+      "name": "Organisational culture",
+      "question": "Does the organisation treat learning as part of the job?",
+      "sources": ["talentlms", "linkedin", "hughes"]
+    },
+    {
+      "id": "workforce",
+      "name": "Workforce development",
+      "question": "How much new capability will work demand, and does learning lead anywhere?",
+      "sources": ["wef", "linkedin"]
+    }
+  ],
+  "sources": {
+    "talentlms": {
+      "name": "The TalentLMS 2026 Annual L&D Benchmark Report",
+      "publisher": "TalentLMS",
+      "date": "2 December 2025",
+      "type": "Vendor survey",
+      "method": "Two online surveys in September 2025: 101 US HR managers (55% manage L&D directly; the rest are involved to varying degrees) and 1,000 US full-time employees who had received training from their current employer in the previous 12 months. Some questions repeat earlier years' surveys.",
+      "findings": [
+        "65% of employees say their company has increased performance expectations in the past year; 45% report being pushed to deliver more, often or always (page 12).",
+        "53% of employees and half of HR managers say high workloads leave little room for training (page 12).",
+        "46% of employees and 49% of HR managers say their company views training as time away from 'real' work (page 13).",
+        "70% of employees multitask during training, up from 58% in 2024 and 64% in 2023 (page 15).",
+        "89% of HR managers and 84% of employees are satisfied with training; 83% of HR managers and 64% of employees say the company actively supports learning to use AI (page 16).",
+        "83% of employees say they received enough training, up from 79% in 2024 and 80% in 2023 (page 28)."
+      ],
+      "limits": "US only, a small HR sample, and every respondent had already received training, so it says nothing about people who got none. TalentLMS sells a learning platform and has a commercial interest in the findings. It is also one of the companies we have, or have applied for, an affiliate relationship with (see our disclosure page); there are no affiliate links in this feature.",
+      "url": "https://www.talentlms.com/research/learning-development-report-2026"
+    },
+    "abs": {
+      "name": "Work-Related Training and Adult Learning, Australia, 2024–25",
+      "publisher": "Australian Bureau of Statistics",
+      "date": "9 April 2026",
+      "type": "Official statistics",
+      "method": "A national household survey of people aged 15–74 living in private dwellings in Australia, asking about training and learning in the previous 12 months.",
+      "findings": [
+        "19% of Australians aged 15–74 took part in work-related training in 2024–25 (18.6% in the data tables), down from 23% (23.4%) in 2020–21.",
+        "5% had wanted to do work-related training in the last 12 months but didn't. For 44% of people who had barriers, too much work or not enough time was the main one; financial reasons came next (26%)."
+      ],
+      "limits": "It measures whether people took part, not whether they learned anything. The 44% applies to the small group who reported a barrier, not to all workers.",
+      "url": "https://www.abs.gov.au/statistics/people/education/work-related-training-and-adult-learning/2024-25"
+    },
+    "oecd": {
+      "name": "Trends in Adult Learning: New Data from the 2023 Survey of Adult Skills",
+      "publisher": "OECD",
+      "date": "7 July 2025",
+      "type": "International survey analysis",
+      "method": "Analysis of the OECD Survey of Adult Skills (PIAAC), 2023, across participating countries.",
+      "findings": [
+        "24% of adults encountered some barrier to taking part in (more) adult learning (Figure 3.6).",
+        "For almost half (48%) of adults who experience barriers, time constraints due to work or family responsibilities are the most important one; cost comes third (13%) (Figure 3.7)."
+      ],
+      "limits": "A cross-country picture of all adult learning, not just training at work, and it mixes work and family time pressures in one category.",
+      "url": "https://read.oecd-ilibrary.org/en/publications/trends-in-adult-learning_ec0624a6-en/full-report/why-is-participation-not-more-common_73893b53.html"
+    },
+    "microsoft": {
+      "name": "2025 Work Trend Index: Breaking down the infinite workday",
+      "publisher": "Microsoft",
+      "date": "17 June 2025",
+      "type": "Product telemetry and survey",
+      "method": "Aggregated, anonymised Microsoft 365 activity signals up to 15 February 2025, plus a survey of 31,000 knowledge workers in 31 markets.",
+      "findings": [
+        "Employees are interrupted every two minutes during core work hours, 275 times a day, by meetings, emails or chats. Microsoft's methodology note says this is based on the top 20% of users by the number of pings they receive."
+      ],
+      "limits": "It describes the most-interrupted fifth of Microsoft 365 users, not the typical worker, and Microsoft sells the tools being measured.",
+      "url": "https://www.microsoft.com/en-us/worklab/work-trend-index/breaking-down-infinite-workday"
+    },
+    "linkedin": {
+      "name": "Workplace Learning Report 2025",
+      "publisher": "LinkedIn Learning",
+      "date": "2025",
+      "type": "Vendor survey",
+      "method": "A survey of 937 L&D and HR professionals with some influence on budget, and 679 learners, across North America, South America, Asia-Pacific and Europe, plus LinkedIn platform data as of September 2024.",
+      "findings": [
+        "Only 36% of organisations fall into the 'career development champions' category, LinkedIn's label for the most mature career development programs (page 5).",
+        "A lack of time and resources is described as 'a glaring pain point' for career development (page 20)."
+      ],
+      "limits": "The maturity categories are LinkedIn's own, and LinkedIn sells learning content. No percentage is given for the time barrier.",
+      "url": "https://learning.linkedin.com/content/dam/me/business/en-us/talent-solutions/resources/pdfs/linkedIn-workplace-learning-report-2025.pdf"
+    },
+    "hughes": {
+      "name": "The role of work environment in training sustainment: a meta-analysis",
+      "publisher": "Hughes, Zajac, Woods & Salas",
+      "date": "2020",
+      "type": "Meta-analysis",
+      "method": "A meta-analysis of studies on peer, supervisor and organisational support and their links to transfer of training (using it on the job) and sustainment (using it over the long term), Human Factors, 62(1), 166–183.",
+      "findings": [
+        "All three kinds of support show moderate, positive correlations with transfer. Together they account for 32% of transfer, with peer support accounting for most of it.",
+        "Motivation to transfer sits between support and transfer. Peer and supervisor support show the strongest relationships with long-term use."
+      ],
+      "limits": "The studies are correlational, so they show what goes with transfer rather than proving cause. We worked from the published abstract.",
+      "url": "https://doi.org/10.1177/0018720819845988"
+    },
+    "wef": {
+      "name": "The Future of Jobs Report 2025",
+      "publisher": "World Economic Forum",
+      "date": "7 January 2025",
+      "type": "Employer survey",
+      "method": "A survey of more than 1,000 large employers, together employing more than 14 million workers, across 22 industry clusters and 55 economies.",
+      "findings": [
+        "If the world's workforce were 100 people, 59 would need training by 2030.",
+        "Employers expect 39% of workers' existing skill sets to be transformed or become outdated between 2025 and 2030."
+      ],
+      "limits": "Employers' expectations about the future, not a measurement of skills.",
+      "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025/"
+    }
+  }
+}

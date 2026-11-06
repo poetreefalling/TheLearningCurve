@@ -47,6 +47,15 @@ their pinned weeks; the queue fills every other slot.
 The retrieval practice grid flagship includes a downloadable grid template. Jim to supply or
 approve the template file; the draft leaves a `[JIM: grid template]` slot.
 
+## Features (commissioned by Jim)
+
+Long-form interactive features Jim commissions directly. They keep their slot like a flagship and
+don't use a queue row.
+
+| Slot | Title | Keyword | Vol · SD | Kind | Status |
+|---|---|---|---|---|---|
+| Wed 11 Nov 00:00 (Tue 10 Nov 08:00 New York) | The Workplace Learning Paradox: More Training, Less Time to Learn | workplace learning | 140 · 23 | trends (feature) | in PR |
+
 ## Queue
 
 | # | Working title | Keyword | Vol · SD | Kind | Status |

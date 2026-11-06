@@ -1,0 +1,22 @@
+{
+  "title": "More employees say they get enough training. More of them multitask through it.",
+  "subtitle": "Share of US employees surveyed by TalentLMS each year who say each statement applies to them",
+  "type": "line",
+  "format": "percent",
+  "yMax": 100,
+  "categories": ["2023", "2024", "2025"],
+  "series": [
+    { "id": "enough", "label": "Received enough training from their employer", "values": [80, 79, 83] },
+    { "id": "multitask", "label": "Multitask during training", "values": [64, 58, 70] }
+  ],
+  "views": {
+    "enough": { "highlight": ["enough"], "annotations": [{ "at": 2, "series": "enough", "text": "83%" }] },
+    "multitask": { "highlight": ["multitask"], "annotations": [{ "at": 2, "series": "multitask", "text": "70%, a three-year high" }] }
+  },
+  "notes": [
+    "Separate surveys each year. The 2025 survey, fielded in September 2025, covered 1,000 US full-time employees who had received training from their current employer in the previous 12 months."
+  ],
+  "sources": [
+    { "label": "TalentLMS, 2026 Annual L&D Benchmark Report", "url": "https://www.talentlms.com/research/learning-development-report-2026", "figureOrTable": "pages 15 and 28" }
+  ]
+}

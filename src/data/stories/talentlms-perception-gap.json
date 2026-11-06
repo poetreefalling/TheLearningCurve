@@ -1,0 +1,30 @@
+{
+  "title": "HR and employees agree about the workload. They part ways on AI.",
+  "subtitle": "Share of US HR managers and employees who agree with each statement, September 2025",
+  "type": "groupedBar",
+  "format": "percent",
+  "yMax": 100,
+  "categories": [
+    "Satisfied with the company's training",
+    "Company actively supports learning to use AI",
+    "High workloads leave little room for training",
+    "Company sees training as time away from real work"
+  ],
+  "series": [
+    { "id": "hr", "label": "HR managers", "values": [89, 83, 50, 49] },
+    { "id": "emp", "label": "Employees", "values": [84, 64, 53, 46] }
+  ],
+  "views": {
+    "all": {},
+    "satisfied": { "focus": [0] },
+    "ai": { "focus": [1] },
+    "workload": { "focus": [2] },
+    "realwork": { "focus": [3] }
+  },
+  "notes": [
+    "101 US HR managers (55% of whom manage L&D directly) and 1,000 US full-time employees who had received training from their current employer in the previous 12 months."
+  ],
+  "sources": [
+    { "label": "TalentLMS, 2026 Annual L&D Benchmark Report", "url": "https://www.talentlms.com/research/learning-development-report-2026", "figureOrTable": "pages 12, 13 and 16" }
+  ]
+}
