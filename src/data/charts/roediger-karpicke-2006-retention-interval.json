@@ -1,0 +1,20 @@
+{
+  "title": "Re-reading won at 5 minutes; a recall test won by 14 points at 2 days and 1 week",
+  "subtitle": "Proportion of idea units recalled from a prose passage that students had either restudied or recalled once in a test without feedback, by delay before the final test (Experiment 1, 120 undergraduates)",
+  "type": "groupedBar",
+  "unit": "% of idea units recalled",
+  "highlight": "Studied, then tested",
+  "series": [
+    { "label": "5 minutes", "values": { "Studied twice": 81, "Studied, then tested": 75 } },
+    { "label": "2 days", "values": { "Studied twice": 54, "Studied, then tested": 68 } },
+    { "label": "1 week", "values": { "Studied twice": 42, "Studied, then tested": 56 } }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Roediger, H. L., III, & Karpicke, J. D.",
+    "year": 2006,
+    "doi": "10.1111/j.1467-9280.2006.01693.x",
+    "url": "https://psychology.ecu.edu/wp-content/pv-uploads/sites/216/2019/03/Roediger-Karpicke-2006.pdf",
+    "figureOrTable": "Figure 1"
+  }
+}
