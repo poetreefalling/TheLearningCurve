@@ -93,6 +93,166 @@ const stories = defineCollection({
     }),
 });
 
+// ---------------------------------------------------------------------------------------------
+// The technology directory: the product database behind Discover, Compare and Intelligence.
+// Field guide and rules: docs/directory.md. Four linked records: vendors, products, evaluations,
+// and articles (tagged to them). Every fact about a product carries its provenance.
+// ---------------------------------------------------------------------------------------------
+
+// Where a value came from, when it was checked, and how much to trust it.
+const origin = z.enum(['verified', 'vendor-supplied', 'estimated']);
+const fact = <T extends z.ZodTypeAny>(value: T) =>
+  z.object({
+    value,
+    source: z.string().url(), // the page actually opened to get this value
+    checked: z.coerce.date(),
+    origin,
+  });
+
+const categories = defineCollection({
+  loader: file('src/data/directory/categories.json'),
+  schema: z.object({
+    name: z.string(),
+    description: z.string().max(200),
+    comparison: z.enum(['live', 'planned']),
+    order: z.number().int(),
+  }),
+});
+
+const vendors = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/directory/vendors' }),
+  schema: z.object({
+    name: z.string(),
+    website: z.string().url(),
+    headquarters: fact(z.string()).optional(), // "Sydney, Australia"
+    founded: fact(z.number().int()).optional(),
+    size: fact(z.string()).optional(), // "51-200 employees"
+    funding: fact(z.string()).optional(), // "Series B, US$40M total"
+    ownership: fact(z.enum(['independent', 'venture-backed', 'private-equity', 'public', 'subsidiary', 'open-source', 'other'])).optional(),
+    status: z.enum(['active', 'acquired', 'closed']),
+    acquiredBy: reference('vendors').optional(),
+    lastVerified: z.coerce.date(),
+  }),
+});
+
+const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
+const standard = z.enum([
+  'lti-1.1', 'lti-1.3', 'lti-advantage', 'scorm-1.2', 'scorm-2004', 'xapi', 'cmi5', 'aicc',
+  'qti', 'caliper', 'oneroster', 'open-badges-2', 'open-badges-3', 'clr',
+]);
+
+const products = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/directory/products' }),
+  schema: z
+    .object({
+      name: z.string(),
+      vendor: reference('vendors'),
+      category: reference('categories'),
+      secondaryCategories: z.array(reference('categories')).default([]),
+      website: z.string().url(),
+      // The affiliate record in platforms.json, if one exists. Jim sets affiliate links there.
+      platform: reference('platforms').optional(),
+      summary: z.string().max(300), // our words, never the vendor's marketing copy
+      primaryMarket: fact(z.array(z.enum(['higher-education', 'schools', 'vet', 'corporate', 'government', 'creators', 'nonprofit'])).min(1)).optional(),
+      useCases: fact(z.array(z.string()).min(1)).optional(),
+      keyFeatures: fact(z.array(z.string()).min(1)).optional(),
+      integrations: fact(z.array(z.string())).optional(), // other products: "Canvas", "Microsoft Teams"
+      standards: fact(z.array(standard)).optional(), // interoperability standards, kept apart from integrations
+      pricing: fact(z.object({
+        public: z.boolean(), // false = quote only
+        from: z.string().optional(), // "US$149 a month, billed annually"
+        notes: z.string().optional(),
+      })).optional(),
+      pricingModel: fact(z.object({
+        basis: z.enum(['per-seat', 'per-active-user', 'per-learner', 'flat', 'usage', 'quote', 'free', 'open-source']),
+        freeTier: z.boolean(),
+        trial: z.boolean(),
+      })).optional(),
+      deployment: fact(z.array(z.enum(['cloud', 'self-hosted', 'hybrid'])).min(1)).optional(),
+      accessibility: fact(z.object({
+        standard: z.string().optional(), // "WCAG 2.2 AA"
+        evidence: z.string().optional(), // "VPAT 2.5, published March 2026"
+      })).optional(),
+      security: fact(z.array(z.string())).optional(), // "ISO 27001", "SOC 2 Type II"
+      dataPrivacy: fact(z.object({
+        dataResidency: z.array(z.string()).default([]), // "Australia", "EU"
+        gdpr: z.boolean().optional(),
+        australianPrivacyAct: z.string().optional(),
+        notes: z.string().optional(),
+      })).optional(),
+      aiDisclosure: fact(z.object({
+        models: z.array(z.string()), // "GPT-4o", "in-house"; [] if the vendor doesn't say
+        trainsOnCustomerData: z.enum(['no', 'yes', 'opt-out', 'opt-in', 'not-disclosed']),
+        notes: z.string().optional(),
+      })).optional(),
+      evidence: z.array(z.object({
+        kind: z.enum(['research', 'case-study', 'independent-evaluation']),
+        title: z.string(),
+        url: z.string().url(),
+        year: z.number().int().optional(),
+      })).default([]),
+      // Left empty until there is a way to verify that reviewers actually use the product.
+      // Ratings are never copied from G2, Capterra or similar sites.
+      userSentiment: z.null().default(null),
+      geographicAvailability: fact(z.array(z.string()).min(1)).optional(), // "Worldwide", "Australia"
+      alternatives: z.array(reference('products')).default([]),
+      // Any money between The Learning Curve and the vendor. Shown on the profile.
+      // Money never touches scores, rankings, inclusion or coverage (docs/directory.md).
+      commercialRelationship: z.object({
+        kind: z.enum(['none', 'affiliate', 'sponsor', 'vendor-subscriber']),
+        since: z.coerce.date().optional(),
+        notes: z.string().optional(),
+      }),
+      status: productStatus,
+      lastVerified: z.coerce.date(),
+      draft: z.boolean().default(false),
+    })
+    .superRefine((p, ctx) => {
+      const isAi = p.category.id === 'ai-for-learning' || p.secondaryCategories.some((c) => c.id === 'ai-for-learning');
+      if (isAi && !p.aiDisclosure) {
+        ctx.addIssue({ code: 'custom', message: 'An AI for Learning product needs aiDisclosure (use models: [] and "not-disclosed" if the vendor says nothing)' });
+      }
+      if (p.commercialRelationship.kind !== 'none' && !p.commercialRelationship.since) {
+        ctx.addIssue({ code: 'custom', message: 'A commercial relationship needs its start date (`since`)' });
+      }
+    }),
+});
+
+// Method v1 = the published course-platform method (how-we-review): 60% learning design,
+// 40% business tools. v2 = the cross-category Technology Assessment Framework, once published.
+const V1_LEARNING = ['retrieval', 'assessment', 'credentials', 'analytics'] as const;
+const V1_BUSINESS = ['pricing', 'payments', 'marketing'] as const;
+const evaluations = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/directory/evaluations' }),
+  schema: z
+    .object({
+      product: reference('products'),
+      method: z.enum(['v1-course-platforms', 'v2']),
+      testedOn: z.coerce.date(),
+      tester: z.string(),
+      plan: z.string(), // the plan tested
+      scores: z.record(z.number().min(1).max(5)),
+      overall: z.number().min(1).max(5),
+      article: reference('articles').optional(), // the published evaluation, if any
+      notes: z.record(z.string()).default({}),
+    })
+    .superRefine((e, ctx) => {
+      if (e.method !== 'v1-course-platforms') return;
+      const keys = [...V1_LEARNING, ...V1_BUSINESS];
+      const missing = keys.filter((k) => e.scores[k] === undefined);
+      const extra = Object.keys(e.scores).filter((k) => !(keys as readonly string[]).includes(k));
+      if (missing.length || extra.length) {
+        ctx.addIssue({ code: 'custom', message: `v1 scores need exactly ${keys.join(', ')} (missing: ${missing.join(', ') || 'none'}; extra: ${extra.join(', ') || 'none'})` });
+        return;
+      }
+      const avg = (ks: readonly string[]) => ks.reduce((s, k) => s + e.scores[k], 0) / ks.length;
+      const expected = Math.round((avg(V1_LEARNING) * 0.6 + avg(V1_BUSINESS) * 0.4) * 10) / 10;
+      if (Math.abs(expected - e.overall) > 0.001) {
+        ctx.addIssue({ code: 'custom', message: `overall should be ${expected} under method v1 (60% learning design, 40% business tools), not ${e.overall}` });
+      }
+    }),
+});
+
 const source = z.object({
   authors: z.string(), // "Roediger, H. L., & Karpicke, J. D."
   year: z.number(),
@@ -148,6 +308,10 @@ const articles = defineCollection({
       researchCards: z.array(researchCard).default([]),
       charts: z.array(reference('charts')).default([]),
       platforms: z.array(reference('platforms')).default([]),
+      // Directory tags: an article appears on the profiles and category pages it is tagged to.
+      categories: z.array(reference('categories')).default([]),
+      products: z.array(reference('products')).default([]),
+      vendors: z.array(reference('vendors')).default([]),
       review: z
         .object({
           platform: reference('platforms'),
@@ -251,4 +415,4 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles, stories };
+export const collections = { platforms, charts, articles, stories, categories, vendors, products, evaluations };
