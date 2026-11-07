@@ -104,6 +104,7 @@
     <strong>The Learning Curve</strong>
     <nav class="tabs hidden" id="tabs" aria-label="Admin">
       <button type="button" data-tab="articles" aria-current="page">Articles</button>
+      <button type="button" data-tab="changes">Changes</button>
       <button type="button" data-tab="ads">Ads</button>
       <button type="button" data-tab="submissions">Submissions</button>
     </nav>
@@ -435,9 +436,69 @@ function setTab(tab) {
 document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
   if (b.dataset.tab === 'ads') { if (unsavedOk()) { state.current = null; loadAds(); } }
   else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadSubmissions(); } }
+  else if (b.dataset.tab === 'changes') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadChanges(); } }
   else if (adsUnsavedOk()) loadQueue();
 });
-function start() { location.hash === '#ads' ? loadAds() : location.hash === '#submissions' ? loadSubmissions() : loadQueue(); }
+function start() { location.hash === '#ads' ? loadAds() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
+
+// ---------- changes ----------
+// Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
+// live; the server refuses unless the site check passes and the PR merges cleanly.
+let changes = { items: [], open: {} };
+
+async function loadChanges() {
+  clearTimeout(state.pollTimer);
+  setTab('changes');
+  app.innerHTML = '<p class="muted">Loading open changes…</p>';
+  try {
+    const data = await api('changes');
+    changes.items = data.items || [];
+    renderChanges();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Changes</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderChanges() {
+  const items = changes.items;
+  const fmt = (t) => new Date(t).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short' });
+  app.innerHTML = notice() + `
+    <h1>Changes</h1>
+    <p class="muted">${items.length ? `${items.length} open ${items.length === 1 ? 'change' : 'changes'} that aren't articles: site features, docs and settings, oldest first. Merging one makes it live.` : 'No open changes. Articles are in the Articles tab.'}</p>
+    ${items.map((c, i) => {
+      const ready = !c.draft && c.checks === 'passing';
+      const pill = c.draft ? '<span class="pill">Draft on GitHub</span>' : checksPill(c.checks, 0);
+      return `<div class="card">
+        <div class="item" style="padding:0;border:0">
+          <div class="grow">
+            <div class="slot">Opened ${esc(fmt(c.opened))} · ${esc(c.branch)} · <a href="${esc(c.url)}" target="_blank" rel="noopener" class="prnum">#${esc(c.number)}</a></div>
+            <h3>${esc(c.title)}</h3>
+            ${pill}
+          </div>
+          <button class="primary" data-merge="${i}" ${ready ? '' : 'disabled'}>Merge</button>
+        </div>
+        <p class="small"><a href="${esc(c.preview)}/" target="_blank" rel="noopener">Open the preview</a> · <a href="${esc(c.url)}/files" target="_blank" rel="noopener">See the changed files</a> · <button type="button" class="link" data-more="${i}">${changes.open[c.number] ? 'Hide' : 'Show'} the description</button></p>
+        ${changes.open[c.number] ? `<div class="context" style="white-space:pre-wrap">${esc(c.body || 'No description.')}</div>` : ''}
+      </div>`;
+    }).join('')}
+    <p class="small muted">Merge is only possible once the site check has passed. Anything you're unsure about, ask Claude first.</p>`;
+  app.querySelectorAll('[data-more]').forEach((b) => b.onclick = () => { const n = changes.items[b.dataset.more].number; changes.open[n] = !changes.open[n]; renderChanges(); });
+  app.querySelectorAll('[data-merge]').forEach((b) => b.onclick = async () => {
+    const c = changes.items[b.dataset.merge];
+    if (!confirm(`Merge #${c.number}, "${c.title}"? It goes live on the site in about two minutes.`)) return;
+    b.disabled = true; b.textContent = 'Merging…';
+    try {
+      const res = await api('changes/merge', { method: 'POST', body: { pr: c.number, sha: c.sha } });
+      state.notice = { kind: 'ok', text: res.message };
+      await loadChanges();
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+      renderChanges();
+    }
+  });
+}
 
 // ---------- submissions ----------
 // Platform submissions from /submit, stored in D1 by functions/api/submit.ts (docs/submissions.md).
