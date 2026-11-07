@@ -1,0 +1,21 @@
+{
+  "name": "Docebo Inc.",
+  "website": "https://www.docebo.com/",
+  "ownership": {
+    "value": "public",
+    "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Publicly listed; files with the US SEC",
+    "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Founded, size and funding not researched yet."
+  ]
+}

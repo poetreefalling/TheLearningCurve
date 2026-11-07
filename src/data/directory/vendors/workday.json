@@ -1,0 +1,22 @@
+{
+  "name": "Workday, Inc.",
+  "website": "https://www.workday.com/",
+  "ownership": {
+    "value": "public",
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Publicly listed",
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Ownership: replace the source with Workday investor relations.",
+    "Founded, size and funding not researched yet."
+  ]
+}

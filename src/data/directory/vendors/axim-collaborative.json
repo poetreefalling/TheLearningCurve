@@ -1,0 +1,22 @@
+{
+  "name": "Axim Collaborative / Open edX ecosystem",
+  "website": "https://openedx.org/",
+  "ownership": {
+    "value": "open-source",
+    "source": "https://openedx.org/faq/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Axim Collaborative, a nonprofit, stewards the open-source Open edX project",
+    "source": "https://openedx.org/faq/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Confirm the right vendor for profiles of hosted Open edX (the service provider, not the project).",
+    "Founded, size and funding not researched yet."
+  ]
+}

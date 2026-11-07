@@ -1,0 +1,110 @@
+{
+  "name": "Workday Learning",
+  "vendor": "workday",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.workday.com/",
+  "summary": "A learning application within Workday's enterprise HCM and skills platform, connecting employee learning with talent, skills and workforce processes.",
+  "useCases": {
+    "value": [
+      "Employee onboarding",
+      "compliance",
+      "skills development",
+      "career and talent development",
+      "learning in the flow of work"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Learning campaigns and assignments",
+      "course catalogues",
+      "blended learning",
+      "learning recommendations",
+      "skills and talent context",
+      "reporting",
+      "Workday ecosystem integration"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Native Workday HCM/talent integration",
+      "Workday APIs and enterprise integration ecosystem"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "sap-successfactors-learning",
+    "cornerstone-learning",
+    "docebo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "vendor-confirmation-required",
+      "finding": "Request current Workday Learning ACR/VPAT; no product-specific report verified in this pass.",
+      "caveat": "Workday general accessibility page insufficient for module-level assessment.",
+      "sources": [],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "vendor-confirmation-required",
+      "finding": "Workday Trust Center provides security/compliance documentation; request current SOC 2 Type II and ISO certificates with Workday Learning coverage.",
+      "sources": [],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "not-disclosed",
+      "finding": "No public confirmation of exact AU tenant data storage/backup/support region for Learning found in this pass.",
+      "sources": [],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Workday AI features are evolving across the platform; verify Learning-specific features, model providers and training/retention terms.",
+      "sources": [],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Large enterprises; multinational organisations; Workday HCM customers\".",
+    "Standards need exact versions: \"Confirm current SCORM, xAPI, AICC and LTI support in Workday Learning technical documentation\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise subscription/quote, typically part of Workday agreements\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "Open LMS",
+  "website": "https://www.openlms.net/",
+  "ownership": {
+    "value": "subsidiary",
+    "source": "https://www.openlms.net/about-us/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Part of Learning Technologies Group (LTG)",
+    "source": "https://www.openlms.net/about-us/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Confirm the Open LMS legal entity and the LTG ownership chain (UK Companies House records cited in the workbook).",
+    "Founded, size and funding not researched yet."
+  ]
+}

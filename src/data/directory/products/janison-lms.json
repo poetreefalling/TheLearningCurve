@@ -1,0 +1,135 @@
+{
+  "name": "Janison LMS",
+  "vendor": "janison",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://janison.com/",
+  "summary": "Janison provides digital assessment and examination technology for high-stakes testing, with an assessment platform rather than a general-purpose institutional LMS as its core public proposition.",
+  "primaryMarket": {
+    "value": [
+      "schools",
+      "government"
+    ],
+    "source": "https://www.janison.com/online-assessment-software/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Online examinations",
+      "high-stakes assessment",
+      "digital testing",
+      "remote and supervised assessment"
+    ],
+    "source": "https://www.janison.com/online-assessment-software/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Online assessment delivery",
+      "autoscaling infrastructure",
+      "load balancing",
+      "availability zones",
+      "exam monitoring",
+      "offline test capability",
+      "frequent answer saving"
+    ],
+    "source": "https://www.janison.com/online-assessment-software/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.janison.com/online-assessment-software/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "vendor-confirmation-required",
+      "finding": "No current product-specific ACR/VPAT located in this pass; request report for exact assessment product, candidate app and proctoring components.",
+      "caveat": "Janison has multiple assessment products; scope must be precise.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.janison.com/online-assessment-software/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Janison public page says its platform is ISO 27001 and SOC 2 compliant. Need certificate holder, ISO scope, SOC Type II period and product/service boundary.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.janison.com/online-assessment-software/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Janison says Azure hosts data in the country where exams are hosted to comply with geo-residency laws. Need exact Australian Azure region, backups, support and CDN/telemetry exceptions.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.janison.com/online-assessment-software/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "not-disclosed",
+      "finding": "No complete product-specific AI model/provider disclosure verified.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.janison.com/online-assessment-software/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Assessment bodies; education authorities; schools; government; professional and high-stakes testing organisations\".",
+    "Integrations need exact names: \"Assessment and identity integrations depend on implementation; request current technical integration catalogue\".",
+    "Geographic availability needs an exact value: \"Australian-founded provider with international assessment deployments; confirm country-specific service scope\".",
+    "Standards need exact versions: \"No complete public standards matrix verified in this pass\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise/project quotation; no public list pricing verified\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

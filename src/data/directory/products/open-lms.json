@@ -1,0 +1,163 @@
+{
+  "name": "Open LMS",
+  "vendor": "open-lms-ltg",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.openlms.net/",
+  "summary": "A managed cloud learning management service built on Moodle open-source technology. Open LMS adds hosting, platform management, support, integrations and enterprise features for higher education and workplace learning.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate",
+      "government"
+    ],
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Institutional course delivery",
+      "employee and compliance training",
+      "extended-enterprise learning",
+      "multi-tenant learning",
+      "online assessment",
+      "learner analytics and reporting"
+    ],
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Managed Moodle-based LMS",
+      "AWS cloud hosting",
+      "custom branding and themes",
+      "multi-tenancy",
+      "H5P in-app authoring",
+      "mobile app with offline learning",
+      "analytics and reporting",
+      "Moodle plugin ecosystem",
+      "LTI Advantage and xAPI connections",
+      "support and onboarding",
+      "personalised learning features"
+    ],
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Moodle plugin ecosystem",
+      "LTI and xAPI connections",
+      "custom plugins and partner integrations",
+      "managed support and plugin review available"
+    ],
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.openlms.net/security/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Custom quote, priced per active user."
+    },
+    "source": "https://openlms.net/pricing",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-active-user"
+    },
+    "source": "https://openlms.net/pricing",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "ISO 27001"
+    ],
+    "source": "https://www.openlms.net/au/security/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "canvas-lms",
+    "d2l-brightspace",
+    "blackboard-learn",
+    "totara-learn"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "publicly-stated",
+      "finding": "Open LMS designs to WCAG 2.2 AA and Section 508 and published a VPAT 2.5 conformance report for its EDU Platform (Snap theme) dated 8 July 2026. Its Moodle core is accredited separately.",
+      "caveat": "The report covers one theme and product line; check the edition you would buy.",
+      "sources": [
+        {
+          "title": "Open LMS accessibility",
+          "url": "https://support.openlms.net/hc/en-us/articles/360013676158-Accessibility-Compliance-and-Open-LMS"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Open LMS says it has been independently audited and awarded ISO 27001, and describes itself as SOC 2 compliant.",
+      "caveat": "Ask whether a SOC 2 Type II report exists, and its period.",
+      "sources": [
+        {
+          "title": "Open LMS security (AU)",
+          "url": "https://www.openlms.net/au/security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Open LMS hosts on AWS and says data stays in the customer's hosting region.",
+      "caveat": "Confirm the Sydney region, backups and support access.",
+      "sources": [
+        {
+          "title": "Open LMS security",
+          "url": "https://www.openlms.net/security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Open LMS advertises AI tools, but no model or training disclosure was found.",
+      "sources": [],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Accessibility: Open LMS published a VPAT 2.5 conformance report for the EDU Platform (Snap theme) dated 8 July 2026; read it and record its scope.",
+    "Security: Open LMS says it is \"SOC 2 compliant\"; confirm whether a SOC 2 Type II report exists and its period.",
+    "Standards: vendor states LTI Advantage and xAPI connections; confirm exact versions.",
+    "Geographic availability needs an exact value: \"Global service; Open LMS states data can remain in the customer’s selected hosting region. Confirm which regions are available for Australian contracts.\".",
+    "Standards need exact versions: \"SCORM through Moodle core; vendor states LTI and xAPI connections. Confirm exact editions, LTI 1.3 and managed plugin support.\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
+  ]
+}

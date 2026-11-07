@@ -1,0 +1,22 @@
+{
+  "name": "Blackboard",
+  "website": "https://www.blackboard.com/",
+  "ownership": {
+    "value": "private-equity",
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Independent company owned by Nexus Capital Management and Oaktree Capital Management after the Anthology restructuring; emerged debt-free in March 2026",
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Confirm the contracting entity and headquarters.",
+    "Founded, size and funding not researched yet."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Apereo Foundation / Sakai community",
+  "website": "https://www.apereo.org/",
+  "ownership": {
+    "value": "open-source",
+    "source": "https://www.sakailms.org/accessibility/vpat",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Sakai is an open-source project of the Apereo Foundation, a nonprofit",
+    "source": "https://www.sakailms.org/accessibility/vpat",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Founded, size and funding not researched yet."
+  ]
+}

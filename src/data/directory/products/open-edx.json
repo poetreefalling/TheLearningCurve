@@ -1,0 +1,181 @@
+{
+  "name": "Open edX",
+  "vendor": "axim-collaborative",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://openedx.org/platform/",
+  "summary": "An open-source learning platform combining a learner-facing LMS with Open edX Studio authoring, designed for large-scale online courses, programs and credentials.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "MOOCs",
+      "online campuses",
+      "degree and non-degree programs",
+      "professional learning",
+      "workforce upskilling",
+      "self-paced and instructor-led courses"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Open edX Studio authoring",
+      "course sequencing",
+      "assessments",
+      "discussion and communication",
+      "certificates",
+      "learner analytics",
+      "reusable content",
+      "XBlocks",
+      "mobile-friendly delivery"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI 1.3",
+      "APIs and XBlocks",
+      "identity integrations including SAML and OAuth",
+      "provider ecosystem"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted",
+      "cloud"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "canvas-lms",
+    "sakai"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "not-disclosed",
+      "finding": "edX accessibility policy (2020) targets WCAG 2.1 AA for edX.org, but this is not a current product-specific Open edX deployment ACR. No current platform ACR verified.",
+      "caveat": "Distinguish Open edX open-source code from edX.org service and each operator's theme/extensions.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "not-disclosed",
+      "finding": "No universal platform-level SOC 2/ISO certification: Open edX is open-source software and each operator/provider is responsible for controls.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "Self-hosted or service-provider hosted; data location and subprocessors are determined by operator.",
+      "sources": [
+        {
+          "title": "Open edX FAQ",
+          "url": "https://openedx.org/faq/what-is-the-open-edx-platform-and-how-does-it-work/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Platform describes AI extensibility and provider choice; no single default model or universal training policy.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Higher education; workforce development; government; NGOs; enterprise learning; online education providers\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

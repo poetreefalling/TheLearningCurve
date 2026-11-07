@@ -1,0 +1,171 @@
+{
+  "name": "Litmos LMS",
+  "vendor": "litmos-us",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.litmos.com/platform/lms/",
+  "summary": "A cloud learning platform for workforce, customer and partner capability, with compliance management, content authoring, assessments, reporting and AI-enabled features.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Compliance training",
+      "employee onboarding",
+      "product training",
+      "customer education",
+      "partner enablement",
+      "skills and capability development"
+    ],
+    "source": "https://www.litmos.com/platform/lms/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Learning paths",
+      "ILT/vILT",
+      "mobile learning",
+      "SCORM/xAPI/AICC",
+      "native authoring",
+      "AI content authoring",
+      "video assessments",
+      "compliance workflows",
+      "dashboards and analytics"
+    ],
+    "source": "https://www.litmos.com/platform/lms/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "50+ out-of-the-box integrations including Workday, ADP, BambooHR, Salesforce, Teams, Zoom, Okta, Entra ID, Go1",
+      "REST API"
+    ],
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.litmos.com/platform/lms/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$8,000 a year (Foundation)",
+      "notes": "Platinum from US$15,000 a year; Platinum AI is quoted."
+    },
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO 27001:2022",
+      "SOC 2 Type II"
+    ],
+    "source": "https://www.litmos.com/trust-and-security/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "docebo",
+    "absorb-lms",
+    "learnupon",
+    "talentlms",
+    "cornerstone-learning"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "not-disclosed",
+      "finding": "No current product-specific VPAT/ACR located in this pass; request report for Litmos LMS, Training Ops and mobile apps.",
+      "caveat": "Trust/security page details other controls but not accessibility report.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.litmos.com/trust-and-security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Litmos publishes SOC 2 Type II 12-month audit (1 Apr 2024–31 Mar 2025), audited by Aprio, no exceptions noted. ISO/IEC 27001:2022 certificate scope includes Litmos LMS, Litmos Training Ops and supporting cloud/corporate functions; certificate issued Jan 2025.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.litmos.com/trust-and-security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Litmos says customer can choose Australia, EU or US data residency. Exact Sydney region, backup/DR, support access and subprocessor locations still require DPA review.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.litmos.com/trust-and-security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Platinum AI includes AI authoring, assistant, insights and video assessment; request model provider list, training and retention terms.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.litmos.com/trust-and-security/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Standards: SCORM listed without a version; confirm 1.2 and/or 2004.",
+    "Security: workbook cites a SOC 2 Type II report (1 Apr 2024 to 31 Mar 2025, auditor Aprio, no exceptions) and an ISO 27001:2022 certificate (Jan 2025). Read both; if scope and dates hold, mark independently evidenced and ask for the 2025-26 report.",
+    "Primary market also mentions audiences with no category yet: \"Corporate; enterprise; customer and partner training; compliance-heavy organisations\".",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Annual subscription by plan and scope; add-ons and enterprise services may be additional\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}
