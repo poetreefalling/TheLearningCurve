@@ -1,0 +1,111 @@
+---
+// <PlanCalculator id="teachable-thinkific" />: readers set their monthly sales, billing and the features
+// they need; it shows the cheapest qualifying plan on each platform and its monthly platform cost
+// (price plus any platform transaction fee). Data: src/data/plans/<id>.json, shared with <FeatureLadder>.
+// Without JavaScript, the form shows a note pointing to the pricing table instead.
+interface Props { id: string; features?: string[] }
+const { id, features: pick } = Astro.props;
+const files = import.meta.glob('../../data/plans/*.json', { eager: true }) as Record<string, { default: any }>;
+const data = Object.entries(files).find(([p]) => p.endsWith(`/${id}.json`))?.[1].default;
+if (!data) throw new Error(`PlanCalculator: no src/data/plans/${id}.json`);
+const options = (pick ?? ['certificates', 'assignments', 'affiliates', 'analytics', 'paypal', 'bulkemail', 'branding', 'exams', 'scorm', 'sso'])
+  .map((fid) => data.features.find((f: any) => f.id === fid))
+  .filter(Boolean);
+const checked = new Date(data.checked).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+const json = JSON.stringify(data).replace(/</g, '\\u003c');
+---
+<section class="plan-calc" data-plan-calc aria-labelledby={`pc-${id}-title`}>
+  <script type="application/json" data-plan-data set:html={json} />
+  <header class="pc-head">
+    <p class="pc-title" id={`pc-${id}-title`}>What would you pay?</p>
+    <p class="pc-sub">Set your monthly sales and tick what your course needs. We'll find the cheapest plan on each platform that includes all of it.</p>
+  </header>
+  <noscript><p class="pc-nojs">The calculator needs JavaScript. The pricing table below lists every plan.</p></noscript>
+  <form class="pc-form" onsubmit="return false">
+    <div class="pc-field">
+      <label for={`pc-${id}-sales`}>Course sales a month</label>
+      <div class="pc-sales">
+        <input type="range" id={`pc-${id}-sales`} name="sales" min="0" max="10000" step="50" value="1000" data-sales />
+        <output data-sales-out>US$1,000</output>
+      </div>
+    </div>
+    <fieldset class="pc-field pc-billing">
+      <legend>Billing</legend>
+      <label><input type="radio" name="billing" value="annual" checked /> Annual</label>
+      <label><input type="radio" name="billing" value="monthly" /> Monthly</label>
+    </fieldset>
+    <fieldset class="pc-field pc-features">
+      <legend>My course needs</legend>
+      {options.map((f: any) => (
+        <label><input type="checkbox" name="feature" value={f.id} /> {f.label}</label>
+      ))}
+    </fieldset>
+  </form>
+  <div class="pc-results" aria-live="polite" data-results></div>
+  <p class="pc-foot">Platform cost only: plan price plus Teachable Starter's 7.5% transaction fee. Payment processing, tax and add-ons are extra on every plan. Prices checked {checked}. Where a platform's plan documentation doesn't say which plan includes a feature, we don't count it as included.</p>
+</section>
+
+<script>
+  type Plan = { id: string; name: string; monthly: number; annual: number; fee: number };
+  type Platform = { id: string; name: string; enterprise: string; plans: Plan[] };
+  type Feature = { id: string; label: string; unlocks: Record<string, string> };
+  type Data = { currency: string; platforms: Platform[]; features: Feature[] };
+
+  const money = (n: number) => `US$${Math.round(n).toLocaleString('en-AU')}`;
+  const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+
+  function result(pl: Platform, need: Feature[], sales: number, billing: 'annual' | 'monthly') {
+    const blockers: string[] = [];
+    let from = 0;
+    for (const f of need) {
+      const u = f.unlocks[pl.id];
+      if (u === 'enterprise') { blockers.push(`${f.label}: ${pl.enterprise} only`); continue; }
+      if (u === 'none') { blockers.push(`${f.label}: not offered`); continue; }
+      if (u === 'unknown') { blockers.push(`${f.label}: plan not stated`); continue; }
+      from = Math.max(from, pl.plans.findIndex((p) => p.id === u));
+    }
+    if (blockers.length) return { pl, blockers } as const;
+    let best: { plan: Plan; cost: number; fee: number } | null = null;
+    for (const plan of pl.plans.slice(from)) {
+      const price = billing === 'annual' ? plan.annual : plan.monthly;
+      const fee = (plan.fee / 100) * sales;
+      if (!best || price + fee < best.cost) best = { plan, cost: price + fee, fee };
+    }
+    return { pl, best: best! } as const;
+  }
+
+  function render(root: HTMLElement, data: Data) {
+    const form = root.querySelector('form')!;
+    const sales = Number((form.elements.namedItem('sales') as HTMLInputElement).value);
+    const billing = (form.querySelector('input[name=billing]:checked') as HTMLInputElement).value as 'annual' | 'monthly';
+    const need = [...form.querySelectorAll<HTMLInputElement>('input[name=feature]:checked')]
+      .map((c) => data.features.find((f) => f.id === c.value)!).filter(Boolean);
+    root.querySelector('[data-sales-out]')!.textContent = money(sales);
+    const rows = data.platforms.map((pl) => result(pl, need, sales, billing));
+    const costs = rows.flatMap((r) => ('best' in r ? [r.best.cost] : []));
+    const max = Math.max(1, ...costs);
+    const min = costs.length ? Math.min(...costs) : 0;
+    root.querySelector('[data-results]')!.innerHTML = rows.map((r, i) => {
+      if (!('best' in r)) {
+        return `<div class="pc-card pc-p${i + 1} is-blocked"><p class="pc-name">${esc(r.pl.name)}</p>
+          <p class="pc-plan">No listed plan fits</p>
+          <ul class="pc-why">${r.blockers.map((b) => `<li>${esc(b)}</li>`).join('')}</ul></div>`;
+      }
+      const { plan, cost, fee } = r.best;
+      const price = billing === 'annual' ? plan.annual : plan.monthly;
+      const cheapest = costs.length > 1 && cost === min;
+      return `<div class="pc-card pc-p${i + 1}${cheapest ? ' is-cheapest' : ''}">
+        <p class="pc-name">${esc(r.pl.name)}${cheapest ? ' <span class="pc-tag">Lower cost</span>' : ''}</p>
+        <p class="pc-plan">${esc(plan.name)} plan</p>
+        <p class="pc-cost">${money(cost)}<span>/month</span></p>
+        <span class="pc-bar" style="--w:${(cost / max) * 100}%"></span>
+        <p class="pc-break">${money(price)} plan${fee ? ` + ${money(fee)} transaction fee (${plan.fee}%)` : ', no transaction fee'}</p></div>`;
+    }).join('');
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-plan-calc]').forEach((root) => {
+    const data = JSON.parse(root.querySelector('[data-plan-data]')!.textContent!) as Data;
+    root.querySelector('form')!.addEventListener('input', () => render(root, data));
+    render(root, data);
+  });
+</script>

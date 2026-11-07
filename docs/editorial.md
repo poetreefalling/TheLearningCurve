@@ -243,7 +243,10 @@ readers answered. How it works and the setup are in `docs/reader-checks.md`.
 - **Library and guides:** alternate. Look at the most recent library or guide article by
   `published`, on `main` and in open `article/` PRs, and use the other kind. (If that one has
   none, use a quiz.)
-- **Reviews and comparisons:** none. A poll next to a score would read as part of the score.
+- **Reviews:** none. A poll next to a score would read as part of the score.
+- **Comparisons:** a poll only, and only while the comparison carries no scores. Ask about the
+  reader's own setup (which platform they use, what decides it for them), never which platform
+  is better. Remove the poll when scores are added.
 
 ### Quiz (`kind: quiz`): exactly three questions
 

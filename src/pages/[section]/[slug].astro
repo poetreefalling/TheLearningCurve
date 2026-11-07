@@ -18,6 +18,8 @@ import DataChart from '../../components/story/DataChart.astro';
 import Scrolly from '../../components/story/Scrolly.astro';
 import Step from '../../components/story/Step.astro';
 import StatGrid from '../../components/story/StatGrid.astro';
+import FeatureLadder from '../../components/story/FeatureLadder.astro';
+import PlanCalculator from '../../components/story/PlanCalculator.astro';
 import Stat from '../../components/story/Stat.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { adsAllowedFor, pickAd } from '../../lib/ads';
@@ -110,7 +112,7 @@ const adsOk = adsAllowedFor(d.kind);
 const rail = adsOk && !!pickAd('halfpage', 'article');
 const layout = rail ? 'article-layout has-rail' : 'article-layout';
 
-const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat };
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, FeatureLadder, PlanCalculator };
 ---
 
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section} masthead="slim" ads={adsOk}>
