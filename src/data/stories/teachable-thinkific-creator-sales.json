@@ -1,0 +1,101 @@
+{
+  "title": "Thinkific's creators have sold about US$460 million a year since 2024; Teachable last reported its own figure for 2020",
+  "subtitle": "Money creators made through each platform, as reported by the companies, US$ millions",
+  "type": "column",
+  "format": "usd-millions",
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "teachable",
+      "label": "Teachable: creator earnings",
+      "values": [
+        400,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "estimate": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "thinkific",
+      "label": "Thinkific: gross merchandise volume",
+      "values": [
+        276.4,
+        414.8,
+        409.8,
+        445,
+        459.1,
+        460.0
+      ]
+    }
+  ],
+  "views": {
+    "all": {
+      "annotations": [
+        {
+          "at": 0,
+          "series": "teachable",
+          "text": "Teachable: \"close to $400 million\""
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Not like for like. Thinkific reports gross merchandise volume (GMV): the total value of customer transactions on its platform, in its annual results. Teachable reported that its creators \"earned close to $400 million\" in 2020, shown faded because it's approximate.",
+    "Since 2020 Teachable has published only combined figures with its parent company Hotmart (more than US$10 billion earned by Teachable and Hotmart creators), so there is no Teachable-only figure to chart for 2021 to 2025.",
+    "Neither figure says how much a typical creator earns: both are totals across all of a platform's creators."
+  ],
+  "sources": [
+    {
+      "label": "Teachable (24 Feb 2021)",
+      "url": "https://teachable.com/blog/2020-teachable-creator-stats-data",
+      "figureOrTable": "2020 creator earnings"
+    },
+    {
+      "label": "Thinkific FY2021 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2021-financial-results-and-provides-first-quarter-2022-outlook-806299511.html",
+      "figureOrTable": "2020 and 2021 GMV"
+    },
+    {
+      "label": "Thinkific FY2022 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2022-financial-results-and-provides-first-quarter-2023-outlook-814476102.html",
+      "figureOrTable": "2022 GMV"
+    },
+    {
+      "label": "Thinkific FY2023 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2023-financial-results-830988007.html",
+      "figureOrTable": "2023 GMV"
+    },
+    {
+      "label": "Thinkific FY2024 results",
+      "url": "https://www.newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2024-financial-results-824981852.html",
+      "figureOrTable": "2024 GMV"
+    },
+    {
+      "label": "Thinkific FY2025 results",
+      "url": "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+      "figureOrTable": "2025 GMV"
+    },
+    {
+      "label": "Teachable: About",
+      "url": "https://teachable.com/about",
+      "figureOrTable": "Combined Teachable and Hotmart creator earnings"
+    }
+  ]
+}

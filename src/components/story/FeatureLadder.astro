@@ -1,0 +1,66 @@
+---
+// <FeatureLadder id="teachable-thinkific" />: which plan unlocks each feature, platform by platform.
+// Data: src/data/plans/<id>.json (shared with <PlanCalculator>). Rendered at build time, no JS.
+// Each platform gets a ladder of its listed plans plus its quoted enterprise tier; a feature fills
+// the ladder from the plan that first includes it.
+interface Props { id: string; group?: string }
+const { id, group } = Astro.props;
+const files = import.meta.glob('../../data/plans/*.json', { eager: true }) as Record<string, { default: any }>;
+const data = Object.entries(files).find(([p]) => p.endsWith(`/${id}.json`))?.[1].default;
+if (!data) throw new Error(`FeatureLadder: no src/data/plans/${id}.json`);
+const features = data.features.filter((f: any) => !group || f.group === group);
+const checked = new Date(data.checked).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+
+function cell(platform: any, unlock: string) {
+  const plans = platform.plans;
+  const idx = plans.findIndex((p: any) => p.id === unlock);
+  if (unlock === 'unknown') return { state: 'unknown', from: -1, caption: 'Plan not stated' };
+  if (unlock === 'none') return { state: 'none', from: -1, caption: 'Not documented' };
+  if (unlock === 'enterprise') return { state: 'enterprise', from: plans.length, caption: `${platform.enterprise.replace(' (quoted)', '')} only` };
+  if (idx < 0) throw new Error(`FeatureLadder: "${unlock}" is not a ${platform.id} plan`);
+  const p = plans[idx];
+  return { state: 'plan', from: idx, caption: idx === 0 ? 'Every plan' : `From ${p.name}, ${data.currency}${p.annual}/mo` };
+}
+---
+<figure class="feature-ladder" aria-labelledby={`fl-${id}-title`}>
+  <figcaption class="fl-head">
+    <p class="fl-title" id={`fl-${id}-title`}>Where the features unlock</p>
+    <p class="fl-sub">The plan that first includes each feature. Prices billed annually, checked {checked}.</p>
+  </figcaption>
+  <div class="fl-key" aria-hidden="true">
+    {data.platforms.map((pl: any, i: number) => (
+      <div class={`fl-keyset fl-p${i + 1}`}>
+        <span class="fl-keyname">{pl.name}</span>
+        <span class="fl-keyplans">
+          {pl.plans.map((p: any) => <span>{p.name}</span>)}
+          <span class="fl-ent">{pl.enterprise.split(' ')[0] === 'Thinkific' ? 'Plus' : 'Custom'}</span>
+        </span>
+      </div>
+    ))}
+  </div>
+  <ul class="fl-rows">
+    {features.map((f: any) => (
+      <li class="fl-row">
+        <span class="fl-label">{f.label}</span>
+        {data.platforms.map((pl: any, i: number) => {
+          const c = cell(pl, f.unlocks[pl.id]);
+          const steps = [...pl.plans.map((p: any) => p.name), 'enterprise'];
+          return (
+            <span class={`fl-cell fl-p${i + 1} is-${c.state}`}>
+              <span class="fl-ladder" aria-hidden="true">
+                {steps.map((_: string, s: number) => (
+                  <span class={`fl-step${s === steps.length - 1 ? ' fl-step-ent' : ''}${c.state !== 'unknown' && c.state !== 'none' && s >= c.from ? ' is-on' : ''}`}></span>
+                ))}
+              </span>
+              <span class="fl-cap"><span class="sr-only">{pl.name}: </span>{c.caption}</span>
+            </span>
+          );
+        })}
+      </li>
+    ))}
+  </ul>
+  <div class="fl-foot">
+    {data.notes.map((n: string) => <p>{n}</p>)}
+    <p>Sources: {data.sources.map((s: any, i: number) => <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.label}</a></>)}.</p>
+  </div>
+</figure>
