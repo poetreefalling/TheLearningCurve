@@ -1,0 +1,204 @@
+{
+  "name": "Moodle LMS",
+  "vendor": "moodle",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://moodle.com/solutions/lms/",
+  "summary": "An open-source learning management system that institutions can self-host, obtain as a managed MoodleCloud service, or deploy through a Moodle Certified Partner. It supports course delivery, activities, assessment, communication and extensibility through plugins.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "vet",
+      "corporate",
+      "government",
+      "nonprofit"
+    ],
+    "source": "https://moodle.org/news",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Course and program delivery",
+      "blended learning",
+      "online assessment",
+      "competency-based learning",
+      "learner communication",
+      "institutional learning environments"
+    ],
+    "source": "https://moodle.com/solutions/lms/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course and activity authoring",
+      "assignments and quizzes",
+      "gradebook",
+      "competency frameworks",
+      "certificates",
+      "communication tools",
+      "mobile app",
+      "plugin ecosystem",
+      "configurable themes and roles"
+    ],
+    "source": "https://moodle.com/solutions/lms/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Plugin ecosystem",
+      "LTI tools",
+      "REST/web services"
+    ],
+    "source": "https://moodle.org/news",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://moodle.com/solutions/lms/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage",
+      "scorm-1.2",
+      "aicc",
+      "open-badges-2"
+    ],
+    "source": "https://docs.moodle.org/503/en/Standards",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted",
+      "cloud"
+    ],
+    "source": "https://moodle.com/us/what-we-do/moodle-hosting",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Moodle LMS itself is free, open-source software. MoodleCloud plans are published subscriptions; partner-hosted services are quoted."
+    },
+    "source": "https://moodle.com/cloud",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true
+    },
+    "source": "https://moodle.com/cloud",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA",
+      "evidence": "Accreditation issued 3 Oct 2025 after an external audit by GrackleDocs (versions 5.1, 5.0.3, 4.5.7); VPAT 2.5 conformance report published"
+    },
+    "source": "https://moodledev.io/general/development/policies/accessibility",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Provider-neutral AI subsystem: the site operator chooses and configures the AI provider, whose own data terms apply."
+    },
+    "source": "https://docs.moodle.org/503/en/admin/setting/aiprovider",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "canvas-lms",
+    "d2l-brightspace",
+    "blackboard-learn",
+    "open-lms",
+    "sakai",
+    "open-edx"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "independently-evidenced",
+      "finding": "Accredited to WCAG 2.2 Level AA on 3 October 2025 after an external audit by GrackleDocs; a VPAT 2.5 conformance report is published. The Moodle app and Moodle Workplace are accredited separately.",
+      "caveat": "Covers the listed supported versions only. Accreditation lasts 12 months. Themes, plugins and course content are not covered.",
+      "sources": [
+        {
+          "title": "Moodle accessibility accreditations",
+          "url": "https://moodledev.io/general/development/policies/accessibility"
+        },
+        {
+          "title": "Moodle LMS VPAT",
+          "url": "https://docs.moodle.org/503/en/VPAT"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "not-disclosed",
+      "finding": "Moodle LMS is open-source software, so there is no product-wide SOC 2 or ISO 27001 report: security depends on who hosts it. MoodleCloud runs on AWS; AWS certifications are not Moodle's own.",
+      "caveat": "Assess the chosen host: Moodle HQ (MoodleCloud), a Moodle Certified Partner, or the institution itself.",
+      "sources": [
+        {
+          "title": "MoodleCloud security certification",
+          "url": "https://support.moodle.com/support/solutions/articles/80000951697-moodlecloud-security-certification"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Self-hosted Moodle stores data wherever the institution hosts it. MoodleCloud premium hosting can use any public AWS region, including Sydney.",
+      "caveat": "Backups, logs, support access and third-party plugins may process data elsewhere.",
+      "sources": [
+        {
+          "title": "Moodle hosting",
+          "url": "https://moodle.com/us/what-we-do/moodle-hosting"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "publicly-stated",
+      "finding": "The AI subsystem is provider-neutral: each site chooses and configures its AI provider (for example OpenAI, Azure AI or a self-hosted model), and that provider's data terms apply.",
+      "caveat": "There is no single Moodle-wide statement on training or retention.",
+      "sources": [
+        {
+          "title": "Moodle AI providers",
+          "url": "https://docs.moodle.org/503/en/admin/setting/aiprovider"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Hosting provider SOC 2 Type II / ISO 27001 certificate, DPA, subprocessor list, data centre and backup regions Site AI configuration, enabled providers, API terms, data retention and model training settings.",
+      "Current accessibility report and accreditation letter for exact version, theme and mobile app."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Workbook records a WCAG 2.2 AA re-accreditation on 30 Sep 2026 (versions 5.3, 5.2.3, 5.1.7, 4.5.14); on 7 Nov we could only confirm the 3 Oct 2025 accreditation. Re-open moodledev.io and update if the 2026 accreditation is listed.",
+    "Standards: SCORM 2004 and xAPI are only available through community or commercial plugins; not listed.",
+    "Integrations need exact names: \"Plugin ecosystem; LTI tools; REST/web services; SSO/SIS integrations depend on deployment and plugins.\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
+  ]
+}

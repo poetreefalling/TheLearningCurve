@@ -1,0 +1,150 @@
+{
+  "name": "Sakai",
+  "vendor": "apereo-foundation",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.sakailms.org/",
+  "summary": "A community-developed, open-source learning management system for universities and other education providers, with course delivery, assessment, collaboration and extensible tools.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Course delivery",
+      "online and blended learning",
+      "assessment",
+      "collaborative learning",
+      "institution-wide teaching environments"
+    ],
+    "source": "https://www.sakailms.org/sakai-lms-features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Lessons and course resources",
+      "assignments",
+      "tests and quizzes",
+      "gradebook",
+      "rubrics",
+      "discussions",
+      "groups",
+      "role-based administration",
+      "community tools"
+    ],
+    "source": "https://www.sakailms.org/sakai-lms-features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI integrations",
+      "extensive APIs",
+      "community-contributed tools"
+    ],
+    "source": "https://www.sakailms.org/sakai-lms-features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted",
+      "cloud"
+    ],
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true
+    },
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "canvas-lms",
+    "open-edx",
+    "blackboard-learn"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "publicly-stated",
+      "finding": "Public VPAT reports available for Sakai versions 21, 22 and 23. Community states goal of WCAG 2.2 A/AA; VPAT assessment methods include internal practitioner resources for at least Sakai 22.",
+      "caveat": "Strong public evidence; compare version-specific VPAT criteria and evaluation method before claiming full conformance.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sakailms.org/accessibility/vpat"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "not-disclosed",
+      "finding": "No universal project-level SOC 2/ISO certificate identified.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sakailms.org/accessibility/vpat"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "Self-hosted or service-provider hosted; AU residency and subprocessors depend on operator.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sakailms.org/accessibility/vpat"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "not-disclosed",
+      "finding": "No single platform-wide AI provider or model training policy verified.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sakailms.org/accessibility/vpat"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Standards need exact versions: \"LTI specification support; exact version and tool-provider support should be confirmed\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

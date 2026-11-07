@@ -1,0 +1,17 @@
+{
+  "name": "Moodle Pty Ltd",
+  "website": "https://moodle.com/",
+  "headquarters": {
+    "value": "Perth, Western Australia",
+    "source": "https://moodle.com/wp-content/uploads/2025/12/Register-of-GDPR-Information.pdf",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "legalEntity": "Moodle Pty Ltd (ABN 55 116 513 636)",
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Ownership: shareholders not established in public sources.",
+    "Founded, size and funding not researched yet."
+  ]
+}

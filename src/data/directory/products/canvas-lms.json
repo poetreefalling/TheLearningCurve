@@ -1,0 +1,222 @@
+{
+  "name": "Canvas LMS",
+  "vendor": "instructure",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.instructure.com/products/canvas-tiers",
+  "summary": "A cloud-based learning management system for creating and delivering courses, assessing learning, communicating with learners and monitoring progress. Instructure currently presents Canvas in Core, Plus and Next tiers, with different levels of engagement, analytics and AI functionality.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "vet",
+      "corporate"
+    ],
+    "source": "https://www.instructure.com/en-au/k12",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Course and curriculum delivery",
+      "online and blended learning",
+      "assessment and feedback",
+      "learner engagement",
+      "progress monitoring",
+      "institutional teaching and learning"
+    ],
+    "source": "https://www.instructure.com/canvas",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course creation and delivery",
+      "assessments and feedback",
+      "communication and collaboration",
+      "essential analytics",
+      "Studio interactive video (Plus/Next)",
+      "Impact engagement tools (Plus/Next)",
+      "advanced analytics (Plus/Next)",
+      "IgniteAI tools across tiers with advanced capabilities in Next"
+    ],
+    "source": "https://www.instructure.com/canvas",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI 1.3 ecosystem",
+      "REST APIs",
+      "SIS integrations",
+      "SSO"
+    ],
+    "source": "https://www.instructure.com/canvas",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.instructure.com/products/canvas-tiers",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage"
+    ],
+    "source": "https://community.canvaslms.com/t5/The-Product-Blog/LTI-Advantage/ba-p/278133",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.instructure.com/trust-center/faqs",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional quote. Tiers: Canvas Core, Plus and Next."
+    },
+    "source": "https://www.instructure.com/products/canvas-tiers",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.instructure.com/products/canvas-tiers",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA",
+      "evidence": "WebAIM verified a representative sample of Canvas LMS as conformant with WCAG 2.2 A and AA (content as of 26 Jun 2025)"
+    },
+    "source": "https://webaim.org/services/certification/canvas",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO 27001",
+      "SOC 2 Type II"
+    ],
+    "source": "https://www.instructure.com/trust-center/faqs",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Australia",
+        "Canada",
+        "EU",
+        "USA"
+      ],
+      "notes": "Instructure says data is stored in the customer's region on AWS; SOC 2 reports require an NDA."
+    },
+    "source": "https://www.instructure.com/trust-center/faqs",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "opt-in",
+      "notes": "Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level models are listed in its AI Nutrition Facts."
+    },
+    "source": "https://www.instructure.com/de/node/27149",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "d2l-brightspace",
+    "blackboard-learn",
+    "open-lms",
+    "schoology-learning"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "independently-evidenced",
+      "finding": "WebAIM, an independent accessibility organisation, verified a representative sample of Canvas LMS as conformant with WCAG 2.2 Levels A and AA. Instructure also publishes a VPAT.",
+      "caveat": "WebAIM's verification covers the sample as of 26 June 2025. The WebAIM certificate for the Canvas mobile apps has expired.",
+      "sources": [
+        {
+          "title": "WebAIM: Canvas",
+          "url": "https://webaim.org/services/certification/canvas"
+        },
+        {
+          "title": "Canvas accessibility",
+          "url": "https://canvaslms.com/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Instructure states ISO 27001 certification and SOC 2 Type II reports, renewed in December 2025; SOC 2 reports are available under NDA.",
+      "caveat": "A cybersecurity incident took Canvas offline in May 2026 (restored 9 May 2026). Ask for the post-incident report.",
+      "sources": [
+        {
+          "title": "Instructure Trust Center FAQs",
+          "url": "https://www.instructure.com/trust-center/faqs"
+        },
+        {
+          "title": "Secure ISS incident update",
+          "url": "https://www.secure-iss.com/newsroom/instructure-canvas-lms-cybersecurity-incident-may-2026"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Instructure says Canvas data is stored in the customer's region on AWS; its third-party processor guide lists Australia among processing locations.",
+      "caveat": "Confirm the tenant region, backups and support access in the contract.",
+      "sources": [
+        {
+          "title": "Instructure Trust Center FAQs",
+          "url": "https://www.instructure.com/trust-center/faqs"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "publicly-stated",
+      "finding": "Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level \"AI Nutrition Facts\" list the models used.",
+      "caveat": "Check each AI feature's nutrition facts before enabling it.",
+      "sources": [
+        {
+          "title": "Instructure AI governance",
+          "url": "https://www.instructure.com/de/node/27149"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Current Canvas LMS VPAT, SOC 2 Type II report, ISO certificate and HECVAT Australia tenant region, backups, disaster recovery, subprocessors and support access locations Feature-level IgniteAI Nutrition Facts, provider/model list, retention and third-party processing schedule."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Standards: SCORM is not native in Canvas (an LTI tool is needed); confirm current SCORM, QTI, Common Cartridge and OneRoster support before listing them.",
+    "Security: Canvas suffered a cybersecurity incident in May 2026 (service restored 9 May 2026, per Secure ISS). Decide how the profile reports it, from Instructure's own statement.",
+    "Integrations need exact names: \"LTI 1.3 ecosystem; REST APIs; SIS integrations; SSO; extensive third-party integrations. Confirm entitlements and partner data flows.\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
+  ]
+}

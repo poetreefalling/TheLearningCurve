@@ -1,0 +1,28 @@
+{
+  "name": "D2L Corporation",
+  "website": "https://www.d2l.com/",
+  "headquarters": {
+    "value": "Kitchener, Ontario, Canada",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownership": {
+    "value": "public",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Listed on the Toronto Stock Exchange (DTOL)",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "legalEntity": "D2L Inc.",
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Founded, size and funding not researched yet."
+  ]
+}

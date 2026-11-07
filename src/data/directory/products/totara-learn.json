@@ -1,0 +1,133 @@
+{
+  "name": "Totara Learn",
+  "vendor": "totara",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.totara.com/products/learn/",
+  "summary": "An enterprise learning management system built on the Moodle ecosystem, extended for organisational learning, compliance, programs, certifications and learning plans.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "government",
+      "higher-education"
+    ],
+    "source": "https://totara.help/docs/understanding-totara-products",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Employee onboarding and development",
+      "compliance training",
+      "certification and recertification",
+      "blended learning",
+      "competency and performance development"
+    ],
+    "source": "https://totara.help/docs/what-is-totara-learn",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Courses and activities",
+      "programs and certifications",
+      "learning plans",
+      "audiences and dynamic rules",
+      "competencies",
+      "reporting",
+      "mobile learning",
+      "collaboration",
+      "customisable workflows"
+    ],
+    "source": "https://totara.help/docs/what-is-totara-learn",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Partner ecosystem"
+    ],
+    "source": "https://totara.help/docs/understanding-totara-products",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "aicc"
+    ],
+    "source": "https://totara.help/totara-20/docs/add-a-scorm-activity",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "open-lms",
+    "docebo",
+    "cornerstone-learning",
+    "sap-successfactors-learning"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "security": {
+      "status": "not-disclosed",
+      "finding": "No public product-specific SOC 2/ISO certificate confirmed in this pass. Partner hosting assurance may differ.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://totara.help/docs/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "Deployment and data residency depend on Totara partner and hosting provider; no universal AU region guarantee.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://totara.help/docs/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "not-disclosed",
+      "finding": "No sufficiently detailed, product-wide public model/provider and training disclosure verified in this pass.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://totara.help/docs/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Standards: SCORM 2004 is \"supported with stated limitations\"; read the limitations before listing it.",
+    "Integrations need exact names: \"Partner ecosystem; APIs and integrations vary by implementation and installed extensions\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Commercial subscription/licensing and implementation/support via Totara partner; quote-based\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Conflict (accessibility): Accessibility column says no current ACR/VPAT was found; the evidence column says Totara publishes a VPAT-based ACR (WCAG 2.2 A/AA) with every major release. Neither side imported; settle it from the source.",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

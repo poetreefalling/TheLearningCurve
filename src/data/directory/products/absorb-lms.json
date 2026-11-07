@@ -1,0 +1,156 @@
+{
+  "name": "Absorb LMS",
+  "vendor": "absorb-software",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.absorblms.com/",
+  "summary": "A cloud LMS for employee, customer and partner training, with course authoring, assessments, instructor-led training, reporting and enterprise integrations.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Employee onboarding",
+      "compliance",
+      "product and customer education",
+      "partner enablement",
+      "skills development"
+    ],
+    "source": "https://support.absorblms.com/hc/en-us/articles/29830065738003-Absorb-LMS-Overview",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course and test creation",
+      "SCORM/xAPI/AICC content",
+      "instructor-led sessions",
+      "portals and user groups",
+      "reporting",
+      "REST API",
+      "Microsoft Teams, Zoom/Webex and Salesforce integrations",
+      "optional product add-ons"
+    ],
+    "source": "https://support.absorblms.com/hc/en-us/articles/29830065738003-Absorb-LMS-Overview",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Microsoft Teams",
+      "Zoom/Webex",
+      "Salesforce",
+      "HRIS",
+      "REST API",
+      "data import/export"
+    ],
+    "source": "https://support.absorblms.com/hc/en-us/articles/29830065738003-Absorb-LMS-Overview",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://support.absorblms.com/hc/en-us/articles/29830065738003-Absorb-LMS-Overview",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "docebo",
+    "cornerstone-learning",
+    "learnupon",
+    "litmos",
+    "talentlms"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "security": {
+      "status": "vendor-confirmation-required",
+      "finding": "No report scope confirmed from public source in this pass; request current SOC 2 Type II and ISO certificate if claimed.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/37657647133459-Absorb-VPAT-WCAG-2-1"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/53677872546323-Data-Hosting-Locations-and-AWS-Regions"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Absorb publicly lists AWS regions including Sydney, Australia, as an available customer hosting region. Need confirm backups, DR, support access, telemetry and region lock for tenant.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/37657647133459-Absorb-VPAT-WCAG-2-1"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/53677872546323-Data-Hosting-Locations-and-AWS-Regions"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "AI functionality/add-ons may be available; obtain current feature-level provider and training disclosures.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/37657647133459-Absorb-VPAT-WCAG-2-1"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://support.absorblms.com/hc/en-us/articles/53677872546323-Data-Hosting-Locations-and-AWS-Regions"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Standards: SCORM is documented without a version; confirm 1.2 and/or 2004.",
+    "Primary market also mentions audiences with no category yet: \"Corporate; mid-market and enterprise; customer and partner education\".",
+    "Integrations need exact names: \"Microsoft Teams; Zoom/Webex; Salesforce; HRIS; REST API; data import/export; integration options and paid add-ons vary\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Quote-based subscription; features may include core functionality, integrations and paid add-ons\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Conflict (accessibility): Accessibility column says to request an ACR/VPAT; the evidence column says a public VPAT is available (WCAG 2.1 AA, targeting 2.2 AA). Neither side imported; settle it from the source.",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

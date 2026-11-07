@@ -1,0 +1,148 @@
+{
+  "name": "TalentLMS",
+  "vendor": "epignosis",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.talentlms.com/",
+  "summary": "A cloud LMS for creating and delivering employee, customer and partner training, with learning paths, assessments, certificates, reporting and AI-supported authoring.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Employee onboarding",
+      "compliance",
+      "product training",
+      "customer education",
+      "partner enablement"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course authoring",
+      "learning paths",
+      "tests and assignments",
+      "certificates",
+      "gamification",
+      "reporting",
+      "SCORM 1.2",
+      "xAPI",
+      "cmi5",
+      "AI-generated course content and learner coaching"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Microsoft Teams",
+      "webinar tools",
+      "Salesforce",
+      "ADP Workforce Now",
+      "Workday",
+      "Zendesk",
+      "HubSpot",
+      "Stripe and PayPal",
+      "APIs"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.talentlms.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "xapi",
+      "cmi5"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.talentlms.com/features",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "ispring-lms",
+    "learnupon",
+    "litmos",
+    "absorb-lms",
+    "tovuti-lms"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Vendor states ISO/IEC 27001 certification; current certificate and scope need confirmation. No SOC 2 Type II report verified in this pass.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.talentlms.com/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "not-disclosed",
+      "finding": "Publicly accessible evidence in this pass did not establish specific Australian tenant region or backup locations.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.talentlms.com/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "AI content creation, translation and learner AI coach features advertised; model providers, training use and retention require confirmation.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.talentlms.com/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"SMB and mid-market; corporate; customer and partner training\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Tiered subscription based on active users and feature limits; current plans/pricing should be checked at point of procurement\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Conflict (accessibility): Accessibility column says the vendor states WCAG 2.1; the evidence column cites a public WCAG 2.2 AA conformance report (partial conformance, valid June 2025 to June 2026). Neither side imported; settle it from the source.",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

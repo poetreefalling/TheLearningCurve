@@ -1,0 +1,27 @@
+{
+  "name": "Janison Solutions Pty Ltd",
+  "website": "https://janison.com/",
+  "headquarters": {
+    "value": "Sydney, Australia",
+    "source": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownership": {
+    "value": "public",
+    "source": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Listed on the ASX (JAN)",
+    "source": "https://www.marketindex.com.au/asx/jan/announcements/fy26-annual-report-2A1691658",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Founded, size and funding not researched yet."
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "name": "Docebo LMS",
+  "vendor": "docebo-inc",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.docebo.com/",
+  "summary": "An enterprise learning platform for employee, customer and partner learning, combining course delivery, content, compliance, analytics, integrations and AI-supported learning.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Workforce development",
+      "onboarding",
+      "compliance",
+      "customer education",
+      "partner training",
+      "skills and knowledge management"
+    ],
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Multi-audience learning",
+      "content creation and delivery",
+      "certification",
+      "compliance tracking",
+      "multilingual learning",
+      "AI content creation and assistant",
+      "reporting",
+      "integrations and APIs",
+      "optional AI and skills products"
+    ],
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "400+ integrations claimed by vendor",
+      "HR, CRM, identity, content and collaboration systems",
+      "APIs and webhooks"
+    ],
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.docebo.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "absorb-lms",
+    "cornerstone-learning",
+    "sap-successfactors-learning",
+    "workday-learning",
+    "learnupon"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "security": {
+      "status": "vendor-confirmation-required",
+      "finding": "Docebo publishes security materials; exact current SOC 2/ISO report scope not captured in this pass. Request current Type II report and certificate.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.docebo.com/hc/article_attachments/31490525590674"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://tos.docebo.com/Docebo-sub-processors-list.pdf"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "January 2026 subprocessor list says AWS regions may include Australia as contractually selected; DR for Australian processing is Singapore. Usage Dashboard and media conversion limited data processed in EU regardless of region; logs/backups retained 12 months.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.docebo.com/hc/article_attachments/31490525590674"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://tos.docebo.com/Docebo-sub-processors-list.pdf"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Docebo offers AI content creation, assistant/search, agents and roleplay; model providers, model training and retention require feature-specific confirmation.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.docebo.com/hc/article_attachments/31490525590674"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://tos.docebo.com/Docebo-sub-processors-list.pdf"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Mid-market and enterprise; employee learning; customer and partner education\".",
+    "Standards need exact versions: \"SCORM and common content standards should be confirmed against current technical documentation and contract\".",
+    "Pricing: record whether prices are public and the entry price.",
+    "Pricing model: confirm basis, free tier and trial. Workbook: \"Custom quote; plans and add-ons vary by audience, scale and required features\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Conflict (accessibility): Accessibility column says to request an ACR/VPAT; the evidence column cites a public ACR for Docebo 2026.2.0 dated 2 Feb 2026 (VPAT 2.5). Neither side imported; settle it from the source.",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Instructure, Inc.",
+  "website": "https://www.instructure.com/",
+  "headquarters": {
+    "value": "Salt Lake City, Utah, USA",
+    "source": "https://www.instructure.com/press-release/kkr-and-dragoneer-complete-acquisition-instructure",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownership": {
+    "value": "private-equity",
+    "source": "https://www.instructure.com/press-release/kkr-and-dragoneer-complete-acquisition-instructure",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Acquired by funds managed by KKR, with Dragoneer participating; deal closed 13 November 2024",
+    "source": "https://www.instructure.com/press-release/kkr-and-dragoneer-complete-acquisition-instructure",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "legalEntity": "Instructure, Inc.",
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Founded, size and funding not researched yet."
+  ]
+}

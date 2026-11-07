@@ -58,7 +58,37 @@ A product has one main `category` and any number of `secondaryCategories`.
 | `geographicAvailability` | Markets served |
 | `alternatives` | Ids of comparable products |
 | `commercialRelationship` | `none`, `affiliate`, `sponsor` or `vendor-subscriber`, with the start date |
-| `status`, `lastVerified` | `active`, `beta`, `acquired`, `discontinued`, and the date the whole profile was last checked |
+| `assurance` | The evidence & assurance layer (below) |
+| `status`, `lastVerified` | `active`, `beta`, `acquired`, `discontinued`, and the date the whole profile was last checked. `lastVerified` is left out while `draft` is true and required once it is false |
+| `draft` | `true` keeps the record off production. Every new record starts as a draft |
+| `researchTasks` | Internal to-do list: missing values, open conflicts, sources to re-open. Never shown to readers. A record is ready to publish when this list is empty |
+
+Vendors have the same `draft`, optional `lastVerified` and `researchTasks`, plus
+`ownershipDetail` (who owns it, in words, with provenance) and `legalEntity` (the contracting company).
+
+## Evidence & assurance
+
+The questions a procurement team asks before signing, and how well each answer is evidenced.
+Each product can carry four areas, each with a `status`, a `finding` in our words, a `caveat` on
+scope, `sources` and a `checked` date:
+
+| Area | Covers |
+| --- | --- |
+| `accessibility` | Accessibility conformance report or accreditation, its standard, date and scope |
+| `security` | SOC 2, ISO certifications and what they cover |
+| `dataResidency` | Where data is stored and processed, Australia first |
+| `ai` | AI providers and models, and whether customer data trains them |
+
+Statuses, strongest first:
+
+- `independently-evidenced`: a third-party report or certificate whose scope and date we have
+  checked (an accessibility audit by an outside firm, a certificate from the certification body)
+- `publicly-stated`: the vendor says it publicly; we have not seen the underlying report
+- `vendor-confirmation-required`: the vendor says the evidence exists on request, or it is unclear
+- `not-disclosed`: nothing public found
+
+`procurementChecks` lists what a buyer should ask for before signing. The assurance layer is a
+members' feature; the free profile shows the statuses only.
 
 ## Provenance: every fact says where it came from
 
@@ -66,7 +96,7 @@ Most fields are wrapped in a provenance record:
 
 ```json
 "pricingModel": {
-  "value": { "basis": "per-active-user", "freeTier": false, "trial": true },
+  "value": { "basis": "per-active-user", "trial": true },
   "source": "https://example.com/pricing",
   "checked": "2026-11-20",
   "origin": "verified"
