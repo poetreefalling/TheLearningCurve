@@ -1,0 +1,130 @@
+{
+  "name": "Teachable",
+  "vendor": "teachable",
+  "category": "course-platforms",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.teachable.com/",
+  "platform": "teachable",
+  "summary": "A hosted platform for experts and small businesses to create and sell courses, coaching, memberships and downloads, with checkout and tax handling built in. Strongest where selling the course is the main job.",
+  "primaryMarket": {
+    "value": [
+      "creators"
+    ],
+    "source": "https://www.teachable.com/about",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Selling self-paced courses",
+      "Coaching programmes",
+      "Memberships and subscriptions",
+      "Digital downloads",
+      "Community-led courses"
+    ],
+    "source": "https://www.teachable.com/about",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course builder",
+      "Graded multiple-choice quizzes and course compliance rules on all plans",
+      "Completion certificates (Growth plan and above)",
+      "Communities",
+      "Memberships and subscriptions",
+      "Coupons, bundles and upsells",
+      "Checkout with global tax handling",
+      "Affiliate programme (Builder plan and above)",
+      "AI-assisted course creation"
+    ],
+    "source": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$29 a month billed annually, or US$39 monthly (Starter)",
+      "notes": "Starter charges a 7.5% transaction fee; Builder (US$89 monthly) and Growth (US$189 monthly) charge none, though payment processing fees apply. Custom plans are quoted."
+    },
+    "source": "https://teachable.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": false,
+      "trial": true
+    },
+    "source": "https://teachable.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.teachable.com/security",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.1 AA (partially conformant, by its own statement)",
+      "evidence": "Vendor accessibility statement, last updated 12 October 2021, based on self-evaluation. No current VPAT or conformance report published."
+    },
+    "source": "https://teachable.com/accessibility",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2 Type II (vendor statement; report under NDA on request)"
+    ],
+    "source": "https://www.teachable.com/security",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "australianPrivacyAct": "No Australian data residency commitment found. Confirm storage, backups and cross-border transfers before procurement.",
+      "notes": "Runs on AWS per its security overview. Subprocessor list available on request (Hotmart group)."
+    },
+    "source": "https://support.teachable.com/en/articles/11682439-security-overview",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "AI-assisted course creation is marketed; model providers, retention and training terms are not disclosed in the public pages reviewed."
+    },
+    "source": "https://www.teachable.com/legal/privacy-policy",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "evidence": [],
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://www.teachable.com/about",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "thinkific"
+  ],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-07",
+  "draft": true
+}
