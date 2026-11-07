@@ -74,7 +74,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 21 | Kajabi Pricing Plans Compared | kajabi pricing plan | 210 · 28 | review | todo |
 | 22 | Online Education: The Research Worth Reading This Month | online learning research (row keyword "elearning research" is 10 · 20 US; kept as secondary). Angle: the University of Maryland course AI tutor trial | 20 · 14 | trends | in PR (Sat 7 Nov 00:00) |
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
-| 24 | Bloom's Taxonomy for Online Course Design | blooms taxonomy for course design | check | guide | next |
+| 24 | Bloom's Taxonomy Examples: Using It to Design an Online Course | blooms taxonomy examples (row keyword "blooms taxonomy for course design" had 0 US volume; kept as secondary) | 320 · 13 | guide | in PR (Sat 7 Nov 12:00) |
 | 25 | Elaboration: Getting Learners to Explain Why | what is elaborative interrogation (row keyword "elaboration learning strategy" is 70 · 42 US and "elaborative interrogation" 260 · 44, too hard for now; both kept as secondary) | 40 · 5 | library | in PR (Sun 8 Nov 00:00) |
 | 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | next |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
