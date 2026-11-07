@@ -785,8 +785,9 @@ html, body { overflow-x: clip; }
 .pill-marigold:hover { background: #f8d570; color: #16181d; }
 .pill-outline { background: transparent; color: var(--band); border: 1.5px solid var(--band); }
 .pill-outline:hover { background: rgba(246, 200, 71, 0.12); color: var(--band); }
-.pill-ink { background: #16181d; color: var(--band); border: 1.5px solid #16181d; }
-.pill-ink:hover { background: #2b2d33; color: var(--band); }
+/* .band a would otherwise turn the label ink-on-ink inside a marigold band */
+.pill-ink, .band a.pill-ink { background: #16181d; color: var(--band); border: 1.5px solid #16181d; }
+.pill-ink:hover, .band a.pill-ink:hover { background: #2b2d33; color: var(--band); }
 
 /* Ink band: always dark, in both themes */
 .hwe-band, .ink-band {
