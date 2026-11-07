@@ -1,12 +1,12 @@
 ---
 // The Learning Curve wordmark: "Learning", the curve (a line that rises fast, then flattens),
-// "Curve". Set in Fraunces, so it takes the text colour in both themes. `compact` drops "The".
+// "Curve". Set in Fraunces, so it takes the text colour in both themes. "The" sits small in the
+// space above "earning", tucked against the L's stem. `compact` drops "The".
 // The previous swash wordmark is kept in brand/logo-wordmark.svg.
 interface Props { class?: string; compact?: boolean }
 const { class: cls = '', compact = false } = Astro.props;
 ---
 
 <span class={`wordmark ${compact ? 'is-compact' : ''} ${cls}`} aria-hidden="true">
-  {!compact && <span class="wm-the">The</span>}
-  <span class="wm-main">Learning<svg class="wm-curve" viewBox="0 0 46 34" focusable="false"><path d="M3 31 C 12 31, 14 6, 43 4" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" /></svg>Curve</span>
+  <span class="wm-main">{!compact && <span class="wm-the">The</span>}Learning<svg class="wm-curve" viewBox="0 0 46 34" focusable="false"><path d="M3 31 C 12 31, 14 6, 43 4" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" /></svg>Curve</span>
 </span>
