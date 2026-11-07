@@ -1,0 +1,94 @@
+{
+  "title": "In the US, half of training and development specialists earned less than US$69,280 in May 2025",
+  "subtitle": "Annual wages at the 10th percentile, median and 90th percentile, US, May 2025: the two occupations closest to instructional design and the manager role above",
+  "type": "groupedBar",
+  "format": "usd",
+  "yMax": 240000,
+  "categories": [
+    "Lowest 10% earned less than",
+    "Median",
+    "Highest 10% earned more than"
+  ],
+  "series": [
+    {
+      "id": "specialists",
+      "label": "Training and development specialists",
+      "values": [
+        38760,
+        69280,
+        123250
+      ]
+    },
+    {
+      "id": "coordinators",
+      "label": "Instructional coordinators",
+      "values": [
+        47980,
+        77440,
+        121670
+      ]
+    },
+    {
+      "id": "managers",
+      "label": "Training and development managers",
+      "values": [
+        79550,
+        133000,
+        233600
+      ]
+    }
+  ],
+  "views": {
+    "specialists": {
+      "highlight": [
+        "specialists"
+      ],
+      "annotations": [
+        {
+          "at": 1,
+          "series": "specialists",
+          "text": "Median US$69,280"
+        }
+      ]
+    },
+    "both": {
+      "highlight": [
+        "specialists",
+        "coordinators"
+      ]
+    },
+    "managers": {
+      "highlight": [
+        "managers"
+      ],
+      "annotations": [
+        {
+          "at": 1,
+          "series": "managers",
+          "text": "Median US$133,000"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "The US Bureau of Labor Statistics (BLS) has no occupation called instructional designer. Instructional designers are counted inside broader occupations, mainly these two.",
+    "Figures are wages for employees from the BLS Occupational Employment and Wage Statistics survey, May 2025. They exclude the self-employed."
+  ],
+  "sources": [
+    {
+      "label": "BLS Occupational Outlook Handbook: Training and development specialists, Pay",
+      "url": "https://www.bls.gov/OOH/business-and-financial/training-and-development-specialists.htm",
+      "figureOrTable": "Pay tab, May 2025"
+    },
+    {
+      "label": "BLS Occupational Outlook Handbook: Instructional coordinators, Pay",
+      "url": "https://www.bls.gov/ooh/education-training-and-library/instructional-coordinators.htm",
+      "figureOrTable": "Pay tab, May 2025"
+    },
+    {
+      "label": "BLS Occupational Outlook Handbook: Training and development managers, Pay",
+      "url": "https://www.bls.gov/OOH/management/training-and-development-managers.htm",
+      "figureOrTable": "Pay tab, May 2025"
+    }
+  ]
+}
