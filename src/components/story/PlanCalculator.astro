@@ -8,7 +8,7 @@ const { id, features: pick } = Astro.props;
 const files = import.meta.glob('../../data/plans/*.json', { eager: true }) as Record<string, { default: any }>;
 const data = Object.entries(files).find(([p]) => p.endsWith(`/${id}.json`))?.[1].default;
 if (!data) throw new Error(`PlanCalculator: no src/data/plans/${id}.json`);
-const options = (pick ?? ['certificates', 'assignments', 'affiliates', 'analytics', 'paypal', 'bulkemail', 'branding', 'exams', 'scorm', 'sso'])
+const options = (pick ?? ['certificates', 'assignments', 'affiliates', 'advanced-analytics', 'paypal', 'bulkemail', 'branding', 'exams', 'scorm', 'sso'])
   .map((fid) => data.features.find((f: any) => f.id === fid))
   .filter(Boolean);
 const checked = new Date(data.checked).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });

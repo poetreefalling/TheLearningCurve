@@ -9,9 +9,27 @@
       "source": "https://teachable.com/pricing",
       "enterprise": "Custom (quoted)",
       "plans": [
-        { "id": "starter", "name": "Starter", "monthly": 39, "annual": 29, "fee": 7.5 },
-        { "id": "builder", "name": "Builder", "monthly": 89, "annual": 69, "fee": 0 },
-        { "id": "growth", "name": "Growth", "monthly": 189, "annual": 139, "fee": 0 }
+        {
+          "id": "starter",
+          "name": "Starter",
+          "monthly": 39,
+          "annual": 29,
+          "fee": 7.5
+        },
+        {
+          "id": "builder",
+          "name": "Builder",
+          "monthly": 89,
+          "annual": 69,
+          "fee": 0
+        },
+        {
+          "id": "growth",
+          "name": "Growth",
+          "monthly": 189,
+          "annual": 139,
+          "fee": 0
+        }
       ]
     },
     {
@@ -20,37 +38,202 @@
       "source": "https://www.thinkific.com/pricing/",
       "enterprise": "Thinkific Plus (quoted)",
       "plans": [
-        { "id": "start", "name": "Start", "monthly": 109, "annual": 82, "fee": 0 },
-        { "id": "grow", "name": "Grow", "monthly": 219, "annual": 164, "fee": 0 },
-        { "id": "expand", "name": "Expand", "monthly": 499, "annual": 374, "fee": 0 }
+        {
+          "id": "start",
+          "name": "Start",
+          "monthly": 109,
+          "annual": 82,
+          "fee": 0
+        },
+        {
+          "id": "grow",
+          "name": "Grow",
+          "monthly": 219,
+          "annual": 164,
+          "fee": 0
+        },
+        {
+          "id": "expand",
+          "name": "Expand",
+          "monthly": 499,
+          "annual": 374,
+          "fee": 0
+        }
       ]
     }
   ],
   "features": [
-    { "id": "quizzes", "label": "Graded quizzes", "group": "Learning", "unlocks": { "teachable": "starter", "thinkific": "start" } },
-    { "id": "certificates", "label": "Completion certificates", "group": "Learning", "unlocks": { "teachable": "growth", "thinkific": "start" } },
-    { "id": "assignments", "label": "Assignments", "group": "Learning", "unlocks": { "teachable": "unknown", "thinkific": "start" } },
-    { "id": "compliance", "label": "Completion rules (lesson order, pass marks)", "group": "Learning", "unlocks": { "teachable": "starter", "thinkific": "start" } },
-    { "id": "analytics", "label": "Engagement reports", "group": "Learning", "unlocks": { "teachable": "unknown", "thinkific": "grow" } },
-    { "id": "exams", "label": "Exams with attempt limits", "group": "Learning", "unlocks": { "teachable": "unknown", "thinkific": "enterprise" } },
-    { "id": "scorm", "label": "SCORM packages", "group": "Learning", "unlocks": { "teachable": "none", "thinkific": "enterprise" } },
-    { "id": "communities", "label": "Communities", "group": "Community", "unlocks": { "teachable": "starter", "thinkific": "start" } },
-    { "id": "subscriptions", "label": "Memberships and subscriptions", "group": "Selling", "unlocks": { "teachable": "starter", "thinkific": "start" } },
-    { "id": "coupons", "label": "Coupons", "group": "Selling", "unlocks": { "teachable": "starter", "thinkific": "start" } },
-    { "id": "affiliates", "label": "Affiliates", "group": "Selling", "unlocks": { "teachable": "builder", "thinkific": "start" } },
-    { "id": "nofee", "label": "No platform transaction fee", "group": "Selling", "unlocks": { "teachable": "builder", "thinkific": "start" } },
-    { "id": "paypal", "label": "PayPal payments", "group": "Selling", "unlocks": { "teachable": "unknown", "thinkific": "grow" } },
-    { "id": "bulkemail", "label": "Bulk email to students", "group": "Marketing", "unlocks": { "teachable": "unknown", "thinkific": "grow" } },
-    { "id": "branding", "label": "Remove platform branding", "group": "Marketing", "unlocks": { "teachable": "unknown", "thinkific": "grow" } },
-    { "id": "sso", "label": "Single sign-on", "group": "Admin", "unlocks": { "teachable": "unknown", "thinkific": "enterprise" } }
+    {
+      "id": "quizzes",
+      "label": "Graded quizzes",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "certificates",
+      "label": "Completion certificates",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "growth",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "assignments",
+      "label": "Assignments",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "none",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "compliance",
+      "label": "Completion rules (lesson order, pass marks)",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "analytics",
+      "label": "Learner progress reports",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "advanced-analytics",
+      "label": "Engagement and analytics reports",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "unknown",
+        "thinkific": "grow"
+      }
+    },
+    {
+      "id": "exams",
+      "label": "Exams with attempt limits",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "unknown",
+        "thinkific": "enterprise"
+      }
+    },
+    {
+      "id": "scorm",
+      "label": "SCORM packages",
+      "group": "Learning",
+      "unlocks": {
+        "teachable": "none",
+        "thinkific": "enterprise"
+      }
+    },
+    {
+      "id": "communities",
+      "label": "Communities",
+      "group": "Community",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "subscriptions",
+      "label": "Memberships and subscriptions",
+      "group": "Selling",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "coupons",
+      "label": "Coupons",
+      "group": "Selling",
+      "unlocks": {
+        "teachable": "starter",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "affiliates",
+      "label": "Affiliates",
+      "group": "Selling",
+      "unlocks": {
+        "teachable": "builder",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "nofee",
+      "label": "No platform transaction fee",
+      "group": "Selling",
+      "unlocks": {
+        "teachable": "builder",
+        "thinkific": "start"
+      }
+    },
+    {
+      "id": "paypal",
+      "label": "PayPal payments",
+      "group": "Selling",
+      "unlocks": {
+        "teachable": "unknown",
+        "thinkific": "grow"
+      }
+    },
+    {
+      "id": "bulkemail",
+      "label": "Bulk email to students",
+      "group": "Marketing",
+      "unlocks": {
+        "teachable": "none",
+        "thinkific": "grow"
+      }
+    },
+    {
+      "id": "branding",
+      "label": "Remove platform branding",
+      "group": "Marketing",
+      "unlocks": {
+        "teachable": "unknown",
+        "thinkific": "grow"
+      }
+    },
+    {
+      "id": "sso",
+      "label": "Single sign-on",
+      "group": "Admin",
+      "unlocks": {
+        "teachable": "unknown",
+        "thinkific": "enterprise"
+      }
+    }
   ],
   "notes": [
     "\"Unknown\" means the platform's plan documentation doesn't say which plan includes it; it doesn't mean the feature is missing.",
+    "Teachable assignments: learners can upload work in Teachable Coaching products, not in courses. Teachable sends automated emails (abandoned cart, transactional) but has no bulk email to students.",
     "Prices exclude payment processing fees, tax and add-ons. Teachable's Starter fee is a platform transaction fee on each sale."
   ],
   "sources": [
-    { "label": "Teachable pricing", "url": "https://teachable.com/pricing" },
-    { "label": "Teachable: New plans in June 2025", "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025" },
-    { "label": "Thinkific pricing and plan features", "url": "https://www.thinkific.com/pricing/" }
+    {
+      "label": "Teachable pricing",
+      "url": "https://teachable.com/pricing"
+    },
+    {
+      "label": "Teachable: New plans in June 2025",
+      "url": "https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025"
+    },
+    {
+      "label": "Thinkific pricing and plan features",
+      "url": "https://www.thinkific.com/pricing/"
+    }
   ]
 }
