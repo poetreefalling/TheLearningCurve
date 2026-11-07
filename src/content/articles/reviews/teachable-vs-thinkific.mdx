@@ -48,6 +48,25 @@ comparison:
   bestFor:
     teachable: "Independent creators and small course businesses selling self-paced courses"
     thinkific: "Training businesses, associations and providers where the learning is the product"
+readerCheck:
+  kind: poll
+  questions:
+    - q: "Which platform do you sell or run your courses on now?"
+      options:
+        - "Teachable"
+        - "Thinkific"
+        - "Kajabi"
+        - "LearnWorlds"
+        - "Something else"
+        - "I haven't chosen yet"
+    - q: "What would decide it for you?"
+      options:
+        - "Total cost, including fees"
+        - "Certificates and assessment tools"
+        - "Selling and marketing tools"
+        - "Community features"
+        - "SCORM or integrations"
+        - "Something else"
 faqs:
   - q: "Is Teachable or Thinkific better for beginners?"
     a: "Both are easy to start with. Teachable's Starter plan is the cheaper entry point at US$29 a month billed annually, but it charges a 7.5% transaction fee and has no certificates. Thinkific's Start plan costs more, at US$82 a month billed annually, but includes quizzes, assignments and certificates. If you plan to sell more than a few courses, compare the fee against the price difference."
@@ -100,6 +119,14 @@ sources:
     year: 2026
     title: "Teachable vs Thinkific comparison"
     url: "https://www.capterra.com/compare/Teachable-vs-Thinkific/"
+  - authors: "Teachable"
+    year: 2021
+    title: "A look back at 2020: Teachable creator stats by the numbers"
+    url: "https://teachable.com/blog/2020-teachable-creator-stats-data"
+  - authors: "Thinkific"
+    year: 2026
+    title: "Thinkific announces fourth quarter and full year 2025 financial results"
+    url: "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results"
 featured: true
 published: 2026-11-23T12:00:00+11:00
 draft: false
@@ -108,6 +135,13 @@ draft: false
 Most Teachable vs Thinkific comparisons ask which platform has more features. That's the wrong question for anyone who builds courses for a living. Both can host video, sell a course and send a certificate. The useful question is what each one is built to do well, and what it costs to get the features that matter for learning.
 
 Our short answer: Teachable is a creator-commerce platform. It makes the business of selling a course simple. Thinkific is a learning-delivery platform. It gives you more of the tools that make a course teach. Which is better depends on whether your course is a product you sell or a learning experience you run.
+
+<StatGrid>
+  <Stat value="57" prefix="US$" label="a month more for certificates on Teachable than on Thinkific, billed annually" source="Plan pricing, 7 Nov 2026" href="https://support.teachable.com/en/articles/11682410-new-teachable-plans-in-june-2025" />
+  <Stat value="7.5" suffix="%" label="transaction fee on every sale on Teachable's Starter plan" source="Teachable pricing" href="https://teachable.com/pricing" />
+  <Stat value="533" prefix="US$" label="in monthly sales, above which Teachable Starter costs more than Builder" source="Our calculation from published prices" href="https://teachable.com/pricing" />
+  <Stat value="460" prefix="US$" suffix="M" label="sold through Thinkific by its creators in 2025 (gross merchandise volume)" source="Thinkific FY2025 results" href="https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results" />
+</StatGrid>
 
 ## How we built this comparison
 
@@ -130,6 +164,10 @@ We haven't yet scored either platform on our seven-criterion [review method](/ho
 **Look beyond both if** you're a university or a large organisation that needs institutional identity management, student-system integration, formal assessment moderation or Australian data residency. Neither platform is a drop-in replacement for an institutional learning management system (LMS).
 
 <ComparisonTable />
+
+The table shows what's included. The bigger difference is *where* each feature switches on. On Teachable, several learning features sit on higher plans. On Thinkific, most sit on its entry plan, and the enterprise-only features are the ones built for organisations.
+
+<FeatureLadder id="teachable-thinkific" />
 
 ## Quizzes and practice
 
@@ -184,7 +222,13 @@ Prices checked on 7 November 2026, in US dollars.
 
 Teachable's Custom plan and Thinkific Plus are quoted. Neither platform has a free plan. Teachable offers a free trial and a 30-day money-back guarantee; Thinkific offers a 30-day free trial ([Teachable pricing](https://teachable.com/pricing); [Thinkific pricing](https://www.thinkific.com/pricing/)).
 
-Teachable's Starter plan looks cheapest, but the 7.5% fee changes the sums quickly. On US$1,000 of sales in a month, Starter's fee is US$75, which already makes Builder cheaper. Thinkific's entry plan costs more, but it includes the certificates and assignments Teachable either reserves for Growth or doesn't document.
+Teachable's Starter plan looks cheapest, but the 7.5% fee changes the sums quickly. On US$1,000 of sales in a month, Starter's fee is US$75, which already makes Builder cheaper. The break-even point is about US$533 a month.
+
+<DataChart id="teachable-starter-breakeven" view="all" /> Thinkific's entry plan costs more, but it includes the certificates and assignments Teachable either reserves for Growth or doesn't document.
+
+Try your own numbers. Tick the features your course can't do without and the calculator finds the cheapest plan on each platform that includes them.
+
+<PlanCalculator id="teachable-thinkific" />
 
 For a fair total cost, add payment processing (Thinkific Payments charges 2.9%), any email or community tools you'd pay for separately, and, for Australian buyers, exchange rates and GST.
 
@@ -231,6 +275,16 @@ These questions rarely appear in platform comparisons, but they matter for assoc
 **Security.** Teachable states that it holds a SOC 2 Type II accreditation, audited annually, with the report available under NDA ([Teachable security](https://www.teachable.com/security)). Thinkific states that data is encrypted with TLS 1.2 or later in transit and AES-256 at rest, that third parties run penetration tests quarterly, and that its practices meet SOC 2 standards for security on Thinkific Plus ([Thinkific security](https://www.thinkific.com/security/)). These are vendor statements. If you need assurance, ask for the reports and check the audit period and what they cover.
 
 **Where data lives.** Thinkific states that it "hosts customer and learner data in the United States" ([Thinkific security](https://www.thinkific.com/security/)). Teachable's public security page doesn't say where data is stored. Neither offers Australian data residency that we could find. For Australian organisations handling learner information, that's a question to raise under the Privacy Act 1988 before you sign.
+
+## How much creators sell on each platform
+
+Both companies publish how much money passes through their platforms, but not in the same way, so read this chart carefully.
+
+<DataChart id="teachable-thinkific-creator-sales" view="all" />
+
+Thinkific, a listed company, reports gross merchandise volume (GMV) every year: the total value of transactions on its platform. It grew from US$276.4 million in 2020 to US$414.8 million in 2021, then levelled off at about US$460 million a year in 2024 and 2025 ([Thinkific, 2026](https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results)). Teachable said its creators "earned close to $400 million" in 2020 and passed US$1 billion in all-time sales that year ([Teachable, 2021](https://teachable.com/blog/2020-teachable-creator-stats-data)). Since then it has reported only combined figures with its parent company, Hotmart.
+
+These are totals across thousands of creators. They say how big each marketplace is, not what a typical creator earns. Neither company publishes a median.
 
 ## What customers say
 
