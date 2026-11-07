@@ -1,0 +1,157 @@
+{
+  "name": "Thinkific",
+  "vendor": "thinkific",
+  "category": "course-platforms",
+  "secondaryCategories": [
+    "lms-platforms",
+    "ai-for-learning"
+  ],
+  "website": "https://www.thinkific.com/",
+  "platform": "thinkific",
+  "summary": "A course and learning-commerce platform for creators and organisations to build, sell and run branded courses, communities and memberships, with an enterprise tier (Thinkific Plus) for external-audience training.",
+  "primaryMarket": {
+    "value": [
+      "creators",
+      "corporate"
+    ],
+    "source": "https://www.thinkific.com/ai-info-page/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Selling online courses",
+      "Memberships and communities",
+      "Customer and partner education",
+      "Branded academies",
+      "B2B group sales"
+    ],
+    "source": "https://www.thinkific.com/ai-info-page/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course and site builder",
+      "Quizzes, assignments and completion certificates on all paid plans",
+      "Communities (number of spaces varies by plan)",
+      "Memberships, subscriptions and payment plans",
+      "Coupons and affiliate reporting",
+      "Email automation",
+      "SCORM on Thinkific Plus",
+      "AI teaching assistant (Thinker)"
+    ],
+    "source": "https://www.thinkific.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Zapier",
+      "HubSpot",
+      "Mailchimp",
+      "Kit (ConvertKit)",
+      "Google Analytics",
+      "Salesforce (Thinkific Plus)",
+      "Articulate 360 (Thinkific Plus)"
+    ],
+    "source": "https://www.thinkific.com/ai-info-page/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004"
+    ],
+    "source": "https://www.thinkific.com/ai-info-page/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$82 a month billed annually, or US$109 monthly (Start)",
+      "notes": "Grow is US$219 and Expand US$499 monthly; Thinkific Plus is quoted. A Basic plan (US$54 monthly) appears in Thinkific's 2026 pricing-update article but was not on the live pricing page on 7 November 2026; confirm before relying on it. Payment processing fees apply."
+    },
+    "source": "https://www.thinkific.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": false,
+      "trial": true
+    },
+    "source": "https://www.thinkific.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.thinkific.com/thinkificsubprocessors/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.1 AA (working towards, by its own statement)",
+      "evidence": "Vendor statement reviewed April 2026: independent third-party audit of the learner experience, testing with disabled participants through Fable, known gaps in creator and admin areas. VPAT/ACR on the roadmap, not yet published."
+    },
+    "source": "https://www.thinkific.com/accessibility/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2 Type II (vendor statement)",
+      "Quarterly third-party penetration tests (vendor statement)"
+    ],
+    "source": "https://support.thinkific.com/hc/en-us/articles/35007607256599-Thinker-AI-Teaching-Assistant-FAQ",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "United States"
+      ],
+      "australianPrivacyAct": "Customer and learner data is hosted in the United States; Australian organisations should assess cross-border disclosure under the Privacy Act 1988.",
+      "notes": "Production systems in the US; AWS and Google listed as customer-data storage subprocessors."
+    },
+    "source": "https://www.thinkific.com/thinkificsubprocessors/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "Privacy policy says AI inputs and outputs are used to provide features and not to train models or shared across customers. Third-party AI providers are named in the subprocessor list; specific models are not."
+    },
+    "source": "https://www.thinkific.com/privacy-policy/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "evidence": [],
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://www.thinkific.com/ai-info-page/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "teachable"
+  ],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-07",
+  "draft": true
+}
