@@ -105,6 +105,7 @@
     <nav class="tabs hidden" id="tabs" aria-label="Admin">
       <button type="button" data-tab="articles" aria-current="page">Articles</button>
       <button type="button" data-tab="ads">Ads</button>
+      <button type="button" data-tab="submissions">Submissions</button>
     </nav>
     <div class="spacer"></div>
     <button class="link hidden" id="logout">Sign out</button>
@@ -428,13 +429,84 @@ function setTab(tab) {
   document.getElementById('logout').classList.remove('hidden');
   document.getElementById('tabs').classList.remove('hidden');
   document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
-  if (location.hash !== (tab === 'ads' ? '#ads' : '')) history.replaceState(null, '', tab === 'ads' ? '#ads' : location.pathname);
+  const hash = tab === 'articles' ? '' : '#' + tab;
+  if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname);
 }
 document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
   if (b.dataset.tab === 'ads') { if (unsavedOk()) { state.current = null; loadAds(); } }
+  else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadSubmissions(); } }
   else if (adsUnsavedOk()) loadQueue();
 });
-function start() { location.hash === '#ads' ? loadAds() : loadQueue(); }
+function start() { location.hash === '#ads' ? loadAds() : location.hash === '#submissions' ? loadSubmissions() : loadQueue(); }
+
+// ---------- submissions ----------
+// Platform submissions from /submit, stored in D1 by functions/api/submit.ts (docs/submissions.md).
+// Set a status and a private note; reply to the vendor by email (the address links straight to it).
+const SUB_LABELS = { new: ['New', 'bad'], reviewing: ['Reviewing', 'warn'], accepted: ['Accepted', 'ok'], declined: ['Declined', ''] };
+let subs = { items: [], filter: 'open' };
+
+async function loadSubmissions() {
+  clearTimeout(state.pollTimer);
+  setTab('submissions');
+  app.innerHTML = '<p class="muted">Loading submissions…</p>';
+  try {
+    const data = await api('submissions');
+    subs.items = data.items || [];
+    renderSubmissions();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Submissions</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderSubmissions() {
+  const shown = subs.items.filter((s) => subs.filter === 'all' || (subs.filter === 'open' ? (s.status === 'new' || s.status === 'reviewing') : s.status === subs.filter));
+  const count = (k) => subs.items.filter((s) => s.status === k).length;
+  const fmt = (t) => new Date(Number(t)).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+  const filters = [['open', `Open (${count('new') + count('reviewing')})`], ['accepted', `Accepted (${count('accepted')})`], ['declined', `Declined (${count('declined')})`], ['all', `All (${subs.items.length})`]];
+  app.innerHTML = `${notice()}
+    <h1>Submissions</h1>
+    <p class="muted">Platforms put forward at /submit. We promise a reply within 3 working days.</p>
+    <div class="choice">${filters.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${subs.filter === k}">${esc(l)}</button>`).join('')}</div>
+    ${shown.length ? '' : '<div class="card muted">Nothing here.</div>'}
+    ${shown.map((s) => {
+      const [label, kind] = SUB_LABELS[s.status] || [s.status, ''];
+      const age = (Date.now() - Number(s.at)) / 86400000;
+      const late = s.status === 'new' && age > 3 ? '<span class="pill bad">Reply overdue</span>' : '';
+      return `<div class="card" data-id="${esc(s.id)}">
+        <div class="slot">${esc(fmt(s.at))} · ${esc(s.category)}${s.stage ? ' · ' + esc(s.stage) : ''}</div>
+        <h3 style="font-family:var(--serif);font-size:20px;margin:4px 0 8px">${esc(s.product)} <span class="muted small">— ${esc(s.organisation)}${s.org_type ? ' (' + esc(s.org_type) + ')' : ''}</span></h3>
+        <p><span class="pill ${kind}">${esc(label)}</span>${late}</p>
+        <p class="small"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></p>
+        <p class="small">${esc(s.name)}${s.role ? ', ' + esc(s.role) : ''} · <a href="mailto:${esc(s.email)}?subject=${encodeURIComponent('Your Learning Curve submission: ' + s.product)}">${esc(s.email)}</a></p>
+        ${s.audience ? `<p class="small muted">Built for: ${esc(s.audience)}</p>` : ''}
+        <div class="context">${esc(s.description)}</div>
+        ${s.learning ? `<p class="small"><strong>How it helps people learn:</strong> ${esc(s.learning)}</p>` : ''}
+        ${s.access ? `<p class="small"><strong>Reviewer access:</strong> ${esc(s.access)}</p>` : ''}
+        ${s.notes ? `<p class="small"><strong>Anything else:</strong> ${esc(s.notes)}</p>` : ''}
+        <label class="small" style="font-weight:600;display:block;margin:12px 0 6px" for="note-${esc(s.id)}">Private note</label>
+        <textarea id="note-${esc(s.id)}" rows="2">${esc(s.editor_note || '')}</textarea>
+        <div class="choice" style="margin-top:10px">${Object.entries(SUB_LABELS).map(([k, [l]]) => `<button type="button" data-status="${k}" aria-pressed="${s.status === k}">${esc(l)}</button>`).join('')}</div>
+      </div>`;
+    }).join('')}`;
+  app.querySelectorAll('[data-f]').forEach((b) => b.onclick = () => { subs.filter = b.dataset.f; renderSubmissions(); });
+  app.querySelectorAll('[data-status]').forEach((b) => b.onclick = async () => {
+    const card = b.closest('[data-id]');
+    const id = card.dataset.id;
+    const note = card.querySelector('textarea').value;
+    b.disabled = true;
+    try {
+      await api('submissions/status', { method: 'POST', body: { id, status: b.dataset.status, note } });
+      const item = subs.items.find((x) => x.id === id);
+      item.status = b.dataset.status; item.editor_note = note;
+      state.notice = { kind: 'ok', text: `Saved: ${item.product} is now ${SUB_LABELS[item.status][0].toLowerCase()}.` };
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+    }
+    renderSubmissions();
+  });
+}
 
 // ---------- ads ----------
 // The ad manager edits src/data/ads.json (rules: src/lib/ads.ts, docs/ads.md). Changes stay in this

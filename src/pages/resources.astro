@@ -1,0 +1,25 @@
+---
+// Resources hub: the Library (one page per learning principle) and the Guides.
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { NAV, SECTIONS } from '../site.config';
+import { getArticles } from '../lib/articles';
+const nav = NAV.find((n) => n.key === 'resources')!;
+const library = await getArticles('library');
+const guides = await getArticles('guides');
+---
+<Base title={nav.label} description={`${nav.note}: practical course design and the research on how people learn.`} current="resources">
+  <div class="wrap">
+    <header class="page-head"><h1>{nav.label}</h1><p>{nav.note}: practical course design, and the research on how people learn.</p></header>
+    <section aria-labelledby="g-h">
+      <div class="section-head" style="margin-top:0"><h2 id="g-h">{SECTIONS.guides.label}</h2><a href="/guides/">All guides →</a></div>
+      <p class="hub-blurb">{SECTIONS.guides.blurb}</p>
+      {guides.length ? <div class="grid-3">{guides.slice(0, 6).map((a) => <ArticleCard article={a} />)}</div> : <p class="meta">The first guides are on their way.</p>}
+    </section>
+    <section aria-labelledby="l-h">
+      <div class="section-head"><h2 id="l-h">The {SECTIONS.library.label}</h2><a href="/library/">The full library →</a></div>
+      <p class="hub-blurb">{SECTIONS.library.blurb}</p>
+      {library.length ? <div class="grid-4">{library.slice(0, 8).map((a) => <ArticleCard article={a} showStandfirst={false} />)}</div> : <p class="meta">The first library pages are on their way.</p>}
+    </section>
+  </div>
+</Base>
