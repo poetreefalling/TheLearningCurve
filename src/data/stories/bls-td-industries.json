@@ -1,0 +1,50 @@
+{
+  "title": "Training and development specialists: median US$82,110 in professional services, US$35,330 in hospitality",
+  "subtitle": "Median annual wage of training and development specialists in the five industries that employ the most of them, US, May 2025",
+  "type": "bar",
+  "format": "usd",
+  "yMax": 90000,
+  "categories": [
+    "Professional, scientific and technical services",
+    "Finance and insurance",
+    "Educational services (state, local and private)",
+    "Healthcare and social assistance",
+    "Accommodation and food services"
+  ],
+  "series": [
+    {
+      "id": "median",
+      "label": "Median annual wage",
+      "values": [
+        82110,
+        78490,
+        75090,
+        67610,
+        35330
+      ]
+    }
+  ],
+  "views": {
+    "top": {
+      "focus": [
+        0,
+        1
+      ]
+    },
+    "bottom": {
+      "focus": [
+        4
+      ]
+    }
+  },
+  "notes": [
+    "BLS lists these as the top industries employing training and development specialists. Hospitality's lower median likely reflects front-line training roles rather than course design, so it pulls the occupation's overall median down."
+  ],
+  "sources": [
+    {
+      "label": "BLS Occupational Outlook Handbook: Training and development specialists",
+      "url": "https://www.bls.gov/OOH/business-and-financial/training-and-development-specialists.htm",
+      "figureOrTable": "Pay tab: median annual wages in the top industries, May 2025"
+    }
+  ]
+}

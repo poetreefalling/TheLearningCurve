@@ -102,7 +102,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 49 | Kajabi vs Teachable: Which Supports Learning Better? | kajabi versus teachable | 590 · 25 | comparison | todo |
 | 50 | Instructional Design Internships: How to Find One and What You'll Do | instructional design internship | 590 · 22 | guide | todo |
 | 51 | Principles of Learning Science Every Course Builder Should Know | principles of learning science | 210 · 22 | library | todo |
-| 52 | Instructional Design Salary: What the Data Shows | instructional design salary | 260 · 14 | guide | todo |
+| 52 | Instructional Designer Salary: What the Data Actually Shows | instructional designer salary (row keyword "instructional design salary" 260 · 14 kept as secondary) | 880 · 25 | guide | in PR (Tue 10 Nov 00:00, written on request outside the routine) |
 | 53 | Instructional Design Tools: What You Need and What You Don't | instructional design tools | 170 · 21 | guide | todo |
 | 54 | Digital Badge Examples From Employers and Universities | digital badges examples | 140 · 21 | trends | todo |
 | 55 | Part-Time Instructional Design Jobs: Where to Look | instructional design jobs part time | 320 · 10 | guide | todo |
