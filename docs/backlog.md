@@ -76,10 +76,10 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
 | 24 | Bloom's Taxonomy for Online Course Design | blooms taxonomy for course design | check | guide | next |
 | 25 | Elaboration: Getting Learners to Explain Why | what is elaborative interrogation (row keyword "elaboration learning strategy" is 70 · 42 US and "elaborative interrogation" 260 · 44, too hard for now; both kept as secondary) | 40 · 5 | library | in PR (Sun 8 Nov 00:00) |
-| 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | next |
+| 26 | Online Course Completion Rates: What the Data Says and What Moves Them | online course completion rates (SD above 30; "online course completion rate" 10 · 5 kept as secondary) | 30 · 38 | guide | in PR (Mon 9 Nov 00:00) |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
 | 28 | Microlearning Platforms Compared for Workplace Training | microlearning platform | 320 · 17 | comparison | todo |
-| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid | check | library | todo |
+| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid | check | library | next |
 | 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | todo |
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
 | 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | todo |
