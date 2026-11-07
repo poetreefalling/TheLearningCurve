@@ -24,7 +24,13 @@
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--sans); }
-  header { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  /* The header is always dark so the white wordmark reads in both themes */
+  header { border-bottom: 1px solid #2e2f31; background: #16181d; color: #eeebe5; }
+  header .logo { display: block; line-height: 0; }
+  header .logo img { height: 40px; width: auto; }
+  header .tabs button { color: #a39f98; }
+  header .tabs button[aria-current=page] { background: #2a2c31; color: #ffffff; }
+  header button.link { color: #eeebe5; }
   .bar { max-width: 960px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 16px; }
   .bar strong { font-family: var(--serif); font-size: 20px; font-weight: 600; }
   .bar span { color: var(--muted); font-size: 14px; }
@@ -101,7 +107,7 @@
 <body>
 <header>
   <div class="bar">
-    <strong>The Learning Curve</strong>
+    <a class="logo" href="/" title="Go to the live site"><img src="/admin/logo-white.svg" alt="The Learning Curve" width="245" height="40"></a>
     <nav class="tabs hidden" id="tabs" aria-label="Admin">
       <button type="button" data-tab="articles" aria-current="page">Articles</button>
       <button type="button" data-tab="changes">Changes</button>
