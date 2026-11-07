@@ -10,6 +10,10 @@
 // The desk only touches open pull requests from `article/` branches: it reads their articles,
 // commits Jim's edits to the same branch, and merges the PR when he presses Publish.
 //
+// The Changes tab lists every other open pull request (site, docs, ads) and merges one when Jim
+// presses Merge, but only when its checks pass, GitHub says it merges cleanly, and it is still
+// the exact version he was shown.
+//
 // The ad manager (Ads tab) reads src/data/ads.json from the default branch and saves it, plus any
 // new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
 // The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
@@ -54,6 +58,8 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     }
     if (route === 'save' && request.method === 'POST') return json(200, await save(gh, await request.json()));
     if (route === 'publish' && request.method === 'POST') return await publish(gh, await request.json());
+    if (route === 'changes' && request.method === 'GET') return json(200, await listChanges(gh));
+    if (route === 'changes/merge' && request.method === 'POST') return await mergeChange(gh, await request.json());
     if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
     if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
     if (route === 'submissions' && request.method === 'GET') return json(200, await listSubmissions(env));
@@ -380,6 +386,54 @@ async function publish(gh: GH, body: any) {
   });
 }
 
+
+// ---------- other changes (non-article pull requests) ----------
+
+async function describeChange(gh: GH, pr: any) {
+  const [checks, preview] = await Promise.all([checksFor(gh, pr.head.sha), previewBase(gh, pr.number, pr.head.ref)]);
+  return {
+    number: pr.number,
+    title: pr.title,
+    url: pr.html_url,
+    branch: pr.head.ref,
+    sha: pr.head.sha,
+    draft: !!pr.draft,
+    opened: pr.created_at,
+    body: String(pr.body ?? '').replace(/\r/g, '').slice(0, 4000),
+    checks,
+    preview,
+  };
+}
+
+async function listChanges(gh: GH) {
+  const prs: any[] = await gh('/pulls?state=open&per_page=50&sort=created&direction=asc');
+  const others = prs.filter((p) => !String(p.head.ref).startsWith('article/'));
+  return { items: await Promise.all(others.map((p) => describeChange(gh, p))) };
+}
+
+async function mergeChange(gh: GH, body: any) {
+  const number = Number(body?.pr);
+  if (!Number.isInteger(number) || number <= 0) throw new Problem(400, 'Unknown pull request.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'This change is no longer open (it may already be merged or closed). Reload the list.');
+  if (String(pr.head.ref).startsWith('article/')) {
+    throw new Problem(400, 'Articles are published from the Articles tab, which checks every editor flag first.');
+  }
+  if (pr.draft) throw new Problem(409, 'This pull request is still marked as a draft on GitHub.');
+  if (body?.sha && body.sha !== pr.head.sha) {
+    throw new Problem(409, 'This change was updated since you opened the list. Reload and look at the latest version before merging.');
+  }
+  const checks = await checksFor(gh, pr.head.sha);
+  if (checks === 'pending') return json(409, { error: 'The site check is still running. Try again in a minute or two.' });
+  if (checks === 'failing') return json(409, { error: 'The site check failed, so merging could break the live site. Ask Claude to look at it.' });
+  if (pr.mergeable === false) return json(409, { error: 'This change clashes with something already on the live site. Ask Claude to fix the conflict, then merge.' });
+  if (pr.mergeable === null) return json(409, { error: 'GitHub is still checking this change against the live site. Try again in a few seconds.' });
+  await gh(`/pulls/${number}/merge`, {
+    method: 'PUT',
+    body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${number})` }),
+  });
+  return json(200, { ok: true, message: `Merged #${number}. The live site rebuilds in about two minutes.` });
+}
 
 // ---------- ads ----------
 

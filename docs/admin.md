@@ -14,6 +14,16 @@ Saving commits to the article's branch ("Edit via review desk: …"), so Claude 
 same text. If Claude changed the article after you opened it, the desk refuses to overwrite and
 asks you to reload.
 
+## Changes tab
+
+Every other open pull request: site features, docs, plans and settings (anything not on an
+`article/` branch), oldest first. Each shows its site check, a link to the preview, the changed
+files and the description. **Merge** makes it live; the site rebuilds in about two minutes.
+
+Merge stays disabled until the site check passes, and the server refuses if GitHub reports a
+conflict, the PR is a draft, or it changed after you loaded the list (reload to see the latest).
+Articles never appear here: they're published from the Articles tab, which checks every flag first.
+
 ## Ads tab
 
 The ad manager: book sponsors into the ad slots, pause or remove them, and switch the AdSense
