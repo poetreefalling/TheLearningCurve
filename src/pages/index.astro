@@ -4,6 +4,8 @@ import ArticleCard from '../components/ArticleCard.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
 import AdSlot from '../components/AdSlot.astro';
 import SponsoredCard from '../components/SponsoredCard.astro';
+import HowWeEvaluate from '../components/home/HowWeEvaluate.astro';
+import IntelligencePreview from '../components/home/IntelligencePreview.astro';
 import { SITE } from '../site.config';
 import { getArticles } from '../lib/articles';
 import { pickAd } from '../lib/ads';
@@ -20,8 +22,7 @@ const row1 = others.slice(0, 3);
 const row2 = others.slice(3, 6 - Number(hasCard) - Number(hasRect));
 const shown = new Set([lead, ...row1, ...row2].filter(Boolean));
 const library = all.filter((a) => a.data.section === 'library' && !shown.has(a)).slice(0, 4);
-const reviews = all.filter((a) => a.data.section === 'reviews' && !shown.has(a)).slice(0, 3);
-library.concat(reviews).forEach((a) => shown.add(a));
+library.forEach((a) => shown.add(a));
 const river = others.filter((a) => !shown.has(a)).slice(0, 12);
 
 const jsonLd = [
@@ -63,6 +64,12 @@ const jsonLd = [
         <AdSlot unit="rectangle" page="home" class="ad-cell" />
       </section>
     )}
+  </div>
+
+  <HowWeEvaluate />
+
+  <div class="wrap">
+    <IntelligencePreview />
 
     {library.length > 0 && (
       <section aria-labelledby="lib-h">
@@ -78,12 +85,6 @@ const jsonLd = [
       </section>
     )}
 
-    {reviews.length > 0 && (
-      <section aria-labelledby="rev-h">
-        <div class="section-head"><h2 id="rev-h">Reviews</h2><a href="/how-we-review/">How we review →</a></div>
-        <div class="grid-3">{reviews.map((a) => <ArticleCard article={a} />)}</div>
-      </section>
-    )}
   </div>
 
   <section class="newsletter-band band" aria-labelledby="nl-h">

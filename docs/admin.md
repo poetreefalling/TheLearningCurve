@@ -26,6 +26,12 @@ Saving needs the same token as the review desk (Contents: read and write). If `m
 protection that blocks direct commits, the save fails with GitHub's message: allow the token to
 push, or ask Claude to open a pull request with the change instead.
 
+## Submissions tab
+
+Platforms put forward at /submit. Filter by status, open the vendor's site, email them, add a
+private note, and set New, Reviewing, Accepted or Declined. New entries older than 3 days are
+flagged as overdue. Setup and storage: `docs/submissions.md`.
+
 ## One-time setup
 
 1. **GitHub token.** github.com → your photo → Settings → Developer settings → Personal access
