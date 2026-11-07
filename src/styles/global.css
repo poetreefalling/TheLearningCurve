@@ -199,11 +199,11 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; line-height: 1.1
 
 /* The wordmark: Fraunces, with the curve between the words */
 .wordmark { display: inline-flex; align-items: center; line-height: 1; color: inherit; }
-/* "The" nests above the lowercase of "Learning", just right of the L. Its em is a fifth of the
-   wordmark size, so left and top scale with it */
+/* "The" nests above the lowercase of "Learning", just right of the L. Its em is about a quarter
+   of the wordmark size, so left and top scale with it */
 .wm-the {
-  position: absolute; left: 2.9em; top: 0.75em;
-  font: 700 0.2em/1 var(--label); letter-spacing: 0.42em; text-transform: uppercase;
+  position: absolute; left: 2.13em; top: 0.1em;
+  font: 700 0.26em/1 var(--label); letter-spacing: 0.41em; text-transform: uppercase;
 }
 .wm-main {
   position: relative; display: inline-flex; align-items: center; gap: 0.22em; white-space: nowrap;
