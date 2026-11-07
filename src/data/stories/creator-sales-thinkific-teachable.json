@@ -1,0 +1,131 @@
+{
+  "title": "Creators' sales on Thinkific rose 66% from 2020 to 2025, but have been flat at about US$460M since 2023",
+  "subtitle": "Sales made by creators through each platform, US$ millions a year. Thinkific: audited filings. Teachable: one self-reported figure",
+  "type": "line",
+  "format": "millions",
+  "yMax": 500,
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "thinkific",
+      "label": "Thinkific (GMV, filings)",
+      "values": [
+        276.4,
+        414.8,
+        409.8,
+        445,
+        459.1,
+        460.0
+      ]
+    },
+    {
+      "id": "teachable",
+      "label": "Teachable (self-reported)",
+      "values": [
+        400,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "estimate": [
+        true,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  ],
+  "views": {
+    "both": {
+      "annotations": [
+        {
+          "at": 0,
+          "series": "teachable",
+          "text": "Teachable*"
+        },
+        {
+          "at": 0,
+          "series": "thinkific",
+          "text": "Thinkific: $276.4M"
+        }
+      ]
+    },
+    "boom": {
+      "upTo": 1,
+      "annotations": [
+        {
+          "at": 0,
+          "series": "teachable",
+          "text": "Teachable*"
+        },
+        {
+          "at": 1,
+          "series": "thinkific",
+          "text": "+50%"
+        }
+      ]
+    },
+    "plateau": {
+      "annotations": [
+        {
+          "at": 0,
+          "series": "teachable",
+          "text": "Teachable*"
+        },
+        {
+          "at": 5,
+          "series": "thinkific",
+          "text": "'remained consistent at $460.0M'"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Thinkific's figure is gross merchandise volume (GMV): the value of sales creators made through the platform, an unaudited metric in its results releases.",
+    "Teachable is private and doesn't publish yearly figures. Its only yearly number we could find is for 2020, when it said creators 'earned close to $400 million'. It is self-reported, not audited, and isn't strictly the same measure, so read it as a rough marker.",
+    "* Self-reported figure."
+  ],
+  "sources": [
+    {
+      "label": "Thinkific Q4 and full-year 2021 results (2020 and 2021 GMV)",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2021-financial-results-and-provides-first-quarter-2022-outlook-806299511.html",
+      "figureOrTable": "Full-year highlights and key performance indicators"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2022 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2022-financial-results-and-provides-first-quarter-2023-outlook-814476102.html",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2023 results",
+      "url": "https://investors.thinkific.com/2024-03-04-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2023-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2024 results",
+      "url": "https://www.newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2024-financial-results-824981852.html",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2025 results",
+      "url": "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Teachable, 'A look back at 2020: Teachable creator stats by the numbers'",
+      "url": "https://teachable.com/blog/2020-teachable-creator-stats-data",
+      "figureOrTable": "2020 creator earnings"
+    }
+  ]
+}
