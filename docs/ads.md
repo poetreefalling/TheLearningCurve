@@ -49,17 +49,31 @@ see the visits) or a link shortener with stats.
 
 ## Switching on AdSense (the fallback)
 
-1. Apply at adsense.google.com with thelearningcurve.net. Google reviews the site.
-2. Once approved, in AdSense → Privacy & messaging, set up the **European regulations** (GDPR)
-   message so visitors in the UK and Europe are asked for consent. Google serves it through the
-   same ad code; nothing else to install.
-3. AdSense → Ads → By ad unit: create three **display** units (responsive) for the billboard,
-   medium rectangle and half page. Copy each unit's ID (the `data-ad-slot` number).
-4. In the Ads tab: tick **Fill empty slots with Google AdSense**, paste the publisher ID
-   (`ca-pub-…`) and the three unit IDs, then **Save and publish**.
+1. **Sign up** at adsense.google.com with the Google account you want paid through, and add
+   thelearningcurve.net as your site. Enter your payment address and tax details while you wait.
+2. **Save your publisher ID first, with the network off.** Copy the ID AdSense shows
+   (`ca-pub-` and 16 digits). In the Ads tab, paste it into **AdSense publisher ID**, leave
+   **Fill empty slots with Google AdSense** unticked, and **Save and publish**. About two minutes
+   later the site carries Google's verification meta tag on every page, and
+   thelearningcurve.net/ads.txt lists your ID. No ads show yet.
+3. **Verify and request review.** In AdSense → Sites, choose the **Meta tag** (or **Ads.txt**)
+   method, tick that you've added it, click **Verify**, then **Request review**. Review usually
+   takes a few days and can take two to four weeks.
+4. **Set up the consent message.** AdSense → Privacy & messaging → European regulations: create
+   and publish a message (Google's own consent tool is certified). Without it, visitors in the UK,
+   Europe and Switzerland only get limited, non-personalised ads.
+5. **Turn Auto ads off.** AdSense → Ads → By site → thelearningcurve.net: switch Auto ads off. The
+   site places its own units; Auto ads would add extra ads Google chooses, including pop-up
+   style "vignette" and anchor ads, which break the house rules above.
+6. **Once approved, create three ad units.** AdSense → Ads → By ad unit → Display ads, responsive:
+   one each for the billboard, medium rectangle and half page. Copy each unit's ID (the
+   `data-ad-slot` number in its code).
+7. **Switch on.** In the Ads tab, paste the three unit IDs, tick **Fill empty slots with Google
+   AdSense**, and **Save and publish**.
 
-The site then loads the AdSense script only on pages with an ad slot (never on reviews or
-comparisons), and `/ads.txt` lists Google as an authorised seller automatically.
+The site loads the AdSense script only on pages with an ad slot (never on reviews or
+comparisons). New units can take up to an hour to start showing ads; blank slots in the meantime
+are normal.
 
 ## Files
 

@@ -65,6 +65,11 @@ const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follo
     <meta name="twitter:card" content="summary_large_image" />
     <slot name="head" />
     {jsonLd.map((data) => <script type="application/ld+json" set:html={JSON.stringify(data)} />)}
+    {ADS.network.client && (
+      // Site verification for AdSense: on every page once the publisher ID is saved, even before
+      // the network is switched on, so Google can approve the site while no ads show yet
+      <meta name="google-adsense-account" content={ADS.network.client} />
+    )}
     {adNetwork && (
       <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS.network.client}`} crossorigin="anonymous"></script>
     )}
