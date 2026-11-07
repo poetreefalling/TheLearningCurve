@@ -70,13 +70,13 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 17 | Teachable Alternatives: Better Fits for Different Courses | teachable alternatives | 140 · 16 | comparison | todo |
 | 18 | The Testing Effect: Why Quizzes Teach as Well as Test | testing effect | 1,900 · 33 | library | blocked: same principle as the 16 Nov retrieval practice flagship; Jim to decide whether to fold "testing effect" into the flagship as a secondary keyword |
 | 19 | Writing Multiple-Choice Questions That Teach as Well as Test | writing multiple choice questions (row keyword "how to design quiz questions" had 0 US volume) | 30 · 26 | guide | done (Fri 6 Nov 00:00) |
-| 20 | Learning Styles: Why the Evidence Doesn't Support Them | learning styles myth | check | library | next |
+| 20 | Learning Styles: Why the Evidence Doesn't Support Them | are learning styles debunked (row keyword "learning styles myth" is 480 · 44 US, too hard for now; kept as secondary) | 30 · 7 | library | in PR (Fri 6 Nov 12:00) |
 | 21 | Kajabi Pricing Plans Compared | kajabi pricing plan | 210 · 28 | review | todo |
 | 22 | Online Education: The Research Worth Reading This Month | online learning research (row keyword "elearning research" is 10 · 20 US; kept as secondary). Angle: the University of Maryland course AI tutor trial | 20 · 14 | trends | in PR (Sat 7 Nov 00:00) |
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
 | 24 | Bloom's Taxonomy Examples: Using It to Design an Online Course | blooms taxonomy examples (row keyword "blooms taxonomy for course design" had 0 US volume; kept as secondary) | 320 · 13 | guide | in PR (Sat 7 Nov 12:00) |
-| 25 | Elaboration: Getting Learners to Explain Why | elaboration learning strategy | check | library | next |
-| 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | todo |
+| 25 | Elaboration: Getting Learners to Explain Why | what is elaborative interrogation (row keyword "elaboration learning strategy" is 70 · 42 US and "elaborative interrogation" 260 · 44, too hard for now; both kept as secondary) | 40 · 5 | library | in PR (Sun 8 Nov 00:00) |
+| 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | next |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
 | 28 | Microlearning Platforms Compared for Workplace Training | microlearning platform | 320 · 17 | comparison | todo |
 | 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid | check | library | todo |

@@ -1,0 +1,58 @@
+[
+  {
+    "id": "lms-platforms",
+    "name": "LMS Platforms",
+    "description": "Institutional and corporate learning management systems.",
+    "comparison": "planned",
+    "order": 1
+  },
+  {
+    "id": "course-platforms",
+    "name": "Course Platforms",
+    "description": "Platforms creators and small businesses use to build and sell online courses.",
+    "comparison": "planned",
+    "order": 2
+  },
+  {
+    "id": "ai-for-learning",
+    "name": "AI for Learning",
+    "description": "AI tutors, AI course and quiz generation, and AI assistants for teaching and learning.",
+    "comparison": "planned",
+    "order": 3
+  },
+  {
+    "id": "authoring-tools",
+    "name": "Authoring Tools",
+    "description": "Software for building eLearning modules and course content.",
+    "comparison": "planned",
+    "order": 4
+  },
+  {
+    "id": "assessment-credentialing",
+    "name": "Assessment & Credentialing",
+    "description": "Quizzing, proctoring, e-portfolios, digital badges and credentials.",
+    "comparison": "planned",
+    "order": 5
+  },
+  {
+    "id": "learning-analytics",
+    "name": "Learning Analytics",
+    "description": "Learning data, dashboards and learning record stores.",
+    "comparison": "planned",
+    "order": 6
+  },
+  {
+    "id": "video-interactive",
+    "name": "Video & Interactive Learning",
+    "description": "Video platforms, interactive video and simulations.",
+    "comparison": "planned",
+    "order": 7
+  },
+  {
+    "id": "emerging-technologies",
+    "name": "Emerging Technologies",
+    "description": "Immersive, XR and other early-stage learning technologies.",
+    "comparison": "planned",
+    "order": 8
+  }
+]
