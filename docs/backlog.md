@@ -82,9 +82,9 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid (SD above 30 US; AU 720 · 30; "learning pyramid theory" 40 · 27 kept as secondary) | 2,400 · 38 | library | in PR (Mon 9 Nov 12:00) |
 | 30 | Writing Course Scripts That Sound Human | elearning script (row keyword "elearning script writing" is 10 · 13 US; kept as secondary with "elearning script template" 170 · 28; checked 8 Nov 2026) | 70 · 19 | guide | in PR (Tue 10 Nov 12:00) |
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
-| 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | next |
-| 33 | Formative Assessment in Self-Paced Courses | formative assessment online | check | library | todo |
-| 34 | Backward Design: Start With the Assessment | backward design | check | guide | todo |
+| 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | blocked: duplicate of /trends/online-learning-research-ai-tutor-trial/ (targets "ai tutor study" and "ai tutor research" as secondary keywords and covers the Maryland, Khanmigo and Narine & Diaz trials, the main AI tutor studies of the last 60 days) |
+| 33 | Formative Assessment Examples for Self-Paced Online Courses | formative assessment examples (row keyword "formative assessment online" is 30 · 19 US, 10 · 13 AU; kept as secondary; checked 9 Nov 2026) | 5,400 · 20 | library | in PR (Wed 11 Nov 12:00) |
+| 34 | Backward Design: Start With the Assessment | backward design | check | guide | next |
 | 35 | The Best Microlearning Apps, Judged on Learning | best microlearning apps | 880 · 26 | comparison | todo |
 | 36 | Motivation in Online Courses: What Self-Determination Theory Suggests | motivation in online learning | check | library | todo |
 | 37 | How Long Should a Course Video Be? | how long should course videos be | check | guide | todo |
