@@ -102,7 +102,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "edX accessibility policy (2020) targets WCAG 2.1 AA for edX.org, but this is not a current product-specific Open edX deployment ACR. No current platform ACR verified.",
       "caveat": "Distinguish Open edX open-source code from edX.org service and each operator's theme/extensions.",
       "sources": [
@@ -118,7 +118,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No universal platform-level SOC 2/ISO certification: Open edX is open-source software and each operator/provider is responsible for controls.",
       "sources": [
         {
@@ -133,7 +133,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Self-hosted or service-provider hosted; data location and subprocessors are determined by operator.",
       "sources": [
         {
@@ -152,7 +152,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Platform describes AI extensibility and provider choice; no single default model or universal training policy.",
       "sources": [
         {

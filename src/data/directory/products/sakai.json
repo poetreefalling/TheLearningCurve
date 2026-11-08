@@ -91,7 +91,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Public VPAT reports available for Sakai versions 21, 22 and 23. Community states goal of WCAG 2.2 A/AA; VPAT assessment methods include internal practitioner resources for at least Sakai 22.",
       "caveat": "Strong public evidence; compare version-specific VPAT criteria and evaluation method before claiming full conformance.",
       "sources": [
@@ -103,7 +103,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No universal project-level SOC 2/ISO certificate identified.",
       "sources": [
         {
@@ -114,7 +114,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Self-hosted or service-provider hosted; AU residency and subprocessors depend on operator.",
       "sources": [
         {
@@ -125,7 +125,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No single platform-wide AI provider or model training policy verified.",
       "sources": [
         {

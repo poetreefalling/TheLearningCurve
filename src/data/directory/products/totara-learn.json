@@ -81,7 +81,7 @@
   },
   "assurance": {
     "security": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No public product-specific SOC 2/ISO certificate confirmed in this pass. Partner hosting assurance may differ.",
       "sources": [
         {
@@ -92,7 +92,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Deployment and data residency depend on Totara partner and hosting provider; no universal AU region guarantee.",
       "sources": [
         {
@@ -103,7 +103,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No sufficiently detailed, product-wide public model/provider and training disclosure verified in this pass.",
       "sources": [
         {

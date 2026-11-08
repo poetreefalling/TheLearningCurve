@@ -67,11 +67,33 @@ A product has one main `category` and any number of `secondaryCategories`.
 Vendors have the same `draft`, optional `lastVerified`, `researchTasks` and `dataGaps`, plus
 `ownershipDetail` (who owns it, in words, with provenance) and `legalEntity` (the contracting company).
 
-## Evidence & assurance
+## Evidence & Assurance levels
 
-The questions a procurement team asks before signing, and how well each answer is evidenced.
-Each product can carry four areas, each with a `status`, a `finding` in our words, a `caveat` on
-scope, `sources` and a `checked` date:
+Every evidenced answer on a profile shows one of four levels, explained to readers at
+`/evidence-and-assurance/`. The schema enum is `evidenceLevel` in `src/content.config.ts`.
+
+| Level | Value | Meaning | What it takes |
+| --- | --- | --- | --- |
+| 1 | `vendor-disclosed` | Information published by the vendor | A link to the vendor's own page, policy, terms or help article |
+| 2 | `vendor-confirmed` | Information confirmed directly by the vendor | The vendor confirmed it to us for that product and plan, pointing to where it is written |
+| 3 | `independently-corroborated` | Claims supported by independent evidence | A regulator, published independent test, outside researcher or our own hands-on testing |
+| 4 | `independently-assured` | Relevant controls supported by current third-party assurance or technical assessment | A current audit, certificate or technical assessment whose scope and date we have checked |
+| – | `research-ongoing` | Not yet established | Shown as "Research ongoing"; never means "no" |
+
+Rules:
+
+- Anything above `research-ongoing` needs a `source` (the build fails otherwise).
+- Never round up. A vendor's certificate claim on its own site is Level 1 until we have checked the
+  certificate itself (then Level 4, with its scope and expiry in the caveat).
+- Levels go down too: an expired certificate or changed policy moves the answer back.
+- Where the vendor's own documents disagree, set `conflict: true` and keep the level at
+  `research-ongoing`. The profile shows "Sources conflict" and both readings; never pick one.
+- Levels can't be bought (vendor firewall, below).
+
+### Assurance areas (all products)
+
+Each product can carry four procurement areas in `assurance`, each with a `level`, a `finding` in
+our words, a `caveat` on scope, `sources` and a `checked` date:
 
 | Area | Covers |
 | --- | --- |
@@ -80,16 +102,31 @@ scope, `sources` and a `checked` date:
 | `dataResidency` | Where data is stored and processed, Australia first |
 | `ai` | AI providers and models, and whether customer data trains them |
 
-Statuses, strongest first:
+`procurementChecks` lists what a buyer should ask for before signing. Findings are the members'
+layer; the free profile shows the levels.
 
-- `independently-evidenced`: a third-party report or certificate whose scope and date we have
-  checked (an accessibility audit by an outside firm, a certificate from the certification body)
-- `publicly-stated`: the vendor says it publicly; we have not seen the underlying report
-- `vendor-confirmation-required`: the vendor says the evidence exists on request, or it is unclear
-- `not-disclosed`: nothing public found
+### AI profile (AI for Learning products)
 
-`procurementChecks` lists what a buyer should ask for before signing. The assurance layer is a
-members' feature; the free profile shows the statuses only.
+AI products carry `aiProfile`: the four comparison criteria shown at the top of the profile and in
+the comparison table on `/discover/ai-for-learning/`, not buried in the specifications.
+
+| Area | Questions |
+| --- | --- |
+| `dataPrivacy` | Trains AI models on customer data; how long prompts and chats are kept; who processes the data; AI models used |
+| `learnerOversight` | Minimum learner age; staff can review AI output before learners see it; staff can set limits; staff can see learner conversations |
+| `pedagogy` | How it responds to learners (coaches or answers); answers from your own course content; shows its sources |
+| `outputOwnership` | Who owns what the AI produces |
+
+Each answer is `{ question, value?, level, source?, checked?, note?, conflict? }`. Keep the question
+wording identical across products so the comparison lines up. A value we hold without a source
+stays `research-ongoing` and isn't shown. `aiDisclosure` (the At a glance rows) only repeats what
+the AI profile has established.
+
+To import a research workbook in the AI format ("AI Learning Directory" + "AI Evidence Matrix" +
+"Vendor Outreach" sheets): `python3 scripts/import-ai-workbook.py <workbook.xlsx>`. It maps
+"Verified…"/"Partially verified" rows with a vendor-published source to Level 1, everything else
+to research ongoing, conflicts to `conflict: true`, and puts outreach questions in `researchTasks`.
+One-off decisions live in its `OVERRIDES` table, each explained in the pull request.
 
 ## Provenance: every fact says where it came from
 

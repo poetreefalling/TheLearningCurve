@@ -54,7 +54,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "No current product-specific ACR/VPAT located in this pass; request report for exact assessment product, candidate app and proctoring components.",
       "caveat": "Janison has multiple assessment products; scope must be precise.",
       "sources": [
@@ -70,7 +70,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Janison public page says its platform is ISO 27001 and SOC 2 compliant. Need certificate holder, ISO scope, SOC Type II period and product/service boundary.",
       "sources": [
         {
@@ -85,7 +85,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Janison says Azure hosts data in the country where exams are hosted to comply with geo-residency laws. Need exact Australian Azure region, backups, support and CDN/telemetry exceptions.",
       "sources": [
         {
@@ -100,7 +100,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No complete product-specific AI model/provider disclosure verified.",
       "sources": [
         {

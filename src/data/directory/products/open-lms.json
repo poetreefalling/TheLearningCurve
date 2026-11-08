@@ -107,7 +107,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Open LMS designs to WCAG 2.2 AA and Section 508 and published a VPAT 2.5 conformance report for its EDU Platform (Snap theme) dated 8 July 2026. Its Moodle core is accredited separately.",
       "caveat": "The report covers one theme and product line; check the edition you would buy.",
       "sources": [
@@ -119,7 +119,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Open LMS says it has been independently audited and awarded ISO 27001, and describes itself as SOC 2 compliant.",
       "caveat": "Ask whether a SOC 2 Type II report exists, and its period.",
       "sources": [
@@ -131,7 +131,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Open LMS hosts on AWS and says data stays in the customer's hosting region.",
       "caveat": "Confirm the Sydney region, backups and support access.",
       "sources": [
@@ -143,7 +143,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Open LMS advertises AI tools, but no model or training disclosure was found.",
       "sources": [],
       "checked": "2026-11-07"

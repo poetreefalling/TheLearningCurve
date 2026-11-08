@@ -76,26 +76,26 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No current iSpring LMS product-specific ACR/VPAT located in this pass.",
       "caveat": "Request LMS, iSpring Suite authoring and mobile app reports separately.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No product-specific SOC 2 Type II/ISO certificate scope verified in this pass.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "Hosting region and residency not established by public materials reviewed.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "AI capabilities may exist in authoring products; LMS-specific model provider and data policy not established here.",
       "sources": [],
       "checked": "2026-11-07"

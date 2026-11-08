@@ -1,0 +1,251 @@
+{
+  "name": "Coursebox",
+  "vendor": "coursebox",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning",
+    "authoring-tools"
+  ],
+  "website": "https://www.coursebox.ai/",
+  "summary": "AI-assisted course authoring and delivery platform with AI Writer, AI Tutor, assessment/grading and media generation.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate",
+      "creators"
+    ],
+    "source": "https://www.coursebox.ai/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Document-to-course creation",
+      "Tutoring over course content",
+      "Quiz generation",
+      "Assessment and grading",
+      "AI video"
+    ],
+    "source": "https://www.coursebox.ai/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI Writer",
+      "AI Tutor",
+      "Assessment/grading",
+      "Avatar and voice tools",
+      "Course hosting"
+    ],
+    "source": "https://www.coursebox.ai/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "SCORM/LMS integrations",
+      "LTI and other exports to verify by plan"
+    ],
+    "source": "https://www.coursebox.ai/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid creator/business/enterprise plans; current pricing varies."
+    },
+    "source": "https://www.coursebox.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.coursebox.ai/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Microsoft Azure OpenAI (text generation/tutoring); Google Gemini (image generation); Microsoft Azure Neural TTS; HeyGen (avatar video); ElevenLabs (voice synthesis); additional providers/subprocessors include Mistral and OpenAI"
+      ],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Sources conflict on whether customer content trains AI models: see the data privacy answers."
+    },
+    "source": "https://support.coursebox.ai/article/privacy-security",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No under Privacy Policy/Security page unless explicitly agreed in writing; HOWEVER 1 Aug 2026 Client Terms authorise use of User Content to train foundation models with Client consent. Material policy/contract discrepancy.",
+            "source": "https://www.coursebox.ai/client-terms",
+            "checked": "2026-11-09",
+            "note": "Client Terms effective 1 Aug 2026 include authorisation for use of User Content to train base foundation models; Privacy Policy says not used to train public third-party models.",
+            "conflict": true
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "Retention not specified as a single fixed duration; platform retention per privacy/DPA and customer settings",
+            "source": "https://support.coursebox.ai/article/privacy-security",
+            "checked": "2026-11-09",
+            "note": "Subprocessor list includes OpenAI, Serper, Laminar, HeyGen, ElevenLabs, etc. Laminar receives prompts and outputs for tracing/evaluation."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "Microsoft Azure OpenAI; Google Gemini; Microsoft Azure Neural TTS; HeyGen; ElevenLabs; Mistral; OpenAI; other subprocessors listed in current DPA",
+            "source": "https://support.coursebox.ai/article/privacy-security",
+            "checked": "2026-11-09",
+            "note": "Subprocessor list includes OpenAI, Serper, Laminar, HeyGen, ElevenLabs, etc. Laminar receives prompts and outputs for tracing/evaluation."
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "Microsoft Azure OpenAI (text generation/tutoring); Google Gemini (image generation); Microsoft Azure Neural TTS; HeyGen (avatar video); ElevenLabs (voice synthesis); additional providers/subprocessors include Mistral and OpenAI",
+            "source": "https://www.coursebox.ai/client-terms",
+            "checked": "2026-11-09"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "vendor-disclosed",
+            "value": "18",
+            "source": "https://www.coursebox.ai/privacy-policy",
+            "checked": "2026-11-09",
+            "note": "Privacy policy says services not directed at children under age of majority; avatar/voice cloning restricted to 18+."
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.coursebox.ai/article/data-processing-agreement-enterprise",
+            "checked": "2026-11-09",
+            "note": "DPA says AI-assisted authoring, assessment and grading are designed for human review before content is published/results released."
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.coursebox.ai/article/data-processing-agreement-enterprise",
+            "checked": "2026-11-09",
+            "note": "DPA says AI-assisted authoring, assessment and grading are designed for human review before content is published/results released."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Set by the educator; gives answers directly (AI Tutor)"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.coursebox.ai/user-agreement",
+            "checked": "2026-11-09",
+            "note": "Terms describe RAG indexing authorised content to generate course material."
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "vendor-disclosed",
+            "value": "Client/User retains AI output IP subject to law and human-authorship rules; Client Terms preserve broad rights and consent language.",
+            "source": "https://www.coursebox.ai/client-terms",
+            "checked": "2026-11-09",
+            "note": "Client Terms allocate rights but also authorise processing/training under stated consent. Privacy and contract clauses need reconciliation."
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "mindsmith",
+    "articulate-360-ai",
+    "synthesia",
+    "docebo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Critical] Conflict between privacy/security assurances and Client Terms re foundation-model training: Please reconcile the 1 Aug 2026 Client Terms clause authorising use of User Content to train base foundation models with the 8 Sep 2026 Privacy Policy and Security page stating no training unless explicitly agreed. Which term controls? Can you provide a signed opt-out/no-training clause? (route: privacy@coursebox.ai / account manager; evidence wanted: Signed DPA, current Client Terms, AI data-flow diagram, training opt-out clause)",
+    "Reconcile differences between current privacy/DPA and client-terms language on model training and output ownership; verify whether all plan tiers share identical controls.",
+    "Ask vendor (Trains AI models on customer data): Please reconcile the 1 Aug 2026 Client Terms clause authorising foundation-model training with the Privacy Policy/Security page stating no training unless expressly agreed. Which term prevails for enterprise clients?",
+    "Ask vendor (Staff can see learner conversations): Can staff set limits, review learner chats and approve grading before release? Please provide feature-level controls.",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Shows its sources): Can AI Tutor be configured to answer exclusively from a defined course/tenant knowledge base, and are citations shown?",
+    "Researcher note (learnerOversight), not shown until sourced: Age value is a minimum eligibility signal only; check school/parent consent and local jurisdictional requirements.",
+    "Researcher note (outputOwnership), not shown until sourced: Client Terms dated 1 Aug 2026 state client authorises use of User Content to train base foundation models unless otherwise constrained by agreement; Privacy Policy dated 8 Sep 2026 and Security page say no training unless explicitly agreed in writing. Obtain written contractual clarification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: SCORM; LTI (plan-dependent; verify)"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid creator/business/enterprise plans; current pricing varies"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid creator/business/enterprise plans; current pricing varies"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

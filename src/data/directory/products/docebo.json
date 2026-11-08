@@ -2,7 +2,9 @@
   "name": "Docebo LMS",
   "vendor": "docebo-inc",
   "category": "lms-platforms",
-  "secondaryCategories": [],
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
   "website": "https://www.docebo.com/",
   "summary": "An enterprise learning platform for employee, customer and partner learning, combining course delivery, content, compliance, analytics, integrations and AI-supported learning.",
   "primaryMarket": {
@@ -73,7 +75,10 @@
     "cornerstone-learning",
     "sap-successfactors-learning",
     "workday-learning",
-    "learnupon"
+    "learnupon",
+    "coursebox",
+    "mindsmith",
+    "articulate-360-ai"
   ],
   "evidence": [],
   "commercialRelationship": {
@@ -81,7 +86,7 @@
   },
   "assurance": {
     "security": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Docebo publishes security materials; exact current SOC 2/ISO report scope not captured in this pass. Request current Type II report and certificate.",
       "sources": [
         {
@@ -100,7 +105,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "January 2026 subprocessor list says AWS regions may include Australia as contractually selected; DR for Australian processing is Singapore. Usage Dashboard and media conversion limited data processed in EU regardless of region; logs/backups retained 12 months.",
       "sources": [
         {
@@ -119,7 +124,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Docebo offers AI content creation, assistant/search, agents and roleplay; model providers, model training and retention require feature-specific confirmation.",
       "sources": [
         {
@@ -148,7 +153,22 @@
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Mid-market and enterprise; employee learning; customer and partner education\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (How long prompts and chats are kept): How long are prompts, chats, uploaded files, generated outputs and logs retained? Please distinguish platform retention from model-provider retention.",
+    "Ask vendor (Who processes the data): Please provide the complete current list of AI model providers and subprocessors that process prompts, chats, uploaded files or generated outputs, including processing locations.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (dataPrivacy), not shown until sourced: AgentHub page described availability as planned for Fall 2026; confirm live availability and product scope with Docebo.",
+    "Researcher note (pedagogy), not shown until sourced: AgentHub/Docebo Agents can ground agents in Docebo learning data, skills profiles, learning content, uploaded knowledge and connected enterprise sources; permission-aware.",
+    "Researcher note (outputOwnership), not shown until sourced: Docebo states AgentHub does not train models on customer data, respects source-system permissions and logs actions. Full AI profile needs Trust Center and subprocessor review."
   ],
   "pricingModel": {
     "value": {
@@ -210,11 +230,10 @@
   "aiDisclosure": {
     "value": {
       "models": [],
-      "trainsOnCustomerData": "not-disclosed",
-      "notes": "Docebo AI features include content creation, search/assistant and AI-powered learning tools; underlying foundation-model providers are not specified in the reviewed public pricing material."
+      "trainsOnCustomerData": "not-disclosed"
     },
-    "source": "https://www.docebo.com/pricing/",
-    "checked": "2026-11-08",
+    "source": "https://www.docebo.com/",
+    "checked": "2026-11-09",
     "origin": "vendor-supplied"
   },
   "lastVerified": "2026-11-08",
@@ -235,5 +254,81 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No (Docebo says it does not train models on customer data)"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing",
+            "value": "Audit trail for agent actions; exact learner conversation retention and staff visibility need confirmation."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Gives answers directly and can take configured actions/workflows; human review/approval and autonomy depend on agent configuration."
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  }
 }

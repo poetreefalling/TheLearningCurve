@@ -97,7 +97,7 @@
   },
   "assurance": {
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Vendor states ISO/IEC 27001 certification; current certificate and scope need confirmation. No SOC 2 Type II report verified in this pass.",
       "sources": [
         {
@@ -108,7 +108,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "Publicly accessible evidence in this pass did not establish specific Australian tenant region or backup locations.",
       "sources": [
         {
@@ -119,7 +119,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "AI content creation, translation and learner AI coach features advertised; model providers, training use and retention require confirmation.",
       "sources": [
         {

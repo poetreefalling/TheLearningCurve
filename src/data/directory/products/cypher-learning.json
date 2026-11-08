@@ -102,7 +102,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Vendor FAQ states WCAG 2.1 AA in place and WCAG 2.2 AA/EAA in progress. No detailed current VPAT/ACR located in this pass.",
       "caveat": "Need current ACR and scope across AI agent, authoring, learner UI and mobile.",
       "sources": [
@@ -118,7 +118,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Vendor FAQ states SOC 2 Type 2 certified; separate public privacy FAQ says working toward ISO 27001 (not certified at time of that document). Confirm current certificate status; do not state ISO certified without current certificate.",
       "sources": [
         {
@@ -133,7 +133,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Public privacy FAQ states US Virginia, EU Frankfurt and AU Sydney storage based on customer location; transfer outside agreed geography requires written consent. Verify current DPA and backup/support exceptions.",
       "sources": [
         {
@@ -148,7 +148,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "CYPHER Agent for learners and creators; AI credits; public page does not identify all model providers or full training/retention terms.",
       "sources": [
         {

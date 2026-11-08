@@ -91,7 +91,7 @@
   },
   "assurance": {
     "security": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "No report scope confirmed from public source in this pass; request current SOC 2 Type II and ISO certificate if claimed.",
       "sources": [
         {
@@ -106,7 +106,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Absorb publicly lists AWS regions including Sydney, Australia, as an available customer hosting region. Need confirm backups, DR, support access, telemetry and region lock for tenant.",
       "sources": [
         {
@@ -121,7 +121,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "AI functionality/add-ons may be available; obtain current feature-level provider and training disclosures.",
       "sources": [
         {

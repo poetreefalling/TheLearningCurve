@@ -76,7 +76,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "No current product-specific VPAT/ACR found in this pass; vendor states accessibility commitment, but a current report is needed.",
       "caveat": "Request current version, browser/assistive-tech scope and mobile coverage.",
       "sources": [
@@ -92,7 +92,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Published subprocessor list identifies itslearning group entities and Sanoma group entities in multiple European countries; additional third-party LTI/extensions may be enabled by customer. AU residency not established.",
       "sources": [
         {
@@ -107,7 +107,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No complete product-specific AI model/provider and data-training statement verified in this pass.",
       "sources": [
         {
