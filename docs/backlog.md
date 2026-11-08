@@ -80,9 +80,9 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
 | 28 | Microlearning Platforms Compared for Workplace Training | microlearning platform | 320 · 17 | comparison | todo |
 | 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid (SD above 30 US; AU 720 · 30; "learning pyramid theory" 40 · 27 kept as secondary) | 2,400 · 38 | library | in PR (Mon 9 Nov 12:00) |
-| 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | next |
+| 30 | Writing Course Scripts That Sound Human | elearning script (row keyword "elearning script writing" is 10 · 13 US; kept as secondary with "elearning script template" 170 · 28; checked 8 Nov 2026) | 70 · 19 | guide | in PR (Tue 10 Nov 12:00) |
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
-| 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | todo |
+| 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | next |
 | 33 | Formative Assessment in Self-Paced Courses | formative assessment online | check | library | todo |
 | 34 | Backward Design: Start With the Assessment | backward design | check | guide | todo |
 | 35 | The Best Microlearning Apps, Judged on Learning | best microlearning apps | 880 · 26 | comparison | todo |
