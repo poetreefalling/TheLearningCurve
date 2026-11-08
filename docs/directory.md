@@ -115,7 +115,13 @@ Leave a field out rather than guess. An empty field is honest; a wrong one costs
 **Publish with gaps.** Most vendors don't publish everything we'd like to record, and that is
 useful information in itself. A missing or unverifiable value is never a reason to hold a
 record back: leave the field out, add an entry to `dataGaps` saying what was looked for, and
-publish. The profile shows "Research ongoing" for that field. Fill the gap when the information turns up.
+publish. The profile shows "Research ongoing" for that field.
+
+"Research ongoing" is literal: we contact the product team for every open gap. When they answer,
+record the value with `origin: "vendor-supplied"` and the page or document they pointed to as the
+`source` (or, for an answer by email, our page that records it), then remove the gap. An answer
+by email alone with nothing published stays `vendor-supplied` and is worth re-checking at the
+next 90-day review.
 
 ## The rules
 
