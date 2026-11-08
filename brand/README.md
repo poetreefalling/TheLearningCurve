@@ -4,6 +4,8 @@
 |---|---|---|
 | `logo-wordmark-original.png` | Jim's wordmark as supplied | Added |
 | `logo-wordmark.svg` | The wordmark traced to a vector; a copy in `src/assets/` is used in the masthead, sticky bar and footer, and takes the text colour in both themes | Added |
+| `logo-wordmark-nested.svg` | The current wordmark (November 2026) as outlines: "The" tucked above "earning", the curve, "Curve". Traced from the site's own Fraunces/Inter Tight rendering, so it matches `src/components/Wordmark.astro`; takes the text colour | Added |
+| `logo-wordmark-nested-white.svg` | The same in white, for dark backgrounds (a copy is the /admin header logo) | Added |
 | `favicon-original.png` | The C from the wordmark (November 2026), cut out of `logo-wordmark.svg`; the browser-tab and app icons in `public/` are made from it, ink on the paper colour | Added |
 | `documentary-reference.webp` | Style reference for documentary heroes: candid, window-lit, film grain, muted warm colour | Added (Jim's pick from the style tests) |
 | `references/` | The other documentary tests Jim approved, kept for comparison | Added |

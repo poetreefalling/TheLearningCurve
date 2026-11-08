@@ -1,0 +1,28 @@
+---
+// Insights hub: news, trends and editorial. Today that's the Trends section.
+import Base from '../layouts/Base.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { NAV, SECTIONS } from '../site.config';
+import { getArticles } from '../lib/articles';
+const nav = NAV.find((n) => n.key === 'insights')!;
+const items = await getArticles('trends');
+const [lead, ...rest] = items;
+---
+<Base title={nav.label} description={`${nav.note}. ${SECTIONS.trends.blurb}`} current="insights">
+  <div class="wrap">
+    <header class="page-head"><h1>{nav.label}</h1><p>{nav.note}. {SECTIONS.trends.blurb}</p></header>
+    {!lead && <div class="empty"><h2>Coming soon</h2><p>The first pieces are on their way. <a href="/newsletter/">Get them by email.</a></p></div>}
+    {lead && (
+      <div class="lead-grid" style="padding-top:0">
+        <ArticleCard article={lead} variant="lead" eager />
+        <div class="lead-side">{rest.slice(0, 3).map((a) => <ArticleCard article={a} variant="text" />)}</div>
+      </div>
+    )}
+    {rest.length > 3 && (
+      <section aria-labelledby="more-h">
+        <div class="section-head"><h2 id="more-h">More trends</h2><a href="/trends/">All trends →</a></div>
+        <ul class="river">{rest.slice(3, 23).map((a) => <li><ArticleCard article={a} variant="river" /></li>)}</ul>
+      </section>
+    )}
+  </div>
+</Base>

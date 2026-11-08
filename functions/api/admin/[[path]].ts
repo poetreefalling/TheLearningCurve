@@ -10,15 +10,25 @@
 // The desk only touches open pull requests from `article/` branches: it reads their articles,
 // commits Jim's edits to the same branch, and merges the PR when he presses Publish.
 //
+// The Changes tab lists every other open pull request (site, docs, ads) and merges one when Jim
+// presses Merge, but only when its checks pass, GitHub says it merges cleanly, and it is still
+// the exact version he was shown.
+//
 // The ad manager (Ads tab) reads src/data/ads.json from the default branch and saves it, plus any
 // new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
 // The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
 // can't break the build.
 
+interface SubDb {
+  prepare(sql: string): { bind(...v: unknown[]): any; all<T>(): Promise<{ results: T[] }>; run(): Promise<unknown> };
+}
 interface Env {
   ADMIN_PASSWORD?: string;
   GITHUB_TOKEN?: string;
   GITHUB_REPO?: string;
+  // Platform submissions from /submit (functions/api/submit.ts, docs/submissions.md)
+  SUBMISSIONS_DB?: SubDb;
+  CHECKS_DB?: SubDb;
 }
 
 type Ctx = { request: Request; env: Env; params: { path?: string | string[] } };
@@ -48,8 +58,12 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     }
     if (route === 'save' && request.method === 'POST') return json(200, await save(gh, await request.json()));
     if (route === 'publish' && request.method === 'POST') return await publish(gh, await request.json());
+    if (route === 'changes' && request.method === 'GET') return json(200, await listChanges(gh));
+    if (route === 'changes/merge' && request.method === 'POST') return await mergeChange(gh, await request.json());
     if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
     if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
+    if (route === 'submissions' && request.method === 'GET') return json(200, await listSubmissions(env));
+    if (route === 'submissions/status' && request.method === 'POST') return json(200, await setSubmission(env, await request.json()));
     return json(404, { error: 'Not found.' });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -61,6 +75,37 @@ class Problem extends Error {
   constructor(public status: number, message: string) {
     super(message);
   }
+}
+
+// ---------- platform submissions (/submit) ----------
+
+const SUB_STATUSES = ['new', 'reviewing', 'accepted', 'declined'];
+const SUB_TABLE = `CREATE TABLE IF NOT EXISTS submissions (
+  id TEXT PRIMARY KEY, at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'new',
+  name TEXT, email TEXT, organisation TEXT, role TEXT, org_type TEXT,
+  product TEXT, url TEXT, category TEXT, stage TEXT, audience TEXT,
+  description TEXT, learning TEXT, access TEXT, notes TEXT, editor_note TEXT
+)`;
+
+function subDb(env: Env) {
+  const db = env.SUBMISSIONS_DB ?? env.CHECKS_DB;
+  if (!db) throw new Problem(503, 'Submissions storage is not set up yet: add the SUBMISSIONS_DB binding in Cloudflare (docs/submissions.md).');
+  return db;
+}
+
+async function listSubmissions(env: Env) {
+  const db = subDb(env);
+  await db.prepare(SUB_TABLE).run();
+  const { results } = await db.prepare('SELECT * FROM submissions ORDER BY at DESC LIMIT 300').all<Record<string, unknown>>();
+  return { items: results, statuses: SUB_STATUSES };
+}
+
+async function setSubmission(env: Env, body: { id?: string; status?: string; note?: string }) {
+  const db = subDb(env);
+  if (!body.id || !SUB_STATUSES.includes(String(body.status))) throw new Problem(400, 'Unknown submission or status.');
+  await db.prepare('UPDATE submissions SET status = ?, editor_note = ? WHERE id = ?')
+    .bind(String(body.status), String(body.note ?? '').slice(0, 2000), String(body.id)).run();
+  return { ok: true };
 }
 
 // ---------- sessions ----------
@@ -341,6 +386,54 @@ async function publish(gh: GH, body: any) {
   });
 }
 
+
+// ---------- other changes (non-article pull requests) ----------
+
+async function describeChange(gh: GH, pr: any) {
+  const [checks, preview] = await Promise.all([checksFor(gh, pr.head.sha), previewBase(gh, pr.number, pr.head.ref)]);
+  return {
+    number: pr.number,
+    title: pr.title,
+    url: pr.html_url,
+    branch: pr.head.ref,
+    sha: pr.head.sha,
+    draft: !!pr.draft,
+    opened: pr.created_at,
+    body: String(pr.body ?? '').replace(/\r/g, '').slice(0, 4000),
+    checks,
+    preview,
+  };
+}
+
+async function listChanges(gh: GH) {
+  const prs: any[] = await gh('/pulls?state=open&per_page=50&sort=created&direction=asc');
+  const others = prs.filter((p) => !String(p.head.ref).startsWith('article/'));
+  return { items: await Promise.all(others.map((p) => describeChange(gh, p))) };
+}
+
+async function mergeChange(gh: GH, body: any) {
+  const number = Number(body?.pr);
+  if (!Number.isInteger(number) || number <= 0) throw new Problem(400, 'Unknown pull request.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'This change is no longer open (it may already be merged or closed). Reload the list.');
+  if (String(pr.head.ref).startsWith('article/')) {
+    throw new Problem(400, 'Articles are published from the Articles tab, which checks every editor flag first.');
+  }
+  if (pr.draft) throw new Problem(409, 'This pull request is still marked as a draft on GitHub.');
+  if (body?.sha && body.sha !== pr.head.sha) {
+    throw new Problem(409, 'This change was updated since you opened the list. Reload and look at the latest version before merging.');
+  }
+  const checks = await checksFor(gh, pr.head.sha);
+  if (checks === 'pending') return json(409, { error: 'The site check is still running. Try again in a minute or two.' });
+  if (checks === 'failing') return json(409, { error: 'The site check failed, so merging could break the live site. Ask Claude to look at it.' });
+  if (pr.mergeable === false) return json(409, { error: 'This change clashes with something already on the live site. Ask Claude to fix the conflict, then merge.' });
+  if (pr.mergeable === null) return json(409, { error: 'GitHub is still checking this change against the live site. Try again in a few seconds.' });
+  await gh(`/pulls/${number}/merge`, {
+    method: 'PUT',
+    body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${number})` }),
+  });
+  return json(200, { ok: true, message: `Merged #${number}. The live site rebuilds in about two minutes.` });
+}
 
 // ---------- ads ----------
 

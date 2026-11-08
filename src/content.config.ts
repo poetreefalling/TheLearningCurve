@@ -62,7 +62,7 @@ const stories = defineCollection({
       title: z.string().max(120), // states the finding
       subtitle: z.string().max(160),
       type: z.enum(['line', 'column', 'bar', 'groupedBar']),
-      format: z.enum(['percent', 'number', 'compact', 'usd-billions', 'millions', 'sd']),
+      format: z.enum(['percent', 'number', 'compact', 'usd', 'usd-billions', 'millions', 'sd']),
       yMax: z.number().optional(),
       categories: z.array(z.string()).min(1),
       series: z.array(z.object({

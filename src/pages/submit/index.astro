@@ -1,0 +1,183 @@
+---
+// /submit: companies, start-ups and EdTech developers put a platform forward for review.
+// Posts to /api/submit (functions/api/submit.ts), which stores the entry in D1 for the Submissions
+// tab at /admin and emails Jim. Works without JavaScript; with it, the form submits in place.
+// No ads on this page. Setup: docs/submissions.md.
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site.config';
+import categories from '../../data/directory/categories.json';
+
+const { replyDays } = SITE.submissions;
+const cats = [...categories].sort((a, b) => a.order - b.order);
+const types = ['Company', 'Start-up', 'EdTech developer', 'Institution or other'];
+const audiences = ['Course creators', 'Higher education', 'Schools', 'Corporate L&D', 'Training providers'];
+const stages = ['In beta', 'Recently launched', 'Established, with paying customers'];
+const access = ['Yes, a full account', 'A free trial covers it', 'Demo only for now'];
+const failed = Astro.url.searchParams.get('error');
+---
+
+<Base
+  title="Submit a platform"
+  description="Companies, start-ups and EdTech developers can submit a learning platform, tool or product for review by The Learning Curve. Free to submit; reviews can't be bought."
+>
+  <section class="ink-band sub-hero" aria-labelledby="sub-h">
+    <div class="wrap">
+      <p class="ink-kicker">Submit a platform</p>
+      <h1 id="sub-h" class="ink-title">Built something for learning? Put it in front of our reviewers.</h1>
+      <p class="ink-lede">
+        Companies, start-ups and EdTech developers can submit a platform, tool or product for review. Every submission is
+        read by an editor. The ones we take on are tested by building a real course, then scored on the same seven
+        criteria as everything else we cover.
+      </p>
+    </div>
+  </section>
+
+  <div class="wrap sub-layout">
+    <form class="sub-form" method="post" action="/api/submit" data-submit aria-labelledby="form-h" novalidate>
+      <h2 id="form-h">Tell us about your platform</h2>
+      <input type="hidden" name="page" value="/submit/" />
+      <div class="nl-hp" aria-hidden="true"><label>Website address <input name="website_confirm" tabindex="-1" autocomplete="off" /></label></div>
+
+      <fieldset>
+        <legend>1 · About you</legend>
+        <div class="sub-grid">
+          <div class="sub-field"><label for="f-name">Your name</label><input id="f-name" name="name" type="text" autocomplete="name" required maxlength="120" /></div>
+          <div class="sub-field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required maxlength="254" /></div>
+          <div class="sub-field"><label for="f-org">Company or organisation</label><input id="f-org" name="organisation" type="text" autocomplete="organization" required maxlength="160" /></div>
+          <div class="sub-field"><label for="f-role">Your role</label><input id="f-role" name="role" type="text" autocomplete="organization-title" placeholder="Founder, product lead, marketing…" maxlength="120" /></div>
+        </div>
+        <div class="sub-field">
+          <span class="sub-q" id="f-type-l">You are a…</span>
+          <div class="sub-chips" role="radiogroup" aria-labelledby="f-type-l">
+            {types.map((t, i) => <label class="sub-chip"><input type="radio" name="orgType" value={t} checked={i === 0} />{t}</label>)}
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>2 · About the platform</legend>
+        <div class="sub-grid">
+          <div class="sub-field"><label for="f-pname">Platform or product name</label><input id="f-pname" name="product" type="text" required maxlength="160" /></div>
+          <div class="sub-field"><label for="f-url">Website</label><input id="f-url" name="url" type="url" placeholder="https://" required maxlength="300" /></div>
+          <div class="sub-field">
+            <label for="f-cat">Category</label>
+            <select id="f-cat" name="category" required>
+              <option value="">Choose one</option>
+              {cats.map((c) => <option value={c.id}>{c.name}</option>)}
+              <option value="other">Something else</option>
+            </select>
+          </div>
+          <div class="sub-field">
+            <label for="f-stage">Stage</label>
+            <select id="f-stage" name="stage">
+              <option value="">Choose one</option>
+              {stages.map((s) => <option>{s}</option>)}
+            </select>
+          </div>
+        </div>
+        <div class="sub-field">
+          <span class="sub-q" id="f-aud-l">Who is it built for? <span class="sub-opt">Choose any</span></span>
+          <div class="sub-checks" role="group" aria-labelledby="f-aud-l">
+            {audiences.map((a) => <label><input type="checkbox" name="audience" value={a} />{a}</label>)}
+          </div>
+        </div>
+        <div class="sub-field">
+          <label for="f-desc">What does it do, and what makes it different?</label>
+          <textarea id="f-desc" name="description" rows="5" required maxlength="2400" placeholder="In a few sentences. Plain language beats a press release."></textarea>
+          <span class="sub-hint">Up to 300 words.</span>
+        </div>
+        <div class="sub-field">
+          <label for="f-learn">How does it help people learn? <span class="sub-opt">Optional</span></label>
+          <textarea id="f-learn" name="learning" rows="3" maxlength="1600" placeholder="Practice, feedback, assessment, analytics, credentials…"></textarea>
+          <span class="sub-hint">Learning design carries 60% of our score, so this is worth a few lines.</span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>3 · Reviewer access</legend>
+        <div class="sub-field">
+          <span class="sub-q" id="f-acc-l">Can you give a reviewer full access to build a course?</span>
+          <div class="sub-checks" role="radiogroup" aria-labelledby="f-acc-l">
+            {access.map((a) => <label><input type="radio" name="access" value={a} />{a}</label>)}
+          </div>
+        </div>
+        <div class="sub-field">
+          <label for="f-notes">Anything else we should know? <span class="sub-opt">Optional</span></label>
+          <textarea id="f-notes" name="notes" rows="3" maxlength="1600" placeholder="Launch dates, embargoes, a demo video link"></textarea>
+        </div>
+      </fieldset>
+
+      <div class="sub-submit">
+        <label class="sub-consent">
+          <input type="checkbox" name="consent" value="yes" required />
+          <span>I understand that submitting doesn't guarantee a review, and that a review can't be paid for. <a href="/how-we-review/">How we evaluate</a> · <a href="/disclosure/">Our disclosure</a></span>
+        </label>
+        <div class="sub-send">
+          <button type="submit" class="pill-btn pill-ink sub-button">Submit for review →</button>
+          <span class="sub-hint">We reply to every submission within {replyDays} working days.</span>
+        </div>
+        <p class="sub-status" role="status" aria-live="polite">{failed ? 'Something went wrong. Please check the form and try again.' : ''}</p>
+      </div>
+    </form>
+
+    <aside class="sub-aside" aria-label="About submissions">
+      <section aria-labelledby="next-h">
+        <h2 id="next-h" class="sub-aside-h">What happens next</h2>
+        <ol class="sub-steps">
+          <li><span>1</span><div><b>An editor reads it</b><p>We check that it's a fit for our readers: people who design, build and run learning.</p></div></li>
+          <li><span>2</span><div><b>We build a real course on it</b><p>Not a feature tour. We make something a learner would take, start to finish.</p></div></li>
+          <li><span>3</span><div><b>We score it in the open</b><p>Seven criteria, each from 1 to 5, and the review lists in Discover and Compare.</p></div></li>
+        </ol>
+      </section>
+
+      <section class="sub-weights" aria-labelledby="w-h">
+        <p id="w-h" class="ink-kicker" style="margin:0">How the score is weighted</p>
+        <div class="hwe-bar" aria-hidden="true"><span style="flex:60"></span><span style="flex:40"></span></div>
+        <div class="hwe-cols">
+          <div><p class="hwe-pct is-lead">60%</p><p class="hwe-label">Learning design</p><p class="hwe-list">Retrieval<br />Assessment<br />Credentials<br />Learner analytics</p></div>
+          <div><p class="hwe-pct">40%</p><p class="hwe-label">Business tools</p><p class="hwe-list">Pricing<br />Payments<br />Marketing</p></div>
+        </div>
+        <a href="/how-we-review/">Read our full method →</a>
+      </section>
+
+      <section class="sub-free" aria-labelledby="free-h">
+        <h2 id="free-h">Free to submit. Not for sale.</h2>
+        <p>Submitting costs nothing, and no one can pay for a review or a better score. If we have an affiliate link to a platform, the review says so. <a href="/disclosure/">See our disclosure.</a></p>
+      </section>
+
+      <p class="sub-note">Want to advertise or sponsor instead? That's handled separately from editorial: email <a href={`mailto:${SITE.submissions.notifyEmail}?subject=Advertising`}>{SITE.submissions.notifyEmail}</a>.</p>
+    </aside>
+  </div>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-submit]');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.sub-status')!;
+      const button = form.querySelector<HTMLButtonElement>('.sub-button')!;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const fd = new FormData(form);
+      const body: Record<string, unknown> = Object.fromEntries(fd.entries());
+      body.audience = fd.getAll('audience');
+      button.disabled = true;
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const json = await res.json();
+        if (res.ok) {
+          location.href = '/submit/thanks/';
+          return;
+        }
+        status.textContent = json.message;
+      } catch {
+        status.textContent = 'Something went wrong. Please try again.';
+      }
+      button.disabled = false;
+    });
+  }
+</script>

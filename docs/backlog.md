@@ -70,17 +70,17 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 17 | Teachable Alternatives: Better Fits for Different Courses | teachable alternatives | 140 · 16 | comparison | todo |
 | 18 | The Testing Effect: Why Quizzes Teach as Well as Test | testing effect | 1,900 · 33 | library | blocked: same principle as the 16 Nov retrieval practice flagship; Jim to decide whether to fold "testing effect" into the flagship as a secondary keyword |
 | 19 | Writing Multiple-Choice Questions That Teach as Well as Test | writing multiple choice questions (row keyword "how to design quiz questions" had 0 US volume) | 30 · 26 | guide | done (Fri 6 Nov 00:00) |
-| 20 | Learning Styles: Why the Evidence Doesn't Support Them | learning styles myth | check | library | next |
+| 20 | Learning Styles: Why the Evidence Doesn't Support Them | are learning styles debunked (row keyword "learning styles myth" is 480 · 44 US, too hard for now; kept as secondary) | 30 · 7 | library | in PR (Fri 6 Nov 12:00) |
 | 21 | Kajabi Pricing Plans Compared | kajabi pricing plan | 210 · 28 | review | todo |
 | 22 | Online Education: The Research Worth Reading This Month | online learning research (row keyword "elearning research" is 10 · 20 US; kept as secondary). Angle: the University of Maryland course AI tutor trial | 20 · 14 | trends | in PR (Sat 7 Nov 00:00) |
 | 23 | Kajabi vs Thinkific: Which Supports Learning Better? | kajabi vs thinkific | 210 · 28 | comparison | todo |
-| 24 | Bloom's Taxonomy for Online Course Design | blooms taxonomy for course design | check | guide | next |
-| 25 | Elaboration: Getting Learners to Explain Why | elaboration learning strategy | check | library | todo |
-| 26 | Course Completion Rates: What Actually Moves Them | online course completion rates | check | guide | todo |
+| 24 | Bloom's Taxonomy Examples: Using It to Design an Online Course | blooms taxonomy examples (row keyword "blooms taxonomy for course design" had 0 US volume; kept as secondary) | 320 · 13 | guide | in PR (Sat 7 Nov 12:00) |
+| 25 | Elaboration: Getting Learners to Explain Why | what is elaborative interrogation (row keyword "elaboration learning strategy" is 70 · 42 US and "elaborative interrogation" 260 · 44, too hard for now; both kept as secondary) | 40 · 5 | library | in PR (Sun 8 Nov 00:00) |
+| 26 | Online Course Completion Rates: What the Data Says and What Moves Them | online course completion rates (SD above 30; "online course completion rate" 10 · 5 kept as secondary) | 30 · 38 | guide | in PR (Mon 9 Nov 00:00) |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
 | 28 | Microlearning Platforms Compared for Workplace Training | microlearning platform | 320 · 17 | comparison | todo |
-| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid | check | library | todo |
-| 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | todo |
+| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid (SD above 30 US; AU 720 · 30; "learning pyramid theory" 40 · 27 kept as secondary) | 2,400 · 38 | library | in PR (Mon 9 Nov 12:00) |
+| 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | next |
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
 | 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | todo |
 | 33 | Formative Assessment in Self-Paced Courses | formative assessment online | check | library | todo |
@@ -102,7 +102,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 49 | Kajabi vs Teachable: Which Supports Learning Better? | kajabi versus teachable | 590 · 25 | comparison | todo |
 | 50 | Instructional Design Internships: How to Find One and What You'll Do | instructional design internship | 590 · 22 | guide | todo |
 | 51 | Principles of Learning Science Every Course Builder Should Know | principles of learning science | 210 · 22 | library | todo |
-| 52 | Instructional Design Salary: What the Data Shows | instructional design salary | 260 · 14 | guide | todo |
+| 52 | Instructional Designer Salary: What the Data Actually Shows | instructional designer salary (row keyword "instructional design salary" 260 · 14 kept as secondary) | 880 · 25 | guide | in PR (Tue 10 Nov 00:00, written on request outside the routine) |
 | 53 | Instructional Design Tools: What You Need and What You Don't | instructional design tools | 170 · 21 | guide | todo |
 | 54 | Digital Badge Examples From Employers and Universities | digital badges examples | 140 · 21 | trends | todo |
 | 55 | Part-Time Instructional Design Jobs: Where to Look | instructional design jobs part time | 320 · 10 | guide | todo |

@@ -1,0 +1,46 @@
+---
+// A preview panel for Intelligence (members). Every figure is computed from the data stories in
+// src/data/stories/, so it carries the same source as the charts. Change a story, and this follows.
+import distance from '../../data/stories/us-distance-ed.json';
+import ukAi from '../../data/stories/uk-students-ai.json';
+import creds from '../../data/stories/us-credentials.json';
+import vc from '../../data/stories/edtech-vc.json';
+
+const last = <T,>(a: T[]) => a[a.length - 1];
+const pctOnline = Math.round(
+  last(distance.series.find((s) => s.id === 'exclusive')!.values) + last(distance.series.find((s) => s.id === 'some')!.values),
+);
+const fall = last(distance.categories);
+const ai = last(ukAi.series[0].values);
+const aiYear = last(ukAi.categories);
+const credYear = creds.series[creds.series.length - 1];
+const credTotal = credYear.values.reduce((a, b) => a + b, 0);
+const vcVals = vc.series[0].values;
+const vcPeakIdx = vcVals.indexOf(Math.max(...vcVals));
+
+const stats = [
+  { value: `${pctOnline}%`, label: `of US college students took at least one course online in fall ${fall}`, source: 'NCES', href: last(distance.sources).url },
+  { value: `${ai}%`, label: `of UK full-time undergraduates use AI in at least one way (${aiYear})`, source: 'HEPI and Kortext', href: ukAi.sources[0].url },
+  { value: `${(credTotal / 1e6).toFixed(2).replace(/0$/, '')}M`, label: `unique credentials on offer in the US in ${credYear.label}`, source: 'Credential Engine', href: creds.sources[0].url },
+  { value: `US$${last(vcVals)}B`, label: `of EdTech venture funding in ${last(vc.categories)}, against US$${vcVals[vcPeakIdx]}B in ${vc.categories[vcPeakIdx]}`, source: 'HolonIQ', href: last(vc.sources).url },
+];
+---
+<section class="intel-panel" aria-labelledby="intel-h">
+  <div class="intel-bar">
+    <span class="intel-name"><b>Intelligence</b><span class="members-tag">Members</span></span>
+    <a href="/intelligence/">Explore Intelligence →</a>
+  </div>
+  <div class="intel-body">
+    <p class="kicker">Report · Preview</p>
+    <h2 id="intel-h">Online Learning Trends for 2027: Seven Shifts in the Data</h2>
+    <div class="intel-stats">
+      {stats.map((s) => (
+        <div>
+          <p class="intel-value">{s.value}</p>
+          <p class="intel-label">{s.label}</p>
+          <p class="intel-source"><a href={s.href} rel="noopener">{s.source}</a></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

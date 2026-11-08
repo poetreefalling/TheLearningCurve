@@ -1,0 +1,13 @@
+---
+import Page from '../../layouts/Page.astro';
+import { SITE } from '../../site.config';
+---
+<Page
+  title="Thanks for your submission"
+  description="Your platform submission has reached The Learning Curve."
+  standfirst={`An editor will read it and reply within ${SITE.submissions.replyDays} working days.`}
+  noindex
+>
+  <p>If you haven't heard from us by then, write to <a href={`mailto:${SITE.submissions.notifyEmail}`}>{SITE.submissions.notifyEmail}</a>.</p>
+  <p>While you wait, here's <a href="/how-we-review/">how we evaluate every platform</a>, and the <a href="/disclosure/">rules that keep reviews independent</a>.</p>
+</Page>
