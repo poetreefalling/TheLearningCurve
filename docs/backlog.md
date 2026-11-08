@@ -152,6 +152,7 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 99 | Udemy vs Thinkific | udemy vs thinkific | 30 · 21 | comparison | todo |
 | 100 | Teachable vs LearnDash | teachable vs learndash | 30 · 16 | comparison | todo |
 | 101 | Thinkific Communities Review | thinkific communities | 40 · 25 | review | todo |
+| 104 | Popular LMS Platforms, Mapped by Who Uses Them | popular lms platforms (secondary: list of lms platforms 50 · 19, examples of lms platforms 40 · 27, learning management system lms platforms 50 · 12; checked 8 Nov 2026). Data story, not a ranking: an animated, interactive wheel whose segments are markets (higher education, schools, corporate, government and VET, open source), with 10–15 platforms placed in the markets they serve; tapping one opens a card with its directory facts (pricing model, deployment, standards, status) and later its Discover profile. No rank numbers; higher-ed market share only as a cited figure on cards, from a source opened and dated. Reads from the directory records, never hand-copied. Needs: (1) directory PR #63 merged with the chosen profiles filled (pricing model, standards, primaryMarket for SAP and Workday); (2) a new wheel chart type in the story components (draws in on scroll, tap for a card, own design). | 50 · 16 | guide | blocked: waiting on the LMS profiles (PR #63) and the wheel chart component |
 
 ## Later (higher difficulty, revisit once the domain has authority)
 
