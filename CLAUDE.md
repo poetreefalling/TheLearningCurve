@@ -37,6 +37,8 @@ commissions pay its way; they never decide what gets written or how a platform s
   rebuilds at each publishing slot so future-dated articles go live on time.
 - Ads: `src/data/ads.json`, managed by Jim in the Ads tab at /admin (`docs/ads.md`). Never add, edit
   or remove a campaign or the AdSense settings unless Jim asks; never put ads on reviews or comparisons.
+- `docs/design.md` is the design system: logo, colour, type, imagery, and how charts, data stories
+  and interactive graphics should look and behave. Follow it for any visual or page change.
 - `docs/editorial.md` is the style guide: voice, article shapes, citation rules, review method
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.
