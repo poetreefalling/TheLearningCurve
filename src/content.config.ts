@@ -114,6 +114,7 @@ const categories = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string().max(200),
+    intro: z.string().max(300).optional(), // the category page's opening line; falls back to description
     comparison: z.enum(['live', 'planned']),
     order: z.number().int(),
   }),

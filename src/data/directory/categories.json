@@ -4,7 +4,8 @@
     "name": "LMS Platforms",
     "description": "Institutional and corporate learning management systems.",
     "comparison": "planned",
-    "order": 1
+    "order": 1,
+    "intro": "A growing list of institutional and corporate learning management systems."
   },
   {
     "id": "course-platforms",
