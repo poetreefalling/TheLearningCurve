@@ -86,6 +86,7 @@ const description = p
             return (
               <li>
                 <a href={productUrl(x.id)}>
+                  {x.data.media?.logo && <span class="logo-tile logo-tile-sm"><img src={x.data.media.logo.src} alt="" width="120" height="28" loading="lazy" /></span>}
                   <b>{x.data.name}</b>
                   <span class="meta">{vv?.data.name}</span>
                   <span class="dir-summary">{x.data.summary}</span>
@@ -101,13 +102,22 @@ const description = p
       <article class="profile">
         <header class="page-head">
           <a class="kicker" href={categoryUrl(d!.category.id)}>{catName(d!.category.id)}</a>
-          <h1>{d!.name}</h1>
+          {d!.media?.logo
+            ? <h1 class="profile-title"><span class="logo-tile"><img src={d!.media.logo.src} alt="" width="200" height="48" /></span><span>{d!.name}</span></h1>
+            : <h1>{d!.name}</h1>}
           <p>{d!.summary}</p>
           <p class="meta">
             By {v?.data.name} · <a href={d!.website} rel="nofollow noopener" target="_blank">{hostOf(d!.website)}</a>
             {d!.lastVerified && <> · Last checked {fmtDate(d!.lastVerified)}</>}
           </p>
         </header>
+
+        {d!.media?.screenshots.map((shot) => (
+          <figure class="profile-shot">
+            <img src={shot.src} srcset={`${shot.src.replace(/\.webp$/, '-800.webp')} 800w, ${shot.src} 1600w`} sizes="(max-width: 960px) 100vw, 960px" alt={shot.alt} loading="lazy" decoding="async" />
+            <figcaption>{shot.caption}{shot.caption && ' '}<span class="credit">{shot.credit}</span></figcaption>
+          </figure>
+        ))}
 
         <section aria-labelledby="glance-h">
           <div class="section-head"><h2 id="glance-h">At a glance</h2></div>

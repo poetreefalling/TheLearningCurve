@@ -144,6 +144,17 @@ next 90-day review.
 7. **CredentialCraft** is Jim's own business. If it is ever listed, it carries the ownership note
    from `docs/editorial.md` and is never scored, ranked or placed in a comparison.
 
+## Logos and screenshots
+
+A product can carry `media`: a `logo` and any number of `screenshots`, stored in
+`public/images/directory/<product-id>/` as WebP (screenshots at 1600 px wide plus an `-800` copy).
+
+- **Logos** come from the vendor's own site or brand kit, unaltered, and identify the product on
+  its own profile. They never imply endorsement, and we don't place them in ads or rankings.
+- **Screenshots** are best when we took them ourselves (Jim's testing). A vendor's own product
+  image is fine with its credit ("Image: 360Learning") and alt text that describes what's on
+  screen. Never add words or claims to a screenshot.
+
 ## Importing from the data-entry workbook
 
 The first 25 LMS records were filled in a spreadsheet (one row per product and vendor, with a

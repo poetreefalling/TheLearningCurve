@@ -232,6 +232,15 @@ const products = defineCollection({
         since: z.coerce.date().optional(),
         notes: z.string().optional(),
       }),
+      // Logo and screenshots for the profile page, from public/images/directory/<id>/ (docs/directory.md).
+      media: z
+        .object({
+          logo: z.object({ src: z.string(), alt: z.string(), source: z.string().url().optional() }).optional(),
+          screenshots: z
+            .array(z.object({ src: z.string(), alt: z.string().min(20), caption: z.string().optional(), credit: z.string() }))
+            .default([]),
+        })
+        .optional(),
       // Evidence & assurance (members and procurement). Optional until researched.
       assurance: assurance.optional(),
       status: productStatus,

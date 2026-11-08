@@ -945,3 +945,13 @@ html, body { overflow-x: clip; }
 .dir-note { margin: 40px 0 0; padding: 20px 22px; border: 1px solid var(--rule); border-radius: 10px; font: 400 14.5px/1.55 var(--sans); color: var(--ink-2); max-width: var(--wide); }
 .dir-note p { margin: 0 0 8px; }
 .dir-note p:last-child { margin: 0; }
+/* Discover: logos sit on a white tile so dark marks read in both themes; screenshots are credited */
+.logo-tile { display: inline-flex; align-items: center; justify-content: center; background: #ffffff; border: 1px solid var(--rule); border-radius: 10px; padding: 10px 14px; }
+.logo-tile img { display: block; height: 32px; width: auto; max-width: 220px; object-fit: contain; }
+.logo-tile-sm { align-self: flex-start; padding: 6px 10px; border-radius: 8px; margin-bottom: 4px; }
+.logo-tile-sm img { height: 18px; max-width: 140px; }
+.profile-title { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
+.profile-shot { margin: 0 0 36px; max-width: var(--wide); }
+.profile-shot img { display: block; width: 100%; height: auto; }
+.profile-shot figcaption { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); margin-top: 8px; }
+.profile-shot .credit { color: var(--muted); }
