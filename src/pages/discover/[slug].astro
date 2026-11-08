@@ -77,7 +77,7 @@ const description = p
         <header class="page-head">
           <a class="kicker" href="/discover/">Discover</a>
           <h1>{category!.name}</h1>
-          <p>{category!.description} {list.length} profiled so far, each with a source for every fact. Where we're still confirming something, the profile says so.</p>
+          <p>{(category as { intro?: string }).intro ?? category!.description}</p>
         </header>
         <ul class="dir-grid">
           {list.map((x) => {

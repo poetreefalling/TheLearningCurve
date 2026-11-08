@@ -239,5 +239,21 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/cornerstone-learning/logo.webp",
+      "alt": "Cornerstone logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/cornerstone-learning/screenshot-1.webp",
+        "width": 1280,
+        "frame": true,
+        "alt": "The Cornerstone admin dashboard: priority actions for training completion and approval requests, learning insights showing assigned, completed, failed and past-due training, drafts to continue editing, and pinned links",
+        "caption": "The admin dashboard, with priority approvals, training progress and drafts in progress.",
+        "credit": "Image: Cornerstone"
+      }
+    ]
+  }
 }
