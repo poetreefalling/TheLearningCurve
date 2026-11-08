@@ -238,5 +238,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/canvas-lms/logo.webp",
+      "alt": "Canvas by Instructure logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/canvas-lms/screenshot-1.webp",
+        "frame": true,
+        "alt": "A self-guided short course home page in Canvas: the global navigation on the far left, the course menu with Modules, Pages, Files and other links, a course banner and photo, three quick-link tiles, an introduction video from the lecturer and an About This Course panel",
+        "caption": "A course home page in Canvas, from a self-guided short course at Avondale University.",
+        "credit": "Screenshot: The Learning Curve"
+      }
+    ]
+  }
 }
