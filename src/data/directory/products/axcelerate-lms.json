@@ -231,5 +231,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/axcelerate-lms/logo.webp",
+      "alt": "aXcelerate logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/axcelerate-lms/screenshot-1.webp",
+        "frame": true,
+        "alt": "The aXcelerate Placements screen: a list of learners on work placements, and one learner's logbook entry with time logged, host employer, supervisor, a written reflection, photo evidence and the activities recorded, with buttons to approve it or mark it as needing review",
+        "caption": "Work placements: reviewing a learner's logbook entry, with hours, reflection, evidence and activities.",
+        "credit": "Image: aXcelerate"
+      }
+    ]
+  }
 }

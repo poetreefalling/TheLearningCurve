@@ -218,5 +218,22 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/talentlms/logo.webp",
+      "alt": "TalentLMS logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/talentlms/screenshot-1.webp",
+        "width": 1023,
+        "still": "/images/directory/talentlms/screenshot-1-still.webp",
+        "frame": true,
+        "alt": "The TalentLMS learner dashboard: recent course activity as course cards, a points leaderboard, a calendar panel and a \"Don't miss!\" list of reminders",
+        "caption": "The learner dashboard, with recent courses, the points leaderboard and reminders.",
+        "credit": "Image: TalentLMS"
+      }
+    ]
+  }
 }
