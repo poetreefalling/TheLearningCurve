@@ -137,8 +137,8 @@ const vendors = defineCollection({
     lastVerified: z.coerce.date().optional(),
     draft: z.boolean().default(false),
     researchTasks: z.array(z.string()).default([]), // internal to-do list; never shown to readers
-    // Fields we looked for and couldn't find or verify. Shown to readers as "Not publicly
-    // disclosed" or "Not confirmed"; never a reason to keep a record off the site.
+    // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+    // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
     dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
   }).superRefine((v, ctx) => {
     if (!v.draft && !v.lastVerified) ctx.addIssue({ code: 'custom', message: 'A published vendor needs lastVerified' });
@@ -239,8 +239,8 @@ const products = defineCollection({
       lastVerified: z.coerce.date().optional(),
       draft: z.boolean().default(false),
       researchTasks: z.array(z.string()).default([]), // internal to-do list and open conflicts; never shown to readers
-      // Fields we looked for and couldn't find or verify. Shown to readers as "Not publicly
-      // disclosed" or "Not confirmed"; never a reason to keep a record off the site.
+      // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+      // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
       dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
     })
     .superRefine((p, ctx) => {

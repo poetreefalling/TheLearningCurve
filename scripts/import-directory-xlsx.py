@@ -10,8 +10,8 @@ Fields the workbook doesn't cover (summary, features, integrations, alternatives
 assurance) are kept as they are.
 
 Anything the workbook leaves out, or a value that doesn't fit the schema, is not guessed: the
-field is left out and the gap is recorded in the record's dataGaps, which the site shows as
-"Not publicly disclosed" or "Not confirmed". Gaps never stop a record publishing: every record
+field is left out and the gap is recorded in the record's dataGaps (internal), and the site
+shows "Research ongoing" in that field. Gaps never stop a record publishing: every record
 with a lastVerified date is published (draft: false). With --annotate, a copy of the workbook
 is written with each gap cell prefixed "* " and a comment saying why.
 """
