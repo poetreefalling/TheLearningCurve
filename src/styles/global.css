@@ -955,3 +955,10 @@ html, body { overflow-x: clip; }
 .profile-shot img { display: block; width: 100%; height: auto; }
 .profile-shot figcaption { font: 400 13.5px/1.5 var(--sans); color: var(--ink-2); margin-top: 8px; }
 .profile-shot .credit { color: var(--muted); }
+/* Profile header with a lead screenshot: text left, screenshot right (half the page); stacked on phones */
+.profile-top.has-shot { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; padding: 48px 0 32px; border-bottom: 1px solid var(--rule); margin-bottom: 32px; }
+.profile-top.has-shot .page-head { padding: 0; border-bottom: 0; margin: 0; }
+.profile-top.has-shot .profile-shot-lead { margin: 0; max-width: none; }
+@media (max-width: 860px) {
+  .profile-top.has-shot { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
+}

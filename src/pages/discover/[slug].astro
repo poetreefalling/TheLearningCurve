@@ -100,6 +100,7 @@ const description = p
       </>
     ) : (
       <article class="profile">
+        <div class:list={['profile-top', { 'has-shot': d!.media?.screenshots.length }]}>
         <header class="page-head">
           <a class="kicker" href={categoryUrl(d!.category.id)}>{catName(d!.category.id)}</a>
           {d!.media?.logo
@@ -112,7 +113,15 @@ const description = p
           </p>
         </header>
 
-        {d!.media?.screenshots.map((shot) => (
+        {d!.media?.screenshots.slice(0, 1).map((shot) => (
+          <figure class="profile-shot profile-shot-lead">
+            <img src={shot.src} srcset={`${shot.src.replace(/\.webp$/, '-800.webp')} 800w, ${shot.src} 1600w`} sizes="(max-width: 860px) 100vw, 600px" alt={shot.alt} decoding="async" />
+            <figcaption>{shot.caption}{shot.caption && ' '}<span class="credit">{shot.credit}</span></figcaption>
+          </figure>
+        ))}
+        </div>
+
+        {d!.media?.screenshots.slice(1).map((shot) => (
           <figure class="profile-shot">
             <img src={shot.src} srcset={`${shot.src.replace(/\.webp$/, '-800.webp')} 800w, ${shot.src} 1600w`} sizes="(max-width: 960px) 100vw, 960px" alt={shot.alt} loading="lazy" decoding="async" />
             <figcaption>{shot.caption}{shot.caption && ' '}<span class="credit">{shot.credit}</span></figcaption>
