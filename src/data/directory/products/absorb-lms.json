@@ -221,5 +221,12 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/absorb-lms/logo.webp",
+      "alt": "Absorb LMS logo"
+    },
+    "screenshots": []
+  }
 }
