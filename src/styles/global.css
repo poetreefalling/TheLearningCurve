@@ -962,3 +962,5 @@ html, body { overflow-x: clip; }
 @media (max-width: 860px) {
   .profile-top.has-shot { grid-template-columns: 1fr; gap: 24px; padding-top: 32px; }
 }
+.profile-shot.framed img { border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 10px 30px rgba(22, 24, 29, 0.10); background: #ffffff; }
+.profile-shot picture { display: block; }

@@ -237,7 +237,15 @@ const products = defineCollection({
         .object({
           logo: z.object({ src: z.string(), alt: z.string(), source: z.string().url().optional() }).optional(),
           screenshots: z
-            .array(z.object({ src: z.string(), alt: z.string().min(20), caption: z.string().optional(), credit: z.string() }))
+            .array(z.object({
+              src: z.string(), // 1600 px wide WebP (or its native width, set in width), plus an -800 copy
+              alt: z.string().min(20),
+              caption: z.string().optional(),
+              credit: z.string(),
+              width: z.number().int().positive().default(1600),
+              still: z.string().optional(), // first frame of an animated screenshot, for reduced motion
+              frame: z.boolean().default(false), // thin border, for flat UI captures (not device mock-ups)
+            }))
             .default([]),
         })
         .optional(),

@@ -154,6 +154,10 @@ A product can carry `media`: a `logo` and any number of `screenshots`, stored in
 - **Screenshots** are best when we took them ourselves (Jim's testing). A vendor's own product
   image is fine with its credit ("Image: 360Learning") and alt text that describes what's on
   screen. Never add words or claims to a screenshot.
+- **Animated screenshots** (a GIF from the vendor or our own screen recording) are saved as
+  animated WebP with a `still` first frame, which visitors who prefer reduced motion see instead.
+  Set `width` when the capture is narrower than 1600 px, and `frame: true` for flat UI captures
+  that need a border (not device mock-ups).
 
 ## Importing from the data-entry workbook
 
