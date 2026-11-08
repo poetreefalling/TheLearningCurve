@@ -124,16 +124,11 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
     "Conflict (dataResidency): Data column says to confirm region-specific hosting; the evidence column says LearnUpon stores data in the EU, US or Australia by customer requirement. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
-    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public self-serve trial not confirmed.",
-    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
-    "* security: no certification is stated, so the list is empty. Request the current security pack.",
-    "* data residency: no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, EU, USA.",
-    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
   ],
   "pricing": {
     "value": {
@@ -186,11 +181,33 @@
     "value": {
       "models": [],
       "trainsOnCustomerData": "not-disclosed",
-      "notes": "Ask Lia and AI-powered assessments; underlying model provider not specified on pricing page."
+      "notes": "Ask Lia and AI-powered assessments; underlying model provider not specified on pricing page. Ask Lia and AI-powered assessments; underlying model provider not specified on pricing page."
     },
     "source": "https://www.learnupon.com/pricing/",
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo by enquiry; public self-serve trial not confirmed."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, EU, USA."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
 }

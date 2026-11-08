@@ -14,10 +14,8 @@
     "origin": "vendor-supplied"
   },
   "status": "active",
-  "draft": true,
-  "researchTasks": [
-    "* founded: stored the year 2012; the workbook qualifies it: \"2012 (Jasig and Sakai Foundation merger forming Apereo)\"."
-  ],
+  "draft": false,
+  "researchTasks": [],
   "headquarters": {
     "value": "Beaverton, Oregon, USA (registered mailing address)",
     "source": "https://apereo.org/sites/default/files/2024-06/Apereo%20Community%20Member%20Agreement.pdf",
@@ -43,5 +41,11 @@
     "origin": "vendor-supplied",
     "note": "2012 (Jasig and Sakai Foundation merger forming Apereo)"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 2012; the workbook qualifies it: \"2012 (Jasig and Sakai Foundation merger forming Apereo)\"."
+    }
+  ]
 }

@@ -2,10 +2,8 @@
   "name": "LearnUpon Ltd.",
   "website": "https://www.learnupon.com/",
   "status": "active",
-  "draft": true,
-  "researchTasks": [
-    "* ownership: \"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
-  ],
+  "draft": false,
+  "researchTasks": [],
   "headquarters": {
     "value": "Dublin, Ireland",
     "source": "https://www.learnupon.com/about-us/",
@@ -42,5 +40,11 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "ownership",
+      "note": "\"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
 }

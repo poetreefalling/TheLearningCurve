@@ -21,10 +21,8 @@
   },
   "legalEntity": "D2L Inc.",
   "status": "active",
-  "draft": true,
-  "researchTasks": [
-    "* founded: stored the year 1999; the workbook qualifies it: \"1999 (company origin; incorporated 2011)\"."
-  ],
+  "draft": false,
+  "researchTasks": [],
   "size": {
     "value": "1,100 employees (company-reported)",
     "source": "https://www.d2l.com/about/",
@@ -44,5 +42,11 @@
     "origin": "vendor-supplied",
     "note": "1999 (company origin; incorporated 2011)"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 1999; the workbook qualifies it: \"1999 (company origin; incorporated 2011)\"."
+    }
+  ]
 }

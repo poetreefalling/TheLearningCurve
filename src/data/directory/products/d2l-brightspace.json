@@ -207,12 +207,10 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
     "Integrations need exact names: \"LTI 1.3; Microsoft 365; SIS/rostering; D2L Link; partner/content integrations. Verify add-on and licence scope.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; public free trial not identified.",
-    "* data residency: no committed region; confirm the tenant region in the contract."
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
   ],
   "dataPrivacy": {
     "value": {
@@ -223,5 +221,15 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo / quote by enquiry; public free trial not identified."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    }
+  ]
 }

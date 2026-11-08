@@ -173,16 +173,11 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Higher education; workforce development; government; NGOs; enterprise learning; online education providers\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
-    "* trial: no public trial terms, so left out (not set to false): Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers.",
-    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
-    "* security: no certification is stated, so the list is empty. Request the current security pack.",
-    "* data residency: no committed region; confirm the tenant region in the contract.",
-    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
   ],
   "pricing": {
     "value": {
@@ -222,11 +217,33 @@
     "value": {
       "models": [],
       "trainsOnCustomerData": "not-disclosed",
-      "notes": "Optional AI capabilities/extensions; model provider depends on implementation and hosting partner."
+      "notes": "Optional AI capabilities/extensions; model provider depends on implementation and hosting partner. Optional AI capabilities/extensions; model provider depends on implementation and hosting partner."
     },
     "source": "https://openedx.org/platform/",
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
 }

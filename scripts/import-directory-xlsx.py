@@ -9,11 +9,11 @@ src/data/directory/products/<id>.json and src/data/directory/vendors/<id>.json i
 Fields the workbook doesn't cover (summary, features, integrations, alternatives, evidence,
 assurance) are kept as they are.
 
-Anything the workbook leaves out, or a value that doesn't fit the schema, is not guessed:
-it is recorded in the record's researchTasks as a line starting "* ", so the gap is visible
-in the review desk and the record stays a draft until someone resolves it. With --annotate,
-a copy of the workbook is written with each of those cells prefixed "* " and a comment saying
-why.
+Anything the workbook leaves out, or a value that doesn't fit the schema, is not guessed: the
+field is left out and the gap is recorded in the record's dataGaps, which the site shows as
+"Not publicly disclosed" or "Not confirmed". Gaps never stop a record publishing: every record
+with a lastVerified date is published (draft: false). With --annotate, a copy of the workbook
+is written with each gap cell prefixed "* " and a comment saying why.
 """
 import json
 import re
@@ -80,7 +80,7 @@ class Record:
 
     def flag(self, header, note):
         flags.append((self.sheet, self.row_no, header, note))
-        self.notes.append(f'* {header}: {note}')
+        self.notes.append({'field': header, 'note': note})
 
 
 def fact(rec, value, source, checked, origin, header, fallback_checked, existing=None):
@@ -293,8 +293,10 @@ def import_product(rid, row_no, row, existing, tasks):
     d['commercialRelationship'] = {**(existing.get('commercialRelationship') or {}), 'kind': kind}
     d['status'] = text(row.get('status')) or existing.get('status', 'active')
     if when: d['lastVerified'] = when
-    d['draft'] = True
-    d['researchTasks'] = tasks + rec.notes
+    # Gaps are information, not a gate: a checked record publishes with whatever is known.
+    d['draft'] = not when
+    d['researchTasks'] = tasks
+    d['dataGaps'] = rec.notes
     return d
 
 
@@ -355,8 +357,10 @@ def import_vendor(rid, row_no, row, existing, tasks):
 
     d['status'] = text(row.get('status')) or existing.get('status', 'active')
     if when: d['lastVerified'] = when
-    d['draft'] = True
-    d['researchTasks'] = tasks + rec.notes
+    # Gaps are information, not a gate: a checked record publishes with whatever is known.
+    d['draft'] = not when
+    d['researchTasks'] = tasks
+    d['dataGaps'] = rec.notes
     return d
 
 

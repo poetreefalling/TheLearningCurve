@@ -14,10 +14,8 @@
     "origin": "vendor-supplied"
   },
   "status": "active",
-  "draft": true,
-  "researchTasks": [
-    "* founded: stored the year 2023; the workbook qualifies it: \"2023 (Axim Collaborative established; Open edX project launched 2012)\"."
-  ],
+  "draft": false,
+  "researchTasks": [],
   "headquarters": {
     "value": "Cambridge, Massachusetts, USA",
     "source": "https://www.unesco.org/en/global-education-coalition/axim-collaborative-0",
@@ -43,5 +41,11 @@
     "origin": "vendor-supplied",
     "note": "2023 (Axim Collaborative established; Open edX project launched 2012)"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 2023; the workbook qualifies it: \"2023 (Axim Collaborative established; Open edX project launched 2012)\"."
+    }
+  ]
 }

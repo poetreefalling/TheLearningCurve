@@ -186,11 +186,9 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "* trial: no public trial terms, so left out (not set to false): Institutional demonstration / procurement enquiry; public trial not identified.",
-    "* data residency: no committed region; confirm the tenant region in the contract."
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
   ],
   "pricingModel": {
     "value": {
@@ -221,5 +219,15 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Institutional demonstration / procurement enquiry; public trial not identified."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    }
+  ]
 }

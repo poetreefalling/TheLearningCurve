@@ -2,7 +2,7 @@
   "name": "Litmos US, LP",
   "website": "https://www.litmos.com/",
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [],
   "headquarters": {
     "value": "San Ramon, California, USA (business office; confirm legal HQ)",
@@ -40,5 +40,6 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": []
 }

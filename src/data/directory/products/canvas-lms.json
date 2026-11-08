@@ -136,7 +136,7 @@
     "value": {
       "models": [],
       "trainsOnCustomerData": "opt-in",
-      "notes": "Instructure AI features; third-party model/provider details vary by feature. Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level models are listed in its AI Nutrition Facts."
+      "notes": "Instructure AI features; third-party model/provider details vary by feature. Instructure AI features; third-party model/provider details vary by feature. Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level models are listed in its AI Nutrition Facts."
     },
     "source": "https://www.instructure.com/de/node/27149",
     "checked": "2026-11-08",
@@ -215,14 +215,28 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
     "Integrations need exact names: \"LTI 1.3 ecosystem; REST APIs; SIS integrations; SSO; extensive third-party integrations. Confirm entitlements and partner data flows.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "* free tier: neither yes nor no, so left out: \"Canvas Lite / Free-for-Teacher is available for individual educators with feature limitations; institutional Canvas is quote-based.\".",
-    "* trial: no public trial terms, so left out (not set to false): Institutional demo / pilot by enquiry; no standard public trial terms identified.",
-    "* data residency: no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, Canada, EU, USA.",
-    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
   ],
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "free tier",
+      "note": "neither yes nor no, so left out: \"Canvas Lite / Free-for-Teacher is available for individual educators with feature limitations; institutional Canvas is quote-based.\"."
+    },
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Institutional demo / pilot by enquiry; no standard public trial terms identified."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, Canada, EU, USA."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
 }

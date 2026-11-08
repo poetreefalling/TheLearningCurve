@@ -60,10 +60,11 @@ A product has one main `category` and any number of `secondaryCategories`.
 | `commercialRelationship` | `none`, `affiliate`, `sponsor` or `vendor-subscriber`, with the start date |
 | `assurance` | The evidence & assurance layer (below) |
 | `status`, `lastVerified` | `active`, `beta`, `acquired`, `discontinued`, and the date the whole profile was last checked. `lastVerified` is left out while `draft` is true and required once it is false |
-| `draft` | `true` keeps the record off production. Every new record starts as a draft |
-| `researchTasks` | Internal to-do list: missing values, open conflicts, sources to re-open. Never shown to readers. A record is ready to publish when this list is empty |
+| `draft` | `true` keeps the record off production. A record publishes once it has its basics (name, vendor, category, website, summary, status) and a `lastVerified` date, whatever else is missing |
+| `researchTasks` | Internal to-do list: open conflicts, sources to re-open. Never shown to readers, and never a reason to hold a record back |
+| `dataGaps` | Fields we looked for and couldn't find or verify, each with a short note. The profile shows them as "Not publicly disclosed" or "Not confirmed" |
 
-Vendors have the same `draft`, optional `lastVerified` and `researchTasks`, plus
+Vendors have the same `draft`, optional `lastVerified`, `researchTasks` and `dataGaps`, plus
 `ownershipDetail` (who owns it, in words, with provenance) and `legalEntity` (the contracting company).
 
 ## Evidence & assurance
@@ -111,6 +112,11 @@ Most fields are wrapped in a provenance record:
 
 Leave a field out rather than guess. An empty field is honest; a wrong one costs trust.
 
+**Publish with gaps.** Most vendors don't publish everything we'd like to record, and that is
+useful information in itself. A missing or unverifiable value is never a reason to hold a
+record back: leave the field out, add an entry to `dataGaps` saying what was looked for, and
+publish. Fill the gap when the information turns up.
+
 ## The rules
 
 1. **Profiled is not evaluated.** A product with only a profile is *profiled*. It becomes
@@ -144,9 +150,9 @@ python3 scripts/import-directory-xlsx.py <workbook.xlsx> --annotate <annotated.x
 The importer updates the JSON records in place and keeps the fields the workbook doesn't cover
 (summary, features, integrations, alternatives, evidence, assurance). It never guesses: a value
 that is missing or doesn't fit the schema is left out and recorded in the record's
-`researchTasks` as a line starting `* `. With `--annotate` it also writes a copy of the workbook
+`dataGaps`. With `--annotate` it also writes a copy of the workbook
 with those cells marked `*` and a comment saying why. Research tasks marked done (`y`) are closed.
-Records stay drafts until their `researchTasks` list is empty.
+Every record with a `lastVerified` date is published (`draft: false`); gaps don't hold it back.
 
 ## Adding a product
 

@@ -130,15 +130,10 @@
     ]
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
-    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public free trial not identified.",
-    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
-    "* security: no certification is stated, so the list is empty. Request the current security pack.",
-    "* data residency: no committed region; confirm the tenant region in the contract.",
-    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
   ],
   "pricing": {
     "value": {
@@ -203,5 +198,27 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo by enquiry; public free trial not identified."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
 }

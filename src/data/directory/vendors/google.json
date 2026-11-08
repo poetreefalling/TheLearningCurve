@@ -14,7 +14,7 @@
     "origin": "vendor-supplied"
   },
   "status": "active",
-  "draft": true,
+  "draft": false,
   "researchTasks": [],
   "headquarters": {
     "value": "Mountain View, California, USA",
@@ -40,5 +40,6 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": []
 }

@@ -9,12 +9,8 @@
   },
   "legalEntity": "Moodle Pty Ltd (ABN 55 116 513 636)",
   "status": "active",
-  "draft": true,
-  "researchTasks": [
-    "* size: from a third-party workforce estimate, stored as estimated.",
-    "* founded: stored the year 2001; the workbook qualifies it: \"2001 (Moodle project launched; Moodle Pty Ltd later established)\".",
-    "* ownership: \"Privately held Australian company; open-source project supported by Moodle HQ and partner network\" doesn't say whether it is independent or venture-backed, so stored as other."
-  ],
+  "draft": false,
+  "researchTasks": [],
   "size": {
     "value": "Approximately 382 employees (third-party workforce estimate, March 2026)",
     "source": "https://www.reveliolabs.com/companies/moodle/employees",
@@ -46,5 +42,19 @@
     "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
-  "lastVerified": "2026-11-08"
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "size",
+      "note": "from a third-party workforce estimate, stored as estimated."
+    },
+    {
+      "field": "founded",
+      "note": "stored the year 2001; the workbook qualifies it: \"2001 (Moodle project launched; Moodle Pty Ltd later established)\"."
+    },
+    {
+      "field": "ownership",
+      "note": "\"Privately held Australian company; open-source project supported by Moodle HQ and partner network\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
 }
