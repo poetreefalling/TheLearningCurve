@@ -79,8 +79,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 26 | Online Course Completion Rates: What the Data Says and What Moves Them | online course completion rates (SD above 30; "online course completion rate" 10 · 5 kept as secondary) | 30 · 38 | guide | in PR (Mon 9 Nov 00:00) |
 | 27 | LearnWorlds vs Teachable | learnworlds vs teachable | 40 · 13 | comparison | todo |
 | 28 | Microlearning Platforms Compared for Workplace Training | microlearning platform | 320 · 17 | comparison | todo |
-| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid | check | library | next |
-| 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | todo |
+| 29 | The Learning Pyramid: Where the Famous Percentages Came From | learning pyramid (SD above 30 US; AU 720 · 30; "learning pyramid theory" 40 · 27 kept as secondary) | 2,400 · 38 | library | in PR (Mon 9 Nov 12:00) |
+| 30 | Writing Course Scripts That Sound Human | elearning script writing | check | guide | next |
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
 | 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | todo |
 | 33 | Formative Assessment in Self-Paced Courses | formative assessment online | check | library | todo |
