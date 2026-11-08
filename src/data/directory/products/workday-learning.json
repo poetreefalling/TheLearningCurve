@@ -67,26 +67,26 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Request current Workday Learning ACR/VPAT; no product-specific report verified in this pass.",
       "caveat": "Workday general accessibility page insufficient for module-level assessment.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Workday Trust Center provides security/compliance documentation; request current SOC 2 Type II and ISO certificates with Workday Learning coverage.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No public confirmation of exact AU tenant data storage/backup/support region for Learning found in this pass.",
       "sources": [],
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Workday AI features are evolving across the platform; verify Learning-specific features, model providers and training/retention terms.",
       "sources": [],
       "checked": "2026-11-07"

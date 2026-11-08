@@ -109,7 +109,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No current product-specific VPAT/ACR located in this pass; request report for Litmos LMS, Training Ops and mobile apps.",
       "caveat": "Trust/security page details other controls but not accessibility report.",
       "sources": [
@@ -121,7 +121,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Litmos publishes SOC 2 Type II 12-month audit (1 Apr 2024–31 Mar 2025), audited by Aprio, no exceptions noted. ISO/IEC 27001:2022 certificate scope includes Litmos LMS, Litmos Training Ops and supporting cloud/corporate functions; certificate issued Jan 2025.",
       "sources": [
         {
@@ -132,7 +132,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Litmos says customer can choose Australia, EU or US data residency. Exact Sydney region, backup/DR, support access and subprocessor locations still require DPA review.",
       "sources": [
         {
@@ -143,7 +143,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Platinum AI includes AI authoring, assistant, insights and video assessment; request model provider list, training and retention terms.",
       "sources": [
         {

@@ -82,7 +82,7 @@
   },
   "assurance": {
     "dataResidency": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No public AU tenant region/DR/subprocessor detail verified in this pass.",
       "sources": [
         {
@@ -93,7 +93,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No complete public model/provider, training or retention disclosure verified in this pass.",
       "sources": [
         {

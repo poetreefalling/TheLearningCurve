@@ -141,7 +141,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "independently-evidenced",
+      "level": "independently-assured",
       "finding": "Accredited to WCAG 2.2 Level AA on 3 October 2025 after an external audit by GrackleDocs; a VPAT 2.5 conformance report is published. The Moodle app and Moodle Workplace are accredited separately.",
       "caveat": "Covers the listed supported versions only. Accreditation lasts 12 months. Themes, plugins and course content are not covered.",
       "sources": [
@@ -157,7 +157,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "Moodle LMS is open-source software, so there is no product-wide SOC 2 or ISO 27001 report: security depends on who hosts it. MoodleCloud runs on AWS; AWS certifications are not Moodle's own.",
       "caveat": "Assess the chosen host: Moodle HQ (MoodleCloud), a Moodle Certified Partner, or the institution itself.",
       "sources": [
@@ -169,7 +169,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Self-hosted Moodle stores data wherever the institution hosts it. MoodleCloud premium hosting can use any public AWS region, including Sydney.",
       "caveat": "Backups, logs, support access and third-party plugins may process data elsewhere.",
       "sources": [
@@ -181,7 +181,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "The AI subsystem is provider-neutral: each site chooses and configures its AI provider (for example OpenAI, Azure AI or a self-hosted model), and that provider's data terms apply.",
       "caveat": "There is no single Moodle-wide statement on training or retention.",
       "sources": [

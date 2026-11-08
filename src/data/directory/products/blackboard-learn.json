@@ -128,7 +128,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Blackboard describes product-specific accessibility conformance reports, but the current Blackboard LMS report was not retrieved.",
       "caveat": "Request the current, dated report for Blackboard LMS (Ultra).",
       "sources": [
@@ -140,7 +140,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Blackboard states ISO 27001 and ISO 27701 certification (audited by A-LIGN) and annual SOC 2 Type II examinations for several products, including Blackboard LMS.",
       "caveat": "SOC 2 reports are requested through the account manager.",
       "sources": [
@@ -156,7 +156,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Blackboard says many products are regionally hosted, but support, messaging and generative AI may be provided from outside the hosting location.",
       "caveat": "Confirm the Australian region and every exception in the contract.",
       "sources": [
@@ -168,7 +168,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Generative AI features are opt-in and run on Microsoft Azure OpenAI Service (and AWS Bedrock for Ally). Blackboard says client data is not used to retrain the models, and publishes a transparency note for each feature.",
       "caveat": "Azure OpenAI runs on multiple global instances; ask where Australian prompts are processed.",
       "sources": [

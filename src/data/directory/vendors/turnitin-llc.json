@@ -1,0 +1,32 @@
+{
+  "name": "Turnitin",
+  "website": "https://www.turnitin.com/",
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "Company details (headquarters, founded, size, funding, ownership) not in the AI workbook."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "founded",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "size",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "funding",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "ownership",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

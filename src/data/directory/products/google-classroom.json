@@ -80,7 +80,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Google publishes Workspace accessibility documentation; obtain Classroom-specific ACR/VPAT and verify whether all Classroom surfaces/apps are covered.",
       "caveat": "Workspace-level accessibility materials may not cover Classroom in full.",
       "sources": [
@@ -96,7 +96,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "Google Workspace for Education public compliance page lists ISO 27001/27017/27018/27701/42001 and SOC 2/SOC 3. These are Workspace-level certifications, not automatically a Classroom-specific independent report.",
       "sources": [
         {
@@ -111,7 +111,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Google Workspace terms provide data-region options only for eligible editions and in-scope data/services; must check edition, configured services and located data. Do not assume all Classroom data or AI processing is in Australia.",
       "sources": [
         {
@@ -126,7 +126,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Gemini for Education and other AI features are part of the broader Workspace for Education offer; feature availability and data terms depend on edition and admin settings.",
       "sources": [
         {

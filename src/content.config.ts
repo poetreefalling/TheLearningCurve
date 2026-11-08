@@ -146,12 +146,17 @@ const vendors = defineCollection({
   }),
 });
 
-// The evidence & assurance layer: what a buyer's procurement team will ask about, and how well
-// each answer is evidenced. "independently-evidenced" needs a third-party report or certificate
-// whose scope and date we have checked; a vendor's own statement is "publicly-stated".
-const assuranceStatus = z.enum(['independently-evidenced', 'publicly-stated', 'vendor-confirmation-required', 'not-disclosed']);
+// Evidence & Assurance levels, shown on every profile (docs/directory.md, /evidence-and-assurance/).
+// 1 vendor-disclosed: published by the vendor. 2 vendor-confirmed: confirmed to us directly by the
+// vendor. 3 independently-corroborated: supported by independent evidence. 4 independently-assured:
+// relevant controls covered by current third-party assurance or technical assessment whose scope
+// and date we have checked. "research-ongoing": not yet established (shown as "Research ongoing").
+const evidenceLevel = z.enum(['research-ongoing', 'vendor-disclosed', 'vendor-confirmed', 'independently-corroborated', 'independently-assured']);
+
+// The assurance layer: what a buyer's procurement team will ask about, and how well each answer
+// is evidenced. Findings are the members' layer; the free profile shows the levels.
 const assuranceArea = z.object({
-  status: assuranceStatus,
+  level: evidenceLevel,
   finding: z.string().max(700), // our words: what the evidence says
   caveat: z.string().max(500).optional(), // scope limits: versions, modules, regions, expiry
   sources: z.array(z.object({ title: z.string(), url: z.string().url() })).default([]),
@@ -164,6 +169,22 @@ const assurance = z.object({
   ai: assuranceArea.optional(),
   procurementChecks: z.array(z.string()).default([]), // what a buyer should ask for before signing
 });
+
+// One answer in an AI profile area. A value without a source stays "research-ongoing".
+const aiAnswer = z
+  .object({
+    question: z.string(), // "Trains AI on customer data"
+    value: z.string().optional(), // as recorded; left out when unknown
+    level: evidenceLevel,
+    source: z.string().url().optional(),
+    checked: z.coerce.date().optional(),
+    note: z.string().optional(), // scope or caveat, e.g. "Edu and business plans only"
+    conflict: z.boolean().default(false), // sources disagree; shown, never presented as resolved
+  })
+  .superRefine((a, ctx) => {
+    if (a.level !== 'research-ongoing' && !a.source) ctx.addIssue({ code: 'custom', message: `"${a.question}": an evidence level above research-ongoing needs a source` });
+  });
+const aiArea = z.object({ summary: z.string().max(400).optional(), answers: z.array(aiAnswer).default([]) });
 
 const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
 const standard = z.enum([
@@ -248,6 +269,21 @@ const products = defineCollection({
               frame: z.boolean().default(false), // thin border, for flat UI captures (not device mock-ups)
             }))
             .default([]),
+        })
+        .optional(),
+      // AI profile: the four comparison criteria for AI products (data privacy, learner oversight,
+      // pedagogical approach, output ownership) plus what the AI does and who uses it. Every answer
+      // carries its own evidence level and, once established, its source.
+      aiProfile: z
+        .object({
+          toolTypes: z.array(z.string()).default([]),
+          audience: z.array(z.string()).default([]),
+          areas: z.object({
+            dataPrivacy: aiArea,
+            learnerOversight: aiArea,
+            pedagogy: aiArea,
+            outputOwnership: aiArea,
+          }),
         })
         .optional(),
       // Evidence & assurance (members and procurement). Optional until researched.

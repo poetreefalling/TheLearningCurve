@@ -95,7 +95,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No public product-specific VPAT/ACR found; request current report.",
       "caveat": "Ask whether learner portal, admin console, mobile apps and authored content are covered.",
       "sources": [
@@ -107,7 +107,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Ask Lia and AI-powered assessments advertised; model provider, training use and retention not fully disclosed in reviewed pricing page.",
       "sources": [
         {

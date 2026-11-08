@@ -46,10 +46,33 @@ export const TRAINS: Record<string, string> = {
   no: 'No', yes: 'Yes', 'opt-out': 'Yes, unless the customer opts out', 'opt-in': 'Only if the customer opts in',
 };
 export const ORIGIN: Record<string, string> = { verified: 'Verified', 'vendor-supplied': 'Vendor-supplied', estimated: 'Estimated' };
-export const ASSURANCE: Record<string, string> = {
-  'independently-evidenced': 'Independently evidenced', 'publicly-stated': 'Stated by the vendor',
-  'vendor-confirmation-required': 'Available on request', 'not-disclosed': RESEARCH_ONGOING,
+/** Evidence & Assurance levels (docs/directory.md; explained to readers at /evidence-and-assurance/). */
+export type EvidenceLevel = 'research-ongoing' | 'vendor-disclosed' | 'vendor-confirmed' | 'independently-corroborated' | 'independently-assured';
+export const LEVELS: Record<EvidenceLevel, { n: number; label: string; meaning: string }> = {
+  'research-ongoing': { n: 0, label: RESEARCH_ONGOING, meaning: 'Not yet established. We are looking, usually by asking the company.' },
+  'vendor-disclosed': { n: 1, label: 'Vendor disclosed', meaning: 'Information published by the vendor.' },
+  'vendor-confirmed': { n: 2, label: 'Vendor confirmed', meaning: 'Information confirmed directly by the vendor.' },
+  'independently-corroborated': { n: 3, label: 'Independently corroborated', meaning: 'Claims supported by independent evidence.' },
+  'independently-assured': { n: 4, label: 'Independently assured', meaning: 'Relevant controls supported by current third-party assurance or technical assessment.' },
 };
+export const LEVEL_ORDER = Object.keys(LEVELS) as EvidenceLevel[];
+export const EVIDENCE_URL = '/evidence-and-assurance/';
+
+/** The four AI comparison criteria, in the order they appear everywhere. */
+export const AI_AREAS = [
+  { key: 'dataPrivacy', title: 'Data privacy', short: 'Data privacy', blurb: 'Whether learner and staff data trains AI models, how long it is kept and who processes it.' },
+  { key: 'learnerOversight', title: 'Learner oversight', short: 'Oversight', blurb: 'Minimum learner age, and what staff can review, limit and see.' },
+  { key: 'pedagogy', title: 'Pedagogical approach', short: 'Pedagogy', blurb: 'Whether it coaches or simply answers, works from your own content and shows its sources.' },
+  { key: 'outputOwnership', title: 'Output ownership', short: 'Ownership', blurb: 'Who owns the courses, questions, feedback and other material the AI produces.' },
+] as const;
+export type AiAreaKey = (typeof AI_AREAS)[number]['key'];
+type Answer = { question: string; value?: string; level: EvidenceLevel; conflict?: boolean };
+/** How many answers in an area are established, and the strongest level among them. */
+export function areaSummary(answers: Answer[]) {
+  const done = answers.filter((a) => a.level !== 'research-ongoing');
+  const top = done.reduce<EvidenceLevel>((t, a) => (LEVELS[a.level].n > LEVELS[t].n ? a.level : t), 'research-ongoing');
+  return { answered: done.length, total: answers.length, top, conflict: answers.some((a) => a.conflict) };
+}
 
 /** The workbook's gap names, grouped by the field they belong to on the profile. */
 const GAP_FIELDS: Record<string, string> = {

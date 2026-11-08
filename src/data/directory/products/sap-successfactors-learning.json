@@ -71,7 +71,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "SAP accessibility resources available; current SuccessFactors Learning ACR/VPAT should be requested by product and version.",
       "caveat": "Do not substitute SAP-wide accessibility statement for Learning report.",
       "sources": [
@@ -83,7 +83,7 @@
       "checked": "2026-11-07"
     },
     "security": {
-      "status": "publicly-stated",
+      "level": "vendor-disclosed",
       "finding": "SAP Trust Center has broad cloud certifications and audit reports; must map to the specific SuccessFactors Learning service and data centre.",
       "sources": [
         {
@@ -94,7 +94,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Joule documentation lists Sydney data centres and infrastructure providers (AWS, Azure, GCP) for Joule. This is AI service-specific, not proof that all SuccessFactors Learning content is stored/processed in Australia.",
       "sources": [
         {
@@ -105,7 +105,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "SAP embeds AI across SuccessFactors; verify which AI capabilities apply to Learning and their model/data terms.",
       "sources": [
         {

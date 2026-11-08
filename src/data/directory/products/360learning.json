@@ -94,7 +94,7 @@
   },
   "assurance": {
     "accessibility": {
-      "status": "not-disclosed",
+      "level": "research-ongoing",
       "finding": "No product-specific VPAT/ACR located in this pass; request current report.",
       "caveat": "Need report for authoring, learner experience and mobile apps.",
       "sources": [
@@ -110,7 +110,7 @@
       "checked": "2026-11-07"
     },
     "dataResidency": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "Azure hosting disclosed, but no clear Australian tenant region/DR statement verified.",
       "sources": [
         {
@@ -125,7 +125,7 @@
       "checked": "2026-11-07"
     },
     "ai": {
-      "status": "vendor-confirmation-required",
+      "level": "research-ongoing",
       "finding": "AI-assisted authoring and AI Companion features advertised; model providers, training use and retention require confirmation.",
       "sources": [
         {
