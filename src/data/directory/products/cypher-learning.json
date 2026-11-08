@@ -251,5 +251,21 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/cypher-learning/logo.webp",
+      "alt": "CYPHER Learning logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/cypher-learning/screenshot-1.webp",
+        "width": 1200,
+        "frame": true,
+        "alt": "The CYPHER Learning learner home page: a welcome banner introducing the CYPHER Agent AI companion, job-based goals with mastery percentages, a calendar and a site-wide game showing points and levels",
+        "caption": "The learner home page, with skills goals by job role, the AI agent banner and gamification.",
+        "credit": "Image: CYPHER Learning"
+      }
+    ]
+  }
 }
