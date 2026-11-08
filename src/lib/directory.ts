@@ -45,6 +45,16 @@ export const OWNERSHIP: Record<string, string> = {
 export const TRAINS: Record<string, string> = {
   no: 'No', yes: 'Yes', 'opt-out': 'Yes, unless the customer opts out', 'opt-in': 'Only if the customer opts in',
 };
+export const AI_TOOL_TYPES: Record<string, string> = {
+  'ai-tutor': 'AI tutor', 'course-generation': 'Course generation', 'quiz-generation': 'Quiz and assessment generation',
+  'feedback-marking': 'Feedback and marking', 'teaching-assistant': 'Teaching assistant', 'learner-assistant': 'Study assistant',
+};
+export const AI_AUDIENCE: Record<string, string> = { learners: 'Learners', educators: 'Educators', administrators: 'Administrators' };
+export const AI_INTEGRITY: Record<string, string> = {
+  'guides-not-answers': 'Guides learners rather than giving answers', configurable: 'Set by the educator',
+  'gives-answers': 'Gives answers directly',
+};
+export const AI_OWNER: Record<string, string> = { customer: 'The customer', vendor: 'The vendor', shared: 'Shared' };
 export const ORIGIN: Record<string, string> = { verified: 'Verified', 'vendor-supplied': 'Vendor-supplied', estimated: 'Estimated' };
 export const ASSURANCE: Record<string, string> = {
   'independently-evidenced': 'Independently evidenced', 'publicly-stated': 'Stated by the vendor',

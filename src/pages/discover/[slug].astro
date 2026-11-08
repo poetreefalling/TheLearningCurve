@@ -10,6 +10,7 @@ import { isVisible, urlOf } from '../../lib/articles';
 import {
   getProducts, getVendorMap, productUrl, categoryUrl, gapsOf, fmtDate, hostOf,
   MARKETS, BASIS, DEPLOYMENT, STANDARDS, OWNERSHIP, TRAINS, ASSURANCE, RESEARCH_ONGOING,
+  AI_TOOL_TYPES, AI_AUDIENCE, AI_INTEGRITY, AI_OWNER,
   type Product, type Vendor,
 } from '../../lib/directory';
 
@@ -53,6 +54,8 @@ const priceNotes = (n?: string) =>
   n?.split(/(?<=\.)\s+/).filter((x) => !/^(institutional )?pric(es|ing) (are )?not publicly listed|^not publicly listed/i.test(x)).join(' ') || undefined;
 const yesNo = (b: unknown) => (b === true ? 'Yes' : b === false ? 'No' : undefined);
 const ai = d?.aiDisclosure?.value;
+const ap = d?.aiProfile;
+const isAi = !!d && (d.category.id === 'ai-for-learning' || d.secondaryCategories.some((c) => c.id === 'ai-for-learning'));
 const alternatives = d ? (await getProducts()).filter((x) => d.alternatives.some((a) => a.id === x.id)) : [];
 const related = p
   ? (await getCollection('articles')).filter((a) => isVisible(a) && a.data.products.some((r) => r.id === p!.id))
@@ -161,6 +164,26 @@ const description = p
               {d!.useCases && <div><h3>Used for</h3><ul>{d!.useCases.value.map((x) => <li>{cap(x)}</li>)}</ul></div>}
               {d!.integrations && <div><h3>Integrations</h3><ul>{d!.integrations.value.map((x) => <li>{cap(x)}</li>)}</ul></div>}
             </div>
+          </section>
+        )}
+
+        {(isAi || ap) && (
+          <section aria-labelledby="ai-h">
+            <div class="section-head"><h2 id="ai-h">How it uses AI</h2></div>
+            <dl class="facts">
+              <Fact label="What the AI does" value={ap?.toolTypes?.value.map((t) => AI_TOOL_TYPES[t])} source={ap?.toolTypes?.source} origin={ap?.toolTypes?.origin} />
+              <Fact label="Who uses it" value={ap?.audience?.value.map((a) => AI_AUDIENCE[a])} source={ap?.audience?.source} origin={ap?.audience?.origin} />
+              <Fact label="Minimum learner age" value={ap?.ageSuitability?.value.minimumAge != null ? String(ap.ageSuitability.value.minimumAge) : undefined} note={ap?.ageSuitability?.value.notes} source={ap?.ageSuitability?.source} origin={ap?.ageSuitability?.origin} />
+              <Fact label="Answers from your own content" value={yesNo(ap?.grounding?.value.ownContent)} source={ap?.grounding?.source} origin={ap?.grounding?.origin} />
+              <Fact label="Shows its sources" value={yesNo(ap?.grounding?.value.citesSources)} note={ap?.grounding?.value.notes} source={ap?.grounding?.source} origin={ap?.grounding?.origin} />
+              <Fact label="Staff review before learners see it" value={yesNo(ap?.educatorOversight?.value.reviewBeforeRelease)} source={ap?.educatorOversight?.source} origin={ap?.educatorOversight?.origin} />
+              <Fact label="Staff can set limits" value={yesNo(ap?.educatorOversight?.value.guardrails)} source={ap?.educatorOversight?.source} origin={ap?.educatorOversight?.origin} />
+              <Fact label="Staff can see learner chats" value={yesNo(ap?.educatorOversight?.value.conversationLogs)} note={ap?.educatorOversight?.value.notes} source={ap?.educatorOversight?.source} origin={ap?.educatorOversight?.origin} />
+              <Fact label="Approach to answers" value={ap?.academicIntegrity ? AI_INTEGRITY[ap.academicIntegrity.value.approach] : undefined} note={ap?.academicIntegrity?.value.notes} source={ap?.academicIntegrity?.source} origin={ap?.academicIntegrity?.origin} />
+              <Fact label="How long chats are kept" value={ap?.dataHandling?.value.retention} source={ap?.dataHandling?.source} origin={ap?.dataHandling?.origin} />
+              <Fact label="AI providers that process data" value={ap?.dataHandling?.value.processors.length ? ap.dataHandling.value.processors : undefined} note={ap?.dataHandling?.value.notes} source={ap?.dataHandling?.source} origin={ap?.dataHandling?.origin} />
+              <Fact label="Who owns what it generates" value={ap?.outputOwnership ? AI_OWNER[ap.outputOwnership.value.owner] : undefined} note={ap?.outputOwnership?.value.notes} source={ap?.outputOwnership?.source} origin={ap?.outputOwnership?.origin} />
+            </dl>
           </section>
         )}
 

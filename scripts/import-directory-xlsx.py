@@ -7,7 +7,9 @@ Usage:
 Reads the Products, Vendors and Research tasks sheets and updates
 src/data/directory/products/<id>.json and src/data/directory/vendors/<id>.json in place.
 Fields the workbook doesn't cover (summary, features, integrations, alternatives, evidence,
-assurance) are kept as they are.
+assurance) are kept as they are. The optional AI profile columns ("AI tool types" ... "AI output
+owner", each part with its own "AI <part> source" column) fill aiProfile; a part the workbook
+leaves out entirely is kept as it was.
 
 Anything the workbook leaves out, or a value that doesn't fit the schema, is not guessed: the
 field is left out and the gap is recorded in the record's dataGaps (internal), and the site
@@ -34,6 +36,10 @@ STANDARDS = ['lti-1.1', 'lti-1.3', 'lti-advantage', 'scorm-1.2', 'scorm-2004', '
              'qti', 'caliper', 'oneroster', 'open-badges-2', 'open-badges-3', 'clr']
 TRAINS = {'no', 'yes', 'opt-out', 'opt-in', 'not-disclosed'}
 ORIGINS = {'verified', 'vendor-supplied', 'estimated'}
+AI_TYPES = {'ai-tutor', 'course-generation', 'quiz-generation', 'feedback-marking', 'teaching-assistant', 'learner-assistant'}
+AI_AUDIENCE = {'learners', 'educators', 'administrators'}
+AI_INTEGRITY = {'guides-not-answers', 'configurable', 'gives-answers'}
+AI_OWNER = {'customer', 'vendor', 'shared'}
 OWNERSHIP = {'independent', 'venture-backed', 'private-equity', 'public', 'subsidiary', 'open-source', 'other'}
 URL = re.compile(r'^https?://\S+$')
 DATE = re.compile(r'^\d{4}-\d{2}-\d{2}$')
@@ -98,6 +104,105 @@ def fact(rec, value, source, checked, origin, header, fallback_checked, existing
         rec.flag(header, f'origin "{org}" is not verified, vendor-supplied or estimated; stored as vendor-supplied.')
         org = 'vendor-supplied'
     return {'value': value, 'source': src, 'checked': str(chk)[:10], 'origin': org}
+
+
+def yes_no(rec, header, raw):
+    """'yes' -> True, 'no' -> False, empty -> None. Anything else is flagged and left out."""
+    s = text(raw)
+    if not s:
+        return None
+    if re.match(r'^(yes|y|true)\b', s, re.I):
+        return True
+    if re.match(r'^(no|n|false)\b', s, re.I):
+        return False
+    rec.flag(header, f'neither yes nor no, so left out: "{s[:120]}".')
+    return None
+
+
+def import_ai_profile(rec, row, existing, fb, is_ai):
+    """The aiProfile block: one provenance record per part, each with its own source column.
+    A part the workbook doesn't mention is kept as it was; for AI for Learning products an
+    empty part is recorded as a gap ("Research ongoing")."""
+    old = existing.get('aiProfile') or {}
+    out = dict(old)
+
+    def part(key, headers, build):
+        cols = [row.get(h) for h in headers]
+        src_h = f'AI {key} source'
+        if not any(text(c) for c in cols):
+            if key not in old and is_ai and src_h in row:
+                rec.flag(f'aiProfile.{key}', 'empty.')
+            return
+        v = build()
+        if v is None:
+            return
+        f = fact(rec, v, row.get(src_h), row.get(f'AI {key} checked'), row.get(f'AI {key} origin'), f'aiProfile.{key}', fb, old.get(key))
+        if f: out[key] = f
+
+    def ids(header, allowed):
+        vals = [x.strip().lower() for x in split(row.get(header))]
+        bad = [x for x in vals if x not in allowed]
+        if bad: rec.flag(header, f'not an allowed value: {", ".join(bad)}.')
+        good = [x for x in vals if x in allowed]
+        return good or None
+
+    def notes(v, header):
+        n = text(row.get(header))
+        if n: v['notes'] = n
+        return v
+
+    def compact(v):
+        v = {k: x for k, x in v.items() if x is not None}
+        return v or None
+
+    part('toolTypes', ['AI tool types'], lambda: ids('AI tool types', AI_TYPES))
+    part('audience', ['AI audience'], lambda: ids('AI audience', AI_AUDIENCE))
+
+    def age():
+        raw, v = text(row.get('AI minimum age')), {}
+        if raw and re.fullmatch(r'\d{1,2}', raw):
+            v['minimumAge'] = int(raw)
+        elif raw:
+            rec.flag('AI minimum age', f'not a whole number of years, so kept as a note: "{raw[:80]}".')
+            v['notes'] = raw
+        n = text(row.get('AI age notes'))
+        if n: v['notes'] = '; '.join(x for x in (v.get('notes'), n) if x)
+        return v or None
+    part('ageSuitability', ['AI minimum age', 'AI age notes'], age)
+
+    part('grounding', ['AI own content', 'AI cites sources', 'AI grounding notes'], lambda: compact(notes({
+        'ownContent': yes_no(rec, 'AI own content', row.get('AI own content')),
+        'citesSources': yes_no(rec, 'AI cites sources', row.get('AI cites sources')),
+    }, 'AI grounding notes')))
+
+    part('educatorOversight', ['AI staff review', 'AI staff limits', 'AI chat logs', 'AI oversight notes'], lambda: compact(notes({
+        'reviewBeforeRelease': yes_no(rec, 'AI staff review', row.get('AI staff review')),
+        'guardrails': yes_no(rec, 'AI staff limits', row.get('AI staff limits')),
+        'conversationLogs': yes_no(rec, 'AI chat logs', row.get('AI chat logs')),
+    }, 'AI oversight notes')))
+
+    def integrity():
+        a = (text(row.get('AI answer approach')) or '').lower()
+        if a not in AI_INTEGRITY:
+            rec.flag('AI answer approach', f'"{a}" is not guides-not-answers, configurable or gives-answers, so left out.' if a else 'empty, so left out (notes alone are not stored).')
+            return None
+        return notes({'approach': a}, 'AI integrity notes')
+    part('academicIntegrity', ['AI answer approach', 'AI integrity notes'], integrity)
+
+    part('dataHandling', ['AI retention', 'AI processors', 'AI data notes'], lambda: compact(notes({
+        'retention': text(row.get('AI retention')),
+        'processors': split(row.get('AI processors')),
+    }, 'AI data notes')))
+
+    def owner():
+        o = (text(row.get('AI output owner')) or '').lower()
+        if o not in AI_OWNER:
+            rec.flag('AI output owner', f'"{o}" is not customer, vendor or shared, so left out.' if o else 'empty, so left out (notes alone are not stored).')
+            return None
+        return notes({'owner': o}, 'AI output notes')
+    part('outputOwnership', ['AI output owner', 'AI output notes'], owner)
+
+    return out or None
 
 
 def norm_standards(rec, raw):
@@ -288,6 +393,11 @@ def import_product(rid, row_no, row, existing, tasks):
         if note or old: v['notes'] = ' '.join(x.rstrip('.') + '.' for x in (note, old if old != note else None) if x)
         f = fact(rec, v, row.get('AI source'), None, None, 'AI models', fb, existing.get('aiDisclosure'))
         if f: d['aiDisclosure'] = f
+
+    cat = existing.get('category')
+    is_ai = cat == 'ai-for-learning' or 'ai-for-learning' in (existing.get('secondaryCategories') or [])
+    ap = import_ai_profile(rec, row, existing, fb, is_ai)
+    if ap: d['aiProfile'] = ap
 
     kind = text(row.get('commercial relationship')) or 'none'
     d['commercialRelationship'] = {**(existing.get('commercialRelationship') or {}), 'kind': kind}

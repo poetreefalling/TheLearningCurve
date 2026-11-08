@@ -164,6 +164,52 @@ const assurance = z.object({
   procurementChecks: z.array(z.string()).default([]), // what a buyer should ask for before signing
 });
 
+// What an AI for Learning product does with AI, and the questions schools, universities and
+// employers ask before letting it near learners. Each part carries its own provenance, because
+// the answers usually sit on different pages (trust centre, privacy policy, help docs). A part
+// we looked for and couldn't find is left out and listed in dataGaps as "aiProfile.<part>".
+// Any product with meaningful AI features may carry it; AI for Learning products should.
+const aiToolType = z.enum([
+  'ai-tutor', // works one-to-one with a learner, explaining and questioning
+  'course-generation', // drafts courses, modules or lesson content
+  'quiz-generation', // drafts questions, quizzes and assessments
+  'feedback-marking', // gives feedback on or marks learner work
+  'teaching-assistant', // helps educators plan, adapt or manage teaching
+  'learner-assistant', // helps learners study, summarise or find their way
+]);
+const aiProfile = z.object({
+  toolTypes: fact(z.array(aiToolType).min(1)).optional(),
+  audience: fact(z.array(z.enum(['learners', 'educators', 'administrators'])).min(1)).optional(),
+  ageSuitability: fact(z.object({
+    minimumAge: z.number().int().min(0).max(25).optional(), // the age the vendor's terms allow learners to use it from
+    notes: z.string().optional(), // "Under-18s need school or parental consent"
+  })).optional(),
+  grounding: fact(z.object({
+    ownContent: z.boolean().optional(), // can answer from the customer's own course material
+    citesSources: z.boolean().optional(), // shows where an answer came from
+    notes: z.string().optional(),
+  })).optional(),
+  educatorOversight: fact(z.object({
+    reviewBeforeRelease: z.boolean().optional(), // staff can check generated content before learners see it
+    guardrails: z.boolean().optional(), // staff can limit topics, behaviour or answer style
+    conversationLogs: z.boolean().optional(), // staff can see learner conversations
+    notes: z.string().optional(),
+  })).optional(),
+  academicIntegrity: fact(z.object({
+    approach: z.enum(['guides-not-answers', 'configurable', 'gives-answers']),
+    notes: z.string().optional(),
+  })).optional(),
+  dataHandling: fact(z.object({
+    retention: z.string().optional(), // how long prompts and chats are kept: "30 days", "until the customer deletes them"
+    processors: z.array(z.string()).default([]), // outside AI providers that process the data: "OpenAI", "Microsoft Azure OpenAI"
+    notes: z.string().optional(),
+  })).optional(),
+  outputOwnership: fact(z.object({
+    owner: z.enum(['customer', 'vendor', 'shared']),
+    notes: z.string().optional(),
+  })).optional(),
+});
+
 const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
 const standard = z.enum([
   'lti-1.1', 'lti-1.3', 'lti-advantage', 'scorm-1.2', 'scorm-2004', 'xapi', 'cmi5', 'aicc',
@@ -214,6 +260,7 @@ const products = defineCollection({
         trainsOnCustomerData: z.enum(['no', 'yes', 'opt-out', 'opt-in', 'not-disclosed']),
         notes: z.string().optional(),
       })).optional(),
+      aiProfile: aiProfile.optional(), // what the AI does and how it is governed (docs/directory.md)
       evidence: z.array(z.object({
         kind: z.enum(['research', 'case-study', 'independent-evaluation']),
         title: z.string(),
