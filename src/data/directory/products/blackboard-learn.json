@@ -229,5 +229,20 @@
       "field": "data residency",
       "note": "no committed region; confirm the tenant region in the contract."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/blackboard-learn/logo.webp",
+      "alt": "Blackboard logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/blackboard-learn/screenshot-1.webp",
+        "frame": true,
+        "alt": "The Blackboard Learn student Courses page: a grid of course cards with cover images, course codes, titles and instructor names, with search, term and filter controls above and the main navigation on the left",
+        "caption": "The student Courses page, with each enrolled course as a card.",
+        "credit": "Image: Blackboard"
+      }
+    ]
+  }
 }
