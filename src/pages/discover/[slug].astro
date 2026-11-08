@@ -1,0 +1,189 @@
+---
+// Discover: one page per category with profiles, and one profile page per product.
+// Both live at /discover/<id>/ (category and product ids never overlap). Every fact shows its
+// source; anything we couldn't find or verify reads "Research ongoing" (docs/directory.md).
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Fact from '../../components/directory/Fact.astro';
+import categories from '../../data/directory/categories.json';
+import { isVisible, urlOf } from '../../lib/articles';
+import {
+  getProducts, getVendorMap, productUrl, categoryUrl, gapsOf, fmtDate, hostOf,
+  MARKETS, BASIS, DEPLOYMENT, STANDARDS, OWNERSHIP, TRAINS, ASSURANCE, RESEARCH_ONGOING,
+  type Product, type Vendor,
+} from '../../lib/directory';
+
+export async function getStaticPaths() {
+  const { getProducts: gp } = await import('../../lib/directory');
+  const cats = (await import('../../data/directory/categories.json')).default;
+  const products = await gp();
+  const catPaths = cats
+    .filter((c) => products.some((p) => p.data.category.id === c.id || p.data.secondaryCategories.some((s) => s.id === c.id)))
+    .map((c) => ({ params: { slug: c.id }, props: { kind: 'category' as const, categoryId: c.id } }));
+  const productPaths = products.map((p) => ({ params: { slug: p.id }, props: { kind: 'product' as const, productId: p.id } }));
+  return [...catPaths, ...productPaths];
+}
+
+type Props = { kind: 'category'; categoryId: string } | { kind: 'product'; productId: string };
+const props = Astro.props as Props;
+const vendors = await getVendorMap();
+const catName = (id: string) => categories.find((c) => c.id === id)?.name ?? id;
+
+let category: (typeof categories)[number] | undefined;
+let list: Product[] = [];
+let p: Product | undefined;
+let v: Vendor | undefined;
+if (props.kind === 'category') {
+  category = categories.find((c) => c.id === props.categoryId)!;
+  list = await getProducts(category.id);
+} else {
+  const all = await getProducts();
+  p = all.find((x) => x.id === props.productId)!;
+  v = vendors.get(p.data.vendor.id);
+}
+
+// Product view data
+const d = p?.data;
+const gaps = p ? gapsOf(p) : new Set<string>();
+const vgaps = v ? gapsOf(v) : new Set<string>();
+const pm = d?.pricingModel?.value as (Record<string, unknown> & { basis?: string; freeTier?: boolean; trial?: boolean }) | undefined;
+const cap = (x: string) => x.charAt(0).toUpperCase() + x.slice(1);
+// The entry-price row already says when prices aren't published; drop sentences that repeat it.
+const priceNotes = (n?: string) =>
+  n?.split(/(?<=\.)\s+/).filter((x) => !/^(institutional )?pric(es|ing) (are )?not publicly listed|^not publicly listed/i.test(x)).join(' ') || undefined;
+const yesNo = (b: unknown) => (b === true ? 'Yes' : b === false ? 'No' : undefined);
+const ai = d?.aiDisclosure?.value;
+const alternatives = d ? (await getProducts()).filter((x) => d.alternatives.some((a) => a.id === x.id)) : [];
+const related = p
+  ? (await getCollection('articles')).filter((a) => isVisible(a) && a.data.products.some((r) => r.id === p!.id))
+  : [];
+const assurance = d?.assurance;
+const areas = [
+  ['Accessibility', assurance?.accessibility],
+  ['Security', assurance?.security],
+  ['Data residency', assurance?.dataResidency],
+  ['AI', assurance?.ai],
+] as const;
+
+const title = p ? `${d!.name}: profile` : `${category!.name}: directory`;
+const description = p
+  ? `${d!.name} by ${v?.data.name ?? ''}: markets, pricing model, standards, security, data residency and AI, each with its source.`.slice(0, 160)
+  : `${list.length} ${category!.name.toLowerCase()} profiled independently, with a source for every fact. ${category!.description}`.slice(0, 160);
+---
+<Base title={title} description={description} current="discover" ads={false}>
+  <div class="wrap">
+    {props.kind === 'category' ? (
+      <>
+        <header class="page-head">
+          <a class="kicker" href="/discover/">Discover</a>
+          <h1>{category!.name}</h1>
+          <p>{category!.description} {list.length} profiled so far, each with a source for every fact. Where we're still confirming something, the profile says so.</p>
+        </header>
+        <ul class="dir-grid">
+          {list.map((x) => {
+            const vv = vendors.get(x.data.vendor.id);
+            const mk = (x.data.primaryMarket?.value ?? []).map((m) => MARKETS[m]);
+            return (
+              <li>
+                <a href={productUrl(x.id)}>
+                  <b>{x.data.name}</b>
+                  <span class="meta">{vv?.data.name}</span>
+                  <span class="dir-summary">{x.data.summary}</span>
+                  {mk.length > 0 && <ul class="chips">{mk.map((m) => <li>{m}</li>)}</ul>}
+                </a>
+              </li>
+            );
+          })}
+        </ul>
+        <p class="dir-foot meta">Profiles are free and can't be bought. <a href="/disclosure/">How we're funded</a> · <a href="/submit/">Submit a platform</a></p>
+      </>
+    ) : (
+      <article class="profile">
+        <header class="page-head">
+          <a class="kicker" href={categoryUrl(d!.category.id)}>{catName(d!.category.id)}</a>
+          <h1>{d!.name}</h1>
+          <p>{d!.summary}</p>
+          <p class="meta">
+            By {v?.data.name} · <a href={d!.website} rel="nofollow noopener" target="_blank">{hostOf(d!.website)}</a>
+            {d!.lastVerified && <> · Last checked {fmtDate(d!.lastVerified)}</>}
+          </p>
+        </header>
+
+        <section aria-labelledby="glance-h">
+          <div class="section-head"><h2 id="glance-h">At a glance</h2></div>
+          <dl class="facts">
+            <Fact label="Markets" value={d!.primaryMarket?.value.map((m) => MARKETS[m])} source={d!.primaryMarket?.source} origin={d!.primaryMarket?.origin} />
+            <Fact label="Pricing model" value={pm?.basis ? BASIS[pm.basis] : undefined} source={d!.pricingModel?.source} origin={d!.pricingModel?.origin} />
+            <Fact label="Entry price" value={d!.pricing?.value.from ?? (d!.pricing?.value.public === false ? 'Not published; quote on request' : undefined)} note={priceNotes(d!.pricing?.value.notes)} source={d!.pricing?.source} origin={d!.pricing?.origin} />
+            <Fact label="Free version" value={gaps.has('freeTier') ? undefined : yesNo(pm?.freeTier)} source={d!.pricingModel?.source} origin={d!.pricingModel?.origin} />
+            <Fact label="Free trial" value={gaps.has('trial') ? undefined : yesNo(pm?.trial)} source={d!.pricingModel?.source} origin={d!.pricingModel?.origin} />
+            <Fact label="Deployment" value={d!.deployment?.value.map((x) => DEPLOYMENT[x])} source={d!.deployment?.source} origin={d!.deployment?.origin} />
+            <Fact label="Standards" value={gaps.has('standards') && !d!.standards?.value.length ? undefined : d!.standards?.value.map((s) => STANDARDS[s])} source={d!.standards?.source} origin={d!.standards?.origin} />
+            <Fact label="Accessibility" value={d!.accessibility?.value.standard} note={d!.accessibility?.value.evidence} source={d!.accessibility?.source} origin={d!.accessibility?.origin} />
+            <Fact label="Security certifications" value={d!.security?.value.length ? d!.security.value : undefined} source={d!.security?.source} origin={d!.security?.origin} />
+            <Fact label="Data residency" value={d!.dataPrivacy?.value.dataResidency.length ? d!.dataPrivacy.value.dataResidency : undefined} source={d!.dataPrivacy?.source} origin={d!.dataPrivacy?.origin} />
+            <Fact label="AI models" value={ai?.models.length ? ai.models : undefined} source={d!.aiDisclosure?.source} origin={d!.aiDisclosure?.origin} />
+            <Fact label="Trains AI on customer data" value={ai ? TRAINS[ai.trainsOnCustomerData] : undefined} source={d!.aiDisclosure?.source} origin={d!.aiDisclosure?.origin} />
+            <Fact label="Availability" value={d!.geographicAvailability?.value.map(cap)} source={d!.geographicAvailability?.source} origin={d!.geographicAvailability?.origin} />
+          </dl>
+        </section>
+
+        {(d!.keyFeatures || d!.useCases || d!.integrations) && (
+          <section aria-labelledby="feat-h">
+            <div class="section-head"><h2 id="feat-h">What it does</h2></div>
+            <div class="dir-cols">
+              {d!.keyFeatures && <div><h3>Key features</h3><ul>{d!.keyFeatures.value.map((x) => <li>{cap(x)}</li>)}</ul><p class="fact-src"><a href={d!.keyFeatures.source} rel="nofollow noopener" target="_blank">{hostOf(d!.keyFeatures.source)}</a></p></div>}
+              {d!.useCases && <div><h3>Used for</h3><ul>{d!.useCases.value.map((x) => <li>{cap(x)}</li>)}</ul></div>}
+              {d!.integrations && <div><h3>Integrations</h3><ul>{d!.integrations.value.map((x) => <li>{cap(x)}</li>)}</ul></div>}
+            </div>
+          </section>
+        )}
+
+        {assurance && (
+          <section aria-labelledby="as-h">
+            <div class="section-head"><h2 id="as-h">Evidence and assurance</h2></div>
+            <p class="dir-intro">How well each answer a procurement team will ask about is evidenced, strongest first: independently evidenced, stated by the vendor, available on request.</p>
+            <dl class="facts">
+              {areas.map(([label, a]) => (
+                <div class="fact"><dt>{label}</dt><dd>{a ? <span class={a.status === 'not-disclosed' ? 'research' : ''}>{ASSURANCE[a.status]}</span> : <span class="research">{RESEARCH_ONGOING}</span>}</dd></div>
+              ))}
+            </dl>
+          </section>
+        )}
+
+        {v && (
+          <section aria-labelledby="co-h">
+            <div class="section-head"><h2 id="co-h">The company</h2></div>
+            <dl class="facts">
+              <Fact label="Company" value={v.data.name} source={v.data.website} />
+              <Fact label="Headquarters" value={v.data.headquarters?.value} source={v.data.headquarters?.source} origin={v.data.headquarters?.origin} />
+              <Fact label="Founded" value={v.data.founded ? String(v.data.founded.value) : undefined} source={v.data.founded?.source} origin={v.data.founded?.origin} />
+              <Fact label="Size" value={v.data.size?.value} source={v.data.size?.source} origin={v.data.size?.origin} />
+              <Fact label="Funding" value={v.data.funding?.value} source={v.data.funding?.source} origin={v.data.funding?.origin} />
+              <Fact label="Ownership" value={vgaps.has('ownership') ? (v.data.ownershipDetail?.value ?? undefined) : (v.data.ownershipDetail?.value ?? (v.data.ownership ? OWNERSHIP[v.data.ownership.value] : undefined))} source={v.data.ownershipDetail?.source ?? v.data.ownership?.source} origin={v.data.ownership?.origin} />
+            </dl>
+          </section>
+        )}
+
+        {alternatives.length > 0 && (
+          <section aria-labelledby="alt-h">
+            <div class="section-head"><h2 id="alt-h">Alternatives</h2></div>
+            <ul class="chips chips-links">{alternatives.map((x) => <li><a href={productUrl(x.id)}>{x.data.name}</a></li>)}</ul>
+          </section>
+        )}
+
+        {related.length > 0 && (
+          <section aria-labelledby="rel-h">
+            <div class="section-head"><h2 id="rel-h">Related articles</h2></div>
+            <ul class="dir-related">{related.map((a) => <li><a href={urlOf(a)}>{a.data.title}</a></li>)}</ul>
+          </section>
+        )}
+
+        <aside class="dir-note">
+          <p><b>About this profile.</b> {d!.commercialRelationship.kind === 'none' ? `We have no commercial relationship with ${v?.data.name ?? 'this company'}.` : `We have a commercial relationship with ${v?.data.name} (${d!.commercialRelationship.kind}); it never affects this profile.`} Profiles are written in our own words, every fact links to where it came from, and "Research ongoing" means we're still confirming it, usually with the company itself. <a href="/disclosure/">How we're funded</a>.</p>
+          <p>Work on {d!.name}, or spotted something out of date? <a href={`mailto:jim@thelearningcurve.net?subject=${encodeURIComponent(`${d!.name} profile`)}`}>Email the editor</a> with a link to the source.</p>
+        </aside>
+      </article>
+    )}
+  </div>
+</Base>

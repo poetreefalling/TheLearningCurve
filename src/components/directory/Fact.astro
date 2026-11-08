@@ -1,0 +1,30 @@
+---
+// One row of a directory profile: the value, or "Research ongoing", with where it came from.
+import { RESEARCH_ONGOING, ORIGIN, hostOf } from '../../lib/directory';
+interface Props {
+  label: string;
+  value?: string | string[] | null;
+  source?: string;
+  origin?: string;
+  note?: string;
+}
+const { label, value, source, origin, note } = Astro.props;
+const list = Array.isArray(value) ? value.filter(Boolean) : value ? [value] : [];
+const empty = list.length === 0;
+---
+<div class="fact">
+  <dt>{label}</dt>
+  <dd>
+    {empty
+      ? <span class="research">{RESEARCH_ONGOING}</span>
+      : Array.isArray(value)
+        ? <ul class="chips">{list.map((v) => <li>{v}</li>)}</ul>
+        : <span>{list[0]}</span>}
+    {note && !empty && <span class="fact-note">{note}</span>}
+    {source && !empty && (
+      <span class="fact-src">
+        <a href={source} rel="nofollow noopener" target="_blank">{hostOf(source)}</a>{origin && ORIGIN[origin] && <> · {ORIGIN[origin]}</>}
+      </span>
+    )}
+  </dd>
+</div>
