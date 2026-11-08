@@ -53,7 +53,7 @@
       "International"
     ],
     "source": "https://www.ispring.com/ispring-lms",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -61,7 +61,7 @@
       "cloud"
     ],
     "source": "https://www.ispring.com/ispring-lms",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -109,11 +109,80 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Integrations need exact names: \"iSpring Suite authoring; API and third-party integrations should be confirmed against current plan\".",
-    "Standards need exact versions: \"Confirm SCORM, xAPI, AICC and LTI support against current technical documentation\".",
-    "Pricing: record whether prices are public and the entry price. Workbook: \"Public pricing is per active user/month with annual totals; example displayed for 100, 300 and 500 users in GBP; currency/region and current quote to be confirmed\".",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Subscription based on active users and plan; enterprise quote\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* price from: prices are marked public but no entry price is given.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-active-user",
+      "freeTier": false,
+      "trial": true,
+      "freeTierNote": "No permanent free tier identified; full-featured 30-day trial, no credit card required.",
+      "trialNote": "30-day full-featured trial; no credit card required."
+    },
+    "source": "https://www.ispring.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Business (100 users): GBP 5.41 per active user/month; GBP 6,489 annually on the UK pricing page. Currency and local pricing vary by region. Public tiered pricing; 100, 300 and 500-user examples are published. Less than 100 users and Enterprise require a quote. Active users are users who log in during a month."
+    },
+    "source": "https://www.ispring.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "cmi5",
+      "aicc"
+    ],
+    "source": "https://www.ispring.com/au",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current LMS-specific accessibility statement and VPAT/ACR; distinguish the LMS interface from content authored using iSpring Suite."
+    },
+    "source": "https://www.ispring.com/ispring-lms",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.ispring.com/ispring-lms",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current security certifications and assurance documentation; do not infer certification from product marketing."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud service; specific hosting region and regional data residency options require vendor confirmation. Confirm hosting region, subprocessors, data retention and AI processing terms in the DPA."
+    },
+    "source": "https://www.ispring.com/ispring-lms",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "iSpring Suite AI authoring is bundled in the published iSpring LMS plans; underlying model/provider details are not stated on the pricing page."
+    },
+    "source": "https://www.ispring.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

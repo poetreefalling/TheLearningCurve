@@ -55,16 +55,17 @@
       "cloud"
     ],
     "source": "https://edu.google.com/workspace-for-education/products/classroom/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": true,
-      "notes": "Education Fundamentals is free for qualifying institutions; paid Workspace for Education editions are priced per licence."
+      "from": "Education Fundamentals: free for eligible institutions. Education Standard: US$3/student/year; Teaching and Learning: US$4/licence/month; Education Plus: US$5/student/year (published US pricing; local pricing may vary).",
+      "notes": "Eligibility and feature set depend on institution type and edition. Published figures are US pricing; check local Google for Education quote and currency."
     },
-    "source": "https://edu.google.com/workspace-for-education/products/classroom/",
-    "checked": "2026-11-07",
+    "source": "https://edu.google.com/workspace-for-education/products/classroom/editions/",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -149,10 +150,76 @@
   "draft": true,
   "researchTasks": [
     "Integrations need exact names: \"Google Workspace apps; SIS roster sync and third-party education apps; LTI and add-ons vary by edition/partner\".",
-    "Geographic availability needs an exact value: \"Broad international availability; features and eligibility vary by country and Workspace edition\".",
-    "Standards need exact versions: \"Do not assume full enterprise LMS standards support; confirm LTI, SCORM and interoperability requirements for the specific workflow\".",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Freemium/education edition model; eligibility, paid features and regional prices vary\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": true,
+      "trial": false,
+      "freeTierNote": "Yes. Google Workspace for Education Fundamentals is available at no charge to qualifying educational institutions; paid editions/add-ons are separate.",
+      "trialNote": "No separate trial; free edition available to qualifying education institutions"
+    },
+    "source": "https://edu.google.com/workspace-for-education/products/classroom/editions/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "oneroster"
+    ],
+    "source": "https://edu.google.com/workspace-for-education/products/classroom/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Google Workspace accessibility features; no Classroom-specific WCAG conformance claim entered. Google publishes accessibility information across Workspace products; request product-specific ACR/VPAT if a formal conformance statement is required."
+    },
+    "source": "https://edu.google.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://edu.google.com/why-google/privacy-security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Google Workspace for Education security and compliance controls; certifications apply at service/product scope and should be checked against the current compliance matrix."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Google Workspace data regions depend on edition, configuration and eligible services; Classroom-specific residency should be confirmed for the institution. Review Google Workspace for Education privacy notice, data processing terms and data-region controls. Classroom is part of Workspace for Education."
+    },
+    "source": "https://edu.google.com/why-google/privacy-security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International",
+      "availability and editions vary by country"
+    ],
+    "source": "https://edu.google.com/workspace-for-education/products/classroom/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "Gemini for Education / Gemini features may be available depending on Workspace edition and admin configuration; product and data terms vary by feature."
+    },
+    "source": "https://edu.google.com/ai/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

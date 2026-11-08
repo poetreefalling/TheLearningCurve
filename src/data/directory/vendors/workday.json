@@ -4,7 +4,7 @@
   "ownership": {
     "value": "public",
     "source": "https://www.workday.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "ownershipDetail": {
@@ -15,8 +15,30 @@
   },
   "status": "active",
   "draft": true,
-  "researchTasks": [
-    "Ownership: replace the source with Workday investor relations.",
-    "Founded, size and funding not researched yet."
-  ]
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Pleasanton, California, USA",
+    "source": "https://newsroom.workday.com/company-overview",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "More than 20,800 employees (company-reported)",
+    "source": "https://newsroom.workday.com/company-overview",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Publicly listed on Nasdaq (WDAY); capital raised via public markets",
+    "source": "https://newsroom.workday.com/company-overview",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2005,
+    "source": "https://newsroom.workday.com/company-overview",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

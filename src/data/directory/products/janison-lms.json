@@ -44,7 +44,7 @@
       "cloud"
     ],
     "source": "https://www.janison.com/online-assessment-software/platform/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [],
@@ -125,11 +125,86 @@
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Assessment bodies; education authorities; schools; government; professional and high-stakes testing organisations\".",
     "Integrations need exact names: \"Assessment and identity integrations depend on implementation; request current technical integration catalogue\".",
-    "Geographic availability needs an exact value: \"Australian-founded provider with international assessment deployments; confirm country-specific service scope\".",
-    "Standards need exact versions: \"No complete public standards matrix verified in this pass\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise/project quotation; no public list pricing verified\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public trial not identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier or public list price identified; enterprise sales enquiry.",
+      "trialNote": "Demo by enquiry; public trial not identified"
+    },
+    "source": "https://www.janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request a quote. Enterprise and government procurement model; request a quote."
+    },
+    "source": "https://www.janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Janison LMS accessibility conformance report/VPAT for the relevant product and release."
+    },
+    "source": "https://janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current ISO/SOC certifications, penetration-test summary and assurance pack; no specific certification asserted here."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Australian-headquartered vendor; hosting regions and customer-specific residency need contractual confirmation. Confirm Australian and international hosting arrangements, subprocessors, retention and applicable privacy terms."
+    },
+    "source": "https://janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.janison.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "No named AI model/provider confirmed in reviewed public Janison LMS materials; confirm any AI features, subprocessors and training-data terms with vendor."
+    },
+    "source": "https://janison.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

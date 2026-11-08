@@ -4,7 +4,43 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Ownership needs a source and an exact category: \"Private company / ownership to verify\".",
-    "Founded, size and funding not researched yet."
-  ]
+    "* ownership: \"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+  ],
+  "headquarters": {
+    "value": "Calgary, Alberta, Canada",
+    "source": "https://www.linkedin.com/company/absorb-software/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "501–1,000 employees (LinkedIn company range)",
+    "source": "https://www.linkedin.com/company/absorb-software/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2003,
+    "source": "https://www.linkedin.com/company/absorb-software/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://www.linkedin.com/company/absorb-software/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held",
+    "source": "https://www.linkedin.com/company/absorb-software/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

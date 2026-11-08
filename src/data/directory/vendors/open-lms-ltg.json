@@ -4,7 +4,7 @@
   "ownership": {
     "value": "subsidiary",
     "source": "https://www.openlms.net/about-us/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "ownershipDetail": {
@@ -16,7 +16,32 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Confirm the Open LMS legal entity and the LTG ownership chain (UK Companies House records cited in the workbook).",
-    "Founded, size and funding not researched yet."
-  ]
+    "* founded: stored the year 2005; the workbook qualifies it: \"2005 (Moodlerooms origin; Open LMS brand launched 2020)\"."
+  ],
+  "headquarters": {
+    "value": "Raleigh, North Carolina, USA (LinkedIn company profile)",
+    "source": "https://www.linkedin.com/company/openlms/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "51–200 employees (LinkedIn company range)",
+    "source": "https://www.linkedin.com/company/openlms/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Part of Learning Technologies Group (LTG); group public-market financing",
+    "source": "https://www.openlms.net/about-us/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2005,
+    "source": "https://www.openlms.net/about-us/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "note": "2005 (Moodlerooms origin; Open LMS brand launched 2020)"
+  },
+  "lastVerified": "2026-11-08"
 }

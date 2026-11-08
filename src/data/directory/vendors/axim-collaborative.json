@@ -4,7 +4,7 @@
   "ownership": {
     "value": "open-source",
     "source": "https://openedx.org/faq/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "ownershipDetail": {
@@ -16,7 +16,32 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Confirm the right vendor for profiles of hosted Open edX (the service provider, not the project).",
-    "Founded, size and funding not researched yet."
-  ]
+    "* founded: stored the year 2023; the workbook qualifies it: \"2023 (Axim Collaborative established; Open edX project launched 2012)\"."
+  ],
+  "headquarters": {
+    "value": "Cambridge, Massachusetts, USA",
+    "source": "https://www.unesco.org/en/global-education-coalition/axim-collaborative-0",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.axim.org/about",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Nonprofit with catalytic funding; detailed current funding not publicly disclosed",
+    "source": "https://www.axim.org/about",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2023,
+    "source": "https://openedx.org/blog/introducing-axim-collaborative-new-ceo/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "note": "2023 (Axim Collaborative established; Open edX project launched 2012)"
+  },
+  "lastVerified": "2026-11-08"
 }

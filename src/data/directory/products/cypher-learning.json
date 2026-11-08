@@ -58,20 +58,20 @@
       "International"
     ],
     "source": "https://www.cypherlearning.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
     "value": [
+      "lti-1.1",
+      "lti-1.3",
       "scorm-1.2",
       "scorm-2004",
       "aicc",
-      "lti-1.1",
-      "lti-1.3",
       "qti"
     ],
     "source": "https://www.cypherlearning.com/pricing",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "deployment": {
@@ -79,16 +79,15 @@
       "cloud"
     ],
     "source": "https://www.cypherlearning.com/pricing",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "security": {
-    "value": [
-      "SOC 2 Type II"
-    ],
-    "source": "https://www.cypherlearning.com/faq/privacy-and-security",
-    "checked": "2026-11-07",
-    "origin": "verified"
+    "value": [],
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "HTTPS, encrypted database, AWS virtual private cloud, vulnerability scanning and penetration testing are described by vendor; do not list ISO 27001 as certified without a current certificate."
   },
   "alternatives": [
     "docebo",
@@ -172,11 +171,65 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: xAPI content player was listed as \"coming soon\"; re-check.",
-    "Security: a privacy FAQ says CYPHER was working toward ISO 27001; do not list ISO until a current certificate is seen.",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enhanced and Enterprise plans; custom quote\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / pricing enquiry; free trial not confirmed on public pricing page.",
+    "* standards: workbook adds a qualification that the list can't hold: \". xAPI Content Player was marked “coming soon” on the current pricing/features page and is not listed as supported.\". Confirm and add any standard that is now supported.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, EU, USA.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; contact sales for Enhanced/Enterprise pricing.",
+      "trialNote": "Demo / pricing enquiry; free trial not confirmed on public pricing page"
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; quote required. Enhanced and Enterprise plans are quote-based; pricing page invites prospects to request pricing."
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources No current product-specific ACR/VPAT was identified in the reviewed public materials; request the report and supported browser/assistive-technology matrix."
+    },
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Australia",
+        "EU",
+        "USA"
+      ],
+      "notes": "AWS regions listed by vendor: Virginia (USA), Frankfurt (Germany) and Sydney (Australia); Azure hosting may be arranged for specialised needs. Confirm customer-specific region. Vendor describes AWS hosting and regional locations. Confirm tenant location, Azure exception arrangements, subprocessors, retention and data transfer clauses."
+    },
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "CYPHER Agent and AI course creation, assessments and skills tools; named underlying foundation-model providers are not specified on the pricing page."
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

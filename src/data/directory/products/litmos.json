@@ -56,7 +56,7 @@
       "International"
     ],
     "source": "https://www.litmos.com/platform/lms/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -73,17 +73,17 @@
       "cloud"
     ],
     "source": "https://www.litmos.com/plans/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": true,
-      "from": "US$8,000 a year (Foundation)",
-      "notes": "Platinum from US$15,000 a year; Platinum AI is quoted."
+      "from": "Foundation from US$8,000/year; Platinum from US$15,000/year. Platinum AI is quote-based.",
+      "notes": "Published starting prices; final price depends on learners, content libraries, additional tenants and add-ons."
     },
     "source": "https://www.litmos.com/plans/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "security": {
@@ -91,9 +91,10 @@
       "ISO 27001:2022",
       "SOC 2 Type II"
     ],
-    "source": "https://www.litmos.com/trust-and-security/",
-    "checked": "2026-11-07",
-    "origin": "verified"
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "SOC 2 Type II: vendor-stated; obtain current certificates and report period/scope"
   },
   "alternatives": [
     "docebo",
@@ -161,11 +162,49 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: SCORM listed without a version; confirm 1.2 and/or 2004.",
-    "Security: workbook cites a SOC 2 Type II report (1 Apr 2024 to 31 Mar 2025, auditor Aprio, no exceptions) and an ISO 27001:2022 certificate (Jan 2025). Read both; if scope and dates hold, mark independently evidenced and ask for the 2025-26 report.",
-    "Primary market also mentions audiences with no category yet: \"Corporate; enterprise; customer and partner training; compliance-heavy organisations\".",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Annual subscription by plan and scope; add-ons and enterprise services may be additional\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; public free trial not identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; pricing starts with paid Foundation plan.",
+      "trialNote": "Demo / quote by enquiry; public free trial not identified"
+    },
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Litmos ACR/VPAT and product-specific accessibility scope."
+    },
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Vendor describes multiple regional data centres; obtain the available regions and tenant-level location commitment in writing. Confirm contracted hosting region, subprocessors, cross-border support access, retention and AI data processing."
+    },
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Litmos AI features available in Platinum AI plan; underlying model providers not publicly identified in pricing summary."
+    },
+    "source": "https://www.litmos.com/plans/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

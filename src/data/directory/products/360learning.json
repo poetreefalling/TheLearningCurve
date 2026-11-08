@@ -60,7 +60,7 @@
       "International"
     ],
     "source": "https://www.360learning.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -68,17 +68,17 @@
       "cloud"
     ],
     "source": "https://360learning.com/pricing/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": true,
-      "from": "US$8 per user a month (Team plan, up to 100 users)",
-      "notes": "Business and Enterprise plans are custom."
+      "from": "US$8 per active user/month (Team; up to 100 users).",
+      "notes": "Team is self-serve, monthly billed and cancellable; Business and Enterprise are custom-priced. Add-on solutions may incur additional per-user charges."
     },
     "source": "https://360learning.com/pricing/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -149,10 +149,69 @@
   "draft": true,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Corporate L&D; mid-market and enterprise; workforce upskilling\".",
-    "Standards need exact versions: \"SCORM player documented; verify xAPI/LTI and additional standards by plan\".",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Per-user subscription for Team; custom contract for larger plans; plan limits and currency/region should be confirmed\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (security): Security column says to request reports; the evidence column says 360Learning claims SOC 2 Type II and ISO 27001. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-active-user",
+      "freeTier": false,
+      "trial": true,
+      "freeTierNote": "No permanent free tier; 30-day free trial.",
+      "trialNote": "30-day free trial"
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources No current product-specific ACR/VPAT was identified in the reviewed public materials; request the current report and supported browser/assistive-technology matrix."
+    },
+    "source": "https://www.360learning.com/privacy-and-security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "ISO 27001",
+      "SOC 2",
+      "GDPR"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "GDPR: vendor-stated; obtain current certificates and scope"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Microsoft Azure hosting; exact customer tenant region should be confirmed in contract. Vendor states GDPR, SOC 2 and ISO 27001 alignment. Confirm subprocessors, data location, retention and AI processing terms for the contracted tenant."
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "AI-assisted authoring, recommendations and AI Companion; underlying model/provider details are not identified on the public pricing page."
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

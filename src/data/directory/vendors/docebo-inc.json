@@ -4,7 +4,7 @@
   "ownership": {
     "value": "public",
     "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026054559/R6.htm",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "ownershipDetail": {
@@ -16,6 +16,32 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Founded, size and funding not researched yet."
-  ]
+    "* founded: stored the year 2005; the workbook qualifies it: \"2005 (business founded; Docebo Inc. incorporated 2016)\"."
+  ],
+  "headquarters": {
+    "value": "Toronto, Ontario, Canada",
+    "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026071289/docebo-20260930.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "size": {
+    "value": "966 employees as at 31 Dec 2025 (company annual filing)",
+    "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026012566/doceboaif2025finalv2.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "funding": {
+    "value": "Publicly listed on TSX and Nasdaq (DCBO); financing via public markets",
+    "source": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026012566/docebo-20251231.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "founded": {
+    "value": 2005,
+    "source": "https://www.docebo.com/company/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "note": "2005 (business founded; Docebo Inc. incorporated 2016)"
+  },
+  "lastVerified": "2026-11-08"
 }

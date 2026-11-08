@@ -48,7 +48,7 @@
       "International"
     ],
     "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -56,7 +56,7 @@
       "cloud"
     ],
     "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -125,10 +125,88 @@
   "draft": true,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Large enterprises; multinational organisations; SAP HCM customers; regulated industries\".",
-    "Standards need exact versions: \"SCORM support is part of common SAP LMS content workflows; confirm supported editions and current LTI/xAPI capabilities\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise subscription/quote, generally contracted within SAP HCM arrangements\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; no public trial terms identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "government"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; enterprise sales/demo and contract.",
+      "trialNote": "Demo / quote by enquiry; no public trial terms identified"
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms/pricing.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request an SAP quote. Request a quote; subscription and implementation scope depend on contract."
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms/pricing.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current SuccessFactors Learning-specific ACR/VPAT and accessibility scope; do not rely on general SAP product accessibility statements."
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.sap.com/about/trust-center.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "SAP Trust Center publishes product and cloud security certifications; confirm SuccessFactors Learning service scope and region-specific controls."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "SAP data centre regions and data residency options are service/contract-specific; confirm the SuccessFactors Learning data centre and support access. Review SAP Trust Center, cloud service specification and DPA for subprocessors, transfers, retention and AI terms."
+    },
+    "source": "https://www.sap.com/about/trust-center.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "SAP Business AI / Joule capabilities; model providers depend on feature and deployment."
+    },
+    "source": "https://www.sap.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

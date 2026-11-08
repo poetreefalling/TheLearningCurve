@@ -60,7 +60,7 @@
       "International"
     ],
     "source": "https://www.learnupon.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -68,12 +68,15 @@
       "cloud"
     ],
     "source": "https://www.learnupon.com/pricing/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
-      "basis": "quote"
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified. Employee product starts from 100 users; customer education from 300; associations from 150.",
+      "trialNote": "Demo by enquiry; public self-serve trial not confirmed"
     },
     "source": "https://www.learnupon.com/pricing/",
     "checked": "2026-11-07",
@@ -123,12 +126,71 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Primary market also mentions audiences with no category yet: \"Corporate; customer education; associations; partner training\".",
-    "Standards need exact versions: \"SCORM and xAPI support listed on current plans; confirm version and package limitations\".",
-    "Pricing: record whether prices are public and the entry price.",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (security): Security column says certification status is not established; the evidence column says LearnUpon states ISO 27001:2022, ISO 27701:2019 and SOC 2. Neither side imported; settle it from the source.",
     "Conflict (dataResidency): Data column says to confirm region-specific hosting; the evidence column says LearnUpon stores data in the EU, US or Australia by customer requirement. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public self-serve trial not confirmed.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, EU, USA.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request a quote. Minimum audience thresholds are shown on the vendor pricing page. Quote-based; audience-specific packages and user thresholds apply. Vendor states it is not designed for organisations needing fewer than 100 users, on-premise deployment or K–12/higher education student audiences."
+    },
+    "source": "https://www.learnupon.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi"
+    ],
+    "source": "https://www.learnupon.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current LearnUpon ACR/VPAT and scope for learner, admin and embedded content experiences."
+    },
+    "source": "https://www.learnupon.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.learnupon.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current security and compliance pack; confirm certification scope, pen-test dates and report availability."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Australia",
+        "EU",
+        "USA"
+      ],
+      "notes": "Vendor indicates AWS cloud hosting; available regions (including Australia, EU and US) and tenant selection require confirmation. Confirm contracted AWS region, support access, subprocessors, retention and AI feature processing in the DPA."
+    },
+    "source": "https://www.learnupon.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Ask Lia and AI-powered assessments; underlying model provider not specified on pricing page."
+    },
+    "source": "https://www.learnupon.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

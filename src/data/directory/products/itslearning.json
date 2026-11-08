@@ -53,7 +53,7 @@
       "International"
     ],
     "source": "https://itslearning.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -61,7 +61,7 @@
       "cloud"
     ],
     "source": "https://itslearning.com/solution",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -131,11 +131,78 @@
   "draft": true,
   "researchTasks": [
     "Integrations need exact names: \"Google Workspace and Microsoft 365; external content and tools; exact integrations vary by region and contract\".",
-    "Standards need exact versions: \"Confirm current LTI, SCORM and interoperability support for the contracted edition\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Institutional subscription/quote; no reliable public list price verified\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (security): Security column says to request certifications; the evidence column says itslearning states it is ISO 27001 certified. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Product demonstration by enquiry; no public trial identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier or public list price identified; institutional sales enquiry.",
+      "trialNote": "Product demonstration by enquiry; no public trial identified"
+    },
+    "source": "https://itslearning.com/learn/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request institutional quote. Annual licence fee based on number of users, selected services, integrations and implementation requirements."
+    },
+    "source": "https://itslearning.com/learn/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "oneroster"
+    ],
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request a current itslearning product-specific ACR/VPAT and report scope."
+    },
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current Sanoma/itslearning security and compliance pack; verify certifications and scope for the hosted service."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; confirm tenant region and data processing arrangements with Sanoma/itslearning. Review Sanoma/itslearning privacy documentation and DPA for data location, subprocessors and international transfers."
+    },
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "No named AI model/provider confirmed in reviewed public itslearning product materials; confirm feature availability and data terms with vendor."
+    },
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

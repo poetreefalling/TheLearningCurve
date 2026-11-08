@@ -4,7 +4,7 @@
   "ownership": {
     "value": "private-equity",
     "source": "https://www.blackboard.com/company",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "ownershipDetail": {
@@ -15,8 +15,30 @@
   },
   "status": "active",
   "draft": true,
-  "researchTasks": [
-    "Confirm the contracting entity and headquarters.",
-    "Founded, size and funding not researched yet."
-  ]
+  "researchTasks": [],
+  "headquarters": {
+    "value": "United States; current corporate headquarters location not confirmed in reviewed primary source",
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "Not publicly disclosed for standalone post-restructuring company",
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "US$70 million new financing announced on emergence from restructuring (March 2026)",
+    "source": "https://www.blackboard.com/news/blackboard-formerly-anthology-emerges-debt-free-and-focused",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 1997,
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

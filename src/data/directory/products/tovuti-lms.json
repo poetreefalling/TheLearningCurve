@@ -58,7 +58,7 @@
       "International"
     ],
     "source": "https://www.tovutilms.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -66,7 +66,7 @@
       "cloud"
     ],
     "source": "https://www.tovutilms.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -112,13 +112,80 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Primary market also mentions audiences with no category yet: \"Corporate; associations; education providers; training businesses\".",
-    "Standards need exact versions: \"Confirm current SCORM, xAPI, LTI and content interoperability matrix\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Subscription/quote; current plan and user limits require vendor confirmation\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (security): Security column says to request certificates; the evidence column says Tovuti's compliance page lists SOC 2 Type 2 and ISO 27001. Neither side imported; settle it from the source.",
-    "Conflict (accessibility): Accessibility column says to request a report; the evidence column says Tovuti lists a Section 508 VPAT and WCAG 2.1 AA. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; no public trial terms identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-learner",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; published annual subscription starting price.",
+      "trialNote": "Demo / quote by enquiry; no public trial terms identified"
+    },
+    "source": "https://www.tovutilms.com/lms-pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$7,500/year for the first 100 annual learners; additional learner volume priced by quote.",
+      "notes": "Vendor publishes an annual starting price for 100 annual learners; confirm whether the quote includes onboarding, add-ons, AI authoring and services."
+    },
+    "source": "https://www.tovutilms.com/lms-pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.tovutilms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Vendor states accessibility features; request current VPAT/ACR to establish formal conformance. Vendor describes support for screen readers, colour-impaired learners and keyboard-only navigation; a current VPAT/ACR is required to substantiate WCAG conformance."
+    },
+    "source": "https://www.tovutilms.com/lms-for-construction",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.tovutilms.com/lms-pricing",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Vendor marketing lists SOC 2 and GDPR; FedRAMP-ready is not the same as FedRAMP-authorised. Request current SOC 2 report and certificate/scope."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; specific data centre region and residency commitment require confirmation. Confirm region, subprocessors, data transfer, retention and AI processing in the DPA and order form."
+    },
+    "source": "https://www.tovutilms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Tovuti markets WayPoints AI Authoring as an optional tool/add-on; underlying model/provider and customer-data terms require confirmation."
+    },
+    "source": "https://www.tovutilms.com/lms-pricing",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

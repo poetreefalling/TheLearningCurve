@@ -60,7 +60,7 @@
       "cloud"
     ],
     "source": "https://www.axcelerate.com.au/products/learning-management-system",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -131,11 +131,85 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Geographic availability needs an exact value: \"Australia-focused, with international use subject to vendor support and regulatory fit\".",
-    "Standards need exact versions: \"SCORM-compliant content import is stated; confirm exact SCORM version and any xAPI/LTI support\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Subscription/quote; vendor directs prospects to request pricing\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; no public free trial terms identified.",
+    "* standards: workbook adds a qualification that the list can't hold: \"(SCORM content import stated; exact version should be reconfirmed with vendor); other standards not confirmed.\". Confirm and add any standard that is now supported.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier or public self-service trial identified; demo/quote by enquiry.",
+      "trialNote": "Demo by enquiry; no public free trial terms identified"
+    },
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request a quote. Pricing not publicly listed; request a quote based on organisation and implementation requirements."
+    },
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2"
+    ],
+    "source": "https://www.axcelerate.com.au/products/learning-management-system",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request a current LMS-specific ACR/VPAT and accessibility testing scope; do not infer conformance from general product claims."
+    },
+    "source": "https://www.axcelerate.com.au/products/learning-management-system",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current security certifications, penetration-test summary and assurance pack; no certification asserted here."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Australian provider; exact hosting region and any overseas subprocessors should be confirmed contractually. Confirm data hosting location, backup locations, subprocessors, retention and Australian Privacy Act/APP contractual arrangements."
+    },
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Australia",
+      "international customers by arrangement"
+    ],
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "No named LMS AI model/provider confirmed in reviewed public product materials."
+    },
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

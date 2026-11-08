@@ -56,7 +56,7 @@
       "International"
     ],
     "source": "https://www.totara.com/products/learn/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -122,12 +122,76 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: SCORM 2004 is \"supported with stated limitations\"; read the limitations before listing it.",
     "Integrations need exact names: \"Partner ecosystem; APIs and integrations vary by implementation and installed extensions\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Commercial subscription/licensing and implementation/support via Totara partner; quote-based\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (accessibility): Accessibility column says no current ACR/VPAT was found; the evidence column says Totara publishes a VPAT-based ACR (WCAG 2.2 A/AA) with every major release. Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo via Totara partner; no public self-service trial identified.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No free hosted tier; open-source origins do not mean a free supported enterprise subscription. Licence/subscription and partner services are quote-based.",
+      "trialNote": "Demo via Totara partner; no public self-service trial identified"
+    },
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; partner quote required. Commercial subscription and services delivered through certified partners; quote varies by deployment and support."
+    },
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 A and AA (ACR/VPAT provided with each major release; check exceptions in the release-specific report).",
+      "evidence": "Totara states it provides an ACR based on VPAT with every major release, outlining WCAG 2.2 A/AA criteria and evaluation methods."
+    },
+    "source": "https://totara.help/docs/accessibility",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Security and certification scope depends on hosting partner and deployment; request the partner’s current SOC/ISO evidence and Totara technical controls."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Self-hosted or partner-hosted cloud; customer selects region through the deployment/partner arrangement. Data controller/processor roles, hosting region, backups and subprocessors depend on the selected Totara partner and hosting model."
+    },
+    "source": "https://www.totara.com/products/learn/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Optional integrations include OpenAI, Llama, Anthropic and Gemini; deployment and provider are configured through implementation/partner work."
+    },
+    "source": "https://totara.com/approach-to-ai/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

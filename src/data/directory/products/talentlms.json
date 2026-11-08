@@ -63,7 +63,7 @@
       "International"
     ],
     "source": "https://www.talentlms.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -81,7 +81,7 @@
       "cloud"
     ],
     "source": "https://www.talentlms.com/features",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -138,11 +138,68 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Primary market also mentions audiences with no category yet: \"SMB and mid-market; corporate; customer and partner training\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Tiered subscription based on active users and feature limits; current plans/pricing should be checked at point of procurement\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (accessibility): Accessibility column says the vendor states WCAG 2.1; the evidence column cites a public WCAG 2.2 AA conformance report (partial conformance, valid June 2025 to June 2026). Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Free plan available; trial terms vary by paid plan.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": true,
+      "freeTierNote": "Yes. Free plan supports up to 5 active users and 10 active courses (indefinite use).",
+      "trialNote": "Free plan available; trial terms vary by paid plan"
+    },
+    "source": "https://www.talentlms.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Paid plans start at US$119/month (Core, up to 40 active users; pricing may vary by billing period/region).",
+      "notes": "Tiered plans based on active-user limits and feature set; Free plan has 5 active users and 10 active courses. Confirm current local currency and billing period."
+    },
+    "source": "https://www.talentlms.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Partially conforms to WCAG 2.2 Level AA (vendor-reported; report scope excludes course units and third-party content). TalentLMS publishes an ACR/VPAT based on VPAT 2.4, report dated 19 June 2025. Vendor says partial WCAG 2.2 AA conformance; report validity stated as June 2025–June 2026, so request a refreshed report for current procurement."
+    },
+    "source": "https://www.talentlms.com/accessibility",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.talentlms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current SOC 2/ISO security evidence and scope; do not assume certifications without the current Trust Center documents."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; available data regions and tenant selection require vendor confirmation. Confirm hosting region, subprocessors, data retention, support access and AI processing in the DPA."
+    },
+    "source": "https://www.talentlms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "TalentLMS AI capabilities include AI-assisted course creation/authoring; named underlying model providers are not specified in reviewed public documentation."
+    },
+    "source": "https://www.talentlms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

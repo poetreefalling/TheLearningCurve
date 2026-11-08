@@ -61,7 +61,7 @@
       "International"
     ],
     "source": "https://www.d2l.com/brightspace/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -80,21 +80,24 @@
       "cloud"
     ],
     "source": "https://d2l.com/privacy-center",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": false,
-      "notes": "Custom quote by users, features, add-ons and services."
+      "notes": "Not publicly listed; custom institutional quote. Custom quote by users, features, add-ons and services."
     },
     "source": "https://www.d2l.com/contact-sales/pricing/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
-      "basis": "quote"
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; institutional demo and quote.",
+      "trialNote": "Demo / quote by enquiry; public free trial not identified"
     },
     "source": "https://www.d2l.com/contact-sales/pricing/",
     "checked": "2026-11-07",
@@ -103,10 +106,10 @@
   "accessibility": {
     "value": {
       "standard": "WCAG 2.2",
-      "evidence": "Brightspace Core accessibility conformance report dated 31 Mar 2026 (VPAT 2.5 INT; WCAG 2.2, Section 508, EN 301 549)"
+      "evidence": "Brightspace Core ACR dated 31 March 2026 (VPAT 2.5 INT) covers WCAG 2.2, Section 508 and EN 301 549. Check report scope for add-ons and third-party integrations."
     },
     "source": "https://www.d2l.com/accessibility/standards/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "security": {
@@ -120,8 +123,9 @@
       "CSA STAR"
     ],
     "source": "https://www.d2l.com/security/compliance/",
-    "checked": "2026-11-07",
-    "origin": "verified"
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "CSA STAR: vendor-listed; confirm current scope"
   },
   "aiDisclosure": {
     "value": {
@@ -133,7 +137,7 @@
       "notes": "D2L Lumi Pro uses Claude models through AWS Bedrock; D2L says customer data is not used to train the models."
     },
     "source": "https://community.d2l.com/brightspace/kb/articles/34731-d2l-lumi-faqs",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -205,9 +209,19 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: SCORM 1.2/2004 and LTI Advantage confirmed; 1EdTech lists earlier Caliper, Common Cartridge and Open Badges certifications as out of date. Confirm before listing.",
-    "Primary market also mentions audiences with no category yet: \"Higher education; K–12; corporate; government; associations; training organisations\".",
     "Integrations need exact names: \"LTI 1.3; Microsoft 365; SIS/rostering; D2L Link; partner/content integrations. Verify add-on and licence scope.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
-  ]
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; public free trial not identified.",
+    "* data residency: no committed region; confirm the tenant region in the contract."
+  ],
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Regional hosting options; confirm contracted region and any service-specific exceptions. Review D2L Privacy Center and contract for data location, cross-border transfers, subprocessors and retention."
+    },
+    "source": "https://www.d2l.com/privacy-center",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

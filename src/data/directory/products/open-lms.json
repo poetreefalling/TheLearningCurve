@@ -62,21 +62,24 @@
       "cloud"
     ],
     "source": "https://www.openlms.net/security/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "pricing": {
     "value": {
       "public": false,
-      "notes": "Custom quote, priced per active user."
+      "notes": "Not publicly listed; custom quote, vendor describes pricing by active user. Custom quote, priced per active user."
     },
     "source": "https://openlms.net/pricing",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "pricingModel": {
     "value": {
-      "basis": "per-active-user"
+      "basis": "per-active-user",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; hosted subscription is quote-based.",
+      "trialNote": "Demo by enquiry; public trial not identified"
     },
     "source": "https://openlms.net/pricing",
     "checked": "2026-11-07",
@@ -87,8 +90,9 @@
       "ISO 27001"
     ],
     "source": "https://www.openlms.net/au/security/",
-    "checked": "2026-11-07",
-    "origin": "vendor-supplied"
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "ISO 27001: vendor-listed; verify certificate validity, legal entity and scope"
   },
   "alternatives": [
     "moodle-lms",
@@ -153,11 +157,57 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Accessibility: Open LMS published a VPAT 2.5 conformance report for the EDU Platform (Snap theme) dated 8 July 2026; read it and record its scope.",
-    "Security: Open LMS says it is \"SOC 2 compliant\"; confirm whether a SOC 2 Type II report exists and its period.",
-    "Standards: vendor states LTI Advantage and xAPI connections; confirm exact versions.",
-    "Geographic availability needs an exact value: \"Global service; Open LMS states data can remain in the customer’s selected hosting region. Confirm which regions are available for Australian contracts.\".",
-    "Standards need exact versions: \"SCORM through Moodle core; vendor states LTI and xAPI connections. Confirm exact editions, LTI 1.3 and managed plugin support.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
-  ]
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public trial not identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi"
+    ],
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Open LMS ACR/VPAT for the hosted product version and any Moodle-derived customisations."
+    },
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; region options and customer-specific residency should be confirmed in the service agreement. Confirm contracted region, subprocessors, support access and retention in Open LMS DPA."
+    },
+    "source": "https://www.openlms.net/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.openlms.net/about-us/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "AI functionality may be available through Moodle-derived capabilities, plugins or integrations; model/provider depends on the deployed version and configuration and was not confirmed."
+    },
+    "source": "https://www.openlms.net/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

@@ -4,7 +4,7 @@
   "ownership": {
     "value": "subsidiary",
     "source": "https://about.google/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "ownershipDetail": {
@@ -15,7 +15,30 @@
   },
   "status": "active",
   "draft": true,
-  "researchTasks": [
-    "Founded, size and funding not researched yet."
-  ]
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Mountain View, California, USA",
+    "source": "https://about.google/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "180,000+ employees (Alphabet/Google group; latest public annual reporting)",
+    "source": "https://abc.xyz/investor/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Public company; Alphabet equity and debt capital markets",
+    "source": "https://abc.xyz/investor/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 1998,
+    "source": "https://about.google/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

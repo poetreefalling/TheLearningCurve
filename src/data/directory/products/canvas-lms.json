@@ -60,7 +60,7 @@
       "International"
     ],
     "source": "https://www.instructure.com/products/canvas-tiers",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -77,21 +77,23 @@
       "cloud"
     ],
     "source": "https://www.instructure.com/trust-center/faqs",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": false,
-      "notes": "Institutional quote. Tiers: Canvas Core, Plus and Next."
+      "notes": "Institutional pricing not publicly listed; contact sales. Individual educator offering: free, with limitations. Institutional quote. Tiers: Canvas Core, Plus and Next."
     },
-    "source": "https://www.instructure.com/products/canvas-tiers",
-    "checked": "2026-11-07",
+    "source": "https://www.instructure.com/en-au/try-canvas",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "pricingModel": {
     "value": {
-      "basis": "quote"
+      "basis": "quote",
+      "freeTierNote": "Canvas Lite / Free-for-Teacher is available for individual educators with feature limitations; institutional Canvas is quote-based.",
+      "trialNote": "Institutional demo / pilot by enquiry; no standard public trial terms identified"
     },
     "source": "https://www.instructure.com/products/canvas-tiers",
     "checked": "2026-11-07",
@@ -100,10 +102,10 @@
   "accessibility": {
     "value": {
       "standard": "WCAG 2.2 AA",
-      "evidence": "WebAIM verified a representative sample of Canvas LMS as conformant with WCAG 2.2 A and AA (content as of 26 Jun 2025)"
+      "evidence": "WebAIM independently evaluated a representative sample of Canvas LMS and reported WCAG 2.2 A/AA conformance for the sampled content. This is not a guarantee for institution-authored content, third-party tools or every configuration."
     },
     "source": "https://webaim.org/services/certification/canvas",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "security": {
@@ -112,8 +114,9 @@
       "SOC 2 Type II"
     ],
     "source": "https://www.instructure.com/trust-center/faqs",
-    "checked": "2026-11-07",
-    "origin": "vendor-supplied"
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "SOC 2 Type II: vendor trust-centre statements; request current reports and confirm scope"
   },
   "dataPrivacy": {
     "value": {
@@ -123,20 +126,20 @@
         "EU",
         "USA"
       ],
-      "notes": "Instructure says data is stored in the customer's region on AWS; SOC 2 reports require an NDA."
+      "notes": "AWS regional hosting options include Australia, Canada, EU and USA; confirm availability for the specific Canvas product and contract. Instructure states customer data is stored in the selected region. Confirm product-specific scope, subprocessors and cross-border support access."
     },
     "source": "https://www.instructure.com/trust-center/faqs",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "aiDisclosure": {
     "value": {
       "models": [],
       "trainsOnCustomerData": "opt-in",
-      "notes": "Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level models are listed in its AI Nutrition Facts."
+      "notes": "Instructure AI features; third-party model/provider details vary by feature. Instructure says it does not use student data to train its AI models, and customer data is not used to train its AI systems unless the institution authorises it. Feature-level models are listed in its AI Nutrition Facts."
     },
     "source": "https://www.instructure.com/de/node/27149",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "alternatives": [
@@ -214,9 +217,12 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: SCORM is not native in Canvas (an LTI tool is needed); confirm current SCORM, QTI, Common Cartridge and OneRoster support before listing them.",
-    "Security: Canvas suffered a cybersecurity incident in May 2026 (service restored 9 May 2026, per Secure ISS). Decide how the profile reports it, from Instructure's own statement.",
     "Integrations need exact names: \"LTI 1.3 ecosystem; REST APIs; SIS integrations; SSO; extensive third-party integrations. Confirm entitlements and partner data flows.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
-  ]
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "* free tier: neither yes nor no, so left out: \"Canvas Lite / Free-for-Teacher is available for individual educators with feature limitations; institutional Canvas is quote-based.\".",
+    "* trial: no public trial terms, so left out (not set to false): Institutional demo / pilot by enquiry; no standard public trial terms identified.",
+    "* data residency: no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, Canada, EU, USA.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "lastVerified": "2026-11-08"
 }

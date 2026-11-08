@@ -132,6 +132,22 @@ Leave a field out rather than guess. An empty field is honest; a wrong one costs
 7. **CredentialCraft** is Jim's own business. If it is ever listed, it carries the ownership note
    from `docs/editorial.md` and is never scored, ranked or placed in a comparison.
 
+## Importing from the data-entry workbook
+
+The first 25 LMS records were filled in a spreadsheet (one row per product and vendor, with a
+source, date and origin beside each fact) and imported with:
+
+```
+python3 scripts/import-directory-xlsx.py <workbook.xlsx> --annotate <annotated.xlsx>
+```
+
+The importer updates the JSON records in place and keeps the fields the workbook doesn't cover
+(summary, features, integrations, alternatives, evidence, assurance). It never guesses: a value
+that is missing or doesn't fit the schema is left out and recorded in the record's
+`researchTasks` as a line starting `* `. With `--annotate` it also writes a copy of the workbook
+with those cells marked `*` and a comment saying why. Research tasks marked done (`y`) are closed.
+Records stay drafts until their `researchTasks` list is empty.
+
 ## Adding a product
 
 1. Make sure the vendor record exists; add it if not.

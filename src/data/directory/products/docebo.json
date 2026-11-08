@@ -57,7 +57,7 @@
       "International"
     ],
     "source": "https://www.docebo.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -65,7 +65,7 @@
       "cloud"
     ],
     "source": "https://www.docebo.com/pricing/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -147,11 +147,79 @@
   "draft": true,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Mid-market and enterprise; employee learning; customer and partner education\".",
-    "Standards need exact versions: \"SCORM and common content standards should be confirmed against current technical documentation and contract\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Custom quote; plans and add-ons vary by audience, scale and required features\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (accessibility): Accessibility column says to request an ACR/VPAT; the evidence column cites a public ACR for Docebo 2026.2.0 dated 2 Feb 2026 (VPAT 2.5). Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; no public free trial terms identified.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-active-user",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; sales-led evaluation or proof of concept may be arranged.",
+      "trialNote": "Demo by enquiry; no public free trial terms identified"
+    },
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; quote required. Vendor states pricing can be based on monthly active users, yearly active users or registered active users; evaluation/proof-of-concept options depend on use case."
+    },
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.docebo.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 (role- and module-specific ACRs; conformance is not blanket across all functionality).",
+      "evidence": "Docebo publishes VPAT 2.5 ACRs for learner and admin areas. Current documentation lists July 22, 2026 reports for learner core and admin core; e-commerce report dated February 2, 2026. Review each scope separately."
+    },
+    "source": "https://help.docebo.com/hc/en-us/articles/29767962577810-Accessibility-resources-and-support",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.docebo.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current Trust Center reports; Docebo security certifications and report scope should be confirmed for the contracted service."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; region options and tenant-specific data residency require confirmation from Docebo. Confirm tenant region, subprocessors, retention, data transfer terms and AI feature processing in the DPA."
+    },
+    "source": "https://www.docebo.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Docebo AI features include content creation, search/assistant and AI-powered learning tools; underlying foundation-model providers are not specified in the reviewed public pricing material."
+    },
+    "source": "https://www.docebo.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

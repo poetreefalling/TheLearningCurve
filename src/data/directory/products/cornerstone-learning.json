@@ -56,7 +56,7 @@
       "International"
     ],
     "source": "https://www.cornerstoneondemand.com/platform/learning/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -64,7 +64,7 @@
       "cloud"
     ],
     "source": "https://www.cornerstoneondemand.com/platform/learning/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -148,10 +148,79 @@
   "draft": true,
   "researchTasks": [
     "Integrations need exact names: \"Enterprise HR/HCM and business-system integrations; API and partner ecosystem; verify exact connector catalogue\".",
-    "Standards need exact versions: \"Confirm SCORM, AICC, xAPI, LTI and content interoperability in current product technical documentation\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise subscription/quote; modules and services may be separately scoped\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by sales enquiry; no public trial terms identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; enterprise sales demonstration/quote.",
+      "trialNote": "Demo by sales enquiry; no public trial terms identified"
+    },
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; enterprise quote required. Enterprise quote; public list pricing not identified."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Cornerstone Learning ACR/VPAT for the precise product modules and release; do not infer from company-wide accessibility statements."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current Trust Center assurance pack; verify SOC 2, ISO and any FedRAMP scope directly against the specific Cornerstone service."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud deployment; customer-specific hosting region and residency commitments require confirmation. Confirm region, subprocessors, data transfer mechanisms, retention and AI processing terms in the DPA and order form."
+    },
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Cornerstone AI/skills and content capabilities are promoted; named foundation-model providers and feature-specific processing terms require confirmation."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

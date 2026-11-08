@@ -53,16 +53,19 @@
       "cloud"
     ],
     "source": "https://www.powerschool.com/classroom/schoology-learning/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
-      "basis": "quote"
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No public free tier for institutional Schoology Learning identified; district/school sales enquiry.",
+      "trialNote": "Demo by enquiry; public free trial not identified"
     },
     "source": "https://www.powerschool.com/classroom/schoology-learning/",
-    "checked": "2026-11-07",
-    "origin": "verified"
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
   },
   "alternatives": [
     "google-classroom",
@@ -129,11 +132,76 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Integrations need exact names: \"PowerSchool SIS and education technology integrations; exact connector catalogue and standards depend on contract/version\".",
-    "Geographic availability needs an exact value: \"Primarily North American K–12 market; availability and support elsewhere require confirmation\".",
-    "Standards need exact versions: \"Do not infer LTI/SCORM/xAPI support from platform category; obtain current interoperability documentation\".",
-    "Pricing: record whether prices are public and the entry price.",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo by enquiry; public free trial not identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; institutional/district quote required. Institutional / district pricing is quote-based; no public list price identified."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage",
+      "scorm-1.2",
+      "oneroster"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Schoology Learning product-specific ACR/VPAT and accessibility scope."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.powerschool.com/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "PowerSchool publishes security and privacy resources; confirm current Schoology-specific certifications, report scope and contractual controls."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; district-specific data residency and regional hosting need confirmation in contract. Review PowerSchool privacy/security documentation and district agreement for hosting, subprocessors, retention and student data terms."
+    },
+    "source": "https://www.powerschool.com/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Primarily North America",
+      "international availability subject to sales and support"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "PowerSchool AI features are evolving across its product portfolio; a Schoology Learning-specific model/provider was not confirmed in reviewed public materials."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

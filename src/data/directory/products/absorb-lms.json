@@ -58,7 +58,7 @@
       "International"
     ],
     "source": "https://www.absorblms.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -75,7 +75,7 @@
       "cloud"
     ],
     "source": "https://www.absorblms.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -144,13 +144,68 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards: SCORM is documented without a version; confirm 1.2 and/or 2004.",
     "Primary market also mentions audiences with no category yet: \"Corporate; mid-market and enterprise; customer and partner education\".",
-    "Integrations need exact names: \"Microsoft Teams; Zoom/Webex; Salesforce; HRIS; REST API; data import/export; integration options and paid add-ons vary\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Quote-based subscription; features may include core functionality, integrations and paid add-ons\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Conflict (accessibility): Accessibility column says to request an ACR/VPAT; the evidence column says a public VPAT is available (WCAG 2.1 AA, targeting 2.2 AA). Neither side imported; settle it from the source.",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / trial availability by sales enquiry; public self-serve trial not confirmed.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; request a demo/quote.",
+      "trialNote": "Demo / trial availability by sales enquiry; public self-serve trial not confirmed"
+    },
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; quote required. Contact vendor for quote; no public list price identified."
+    },
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.1 AA (Learner Experience); WCAG 2.2 AA is the stated conformance target.",
+      "evidence": "Absorb publishes a VPAT. Current stated scope is WCAG 2.1 AA; target is WCAG 2.2 AA, with conformance currently limited to Chrome using NVDA according to the vendor."
+    },
+    "source": "https://support.absorblms.com/hc/en-us/articles/37657647133459-Absorb-VPAT-WCAG-2-1",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current security pack; public product pages reviewed do not establish the current certification scope."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; available tenant regions and residency commitments require confirmation from Absorb. Confirm hosting region, subprocessors, retention, backups and contractual data-processing terms before procurement."
+    },
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Absorb AI capabilities are marketed; named underlying model providers and model-specific data terms were not confirmed in reviewed public sources."
+    },
+    "source": "https://www.absorblms.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

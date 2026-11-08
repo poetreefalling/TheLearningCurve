@@ -62,7 +62,7 @@
       "Worldwide"
     ],
     "source": "https://moodle.com/solutions/lms/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -83,44 +83,48 @@
       "cloud"
     ],
     "source": "https://moodle.com/us/what-we-do/moodle-hosting",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricing": {
     "value": {
       "public": true,
-      "notes": "Moodle LMS itself is free, open-source software. MoodleCloud plans are published subscriptions; partner-hosted services are quoted."
+      "from": "Moodle LMS software: free (self-hosted; infrastructure/support extra). MoodleCloud Starter: from $170/year for 50 users; currency/local tax should be confirmed at checkout.",
+      "notes": "MoodleCloud plans are paid subscriptions with user/storage limits; the vendor site may localise currency by region. Hosting by certified Moodle Partners and Moodle Workplace are separately quoted."
     },
-    "source": "https://moodle.com/cloud",
-    "checked": "2026-11-07",
+    "source": "https://www.moodlecloud.com/standard-plans/",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
       "basis": "open-source",
-      "freeTier": true
+      "freeTier": true,
+      "trial": true,
+      "freeTierNote": "Yes. Moodle LMS software is open source and free to download/self-host; MoodleCloud is a paid hosted service with a free 28-day Starter trial.",
+      "trialNote": "MoodleCloud Starter free trial for 28 days; no credit card required."
     },
-    "source": "https://moodle.com/cloud",
-    "checked": "2026-11-07",
+    "source": "https://www.moodlecloud.com/standard-plans/",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "accessibility": {
     "value": {
-      "standard": "WCAG 2.2 AA",
-      "evidence": "Accreditation issued 3 Oct 2025 after an external audit by GrackleDocs (versions 5.1, 5.0.3, 4.5.7); VPAT 2.5 conformance report published"
+      "standard": "WCAG 2.2 AA (Moodle LMS release-specific accreditation/VPAT published).",
+      "evidence": "Moodle reports independent accessibility accreditation for specified Moodle LMS releases and publishes VPAT-based conformance information. Verify the version used by the deployment."
     },
     "source": "https://moodledev.io/general/development/policies/accessibility",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "aiDisclosure": {
     "value": {
       "models": [],
       "trainsOnCustomerData": "not-disclosed",
-      "notes": "Provider-neutral AI subsystem: the site operator chooses and configures the AI provider, whose own data terms apply."
+      "notes": "AI subsystem supports configurable AI providers/plugins; model depends on administrator configuration. Provider-neutral AI subsystem: the site operator chooses and configures the AI provider, whose own data terms apply."
     },
     "source": "https://docs.moodle.org/503/en/admin/setting/aiprovider",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "alternatives": [
@@ -197,8 +201,27 @@
   "draft": true,
   "researchTasks": [
     "Workbook records a WCAG 2.2 AA re-accreditation on 30 Sep 2026 (versions 5.3, 5.2.3, 5.1.7, 4.5.14); on 7 Nov we could only confirm the 3 Oct 2025 accreditation. Re-open moodledev.io and update if the 2026 accreditation is listed.",
-    "Standards: SCORM 2004 and xAPI are only available through community or commercial plugins; not listed.",
     "Integrations need exact names: \"Plugin ecosystem; LTI tools; REST/web services; SSO/SIS integrations depend on deployment and plugins.\".",
-    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
-  ]
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "security": {
+    "value": [],
+    "source": "https://moodle.com/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Security posture depends on deployment and operator; Moodle HQ does not imply that every self-hosted installation is independently certified. Request hosting-provider assurance for MoodleCloud/partner hosting."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Self-hosted: selected by customer/operator. MoodleCloud: hosted by Moodle HQ; confirm current region and plan-specific terms. For self-hosted Moodle, operator controls storage, backups and subprocessors. For MoodleCloud, review MoodleCloud terms and GDPR information."
+    },
+    "source": "https://moodle.com/cloud",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

@@ -45,7 +45,7 @@
       "International"
     ],
     "source": "https://www.workday.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -53,7 +53,7 @@
       "cloud"
     ],
     "source": "https://www.workday.com/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -101,10 +101,87 @@
   "draft": true,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Large enterprises; multinational organisations; Workday HCM customers\".",
-    "Standards need exact versions: \"Confirm current SCORM, xAPI, AICC and LTI support in Workday Learning technical documentation\".",
-    "Pricing: record whether prices are public and the entry price.",
-    "Pricing model: confirm basis, free tier and trial. Workbook: \"Enterprise subscription/quote, typically part of Workday agreements\".",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Demo / quote by enquiry; no public trial terms identified.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "government"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; sold as part of enterprise Workday agreements.",
+      "trialNote": "Demo / quote by enquiry; no public trial terms identified"
+    },
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; enterprise quote required. Enterprise subscription priced through Workday sales; public list price not identified."
+    },
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi"
+    ],
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Workday Learning ACR/VPAT for the relevant release and user roles."
+    },
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.workday.com/en-us/trust.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Workday publishes Trust Center and compliance certifications; verify Learning service scope, current reports and tenant region."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Workday cloud data centre regions and residency commitments are contract/service-specific; confirm tenant region and support access. Review Workday Trust Center, DPA and service-specific data processing details for location, subprocessors, retention and AI processing."
+    },
+    "source": "https://www.workday.com/en-us/trust.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Workday AI / Illuminate; underlying model providers vary by feature."
+    },
+    "source": "https://www.workday.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

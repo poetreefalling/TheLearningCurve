@@ -56,7 +56,7 @@
       "Worldwide"
     ],
     "source": "https://www.sakailms.org/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "deployment": {
@@ -65,16 +65,18 @@
       "cloud"
     ],
     "source": "https://www.sakailms.org/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
       "basis": "open-source",
-      "freeTier": true
+      "freeTier": true,
+      "freeTierNote": "Yes. Sakai is open-source software with no licence fee; hosting, implementation and support may be chargeable.",
+      "trialNote": "Open-source software can be downloaded and self-hosted; hosted support is offered by third parties"
     },
     "source": "https://www.sakailms.org/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -142,9 +144,71 @@
   "status": "active",
   "draft": true,
   "researchTasks": [
-    "Standards need exact versions: \"LTI specification support; exact version and tool-provider support should be confirmed\".",
-    "Pricing: record whether prices are public and the entry price.",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Open-source software can be downloaded and self-hosted; hosted support is offered by third parties.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note.",
+    "* AI trains on customer data: \"not-applicable / implementation-dependent\" is not an allowed value; stored as not-disclosed."
+  ],
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Sakai core software: free (open-source); hosting and support quoted by service providers.",
+      "notes": "No single SaaS price: deployment and support are provided by institutions or third-party service providers."
+    },
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.1",
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "caliper"
+    ],
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Deployment- and theme-dependent; obtain current ACR/VPAT from the institution or hosting provider. Sakai is open-source software; accessibility depends on release, theme, customisations and content. No universal product-level conformance claim entered."
+    },
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Deployment/operator dependent; no single central SaaS certification applies to all Sakai instances."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Self-hosted or hosted by an institution/provider; location is determined by the operator. The institution or service provider operating the instance controls data processing, storage, backups and subprocessors."
+    },
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "No standard first-party foundation model identified; AI capability depends on institution-installed integrations/plugins and deployment configuration."
+    },
+    "source": "https://www.sakailms.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }

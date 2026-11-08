@@ -60,7 +60,7 @@
       "Worldwide"
     ],
     "source": "https://openedx.org/platform/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "vendor-supplied"
   },
   "standards": {
@@ -77,16 +77,18 @@
       "cloud"
     ],
     "source": "https://openedx.org/platform/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "pricingModel": {
     "value": {
       "basis": "open-source",
-      "freeTier": true
+      "freeTier": true,
+      "freeTierNote": "Yes. Open edX platform code is open source and can be self-hosted; managed hosting, support and implementation are chargeable through providers.",
+      "trialNote": "Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers"
     },
     "source": "https://openedx.org/platform/",
-    "checked": "2026-11-07",
+    "checked": "2026-11-08",
     "origin": "verified"
   },
   "alternatives": [
@@ -174,8 +176,57 @@
   "draft": true,
   "researchTasks": [
     "Primary market also mentions audiences with no category yet: \"Higher education; workforce development; government; NGOs; enterprise learning; online education providers\".",
-    "Pricing: record whether prices are public and the entry price.",
     "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
-    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
-  ]
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing.",
+    "* trial: no public trial terms, so left out (not set to false): Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers.",
+    "* accessibility standard: not a conformance claim, so stored as evidence and the standard left out.",
+    "* security: no certification is stated, so the list is empty. Request the current security pack.",
+    "* data residency: no committed region; confirm the tenant region in the contract.",
+    "* AI models: no named model or provider, so models is empty; the description is kept as a note."
+  ],
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Open edX core software: free (open-source licence); hosting and services priced by the selected provider.",
+      "notes": "There is no single Open edX SaaS price. Total cost depends on hosting provider, implementation, integrations, support and scale."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Accessibility depends on the Open edX release, theme, customisations and course content; request provider-specific ACR/VPAT. No universal platform-wide conformance claim entered; evaluate the deployed release and customised learner/admin journeys."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Security is deployment/provider dependent; obtain hosting provider SOC/ISO assurance and review the security of the selected Open edX release."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Self-hosted or managed hosting; customer selects/negotiates region with deployment provider. Open edX is software rather than one centrally hosted service. Data controller/operator and subprocessors depend on the deployment provider."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Optional AI capabilities/extensions; model provider depends on implementation and hosting partner."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08"
 }
