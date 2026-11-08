@@ -227,6 +227,14 @@
       "src": "/images/directory/absorb-lms/logo.webp",
       "alt": "Absorb LMS logo"
     },
-    "screenshots": []
+    "screenshots": [
+      {
+        "src": "/images/directory/absorb-lms/screenshot-1.webp",
+        "frame": true,
+        "alt": "The Absorb LMS admin Courses list: a table of courses with their type, filter buttons for ID, name and status, and an Actions panel on the right for adding courses, bundles and curricula",
+        "caption": "The admin Courses list, with filters and the actions for adding courses, bundles and curricula.",
+        "credit": "Image: Absorb Software"
+      }
+    ]
   }
 }
