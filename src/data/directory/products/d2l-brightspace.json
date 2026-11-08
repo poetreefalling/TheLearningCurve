@@ -1,0 +1,235 @@
+{
+  "name": "D2L Brightspace",
+  "vendor": "d2l",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.d2l.com/brightspace/",
+  "summary": "A cloud-based learning platform serving higher education, K–12, business, government, associations and training organisations. Brightspace combines course delivery, assessment, personalised learning, analytics and a range of optional products and integrations.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate",
+      "government"
+    ],
+    "source": "https://www.d2l.com/brightspace/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Course and program delivery",
+      "personalised learning",
+      "online assessment",
+      "outcomes-based education",
+      "workforce training",
+      "continuing education",
+      "learner analytics and intervention"
+    ],
+    "source": "https://www.d2l.com/brightspace/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course creation and delivery",
+      "assessment and evaluation",
+      "collaboration",
+      "learning outcomes and achievement tracking",
+      "learner analytics",
+      "personalised learning",
+      "bulk course migration",
+      "optional Lumi AI, Creator+, Performance+, Achievement+, Course Merchant and D2L Link"
+    ],
+    "source": "https://www.d2l.com/brightspace/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI 1.3",
+      "Microsoft 365",
+      "SIS/rostering",
+      "D2L Link"
+    ],
+    "source": "https://www.d2l.com/brightspace/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.d2l.com/brightspace/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage",
+      "scorm-1.2",
+      "scorm-2004"
+    ],
+    "source": "https://community.d2l.com/brightspace/kb/articles/5400-about-scorm",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://d2l.com/privacy-center",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; custom institutional quote. Custom quote by users, features, add-ons and services."
+    },
+    "source": "https://www.d2l.com/contact-sales/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; institutional demo and quote.",
+      "trialNote": "Demo / quote by enquiry; public free trial not identified"
+    },
+    "source": "https://www.d2l.com/contact-sales/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2",
+      "evidence": "Brightspace Core ACR dated 31 March 2026 (VPAT 2.5 INT) covers WCAG 2.2, Section 508 and EN 301 549. Check report scope for add-ons and third-party integrations."
+    },
+    "source": "https://www.d2l.com/accessibility/standards/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO 27001:2022",
+      "ISO 27017",
+      "ISO 27018",
+      "ISO 27701",
+      "SOC 1 Type II",
+      "SOC 2 Type II",
+      "CSA STAR"
+    ],
+    "source": "https://www.d2l.com/security/compliance/",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "CSA STAR: vendor-listed; confirm current scope"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Anthropic Claude Sonnet",
+        "Anthropic Claude Haiku"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "D2L Lumi Pro uses Claude models through AWS Bedrock; D2L says customer data is not used to train the models."
+    },
+    "source": "https://community.d2l.com/brightspace/kb/articles/34731-d2l-lumi-faqs",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "canvas-lms",
+    "moodle-lms",
+    "blackboard-learn",
+    "open-lms",
+    "schoology-learning"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "publicly-stated",
+      "finding": "D2L publishes a Brightspace Core accessibility conformance report dated 31 March 2026 (VPAT 2.5 INT), covering WCAG 2.2, Section 508 and EN 301 549.",
+      "caveat": "The report file is titled \"auditor verified\"; confirm the auditor and scope.",
+      "sources": [
+        {
+          "title": "D2L accessibility conformance",
+          "url": "https://www.d2l.com/accessibility/standards/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "D2L lists ISO 27001:2022, ISO 27017, 27018 and 27701 certifications, SOC 1 and SOC 2 Type II reports and CSA STAR, with certificates downloadable.",
+      "caveat": "SOC reports are provided on request.",
+      "sources": [
+        {
+          "title": "D2L compliance",
+          "url": "https://www.d2l.com/security/compliance/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "D2L hosts Brightspace on AWS and has operations in Australia. The workbook cites a subprocessor list (updated 13 Oct 2026) with storage by customer location, including Australia.",
+      "caveat": "Not re-opened on 7 Nov: confirm the Australian region in the subprocessor list and the contract.",
+      "sources": [
+        {
+          "title": "D2L subprocessors",
+          "url": "https://www.d2l.com/legal/d2ls-third-party-subprocessors/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "publicly-stated",
+      "finding": "D2L Lumi Pro uses Anthropic Claude models (Sonnet and Haiku) through AWS Bedrock. D2L says customer data is not used to train the models.",
+      "caveat": "Check inference region for Australian tenants.",
+      "sources": [
+        {
+          "title": "D2L Lumi FAQs",
+          "url": "https://community.d2l.com/brightspace/kb/articles/34731-d2l-lumi-faqs"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Integrations need exact names: \"LTI 1.3; Microsoft 365; SIS/rostering; D2L Link; partner/content integrations. Verify add-on and licence scope.\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
+  ],
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Regional hosting options; confirm contracted region and any service-specific exceptions. Review D2L Privacy Center and contract for data location, cross-border transfers, subprocessors and retention."
+    },
+    "source": "https://www.d2l.com/privacy-center",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo / quote by enquiry; public free trial not identified."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    }
+  ]
+}

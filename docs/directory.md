@@ -58,7 +58,38 @@ A product has one main `category` and any number of `secondaryCategories`.
 | `geographicAvailability` | Markets served |
 | `alternatives` | Ids of comparable products |
 | `commercialRelationship` | `none`, `affiliate`, `sponsor` or `vendor-subscriber`, with the start date |
-| `status`, `lastVerified` | `active`, `beta`, `acquired`, `discontinued`, and the date the whole profile was last checked |
+| `assurance` | The evidence & assurance layer (below) |
+| `status`, `lastVerified` | `active`, `beta`, `acquired`, `discontinued`, and the date the whole profile was last checked. `lastVerified` is left out while `draft` is true and required once it is false |
+| `draft` | `true` keeps the record off production. A record publishes once it has its basics (name, vendor, category, website, summary, status) and a `lastVerified` date, whatever else is missing |
+| `researchTasks` | Internal to-do list: open conflicts, sources to re-open. Never shown to readers, and never a reason to hold a record back |
+| `dataGaps` | Internal name for fields we looked for and couldn't find or verify, each with a short note. Readers see "Research ongoing" in that field; the words "data gap" never appear on the site, and the notes stay internal |
+
+Vendors have the same `draft`, optional `lastVerified`, `researchTasks` and `dataGaps`, plus
+`ownershipDetail` (who owns it, in words, with provenance) and `legalEntity` (the contracting company).
+
+## Evidence & assurance
+
+The questions a procurement team asks before signing, and how well each answer is evidenced.
+Each product can carry four areas, each with a `status`, a `finding` in our words, a `caveat` on
+scope, `sources` and a `checked` date:
+
+| Area | Covers |
+| --- | --- |
+| `accessibility` | Accessibility conformance report or accreditation, its standard, date and scope |
+| `security` | SOC 2, ISO certifications and what they cover |
+| `dataResidency` | Where data is stored and processed, Australia first |
+| `ai` | AI providers and models, and whether customer data trains them |
+
+Statuses, strongest first:
+
+- `independently-evidenced`: a third-party report or certificate whose scope and date we have
+  checked (an accessibility audit by an outside firm, a certificate from the certification body)
+- `publicly-stated`: the vendor says it publicly; we have not seen the underlying report
+- `vendor-confirmation-required`: the vendor says the evidence exists on request, or it is unclear
+- `not-disclosed`: nothing public found
+
+`procurementChecks` lists what a buyer should ask for before signing. The assurance layer is a
+members' feature; the free profile shows the statuses only.
 
 ## Provenance: every fact says where it came from
 
@@ -66,7 +97,7 @@ Most fields are wrapped in a provenance record:
 
 ```json
 "pricingModel": {
-  "value": { "basis": "per-active-user", "freeTier": false, "trial": true },
+  "value": { "basis": "per-active-user", "trial": true },
   "source": "https://example.com/pricing",
   "checked": "2026-11-20",
   "origin": "verified"
@@ -80,6 +111,17 @@ Most fields are wrapped in a provenance record:
   (our best reading where the vendor doesn't say; use sparingly and never for prices).
 
 Leave a field out rather than guess. An empty field is honest; a wrong one costs trust.
+
+**Publish with gaps.** Most vendors don't publish everything we'd like to record, and that is
+useful information in itself. A missing or unverifiable value is never a reason to hold a
+record back: leave the field out, add an entry to `dataGaps` saying what was looked for, and
+publish. The profile shows "Research ongoing" for that field.
+
+"Research ongoing" is literal: we contact the product team for every open gap. When they answer,
+record the value with `origin: "vendor-supplied"` and the page or document they pointed to as the
+`source` (or, for an answer by email, our page that records it), then remove the gap. An answer
+by email alone with nothing published stays `vendor-supplied` and is worth re-checking at the
+next 90-day review.
 
 ## The rules
 
@@ -101,6 +143,22 @@ Leave a field out rather than guess. An empty field is honest; a wrong one costs
 6. **Our words.** Summaries and feature lists are written fresh, never pasted from vendor pages.
 7. **CredentialCraft** is Jim's own business. If it is ever listed, it carries the ownership note
    from `docs/editorial.md` and is never scored, ranked or placed in a comparison.
+
+## Importing from the data-entry workbook
+
+The first 25 LMS records were filled in a spreadsheet (one row per product and vendor, with a
+source, date and origin beside each fact) and imported with:
+
+```
+python3 scripts/import-directory-xlsx.py <workbook.xlsx> --annotate <annotated.xlsx>
+```
+
+The importer updates the JSON records in place and keeps the fields the workbook doesn't cover
+(summary, features, integrations, alternatives, evidence, assurance). It never guesses: a value
+that is missing or doesn't fit the schema is left out and recorded in the record's
+`dataGaps`. With `--annotate` it also writes a copy of the workbook
+with those cells marked `*` and a comment saying why. Research tasks marked done (`y`) are closed.
+Every record with a `lastVerified` date is published (`draft: false`); gaps don't hold it back.
 
 ## Adding a product
 

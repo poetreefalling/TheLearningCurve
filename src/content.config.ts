@@ -129,10 +129,39 @@ const vendors = defineCollection({
     size: fact(z.string()).optional(), // "51-200 employees"
     funding: fact(z.string()).optional(), // "Series B, US$40M total"
     ownership: fact(z.enum(['independent', 'venture-backed', 'private-equity', 'public', 'subsidiary', 'open-source', 'other'])).optional(),
+    ownershipDetail: fact(z.string()).optional(), // "Owned by funds managed by KKR, with Dragoneer"
+    legalEntity: z.string().optional(), // the contracting company, e.g. "Moodle Pty Ltd (ABN 55 116 513 636)"
     status: z.enum(['active', 'acquired', 'closed']),
     acquiredBy: reference('vendors').optional(),
-    lastVerified: z.coerce.date(),
+    // Left out until the whole record has been checked; required once draft is false.
+    lastVerified: z.coerce.date().optional(),
+    draft: z.boolean().default(false),
+    researchTasks: z.array(z.string()).default([]), // internal to-do list; never shown to readers
+    // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+    // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
+    dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
+  }).superRefine((v, ctx) => {
+    if (!v.draft && !v.lastVerified) ctx.addIssue({ code: 'custom', message: 'A published vendor needs lastVerified' });
   }),
+});
+
+// The evidence & assurance layer: what a buyer's procurement team will ask about, and how well
+// each answer is evidenced. "independently-evidenced" needs a third-party report or certificate
+// whose scope and date we have checked; a vendor's own statement is "publicly-stated".
+const assuranceStatus = z.enum(['independently-evidenced', 'publicly-stated', 'vendor-confirmation-required', 'not-disclosed']);
+const assuranceArea = z.object({
+  status: assuranceStatus,
+  finding: z.string().max(700), // our words: what the evidence says
+  caveat: z.string().max(500).optional(), // scope limits: versions, modules, regions, expiry
+  sources: z.array(z.object({ title: z.string(), url: z.string().url() })).default([]),
+  checked: z.coerce.date(),
+});
+const assurance = z.object({
+  accessibility: assuranceArea.optional(),
+  security: assuranceArea.optional(),
+  dataResidency: assuranceArea.optional(), // Australian data residency first; other regions in the finding
+  ai: assuranceArea.optional(),
+  procurementChecks: z.array(z.string()).default([]), // what a buyer should ask for before signing
 });
 
 const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
@@ -165,8 +194,8 @@ const products = defineCollection({
       })).optional(),
       pricingModel: fact(z.object({
         basis: z.enum(['per-seat', 'per-active-user', 'per-learner', 'flat', 'usage', 'quote', 'free', 'open-source']),
-        freeTier: z.boolean(),
-        trial: z.boolean(),
+        freeTier: z.boolean().optional(), // left out when the vendor doesn't say
+        trial: z.boolean().optional(),
       })).optional(),
       deployment: fact(z.array(z.enum(['cloud', 'self-hosted', 'hybrid'])).min(1)).optional(),
       accessibility: fact(z.object({
@@ -203,14 +232,24 @@ const products = defineCollection({
         since: z.coerce.date().optional(),
         notes: z.string().optional(),
       }),
+      // Evidence & assurance (members and procurement). Optional until researched.
+      assurance: assurance.optional(),
       status: productStatus,
-      lastVerified: z.coerce.date(),
+      // Left out until the whole record has been checked; required once draft is false.
+      lastVerified: z.coerce.date().optional(),
       draft: z.boolean().default(false),
+      researchTasks: z.array(z.string()).default([]), // internal to-do list and open conflicts; never shown to readers
+      // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+      // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
+      dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
     })
     .superRefine((p, ctx) => {
       const isAi = p.category.id === 'ai-for-learning' || p.secondaryCategories.some((c) => c.id === 'ai-for-learning');
       if (isAi && !p.aiDisclosure) {
         ctx.addIssue({ code: 'custom', message: 'An AI for Learning product needs aiDisclosure (use models: [] and "not-disclosed" if the vendor says nothing)' });
+      }
+      if (!p.draft && !p.lastVerified) {
+        ctx.addIssue({ code: 'custom', message: 'A published product needs lastVerified (the date the whole record was checked)' });
       }
       if (p.commercialRelationship.kind !== 'none' && !p.commercialRelationship.since) {
         ctx.addIssue({ code: 'custom', message: 'A commercial relationship needs its start date (`since`)' });

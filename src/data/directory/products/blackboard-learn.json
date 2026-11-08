@@ -1,0 +1,233 @@
+{
+  "name": "Blackboard Learn",
+  "vendor": "blackboard",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.blackboard.com/",
+  "summary": "An institutional learning management system for course delivery, assessment, grading, communication and learning administration. The product supports the Blackboard Learn Ultra experience and sits within Blackboard’s focused teaching and learning portfolio.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "government"
+    ],
+    "source": "https://www.blackboard.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Course and curriculum delivery",
+      "online and blended learning",
+      "assessment and grading",
+      "learner communication",
+      "accessibility support",
+      "institutional teaching and learning"
+    ],
+    "source": "https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard-learn",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course content and learning modules",
+      "assignments and assessments",
+      "gradebook",
+      "communication and collaboration",
+      "analytics and reporting",
+      "Ultra course experience",
+      "integrations with external learning tools",
+      "Blackboard Ally accessibility support is a related product, not assumed to be included in every licence"
+    ],
+    "source": "https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard-learn",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI 1.3 and REST APIs",
+      "named integrations include Turnitin, VitalSource, Zoom and Microsoft Teams",
+      "SIS and Partner Network integrations"
+    ],
+    "source": "https://docs.blackboard.com/docs/blackboard/lti/welcome",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.blackboard.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://help.blackboard.com/Learn/Instructor/Ultra/Course_Content/Create_Content/Add_SCORM",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.blackboard.com/trust-center/hosting-and-data-transfers",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; institutional quote required. Institutional quote; no public list price."
+    },
+    "source": "https://www.blackboard.com/solutions",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2",
+      "ISO 27001",
+      "ISO 27701"
+    ],
+    "source": "https://www.blackboard.com/trust-center/security",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "additional cloud controls/certifications should be checked against the current Trust Center and product scope."
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Microsoft Azure OpenAI Service",
+        "AWS Bedrock"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "Generative AI features are opt-in. Blackboard says client data is not used to (re)train the models; Microsoft commits to this contractually for Azure OpenAI."
+    },
+    "source": "https://www.blackboard.com/trust-center/generative-ai-functionalities",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "canvas-lms",
+    "moodle-lms",
+    "d2l-brightspace",
+    "open-lms",
+    "sakai"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "vendor-confirmation-required",
+      "finding": "Blackboard describes product-specific accessibility conformance reports, but the current Blackboard LMS report was not retrieved.",
+      "caveat": "Request the current, dated report for Blackboard LMS (Ultra).",
+      "sources": [
+        {
+          "title": "Blackboard accessibility",
+          "url": "https://www.blackboard.com/our-commitment-to-accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Blackboard states ISO 27001 and ISO 27701 certification (audited by A-LIGN) and annual SOC 2 Type II examinations for several products, including Blackboard LMS.",
+      "caveat": "SOC 2 reports are requested through the account manager.",
+      "sources": [
+        {
+          "title": "Blackboard security",
+          "url": "https://www.blackboard.com/trust-center/security"
+        },
+        {
+          "title": "Blackboard compliance",
+          "url": "https://www.blackboard.com/trust-center/compliance"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "Blackboard says many products are regionally hosted, but support, messaging and generative AI may be provided from outside the hosting location.",
+      "caveat": "Confirm the Australian region and every exception in the contract.",
+      "sources": [
+        {
+          "title": "Blackboard hosting and data transfers",
+          "url": "https://www.blackboard.com/trust-center/hosting-and-data-transfers"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "publicly-stated",
+      "finding": "Generative AI features are opt-in and run on Microsoft Azure OpenAI Service (and AWS Bedrock for Ally). Blackboard says client data is not used to retrain the models, and publishes a transparency note for each feature.",
+      "caveat": "Azure OpenAI runs on multiple global instances; ask where Australian prompts are processed.",
+      "sources": [
+        {
+          "title": "Blackboard generative AI features",
+          "url": "https://www.blackboard.com/trust-center/generative-ai-functionalities"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md)."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free institutional tier identified; institutional demonstration and procurement enquiry.",
+      "trialNote": "Institutional demonstration / procurement enquiry; public trial not identified"
+    },
+    "source": "https://www.blackboard.com/solutions",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA",
+      "evidence": "Blackboard states WCAG 2.2 AA compliance at company level; request the current Blackboard Learn product-specific ACR/VPAT and version/scope before relying on this for procurement."
+    },
+    "source": "https://www.blackboard.com/company",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Regional hosting options; exact location, transfer arrangements and subprocessors are contract-dependent. Use the hosting and data-transfer documentation and contract schedule to confirm the specific tenant region, cross-border transfers and subprocessors."
+    },
+    "source": "https://www.blackboard.com/trust-center/hosting-and-data-transfers",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Institutional demonstration / procurement enquiry; public trial not identified."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    }
+  ]
+}

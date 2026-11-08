@@ -1,0 +1,255 @@
+{
+  "name": "CYPHER Learning",
+  "vendor": "cypher-learning-inc",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.cypherlearning.com/",
+  "summary": "A cloud learning platform combining LMS, course authoring, skills and compliance tools with an AI agent for learners and course creators.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Employee training",
+      "customer and partner education",
+      "compliance",
+      "blended learning",
+      "skills development",
+      "course creation and delivery"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course authoring",
+      "15+ assessment styles",
+      "learning paths",
+      "social learning",
+      "gamification",
+      "compliance",
+      "skills management",
+      "mobile apps",
+      "analytics",
+      "AI course and assessment creation",
+      "learner AI agent"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "30+ built-in integrations and 300+ via LTI claimed on pricing page",
+      "API, webhooks, Zapier, Workato and SSO options"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.cypherlearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.1",
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "aicc",
+      "qti"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "notes": "HTTPS, encrypted database, AWS virtual private cloud, vulnerability scanning and penetration testing are described by vendor; do not list ISO 27001 as certified without a current certificate."
+  },
+  "alternatives": [
+    "docebo",
+    "absorb-lms",
+    "talentlms",
+    "tovuti-lms",
+    "learnupon"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "publicly-stated",
+      "finding": "Vendor FAQ states WCAG 2.1 AA in place and WCAG 2.2 AA/EAA in progress. No detailed current VPAT/ACR located in this pass.",
+      "caveat": "Need current ACR and scope across AI agent, authoring, learner UI and mobile.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/faq/privacy-and-security"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/hubfs/docs/cypher/CYPHER-Learning-data-privacy.pdf"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "publicly-stated",
+      "finding": "Vendor FAQ states SOC 2 Type 2 certified; separate public privacy FAQ says working toward ISO 27001 (not certified at time of that document). Confirm current certificate status; do not state ISO certified without current certificate.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/faq/privacy-and-security"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/hubfs/docs/cypher/CYPHER-Learning-data-privacy.pdf"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "publicly-stated",
+      "finding": "Public privacy FAQ states US Virginia, EU Frankfurt and AU Sydney storage based on customer location; transfer outside agreed geography requires written consent. Verify current DPA and backup/support exceptions.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/faq/privacy-and-security"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/hubfs/docs/cypher/CYPHER-Learning-data-privacy.pdf"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "CYPHER Agent for learners and creators; AI credits; public page does not identify all model providers or full training/retention terms.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/faq/privacy-and-security"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cypherlearning.com/hubfs/docs/cypher/CYPHER-Learning-data-privacy.pdf"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; contact sales for Enhanced/Enterprise pricing.",
+      "trialNote": "Demo / pricing enquiry; free trial not confirmed on public pricing page"
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; quote required. Enhanced and Enterprise plans are quote-based; pricing page invites prospects to request pricing."
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources No current product-specific ACR/VPAT was identified in the reviewed public materials; request the report and supported browser/assistive-technology matrix."
+    },
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Australia",
+        "EU",
+        "USA"
+      ],
+      "notes": "AWS regions listed by vendor: Virginia (USA), Frankfurt (Germany) and Sydney (Australia); Azure hosting may be arranged for specialised needs. Confirm customer-specific region. Vendor describes AWS hosting and regional locations. Confirm tenant location, Azure exception arrangements, subprocessors, retention and data transfer clauses."
+    },
+    "source": "https://www.cypherlearning.com/faq",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "CYPHER Agent and AI course creation, assessments and skills tools; named underlying foundation-model providers are not specified on the pricing page."
+    },
+    "source": "https://www.cypherlearning.com/pricing",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo / pricing enquiry; free trial not confirmed on public pricing page."
+    },
+    {
+      "field": "standards",
+      "note": "workbook adds a qualification that the list can't hold: \". xAPI Content Player was marked “coming soon” on the current pricing/features page and is not listed as supported.\". Confirm and add any standard that is now supported."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract. Regions the vendor names: Australia, EU, USA."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
+}

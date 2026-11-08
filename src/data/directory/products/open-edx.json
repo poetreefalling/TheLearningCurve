@@ -1,0 +1,249 @@
+{
+  "name": "Open edX",
+  "vendor": "axim-collaborative",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://openedx.org/platform/",
+  "summary": "An open-source learning platform combining a learner-facing LMS with Open edX Studio authoring, designed for large-scale online courses, programs and credentials.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "MOOCs",
+      "online campuses",
+      "degree and non-degree programs",
+      "professional learning",
+      "workforce upskilling",
+      "self-paced and instructor-led courses"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Open edX Studio authoring",
+      "course sequencing",
+      "assessments",
+      "discussion and communication",
+      "certificates",
+      "learner analytics",
+      "reusable content",
+      "XBlocks",
+      "mobile-friendly delivery"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "LTI 1.3",
+      "APIs and XBlocks",
+      "identity integrations including SAML and OAuth",
+      "provider ecosystem"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted",
+      "cloud"
+    ],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true,
+      "freeTierNote": "Yes. Open edX platform code is open source and can be self-hosted; managed hosting, support and implementation are chargeable through providers.",
+      "trialNote": "Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers"
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "moodle-lms",
+    "canvas-lms",
+    "sakai"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "not-disclosed",
+      "finding": "edX accessibility policy (2020) targets WCAG 2.1 AA for edX.org, but this is not a current product-specific Open edX deployment ACR. No current platform ACR verified.",
+      "caveat": "Distinguish Open edX open-source code from edX.org service and each operator's theme/extensions.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "not-disclosed",
+      "finding": "No universal platform-level SOC 2/ISO certification: Open edX is open-source software and each operator/provider is responsible for controls.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "Self-hosted or service-provider hosted; data location and subprocessors are determined by operator.",
+      "sources": [
+        {
+          "title": "Open edX FAQ",
+          "url": "https://openedx.org/faq/what-is-the-open-edx-platform-and-how-does-it-work/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "vendor-confirmation-required",
+      "finding": "Platform describes AI extensibility and provider choice; no single default model or universal training policy.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://openedx.org/faq/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.edx.org/accessibility"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Higher education; workforce development; government; NGOs; enterprise learning; online education providers\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Open edX core software: free (open-source licence); hosting and services priced by the selected provider.",
+      "notes": "There is no single Open edX SaaS price. Total cost depends on hosting provider, implementation, integrations, support and scale."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Accessibility depends on the Open edX release, theme, customisations and course content; request provider-specific ACR/VPAT. No universal platform-wide conformance claim entered; evaluate the deployed release and customised learner/admin journeys."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Security is deployment/provider dependent; obtain hosting provider SOC/ISO assurance and review the security of the selected Open edX release."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Self-hosted or managed hosting; customer selects/negotiates region with deployment provider. Open edX is software rather than one centrally hosted service. Data controller/operator and subprocessors depend on the deployment provider."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Optional AI capabilities/extensions; model provider depends on implementation and hosting partner. Optional AI capabilities/extensions; model provider depends on implementation and hosting partner."
+    },
+    "source": "https://openedx.org/platform/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Open-source software can be downloaded and self-hosted; hosted services are supplied by independent providers."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
+}

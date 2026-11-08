@@ -1,0 +1,224 @@
+{
+  "name": "Schoology Learning",
+  "vendor": "powerschool",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.powerschool.com/classroom/schoology-learning/",
+  "summary": "A K–12-focused learning management system in the PowerSchool ecosystem, supporting course organisation, instruction, assessment, communication and family engagement.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Classroom instruction",
+      "blended learning",
+      "assignment management",
+      "assessment and feedback",
+      "teacher-student-family communication"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course materials",
+      "assignments and assessments",
+      "gradebook",
+      "discussions",
+      "calendars",
+      "learning resources",
+      "mobile access",
+      "PowerSchool ecosystem connectivity"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "PowerSchool SIS and education technology integrations"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No public free tier for institutional Schoology Learning identified; district/school sales enquiry.",
+      "trialNote": "Demo by enquiry; public free trial not identified"
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "google-classroom",
+    "canvas-lms",
+    "itslearning",
+    "moodle-lms"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "status": "vendor-confirmation-required",
+      "finding": "No current Schoology Learning ACR/VPAT verified in this pass; request product-specific report.",
+      "caveat": "PowerSchool general accessibility claims do not establish Schoology scope.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.powerschool.com/trust-center/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "status": "vendor-confirmation-required",
+      "finding": "PowerSchool trust materials should be requested for current SOC 2 Type II/ISO scope and Schoology service boundary; no current product-specific report verified here.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.powerschool.com/trust-center/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "status": "vendor-confirmation-required",
+      "finding": "PowerSchool DPA/subprocessor and hosting details must be checked for specific Schoology tenant; AU residency not established.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.powerschool.com/trust-center/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "status": "not-disclosed",
+      "finding": "No complete Schoology-specific model/provider and training policy verified in this pass.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.powerschool.com/trust-center/"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; institutional/district quote required. Institutional / district pricing is quote-based; no public list price identified."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "lti-advantage",
+      "scorm-1.2",
+      "oneroster"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Schoology Learning product-specific ACR/VPAT and accessibility scope."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.powerschool.com/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "PowerSchool publishes security and privacy resources; confirm current Schoology-specific certifications, report scope and contractual controls."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud-hosted; district-specific data residency and regional hosting need confirmation in contract. Review PowerSchool privacy/security documentation and district agreement for hosting, subprocessors, retention and student data terms."
+    },
+    "source": "https://www.powerschool.com/security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Primarily North America",
+      "international availability subject to sales and support"
+    ],
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "PowerSchool AI features are evolving across its product portfolio; a Schoology Learning-specific model/provider was not confirmed in reviewed public materials."
+    },
+    "source": "https://www.powerschool.com/classroom/schoology-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo by enquiry; public free trial not identified."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
+}
