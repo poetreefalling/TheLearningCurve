@@ -7,6 +7,7 @@ export const REPORT = {
   pages: 41,
   researched: '9 November 2026',
   magnet: 'ai-report',
+  homeCard: true, // feature card in the home page's first row of stories (src/pages/index.astro)
 };
 
 export type Tool = { n: number; name: string; id: string };
