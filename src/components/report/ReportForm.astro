@@ -17,6 +17,8 @@ const id = `rf-${placement}`;
   <input type="hidden" name="next" value={`/reports/${REPORT.slug}/thanks/`} />
   <div class="nl-hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off" /></label></div>
   <div class="rf-row">
+    <label class="visually-hidden" for={`${id}-name`}>First name</label>
+    <input id={`${id}-name`} class="rf-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" maxlength="60" required disabled={!on} />
     <label class="visually-hidden" for={`${id}-email`}>Work email address</label>
     <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
     <button class="rf-button" type="submit" disabled={!on}>{on ? button : 'Coming soon'}</button>
