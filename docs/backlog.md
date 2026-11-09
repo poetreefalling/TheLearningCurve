@@ -84,9 +84,9 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 31 | LearnWorlds vs Kajabi | learnworlds vs kajabi | 30 · 15 | comparison | todo |
 | 32 | Generative AI Tutors: What the First Studies Found | ai tutor study | check | trends | blocked: duplicate of /trends/online-learning-research-ai-tutor-trial/ (targets "ai tutor study" and "ai tutor research" as secondary keywords and covers the Maryland, Khanmigo and Narine & Diaz trials, the main AI tutor studies of the last 60 days) |
 | 33 | Formative Assessment Examples for Self-Paced Online Courses | formative assessment examples (row keyword "formative assessment online" is 30 · 19 US, 10 · 13 AU; kept as secondary; checked 9 Nov 2026) | 5,400 · 20 | library | in PR (Wed 11 Nov 12:00) |
-| 34 | Backward Design: Start With the Assessment | backward design | check | guide | next |
+| 34 | Backward Design in Instructional Design: Start With the Assessment | backwards design instructional design (row keyword "backward design" is 2,400 · 55 US, 210 · 44 AU, too hard for now; kept as secondary with "backwards design" 2,400 · 49; checked 9 Nov 2026) | 50 · 18 | guide | in PR (Thu 12 Nov 00:00) |
 | 35 | The Best Microlearning Apps, Judged on Learning | best microlearning apps | 880 · 26 | comparison | todo |
-| 36 | Motivation in Online Courses: What Self-Determination Theory Suggests | motivation in online learning | check | library | todo |
+| 36 | Motivation in Online Courses: What Self-Determination Theory Suggests | motivation in online learning | check | library | next |
 | 37 | How Long Should a Course Video Be? | how long should course videos be | check | guide | todo |
 | 38 | Open Badges and Verifiable Credentials, Explained | open badges | check | trends | todo |
 | 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect | check | library | todo |
