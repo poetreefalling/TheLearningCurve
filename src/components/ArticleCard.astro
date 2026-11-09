@@ -1,5 +1,5 @@
 ---
-import { type Article, urlOf, heroSrc, heroSrcset, formatDate } from '../lib/articles';
+import { type Article, urlOf, heroSrc, heroSrcset, formatDate, readingTime } from '../lib/articles';
 import { overall } from '../lib/score';
 
 interface Props {
@@ -49,6 +49,6 @@ const isNew = Date.now() - d.published.valueOf() < 2 * 86400_000;
         {score.toFixed(1)} / 5
       </span>
     )}
-    <div class="meta">{d.library ? `Last reviewed ${formatDate(d.library.lastReviewed)}` : formatDate(d.published)}{d.draft && ' · Draft'}</div>
+    <div class="meta">{d.library ? `Last reviewed ${formatDate(d.library.lastReviewed)}` : formatDate(d.published)} · {readingTime(a)} min read{d.draft && ' · Draft'}</div>
   </div>
 </a>
