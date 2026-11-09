@@ -159,7 +159,13 @@ Four variable fonts, self-hosted through Fontsource (no external font requests).
 - **Editorial grid.** The home page reads like a front page: a marigold masthead with search,
   wordmark and newsletter button; a nav bar of five sections, each with an italic description
   (Discover, Compare, Insights, Resources, Intelligence); then a lead story in a marigold frame and
-  a river of cards.
+  a grid of cards. Below the fold, a **Browse** tab strip (All, then one tab per section with
+  live articles) filters **section bands**: each band pairs a lead with its picture and two
+  text-only headlines, and a selected tab shows up to eight more. A 300px **rail** beside the
+  bands holds Start here (library classics as square cards), Jim's take (articles with
+  `opinion: true`, byline in small caps, italic headline) and the latest reader poll. Mixing
+  picture and text-only items keeps the page from reading as a wall of cards, so don't give
+  every item an image.
 - **Space is a feature.** Sections breathe (56px above a section head). Hairlines, not boxes,
   separate most items.
 - **Cards** are flat: image, kicker, headline, a line of summary. No drop shadows except on framed
