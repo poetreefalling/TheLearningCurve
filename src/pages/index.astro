@@ -6,6 +6,8 @@ import AdSlot from '../components/AdSlot.astro';
 import SponsoredCard from '../components/SponsoredCard.astro';
 import HowWeEvaluate from '../components/home/HowWeEvaluate.astro';
 import IntelligencePreview from '../components/home/IntelligencePreview.astro';
+import ReportCard from '../components/report/ReportCard.astro';
+import { REPORT } from '../data/reports/ai-tools-for-learning-design';
 import { SITE } from '../site.config';
 import { getArticles } from '../lib/articles';
 import { pickAd } from '../lib/ads';
@@ -18,8 +20,10 @@ const others = all.filter((a) => a !== lead);
 // rectangle take the last two cells when they're booked; the articles they displace move down.
 const hasCard = !!pickAd('card', 'home');
 const hasRect = !!pickAd('rectangle', 'home');
-const row1 = others.slice(0, 3);
-const row2 = others.slice(3, 6 - Number(hasCard) - Number(hasRect));
+// The free field guide takes the last cell of the first row while REPORT.homeCard is on.
+const promo = REPORT.homeCard;
+const row1 = others.slice(0, 3 - Number(promo));
+const row2 = others.slice(row1.length, row1.length + 3 - Number(hasCard) - Number(hasRect));
 const shown = new Set([lead, ...row1, ...row2].filter(Boolean));
 const library = all.filter((a) => a.data.section === 'library' && !shown.has(a)).slice(0, 4);
 library.forEach((a) => shown.add(a));
@@ -52,6 +56,7 @@ const jsonLd = [
     {row1.length > 0 && (
       <section class="home-grid" aria-label="Latest">
         {row1.map((a) => <ArticleCard article={a} />)}
+        {promo && <ReportCard />}
       </section>
     )}
 

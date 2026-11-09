@@ -1183,3 +1183,19 @@ html, body { overflow-x: clip; }
 @media (prefers-reduced-motion: reduce) {
   .rl-page, .rl-job, .rl-method li, .rl-check li, .rl-stakes-bar span, .rl-sticky, .rf-button { transition: none !important; }
 }
+/* Home page feature card for a free report: the guide's pages fanned on marigold */
+.rc-fan { position: relative; aspect-ratio: 3 / 2; border-radius: 2px; background: var(--band); overflow: hidden; }
+.rc-page { position: absolute; left: 50%; top: 9%; height: 104%; width: auto !important; aspect-ratio: 640 / 905 !important; object-fit: cover; border-radius: 2px !important; background: #ffffff; box-shadow: 0 10px 24px rgba(22, 24, 29, 0.25); transform-origin: 50% 100%; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.rc-cover { z-index: 4; transform: translateX(-50%) rotate(-2deg); }
+.rc-p1 { z-index: 3; transform: translateX(-38%) rotate(6deg); }
+.rc-p2 { z-index: 2; transform: translateX(-28%) rotate(12deg); }
+.rc-p3 { z-index: 1; transform: translateX(-66%) rotate(-8deg); }
+.rc-cta { color: var(--ink); font-weight: 600; }
+.rc:hover .rc-cta { text-decoration: underline; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .rc:hover .rc-cover { transform: translateX(-54%) translateY(-2%) rotate(-4deg) scale(1.02); }
+  .rc:hover .rc-p1 { transform: translateX(-26%) translateY(-1%) rotate(10deg); }
+  .rc:hover .rc-p2 { transform: translateX(-10%) rotate(18deg); }
+  .rc:hover .rc-p3 { transform: translateX(-80%) rotate(-13deg); }
+}
+@media (prefers-reduced-motion: reduce) { .rc-page { transition: none; } }
