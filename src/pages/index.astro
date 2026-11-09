@@ -18,13 +18,14 @@ const lead = all.find((a) => a.data.featured) ?? all[0];
 const others = all.filter((a) => a !== lead);
 
 // The grid under the lead: two rows of three. In the second row a sponsored card and a medium
-// rectangle take the last two cells when they're booked; the articles they displace move down.
+// The medium rectangle sits in the rail beside the section bands (SectionBands.astro), not here,
+// so it never lands right under the billboard. A booked sponsored card takes the last cell;
+// the article it displaces moves down into the bands.
 const hasCard = !!pickAd('card', 'home');
-const hasRect = !!pickAd('rectangle', 'home');
 // The free field guide takes the last cell of the first row while REPORT.homeCard is on.
 const promo = REPORT.homeCard;
 const row1 = others.slice(0, 3 - Number(promo));
-const row2 = others.slice(row1.length, row1.length + 3 - Number(hasCard) - Number(hasRect));
+const row2 = others.slice(row1.length, row1.length + 3 - Number(hasCard));
 const shown = new Set([lead, ...row1, ...row2].filter(Boolean));
 const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url, potentialAction: { '@type': 'SearchAction', target: `${SITE.url}/search/?q={query}`, 'query-input': 'required name=query' } },
@@ -59,11 +60,10 @@ const jsonLd = [
 
     <AdSlot unit="billboard" page="home" class="ad-band" />
 
-    {(row2.length > 0 || hasCard || hasRect) && (
+    {(row2.length > 0 || hasCard) && (
       <section class="home-grid home-grid-2" aria-label="More stories">
         {row2.map((a) => <ArticleCard article={a} />)}
         <SponsoredCard />
-        <AdSlot unit="rectangle" page="home" class="ad-cell" />
       </section>
     )}
   </div>

@@ -3,6 +3,7 @@
 // picture, plus two text-only headlines), with a narrower rail beside them on wide screens.
 // The tabs filter the bands in place, and a filtered band shows up to eight more headlines (and keep ?section= in the URL); without JavaScript every
 // band shows and each band's "All …" link goes to its section page.
+import AdSlot from '../AdSlot.astro';
 import { SECTIONS, type SectionKey } from '../../site.config';
 import { type Article, urlOf, heroSrc, heroSrcset, formatDate, readingTime, slugOf } from '../../lib/articles';
 
@@ -97,6 +98,8 @@ const poll = all.find((a) => a.data.readerCheck?.kind === 'poll');
             </div>
           </section>
         )}
+
+        <AdSlot unit="rectangle" page="home" class="sb-ad" />
 
         {takes.length > 0 && (
           <section class="sb-box">

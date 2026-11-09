@@ -1217,7 +1217,7 @@ html, body { overflow-x: clip; }
 .sb-tabs button[aria-pressed='true'] { color: var(--ink); border-bottom-color: var(--accent); font-weight: 650; }
 .sb-tabs button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-.sb-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 0 calc(var(--gutter) * 1.5); }
+.sb-layout { display: grid; grid-template-columns: minmax(0, 1fr) 336px; gap: 0 calc(var(--gutter) * 1.5); }
 .sb-main { min-width: 0; }
 .sb-rail { border-left: 1px solid var(--rule); padding-left: calc(var(--gutter) * 1.5); }
 
@@ -1266,3 +1266,5 @@ html, body { overflow-x: clip; }
   .sb-pic { order: -1; }
   .sb-pic img { aspect-ratio: 3 / 2; }
 }
+/* The home rectangle in the rail: its own band between hairlines, like the other rail boxes. */
+.sb-ad { padding: 28px 0; border-bottom: 1px solid var(--rule-strong); }
