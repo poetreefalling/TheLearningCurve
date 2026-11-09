@@ -12,6 +12,9 @@ interface Env {
   BEEHIIV_PUBLICATION_ID?: string;
 }
 
+const MAGNETS: Record<string, string> = { 'ai-report': 'AI report' };
+const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/']);
+
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
@@ -38,10 +41,19 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
 
   const page = (data.page ?? '').slice(0, 200);
   const credentialcraft = data.credentialcraft === 'yes' || data.credentialcraft === 'on';
+  // Lead magnets: a form that offers a download sends `magnet` (e.g. "AI report"). It's stored in
+  // the Beehiiv custom field "Lead magnet" so the welcome automation can send the file and Jim can
+  // see which offer and placement earned each subscriber. Only known values are accepted.
+  const magnet = MAGNETS[data.magnet ?? ''] ?? '';
+  // Where a no-JavaScript form goes after signing up: only the known thank-you pages.
+  const next = NEXT.has(data.next ?? '') ? data.next! : '';
 
-  const res = await fetch(
-    `https://api.beehiiv.com/v2/publications/${env.BEEHIIV_PUBLICATION_ID}/subscriptions`,
-    {
+  const fields = [
+    { name: 'Signup page', value: page || '/' },
+    { name: 'CredentialCraft opt-in', value: credentialcraft ? 'Yes' : 'No' },
+  ];
+  const subscribe = (custom_fields: { name: string; value: string }[]) =>
+    fetch(`https://api.beehiiv.com/v2/publications/${env.BEEHIIV_PUBLICATION_ID}/subscriptions`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${env.BEEHIIV_API_KEY}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -52,28 +64,32 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         utm_medium: 'website',
         utm_campaign: (data.placement ?? 'site').slice(0, 50),
         referring_site: page ? `https://thelearningcurve.net${page}` : 'https://thelearningcurve.net/',
-        custom_fields: [
-          { name: 'Signup page', value: page || '/' },
-          { name: 'CredentialCraft opt-in', value: credentialcraft ? 'Yes' : 'No' },
-        ],
+        custom_fields,
       }),
-    },
-  );
+    });
+
+  let res = await subscribe(magnet ? [...fields, { name: 'Lead magnet', value: magnet }] : fields);
+  // If the "Lead magnet" field hasn't been created in Beehiiv yet, never lose the sign-up over it.
+  if (!res.ok && magnet) {
+    console.log('Beehiiv error with Lead magnet field, retrying without it', res.status, await res.text());
+    res = await subscribe(fields);
+  }
 
   if (!res.ok) {
     console.log('Beehiiv error', res.status, await res.text());
     return reply(isJson, 502, 'Something went wrong. Please try again in a minute.');
   }
-  return reply(isJson, 200, 'Thanks for subscribing. Look out for a welcome email.');
+  if (magnet) return reply(isJson, 200, 'Thanks. Your download is ready.', next);
+  return reply(isJson, 200, 'Thanks for subscribing. Look out for a welcome email.', next);
 };
 
-function reply(isJson: boolean, status: number, message: string) {
+function reply(isJson: boolean, status: number, message: string, next = '') {
   if (isJson) {
     return new Response(JSON.stringify({ ok: status < 300, message }), {
       status,
       headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
     });
   }
-  const to = status < 300 ? '/newsletter/thanks/' : '/newsletter/?error=1';
+  const to = status < 300 ? next || '/newsletter/thanks/' : '/newsletter/?error=1';
   return Response.redirect(new URL(to, 'https://thelearningcurve.net').toString(), 303);
 }
