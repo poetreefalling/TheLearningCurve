@@ -1050,7 +1050,8 @@ html, body { overflow-x: clip; }
 /* the form */
 .rf { max-width: 560px; }
 .rf-row { display: flex; gap: 8px; }
-.rf-row input { flex: 1; min-width: 0; font: 400 16px/1 var(--sans); padding: 16px 16px; border: 2px solid var(--band-ink); border-radius: 6px; background: #ffffff; color: #16181d; }
+.rf-row .rf-name { flex: 1; }
+.rf-row input { flex: 2; min-width: 0; font: 400 16px/1 var(--sans); padding: 16px 16px; border: 2px solid var(--band-ink); border-radius: 6px; background: #ffffff; color: #16181d; }
 .rf-button { font: 700 14px/1 var(--label); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 22px; border: 0; border-radius: 6px; background: var(--band-ink); color: var(--band); cursor: pointer; white-space: nowrap; transition: transform 0.15s; }
 .rf-button:hover { transform: translateY(-1px); }
 .rf-button[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }

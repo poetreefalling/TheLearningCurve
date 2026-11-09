@@ -53,7 +53,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   // Where a no-JavaScript form goes after signing up: only the known thank-you pages.
   const next = NEXT.has(data.next ?? '') ? data.next! : '';
 
+  // First name, for the email greeting ({{first_name|there}} in Beehiiv). Optional on the API side.
+  const firstName = (data.first_name ?? '').replace(/[<>{}]/g, '').trim().slice(0, 60);
   const fields = [
+    ...(firstName ? [{ name: 'First Name', value: firstName }] : []),
     { name: 'Signup page', value: page || '/' },
     { name: 'CredentialCraft opt-in', value: credentialcraft ? 'Yes' : 'No' },
   ];
