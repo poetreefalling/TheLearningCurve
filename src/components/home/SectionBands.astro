@@ -1,0 +1,150 @@
+---
+// The home page below the fold: section tabs, then one band per section (a lead story with its
+// picture, plus two text-only headlines), with a narrower rail beside them on wide screens.
+// The tabs filter the bands in place, and a filtered band shows up to eight more headlines (and keep ?section= in the URL); without JavaScript every
+// band shows and each band's "All …" link goes to its section page.
+import { SECTIONS, type SectionKey } from '../../site.config';
+import { type Article, urlOf, heroSrc, heroSrcset, formatDate, readingTime, slugOf } from '../../lib/articles';
+
+interface Props {
+  all: Article[];
+  /** Articles already shown higher up the page, left out of the bands. */
+  exclude: Set<Article>;
+}
+const { all, exclude } = Astro.props;
+
+const ORDER: SectionKey[] = ['library', 'guides', 'trends', 'reviews'];
+const bands = ORDER.map((key) => {
+  const items = all.filter((a) => a.data.section === key && !exclude.has(a));
+  return { key, label: SECTIONS[key].label, lead: items[0], more: items.slice(1, 9) };
+}).filter((b) => b.lead);
+
+const dateOf = (a: Article) =>
+  a.data.library ? `Reviewed ${formatDate(a.data.library.lastReviewed)}` : formatDate(a.data.published);
+const metaOf = (a: Article) => `${dateOf(a)} · ${readingTime(a)} min read`;
+
+// Rail: "Start here" library classics, Jim's own pieces, and the latest reader poll.
+const STARTERS = ['cognitive-load-theory', 'retrieval-practice', 'dual-coding', 'effective-feedback'];
+const library = all.filter((a) => a.data.section === 'library');
+const starters = [
+  ...STARTERS.map((s) => library.find((a) => slugOf(a) === s)).filter((a): a is Article => !!a),
+  ...[...library].reverse(),
+].filter((a, i, arr) => arr.indexOf(a) === i).slice(0, 2);
+const takes = all.filter((a) => a.data.opinion).slice(0, 2);
+const poll = all.find((a) => a.data.readerCheck?.kind === 'poll');
+---
+
+{bands.length > 0 && (
+  <div class="sb" data-section-bands>
+    <nav class="sb-tabs" aria-label="Filter by section">
+      <span class="sb-tabs-label">Browse</span>
+      <button type="button" data-tab="all" aria-pressed="true">All</button>
+      {bands.map((b) => <button type="button" data-tab={b.key} aria-pressed="false">{b.label}</button>)}
+    </nav>
+
+    <div class="sb-layout">
+      <div class="sb-main">
+        {bands.map((b) => (
+          <section class="sb-band" data-band={b.key} aria-labelledby={`sb-${b.key}`}>
+            <div class="sb-head">
+              <h2 id={`sb-${b.key}`}>{b.label}</h2>
+              <a href={`/${b.key}/`}>All {b.label.toLowerCase()} →</a>
+            </div>
+            <div class="sb-body">
+              <div class="sb-text">
+                <a class="sb-lead" href={urlOf(b.lead)}>
+                  {b.lead.data.kicker.toLowerCase() !== b.label.toLowerCase() && <span class="kicker">{b.lead.data.kicker}</span>}
+                  <h3>{b.lead.data.title}</h3>
+                  <p>{b.lead.data.standfirst}</p>
+                  <span class="meta">{metaOf(b.lead)}</span>
+                </a>
+                {b.more.map((a, i) => (
+                  <a class={i < 2 ? 'sb-more' : 'sb-more sb-extra'} href={urlOf(a)}>
+                    <h3>{a.data.title}</h3>
+                    <span class="meta">{metaOf(a)}</span>
+                  </a>
+                ))}
+              </div>
+              <a class="sb-pic" href={urlOf(b.lead)} tabindex="-1" aria-hidden="true">
+                <img
+                  src={heroSrc(b.lead, '-1200')}
+                  srcset={heroSrcset(b.lead)}
+                  sizes="(min-width: 960px) 520px, 100vw"
+                  alt=""
+                  width="1200"
+                  height="800"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </a>
+            </div>
+          </section>
+        ))}
+      </div>
+
+      <aside class="sb-rail" aria-label="More to read">
+        {starters.length > 0 && (
+          <section class="sb-box">
+            <h2 class="sb-box-h">Start here</h2>
+            <div class="sb-pair">
+              {starters.map((a) => (
+                <a class="sb-square" href={urlOf(a)}>
+                  <img src={heroSrc(a, '-card')} alt="" width="800" height="533" loading="lazy" decoding="async" />
+                  <h3>{a.data.title}</h3>
+                  <span class="meta">{readingTime(a)} min read</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {takes.length > 0 && (
+          <section class="sb-box">
+            <h2 class="sb-box-h">Jim's take</h2>
+            {takes.map((a) => (
+              <a class="sb-take" href={urlOf(a)}>
+                <span class="sb-byline">Jim Lounsbury</span>
+                <h3>{a.data.title}</h3>
+                <span class="meta">{readingTime(a)} min read</span>
+              </a>
+            ))}
+          </section>
+        )}
+
+        {poll && (
+          <section class="sb-box">
+            <h2 class="sb-box-h">Reader poll</h2>
+            <a class="sb-poll" href={`${urlOf(poll)}#rc-${slugOf(poll)}-h`}>
+              <p class="sb-poll-q">{poll.data.readerCheck!.questions[0].q}</p>
+              <span class="sb-poll-cta">Answer and see the results →</span>
+              <span class="meta">From “{poll.data.title}”</span>
+            </a>
+          </section>
+        )}
+      </aside>
+    </div>
+  </div>
+)}
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-section-bands]');
+  if (root) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+    const bands = [...root.querySelectorAll<HTMLElement>('[data-band]')];
+    const show = (key: string, push: boolean) => {
+      if (!tabs.some((t) => t.dataset.tab === key)) key = 'all';
+      tabs.forEach((t) => t.setAttribute('aria-pressed', String(t.dataset.tab === key)));
+      bands.forEach((b) => (b.hidden = key !== 'all' && b.dataset.band !== key));
+      root.dataset.filter = key;
+      if (push) {
+        const url = new URL(location.href);
+        if (key === 'all') url.searchParams.delete('section');
+        else url.searchParams.set('section', key);
+        history.replaceState(null, '', url);
+      }
+    };
+    tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab!, true)));
+    const start = new URL(location.href).searchParams.get('section');
+    if (start) show(start, false);
+  }
+</script>

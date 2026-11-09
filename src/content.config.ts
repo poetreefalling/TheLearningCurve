@@ -447,6 +447,8 @@ const articles = defineCollection({
       faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
       sources: z.array(source).default([]),
       featured: z.boolean().default(false),
+      // Jim's own first-person piece: shown in the home page's "Jim's take" box.
+      opinion: z.boolean().default(false),
       published: z.coerce.date(), // full datetime with offset, e.g. 2026-11-09T12:00:00+11:00
       updated: z.coerce.date().optional(),
       draft: z.boolean().default(false),
