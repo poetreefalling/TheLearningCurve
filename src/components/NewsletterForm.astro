@@ -13,17 +13,17 @@ const id = `nl-${placement}`;
   <div class="nl-hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off" /></label></div>
   <div class="nl-form">
     <label class="visually-hidden" for={`${id}-email`}>Email address</label>
-    <input id={`${id}-email`} name="email" type="email" placeholder="you@example.com" autocomplete="email" required disabled={!on} />
+    <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
     <button class="button" type="submit" disabled={!on}>{on ? 'Subscribe' : 'Coming soon'}</button>
   </div>
   {on && (
     <label class="nl-optin">
       <input type="checkbox" name="credentialcraft" value="yes" />
-      <span>Also send me occasional updates from CredentialCraft, the course-design studio run by our founder.</span>
+      <span>I'd also like to receive occasional updates from CredentialCraft, our specialist course design and development studio.</span>
     </label>
   )}
   <p class="nl-note" role="status" aria-live="polite">
-    {on ? <>Free, once a month. Unsubscribe any time. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
+    {on ? <>Free to subscribe. One email a month. Unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
   </p>
 </form>
 
