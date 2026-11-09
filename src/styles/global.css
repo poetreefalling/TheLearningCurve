@@ -1016,3 +1016,22 @@ html, body { overflow-x: clip; }
 .ev-levels li { border: 1px solid var(--rule); border-left: 4px solid var(--ev-c, var(--rule)); padding: 14px 18px; background: var(--surface); border-radius: 0 10px 10px 0; }
 .ev-levels li .ev { margin-bottom: 8px; }
 .ev-levels p { margin: 0; }
+/* Discover hub: live directories as cards, the rest muted under "In research" */
+.cat-live { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: var(--gutter); }
+.cat-live > li > a { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 18px 18px 16px; background: var(--surface); border: 1px solid var(--rule); border-top: 6px solid var(--band); border-radius: 0 0 10px 10px; color: inherit; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.cat-live > li > a:hover { border-color: var(--ink-2); border-top-color: var(--band); box-shadow: 0 8px 24px rgba(22, 24, 29, 0.08); }
+.cat-live > li > a:hover h3 { text-decoration: underline; }
+.cat-count { font: 700 11.5px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.cat-count b { display: block; font: 800 2.6rem/1 var(--display); letter-spacing: -0.02em; color: var(--ink); text-transform: none; margin-bottom: 2px; }
+.cat-live h3 { font: 800 1.3rem/1.2 var(--display); margin-top: 4px; }
+.cat-desc { font: 400 15px/1.5 var(--sans); color: var(--ink-2); }
+.cat-logos { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.cat-logos .logo-tile-sm { margin: 0; padding: 4px 7px; border-radius: 6px; }
+.cat-logos .logo-tile-sm img { height: 13px; max-width: 72px; }
+.cat-foot { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--rule); }
+.cat-foot em { white-space: nowrap; font: 700 11.5px/1.2 var(--label); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-left: auto; }
+.cat-soon { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0 var(--gutter); }
+.cat-soon li { display: flex; flex-direction: column; gap: 4px; padding: 14px 0 16px; border-bottom: 1px dashed var(--rule); }
+.cat-soon b { font: 700 1.02rem/1.25 var(--display); color: var(--muted); }
+.cat-soon span { font: 400 14px/1.45 var(--sans); color: var(--muted); }
+@media (prefers-reduced-motion: reduce) { .cat-live > li > a { transition: none; } }
