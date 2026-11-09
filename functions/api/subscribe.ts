@@ -13,6 +13,11 @@ interface Env {
 }
 
 const MAGNETS: Record<string, string> = { 'ai-report': 'AI report' };
+// The Beehiiv automation that delivers each lead magnet. Its sign-up trigger only fires for new
+// subscribers, so the site also enrols every requester through the automation's API trigger;
+// that way people already on the list get the email too. Enrolment is "limited" (once per
+// person), so a new subscriber caught by both triggers still gets one email.
+const MAGNET_AUTOMATIONS: Record<string, string> = { 'ai-report': 'aut_c21b98cc-5af3-40a5-8cbc-46f8f1cc5399' };
 const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/']);
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -79,7 +84,22 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     console.log('Beehiiv error', res.status, await res.text());
     return reply(isJson, 502, 'Something went wrong. Please try again in a minute.');
   }
-  if (magnet) return reply(isJson, 200, 'Thanks. Your download is ready.', next);
+  if (magnet) {
+    const automation = MAGNET_AUTOMATIONS[data.magnet ?? ''];
+    if (automation) {
+      const enrol = await fetch(
+        `https://api.beehiiv.com/v2/publications/${env.BEEHIIV_PUBLICATION_ID}/automations/${automation}/journeys`,
+        {
+          method: 'POST',
+          headers: { Authorization: `Bearer ${env.BEEHIIV_API_KEY}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        },
+      ).catch((e) => { console.log('Beehiiv automation enrolment failed', String(e)); return null; });
+      // Never fail the sign-up over this: the download is already on the page.
+      if (enrol && !enrol.ok) console.log('Beehiiv automation enrolment error', enrol.status, await enrol.text());
+    }
+    return reply(isJson, 200, 'Thanks. Your download is ready.', next);
+  }
   return reply(isJson, 200, 'Thanks for subscribing. Look out for a welcome email.', next);
 };
 
