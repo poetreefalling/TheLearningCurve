@@ -13,8 +13,9 @@ export default defineConfig({
   integrations: [
     mdx(),
     sitemap({
-      // Utility pages stay out of the sitemap
-      filter: (page) => !/\/(search|404|newsletter\/thanks)\/?$/.test(page),
+      // Utility pages stay out of the sitemap: search, 404, admin and every thank-you page
+      // (all noindex). A noindex page in the sitemap shows up in Search Console as an error.
+      filter: (page) => !/\/(search|404|admin)\/?$/.test(page) && !/\/thanks\/?$/.test(page),
     }),
   ],
 });
