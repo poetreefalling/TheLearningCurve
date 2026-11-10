@@ -108,7 +108,7 @@ empty slot is better than a weak article.
    generating one: `git mv` it to `brand/originals/<slug>.webp` (so it can't be used twice), remove
    its line from the README, and say in the PR that Jim supplied it. If it fails the checks, leave
    it in place, generate as usual, and say why in the PR. Look at every result before using it. Regenerate once if it
-   has any text, logo, brand mark, extra or malformed fingers, a face in sharp focus, a
+   has a logo, logomark or brand name, large or prominent words (small screen text and handwriting are fine), extra or malformed fingers, a face in sharp focus, a
    glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
    per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
