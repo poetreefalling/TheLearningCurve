@@ -11,6 +11,7 @@
 | `references/` | The other documentary tests Jim approved, kept for comparison | Added |
 | `references/direction-*.webp` | Samples of the brighter direction (November 2026): a learner on a phone in a student room, a workplace pair on a tablet, a mature-age student in a campus library. Examples only; don't reuse them as heroes | Added |
 | `risograph-reference.webp` | Style reference for risograph heroes: navy and ochre on off-white, grain, misregistration | **Still needed** |
+| `supplied/` | Heroes Jim generated ahead of time, waiting for their article; the routine moves each one into `originals/` when it uses it (see `supplied/README.md`) | Jim |
 | `originals/` | Full-size originals of every hero, as `<slug>.webp` (quality 92) | Written by the routine |
 | `screenshots/<platform>/` | Jim's own screenshots from testing | Jim |
 
