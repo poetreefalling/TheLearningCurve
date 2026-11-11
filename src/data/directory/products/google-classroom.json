@@ -235,5 +235,22 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/google-classroom/logo.webp",
+      "alt": "Google Classroom logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/google-classroom/screenshot-1.webp",
+        "width": 1278,
+        "still": "/images/directory/google-classroom/screenshot-1-still.webp",
+        "frame": true,
+        "alt": "Google Classroom for an English 101 class, moving from the Stream to the Analytics tab: insight cards on students whose grades rose, students below a 70% average and students who haven't visited, assignment completion, average grade and active students, a per-student table, and a pop-up listing the three students whose grades rose",
+        "caption": "Class analytics in Google Classroom: insights on grades and activity, then the students behind each one.",
+        "credit": "Image: Google"
+      }
+    ]
+  }
 }
