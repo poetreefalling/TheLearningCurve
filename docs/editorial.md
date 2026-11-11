@@ -71,11 +71,12 @@ The four-part shape every library entry follows, so the collection reads as a re
 Every library entry also fills two fields for the [evidence map](/library/evidence-map/), the
 page that lists every principle with its rating:
 
-- `library.verdict`: one sentence, at most 160 characters, saying what to do in a course. It
+- `library.verdict`: one sentence, at most 200 characters (aim for 160), saying what to do in a course. It
   reads after "In practice:", so start with a verb. Good: "Explain a meaningful picture with
   narration at the same moment; keep on-screen text to key terms." Not a summary of the research.
 - `library.category`: one of `Memory and practice`, `Presenting information`, `Feedback and
-  assessment`, `Course structure`, `Motivation and engagement`.
+  assessment`, `Course structure`, `Motivation and engagement`, or `Myths and
+  misconceptions` for an entry about a claim the evidence doesn't support.
 - Use the rating definitions shown on the map: **strong** (consistent across many studies and
   reviews, including real courses), **moderate** (consistent experiments, but mostly lab, one
   programme or one kind of learner), **emerging** (early, small or mixed).
