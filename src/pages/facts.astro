@@ -1,7 +1,7 @@
 ---
 // /facts/: the basic facts about The Learning Curve in one place, each with where it's stated and when we
-// last checked it, so people, search engines and AI assistants don't have to guess. Edit src/data/facts.json;
-// /facts.json is built from the same file.
+// last checked it, so people, search engines and AI assistants don't have to guess. Edit the facts in the
+// Facts tab at /admin (or src/data/facts.json directly); /facts.json is built from the same file.
 import Base from '../layouts/Base.astro';
 import facts from '../data/facts.json';
 import { SITE } from '../site.config';
@@ -9,11 +9,14 @@ import { SITE } from '../site.config';
 const fmt = (iso: string) =>
   new Date(`${iso}T12:00:00+11:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: SITE.timezone });
 const label = (src: string) => {
+  if (/^https?:\/\//.test(src)) return new URL(src).hostname.replace(/^www\./, '');
   if (src === '/') return 'Home page';
   if (src === '/facts/') return 'This page';
   const names: Record<string, string> = { '/about/': 'About', '/disclosure/': 'Disclosure', '/how-we-review/': 'How we review', '/guides/addie-model/': 'Our first article' };
   return names[src] ?? src;
 };
+const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
+const sourceName = (f: { source: string; sourceLabel?: string }) => f.sourceLabel ?? label(f.source);
 
 const jsonLd = [
   {
@@ -73,8 +76,8 @@ const jsonLd = [
               <div class="fact" id={f.id}>
                 <dt>{f.label}</dt>
                 <dd>
-                  {f.id === 'contact' ? <a href={`mailto:${f.value}`}>{f.value}</a> : f.value}
-                  <span class="fact-source">Source: <a href={f.source}>{label(f.source)}</a> · checked {fmt(f.checked)}</span>
+                  {isEmail(f.value) ? <a href={`mailto:${f.value}`}>{f.value}</a> : f.value}
+                  <span class="fact-source">Source: <a href={f.source}>{sourceName(f)}</a> · checked {fmt(f.checked)}</span>
                 </dd>
               </div>
             ))}

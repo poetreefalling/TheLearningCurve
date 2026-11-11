@@ -36,6 +36,20 @@ Saving needs the same token as the review desk (Contents: read and write). If `m
 protection that blocks direct commits, the save fails with GitHub's message: allow the token to
 push, or ask Claude to open a pull request with the change instead.
 
+## Facts tab
+
+The facts behind /facts/ and /facts.json: who runs the site, how it's funded, how it works. Edit
+any label, detail or source, rename a group, reorder or remove facts, or add one. Each fact needs a
+source (a page on this site such as `/about/`, or a full https:// address; the source name is
+optional) and the date you last checked it: **Today** sets one, and **Mark every fact checked
+today** sets them all, once you've read them against their sources. The page's "Last checked" date
+is the newest of those dates. Facts not checked for six months are counted at the top.
+
+**Save and publish** commits `src/data/facts.json` to `main` in one commit ("Facts: … (via the
+facts editor)"); the live site rebuilds in about two minutes. Like the Ads tab, it refuses to
+overwrite if the file changed after you opened it (reload and make the change again), and it needs
+the same token.
+
 ## Submissions tab
 
 Platforms put forward at /submit. Filter by status, open the vendor's site, email them, add a
