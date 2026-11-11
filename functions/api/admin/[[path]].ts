@@ -342,6 +342,39 @@ async function queue(gh: GH) {
   return { items: items.sort((a, b) => firstPublished(a).localeCompare(firstPublished(b))) };
 }
 
+// GitHub works out whether a pull request merges cleanly in the background, so the first read
+// after main moves often says "unknown" (null). Its API responses can also be cached for up to a
+// minute, which kept serving that first null. Read fresh (a cache-busting query) a few times.
+// If GitHub still hasn't decided, the caller just tries the merge: GitHub refuses it itself (405)
+// when the change conflicts, and (409) when the branch moved, so nothing unsafe can land.
+async function freshMergeable(gh: GH, number: number): Promise<boolean | null> {
+  for (let i = 0; i < 5; i++) {
+    const pr = await gh(`/pulls/${number}?fresh=${Date.now()}-${i}`);
+    if (pr.mergeable !== null && pr.mergeable !== undefined) return pr.mergeable as boolean;
+    await new Promise((r) => setTimeout(r, 1500));
+  }
+  return null;
+}
+
+async function mergePr(gh: GH, number: number, sha: string, title: string, what: 'article' | 'change') {
+  try {
+    await gh(`/pulls/${number}/merge`, {
+      method: 'PUT',
+      body: JSON.stringify({ merge_method: 'merge', sha, commit_title: `${title} (#${number})` }),
+    });
+  } catch (e) {
+    if (e instanceof Problem && e.status === 405) {
+      throw new Problem(409, what === 'article'
+        ? 'GitHub says this article can\'t be merged yet (usually a clash with a line in the backlog). Ask Claude to fix the conflict, then publish.'
+        : 'GitHub says this change can\'t be merged yet: it clashes with something already on the live site. Ask Claude to fix the conflict, then merge.');
+    }
+    if (e instanceof Problem && e.status === 409) {
+      throw new Problem(409, 'This changed on GitHub a moment ago. Reload and look at the latest version before merging.');
+    }
+    throw e;
+  }
+}
+
 // ---------- saving and publishing ----------
 
 async function save(gh: GH, body: any) {
@@ -381,17 +414,10 @@ async function publish(gh: GH, body: any) {
   if (item.checks === 'failing') {
     return json(409, { error: 'The site check failed on the latest version, so publishing would break the live site. Ask Claude to look at it.' });
   }
-  const full = await gh(`/pulls/${pr.number}`);
-  if (full.mergeable === false) {
+  if ((await freshMergeable(gh, pr.number)) === false) {
     return json(409, { error: 'This article clashes with something already published (usually a line in the backlog). Ask Claude to fix the conflict, then publish.' });
   }
-  if (full.mergeable === null) {
-    return json(409, { error: 'GitHub is still checking this article against the live site. Try again in a few seconds.' });
-  }
-  await gh(`/pulls/${pr.number}/merge`, {
-    method: 'PUT',
-    body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${pr.number})` }),
-  });
+  await mergePr(gh, pr.number, pr.head.sha, pr.title, 'article');
   const slots = item.articles.map((a: any) => a.slot).join(', ');
   const overdue = item.articles.every((a: any) => new Date(a.published).getTime() <= Date.now());
   return json(200, {
@@ -442,12 +468,8 @@ async function mergeChange(gh: GH, body: any) {
   const checks = await checksFor(gh, pr.head.sha);
   if (checks === 'pending') return json(409, { error: 'The site check is still running. Try again in a minute or two.' });
   if (checks === 'failing') return json(409, { error: 'The site check failed, so merging could break the live site. Ask Claude to look at it.' });
-  if (pr.mergeable === false) return json(409, { error: 'This change clashes with something already on the live site. Ask Claude to fix the conflict, then merge.' });
-  if (pr.mergeable === null) return json(409, { error: 'GitHub is still checking this change against the live site. Try again in a few seconds.' });
-  await gh(`/pulls/${number}/merge`, {
-    method: 'PUT',
-    body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${number})` }),
-  });
+  if ((await freshMergeable(gh, number)) === false) return json(409, { error: 'This change clashes with something already on the live site. Ask Claude to fix the conflict, then merge.' });
+  await mergePr(gh, number, pr.head.sha, pr.title, 'change');
   return json(200, { ok: true, message: `Merged #${number}. The live site rebuilds in about two minutes.` });
 }
 
