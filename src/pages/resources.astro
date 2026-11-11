@@ -1,4 +1,5 @@
 ---
+import SectionAbout from '../components/SectionAbout.astro';
 // Resources hub: free field guides (reports), the Guides and the Library (one page per learning principle).
 import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -27,5 +28,6 @@ const guides = await getArticles('guides');
       <p class="hub-blurb">{SECTIONS.library.blurb}</p>
       {library.length ? <div class="grid-4">{library.slice(0, 8).map((a) => <ArticleCard article={a} showStandfirst={false} />)}</div> : <p class="meta">The first library pages are on their way.</p>}
     </section>
+    <SectionAbout page="resources" />
   </div>
 </Base>
