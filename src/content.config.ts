@@ -114,6 +114,7 @@ const categories = defineCollection({
   schema: z.object({
     name: z.string(),
     description: z.string().max(200),
+    intro: z.string().max(300).optional(), // the category page's opening line; falls back to description
     comparison: z.enum(['live', 'planned']),
     order: z.number().int(),
   }),
@@ -129,11 +130,61 @@ const vendors = defineCollection({
     size: fact(z.string()).optional(), // "51-200 employees"
     funding: fact(z.string()).optional(), // "Series B, US$40M total"
     ownership: fact(z.enum(['independent', 'venture-backed', 'private-equity', 'public', 'subsidiary', 'open-source', 'other'])).optional(),
+    ownershipDetail: fact(z.string()).optional(), // "Owned by funds managed by KKR, with Dragoneer"
+    legalEntity: z.string().optional(), // the contracting company, e.g. "Moodle Pty Ltd (ABN 55 116 513 636)"
     status: z.enum(['active', 'acquired', 'closed']),
     acquiredBy: reference('vendors').optional(),
-    lastVerified: z.coerce.date(),
+    // Left out until the whole record has been checked; required once draft is false.
+    lastVerified: z.coerce.date().optional(),
+    draft: z.boolean().default(false),
+    researchTasks: z.array(z.string()).default([]), // internal to-do list; never shown to readers
+    // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+    // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
+    dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
+  }).superRefine((v, ctx) => {
+    if (!v.draft && !v.lastVerified) ctx.addIssue({ code: 'custom', message: 'A published vendor needs lastVerified' });
   }),
 });
+
+// Evidence & Assurance levels, shown on every profile (docs/directory.md, /evidence-and-assurance/).
+// 1 vendor-disclosed: published by the vendor. 2 vendor-confirmed: confirmed to us directly by the
+// vendor. 3 independently-corroborated: supported by independent evidence. 4 independently-assured:
+// relevant controls covered by current third-party assurance or technical assessment whose scope
+// and date we have checked. "research-ongoing": not yet established (shown as "Research ongoing").
+const evidenceLevel = z.enum(['research-ongoing', 'vendor-disclosed', 'vendor-confirmed', 'independently-corroborated', 'independently-assured']);
+
+// The assurance layer: what a buyer's procurement team will ask about, and how well each answer
+// is evidenced. Findings are the members' layer; the free profile shows the levels.
+const assuranceArea = z.object({
+  level: evidenceLevel,
+  finding: z.string().max(700), // our words: what the evidence says
+  caveat: z.string().max(500).optional(), // scope limits: versions, modules, regions, expiry
+  sources: z.array(z.object({ title: z.string(), url: z.string().url() })).default([]),
+  checked: z.coerce.date(),
+});
+const assurance = z.object({
+  accessibility: assuranceArea.optional(),
+  security: assuranceArea.optional(),
+  dataResidency: assuranceArea.optional(), // Australian data residency first; other regions in the finding
+  ai: assuranceArea.optional(),
+  procurementChecks: z.array(z.string()).default([]), // what a buyer should ask for before signing
+});
+
+// One answer in an AI profile area. A value without a source stays "research-ongoing".
+const aiAnswer = z
+  .object({
+    question: z.string(), // "Trains AI on customer data"
+    value: z.string().optional(), // as recorded; left out when unknown
+    level: evidenceLevel,
+    source: z.string().url().optional(),
+    checked: z.coerce.date().optional(),
+    note: z.string().optional(), // scope or caveat, e.g. "Edu and business plans only"
+    conflict: z.boolean().default(false), // sources disagree; shown, never presented as resolved
+  })
+  .superRefine((a, ctx) => {
+    if (a.level !== 'research-ongoing' && !a.source) ctx.addIssue({ code: 'custom', message: `"${a.question}": an evidence level above research-ongoing needs a source` });
+  });
+const aiArea = z.object({ summary: z.string().max(400).optional(), answers: z.array(aiAnswer).default([]) });
 
 const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
 const standard = z.enum([
@@ -165,8 +216,8 @@ const products = defineCollection({
       })).optional(),
       pricingModel: fact(z.object({
         basis: z.enum(['per-seat', 'per-active-user', 'per-learner', 'flat', 'usage', 'quote', 'free', 'open-source']),
-        freeTier: z.boolean(),
-        trial: z.boolean(),
+        freeTier: z.boolean().optional(), // left out when the vendor doesn't say
+        trial: z.boolean().optional(),
       })).optional(),
       deployment: fact(z.array(z.enum(['cloud', 'self-hosted', 'hybrid'])).min(1)).optional(),
       accessibility: fact(z.object({
@@ -203,14 +254,56 @@ const products = defineCollection({
         since: z.coerce.date().optional(),
         notes: z.string().optional(),
       }),
+      // Logo and screenshots for the profile page, from public/images/directory/<id>/ (docs/directory.md).
+      media: z
+        .object({
+          logo: z.object({ src: z.string(), alt: z.string(), source: z.string().url().optional() }).optional(),
+          screenshots: z
+            .array(z.object({
+              src: z.string(), // 1600 px wide WebP (or its native width, set in width), plus an -800 copy
+              alt: z.string().min(20),
+              caption: z.string().optional(),
+              credit: z.string(),
+              width: z.number().int().positive().default(1600),
+              still: z.string().optional(), // first frame of an animated screenshot, for reduced motion
+              frame: z.boolean().default(false), // thin border, for flat UI captures (not device mock-ups)
+            }))
+            .default([]),
+        })
+        .optional(),
+      // AI profile: the four comparison criteria for AI products (data privacy, learner oversight,
+      // pedagogical approach, output ownership) plus what the AI does and who uses it. Every answer
+      // carries its own evidence level and, once established, its source.
+      aiProfile: z
+        .object({
+          toolTypes: z.array(z.string()).default([]),
+          audience: z.array(z.string()).default([]),
+          areas: z.object({
+            dataPrivacy: aiArea,
+            learnerOversight: aiArea,
+            pedagogy: aiArea,
+            outputOwnership: aiArea,
+          }),
+        })
+        .optional(),
+      // Evidence & assurance (members and procurement). Optional until researched.
+      assurance: assurance.optional(),
       status: productStatus,
-      lastVerified: z.coerce.date(),
+      // Left out until the whole record has been checked; required once draft is false.
+      lastVerified: z.coerce.date().optional(),
       draft: z.boolean().default(false),
+      researchTasks: z.array(z.string()).default([]), // internal to-do list and open conflicts; never shown to readers
+      // Fields we looked for and couldn't find or verify (internal; notes never shown). Readers see
+      // "Research ongoing" in each listed field. Never a reason to keep a record off the site.
+      dataGaps: z.array(z.object({ field: z.string(), note: z.string() })).default([]),
     })
     .superRefine((p, ctx) => {
       const isAi = p.category.id === 'ai-for-learning' || p.secondaryCategories.some((c) => c.id === 'ai-for-learning');
       if (isAi && !p.aiDisclosure) {
         ctx.addIssue({ code: 'custom', message: 'An AI for Learning product needs aiDisclosure (use models: [] and "not-disclosed" if the vendor says nothing)' });
+      }
+      if (!p.draft && !p.lastVerified) {
+        ctx.addIssue({ code: 'custom', message: 'A published product needs lastVerified (the date the whole record was checked)' });
       }
       if (p.commercialRelationship.kind !== 'none' && !p.commercialRelationship.since) {
         ctx.addIssue({ code: 'custom', message: 'A commercial relationship needs its start date (`since`)' });
@@ -354,6 +447,8 @@ const articles = defineCollection({
       faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
       sources: z.array(source).default([]),
       featured: z.boolean().default(false),
+      // Jim's own first-person piece: shown in the home page's "Jim's take" box.
+      opinion: z.boolean().default(false),
       published: z.coerce.date(), // full datetime with offset, e.g. 2026-11-09T12:00:00+11:00
       updated: z.coerce.date().optional(),
       draft: z.boolean().default(false),

@@ -1,0 +1,232 @@
+{
+  "name": "Articulate 360 AI",
+  "vendor": "articulate",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning",
+    "authoring-tools"
+  ],
+  "website": "https://www.articulate.com/360/ai-assistant/",
+  "summary": "AI Assistant integrated into Rise and Storyline for generating course drafts, lesson content, assessments, visuals and narration.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Course drafting",
+      "Lesson writing",
+      "Quiz and knowledge-check generation",
+      "Media support"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Prompt/document-to-course drafts",
+      "Quizzes",
+      "Images",
+      "Narration",
+      "Editing in Rise and Storyline"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Rise 360",
+      "Storyline 360",
+      "LMS publishing"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "cmi5",
+      "aicc"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Subscription-based Articulate 360 plans; current pricing varies."
+    },
+    "source": "https://www.articulate.com/360/ai-assistant/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.articulate.com/features/ai-powered-authoring/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://www.articulate.com/360/ai-assistant/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing",
+            "value": "Zero data retention with AI subprocessors; exact platform retention needs confirmation"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing",
+            "value": "AI subprocessors (provider list to verify)"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "value": "Articulate AI models/provider stack not disclosed in cited pages"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "coursebox",
+    "mindsmith",
+    "synthesia",
+    "docebo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] AI model/provider list, platform retention, output rights and student age: Please provide exact AI subprocessors/models, retention of prompts and generated content, ownership/licensing terms and age conditions for learner-facing use. (route: Articulate sales/security; evidence wanted: AI security guide, DPA, terms, subprocessor list)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (How long prompts and chats are kept): How long are prompts, chats, uploaded files, generated outputs and logs retained? Please distinguish platform retention from model-provider retention.",
+    "Ask vendor (Who processes the data): Please provide the complete current list of AI model providers and subprocessors that process prompts, chats, uploaded files or generated outputs, including processing locations.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (outputOwnership), not shown until sourced: Articulate states customer content is not used to train AI and AI subprocessors have zero data retention. AI outputs are drafts for author review."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing basis",
+      "note": "Subscription-based Articulate 360 plans; current pricing varies"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Subscription-based Articulate 360 plans; current pricing varies"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

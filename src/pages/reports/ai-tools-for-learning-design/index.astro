@@ -1,0 +1,254 @@
+---
+// Landing page for the free field guide "25 AI tools for learning design" (lead magnet for the
+// newsletter). Every figure is from the guide itself or from the Synthesia survey it cites, with
+// the source linked. Animations reveal on scroll and stop under prefers-reduced-motion; without
+// JavaScript everything is visible and the forms still work. Design rules: docs/design.md.
+import Base from '../../../layouts/Base.astro';
+import ReportForm from '../../../components/report/ReportForm.astro';
+import StatGrid from '../../../components/story/StatGrid.astro';
+import Stat from '../../../components/story/Stat.astro';
+import DataChart from '../../../components/story/DataChart.astro';
+import { REPORT, TOOLS, JOBS, ROLES, METHOD, STAKES, CHECKLIST, SAMPLE } from '../../../data/reports/ai-tools-for-learning-design';
+import { productUrl } from '../../../lib/directory';
+
+const tool = (n: number) => TOOLS.find((t) => t.n === n)!;
+const roleOf = (n: number) => ROLES.filter((r) => r.tools.includes(n)).map((r) => r.key).join(' ');
+const img = (name: string) => `/images/reports/${REPORT.slug}/${name}.webp`;
+const SYN = 'https://www.synthesia.io/reports/ai-in-learning-and-development-report-2026';
+const promptHtml = SAMPLE.prompt.replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'Report', name: REPORT.title,
+  description: 'A free field guide to 25 AI tools for learning design: which tool for which job, a prompt to try, and what to watch for.',
+  datePublished: '2026-11-09', inLanguage: 'en-AU',
+  publisher: { '@type': 'Organization', name: 'The Learning Curve', url: 'https://thelearningcurve.net/' },
+  isAccessibleForFree: true, numberOfPages: REPORT.pages,
+}];
+---
+<Base
+  title="Free guide: 25 AI tools for learning design"
+  description="A free field guide for learning designers, L&D leaders and educators: 25 AI tools by the job they do, a prompt to try for each, five role starting kits and a buying checklist."
+  ogImage={`/images/reports/${REPORT.slug}/og.jpg`}
+  jsonLd={jsonLd}
+  current="resources"
+>
+  <div class="rl">
+    <!-- 1. Hero -->
+    <section class="band rl-hero" aria-labelledby="rl-h">
+      <div class="wrap rl-hero-grid">
+        <div class="rl-hero-copy">
+          <p class="kicker">Free field guide · November 2026</p>
+          <h1 id="rl-h">25 AI tools for learning design, and how to use them well</h1>
+          <p class="rl-stand">Which tool for which job, a prompt to try, and what to watch for. For learning designers, L&amp;D leaders, educators, academics and learning entrepreneurs.</p>
+          <ul class="rl-ticks">
+            <li><b>25 tool profiles</b>, each with a use case, a prompt to try and a watch-out</li>
+            <li><b>Five starting kits</b>, one for each role, so you trial the right tools first</li>
+            <li><b>A five-step method</b> for using AI without losing the design judgement</li>
+            <li><b>A 15-question checklist</b> to put to any vendor before you buy</li>
+          </ul>
+          <div id="get" class="rl-form-anchor"><ReportForm placement="report-hero" tone="band" /></div>
+        </div>
+        <div class="rl-fan" aria-hidden="true">
+          <img class="rl-page rl-page-3" src={img('page-checklist')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-page-2" src={img('page-roles')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-page-1" src={img('page-evidence')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-cover" src={img('cover')} alt="" width="640" height="905" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="rl-trust">
+        <li>Researched {REPORT.researched}</li>
+        <li>Every source listed</li>
+        <li>In guide order, not a ranking</li>
+        <li>No vendor paid to be included</li>
+      </ul>
+
+      <!-- 2. The state of AI in learning design -->
+      <section class="rl-sec" aria-labelledby="state-h">
+        <div class="section-head"><h2 id="state-h">The state of AI in learning design</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">AI is already in the workflow. The question is whether you are using the right tools.</h3>
+          <p>In Synthesia's survey of 421 L&amp;D professionals, run in October and November 2025, most teams were already using AI. Time saved on content creation was the value they reported most. Security and accuracy were what held them back.</p>
+        </div>
+        <StatGrid>
+          <Stat value="87" suffix="%" label="of respondents are already using AI; only 2% have no plans to" source="Synthesia, 2026" href={SYN} />
+          <Stat value="88" suffix="%" label="report value from time saved on content creation" source="Synthesia, 2026" href={SYN} />
+          <Stat value="60" suffix="%" label="use AI for quiz generation, one of the heaviest production uses" source="Synthesia, 2026" href={SYN} />
+          <Stat value="58" suffix="%" label="name security as their most common blocker; 52% name accuracy" source="Synthesia, 2026" href={SYN} />
+        </StatGrid>
+        <div class="rl-chart-row">
+          <DataChart id="synthesia-ld-general-ai-tools-2026" />
+          <aside class="rl-pull">
+            <p>“Popularity tells you what is already on people's laptops. It does not tell you what is fit for the learning job in front of you.”</p>
+            <span>From the guide, page 3</span>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 3. Tools by job, filtered by role -->
+      <section class="rl-sec" aria-labelledby="jobs-h" data-roles>
+        <div class="section-head"><h2 id="jobs-h">25 tools across eight jobs</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">Start with the work, not the most fashionable tool.</h3>
+          <p>The guide groups its shortlist by the job each tool does best, then gives each role a starting kit. Pick your role to see yours.</p>
+        </div>
+        <div class="rl-roles" role="group" aria-label="Show the starting kit for a role">
+          <button type="button" class="rl-role" aria-pressed="true" data-role="">All 25</button>
+          {ROLES.map((r) => <button type="button" class="rl-role" aria-pressed="false" data-role={r.key}>{r.name}</button>)}
+        </div>
+        <p class="rl-role-note" aria-live="polite" data-role-note>Every tool, grouped by the job it does best.</p>
+        <ol class="rl-jobs">
+          {JOBS.map((j, ji) => (
+            <li class="rl-job" style={`--i:${ji}`}>
+              <h4><span>{j.tools.length}</span>{j.name}</h4>
+              <p>{j.note}</p>
+              <ul>
+                {j.tools.map((n, ti) => (
+                  <li style={`--t:${ti}`} data-roles={roleOf(n)}>
+                    <a href={productUrl(tool(n).id)}><span class="rl-n">{String(n).padStart(2, '0')}</span>{tool(n).name}</a>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+        <p class="rl-small">Grouping is The Learning Curve's editorial judgement, based on each tool's primary learning-design use. Several tools span more than one job. Each name links to its Discover profile: data privacy, learner oversight, teaching approach and output ownership, with the evidence behind each answer.</p>
+        <script is:inline type="application/json" data-role-data set:html={JSON.stringify(Object.fromEntries(ROLES.map((r) => [r.key, `${r.name}: ${r.job} ${r.tools.length} tools to trial first.`])))} />
+      </section>
+
+      <!-- 4. The method -->
+      <section class="rl-sec" aria-labelledby="method-h">
+        <div class="section-head"><h2 id="method-h">Define, ground, generate, judge, measure</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">Each step has a job for the tool, and a decision that stays with you.</h3>
+          <p>A simple operating model, so a team can use AI consistently without turning every task into an ungoverned experiment.</p>
+        </div>
+        <ol class="rl-method">
+          {METHOD.map((m, i) => (
+            <li style={`--i:${i}`}>
+              <span class="rl-step-n">{String(i + 1).padStart(2, '0')}</span>
+              <div class="rl-step-q"><b>{m.step}</b><span>{m.q}</span></div>
+              <div class="rl-step-ai"><em>What AI can do</em>{m.ai}</div>
+              <div class="rl-step-you"><em>What stays with you</em>{m.you}</div>
+            </li>
+          ))}
+        </ol>
+        <figure class="rl-stakes" aria-labelledby="stakes-cap">
+          <figcaption id="stakes-cap">The higher the stakes, the stronger the human review</figcaption>
+          <div class="rl-stakes-bar"><span></span></div>
+          <ol>{STAKES.map((s) => <li>{s}</li>)}</ol>
+          <div class="rl-stakes-ends"><span>Lower stakes · light review</span><span>Higher stakes · human decides</span></div>
+        </figure>
+      </section>
+
+      <!-- Mid-page call to action -->
+      <section class="rl-mid" aria-label="Get the guide">
+        <img src={img('cover')} alt="" width="160" height="226" loading="lazy" />
+        <div>
+          <p class="rl-mid-h">All 25 profiles, the five starting kits and the checklist, free.</p>
+          <a class="rl-mid-btn" href="#get">Get the free guide</a>
+        </div>
+      </section>
+
+      <!-- 5. Inside a profile -->
+      <section class="rl-sec" aria-labelledby="profile-h">
+        <div class="section-head"><h2 id="profile-h">What every profile gives you</h2></div>
+        <div class="rl-profile">
+          <div class="rl-profile-shot"><img src={img('page-profile')} alt="The ChatGPT profile page from the guide: what it's good for, high-value uses, best fit, institutional pricing, a prompt to try and a watch-out." width="640" height="905" loading="lazy" /></div>
+          <div class="rl-profile-copy">
+            <p class="kicker">From profile 01 · {SAMPLE.tool}</p>
+            <h3 class="rl-h3">A prompt to test against a real brief</h3>
+            <div class="rl-prompt">
+              <span>Try this prompt</span>
+              <p set:html={promptHtml} />
+              <small><b>Why it works:</b> {SAMPLE.why}</small>
+            </div>
+            <div class="rl-watch"><b>Watch-out</b> {SAMPLE.watch}</div>
+            <ul class="rl-ticks rl-ticks-ink">
+              <li>What it's good for, and three high-value uses</li>
+              <li>Best fit by role, and where it sits in the method</li>
+              <li>Institutional pricing, checked November 2026</li>
+              <li>A real user voice, or a labelled practitioner note</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Checklist teaser -->
+      <section class="rl-sec" aria-labelledby="check-h">
+        <div class="section-head"><h2 id="check-h">A demo is not a procurement case</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">Fifteen questions to put to any AI learning tool.</h3>
+          <p>Grouped the way a review panel will ask them. Here's one from each group; the guide has all fifteen.</p>
+        </div>
+        <ol class="rl-check">
+          {CHECKLIST.map((c, i) => <li style={`--i:${i}`}><span>{String(i + 1).padStart(2, '0')} · {c.group}</span><p>{c.q}</p></li>)}
+          <li class="rl-check-more"><span>+ 10 more</span><p>In the guide, with how to run a fair pilot.</p></li>
+        </ol>
+      </section>
+    </div>
+
+    <!-- 7. Final call to action -->
+    <section class="band rl-final" aria-labelledby="final-h">
+      <div class="wrap rl-final-grid">
+        <img src={img('cover')} alt="Cover of the field guide: 25 AI tools for learning design, and how to use them well." width="300" height="424" loading="lazy" />
+        <div>
+          <h2 id="final-h">Get the field guide</h2>
+          <p>25 tools, five starting kits, a repeatable method and the buying checklist. {REPORT.pages} pages, free.</p>
+          <ReportForm placement="report-footer" tone="band" button="Send me the guide" />
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="rl-about" aria-labelledby="about-h">
+        <h2 id="about-h">About this guide</h2>
+        <p>A practical shortlist for learning-design work, researched on {REPORT.researched}. It is not a universal ranking, and the recommendations are editorial judgements about fit, not benchmark scores. Features, prices and terms change often, so confirm current details with the vendor. Usage figures on this page come from <a href={SYN} rel="noopener">Synthesia's AI in Learning and Development Report 2026</a> and apply to that survey's sample.</p>
+        <p>The Learning Curve is independent: no vendor paid to be included, and listings in Discover can't be bought. <a href="/evidence-and-assurance/">How we rate evidence</a> · <a href="/disclosure/">How we're funded</a></p>
+      </section>
+    </div>
+
+    <a class="rl-sticky" href="#get" data-sticky>Get the free guide</a>
+  </div>
+</Base>
+
+<script>
+  // Reveal sections as they scroll into view (CSS does the motion; none under reduced motion).
+  const els = document.querySelectorAll<HTMLElement>('.rl-fan, .rl-jobs, .rl-method, .rl-stakes, .rl-check');
+  document.documentElement.classList.add('rl-js');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.2 });
+    els.forEach((el) => io.observe(el));
+  } else els.forEach((el) => el.classList.add('in'));
+
+  // Role filter: light up one role's starting kit.
+  const box = document.querySelector<HTMLElement>('[data-roles]');
+  if (box) {
+    const notes = JSON.parse(box.querySelector('[data-role-data]')?.textContent ?? '{}') as Record<string, string>;
+    const note = box.querySelector<HTMLElement>('[data-role-note]')!;
+    const all = note.textContent;
+    box.querySelectorAll<HTMLButtonElement>('.rl-role').forEach((b) => b.addEventListener('click', () => {
+      const role = b.dataset.role ?? '';
+      box.querySelectorAll<HTMLButtonElement>('.rl-role').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      box.classList.toggle('is-filtered', !!role);
+      box.querySelectorAll<HTMLElement>('.rl-job li[data-roles]').forEach((li) => {
+        li.classList.toggle('on', !!role && (li.dataset.roles ?? '').split(' ').includes(role));
+      });
+      note.textContent = role ? notes[role] : all;
+    }));
+  }
+
+  // Sticky phone button: hidden while a sign-up form is on screen.
+  const sticky = document.querySelector<HTMLElement>('[data-sticky]');
+  if (sticky && 'IntersectionObserver' in window) {
+    const visible = new Set<Element>();
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      sticky.classList.toggle('hide', visible.size > 0);
+    });
+    document.querySelectorAll('form[data-report-form]').forEach((f) => so.observe(f));
+  }
+</script>

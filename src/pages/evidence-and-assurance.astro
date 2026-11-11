@@ -1,0 +1,61 @@
+---
+// Explains the Evidence & Assurance levels shown on every Discover profile (docs/directory.md).
+import Page from '../layouts/Page.astro';
+import EvidenceBadge from '../components/directory/EvidenceBadge.astro';
+import { LEVELS, LEVEL_ORDER, AI_AREAS, RESEARCH_ONGOING } from '../lib/directory';
+const levels = LEVEL_ORDER.filter((l) => l !== 'research-ongoing');
+const colours = ['#8a8378', '#c8902e', '#2e5aa8', '#1f7a52'];
+---
+<Page
+  title="Evidence & Assurance levels"
+  description="How The Learning Curve rates the evidence behind every claim in its directory of learning technology, from vendor disclosed to independently assured."
+  standfirst="Every answer in Discover says how well it is evidenced. Here is what each level means, and what it takes to move up."
+>
+  <p>
+    Discover is an independent directory for universities, schools and corporate learning teams choosing learning
+    technology, including AI. A vendor saying something and an auditor checking it are different things, and a
+    procurement decision should know which it is relying on. So each answer on a profile carries one of four levels.
+  </p>
+
+  <h2>The four levels</h2>
+  <ol class="ev-levels">
+    {levels.map((l, i) => (
+      <li style={`--ev-c: ${colours[i]}`}>
+        <EvidenceBadge level={l} />
+        <p>{LEVELS[l].meaning}</p>
+      </li>
+    ))}
+  </ol>
+  <ul>
+    <li><b>Level 1, vendor disclosed:</b> the vendor's own website, help centre, trust centre, policy or terms say it. We link to the page and record the date we read it. We haven't seen the evidence behind it.</li>
+    <li><b>Level 2, vendor confirmed:</b> the vendor has confirmed it to us directly, for that product and plan, and pointed us to where it is written down.</li>
+    <li><b>Level 3, independently corroborated:</b> something outside the vendor supports it: a regulator, a published independent test, an outside researcher, or our own hands-on testing.</li>
+    <li><b>Level 4, independently assured:</b> a current third-party audit, certification or technical assessment covers the relevant control, and we have checked its scope and date (for example an accessibility audit by an outside firm, or a certificate from the certification body).</li>
+  </ul>
+
+  <h2>{RESEARCH_ONGOING}</h2>
+  <p>
+    "{RESEARCH_ONGOING}" means we haven't established the answer yet, usually because the vendor's public documents
+    don't say. It never means "no". We ask the company, and the profile changes when they answer with something we can
+    link to. Where a vendor's own documents disagree with each other, the profile says <b>sources conflict</b>, shows
+    both, and doesn't pick one.
+  </p>
+
+  <h2>What we compare AI tools on</h2>
+  <p>For AI tools, four questions sit at the top of every profile and in the comparison table, rather than in the technical specifications:</p>
+  <ul>
+    {AI_AREAS.map((a) => <li><b>{a.title}:</b> {a.blurb}</li>)}
+  </ul>
+
+  <h2>How a vendor moves up</h2>
+  <p>
+    Send us the public page, policy or report that supports the answer. A direct confirmation moves an answer to Level 2;
+    an independent report or certificate we can check moves it to Level 3 or 4. Levels can also move down: when a
+    certificate expires or a policy changes, so does the level. We re-check every profile at least every 90 days.
+  </p>
+  <p>
+    Levels can't be bought. Listings are free, no vendor pays for inclusion or a better level, and any commercial
+    relationship is shown on the profile. <a href="/disclosure/">How we're funded</a>.
+  </p>
+  <p><a href="/discover/">Browse Discover</a> · <a href="/discover/ai-for-learning/">Compare AI for Learning tools</a></p>
+</Page>

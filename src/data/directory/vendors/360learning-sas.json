@@ -1,0 +1,50 @@
+{
+  "name": "360Learning SAS",
+  "website": "https://www.360learning.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Paris, France",
+    "source": "https://www.360learning.com/company/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "201–500 employees (LinkedIn company range)",
+    "source": "https://www.linkedin.com/company/360learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "US$240 million raised (company profile / LinkedIn claim; verify transaction-level breakdown)",
+    "source": "https://www.linkedin.com/company/360learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2013,
+    "source": "https://www.linkedin.com/company/360learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://www.linkedin.com/company/360learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held",
+    "source": "https://www.linkedin.com/company/360learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "ownership",
+      "note": "\"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
+}

@@ -1,0 +1,240 @@
+{
+  "name": "SchoolAI",
+  "vendor": "schoolai-inc",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://schoolai.com/",
+  "summary": "School platform for teacher-directed AI spaces and student interactions, with district controls and visibility.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Teacher-created AI learning spaces",
+      "Student tutoring",
+      "Guided activities",
+      "Classroom monitoring"
+    ],
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Spaces",
+      "Teacher dashboard",
+      "Student interaction visibility",
+      "Model provider controls"
+    ],
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "School/district deployment"
+    ],
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid school/district plans; confirm current pricing."
+    },
+    "source": "https://schoolai.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Anthropic; Google; OpenAI (providers listed by vendor)"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No (SchoolAI says it does not train on district data; AI providers contractually prohibited)"
+    },
+    "source": "https://schoolai.com/trust/data-protection",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No (SchoolAI says it does not train on district data; AI providers contractually prohibited)",
+            "source": "https://schoolai.com/trust/data-protection",
+            "checked": "2026-11-09",
+            "note": "Zero retention with AI providers; vendor says it never trains on district data."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "SchoolAI retains district-generated platform data for personalised learning; AI providers operate under zero-data-retention agreements",
+            "source": "https://schoolai.com/trust/data-protection",
+            "checked": "2026-11-09",
+            "note": "Vendor explicitly separates platform retention from AI-provider retention."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "Anthropic; Google; OpenAI (vendor-published provider list)",
+            "source": "https://schoolai.com/trust/data-protection",
+            "checked": "2026-11-09",
+            "note": "Vendor explicitly separates platform retention from AI-provider retention."
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "Anthropic; Google; OpenAI (providers listed by vendor)",
+            "source": "https://schoolai.com/trust/data-protection",
+            "checked": "2026-11-09",
+            "note": "Zero retention with AI providers; vendor says it never trains on district data."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://schoolai.com/trust",
+            "checked": "2026-11-09",
+            "note": "Trust page describes teacher-centred controls; precise role matrix not captured."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://schoolai.com/trust",
+            "checked": "2026-11-09",
+            "note": "Trust page describes teacher-centred controls; precise role matrix not captured."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Set by the educator; gives answers directly (space-dependent)"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "magicschool-ai",
+    "brisk-teaching",
+    "diffit",
+    "curipod",
+    "khanmigo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[High] Output ownership, exact age, admin role matrix and platform retention: Please provide exact model/version by feature, minimum age/consent, ownership terms, platform retention and a role matrix for teachers/admins to view chats and set limits. (route: Vendor privacy/security contact; evidence wanted: Terms, DPA, subprocessor list, admin guide, retention schedule)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (Minimum learner age): What age ranges are supported and what parental consent is required for younger learners?",
+    "Ask vendor (Staff can review AI output before learners see it): Please provide a current admin/teacher permission matrix for student chat visibility, limits and pre-publication review.",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns teacher-created Spaces, student prompts and AI-generated outputs?",
+    "Researcher note (dataPrivacy), not shown until sourced: Distinguish SchoolAI platform retention from model-provider retention. District can request deletion.",
+    "Researcher note (learnerOversight), not shown until sourced: Teacher dashboard and student conversation visibility are core platform controls; exact per-plan visibility should be confirmed.",
+    "Researcher note (outputOwnership), not shown until sourced: Vendor states providers do not retain prompts and do not train on them; district-generated data is retained by SchoolAI for service operation and can be deleted on request."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid school/district plans; confirm current pricing"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid school/district plans; confirm current pricing"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

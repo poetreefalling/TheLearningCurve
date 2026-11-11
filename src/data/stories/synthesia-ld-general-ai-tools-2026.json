@@ -1,0 +1,18 @@
+{
+  "title": "Three in four L&D respondents use ChatGPT at work; Copilot and Gemini follow",
+  "subtitle": "Share of 421 L&D respondents using each general-purpose AI tool in their L&D work, Oct–Nov 2025. More than one answer allowed",
+  "type": "bar",
+  "format": "percent",
+  "yMax": 100,
+  "categories": ["ChatGPT", "Microsoft Copilot", "Gemini"],
+  "series": [{ "id": "share", "label": "Respondents using it", "values": [74, 54, 39] }],
+  "views": { "chatgpt": { "focus": [0] } },
+  "notes": ["Self-reported usage within that survey's sample, not market share."],
+  "sources": [
+    {
+      "label": "Synthesia, AI in Learning and Development Report 2026",
+      "url": "https://www.synthesia.io/reports/ai-in-learning-and-development-report-2026",
+      "figureOrTable": "Which general purpose AI tools are you currently using in your L&D work?"
+    }
+  ]
+}

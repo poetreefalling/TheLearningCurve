@@ -18,7 +18,10 @@ export function format(f: Format, v: number | null, mode: Mode | boolean = 'labe
       if (Math.abs(v) >= 1e6) return `${trim(v / 1e6, 2)}M`;
       if (Math.abs(v) >= 1e3) return `${trim(v / 1e3, axis ? 0 : 1)}K`;
       return trim(v, 0);
-    case 'usd': return `US$${trim(v, exact ? 2 : 0)}`;
+    // Whole US dollars, e.g. salaries: US$69,280 in tables, US$69.3K on labels, US$70K on axes
+    case 'usd':
+      if (exact || Math.abs(v) < 1e3) return `US$${trim(v, 0)}`;
+      return `US$${trim(v / 1e3, axis ? 0 : 1)}K`;
     case 'usd-millions': return `US$${trim(v, exact ? 1 : 0)}M`;
     case 'usd-billions': return `US$${trim(v, 1)}B`;
     case 'millions': return `${trim(v, 1)}M`;

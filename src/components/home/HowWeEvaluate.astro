@@ -1,0 +1,26 @@
+---
+// The "How we evaluate" band: full-width ink, the 60/40 weighting, and the two calls to action
+// (our method, and /submit for vendors). The weights and criteria match /how-we-review/.
+interface Props { submit?: boolean }
+const { submit = true } = Astro.props;
+---
+<section class="hwe-band" aria-labelledby="hwe-h">
+  <div class="wrap hwe-inner">
+    <div class="hwe-copy">
+      <p class="hwe-kicker">How we evaluate</p>
+      <h2 id="hwe-h">Every platform, scored the same way. In the open.</h2>
+      <p class="hwe-lede">We build a real course on each platform, and score seven criteria from 1 to 5. Learning design counts for more than business tools.</p>
+      <div class="hwe-actions">
+        <a class="pill-btn pill-marigold" href="/how-we-review/">Read our method →</a>
+        {submit && <a class="pill-btn pill-outline" href="/submit/">Submit your platform</a>}
+      </div>
+    </div>
+    <div class="hwe-weights" role="img" aria-label="Learning design is 60% of the score: retrieval, assessment, credentials and learner analytics. Business tools are 40%: pricing, payments and marketing.">
+      <div class="hwe-bar" aria-hidden="true"><span style="flex:60"></span><span style="flex:40"></span></div>
+      <div class="hwe-cols" aria-hidden="true">
+        <div><p class="hwe-pct is-lead">60%</p><p class="hwe-label">Learning design</p><p class="hwe-list">Retrieval<br />Assessment<br />Credentials<br />Learner analytics</p></div>
+        <div><p class="hwe-pct">40%</p><p class="hwe-label">Business tools</p><p class="hwe-list">Pricing<br />Payments<br />Marketing</p></div>
+      </div>
+    </div>
+  </div>
+</section>

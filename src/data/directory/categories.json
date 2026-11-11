@@ -4,7 +4,8 @@
     "name": "LMS Platforms",
     "description": "Institutional and corporate learning management systems.",
     "comparison": "planned",
-    "order": 1
+    "order": 1,
+    "intro": "A growing list of institutional and corporate learning management systems."
   },
   {
     "id": "course-platforms",
@@ -18,7 +19,8 @@
     "name": "AI for Learning",
     "description": "AI tutors, AI course and quiz generation, and AI assistants for teaching and learning.",
     "comparison": "planned",
-    "order": 3
+    "order": 3,
+    "intro": "Independent intelligence for universities, schools and corporate learning teams choosing AI tools: how each handles data, what oversight staff have, how it teaches and who owns what it produces, with the evidence behind every answer."
   },
   {
     "id": "authoring-tools",

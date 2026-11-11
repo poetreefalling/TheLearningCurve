@@ -1,0 +1,259 @@
+{
+  "name": "Cornerstone Learning",
+  "vendor": "cornerstone-ondemand",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.cornerstoneondemand.com/platform/learning/",
+  "summary": "An enterprise learning and talent development platform combining LMS and learning experience capabilities for complex, global and regulated organisations.",
+  "primaryMarket": {
+    "value": [
+      "government"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Compliance and certification",
+      "employee development",
+      "onboarding",
+      "skills development",
+      "role-based learning",
+      "leadership and professional development"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Learning and content management",
+      "certifications and recertification",
+      "assessments",
+      "social learning",
+      "personalised learning paths",
+      "skills and role-based pathways",
+      "gamification",
+      "reporting and analytics",
+      "AI-powered recommendations and agents"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Enterprise HR/HCM and business-system integrations",
+      "API and partner ecosystem"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "sap-successfactors-learning",
+    "workday-learning",
+    "docebo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "level": "research-ongoing",
+      "finding": "Cornerstone accessibility statement updated Dec 2025; provides product-specific VPATs on request. Statement scope explicitly includes Cornerstone Learning Management desktop, iOS and Android; WCAG 2.2 AA goal and annual third-party audits.",
+      "caveat": "Request actual Learning VPAT; public statement is not itself the detailed ACR.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cornerstoneondemand.com/company/accessibility/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/cornerstone-ondemand"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "level": "research-ongoing",
+      "finding": "Microsoft certification record for Cornerstone Teams app reports SOC 2 Type II (date 30 Jan 2025), but this is not sufficient to establish Cornerstone Learning service scope. Request current enterprise SOC report and ISO certificate.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cornerstoneondemand.com/company/accessibility/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/cornerstone-ondemand"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "No AU tenant-level residency confirmation found in this pass.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cornerstoneondemand.com/company/accessibility/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/cornerstone-ondemand"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "Vendor describes AI-powered learning and agentic capabilities; obtain feature-level model/provider, data use and opt-out details.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://www.cornerstoneondemand.com/company/accessibility/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/cornerstone-ondemand"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Integrations need exact names: \"Enterprise HR/HCM and business-system integrations; API and partner ecosystem; verify exact connector catalogue\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; enterprise sales demonstration/quote.",
+      "trialNote": "Demo by sales enquiry; no public trial terms identified"
+    },
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; enterprise quote required. Enterprise quote; public list pricing not identified."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current Cornerstone Learning ACR/VPAT for the precise product modules and release; do not infer from company-wide accessibility statements."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "Request current Trust Center assurance pack; verify SOC 2, ISO and any FedRAMP scope directly against the specific Cornerstone service."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Cloud deployment; customer-specific hosting region and residency commitments require confirmation. Confirm region, subprocessors, data transfer mechanisms, retention and AI processing terms in the DPA and order form."
+    },
+    "source": "https://www.cornerstoneondemand.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Cornerstone AI/skills and content capabilities are promoted; named foundation-model providers and feature-specific processing terms require confirmation."
+    },
+    "source": "https://www.cornerstoneondemand.com/platform/learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo by sales enquiry; no public trial terms identified."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/cornerstone-learning/logo.webp",
+      "alt": "Cornerstone logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/cornerstone-learning/screenshot-1.webp",
+        "width": 1280,
+        "frame": true,
+        "alt": "The Cornerstone admin dashboard: priority actions for training completion and approval requests, learning insights showing assigned, completed, failed and past-due training, drafts to continue editing, and pinned links",
+        "caption": "The admin dashboard, with priority approvals, training progress and drafts in progress.",
+        "credit": "Image: Cornerstone"
+      }
+    ]
+  }
+}

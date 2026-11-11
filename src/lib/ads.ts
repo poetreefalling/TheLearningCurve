@@ -10,7 +10,7 @@ import raw from '../data/ads.json';
 
 export const SLOTS = {
   billboard: { label: 'Billboard', width: 970, height: 250, where: 'Home page between rows, and the end of each article' },
-  rectangle: { label: 'Medium rectangle', width: 300, height: 250, where: 'Home page grid, and inside articles' },
+  rectangle: { label: 'Medium rectangle', width: 300, height: 250, where: 'Home page rail beside the section bands, and inside articles' },
   halfpage: { label: 'Half page', width: 300, height: 600, where: 'Sticky rail beside articles on wide screens' },
   card: { label: 'Sponsored card', width: 1200, height: 800, where: 'Home page grid, styled like an article card' },
 } as const;

@@ -1,0 +1,44 @@
+---
+// The four AI comparison criteria on a product profile: data privacy, learner oversight,
+// pedagogical approach and output ownership. Each answer shows its evidence level and source.
+import EvidenceBadge from './EvidenceBadge.astro';
+import { AI_AREAS, areaSummary, hostOf, fmtDate, RESEARCH_ONGOING, EVIDENCE_URL, LEVELS, type EvidenceLevel } from '../../lib/directory';
+type Answer = { question: string; value?: string; level: EvidenceLevel; source?: string; checked?: Date; note?: string; conflict?: boolean };
+interface Props { areas: Record<string, { summary?: string; answers: Answer[] }>; name: string }
+const { areas, name } = Astro.props;
+---
+<section class="ai-trust" aria-labelledby="ai-h">
+  <div class="section-head"><h2 id="ai-h">AI: data, oversight, teaching and ownership</h2></div>
+  <p class="dir-intro">The four questions buyers ask most about an AI tool for learning, answered from {name}'s own documents where they exist. Each answer carries its <a href={EVIDENCE_URL}>evidence level</a>; "{RESEARCH_ONGOING}" means it isn't established yet and we have asked.</p>
+  <div class="ai-areas">
+    {AI_AREAS.map((area) => {
+      const a = areas[area.key] ?? { answers: [] };
+      const s = areaSummary(a.answers);
+      return (
+        <section class="ai-area" aria-labelledby={`ai-${area.key}`}>
+          <header>
+            <h3 id={`ai-${area.key}`}>{area.title}</h3>
+            <p class="ai-count"><b>{s.answered} of {s.total}</b> established{s.top !== 'research-ongoing' && <> · strongest: Level {LEVELS[s.top].n}</>}{s.conflict && <> · <span class="ai-conflict">sources conflict</span></>}</p>
+          </header>
+          {a.summary && <p class="ai-summary">{a.summary}</p>}
+          <dl>
+            {a.answers.map((x) => {
+              const shown = x.level !== 'research-ongoing' || x.conflict;
+              return (
+                <div class="ai-q">
+                  <dt>{x.question}</dt>
+                  <dd>
+                    {shown && x.value ? <span class="ai-value">{x.value}</span> : !x.conflict && <span class="research">{RESEARCH_ONGOING}</span>}
+                    {shown && <EvidenceBadge level={x.level} conflict={x.conflict} />}
+                    {shown && x.note && <span class="fact-note">{x.note}</span>}
+                    {shown && x.source && <span class="fact-src"><a href={x.source} rel="nofollow noopener" target="_blank">{hostOf(x.source)}</a>{x.checked && <> · checked {fmtDate(x.checked)}</>}</span>}
+                  </dd>
+                </div>
+              );
+            })}
+          </dl>
+        </section>
+      );
+    })}
+  </div>
+</section>
