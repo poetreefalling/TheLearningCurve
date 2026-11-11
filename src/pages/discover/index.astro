@@ -1,4 +1,5 @@
 ---
+import SectionAbout from '../../components/SectionAbout.astro';
 // Discover hub: the technology directory, by category (docs/directory.md). A category with live
 // profiles is a card under "Live directories" (count, logos, last checked); the rest sit under
 // "In research", muted, so it is obvious at a glance which directories have entries.
@@ -40,6 +41,7 @@ const soon = cats.filter((c) => c.n === 0);
         <ul class="cat-soon">{soon.map((c) => <li><b>{c.name}</b><span>{c.description}</span></li>)}</ul>
       </section>
     )}
+    <SectionAbout page="discover" />
     <section class="hub-cta band" aria-labelledby="sub-h">
       <div>
         <h2 id="sub-h">Built something for learning?</h2>
