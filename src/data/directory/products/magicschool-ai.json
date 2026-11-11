@@ -1,0 +1,241 @@
+{
+  "name": "MagicSchool AI",
+  "vendor": "magicschool",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.magicschool.ai/",
+  "summary": "Teacher-focused AI platform with a broad suite of classroom planning, resource-generation and student-facing AI tools.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://www.magicschool.ai/privacy/quality",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Lesson planning",
+      "Differentiation",
+      "Resource and assessment drafting",
+      "Supervised student AI activities"
+    ],
+    "source": "https://www.magicschool.ai/privacy/quality",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Teacher tools",
+      "MagicStudent",
+      "Educator-managed student access",
+      "Model choice by task"
+    ],
+    "source": "https://www.magicschool.ai/privacy/quality",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "Integrations and district configurations vary"
+    ],
+    "source": "https://www.magicschool.ai/privacy/quality",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid educator tiers; school/district contracts."
+    },
+    "source": "https://www.magicschool.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.magicschool.ai/privacy/quality",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "OpenAI GPT-4o; Anthropic Claude; Google Gemini, among others"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No (student data; scope depends on customer/controller context)"
+    },
+    "source": "https://www.magicschool.ai/privacy-security/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No (student data; scope depends on customer/controller context)",
+            "source": "https://www.magicschool.ai/privacy-security/privacy-policy",
+            "checked": "2026-11-09",
+            "note": "Student data is not used to train/fine-tune/improve AI/ML models; scope is student data processed on behalf of school/customer."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "Vendor states zero data retention with AI providers for children's personal information; platform retention duration not stated as a fixed period",
+            "source": "https://www.magicschool.ai/privacy-security/student-data-policy",
+            "checked": "2026-11-09",
+            "note": "Transient processing only; student platform retention remains a separate question."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "OpenAI; Anthropic; Google (vendor-published model/provider families; verify current subprocessor schedule)",
+            "source": "https://www.magicschool.ai/privacy-security/student-data-policy",
+            "checked": "2026-11-09",
+            "note": "Transient processing only; student platform retention remains a separate question."
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "OpenAI GPT-4o; Anthropic Claude; Google Gemini, among others",
+            "source": "https://www.magicschool.ai/privacy-security/privacy-policy",
+            "checked": "2026-11-09",
+            "note": "Student data is not used to train/fine-tune/improve AI/ML models; scope is student data processed on behalf of school/customer."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.magicschool.ai/privacy-security/student-data-policy",
+            "checked": "2026-11-09",
+            "note": "School/customer controller-processor relationship described; feature-level teacher chat visibility needs confirmation."
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.magicschool.ai/privacy-security/student-data-policy",
+            "checked": "2026-11-09",
+            "note": "School/customer controller-processor relationship described; feature-level teacher chat visibility needs confirmation."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.magicschool.ai/privacy-security/student-data-policy",
+            "checked": "2026-11-09",
+            "note": "School/customer controller-processor relationship described; feature-level teacher chat visibility needs confirmation."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Set by the educator; gives answers directly (tool-dependent)"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "schoolai",
+    "brisk-teaching",
+    "diffit",
+    "curipod",
+    "khanmigo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[High] Minimum age, output ownership, platform retention, model-to-tool mapping: Please provide minimum age and consent rules for each student-facing tool, generated-output ownership terms, platform chat retention and model/provider mapping. (route: Vendor privacy/security contact; evidence wanted: Terms, DPA, subprocessor list, retention schedule, product feature matrix)",
+    "Confirm product-specific minimum age and output ownership; verify retention duration and exact AI-provider list against current subprocessor schedule; assess Australian data residency and local contractual terms.",
+    "Ask vendor (Minimum learner age): What is the minimum age for each student-facing product and what parental consent/school authorisation is required?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): For each student-facing tool, can it answer only from teacher-supplied materials and show citations to those materials?",
+    "Ask vendor (Shows its sources): For each student-facing tool, can it answer only from teacher-supplied materials and show citations to those materials?",
+    "Ask vendor (Who owns what the AI produces): Who owns AI-generated lessons, quizzes, feedback and student outputs, and what licence does MagicSchool receive?",
+    "Researcher note (dataPrivacy), not shown until sourced: Student-data policy says third-party AI providers cannot retain child personal information or use it for model training. Applies when MagicSchool processes student data as service provider/processor for schools/customers.",
+    "Researcher note (outputOwnership), not shown until sourced: MagicSchool says student-facing access is educator-managed; outputs are drafts for educator review, not final grading. Vendor states no student data is used to train models and AI providers are contractually prohibited from retention/training."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid educator tiers; school/district contracts"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid educator tiers; school/district contracts"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

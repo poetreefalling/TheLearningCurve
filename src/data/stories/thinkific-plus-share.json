@@ -1,0 +1,61 @@
+{
+  "title": "Thinkific Plus, its offer for larger organisations, grew from about a fifth of revenue to 30%",
+  "subtitle": "Thinkific Plus revenue (subscription and commerce) as a share of total revenue",
+  "type": "column",
+  "format": "percent",
+  "yMax": 40,
+  "categories": [
+    "2023",
+    "2024",
+    "2025",
+    "Q3 2026"
+  ],
+  "series": [
+    {
+      "id": "plus",
+      "label": "Plus share of revenue",
+      "values": [
+        20.6,
+        23.5,
+        26.0,
+        30.0
+      ]
+    }
+  ],
+  "views": {
+    "annual": {
+      "upTo": 2
+    },
+    "latest": {
+      "focus": [
+        3
+      ]
+    }
+  },
+  "notes": [
+    "Our calculation from the reported figures: Plus revenue of US$12.2M of 59.1M (2023), 15.7M of 66.9M (2024), 19.0M of 73.2M (2025) and 5.7M of 19.0M (third quarter of 2026).",
+    "Thinkific doesn't report a Plus figure for 2022 or earlier in its annual releases."
+  ],
+  "sources": [
+    {
+      "label": "Thinkific Q4 and full-year 2023 results",
+      "url": "https://investors.thinkific.com/2024-03-04-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2023-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2024 results",
+      "url": "https://www.newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2024-financial-results-824981852.html",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2025 results",
+      "url": "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q3 2026 results",
+      "url": "https://investors.thinkific.com/2026-11-03-Thinkific-Announces-Third-Quarter-2026-Financial-Results",
+      "figureOrTable": "Third-quarter highlights"
+    }
+  ]
+}

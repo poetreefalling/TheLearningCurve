@@ -1,0 +1,55 @@
+---
+section: trends
+kind: trends
+title: "Sample: A Data Story With Scrolling Charts"
+description: "PLACEHOLDER data story for checking templates: headline figures, a scrolling chart with steps, and interactive charts with their data tables."
+standfirst: "PLACEHOLDER standfirst. A data story leads with the numbers, then walks the reader through each chart one step at a time."
+kicker: Trends
+targetKeyword: online learning trends
+summary: "PLACEHOLDER short answer. A data story opens with a few headline figures, then uses scrolling charts that change as the reader moves through the text, and interactive charts with a data table under each. This sample exists only to check the components and the layout of the page."
+keyTakeaways:
+  - "PLACEHOLDER takeaway one."
+  - "PLACEHOLDER takeaway two."
+  - "PLACEHOLDER takeaway three."
+hero:
+  style: documentary
+  alt: "Three colleagues around a table covered in printed course outlines and index cards, by a tall window"
+  src: /images/articles/sample-trends.webp
+faqs:
+  - q: "PLACEHOLDER question one?"
+    a: "PLACEHOLDER answer."
+  - q: "PLACEHOLDER question two?"
+    a: "PLACEHOLDER answer."
+  - q: "PLACEHOLDER question three?"
+    a: "PLACEHOLDER answer."
+published: 2026-10-26T12:00:00+11:00
+draft: true
+---
+
+This is a **sample data story** for checking the components. It never appears on the live site.
+
+<StatGrid>
+  <Stat value="54" suffix="%" label="of US college students took at least one course online, fall 2023" source="NCES, Table 311.15" href="https://nces.ed.gov/programs/digest/d24/tables/dt24_311.15.asp" />
+  <Stat value="95" suffix="%" label="of UK undergraduates use AI in at least one way, 2026" source="HEPI and Kortext" href="https://www.hepi.ac.uk/wp-content/uploads/2026/03/HEPI-Report-199-Gen-AI-Survey-2026.pdf" />
+  <Stat value="1.85" suffix="M" label="unique credentials on offer in the US, 2025" source="Credential Engine" href="https://credentialengine.org/wp-content/uploads/2025/12/Counting-Credentials-2025-Report.pdf" />
+  <Stat value="2.6" prefix="US$" suffix="B" label="of EdTech venture funding in 2025, down from US$20.8B in 2021" source="HolonIQ" href="https://www.holoniq.com/notes/edtech-hits-2-6b-in-investment-as-the-market-stabilizes-bigger-bets-in-ai-and-workforce-training" />
+</StatGrid>
+
+## A scrolling chart
+
+<Scrolly chart="us-distance-ed">
+  <Step view="before">Step one: the years before the pandemic.</Step>
+  <Step view="spike">Step two: fall 2020.</Step>
+  <Step view="settle">Step three: where it settled.</Step>
+  <Step view="mixed">Step four: everyone who took at least one course online.</Step>
+</Scrolly>
+
+## Standalone charts
+
+<DataChart id="edtech-vc" />
+
+<DataChart id="us-credentials" />
+
+<DataChart id="ai-tutor-effects" />
+
+<DataChart id="mooc-completion" />

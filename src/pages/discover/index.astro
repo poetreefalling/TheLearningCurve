@@ -1,0 +1,53 @@
+---
+import SectionAbout from '../../components/SectionAbout.astro';
+// Discover hub: the technology directory, by category (docs/directory.md). A category with live
+// profiles is a card under "Live directories" (count, logos, last checked); the rest sit under
+// "In research", muted, so it is obvious at a glance which directories have entries.
+import Base from '../../layouts/Base.astro';
+import { NAV } from '../../site.config';
+import categories from '../../data/directory/categories.json';
+import { getProducts, categoryUrl } from '../../lib/directory';
+const nav = NAV.find((n) => n.key === 'discover')!;
+const products = await getProducts();
+const inCat = (id: string) => products.filter((p) => p.data.category.id === id || p.data.secondaryCategories.some((c) => c.id === id));
+const cats = [...categories].sort((a, b) => a.order - b.order).map((c) => {
+  const list = inCat(c.id);
+  const checked = list.map((p) => p.data.lastVerified).filter((d): d is Date => !!d).sort((a, b) => +b - +a)[0];
+  return { ...c, n: list.length, logos: list.filter((p) => p.data.media?.logo).slice(0, 4), checked };
+});
+const live = cats.filter((c) => c.n > 0);
+const soon = cats.filter((c) => c.n === 0);
+---
+<Base title={nav.label} description={`${nav.note}: an independent directory of learning technology, with provenance on every fact.`} current="discover">
+  <div class="wrap">
+    <header class="page-head"><h1>{nav.label}</h1><p>{nav.note}. An independent directory of learning technology, with a source for every fact and our own words, never the vendor's.</p></header>
+    <section aria-labelledby="cat-h">
+      <div class="section-head" style="margin-top:0"><h2 id="cat-h">Live directories</h2><span class="meta">{products.length} profiles so far</span></div>
+      <ul class="cat-live">{live.map((c) => (
+        <li>
+          <a href={categoryUrl(c.id)}>
+            <span class="cat-count"><b>{c.n}</b> {c.n === 1 ? 'profile' : 'profiles'}</span>
+            <h3>{c.name}</h3>
+            <span class="cat-desc">{c.description}</span>
+            {c.logos.length > 0 && <span class="cat-logos" aria-hidden="true">{c.logos.map((p) => <span class="logo-tile logo-tile-sm"><img src={p.data.media!.logo!.src} alt="" loading="lazy" /></span>)}</span>}
+            <span class="cat-foot">{c.checked && <span class="meta">Checked {c.checked.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Sydney' })}</span>}<em>Browse →</em></span>
+          </a>
+        </li>
+      ))}</ul>
+    </section>
+    {soon.length > 0 && (
+      <section aria-labelledby="soon-h">
+        <div class="section-head"><h2 id="soon-h">In research</h2><span class="meta">Profiles coming soon</span></div>
+        <ul class="cat-soon">{soon.map((c) => <li><b>{c.name}</b><span>{c.description}</span></li>)}</ul>
+      </section>
+    )}
+    <SectionAbout page="discover" />
+    <section class="hub-cta band" aria-labelledby="sub-h">
+      <div>
+        <h2 id="sub-h">Built something for learning?</h2>
+        <p>Companies, start-ups and EdTech developers can submit a platform for review. It's free, and a review can't be bought.</p>
+      </div>
+      <a class="pill-btn pill-ink" href="/submit/">Submit your platform</a>
+    </section>
+  </div>
+</Base>

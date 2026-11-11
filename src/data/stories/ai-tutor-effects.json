@@ -1,0 +1,56 @@
+{
+  "title": "In two trials, AI tutors lifted overall scores by 0.31 SD (Nigeria) and 0.63 SD (Harvard)",
+  "subtitle": "Effect on learning in two randomised trials, in standard deviations (SD)",
+  "type": "bar",
+  "format": "sd",
+  "yMax": 0.8,
+  "categories": [
+    "Harvard physics: AI tutor vs active-learning class",
+    "Nigeria, after-school AI tutoring: overall assessment",
+    "Nigeria: English",
+    "Nigeria: digital skills"
+  ],
+  "series": [
+    {
+      "id": "effect",
+      "label": "Effect size",
+      "values": [
+        0.63,
+        0.31,
+        0.238,
+        0.139
+      ]
+    }
+  ],
+  "views": {
+    "harvard": {
+      "focus": [
+        0
+      ]
+    },
+    "nigeria": {
+      "focus": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "notes": [
+    "The two studies tested different things on different learners, so compare their sizes with care.",
+    "Harvard: crossover RCT, 194 students; the authors call 0.63 SD an underestimate because of a ceiling effect.",
+    "Nigeria: World Bank working paper, 654 students in nine schools; the digital-skills effect is significant only at p < 0.1."
+  ],
+  "sources": [
+    {
+      "label": "Kestin et al. (2025), AI tutoring outperforms in-class active learning, Scientific Reports",
+      "url": "https://doi.org/10.1038/s41598-025-97652-6",
+      "figureOrTable": "Results; Table S1"
+    },
+    {
+      "label": "De Simone et al. (2025), From chalkboards to chatbots, World Bank Policy Research Working Paper 11125",
+      "url": "https://doi.org/10.1596/1813-9450-11125",
+      "figureOrTable": "Tables 2 and 3"
+    }
+  ]
+}

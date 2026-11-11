@@ -1,0 +1,46 @@
+{
+  "title": "In a 2023 survey of instructional designers, corporate roles averaged US$87,384 and higher education US$68,474",
+  "subtitle": "Average salary of US full-time employed instructional designers by sector, self-reported, survey run July to September 2023 (number of respondents in brackets)",
+  "type": "bar",
+  "format": "usd",
+  "yMax": 100000,
+  "categories": [
+    "Corporate (304)",
+    "Government (63)",
+    "Healthcare (58)",
+    "Non-profit (49)",
+    "Higher education (44)"
+  ],
+  "series": [
+    {
+      "id": "avg",
+      "label": "Average salary",
+      "values": [
+        87384,
+        84095,
+        83092,
+        76335,
+        68474
+      ]
+    }
+  ],
+  "views": {
+    "gap": {
+      "focus": [
+        0,
+        4
+      ]
+    }
+  },
+  "notes": [
+    "Self-selected respondents recruited mainly through LinkedIn and the author's own channels, so the sample may skew towards people active online and towards higher earners. Averages, not medians.",
+    "Managers were excluded. Small groups (fewer than 50 respondents) are less reliable."
+  ],
+  "sources": [
+    {
+      "label": "Devlin Peck, Instructional Designer Salary Report 2024 (survey data collected 2023)",
+      "url": "https://www.devlinpeck.com/content/instructional-designer-salary",
+      "figureOrTable": "Salary by Industry (US full-time employees)"
+    }
+  ]
+}

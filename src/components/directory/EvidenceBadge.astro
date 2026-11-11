@@ -1,0 +1,14 @@
+---
+// One Evidence & Assurance level as a small labelled badge: four marks, filled up to the level.
+// "Research ongoing" and "Sources conflict" are shown in words. Links to the explainer page.
+import { LEVELS, EVIDENCE_URL, type EvidenceLevel } from '../../lib/directory';
+interface Props { level: EvidenceLevel; conflict?: boolean; compact?: boolean }
+const { level, conflict = false, compact = false } = Astro.props;
+const n = LEVELS[level].n;
+const text = conflict ? 'Sources conflict' : n ? `Level ${n} · ${LEVELS[level].label}` : LEVELS[level].label;
+const short = conflict ? 'Conflict' : n ? `L${n}` : 'Research ongoing';
+---
+<a class:list={['ev', `ev-${n}`, { 'ev-conflict': conflict, 'ev-compact': compact }]} href={EVIDENCE_URL} title={conflict ? 'The vendor’s own documents disagree. We show both and do not pick one.' : LEVELS[level].meaning}>
+  {!conflict && n > 0 && <span class="ev-marks" aria-hidden="true">{[1, 2, 3, 4].map((i) => <i class:list={{ on: i <= n }} />)}</span>}
+  {compact ? <><span aria-hidden="true">{short}</span><span class="visually-hidden">{text}</span></> : <span>{text}</span>}
+</a>

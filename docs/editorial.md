@@ -169,7 +169,7 @@ Every article has one hero image. Choose the style:
 | Risograph | Ideas people can't show: a design model, a memory effect, a process | About 20% |
 | Screenshot | Reviews, when Jim has supplied one | Reviews only |
 
-Never put words, numbers, charts or diagrams in a generated image. Those are research cards
+Never make words, numbers, charts or diagrams the subject of a generated image (incidental screen or page detail is fine). Those are research cards
 and charts, which the site builds from source data. The one exception: an image Jim has approved that shows
 CredentialCraft (for example its course screens) may show its name and readable screen text. Don't
 flag or replace those.
@@ -203,8 +203,9 @@ Use with `brand/documentary-reference.webp`. Fill the brackets; keep the rest wo
 > turned away, in profile or softly out of focus; hands and the device or paper are the
 > sharpest part of the frame. Natural daylight, clean true-to-life colour with gentle warmth,
 > soft shadows. 35mm film look, light fine grain, slightly imperfect framing, shallow depth of
-> field. Screens show only a soft, unreadable blur of a lesson layout. Use the reference image
-> for photographic style only, not its people, room or objects. No text, no logos, no brand
+> field. Screens show a natural, realistic lesson or video layout, in whatever focus the depth of
+> field gives them. Use the reference image for photographic style only, not its people, room or
+> objects. No logos, logomarks or brand names on screens, devices or clothing, no brand
 > marks, no watermarks, no glossy stock-photo styling, no staged smiles at the camera.
 
 Alt text describes what's in the photo plainly. Caption is optional. Documentary images carry no
@@ -224,7 +225,9 @@ Credit: "Illustration: The Learning Curve".
 
 ### Checking the image
 
-Reject and regenerate once if it has: any text or pseudo-text, a logo, malformed hands or
+Reject and regenerate once if it has: a logo, logomark or brand name (on a screen, a device, clothing
+or anything else), large or prominent words (a headline, sign or caption you can read at a glance;
+small interface text and handwriting in the background of a screen or page are fine), malformed hands or
 extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
 subject that doesn't match the article. If the second attempt also fails, stop and report;
 don't publish a weak image.

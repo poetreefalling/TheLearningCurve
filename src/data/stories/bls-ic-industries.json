@@ -1,0 +1,45 @@
+{
+  "title": "Instructional coordinators in state colleges and universities earned the lowest median of their top industries",
+  "subtitle": "Median annual wage of instructional coordinators in the five industries that employ the most of them, US, May 2025",
+  "type": "bar",
+  "format": "usd",
+  "yMax": 100000,
+  "categories": [
+    "Government (excluding state and local education and hospitals)",
+    "Elementary and secondary schools, local",
+    "Colleges, universities and professional schools, private",
+    "Educational support services, private",
+    "Colleges, universities and professional schools, state"
+  ],
+  "series": [
+    {
+      "id": "median",
+      "label": "Median annual wage",
+      "values": [
+        89920,
+        82130,
+        73070,
+        72610,
+        61810
+      ]
+    }
+  ],
+  "views": {
+    "uni": {
+      "focus": [
+        2,
+        4
+      ]
+    }
+  },
+  "notes": [
+    "Many instructional coordinators work in school systems as curriculum specialists rather than as online course designers."
+  ],
+  "sources": [
+    {
+      "label": "BLS Occupational Outlook Handbook: Instructional coordinators",
+      "url": "https://www.bls.gov/ooh/education-training-and-library/instructional-coordinators.htm",
+      "figureOrTable": "Pay tab: median annual wages in the top industries, May 2025"
+    }
+  ]
+}

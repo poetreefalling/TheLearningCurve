@@ -1,0 +1,217 @@
+{
+  "checked": "2026-11-11",
+  "groups": [
+    {
+      "id": "publication",
+      "title": "The publication",
+      "facts": [
+        {
+          "id": "name",
+          "label": "Name",
+          "value": "The Learning Curve",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "what",
+          "label": "What it is",
+          "value": "An independent publication on how to design online courses that work.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "url",
+          "label": "Website",
+          "value": "https://thelearningcurve.net",
+          "source": "/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "first-published",
+          "label": "First articles published",
+          "value": "30 October 2026",
+          "source": "/guides/addie-model/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "sections",
+          "label": "What it publishes",
+          "value": "The Library (one evergreen page per learning principle), Guides (practical course and instructional design), Reviews (course platforms scored with one published method) and Trends (dated news on online education).",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "audience",
+          "label": "Who it's for",
+          "value": "People who build online courses.",
+          "source": "/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "not-connected",
+          "label": "Not to be confused with",
+          "value": "The Learning Curve at thelearningcurve.net is not connected to other businesses, podcasts or publications with the same name.",
+          "source": "/facts/",
+          "checked": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "id": "people",
+      "title": "Who's behind it",
+      "facts": [
+        {
+          "id": "founder",
+          "label": "Founder",
+          "value": "Jim Lounsbury, who reviews, edits and approves every article before it's published.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "founder-role",
+          "label": "Jim Lounsbury's work",
+          "value": "A learning designer and documentary filmmaker based in Sydney, Australia.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "founder-avondale",
+          "label": "Educational development",
+          "value": "Jim works in educational development at Avondale University, designing course content and microcredentials.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "founder-credentialcraft",
+          "label": "Other business",
+          "value": "Jim runs CredentialCraft, a course-design studio.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "founder-film",
+          "label": "Film and television",
+          "value": "Jim has made documentaries and factual television in more than 20 countries, seen on Apple TV, Prime Video, Stan and National Geographic, among others.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "id": "funding",
+      "title": "Funding and independence",
+      "facts": [
+        {
+          "id": "funding",
+          "label": "How it's funded",
+          "value": "Affiliate links and clearly labelled advertising.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "affiliates",
+          "label": "Affiliate relationships",
+          "value": "Current or applied for with Thinkific, LearnWorlds, Teachable, Kajabi and TalentLMS.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "no-sponsored",
+          "label": "Sponsored content",
+          "value": "None. No company pays for coverage, and no article is sponsored.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "ads-reviews",
+          "label": "Ads on reviews",
+          "value": "Never. Advertising doesn't appear on platform reviews or comparisons.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "scores",
+          "label": "Commissions and scores",
+          "value": "Affiliate commissions never affect a score, a ranking or whether a platform is covered.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "credentialcraft-rule",
+          "label": "The founder's business",
+          "value": "CredentialCraft is named as the founder's business at first mention and is never ranked or scored against the platforms reviewed.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "id": "standards",
+      "title": "How it works",
+      "facts": [
+        {
+          "id": "method",
+          "label": "Review method",
+          "value": "Seven criteria scored 1 to 5: learning design (retrieval, assessment, credentials, learner analytics) weighted 60%, business tools (pricing, payments, marketing) weighted 40%.",
+          "source": "/how-we-review/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "testing",
+          "label": "How platforms are tested",
+          "value": "A real course is built on each platform, comparing the cheapest plan that includes certificates.",
+          "source": "/how-we-review/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "sources",
+          "label": "Sources",
+          "value": "Each research claim links to its source.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "library-recheck",
+          "label": "Library updates",
+          "value": "Each Library page is re-checked against new research every year.",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "ai",
+          "label": "Use of AI",
+          "value": "AI tools help research and scaffold articles; every article is reviewed, edited and approved by a person before publication. Illustrations are sometimes AI-generated. Research excerpts and charts are built from the cited studies.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "title": "Contact and email",
+      "facts": [
+        {
+          "id": "contact",
+          "label": "Corrections and suggestions",
+          "value": "hello@thelearningcurve.net",
+          "source": "/about/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "newsletter",
+          "label": "Newsletter",
+          "value": "Monthly, sent with Beehiiv, with a one-click unsubscribe in every email.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        },
+        {
+          "id": "email-sales",
+          "label": "Email addresses",
+          "value": "Never sold or rented.",
+          "source": "/disclosure/",
+          "checked": "2026-11-11"
+        }
+      ]
+    }
+  ]
+}

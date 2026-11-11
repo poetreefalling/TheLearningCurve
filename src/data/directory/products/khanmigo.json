@@ -1,0 +1,240 @@
+{
+  "name": "Khanmigo",
+  "vendor": "khan-academy",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.khanacademy.org/khan-labs",
+  "summary": "Khan Academy's AI tutor and teacher tools, designed to coach learners and assist educators with lesson planning and classroom tasks.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Socratic tutoring",
+      "Writing practice",
+      "Lesson planning",
+      "Learning objectives",
+      "Rubrics",
+      "Student-work summaries"
+    ],
+    "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Tutor chatbot",
+      "Teacher tools",
+      "Moderation",
+      "Parent/teacher chat visibility for child accounts"
+    ],
+    "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Khan Academy platform",
+      "School and district deployments"
+    ],
+    "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free teacher tools in supported regions; paid family/learner and district offerings vary."
+    },
+    "source": "https://www.khanacademy.org/khan-labs",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://en.khanacademy.org/about/privacy-policy",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "Chat history accessible to parents/teachers for child accounts; exact retention period not stated",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+            "checked": "2026-11-09",
+            "note": "Visibility and storage are documented; duration not stated."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "External AI partners; specific providers require confirmation",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+            "checked": "2026-11-09",
+            "note": "Visibility and storage are documented; duration not stated."
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "value": "Third-party LLM providers; provider/model not consistently specified in cited pages"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "vendor-disclosed",
+            "value": "18",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/13965308352781-What-is-Khan-Academy-s-approach-to-responsible-AI-development",
+            "checked": "2026-11-09",
+            "note": "Individual users must be 18; child access is conditional."
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+            "checked": "2026-11-09",
+            "note": "Child chat history visible to parent/guardian and applicable teacher/admin; moderation alerts adults."
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "vendor-disclosed",
+            "value": "Child chat history is visible to parent/guardian and, where applicable, teacher/school administrator; no single retention period found.",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/14394814244365-What-safety-features-does-Khanmigo-have",
+            "checked": "2026-11-09",
+            "note": "Child chat history visible to parent/guardian and applicable teacher/admin; moderation alerts adults."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "vendor-disclosed",
+            "value": "Guides rather than gives answers (Socratic tutoring design; feature-dependent)",
+            "source": "https://support.khanacademy.org/hc/en-us/articles/13965308352781-What-is-Khan-Academy-s-approach-to-responsible-AI-development",
+            "checked": "2026-11-09",
+            "note": "Responsible AI principles published; feature-specific behaviour needs product documentation."
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "magicschool-ai",
+    "schoolai",
+    "brisk-teaching",
+    "diffit",
+    "curipod"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[High] Australian availability, age pathway, model disclosure and retention: Please confirm current Australian school availability, exact under-18 consent pathway, model/provider names, platform retention and school administrator visibility. (route: Khan Academy institutional partnerships; evidence wanted: School/district terms, privacy policy, DPA, product security pack)",
+    "Age is context-dependent: adult individual registration, under-18 access through guardian/district. Confirm exact age handling by market and configuration; verify model names and output ownership.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Staff can set limits on the AI): Can school administrators access all learner transcripts, and what role-based controls are available?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (learnerOversight), not shown until sourced: Moderation detects potentially harmful/unsafe interactions and alerts connected adults; parents can review chat transcripts.",
+    "Researcher note (learnerOversight), not shown until sourced: Individual registrants must be 18+. Under-18s can use only through parent/guardian-linked child account, district partnership or specified teacher-assigned writing coach pathway.",
+    "Researcher note (outputOwnership), not shown until sourced: Under-18 access requires parent/guardian linkage or district partnership; child chat histories can be reviewed by connected adults. Khan Academy advises not to submit PII."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free teacher tools in supported regions; paid family/learner and district offerings vary"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free teacher tools in supported regions; paid family/learner and district offerings vary"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}
