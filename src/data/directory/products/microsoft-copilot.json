@@ -1,0 +1,251 @@
+{
+  "name": "Microsoft Copilot",
+  "vendor": "microsoft",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.microsoft.com/education/",
+  "summary": "Microsoft Copilot includes the Study and Learn Agent for scaffolded study, practice activities and work with learner-provided materials.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Scaffolded tutoring",
+      "Writing support",
+      "Flashcards",
+      "Quizzes",
+      "Matching",
+      "Fill-in-the-blank practice"
+    ],
+    "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Study and Learn Agent",
+      "Uploaded materials",
+      "Citations",
+      "Adaptive scaffolded conversation"
+    ],
+    "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Microsoft 365 Education",
+      "Word",
+      "PowerPoint",
+      "PDF and URLs as learner-provided materials"
+    ],
+    "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Study and Learn included with Microsoft 365 Education A1, A3 and A5; other Copilot entitlements vary."
+    },
+    "source": "https://www.microsoft.com/education/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Microsoft AI models; exact model/version not stated in Study and Learn documentation reviewed"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No (Microsoft 365 Education tenant prompts, responses and shared materials not used to train foundation models)"
+    },
+    "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No (Microsoft 365 Education tenant prompts, responses and shared materials not used to train foundation models)",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "M365 commitments apply; exact underlying model/version not disclosed in Study and Learn docs."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "Same retention and compliance policies as Microsoft 365 service; organisation controls retention",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "No separate Study and Learn database; tenant controls apply."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "Microsoft AI models; exact model/version not stated in Study and Learn documentation reviewed",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "M365 commitments apply; exact underlying model/version not disclosed in Study and Learn docs."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "vendor-disclosed",
+            "value": "13",
+            "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+            "checked": "2026-11-09",
+            "note": "Available to education users aged 13+; K–12 admins set age and consent controls."
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "Teachers do not see student conversations unless shared; admins may use retention/eDiscovery controls."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "vendor-disclosed",
+            "value": "No separate Study and Learn database; Microsoft 365 retention, audit and eDiscovery policies apply. Teachers do not ordinarily see private study conversations.",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "Teachers do not see student conversations unless shared; admins may use retention/eDiscovery controls."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "vendor-disclosed",
+            "value": "Guides rather than gives answers (Study and Learn); asks questions and gives hints before answers; writing coach does not write essays",
+            "source": "https://support.microsoft.com/en-au/education/copilot/study-learn-faq",
+            "checked": "2026-11-09",
+            "note": "Designed to ask questions, provide hints, scaffold and coach rather than write student essays."
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+            "checked": "2026-11-09",
+            "note": "Supports Word, PowerPoint, PDF, URLs and Copilot Pages; citations are included."
+          },
+          {
+            "question": "Shows its sources",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.microsoft.com/en-us/education/copilot/study-learn-agent",
+            "checked": "2026-11-09",
+            "note": "Supports Word, PowerPoint, PDF, URLs and Copilot Pages; citations are included."
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Microsoft"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "chatgpt",
+    "gemini-for-education",
+    "claude",
+    "perplexity",
+    "notebooklm"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "Confirm age and policy requirements for other Copilot experiences separately; Study and Learn Agent documented at 13+; confirm exact model/version and output ownership.",
+    "Ask vendor (Who processes the data): Please provide the current list of subprocessors and applicable Australian data residency commitments.",
+    "Ask vendor (Staff can review AI output before learners see it): Can institutions configure teacher access to Study and Learn conversations, and what audit/eDiscovery controls are available?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (learnerOversight), not shown until sourced: Teachers do not see student conversations or practice results unless student shares them; administrators can use applicable M365 compliance/eDiscovery controls.",
+    "Researcher note (learnerOversight), not shown until sourced: Age value is a minimum eligibility signal only; check school/parent consent and local jurisdictional requirements.",
+    "Researcher note (outputOwnership), not shown until sourced: Microsoft says prompts and outputs are not used to train foundation models; Study and Learn is available to eligible education users aged 13+."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Study and Learn included with Microsoft 365 Education A1, A3 and A5; other Copilot entitlements vary"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Study and Learn included with Microsoft 365 Education A1, A3 and A5; other Copilot entitlements vary"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

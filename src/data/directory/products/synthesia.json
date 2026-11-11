@@ -1,0 +1,216 @@
+{
+  "name": "Synthesia",
+  "vendor": "synthesia-ltd",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning",
+    "video-interactive"
+  ],
+  "website": "https://www.synthesia.io/",
+  "summary": "AI video platform for creating presenter-led training and instructional videos using avatars, scripts and media.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Instructional video",
+      "Compliance training",
+      "Localisation",
+      "Explainer content"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI avatars",
+      "Script-to-video",
+      "Voice and language generation",
+      "Templates"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS and video integrations",
+      "Exact list to verify"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid plans; enterprise pricing available."
+    },
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "value": "Underlying model/provider mix not disclosed in sources checked"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "coursebox",
+    "mindsmith",
+    "articulate-360-ai",
+    "docebo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] AI model/provider, data retention, learner age and video output rights: Please provide current AI model/provider list, prompt/audio/video retention, data training controls, age/consent requirements for avatars and ownership of generated videos. (route: Synthesia enterprise sales; evidence wanted: DPA, Trust Center, subprocessor list, terms)",
+    "Confirm learner-facing use, minimum age, grounding, oversight, retention, processors and generated video ownership; currently profiled as learning-content production rather than tutoring.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (How long prompts and chats are kept): How long are prompts, chats, uploaded files, generated outputs and logs retained? Please distinguish platform retention from model-provider retention.",
+    "Ask vendor (Who processes the data): Please provide the complete current list of AI model providers and subprocessors that process prompts, chats, uploaded files or generated outputs, including processing locations.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (outputOwnership), not shown until sourced: Included as a high-profile learning media tool, although it is a content-production component rather than a tutor or complete learning platform. Need privacy/age/ownership/provider review."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: SCORM/export capabilities vary by plan; verify"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid plans; enterprise pricing available"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid plans; enterprise pricing available"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

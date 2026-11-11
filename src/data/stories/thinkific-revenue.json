@@ -1,0 +1,74 @@
+{
+  "title": "Thinkific's revenue more than tripled from 2020 to 2025, but growth slowed from 81% to 9%",
+  "subtitle": "Thinkific's total revenue, US$ millions a year, from its annual results",
+  "type": "column",
+  "format": "millions",
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "revenue",
+      "label": "Revenue",
+      "values": [
+        21.1,
+        38.1,
+        51.5,
+        59.1,
+        66.9,
+        73.2
+      ]
+    }
+  ],
+  "views": {
+    "boom": {
+      "upTo": 1,
+      "focus": [
+        1
+      ]
+    },
+    "slowdown": {
+      "focus": [
+        2,
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "notes": [
+    "Growth rates as stated in each year's results release. Revenue is what Thinkific earns from subscriptions and payments, not what creators sell."
+  ],
+  "sources": [
+    {
+      "label": "Thinkific Q4 and full-year 2021 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2021-financial-results-and-provides-first-quarter-2022-outlook-806299511.html",
+      "figureOrTable": "Consolidated statements of loss"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2022 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2022-financial-results-and-provides-first-quarter-2023-outlook-814476102.html",
+      "figureOrTable": "Consolidated statements of loss"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2023 results",
+      "url": "https://investors.thinkific.com/2024-03-04-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2023-Financial-Results",
+      "figureOrTable": "Consolidated statements of loss"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2024 results",
+      "url": "https://www.newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2024-financial-results-824981852.html",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2025 results",
+      "url": "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    }
+  ]
+}

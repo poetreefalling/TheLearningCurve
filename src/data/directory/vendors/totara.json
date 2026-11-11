@@ -1,0 +1,50 @@
+{
+  "name": "Totara Learning Solutions",
+  "website": "https://www.totara.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Wellington, New Zealand (company origin; global operations)",
+    "source": "https://www.totara.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "51–200 employees (public company profile range)",
+    "source": "https://www.linkedin.com/company/totara-learning/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.totara.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2010,
+    "source": "https://www.totara.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://www.totara.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held",
+    "source": "https://www.totara.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "ownership",
+      "note": "\"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
+}

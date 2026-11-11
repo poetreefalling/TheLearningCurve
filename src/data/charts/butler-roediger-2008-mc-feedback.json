@@ -1,0 +1,21 @@
+{
+  "title": "With feedback, a multiple-choice quiz lifted recall a week later from 14% to as much as 56%",
+  "subtitle": "Proportion of answers correct, and of wrong answers taken from the quiz's lures, on a cued-recall test one week after a multiple-choice quiz (forced report, averaged across study conditions)",
+  "type": "groupedBar",
+  "unit": "% of final-test answers",
+  "highlight": "Correct",
+  "series": [
+    { "label": "No quiz", "values": { "Correct": 14, "Lure intrusions": 16 } },
+    { "label": "Quiz, no feedback", "values": { "Correct": 31, "Lure intrusions": 24 } },
+    { "label": "Quiz, immediate feedback", "values": { "Correct": 45, "Lure intrusions": 15 } },
+    { "label": "Quiz, delayed feedback", "values": { "Correct": 56, "Lure intrusions": 14 } }
+  ],
+  "yMax": 60,
+  "source": {
+    "authors": "Butler, A. C., & Roediger, H. L., III",
+    "year": 2008,
+    "doi": "10.3758/MC.36.3.604",
+    "url": "https://mrbartonmaths.com/resourcesnew/8.%20Research/Formative%20Assessment/Feedback%20enhances%20the%20positive%20effects%20and%20reduces.pdf",
+    "figureOrTable": "Tables 2 and 3, forced report, M rows"
+  }
+}

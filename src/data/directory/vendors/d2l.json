@@ -1,0 +1,52 @@
+{
+  "name": "D2L Corporation",
+  "website": "https://www.d2l.com/",
+  "headquarters": {
+    "value": "Kitchener, Ontario, Canada",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "ownership": {
+    "value": "public",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Listed on the Toronto Stock Exchange (DTOL)",
+    "source": "https://s29.q4cdn.com/190964490/files/doc_financials/2026/ar/Annual-Information-Form-AIF-FY26-D2L-Inc-Final.pdf",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "legalEntity": "D2L Inc.",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "size": {
+    "value": "1,100 employees (company-reported)",
+    "source": "https://www.d2l.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Publicly listed on Toronto Stock Exchange (DTOL); capital raised via public markets",
+    "source": "https://www.d2l.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 1999,
+    "source": "https://www.d2l.com/about/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "note": "1999 (company origin; incorporated 2011)"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 1999; the workbook qualifies it: \"1999 (company origin; incorporated 2011)\"."
+    }
+  ]
+}

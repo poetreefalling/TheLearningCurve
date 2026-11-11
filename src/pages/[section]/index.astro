@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import SectionAbout from '../../components/SectionAbout.astro';
 import { SITE, SECTIONS, type SectionKey } from '../../site.config';
 import { getArticles, urlOf, formatDate, type Article } from '../../lib/articles';
 
@@ -84,5 +85,6 @@ const jsonLd = [{
         )}
       </>
     )}
+    <SectionAbout page={section} />
   </div>
 </Base>

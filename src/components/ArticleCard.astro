@@ -1,37 +1,47 @@
 ---
-import { type Article, urlOf, heroSrc, heroSrcset, formatDate } from '../lib/articles';
+import { type Article, urlOf, heroSrc, heroSrcset, formatDate, readingTime } from '../lib/articles';
 import { overall } from '../lib/score';
 
 interface Props {
   article: Article;
-  variant?: 'lead' | 'standard' | 'text' | 'river';
+  // feature: the home page's lead story, a white panel inside the marigold band
+  variant?: 'feature' | 'lead' | 'standard' | 'text' | 'river';
   showImage?: boolean;
   showStandfirst?: boolean;
   eager?: boolean;
 }
-const { article: a, variant = 'standard', showImage = variant !== 'text', showStandfirst = variant !== 'standard', eager = false } = Astro.props;
+const { article: a, variant = 'standard', showImage = variant !== 'text', eager = false } = Astro.props;
+const showStandfirst = Astro.props.showStandfirst ?? true;
 const d = a.data;
 const score = d.review ? overall(d.review.scores) : null;
-const img = variant === 'lead' ? heroSrc(a) : heroSrc(a, '-card');
+const big = variant === 'lead' || variant === 'feature';
+const img = big ? heroSrc(a) : heroSrc(a, '-card');
+// Standard and river cards run the kicker into the headline: "Feedback / What the Research Says"
+const inline = variant === 'standard' || variant === 'river';
+const isNew = Date.now() - d.published.valueOf() < 2 * 86400_000;
 ---
 
 <a class={`card card-${variant}`} href={urlOf(a)}>
   {showImage && (
     <img
       src={img}
-      srcset={variant === 'lead' ? heroSrcset(a) : undefined}
-      sizes={variant === 'lead' ? '(min-width: 760px) 66vw, 100vw' : undefined}
+      srcset={big ? heroSrcset(a) : undefined}
+      sizes={variant === 'feature' ? '(min-width: 760px) 600px, 100vw' : variant === 'lead' ? '(min-width: 760px) 66vw, 100vw' : undefined}
       alt=""
-      width={variant === 'lead' ? 1600 : 800}
-      height={variant === 'lead' ? 900 : 533}
+      width={big ? 1600 : 800}
+      height={big ? 1067 : 533}
       loading={eager ? 'eager' : 'lazy'}
       fetchpriority={eager ? 'high' : undefined}
       decoding="async"
     />
   )}
-  <div>
-    <span class="kicker">{d.kicker}</span>
-    <h3>{d.title}</h3>
+  <div class="card-body">
+    {!inline && (
+      <span class="kicker">{variant === 'feature' && isNew && <span class="new-tag">New</span>}{d.kicker}</span>
+    )}
+    {variant === 'feature' ? <h2>{d.title}</h2> : (
+      <h3>{inline && <span class="kicker-inline">{d.kicker} /</span>} {d.title}</h3>
+    )}
     {showStandfirst && <p>{d.standfirst}</p>}
     {score !== null && (
       <span class="score-chip">
@@ -39,6 +49,6 @@ const img = variant === 'lead' ? heroSrc(a) : heroSrc(a, '-card');
         {score.toFixed(1)} / 5
       </span>
     )}
-    <div class="meta">{d.library ? `Last reviewed ${formatDate(d.library.lastReviewed)}` : formatDate(d.published)}{d.draft && ' · Draft'}</div>
+    <div class="meta">{d.library ? `Last reviewed ${formatDate(d.library.lastReviewed)}` : formatDate(d.published)} · {readingTime(a)} min read{d.draft && ' · Draft'}</div>
   </div>
 </a>

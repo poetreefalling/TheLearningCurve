@@ -1,0 +1,215 @@
+{
+  "name": "Curipod",
+  "vendor": "curipod-as",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://curipod.com/",
+  "summary": "AI-assisted interactive lesson and presentation builder for classroom instruction and student participation.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Lesson generation",
+      "Interactive presentations",
+      "Writing practice",
+      "Feedback"
+    ],
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI-generated lesson slides",
+      "Interactive activities",
+      "Student response and feedback workflows"
+    ],
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "Classroom presentation tools",
+      "Integrations to verify"
+    ],
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid/school plans; confirm current pricing."
+    },
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://curipod.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "magicschool-ai",
+    "schoolai",
+    "brisk-teaching",
+    "diffit",
+    "khanmigo"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] Model/provider, student privacy, age, oversight and output ownership: Please confirm AI models/providers, minimum age, whether student responses are used for training, teacher chat visibility, retention and output ownership. (route: Vendor support; evidence wanted: Privacy policy, DPA, terms, AI feature documentation)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (How long prompts and chats are kept): How long are prompts, chats, uploaded files, generated outputs and logs retained? Please distinguish platform retention from model-provider retention.",
+    "Ask vendor (Who processes the data): Please provide the complete current list of AI model providers and subprocessors that process prompts, chats, uploaded files or generated outputs, including processing locations.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (outputOwnership), not shown until sourced: Need official terms/privacy and help-centre review for AI model, student age, chat visibility, retention, processors and generated-content rights."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid/school plans; confirm current pricing"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid/school plans; confirm current pricing"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}
