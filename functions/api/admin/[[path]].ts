@@ -9,11 +9,32 @@
 //
 // The desk only touches open pull requests from `article/` branches: it reads their articles,
 // commits Jim's edits to the same branch, and merges the PR when he presses Publish.
+//
+// The Changes tab lists every other open pull request (site, docs, ads) and merges one when Jim
+// presses Merge, but only when its checks pass, GitHub says it merges cleanly, and it is still
+// the exact version he was shown.
+//
+// It also lets Jim edit the text files a change touches (Edit, then pick a file): saving commits to
+// that pull request's own branch, like the review desk does for articles, never to the live site.
+//
+// The ad manager (Ads tab) reads src/data/ads.json from the default branch and saves it, plus any
+// new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
+// The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
+// can't break the build.
+//
+// The facts editor (Facts tab) does the same for src/data/facts.json, the data behind /facts/ and
+// /facts.json: it reads the file from the default branch and saves it as one commit there.
 
+interface SubDb {
+  prepare(sql: string): { bind(...v: unknown[]): any; all<T>(): Promise<{ results: T[] }>; run(): Promise<unknown> };
+}
 interface Env {
   ADMIN_PASSWORD?: string;
   GITHUB_TOKEN?: string;
   GITHUB_REPO?: string;
+  // Platform submissions from /submit (functions/api/submit.ts, docs/submissions.md)
+  SUBMISSIONS_DB?: SubDb;
+  CHECKS_DB?: SubDb;
 }
 
 type Ctx = { request: Request; env: Env; params: { path?: string | string[] } };
@@ -43,6 +64,22 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     }
     if (route === 'save' && request.method === 'POST') return json(200, await save(gh, await request.json()));
     if (route === 'publish' && request.method === 'POST') return await publish(gh, await request.json());
+    if (route === 'changes' && request.method === 'GET') return json(200, await listChanges(gh));
+    if (route === 'changes/files' && request.method === 'GET') {
+      return json(200, await changeFiles(gh, Number(new URL(request.url).searchParams.get('pr'))));
+    }
+    if (route === 'changes/file' && request.method === 'GET') {
+      const u = new URL(request.url);
+      return json(200, await readChangeFile(gh, Number(u.searchParams.get('pr')), u.searchParams.get('path') ?? ''));
+    }
+    if (route === 'changes/save' && request.method === 'POST') return json(200, await saveChangeFile(gh, await request.json()));
+    if (route === 'changes/merge' && request.method === 'POST') return await mergeChange(gh, await request.json());
+    if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
+    if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
+    if (route === 'facts' && request.method === 'GET') return json(200, await readFacts(gh));
+    if (route === 'facts/save' && request.method === 'POST') return json(200, await saveFacts(gh, await request.json()));
+    if (route === 'submissions' && request.method === 'GET') return json(200, await listSubmissions(env));
+    if (route === 'submissions/status' && request.method === 'POST') return json(200, await setSubmission(env, await request.json()));
     return json(404, { error: 'Not found.' });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -54,6 +91,37 @@ class Problem extends Error {
   constructor(public status: number, message: string) {
     super(message);
   }
+}
+
+// ---------- platform submissions (/submit) ----------
+
+const SUB_STATUSES = ['new', 'reviewing', 'accepted', 'declined'];
+const SUB_TABLE = `CREATE TABLE IF NOT EXISTS submissions (
+  id TEXT PRIMARY KEY, at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'new',
+  name TEXT, email TEXT, organisation TEXT, role TEXT, org_type TEXT,
+  product TEXT, url TEXT, category TEXT, stage TEXT, audience TEXT,
+  description TEXT, learning TEXT, access TEXT, notes TEXT, editor_note TEXT
+)`;
+
+function subDb(env: Env) {
+  const db = env.SUBMISSIONS_DB ?? env.CHECKS_DB;
+  if (!db) throw new Problem(503, 'Submissions storage is not set up yet: add the SUBMISSIONS_DB binding in Cloudflare (docs/submissions.md).');
+  return db;
+}
+
+async function listSubmissions(env: Env) {
+  const db = subDb(env);
+  await db.prepare(SUB_TABLE).run();
+  const { results } = await db.prepare('SELECT * FROM submissions ORDER BY at DESC LIMIT 300').all<Record<string, unknown>>();
+  return { items: results, statuses: SUB_STATUSES };
+}
+
+async function setSubmission(env: Env, body: { id?: string; status?: string; note?: string }) {
+  const db = subDb(env);
+  if (!body.id || !SUB_STATUSES.includes(String(body.status))) throw new Problem(400, 'Unknown submission or status.');
+  await db.prepare('UPDATE submissions SET status = ?, editor_note = ? WHERE id = ?')
+    .bind(String(body.status), String(body.note ?? '').slice(0, 2000), String(body.id)).run();
+  return { ok: true };
 }
 
 // ---------- sessions ----------
@@ -274,6 +342,39 @@ async function queue(gh: GH) {
   return { items: items.sort((a, b) => firstPublished(a).localeCompare(firstPublished(b))) };
 }
 
+// GitHub works out whether a pull request merges cleanly in the background, so the first read
+// after main moves often says "unknown" (null). Its API responses can also be cached for up to a
+// minute, which kept serving that first null. Read fresh (a cache-busting query) a few times.
+// If GitHub still hasn't decided, the caller just tries the merge: GitHub refuses it itself (405)
+// when the change conflicts, and (409) when the branch moved, so nothing unsafe can land.
+async function freshMergeable(gh: GH, number: number): Promise<boolean | null> {
+  for (let i = 0; i < 5; i++) {
+    const pr = await gh(`/pulls/${number}?fresh=${Date.now()}-${i}`);
+    if (pr.mergeable !== null && pr.mergeable !== undefined) return pr.mergeable as boolean;
+    await new Promise((r) => setTimeout(r, 1500));
+  }
+  return null;
+}
+
+async function mergePr(gh: GH, number: number, sha: string, title: string, what: 'article' | 'change') {
+  try {
+    await gh(`/pulls/${number}/merge`, {
+      method: 'PUT',
+      body: JSON.stringify({ merge_method: 'merge', sha, commit_title: `${title} (#${number})` }),
+    });
+  } catch (e) {
+    if (e instanceof Problem && e.status === 405) {
+      throw new Problem(409, what === 'article'
+        ? 'GitHub says this article can\'t be merged yet (usually a clash with a line in the backlog). Ask Claude to fix the conflict, then publish.'
+        : 'GitHub says this change can\'t be merged yet: it clashes with something already on the live site. Ask Claude to fix the conflict, then merge.');
+    }
+    if (e instanceof Problem && e.status === 409) {
+      throw new Problem(409, 'This changed on GitHub a moment ago. Reload and look at the latest version before merging.');
+    }
+    throw e;
+  }
+}
+
 // ---------- saving and publishing ----------
 
 async function save(gh: GH, body: any) {
@@ -313,17 +414,10 @@ async function publish(gh: GH, body: any) {
   if (item.checks === 'failing') {
     return json(409, { error: 'The site check failed on the latest version, so publishing would break the live site. Ask Claude to look at it.' });
   }
-  const full = await gh(`/pulls/${pr.number}`);
-  if (full.mergeable === false) {
+  if ((await freshMergeable(gh, pr.number)) === false) {
     return json(409, { error: 'This article clashes with something already published (usually a line in the backlog). Ask Claude to fix the conflict, then publish.' });
   }
-  if (full.mergeable === null) {
-    return json(409, { error: 'GitHub is still checking this article against the live site. Try again in a few seconds.' });
-  }
-  await gh(`/pulls/${pr.number}/merge`, {
-    method: 'PUT',
-    body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${pr.number})` }),
-  });
+  await mergePr(gh, pr.number, pr.head.sha, pr.title, 'article');
   const slots = item.articles.map((a: any) => a.slot).join(', ');
   const overdue = item.articles.every((a: any) => new Date(a.published).getTime() <= Date.now());
   return json(200, {
@@ -332,6 +426,300 @@ async function publish(gh: GH, body: any) {
       ? `Published. Its slot (${slots}) has already passed, so it goes live in a few minutes.`
       : `Published. It goes live at its slot (${slots}, Sydney time).`,
   });
+}
+
+
+// ---------- other changes (non-article pull requests) ----------
+
+async function describeChange(gh: GH, pr: any) {
+  const [checks, preview] = await Promise.all([checksFor(gh, pr.head.sha), previewBase(gh, pr.number, pr.head.ref)]);
+  return {
+    number: pr.number,
+    title: pr.title,
+    url: pr.html_url,
+    branch: pr.head.ref,
+    sha: pr.head.sha,
+    draft: !!pr.draft,
+    opened: pr.created_at,
+    body: String(pr.body ?? '').replace(/\r/g, '').slice(0, 4000),
+    checks,
+    preview,
+  };
+}
+
+async function listChanges(gh: GH) {
+  const prs: any[] = await gh('/pulls?state=open&per_page=50&sort=created&direction=asc');
+  const others = prs.filter((p) => !String(p.head.ref).startsWith('article/'));
+  return { items: await Promise.all(others.map((p) => describeChange(gh, p))) };
+}
+
+async function mergeChange(gh: GH, body: any) {
+  const number = Number(body?.pr);
+  if (!Number.isInteger(number) || number <= 0) throw new Problem(400, 'Unknown pull request.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'This change is no longer open (it may already be merged or closed). Reload the list.');
+  if (String(pr.head.ref).startsWith('article/')) {
+    throw new Problem(400, 'Articles are published from the Articles tab, which checks every editor flag first.');
+  }
+  if (pr.draft) throw new Problem(409, 'This pull request is still marked as a draft on GitHub.');
+  if (body?.sha && body.sha !== pr.head.sha) {
+    throw new Problem(409, 'This change was updated since you opened the list. Reload and look at the latest version before merging.');
+  }
+  const checks = await checksFor(gh, pr.head.sha);
+  if (checks === 'pending') return json(409, { error: 'The site check is still running. Try again in a minute or two.' });
+  if (checks === 'failing') return json(409, { error: 'The site check failed, so merging could break the live site. Ask Claude to look at it.' });
+  if ((await freshMergeable(gh, number)) === false) return json(409, { error: 'This change clashes with something already on the live site. Ask Claude to fix the conflict, then merge.' });
+  await mergePr(gh, number, pr.head.sha, pr.title, 'change');
+  return json(200, { ok: true, message: `Merged #${number}. The live site rebuilds in about two minutes.` });
+}
+
+// ---------- editing a change's files ----------
+
+// Text files the editor can open; images and other binary files are left to GitHub
+const TEXT_FILE = /\.(md|mdx|json|astro|ts|tsx|js|mjs|cjs|css|html|txt|ya?ml|toml|svg|xml|csv)$/i;
+const MAX_TEXT = 400_000;
+
+async function openChangePr(gh: GH, number: number) {
+  if (!Number.isInteger(number) || number <= 0) throw new Problem(400, 'Unknown pull request.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'This change is no longer open (it may already be merged or closed). Reload the list.');
+  if (String(pr.head.ref).startsWith('article/')) throw new Problem(400, 'Articles are edited in the Articles tab.');
+  if (pr.head.repo?.full_name !== pr.base.repo?.full_name) throw new Problem(400, 'This change comes from another copy of the repository, so it can only be edited on GitHub.');
+  return pr;
+}
+
+async function changeFiles(gh: GH, number: number) {
+  const pr = await openChangePr(gh, number);
+  const files: any[] = await gh(`/pulls/${number}/files?per_page=100`);
+  return {
+    number,
+    title: pr.title,
+    branch: pr.head.ref,
+    files: files.map((f) => {
+      const path = String(f.filename);
+      const editable = f.status !== 'removed' && TEXT_FILE.test(path);
+      return {
+        path,
+        status: f.status as string,
+        additions: f.additions as number,
+        deletions: f.deletions as number,
+        editable,
+        why: editable ? '' : f.status === 'removed' ? 'Deleted in this change' : 'Not a text file',
+      };
+    }),
+  };
+}
+
+async function readChangeFile(gh: GH, number: number, path: string, pr?: any) {
+  pr ??= await openChangePr(gh, number);
+  if (!TEXT_FILE.test(path) || path.includes('..') || path.startsWith('/')) throw new Problem(400, 'That file can\'t be edited here.');
+  const files: any[] = await gh(`/pulls/${number}/files?per_page=100`);
+  if (!files.some((f) => f.filename === path && f.status !== 'removed')) throw new Problem(400, 'That file isn\'t part of this change.');
+  const file = await gh(`/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(pr.head.ref)}`);
+  if (typeof file.content !== 'string' || (!file.content && file.size > 0)) throw new Problem(400, 'That file is too large to edit here. Ask Claude, or edit it on GitHub.');
+  return { path, sha: file.sha as string, content: decode(file.content), headSha: pr.head.sha as string };
+}
+
+async function saveChangeFile(gh: GH, body: any) {
+  const pr = await openChangePr(gh, Number(body?.pr));
+  const path = String(body?.path ?? '');
+  let content = String(body?.content ?? '');
+  if (content.length > MAX_TEXT) throw new Problem(400, 'That file is too long to save here.');
+  if (/\.json$/i.test(path)) {
+    try { JSON.parse(content); } catch (e) {
+      throw new Problem(400, `That isn't valid JSON, so it would break the build: ${e instanceof Error ? e.message : e}. Check for a missing comma or quote.`);
+    }
+  }
+  const current = await readChangeFile(gh, pr.number, path, pr);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'This file changed since you opened it (perhaps Claude updated it). Reload to get the latest version, then make your change again.');
+  }
+  if (!content.endsWith('\n') && current.content.endsWith('\n')) content += '\n';
+  if (current.content === content) return { ok: true, unchanged: true, sha: current.sha };
+  const res = await gh(`/contents/${path.split('/').map(encodeURIComponent).join('/')}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      message: `Edit via changes desk: ${path}`,
+      content: encode(content),
+      sha: current.sha,
+      branch: pr.head.ref,
+    }),
+  });
+  return { ok: true, sha: res.content?.sha as string };
+}
+
+// ---------- ads ----------
+
+const ADS_PATH = 'src/data/ads.json';
+const AD_SLOTS = ['billboard', 'rectangle', 'halfpage', 'card'] as const;
+const AD_IMAGE = /^\/ads\/[a-z0-9][a-z0-9._-]*\.(webp|jpe?g|png|gif)$/i;
+const UPLOAD_NAME = /^[a-z0-9][a-z0-9._-]{0,100}\.(webp|jpe?g|png|gif)$/i;
+const DAY = /^\d{4}-\d{2}-\d{2}$/;
+const MAX_IMAGE = 1_500_000;
+
+async function defaultBranch(gh: GH) {
+  const repo = await gh('');
+  return String(repo.default_branch || 'main');
+}
+
+async function readAds(gh: GH) {
+  const branch = await defaultBranch(gh);
+  const file = await gh(`/contents/${ADS_PATH}?ref=${encodeURIComponent(branch)}`);
+  return { config: JSON.parse(decode(file.content)), sha: file.sha as string, branch };
+}
+
+function checkAds(c: any) {
+  const bad = (m: string) => { throw new Problem(400, m); };
+  if (!c || typeof c !== 'object') bad('The ad settings are missing.');
+  const n = c.network ?? {};
+  if (typeof n.enabled !== 'boolean') bad('Network: choose on or off.');
+  if (n.client && !/^ca-pub-\d{10,20}$/.test(n.client)) bad('Network: the AdSense publisher ID looks like ca-pub-1234567890123456.');
+  if (n.enabled && !n.client) bad('Network: add the AdSense publisher ID before switching it on.');
+  for (const k of ['billboard', 'rectangle', 'halfpage']) {
+    if (n.slots?.[k] && !/^\d+$/.test(n.slots[k])) bad(`Network: the ${k} ad unit ID should be digits only.`);
+  }
+  if (!Array.isArray(c.campaigns)) bad('Campaigns are missing.');
+  const ids = new Set<string>();
+  c.campaigns.forEach((k: any, i: number) => {
+    const where = `Campaign ${i + 1}${k?.name ? ` (${k.name})` : ''}`;
+    if (!k.id || ids.has(k.id)) bad(`${where}: missing or repeated id.`);
+    ids.add(k.id);
+    if (!k.name || String(k.name).length > 120) bad(`${where}: give it a name (up to 120 characters).`);
+    if (!k.sponsor || String(k.sponsor).length > 80) bad(`${where}: add the sponsor's name.`);
+    if (!AD_SLOTS.includes(k.slot)) bad(`${where}: choose a slot.`);
+    if (!['home', 'articles', 'both'].includes(k.pages)) bad(`${where}: choose where it shows.`);
+    if (!AD_IMAGE.test(String(k.image ?? ''))) bad(`${where}: add an image.`);
+    if (!k.alt || String(k.alt).length < 3 || String(k.alt).length > 200) bad(`${where}: describe the image for screen readers (3 to 200 characters).`);
+    try { if (new URL(k.url).protocol !== 'https:') throw 0; } catch { bad(`${where}: the link must be a full https:// address.`); }
+    if (!DAY.test(k.start) || !DAY.test(k.end)) bad(`${where}: add a start and an end date.`);
+    if (k.end < k.start) bad(`${where}: it ends before it starts.`);
+    if (k.slot === 'card' && !k.headline) bad(`${where}: a sponsored card needs a headline.`);
+    if (k.headline && String(k.headline).length > 90) bad(`${where}: keep the headline to 90 characters.`);
+    if (k.text && String(k.text).length > 160) bad(`${where}: keep the line of text to 160 characters.`);
+    if (typeof k.active !== 'boolean') bad(`${where}: choose whether it's running or paused.`);
+  });
+}
+
+async function commitFiles(gh: GH, branch: string, files: { path: string; base64: string }[], message: string) {
+  const ref = await gh(`/git/ref/heads/${encodeURIComponent(branch)}`);
+  const base = await gh(`/git/commits/${ref.object.sha}`);
+  const tree = await Promise.all(files.map(async (f) => {
+    const blob = await gh('/git/blobs', { method: 'POST', body: JSON.stringify({ content: f.base64, encoding: 'base64' }) });
+    return { path: f.path, mode: '100644', type: 'blob', sha: blob.sha };
+  }));
+  const newTree = await gh('/git/trees', { method: 'POST', body: JSON.stringify({ base_tree: base.tree.sha, tree }) });
+  const commit = await gh('/git/commits', { method: 'POST', body: JSON.stringify({ message, tree: newTree.sha, parents: [ref.object.sha] }) });
+  await gh(`/git/refs/heads/${encodeURIComponent(branch)}`, { method: 'PATCH', body: JSON.stringify({ sha: commit.sha }) });
+  return commit.sha as string;
+}
+
+async function saveAds(gh: GH, body: any) {
+  const config = body?.config;
+  checkAds(config);
+  const current = await readAds(gh);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'The ad settings changed since you opened them (perhaps in another tab). Reload, then make your change again.');
+  }
+  const uploads: any[] = Array.isArray(body?.uploads) ? body.uploads : [];
+  const used = new Set(config.campaigns.map((k: any) => k.image));
+  const files = uploads
+    .filter((u) => used.has(`/ads/${u?.name}`)) // drop images for campaigns removed before saving
+    .map((u) => {
+      if (!UPLOAD_NAME.test(String(u?.name ?? ''))) throw new Problem(400, 'An image has an unusable file name.');
+      const data = String(u?.data ?? '').replace(/^data:[^,]*,/, '');
+      if (data.length * 0.75 > MAX_IMAGE) throw new Problem(400, `${u.name} is too large: keep ad images under 1.5 MB (WebP or JPEG at the slot's size is plenty).`);
+      return { path: `public/ads/${u.name}`, base64: data };
+    });
+  const text = JSON.stringify(config, null, 2) + '\n';
+  if (!files.length && text === JSON.stringify(current.config, null, 2) + '\n') return { ok: true, unchanged: true, sha: current.sha };
+  files.push({ path: ADS_PATH, base64: encode(text) });
+  const summary = String(body?.summary ?? '').slice(0, 120) || 'update ad settings';
+  await commitFiles(gh, current.branch, files, `Ads: ${summary} (via the ad manager)`);
+  return { ok: true, sha: await blobSha(text) };
+}
+
+// ---------- facts (/facts/) ----------
+
+const FACTS_PATH = 'src/data/facts.json';
+const SLUG = /^[a-z0-9][a-z0-9-]{0,59}$/;
+
+async function readFacts(gh: GH) {
+  const branch = await defaultBranch(gh);
+  let file: any;
+  try {
+    file = await gh(`/contents/${FACTS_PATH}?ref=${encodeURIComponent(branch)}`);
+  } catch (e) {
+    if (e instanceof Problem && e.status === 404) throw new Problem(404, 'The facts page isn\'t live yet: merge the "Facts page" change in the Changes tab first.');
+    throw e;
+  }
+  return { facts: JSON.parse(decode(file.content)), sha: file.sha as string, branch };
+}
+
+function checkFacts(d: any) {
+  const bad = (m: string) => { throw new Problem(400, m); };
+  if (!d || !Array.isArray(d.groups) || !d.groups.length) bad('The facts are missing.');
+  if (d.groups.length > 12) bad('Keep it to 12 groups or fewer.');
+  const ids = new Set<string>();
+  const groupIds = new Set<string>();
+  d.groups.forEach((g: any, gi: number) => {
+    const gw = `Group ${gi + 1}${g?.title ? ` (${g.title})` : ''}`;
+    if (!SLUG.test(String(g?.id ?? '')) || groupIds.has(g.id)) bad(`${gw}: missing or repeated id.`);
+    groupIds.add(g.id);
+    if (!g.title || String(g.title).length > 60) bad(`${gw}: give it a heading (up to 60 characters).`);
+    if (!Array.isArray(g.facts) || !g.facts.length) bad(`${gw}: add at least one fact, or remove the group.`);
+    if (g.facts.length > 40) bad(`${gw}: keep it to 40 facts or fewer.`);
+    g.facts.forEach((f: any, fi: number) => {
+      const fw = `${g.title}, fact ${fi + 1}${f?.label ? ` (${f.label})` : ''}`;
+      if (!SLUG.test(String(f?.id ?? '')) || ids.has(f.id)) bad(`${fw}: missing or repeated id.`);
+      ids.add(f.id);
+      if (!f.label || String(f.label).length > 60) bad(`${fw}: add a label (up to 60 characters).`);
+      if (!f.value || String(f.value).length > 600) bad(`${fw}: add the detail (up to 600 characters).`);
+      const src = String(f.source ?? '');
+      const okSrc = /^\/[^\s]*$/.test(src) || (() => { try { return new URL(src).protocol === 'https:'; } catch { return false; } })();
+      if (!okSrc) bad(`${fw}: the source must be a page on this site (starting /) or a full https:// address.`);
+      if (f.sourceLabel != null && (typeof f.sourceLabel !== 'string' || f.sourceLabel.length > 50)) bad(`${fw}: keep the source name to 50 characters.`);
+      if (!DAY.test(String(f.checked ?? ''))) bad(`${fw}: add the date you checked it.`);
+    });
+  });
+}
+
+async function saveFacts(gh: GH, body: any) {
+  const facts = body?.facts;
+  checkFacts(facts);
+  const current = await readFacts(gh);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'The facts changed since you opened them (perhaps in another tab, or Claude edited them). Reload, then make your change again.');
+  }
+  // The page's "Last checked" date is the newest date on any fact
+  const dates = facts.groups.flatMap((g: any) => g.facts.map((f: any) => f.checked)).sort();
+  const clean = {
+    checked: dates[dates.length - 1],
+    groups: facts.groups.map((g: any) => ({
+      id: g.id,
+      title: String(g.title).trim(),
+      facts: g.facts.map((f: any) => {
+        const o: any = { id: f.id, label: String(f.label).trim(), value: String(f.value).trim(), source: String(f.source).trim() };
+        if (f.sourceLabel && String(f.sourceLabel).trim()) o.sourceLabel = String(f.sourceLabel).trim();
+        o.checked = f.checked;
+        return o;
+      }),
+    })),
+  };
+  const text = JSON.stringify(clean, null, 2) + '\n';
+  if (text === JSON.stringify(current.facts, null, 2) + '\n') return { ok: true, unchanged: true, sha: current.sha, facts: clean };
+  const summary = String(body?.summary ?? '').slice(0, 120) || 'update the facts page';
+  await commitFiles(gh, current.branch, [{ path: FACTS_PATH, base64: encode(text) }], `Facts: ${summary} (via the facts editor)`);
+  return { ok: true, sha: await blobSha(text), facts: clean };
+}
+
+// The SHA GitHub gives a file's contents, so the next save can check nothing changed in between
+async function blobSha(text: string) {
+  const bytes = new TextEncoder().encode(text);
+  const head = new TextEncoder().encode(`blob ${bytes.length}\0`);
+  const all = new Uint8Array(head.length + bytes.length);
+  all.set(head); all.set(bytes, head.length);
+  const d = await crypto.subtle.digest('SHA-1', all);
+  return [...new Uint8Array(d)].map((b) => b.toString(16).padStart(2, '0')).join('');
 }
 
 // ---------- helpers ----------

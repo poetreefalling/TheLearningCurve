@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<title>Review desk · The Learning Curve</title>
+<title>Admin · The Learning Curve</title>
 <link rel="icon" href="/favicon.ico">
 <style>
   :root {
@@ -24,7 +24,13 @@
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--sans); }
-  header { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  /* The header is always dark so the white wordmark reads in both themes */
+  header { border-bottom: 1px solid #2e2f31; background: #16181d; color: #eeebe5; }
+  header .logo { display: block; line-height: 0; }
+  header .logo img { height: 40px; width: auto; }
+  header .tabs button { color: #a39f98; }
+  header .tabs button[aria-current=page] { background: #2a2c31; color: #ffffff; }
+  header button.link { color: #eeebe5; }
   .bar { max-width: 960px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 16px; }
   .bar strong { font-family: var(--serif); font-size: 20px; font-weight: 600; }
   .bar span { color: var(--muted); font-size: 14px; }
@@ -74,12 +80,52 @@
   ol.sources { padding-left: 20px; } ol.sources li { margin-bottom: 8px; }
   blockquote { margin: 8px 0; padding: 8px 14px; border-left: 3px solid var(--rule); font-family: var(--serif); font-size: 17px; }
   .hidden { display: none !important; }
+  .tabs { display: flex; gap: 4px; }
+  .tabs button { border: 0; background: none; padding: 8px 12px; font-weight: 600; color: var(--muted); border-radius: 8px; }
+  .tabs button[aria-current=page] { background: var(--paper); color: var(--ink); }
+  table.list { width: 100%; border-collapse: collapse; font-size: 15px; }
+  table.list th { text-align: left; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); padding: 8px 8px; border-bottom: 1px solid var(--rule); }
+  table.list td { padding: 10px 8px; border-bottom: 1px solid var(--rule); vertical-align: middle; }
+  table.list td.acts { white-space: nowrap; text-align: right; }
+  table.list td.acts button { padding: 6px 10px; font-size: 14px; font-weight: 500; }
+  .thumb { width: 72px; height: 48px; object-fit: cover; border-radius: 4px; border: 1px solid var(--rule); background: var(--paper); display: block; }
+  .form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; }
+  .form .full { grid-column: 1 / -1; }
+  .form label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 5px; }
+  .form .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+  input[type=text], input[type=url], input[type=date], select {
+    width: 100%; font: 16px/1.4 var(--sans); color: var(--ink); background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 8px; padding: 9px 11px;
+  }
+  .check { display: flex; gap: 10px; align-items: center; font-weight: 600; }
+  .check input { width: 18px; height: 18px; }
+  .preview { max-width: 100%; max-height: 260px; border: 1px solid var(--rule); border-radius: 6px; display: block; margin-top: 8px; }
+  .scroll { overflow-x: auto; }
+  .fact-row { border-top: 1px solid var(--rule); padding: 14px 0; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 10px 16px; }
+  .fact-row:first-of-type { border-top: 0; padding-top: 4px; }
+  .fact-row textarea { min-height: 64px; font-size: 15px; }
+  .fact-row .src { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 160px; gap: 8px; }
+  .fact-row .src .day { display: flex; gap: 6px; }
+  .fact-row .tools { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+  .fact-row .tools button, .fact-row .src button { padding: 6px 9px; font-size: 13px; font-weight: 500; }
+  .fact-row .mini { font-size: 12px; color: var(--muted); margin: 0 0 3px; font-weight: 600; }
+  input.group-title { font: 600 18px var(--serif); border: 1px solid transparent; padding: 4px 6px; margin-left: -7px; width: 100%; }
+  input.group-title:hover, input.group-title:focus { border-color: var(--rule); }
+  @media (max-width: 760px) { .fact-row { grid-template-columns: 1fr; } .fact-row .src { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <strong>The Learning Curve</strong><span>Review desk</span>
+    <a class="logo" href="/" title="Go to the live site"><img src="/admin/logo-white.svg" alt="The Learning Curve" width="245" height="40"></a>
+    <nav class="tabs hidden" id="tabs" aria-label="Admin">
+      <button type="button" data-tab="articles" aria-current="page">Articles</button>
+      <button type="button" data-tab="changes">Changes</button>
+      <button type="button" data-tab="ads">Ads</button>
+      <button type="button" data-tab="facts">Facts</button>
+      <button type="button" data-tab="submissions">Submissions</button>
+    </nav>
     <div class="spacer"></div>
     <button class="link hidden" id="logout">Sign out</button>
   </div>
@@ -114,6 +160,7 @@ function notice() {
 function showLogin(message) {
   clearTimeout(state.pollTimer);
   document.getElementById('logout').classList.add('hidden');
+  document.getElementById('tabs').classList.add('hidden');
   app.innerHTML = `
     <form class="login card" id="loginForm">
       <h1>Sign in</h1>
@@ -127,7 +174,7 @@ function showLogin(message) {
   document.getElementById('loginForm').onsubmit = async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button'); btn.disabled = true; btn.textContent = 'Signing in…';
-    try { await api('login', { method: 'POST', body: { password: document.getElementById('pw').value } }); loadQueue(); }
+    try { await api('login', { method: 'POST', body: { password: document.getElementById('pw').value } }); start(); }
     catch (err) { showLogin(err.message); }
   };
 }
@@ -147,7 +194,7 @@ function flagsPill(n) {
 
 async function loadQueue() {
   clearTimeout(state.pollTimer);
-  document.getElementById('logout').classList.remove('hidden');
+  setTab('articles');
   app.innerHTML = '<p class="muted">Loading the articles waiting for you…</p>';
   try {
     const data = await api('queue');
@@ -396,8 +443,582 @@ window.addEventListener('beforeunload', (e) => {
   if (hasUnsavedFixes()) { e.preventDefault(); e.returnValue = ''; }
 });
 
+// ---------- tabs ----------
+function setTab(tab) {
+  document.getElementById('logout').classList.remove('hidden');
+  document.getElementById('tabs').classList.remove('hidden');
+  document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
+  const hash = tab === 'articles' ? '' : '#' + tab;
+  if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname);
+}
+document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
+  if (!changeUnsavedOk()) return;
+  if (b.dataset.tab === 'ads') { if (unsavedOk() && factsUnsavedOk()) { state.current = null; loadAds(); } }
+  else if (b.dataset.tab === 'facts') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadFacts(); } }
+  else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSubmissions(); } }
+  else if (b.dataset.tab === 'changes') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadChanges(); } }
+  else if (adsUnsavedOk() && factsUnsavedOk()) loadQueue();
+});
+function start() { location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
+
+// ---------- changes ----------
+// Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
+// live; the server refuses unless the site check passes and the PR merges cleanly.
+let changes = { items: [], open: {}, edit: null }; // edit: { pr, title, branch, files, file: { path, content, sha } | null }
+const changeDirty = () => { const e = changes.edit; if (!e || !e.file) return false; const t = document.getElementById('changeText'); return !!t && t.value !== e.file.content; };
+function changeUnsavedOk() { return !changeDirty() || confirm('You have edits to this file you haven\'t saved. Leave without saving?'); }
+
+async function loadChanges() {
+  clearTimeout(state.pollTimer);
+  changes.edit = null;
+  setTab('changes');
+  app.innerHTML = '<p class="muted">Loading open changes…</p>';
+  try {
+    const data = await api('changes');
+    changes.items = data.items || [];
+    renderChanges();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Changes</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderChanges() {
+  const items = changes.items;
+  const fmt = (t) => new Date(t).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short' });
+  app.innerHTML = notice() + `
+    <h1>Changes</h1>
+    <p class="muted">${items.length ? `${items.length} open ${items.length === 1 ? 'change' : 'changes'} that aren't articles: site features, docs and settings, oldest first. Merging one makes it live.` : 'No open changes. Articles are in the Articles tab.'}</p>
+    ${items.map((c, i) => {
+      const ready = !c.draft && c.checks === 'passing';
+      const pill = c.draft ? '<span class="pill">Draft on GitHub</span>' : checksPill(c.checks, 0);
+      return `<div class="card">
+        <div class="item" style="padding:0;border:0">
+          <div class="grow">
+            <div class="slot">Opened ${esc(fmt(c.opened))} · ${esc(c.branch)} · <a href="${esc(c.url)}" target="_blank" rel="noopener" class="prnum">#${esc(c.number)}</a></div>
+            <h3>${esc(c.title)}</h3>
+            ${pill}
+          </div>
+          <button type="button" data-edit="${i}">Edit</button>
+          <button class="primary" data-merge="${i}" ${ready ? '' : 'disabled'}>Merge</button>
+        </div>
+        <p class="small"><a href="${esc(c.preview)}/" target="_blank" rel="noopener">Open the preview</a> · <a href="${esc(c.url)}/files" target="_blank" rel="noopener">See the changed files</a> · <button type="button" class="link" data-more="${i}">${changes.open[c.number] ? 'Hide' : 'Show'} the description</button></p>
+        ${changes.open[c.number] ? `<div class="context" style="white-space:pre-wrap">${esc(c.body || 'No description.')}</div>` : ''}
+      </div>`;
+    }).join('')}
+    <p class="small muted">Merge is only possible once the site check has passed. Anything you're unsure about, ask Claude first.</p>`;
+  app.querySelectorAll('[data-more]').forEach((b) => b.onclick = () => { const n = changes.items[b.dataset.more].number; changes.open[n] = !changes.open[n]; renderChanges(); });
+  app.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => openChange(changes.items[b.dataset.edit]));
+  app.querySelectorAll('[data-merge]').forEach((b) => b.onclick = async () => {
+    const c = changes.items[b.dataset.merge];
+    if (!confirm(`Merge #${c.number}, "${c.title}"? It goes live on the site in about two minutes.`)) return;
+    b.disabled = true; b.textContent = 'Merging…';
+    try {
+      const res = await api('changes/merge', { method: 'POST', body: { pr: c.number, sha: c.sha } });
+      state.notice = { kind: 'ok', text: res.message };
+      await loadChanges();
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+      renderChanges();
+    }
+  });
+}
+
+// Editing a change: list the files it touches, open a text file, save it back to the change's own
+// branch (never the live site). The change then needs its site check to pass again before Merge.
+const STATUS_LABEL = { added: 'New', modified: 'Changed', renamed: 'Renamed', removed: 'Deleted', copied: 'Copied', changed: 'Changed' };
+async function openChange(c) {
+  setTab('changes');
+  app.innerHTML = `<p class="muted">Loading the files in #${esc(c.number)}…</p>`;
+  try {
+    const data = await api('changes/files?pr=' + c.number);
+    changes.edit = { pr: c.number, title: data.title, branch: data.branch, preview: c.preview, files: data.files, file: null };
+    const editable = data.files.filter((f) => f.editable);
+    if (editable.length === 1) return openChangeFile(editable[0].path);
+    renderChangeEdit();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+    renderChanges();
+  }
+}
+
+async function openChangeFile(path) {
+  const e = changes.edit;
+  try {
+    const data = await api(`changes/file?pr=${e.pr}&path=${encodeURIComponent(path)}`);
+    e.file = { path: data.path, content: data.content, sha: data.sha };
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    e.file = null;
+  }
+  renderChangeEdit();
+}
+
+function renderChangeEdit() {
+  const e = changes.edit, f = e.file;
+  const isJson = f && /\.json$/i.test(f.path);
+  const isMdx = f && /\.mdx?$/i.test(f.path);
+  app.innerHTML = `${notice()}
+    <p><button class="link" id="chBack">← All changes</button></p>
+    <div class="slot">#${esc(e.pr)} · ${esc(e.branch)}</div>
+    <h1 style="margin-top:4px">${esc(e.title)}</h1>
+    <p class="small muted">Edits save to this change only, not the live site. After you save, the site check runs again (a minute or two) and the preview updates; merge from the Changes list when you're happy.
+      <a href="${esc(e.preview)}/" target="_blank" rel="noopener">Open the preview</a></p>
+    <div class="card scroll"><table class="list">
+      <thead><tr><th>File in this change</th><th></th><th></th></tr></thead>
+      <tbody>${e.files.map((x) => `<tr>
+        <td><code style="font-size:13px;overflow-wrap:anywhere">${esc(x.path)}</code>${f && f.path === x.path ? ' <span class="pill ok">Open</span>' : ''}</td>
+        <td class="small muted" style="white-space:nowrap">${esc(STATUS_LABEL[x.status] || x.status)} · +${esc(x.additions)} −${esc(x.deletions)}</td>
+        <td class="acts">${x.editable ? `<button type="button" data-file="${esc(x.path)}" ${f && f.path === x.path ? 'disabled' : ''}>Edit</button>` : `<span class="small muted">${esc(x.why)}</span>`}</td>
+      </tr>`).join('')}</tbody></table></div>
+    ${f ? `
+      <h2>${esc(f.path)}</h2>
+      <p class="small muted">${isJson ? 'This is a data file: keep the quotes, commas and brackets exactly as they are and change only the text inside quotes. It is checked before saving.'
+        : isMdx ? 'In article text, avoid the characters { } and &lt;, which the site treats as code. Keep any settings block between --- lines as it is, apart from wording inside quotes.'
+        : 'This file is part of how the site works. Change wording you can see, and leave anything that looks like code alone; ask Claude if you\'re unsure.'}</p>
+      <textarea class="full" id="changeText" spellcheck="${isJson ? 'false' : 'true'}">${esc(f.content)}</textarea>
+      <div class="actions">
+        <button class="primary" id="chSave">Save to this change</button>
+        <span class="small muted" id="chState">Saving commits to ${esc(e.branch)}.</span>
+      </div>` : `<p class="muted">Choose a file to edit.</p>`}`;
+  document.getElementById('chBack').onclick = () => { if (changeUnsavedOk()) loadChanges(); };
+  app.querySelectorAll('[data-file]').forEach((b) => b.onclick = () => { if (changeUnsavedOk()) openChangeFile(b.dataset.file); });
+  if (f) document.getElementById('chSave').onclick = saveChangeFile;
+}
+
+async function saveChangeFile() {
+  const e = changes.edit, f = e.file;
+  const text = document.getElementById('changeText').value;
+  if (/\.json$/i.test(f.path)) {
+    try { JSON.parse(text); } catch (err) { state.notice = { kind: 'bad', text: `That isn't valid JSON yet, so it wasn't saved: ${err.message}. Check for a missing comma or quote.` }; const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep; return; }
+  }
+  const btn = document.getElementById('chSave'); btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const res = await api('changes/save', { method: 'POST', body: { pr: e.pr, path: f.path, sha: f.sha, content: text } });
+    f.sha = res.sha; f.content = text;
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: `Saved ${f.path} to #${e.pr}. The site check and preview update in a minute or two.` };
+    renderChangeEdit();
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep;
+  }
+}
+
+window.addEventListener('beforeunload', (ev) => { if (changeDirty()) { ev.preventDefault(); ev.returnValue = ''; } });
+
+// ---------- submissions ----------
+// Platform submissions from /submit, stored in D1 by functions/api/submit.ts (docs/submissions.md).
+// Set a status and a private note; reply to the vendor by email (the address links straight to it).
+const SUB_LABELS = { new: ['New', 'bad'], reviewing: ['Reviewing', 'warn'], accepted: ['Accepted', 'ok'], declined: ['Declined', ''] };
+let subs = { items: [], filter: 'open' };
+
+async function loadSubmissions() {
+  clearTimeout(state.pollTimer);
+  setTab('submissions');
+  app.innerHTML = '<p class="muted">Loading submissions…</p>';
+  try {
+    const data = await api('submissions');
+    subs.items = data.items || [];
+    renderSubmissions();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Submissions</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderSubmissions() {
+  const shown = subs.items.filter((s) => subs.filter === 'all' || (subs.filter === 'open' ? (s.status === 'new' || s.status === 'reviewing') : s.status === subs.filter));
+  const count = (k) => subs.items.filter((s) => s.status === k).length;
+  const fmt = (t) => new Date(Number(t)).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+  const filters = [['open', `Open (${count('new') + count('reviewing')})`], ['accepted', `Accepted (${count('accepted')})`], ['declined', `Declined (${count('declined')})`], ['all', `All (${subs.items.length})`]];
+  app.innerHTML = `${notice()}
+    <h1>Submissions</h1>
+    <p class="muted">Platforms put forward at /submit. We promise a reply within 3 working days.</p>
+    <div class="choice">${filters.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${subs.filter === k}">${esc(l)}</button>`).join('')}</div>
+    ${shown.length ? '' : '<div class="card muted">Nothing here.</div>'}
+    ${shown.map((s) => {
+      const [label, kind] = SUB_LABELS[s.status] || [s.status, ''];
+      const age = (Date.now() - Number(s.at)) / 86400000;
+      const late = s.status === 'new' && age > 3 ? '<span class="pill bad">Reply overdue</span>' : '';
+      return `<div class="card" data-id="${esc(s.id)}">
+        <div class="slot">${esc(fmt(s.at))} · ${esc(s.category)}${s.stage ? ' · ' + esc(s.stage) : ''}</div>
+        <h3 style="font-family:var(--serif);font-size:20px;margin:4px 0 8px">${esc(s.product)} <span class="muted small">— ${esc(s.organisation)}${s.org_type ? ' (' + esc(s.org_type) + ')' : ''}</span></h3>
+        <p><span class="pill ${kind}">${esc(label)}</span>${late}</p>
+        <p class="small"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></p>
+        <p class="small">${esc(s.name)}${s.role ? ', ' + esc(s.role) : ''} · <a href="mailto:${esc(s.email)}?subject=${encodeURIComponent('Your Learning Curve submission: ' + s.product)}">${esc(s.email)}</a></p>
+        ${s.audience ? `<p class="small muted">Built for: ${esc(s.audience)}</p>` : ''}
+        <div class="context">${esc(s.description)}</div>
+        ${s.learning ? `<p class="small"><strong>How it helps people learn:</strong> ${esc(s.learning)}</p>` : ''}
+        ${s.access ? `<p class="small"><strong>Reviewer access:</strong> ${esc(s.access)}</p>` : ''}
+        ${s.notes ? `<p class="small"><strong>Anything else:</strong> ${esc(s.notes)}</p>` : ''}
+        <label class="small" style="font-weight:600;display:block;margin:12px 0 6px" for="note-${esc(s.id)}">Private note</label>
+        <textarea id="note-${esc(s.id)}" rows="2">${esc(s.editor_note || '')}</textarea>
+        <div class="choice" style="margin-top:10px">${Object.entries(SUB_LABELS).map(([k, [l]]) => `<button type="button" data-status="${k}" aria-pressed="${s.status === k}">${esc(l)}</button>`).join('')}</div>
+      </div>`;
+    }).join('')}`;
+  app.querySelectorAll('[data-f]').forEach((b) => b.onclick = () => { subs.filter = b.dataset.f; renderSubmissions(); });
+  app.querySelectorAll('[data-status]').forEach((b) => b.onclick = async () => {
+    const card = b.closest('[data-id]');
+    const id = card.dataset.id;
+    const note = card.querySelector('textarea').value;
+    b.disabled = true;
+    try {
+      await api('submissions/status', { method: 'POST', body: { id, status: b.dataset.status, note } });
+      const item = subs.items.find((x) => x.id === id);
+      item.status = b.dataset.status; item.editor_note = note;
+      state.notice = { kind: 'ok', text: `Saved: ${item.product} is now ${SUB_LABELS[item.status][0].toLowerCase()}.` };
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+    }
+    renderSubmissions();
+  });
+}
+
+// ---------- ads ----------
+// The ad manager edits src/data/ads.json (rules: src/lib/ads.ts, docs/ads.md). Changes stay in this
+// page until "Save and publish", which commits them and any new images to the live site in one go.
+const SLOTS = {
+  billboard: { label: 'Billboard', size: '970 × 250', w: 970, h: 250, where: 'Home page between rows, and the end of each article' },
+  rectangle: { label: 'Medium rectangle', size: '300 × 250', w: 300, h: 250, where: 'Home page grid, and inside articles' },
+  halfpage: { label: 'Half page', size: '300 × 600', w: 300, h: 600, where: 'Sticky rail beside articles, on wide screens only' },
+  card: { label: 'Sponsored card', size: '1200 × 800', w: 1200, h: 800, where: 'Home page grid, styled like an article card' },
+};
+const PAGES = { both: 'Home page and articles', home: 'Home page only', articles: 'Articles only' };
+let ads = null; // { config, sha, saved, uploads: { name: dataUrl }, editing: index | 'new' | null, draft }
+
+const sydneyToday = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Sydney', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+function adStatus(k) {
+  const t = sydneyToday();
+  if (!k.active) return ['Paused', 'warn'];
+  if (k.end < t) return ['Ended', ''];
+  if (k.start > t) return ['Starts ' + fmtDay(k.start), 'warn'];
+  return ['Live', 'ok'];
+}
+const fmtDay = (d) => new Date(d + 'T00:00:00').toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+const adsDirty = () => ads && JSON.stringify(ads.config) !== ads.saved;
+function adsUnsavedOk() { return !adsDirty() || confirm('You have ad changes you haven\'t published. Leave without publishing?'); }
+const imgSrc = (path) => (ads.uploads[path.replace('/ads/', '')] || path);
+
+async function loadAds() {
+  clearTimeout(state.pollTimer);
+  setTab('ads');
+  app.innerHTML = '<p class="muted">Loading the ad settings…</p>';
+  try {
+    const data = await api('ads');
+    ads = { config: data.config, sha: data.sha, saved: JSON.stringify(data.config), uploads: {}, editing: null, draft: null };
+    renderAds();
+  } catch (e) { if (e.message !== 'signed-out') app.innerHTML = `<div class="notice bad">${esc(e.message)}</div>`; }
+}
+
+function renderAds() {
+  const c = ads.config, n = c.network;
+  const order = (k) => ({ Live: 0, Starts: 1, Paused: 2, Ended: 3 })[adStatus(k)[0].split(' ')[0]];
+  const rows = c.campaigns.map((k, i) => ({ k, i })).sort((a, b) => order(a.k) - order(b.k) || a.k.start.localeCompare(b.k.start));
+  app.innerHTML = notice() + `
+    <h1>Ads</h1>
+    <p class="muted">Direct sponsors show first. When a slot has no live sponsor, the ad network fills it (if it's switched on); otherwise the slot simply doesn't appear. Reviews and comparisons never carry ads.</p>
+    <p class="small muted">Saved changes go live about two minutes after you publish them. Campaigns start and end on their dates at the next scheduled rebuild (midnight or midday, Sydney time); an ended campaign also hides itself in readers' browsers straight away.</p>
+
+    <h2>Sponsors</h2>
+    ${c.campaigns.length ? `<div class="card scroll"><table class="list">
+      <thead><tr><th></th><th>Campaign</th><th>Slot</th><th>Dates</th><th>Status</th><th></th></tr></thead>
+      <tbody>${rows.map(({ k, i }) => { const [s, cls] = adStatus(k); return `<tr>
+        <td><img class="thumb" src="${esc(imgSrc(k.image))}" alt=""></td>
+        <td><strong>${esc(k.name)}</strong><div class="small muted">${esc(k.sponsor)} · ${esc(PAGES[k.pages])}</div></td>
+        <td class="small">${esc(SLOTS[k.slot].label)}</td>
+        <td class="small">${esc(fmtDay(k.start))} to ${esc(fmtDay(k.end))}</td>
+        <td><span class="pill ${cls}">${esc(s)}</span></td>
+        <td class="acts"><button type="button" data-edit="${i}">Edit</button> <button type="button" data-toggle="${i}">${k.active ? 'Pause' : 'Resume'}</button> <button type="button" data-del="${i}">Remove</button></td>
+      </tr>`; }).join('')}</tbody></table></div>`
+    : '<p class="muted">No sponsors booked yet.</p>'}
+    <p><button type="button" class="primary" id="addAd">Add a sponsor campaign</button></p>
+    <div id="adForm"></div>
+
+    <h2>Ad network (fallback)</h2>
+    <div class="card">
+      <div class="form">
+        <div class="full"><label class="check"><input type="checkbox" id="netOn" ${n.enabled ? 'checked' : ''}> Fill empty slots with Google AdSense</label>
+          <div class="hint">Turn this on once AdSense has approved the site and you've created the ad units below. Set up Google's consent message for European and UK visitors in AdSense (Privacy &amp; messaging) before switching on.</div></div>
+        <div class="full"><label for="netClient">AdSense publisher ID</label><input type="text" id="netClient" value="${esc(n.client)}" placeholder="ca-pub-1234567890123456" spellcheck="false">
+          <div class="hint">AdSense → Account → Account information. The site's ads.txt updates from this automatically.</div></div>
+        ${['billboard', 'rectangle', 'halfpage'].map((s) => `<div><label for="net-${s}">${esc(SLOTS[s].label)} ad unit ID</label><input type="text" id="net-${s}" value="${esc(n.slots[s] || '')}" inputmode="numeric" placeholder="e.g. 1234567890"><div class="hint">${esc(SLOTS[s].where)}</div></div>`).join('')}
+      </div>
+    </div>
+
+    <h2>Slot sizes</h2>
+    <div class="card scroll"><table class="list"><thead><tr><th>Slot</th><th>Image size</th><th>Where it shows</th></tr></thead>
+      <tbody>${Object.values(SLOTS).map((s) => `<tr><td><strong>${esc(s.label)}</strong></td><td class="small">${esc(s.size)} px (or twice that for sharp screens)</td><td class="small">${esc(s.where)}</td></tr>`).join('')}</tbody></table></div>
+
+    <div class="actions">
+      <button class="primary" id="saveAds" ${adsDirty() ? '' : 'disabled'}>Save and publish</button>
+      <span class="small muted">${adsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.'}</span>
+    </div>`;
+
+  app.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => editAd(Number(b.dataset.edit)));
+  app.querySelectorAll('[data-toggle]').forEach((b) => b.onclick = () => { const k = c.campaigns[b.dataset.toggle]; k.active = !k.active; renderAds(); });
+  app.querySelectorAll('[data-del]').forEach((b) => b.onclick = () => {
+    const k = c.campaigns[b.dataset.del];
+    if (confirm(`Remove "${k.name}"? It comes down when you publish.`)) { c.campaigns.splice(Number(b.dataset.del), 1); renderAds(); }
+  });
+  document.getElementById('addAd').onclick = () => editAd('new');
+  const net = () => {
+    n.enabled = document.getElementById('netOn').checked;
+    n.client = document.getElementById('netClient').value.trim();
+    ['billboard', 'rectangle', 'halfpage'].forEach((s) => n.slots[s] = document.getElementById('net-' + s).value.trim());
+    const btn = document.getElementById('saveAds'); btn.disabled = !adsDirty();
+  };
+  app.querySelectorAll('#netOn, #netClient, [id^=net-]').forEach((el) => el.oninput = el.onchange = net);
+  document.getElementById('saveAds').onclick = saveAds;
+  if (ads.editing !== null) renderAdForm();
+}
+
+function editAd(i) {
+  const t = sydneyToday();
+  ads.editing = i;
+  ads.draft = i === 'new'
+    ? { id: 'ad-' + Date.now().toString(36), name: '', sponsor: '', slot: 'rectangle', pages: 'both', image: '', alt: '', url: 'https://', headline: '', text: '', start: t, end: t, active: true }
+    : { headline: '', text: '', ...ads.config.campaigns[i] };
+  renderAds();
+  document.getElementById('adForm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderAdForm() {
+  const d = ads.draft, s = SLOTS[d.slot];
+  const box = document.getElementById('adForm');
+  box.innerHTML = `<div class="card">
+    <h3 style="margin-top:0">${ads.editing === 'new' ? 'New sponsor campaign' : 'Edit campaign'}</h3>
+    <div class="form">
+      <div><label for="f-name">Campaign name</label><input type="text" id="f-name" value="${esc(d.name)}" placeholder="e.g. Acme LMS, November"><div class="hint">For you; readers don't see it.</div></div>
+      <div><label for="f-sponsor">Sponsor</label><input type="text" id="f-sponsor" value="${esc(d.sponsor)}" placeholder="e.g. Acme LMS"><div class="hint">Shown on sponsored cards.</div></div>
+      <div><label for="f-slot">Slot</label><select id="f-slot">${Object.entries(SLOTS).map(([k, v]) => `<option value="${k}" ${d.slot === k ? 'selected' : ''}>${esc(v.label)} (${esc(v.size)})</option>`).join('')}</select><div class="hint">${esc(s.where)}</div></div>
+      <div><label for="f-pages">Where it shows</label><select id="f-pages" ${d.slot === 'card' || d.slot === 'halfpage' ? 'disabled' : ''}>${Object.entries(PAGES).map(([k, v]) => `<option value="${k}" ${d.pages === k ? 'selected' : ''}>${esc(v)}</option>`).join('')}</select>
+        <div class="hint">${d.slot === 'card' ? 'Sponsored cards only appear on the home page.' : d.slot === 'halfpage' ? 'The half page only appears beside articles.' : 'Never on reviews or comparisons.'}</div></div>
+      <div class="full"><label for="f-file">Image</label><input type="file" id="f-file" accept="image/webp,image/jpeg,image/png,image/gif">
+        <div class="hint">${esc(s.size)} px, or twice that for sharp screens. WebP or JPEG, under 1.5 MB.</div>
+        <div id="f-check" class="hint"></div>
+        ${d.image ? `<img class="preview" id="f-preview" src="${esc(imgSrc(d.image))}" alt="">` : ''}</div>
+      <div class="full"><label for="f-alt">Image description</label><input type="text" id="f-alt" value="${esc(d.alt)}" placeholder="What the ad says or shows, for screen readers"></div>
+      <div class="full"><label for="f-url">Link</label><input type="url" id="f-url" value="${esc(d.url)}" spellcheck="false"><div class="hint">The full address, starting https://. Add the sponsor's tracking tags (UTM) here if they want them.</div></div>
+      ${d.slot === 'card' ? `
+        <div class="full"><label for="f-headline">Headline</label><input type="text" id="f-headline" value="${esc(d.headline)}" maxlength="90"><div class="hint">Up to 90 characters. Shown under a "Sponsored" label.</div></div>
+        <div class="full"><label for="f-text">One line of text (optional)</label><input type="text" id="f-text" value="${esc(d.text)}" maxlength="160"></div>` : ''}
+      <div><label for="f-start">Starts</label><input type="date" id="f-start" value="${esc(d.start)}"></div>
+      <div><label for="f-end">Ends (last day it shows)</label><input type="date" id="f-end" value="${esc(d.end)}"></div>
+      <div class="full"><label class="check"><input type="checkbox" id="f-active" ${d.active ? 'checked' : ''}> Running (untick to pause it)</label></div>
+    </div>
+    <p></p>
+    <button type="button" class="primary" id="f-done">${ads.editing === 'new' ? 'Add campaign' : 'Keep changes'}</button>
+    <button type="button" id="f-cancel">Cancel</button>
+    <span class="small muted"> Then press Save and publish below.</span>
+  </div>`;
+
+  const read = () => {
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+    Object.assign(d, { name: v('f-name'), sponsor: v('f-sponsor'), alt: v('f-alt'), url: v('f-url'), start: v('f-start'), end: v('f-end'), active: document.getElementById('f-active').checked });
+    if (d.slot === 'card') Object.assign(d, { headline: v('f-headline'), text: v('f-text') });
+  };
+  document.getElementById('f-slot').onchange = (e) => {
+    read(); d.slot = e.target.value;
+    if (d.slot === 'card') d.pages = 'home';
+    if (d.slot === 'halfpage') d.pages = 'articles';
+    renderAdForm();
+  };
+  document.getElementById('f-pages').onchange = (e) => { d.pages = e.target.value; };
+  document.getElementById('f-file').onchange = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    if (file.size > 1_500_000) { document.getElementById('f-check').textContent = 'That file is over 1.5 MB. Export it smaller (WebP or JPEG) and try again.'; return; }
+    const reader = new FileReader();
+    reader.onload = () => {
+      read();
+      const ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace('jpeg', 'jpg');
+      const slug = (d.sponsor || 'ad').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40) || 'ad';
+      const name = `${d.start || sydneyToday()}-${slug}-${d.slot}-${Math.random().toString(36).slice(2, 7)}.${ext}`;
+      ads.uploads[name] = reader.result;
+      d.image = '/ads/' + name;
+      const img = new Image();
+      img.onload = () => {
+        const want = SLOTS[d.slot].w / SLOTS[d.slot].h, got = img.naturalWidth / img.naturalHeight;
+        const msg = Math.abs(got - want) / want > 0.04
+          ? `This image is ${img.naturalWidth} × ${img.naturalHeight}, a different shape from the ${SLOTS[d.slot].size} slot, so its edges will be cropped.`
+          : img.naturalWidth < SLOTS[d.slot].w ? `This image is ${img.naturalWidth} × ${img.naturalHeight}: smaller than the slot, so it may look soft.` : `Image fits the slot (${img.naturalWidth} × ${img.naturalHeight}).`;
+        renderAdForm();
+        document.getElementById('f-check').textContent = msg;
+      };
+      img.src = reader.result;
+    };
+    reader.readAsDataURL(file);
+  };
+  document.getElementById('f-cancel').onclick = () => { ads.editing = null; ads.draft = null; renderAds(); };
+  document.getElementById('f-done').onclick = () => {
+    read();
+    const problem = !d.name ? 'Give the campaign a name.' : !d.sponsor ? "Add the sponsor's name." : !d.image ? 'Choose an image.'
+      : d.alt.length < 3 ? 'Describe the image for screen readers.' : !/^https:\/\/[^\s/]+\.[^\s]+/.test(d.url) ? 'The link must be a full https:// address.'
+      : !d.start || !d.end ? 'Add a start and an end date.' : d.end < d.start ? 'The campaign ends before it starts.'
+      : d.slot === 'card' && !d.headline ? 'A sponsored card needs a headline.' : '';
+    if (problem) { document.getElementById('f-check').textContent = problem; document.getElementById('f-check').style.color = 'var(--bad)'; return; }
+    const clean = { id: d.id, name: d.name, sponsor: d.sponsor, slot: d.slot, pages: d.pages, image: d.image, alt: d.alt, url: d.url, start: d.start, end: d.end, active: d.active };
+    if (d.slot === 'card') { clean.headline = d.headline; if (d.text) clean.text = d.text; }
+    if (ads.editing === 'new') ads.config.campaigns.push(clean); else ads.config.campaigns[ads.editing] = clean;
+    ads.editing = null; ads.draft = null;
+    renderAds();
+  };
+}
+
+async function saveAds() {
+  const btn = document.getElementById('saveAds'); btn.disabled = true; btn.textContent = 'Publishing…';
+  const before = JSON.parse(ads.saved);
+  const names = (cs) => new Set(cs.map((k) => k.id));
+  const added = ads.config.campaigns.filter((k) => !names(before.campaigns).has(k.id)).map((k) => k.name);
+  const removed = before.campaigns.filter((k) => !names(ads.config.campaigns).has(k.id)).map((k) => k.name);
+  const summary = [added.length && 'add ' + added.join(', '), removed.length && 'remove ' + removed.join(', ')].filter(Boolean).join('; ') || 'update ad settings';
+  const used = new Set(ads.config.campaigns.map((k) => k.image.replace('/ads/', '')));
+  const uploads = Object.entries(ads.uploads).filter(([name]) => used.has(name)).map(([name, data]) => ({ name, data }));
+  try {
+    const res = await api('ads/save', { method: 'POST', body: { config: ads.config, sha: ads.sha, uploads, summary } });
+    ads.sha = res.sha; ads.saved = JSON.stringify(ads.config);
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: 'Published. The site rebuilds now; the changes are live in about two minutes.' };
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+  }
+  renderAds();
+}
+
+window.addEventListener('beforeunload', (e) => { if (adsDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------- facts ----------
+// The facts editor edits src/data/facts.json: the data behind /facts/ and /facts.json. Changes stay
+// in this page until "Save and publish", which commits them to the live site in one go.
+let facts = null; // { data, sha, saved }
+const factsDirty = () => facts && JSON.stringify(facts.data) !== facts.saved;
+function factsUnsavedOk() { return !factsDirty() || confirm('You have changes to the facts you haven\'t published. Leave without publishing?'); }
+const slugify = (t) => String(t || 'fact').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50) || 'fact';
+function uniqueId(base, taken) { let id = base, n = 2; while (taken.has(id)) id = `${base}-${n++}`; return id; }
+const allFactIds = () => new Set(facts.data.groups.flatMap((g) => g.facts.map((f) => f.id)));
+
+async function loadFacts() {
+  clearTimeout(state.pollTimer);
+  setTab('facts');
+  app.innerHTML = '<p class="muted">Loading the facts…</p>';
+  try {
+    const data = await api('facts');
+    facts = { data: data.facts, sha: data.sha, saved: JSON.stringify(data.facts) };
+    renderFacts();
+  } catch (e) { if (e.message !== 'signed-out') app.innerHTML = `<div class="notice bad">${esc(e.message)}</div>`; }
+}
+
+function renderFacts() {
+  const d = facts.data, today = sydneyToday();
+  const total = d.groups.reduce((n, g) => n + g.facts.length, 0);
+  const stale = d.groups.flatMap((g) => g.facts).filter((f) => (new Date(today) - new Date(f.checked)) / 864e5 > 180).length;
+  app.innerHTML = `${notice()}
+    <h1>Facts</h1>
+    <p class="muted">The basics about the publication, shown at <a href="/facts/" target="_blank" rel="noopener">/facts/</a> and as data at <a href="/facts.json" target="_blank" rel="noopener">/facts.json</a>, for readers, search engines and AI assistants. Each fact needs a source (the page that states it) and the date you last checked it. ${total} facts${stale ? `; <strong>${stale} not checked in over six months</strong>` : ''}.</p>
+    <p><button type="button" id="allToday">Mark every fact checked today</button></p>
+    ${d.groups.map((g, gi) => `
+      <div class="card">
+        <input type="text" class="group-title" data-gtitle="${gi}" value="${esc(g.title)}" maxlength="60" aria-label="Group heading">
+        ${g.facts.map((f, fi) => `
+          <div class="fact-row">
+            <div>
+              <p class="mini">Label</p>
+              <input type="text" data-f="${gi}.${fi}.label" value="${esc(f.label)}" maxlength="60">
+              <div class="tools" style="margin-top:8px">
+                <button type="button" data-up="${gi}.${fi}" ${fi === 0 ? 'disabled' : ''} title="Move up">↑</button>
+                <button type="button" data-down="${gi}.${fi}" ${fi === g.facts.length - 1 ? 'disabled' : ''} title="Move down">↓</button>
+                <button type="button" data-rm="${gi}.${fi}">Remove</button>
+              </div>
+            </div>
+            <div>
+              <p class="mini">Detail</p>
+              <textarea data-f="${gi}.${fi}.value" maxlength="600">${esc(f.value)}</textarea>
+              <div class="src" style="margin-top:8px">
+                <div><p class="mini">Source (a page on this site, like /about/, or a full https:// address)</p><input type="text" data-f="${gi}.${fi}.source" value="${esc(f.source)}" spellcheck="false"></div>
+                <div><p class="mini">Source name (optional)</p><input type="text" data-f="${gi}.${fi}.sourceLabel" value="${esc(f.sourceLabel || '')}" maxlength="50" placeholder="e.g. About"></div>
+                <div><p class="mini">Checked</p><div class="day"><input type="date" data-f="${gi}.${fi}.checked" value="${esc(f.checked)}"><button type="button" data-today="${gi}.${fi}" title="Checked today">Today</button></div></div>
+              </div>
+            </div>
+          </div>`).join('')}
+        <p style="margin:10px 0 0"><button type="button" data-add="${gi}">Add a fact</button></p>
+      </div>`).join('')}
+    <div class="actions">
+      <button class="primary" id="saveFacts" ${factsDirty() ? '' : 'disabled'}>Save and publish</button>
+      <span class="small muted" id="factsState">${factsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.'}</span>
+    </div>`;
+
+  const at = (key) => { const [gi, fi] = key.split('.').map(Number); return [d.groups[gi], fi]; };
+  const refresh = () => {
+    const btn = document.getElementById('saveFacts'); btn.disabled = !factsDirty();
+    document.getElementById('factsState').textContent = factsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.';
+  };
+  app.querySelectorAll('[data-f]').forEach((el) => el.oninput = () => {
+    const [gi, fi, field] = el.dataset.f.split('.');
+    const f = d.groups[gi].facts[fi];
+    const v = field === 'value' ? el.value : el.value.trim();
+    if (field === 'sourceLabel' && !v) delete f.sourceLabel; else f[field] = v;
+    refresh();
+  });
+  app.querySelectorAll('[data-gtitle]').forEach((el) => el.oninput = () => { d.groups[el.dataset.gtitle].title = el.value.trim(); refresh(); });
+  app.querySelectorAll('[data-today]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.today); g.facts[fi].checked = today; renderFacts(); });
+  app.querySelectorAll('[data-up]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.up); [g.facts[fi - 1], g.facts[fi]] = [g.facts[fi], g.facts[fi - 1]]; renderFacts(); });
+  app.querySelectorAll('[data-down]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.down); [g.facts[fi + 1], g.facts[fi]] = [g.facts[fi], g.facts[fi + 1]]; renderFacts(); });
+  app.querySelectorAll('[data-rm]').forEach((b) => b.onclick = () => {
+    const [g, fi] = at(b.dataset.rm);
+    if (g.facts.length === 1) { alert('Each group needs at least one fact.'); return; }
+    if (confirm(`Remove "${g.facts[fi].label}"? It comes off the page when you publish.`)) { g.facts.splice(fi, 1); renderFacts(); }
+  });
+  app.querySelectorAll('[data-add]').forEach((b) => b.onclick = () => {
+    const g = d.groups[b.dataset.add];
+    g.facts.push({ id: uniqueId('new-fact', allFactIds()), label: '', value: '', source: '/about/', checked: today });
+    renderFacts();
+  });
+  document.getElementById('allToday').onclick = () => {
+    if (!confirm('Mark every fact as checked today? Only do this once you\'ve read them all against their sources.')) return;
+    d.groups.forEach((g) => g.facts.forEach((f) => { f.checked = today; }));
+    renderFacts();
+  };
+  document.getElementById('saveFacts').onclick = saveFacts;
+}
+
+async function saveFacts() {
+  const d = facts.data;
+  for (const g of d.groups) for (const f of g.facts) {
+    const where = `${g.title || 'A group'}: ${f.label || 'a new fact'}`;
+    if (!f.label || !f.value.trim()) { state.notice = { kind: 'bad', text: `${where} needs a label and the detail.` }; renderFacts(); return; }
+    if (!/^\/\S*$/.test(f.source) && !/^https:\/\/[^\s/]+\.[^\s]+/.test(f.source)) { state.notice = { kind: 'bad', text: `${where}: the source must be a page on this site (starting /) or a full https:// address.` }; renderFacts(); return; }
+    if (!f.checked) { state.notice = { kind: 'bad', text: `${where}: add the date you checked it.` }; renderFacts(); return; }
+  }
+  // New facts get a stable id from their label, used as the anchor on the page
+  const taken = new Set(d.groups.flatMap((g) => g.facts.map((f) => f.id)).filter((id) => !id.startsWith('new-fact')));
+  d.groups.forEach((g) => g.facts.forEach((f) => { if (f.id.startsWith('new-fact')) { f.id = uniqueId(slugify(f.label), taken); taken.add(f.id); } }));
+  const btn = document.getElementById('saveFacts'); btn.disabled = true; btn.textContent = 'Publishing…';
+  const before = JSON.parse(facts.saved);
+  const labels = (data) => new Map(data.groups.flatMap((g) => g.facts.map((f) => [f.id, f.label])));
+  const was = labels(before), now = labels(d);
+  const added = [...now].filter(([id]) => !was.has(id)).map(([, l]) => l);
+  const removed = [...was].filter(([id]) => !now.has(id)).map(([, l]) => l);
+  const summary = [added.length && 'add ' + added.join(', '), removed.length && 'remove ' + removed.join(', ')].filter(Boolean).join('; ') || 'update the facts page';
+  try {
+    const res = await api('facts/save', { method: 'POST', body: { facts: d, sha: facts.sha, summary } });
+    facts.sha = res.sha; facts.data = res.facts; facts.saved = JSON.stringify(res.facts);
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: 'Published. The site rebuilds now; /facts/ updates in about two minutes.' };
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+  }
+  renderFacts();
+}
+
+window.addEventListener('beforeunload', (e) => { if (factsDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
 // Start
-api('session').then(loadQueue).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });
+api('session').then(start).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });
 </script>
 </body>
 </html>

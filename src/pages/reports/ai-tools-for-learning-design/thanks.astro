@@ -1,0 +1,11 @@
+---
+// Where the report form lands without JavaScript (functions/api/subscribe.ts redirects here).
+import Page from '../../../layouts/Page.astro';
+import { REPORT } from '../../../data/reports/ai-tools-for-learning-design';
+---
+<Page title="Your guide is ready" description="Download 25 AI tools for learning design, and how to use them well." noindex>
+  <p>Thanks for signing up. Here's your copy of <i>{REPORT.title}</i>.</p>
+  <p><a class="rf-download" href={REPORT.pdf} download>Download the guide (PDF, {REPORT.pages} pages)</a></p>
+  <p>Start on page 5: find your role, and the starting kit of tools worth trialling first. Before any learner data goes into a tool, use the checklist on page 37.</p>
+  <p>Every tool in the guide has a profile in Discover, with the evidence behind each answer. <a href="/discover/ai-for-learning/">Compare AI for Learning tools</a>.</p>
+</Page>

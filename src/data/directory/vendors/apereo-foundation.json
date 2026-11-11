@@ -1,0 +1,51 @@
+{
+  "name": "Apereo Foundation / Sakai community",
+  "website": "https://www.apereo.org/",
+  "ownership": {
+    "value": "open-source",
+    "source": "https://www.sakailms.org/accessibility/vpat",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Sakai is an open-source project of the Apereo Foundation, a nonprofit",
+    "source": "https://www.sakailms.org/accessibility/vpat",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Beaverton, Oregon, USA (registered mailing address)",
+    "source": "https://apereo.org/sites/default/files/2024-06/Apereo%20Community%20Member%20Agreement.pdf",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "Nonprofit foundation; employee headcount not publicly reported",
+    "source": "https://www.apereo.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Nonprofit/community-funded; detailed funding not publicly consolidated",
+    "source": "https://www.apereo.org/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2012,
+    "source": "https://apereo.org/sites/default/files/2024-06/Apereo%20Community%20Member%20Agreement.pdf",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "note": "2012 (Jasig and Sakai Foundation merger forming Apereo)"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 2012; the workbook qualifies it: \"2012 (Jasig and Sakai Foundation merger forming Apereo)\"."
+    }
+  ]
+}

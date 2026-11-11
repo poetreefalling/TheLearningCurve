@@ -1,0 +1,45 @@
+{
+  "name": "SAP SE",
+  "website": "https://www.sap.com/",
+  "ownership": {
+    "value": "public",
+    "source": "https://www.sap.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Publicly listed",
+    "source": "https://www.sap.com/",
+    "checked": "2026-11-07",
+    "origin": "vendor-supplied"
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Walldorf, Germany",
+    "source": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/sap-20251231x20f.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "size": {
+    "value": "111,397 employees (31 Dec 2025)",
+    "source": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/sap-20251231x20f.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "funding": {
+    "value": "Publicly listed on Frankfurt Stock Exchange and NYSE ADRs",
+    "source": "https://www.sec.gov/Archives/edgar/data/1000184/000110465926020058/sap-20251231x20f.htm",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "founded": {
+    "value": 1972,
+    "source": "https://www.sap.com/uk/about/company/faq.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": []
+}

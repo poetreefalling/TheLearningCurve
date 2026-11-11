@@ -1,0 +1,21 @@
+---
+// Home page feature card for the free field guide: sits in an article slot, styled like an
+// article card, with the guide's pages fanned on marigold. They splay out on hover (mouse only,
+// not under reduced motion). Our own offer, so it's labelled "Free field guide", never "Sponsored".
+import { REPORT } from '../../data/reports/ai-tools-for-learning-design';
+const img = (name: string) => `/images/reports/${REPORT.slug}/${name}.webp`;
+---
+<a class="card card-standard rc" href={`/reports/${REPORT.slug}/`}>
+  <div class="rc-fan" aria-hidden="true">
+    <img class="rc-page rc-p3" src={img('page-checklist')} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-p2" src={img('page-roles')} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-p1" src={img('page-evidence')} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-cover" src={img('cover')} alt="" width="640" height="905" loading="lazy" decoding="async" />
+  </div>
+  <div class="card-body">
+    <span class="kicker">Free field guide</span>
+    <h3>25 AI tools for learning design, and how to use them well</h3>
+    <p>Which tool for which job, a prompt to try for each, five role starting kits and a buying checklist.</p>
+    <div class="meta">{REPORT.pages}-page PDF · <span class="rc-cta">Get the free guide →</span></div>
+  </div>
+</a>

@@ -1,0 +1,20 @@
+{
+  "title": "Short tests between segments of a 21-minute lecture halved mind wandering, to 19% of probes",
+  "subtitle": "Share of attention probes on which students reported mind wandering during a video lecture split into four segments of about 5.5 minutes, by what they did between segments (Experiment 2, Harvard undergraduates)",
+  "type": "bar",
+  "unit": "% of probes with mind wandering reported",
+  "highlight": "Tested between segments",
+  "series": [
+    { "label": "Tested between segments", "value": 19 },
+    { "label": "Restudied between segments", "value": 39 },
+    { "label": "Not tested", "value": 41 }
+  ],
+  "yMax": 50,
+  "source": {
+    "authors": "Szpunar, K. K., Khan, N. Y., & Schacter, D. L.",
+    "year": 2013,
+    "doi": "10.1073/pnas.1221764110",
+    "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3631699",
+    "figureOrTable": "Figure 2B, left panel (Experiment 2); means reported in the Results text"
+  }
+}

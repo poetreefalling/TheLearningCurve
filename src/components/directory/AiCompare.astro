@@ -1,0 +1,53 @@
+---
+// AI for Learning comparison: every profiled AI tool against the four criteria. Each mark is one
+// question, filled by its evidence level; hollow means research ongoing. Alphabetical, never ranked.
+import { AI_AREAS, areaSummary, productUrl, LEVELS, EVIDENCE_URL, TRAINS, RESEARCH_ONGOING, type Product } from '../../lib/directory';
+interface Props { products: Product[]; vendorName: (id: string) => string | undefined }
+const { products, vendorName } = Astro.props;
+const rows = products.filter((p) => p.data.aiProfile);
+const lead = (p: Product, key: string) => {
+  const ans = p.data.aiProfile!.areas[key as 'dataPrivacy'].answers;
+  const est = (q: string) => ans.find((a) => a.question === q && a.level !== 'research-ongoing' && !a.conflict);
+  if (key === 'dataPrivacy') {
+    if (ans.some((a) => a.conflict)) return 'Sources conflict on training';
+    const a = est('Trains AI models on customer data');
+    const t = p.data.aiDisclosure?.value.trainsOnCustomerData;
+    if (!a || !t || t === 'not-disclosed') return undefined;
+    // A bare "No" reads as "No"; anything with a scope ("No, for Edu plans") says there are conditions.
+    return `Trains on customer data: ${a.value?.trim().toLowerCase() === t ? TRAINS[t] : `${TRAINS[t]}, with conditions`}`;
+  }
+  if (key === 'learnerOversight') { const a = est('Minimum learner age'); return a?.value && /^\d+$/.test(a.value) ? `Minimum age ${a.value}` : undefined; }
+  if (key === 'outputOwnership') { const a = est('Who owns what the AI produces'); return a?.value && a.value.length <= 24 ? `Owner: ${a.value}` : a ? 'See profile' : undefined; }
+  return undefined;
+};
+---
+<section class="ai-compare" aria-labelledby="cmp-h">
+  <div class="section-head"><h2 id="cmp-h">Compare on what matters</h2></div>
+  <p class="dir-intro">Each mark is one question we ask of every tool. A filled mark is answered, shaded by its <a href={EVIDENCE_URL}>evidence level</a> (Level 1, vendor disclosed, to Level 4, independently assured); a hollow mark is research ongoing. Listed alphabetically: this is not a ranking.</p>
+  <div class="table-scroll" tabindex="0" role="region" aria-label="AI tools compared on data privacy, learner oversight, pedagogical approach and output ownership">
+    <table class="cmp">
+      <thead>
+        <tr><th scope="col">Tool</th>{AI_AREAS.map((a) => <th scope="col"><span title={a.blurb}>{a.title}</span></th>)}</tr>
+      </thead>
+      <tbody>
+        {rows.map((p) => (
+          <tr>
+            <th scope="row"><a href={productUrl(p.id)}>{p.data.name}</a><span class="meta">{vendorName(p.data.vendor.id)}</span></th>
+            {AI_AREAS.map((area) => {
+              const ans = p.data.aiProfile!.areas[area.key].answers;
+              const s = areaSummary(ans);
+              const l = lead(p, area.key);
+              return (
+                <td>
+                  {l && <span class="cmp-lead">{l}</span>}
+                  <span class="cmp-marks" aria-hidden="true">{ans.map((a) => <i class:list={[`m-${LEVELS[a.level].n}`, { 'm-x': a.conflict }]} title={`${a.question}: ${a.conflict ? 'sources conflict' : LEVELS[a.level].n ? `Level ${LEVELS[a.level].n}` : RESEARCH_ONGOING}`} />)}</span>
+                  <span class="cmp-count">{s.answered}/{s.total}<span class="visually-hidden"> questions established{s.conflict ? '; sources conflict on one' : ''}</span></span>
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>

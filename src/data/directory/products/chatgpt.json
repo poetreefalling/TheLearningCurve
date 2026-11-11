@@ -1,0 +1,241 @@
+{
+  "name": "ChatGPT",
+  "vendor": "openai",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://chatgpt.com/",
+  "summary": "General AI assistant with Study mode, file-based study support, practice questions and custom GPTs; ChatGPT Edu supports institution-wide deployment.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://help.openai.com/en/articles/11780217-study-mode",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Tutoring and study support",
+      "Explanation",
+      "Practice and quiz generation",
+      "Educator planning",
+      "Course-material Q&A"
+    ],
+    "source": "https://help.openai.com/en/articles/11780217-study-mode",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Study mode",
+      "File uploads",
+      "Interactive questioning",
+      "Knowledge checks",
+      "Custom GPTs",
+      "Data analysis"
+    ],
+    "source": "https://help.openai.com/en/articles/11780217-study-mode",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "File uploads",
+      "Custom GPTs",
+      "Institutional workspace tools"
+    ],
+    "source": "https://help.openai.com/en/articles/11780217-study-mode",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid individual plans; ChatGPT Edu institutional offering; pricing to confirm by plan."
+    },
+    "source": "https://chatgpt.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://help.openai.com/en/articles/11780217-study-mode",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "OpenAI GPT models (specific model varies by plan and release)"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No (ChatGPT Edu/business/API by default); personal workspaces may be used unless user opts out"
+    },
+    "source": "https://openai.com/business-data/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No (ChatGPT Edu/business/API by default); personal workspaces may be used unless user opts out",
+            "source": "https://openai.com/business-data/",
+            "checked": "2026-11-09",
+            "note": "Business/Edu default no-training commitment; personal accounts have separate controls."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "OpenAI",
+            "source": "https://help.openai.com/en/articles/7730893-data-controls-in-chatgpt",
+            "checked": "2026-11-09",
+            "note": "Managed workspaces may have organisation-level retention and access settings."
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "OpenAI GPT models (specific model varies by plan and release)",
+            "source": "https://help.openai.com/en/articles/9377311-chatgpt-edu-at-openai",
+            "checked": "2026-11-09",
+            "note": "Edu plan overview; exact model assignment varies."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Study mode coaches through questions and step-by-step explanation; general ChatGPT can answer directly"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://help.openai.com/en/articles/11780217-study-mode",
+            "checked": "2026-11-09",
+            "note": "Study mode supports uploaded study materials; do not generalise to every GPT or feature."
+          },
+          {
+            "question": "Shows its sources",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://help.openai.com/en/articles/11780217-study-mode",
+            "checked": "2026-11-09",
+            "note": "Study mode supports uploaded study materials; do not generalise to every GPT or feature."
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer owns business/workspace data; output rights depend on applicable terms"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "gemini-for-education",
+    "microsoft-copilot",
+    "claude",
+    "perplexity",
+    "notebooklm"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "Confirm age minimum and exact retention for the institution's selected plan; distinguish ChatGPT Edu commitments from consumer plans; record product-specific processor list and output ownership.",
+    "Ask vendor (How long prompts and chats are kept): Please provide default retention periods for prompts, chats, uploaded files and deleted content under ChatGPT Edu.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (pedagogy), not shown until sourced: Study mode accepts uploaded study materials; source citations and file-grounding capabilities vary by feature.",
+    "Researcher note (outputOwnership), not shown until sourced: Customer data not used for training on ChatGPT Edu; retention specifics depend on workspace controls and policy. Product-wide age eligibility and oversight should be profiled by plan."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid individual plans; ChatGPT Edu institutional offering; pricing to confirm by plan"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid individual plans; ChatGPT Edu institutional offering; pricing to confirm by plan"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

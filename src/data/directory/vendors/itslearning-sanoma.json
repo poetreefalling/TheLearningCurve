@@ -1,0 +1,45 @@
+{
+  "name": "itslearning AS / Sanoma Learning",
+  "website": "https://itslearning.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Bergen, Norway (itslearning); parent Sanoma headquartered in Helsinki, Finland",
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "Part of Sanoma Learning; standalone itslearning headcount not publicly disclosed",
+    "source": "https://www.sanoma.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Subsidiary within publicly listed Sanoma; standalone funding not applicable",
+    "source": "https://www.sanoma.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 1999,
+    "source": "https://itslearning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "subsidiary",
+    "source": "https://www.sanoma.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Subsidiary of Sanoma Learning / Sanoma Corporation",
+    "source": "https://www.sanoma.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": []
+}
