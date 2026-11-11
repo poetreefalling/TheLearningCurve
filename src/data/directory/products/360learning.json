@@ -1,0 +1,242 @@
+{
+  "name": "360Learning",
+  "vendor": "360learning-sas",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.360learning.com/",
+  "summary": "A collaborative learning platform centred on employee-generated knowledge and peer co-creation, with LMS delivery, AI-assisted authoring and skills-oriented learning.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Collaborative learning",
+      "internal knowledge sharing",
+      "employee onboarding",
+      "sales and customer enablement",
+      "skills development"
+    ],
+    "source": "https://website.360learning.com/product/learning-management-system/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Collaborative course authoring",
+      "peer expertise sharing",
+      "AI-assisted authoring",
+      "learning paths",
+      "ILT/vILT",
+      "assessments",
+      "gamification",
+      "skills-based learning",
+      "analytics"
+    ],
+    "source": "https://website.360learning.com/product/learning-management-system/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "HRIS/HCM",
+      "Microsoft Teams",
+      "Slack",
+      "Zoom/Class",
+      "content libraries",
+      "e-commerce",
+      "API and webhooks"
+    ],
+    "source": "https://website.360learning.com/product/learning-management-system/",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.360learning.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$8 per active user/month (Team; up to 100 users).",
+      "notes": "Team is self-serve, monthly billed and cancellable; Business and Enterprise are custom-priced. Add-on solutions may incur additional per-user charges."
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "docebo",
+    "learnupon",
+    "talentlms",
+    "absorb-lms",
+    "cornerstone-learning"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "level": "research-ongoing",
+      "finding": "No product-specific VPAT/ACR located in this pass; request current report.",
+      "caveat": "Need report for authoring, learner experience and mobile apps.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://website.360learning.com/privacy-and-security/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/360learning"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "Azure hosting disclosed, but no clear Australian tenant region/DR statement verified.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://website.360learning.com/privacy-and-security/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/360learning"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "AI-assisted authoring and AI Companion features advertised; model providers, training use and retention require confirmation.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://website.360learning.com/privacy-and-security/"
+        },
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://learn.microsoft.com/en-us/microsoft-365-app-certification/teams/360learning"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Corporate L&D; mid-market and enterprise; workforce upskilling\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "pricingModel": {
+    "value": {
+      "basis": "per-active-user",
+      "freeTier": false,
+      "trial": true,
+      "freeTierNote": "No permanent free tier; 30-day free trial.",
+      "trialNote": "30-day free trial"
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources No current product-specific ACR/VPAT was identified in the reviewed public materials; request the current report and supported browser/assistive-technology matrix."
+    },
+    "source": "https://www.360learning.com/privacy-and-security/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "ISO 27001",
+      "SOC 2",
+      "GDPR"
+    ],
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "GDPR: vendor-stated; obtain current certificates and scope"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "Microsoft Azure hosting; exact customer tenant region should be confirmed in contract. Vendor states GDPR, SOC 2 and ISO 27001 alignment. Confirm subprocessors, data location, retention and AI processing terms for the contracted tenant."
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "AI-assisted authoring, recommendations and AI Companion; underlying model/provider details are not identified on the public pricing page."
+    },
+    "source": "https://360learning.com/pricing/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/360learning/logo.webp",
+      "alt": "360Learning logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/360learning/screenshot-1.webp",
+        "alt": "The 360Learning learner home page on a laptop: assigned training and recommended courses as cards, with the AI Companion search panel open on the right",
+        "caption": "The learner home page, with assigned training, recommended courses and the AI Companion panel.",
+        "credit": "Image: 360Learning"
+      }
+    ]
+  }
+}

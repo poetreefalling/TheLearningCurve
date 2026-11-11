@@ -37,10 +37,16 @@ commissions pay its way; they never decide what gets written or how a platform s
   rebuilds at each publishing slot so future-dated articles go live on time.
 - Ads: `src/data/ads.json`, managed by Jim in the Ads tab at /admin (`docs/ads.md`). Never add, edit
   or remove a campaign or the AdSense settings unless Jim asks; never put ads on reviews or comparisons.
+- `docs/design.md` is the design system: logo, colour, type, imagery, and how charts, data stories
+  and interactive graphics should look and behave. Follow it for any visual or page change.
 - `docs/editorial.md` is the style guide: voice, article shapes, citation rules, review method
   and image prompts. Read it in full before every draft.
 - `docs/backlog.md` is the ranked queue of articles to write.
 - `docs/affiliates.md` holds the affiliate program terms and rules.
+- `docs/directory.md` is the field guide to the technology directory (vendors, products,
+  evaluations in `src/data/directory/`): provenance on every fact, profiled versus evaluated,
+  versioned methods and the vendor firewall. Articles can be tagged with directory `categories`,
+  `products` and `vendors`.
 - Jim reviews drafts at thelearningcurve.net/admin (the review desk, `docs/admin.md`). It finds
   flags with the same `[JIM: …]` / `[TO VERIFY: …]` pattern and publishes by merging the PR, so
   keep flags in that exact form and keep every article PR on an `article/` branch.
@@ -96,8 +102,13 @@ empty slot is better than a weak article.
    for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one).
    Use the Artlist connector with Nano Banana 2, image-to-image, 2K, 3:2, and the matching
    reference image in `brand/` (if `risograph-reference.webp` doesn't exist yet, use a
-   documentary hero and say so in the PR). Look at every result before using it. Regenerate once if it
-   has any text, logo, brand mark, extra or malformed fingers, a face in sharp focus, a
+   documentary hero and say so in the PR). **Supplied heroes first:** if `brand/supplied/` holds an
+   image for this article (named after its slug, or listed for its backlog row in
+   `brand/supplied/README.md`), check it against the rules below and use it instead of
+   generating one: `git mv` it to `brand/originals/<slug>.webp` (so it can't be used twice), remove
+   its line from the README, and say in the PR that Jim supplied it. If it fails the checks, leave
+   it in place, generate as usual, and say why in the PR. Look at every result before using it. Regenerate once if it
+   has a logo, logomark or brand name, large or prominent words (small screen text and handwriting are fine), extra or malformed fingers, a face in sharp focus, a
    glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
    per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.

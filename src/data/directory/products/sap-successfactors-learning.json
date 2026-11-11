@@ -1,0 +1,229 @@
+{
+  "name": "SAP SuccessFactors Learning",
+  "vendor": "sap",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+  "summary": "An enterprise learning management component of SAP SuccessFactors HCM for assigning, delivering, tracking and reporting employee learning and compliance.",
+  "useCases": {
+    "value": [
+      "Employee training",
+      "compliance and certification",
+      "onboarding",
+      "role-based learning",
+      "instructor-led and online learning",
+      "workforce development"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Learning assignments",
+      "curricula",
+      "course catalogues",
+      "completion tracking",
+      "instructor-led training administration",
+      "assessments",
+      "reporting",
+      "integration with SuccessFactors talent and HR processes"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Native SuccessFactors HCM integration",
+      "SAP ecosystem and APIs",
+      "external content providers and enterprise identity integrations"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-07",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "International"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "alternatives": [
+    "workday-learning",
+    "cornerstone-learning",
+    "docebo",
+    "absorb-lms"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "level": "research-ongoing",
+      "finding": "SAP accessibility resources available; current SuccessFactors Learning ACR/VPAT should be requested by product and version.",
+      "caveat": "Do not substitute SAP-wide accessibility statement for Learning report.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.sap.com/docs/joule/serviceguide/data-centers-supported-by-joule"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "security": {
+      "level": "vendor-disclosed",
+      "finding": "SAP Trust Center has broad cloud certifications and audit reports; must map to the specific SuccessFactors Learning service and data centre.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.sap.com/docs/joule/serviceguide/data-centers-supported-by-joule"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "Joule documentation lists Sydney data centres and infrastructure providers (AWS, Azure, GCP) for Joule. This is AI service-specific, not proof that all SuccessFactors Learning content is stored/processed in Australia.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.sap.com/docs/joule/serviceguide/data-centers-supported-by-joule"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "SAP embeds AI across SuccessFactors; verify which AI capabilities apply to Learning and their model/data terms.",
+      "sources": [
+        {
+          "title": "Official trust centre, accessibility report, privacy notice or corporate filing",
+          "url": "https://help.sap.com/docs/joule/serviceguide/data-centers-supported-by-joule"
+        }
+      ],
+      "checked": "2026-11-07"
+    },
+    "procurementChecks": [
+      "Obtain current product-specific accessibility conformance report and confirm version/module scope.",
+      "Request current SOC 2 Type II / ISO certificates and verify legal entity, service boundary, audit period and exceptions.",
+      "Confirm production, backup, disaster-recovery, logs, telemetry, support and AI processing locations in contract/DPA."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "researchTasks": [
+    "Primary market also mentions audiences with no category yet: \"Large enterprises; multinational organisations; SAP HCM customers; regulated industries\".",
+    "Commercial relationship set to none; confirm before publication (affiliate programs in docs/affiliates.md).",
+    "Not re-checked by us: assurance findings are from the workbook research of 7 Nov 2026. Re-open each source before publishing."
+  ],
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "government"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": false,
+      "freeTierNote": "No permanent free tier identified; enterprise sales/demo and contract.",
+      "trialNote": "Demo / quote by enquiry; no public trial terms identified"
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms/pricing.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Not publicly listed; request an SAP quote. Request a quote; subscription and implementation scope depend on contract."
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms/pricing.html",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3",
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Not publicly confirmed in reviewed sources Request current SuccessFactors Learning-specific ACR/VPAT and accessibility scope; do not rely on general SAP product accessibility statements."
+    },
+    "source": "https://www.sap.com/australia/products/hcm/corporate-lms.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [],
+    "source": "https://www.sap.com/about/trust-center.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied",
+    "notes": "SAP Trust Center publishes product and cloud security certifications; confirm SuccessFactors Learning service scope and region-specific controls."
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "SAP data centre regions and data residency options are service/contract-specific; confirm the SuccessFactors Learning data centre and support access. Review SAP Trust Center, cloud service specification and DPA for subprocessors, transfers, retention and AI terms."
+    },
+    "source": "https://www.sap.com/about/trust-center.html",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "SAP Business AI / Joule capabilities; model providers depend on feature and deployment. SAP Business AI / Joule capabilities; model providers depend on feature and deployment."
+    },
+    "source": "https://www.sap.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "trial",
+      "note": "no public trial terms, so left out (not set to false): Demo / quote by enquiry; no public trial terms identified."
+    },
+    {
+      "field": "accessibility standard",
+      "note": "not a conformance claim, so stored as evidence and the standard left out."
+    },
+    {
+      "field": "security",
+      "note": "no certification is stated, so the list is empty. Request the current security pack."
+    },
+    {
+      "field": "data residency",
+      "note": "no committed region; confirm the tenant region in the contract."
+    },
+    {
+      "field": "AI models",
+      "note": "no named model or provider, so models is empty; the description is kept as a note."
+    }
+  ]
+}

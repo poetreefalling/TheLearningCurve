@@ -1,0 +1,215 @@
+{
+  "name": "Turnitin",
+  "vendor": "turnitin-llc",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning",
+    "assessment-credentialing"
+  ],
+  "website": "https://www.turnitin.com/",
+  "summary": "Academic integrity and assessment suite including AI writing detection and feedback products.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://helpcenter.turnitin.com/hc/en-us/articles/49295931087373-Turnitin-Trust-Center",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "AI writing detection",
+      "Similarity checking",
+      "Feedback and assessment support"
+    ],
+    "source": "https://helpcenter.turnitin.com/hc/en-us/articles/49295931087373-Turnitin-Trust-Center",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI Writing Report",
+      "Classifier model",
+      "Similarity and feedback products"
+    ],
+    "source": "https://helpcenter.turnitin.com/hc/en-us/articles/49295931087373-Turnitin-Trust-Center",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS integrations",
+      "Institutional submission workflows"
+    ],
+    "source": "https://helpcenter.turnitin.com/hc/en-us/articles/49295931087373-Turnitin-Trust-Center",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional licensing; quote-based."
+    },
+    "source": "https://www.turnitin.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.turnitin.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://helpcenter.turnitin.com/hc/en-us/articles/49295931087373-Turnitin-Trust-Center",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://guides.turnitin.com/hc/en-us/articles/22774058814093-Using-the-AI-Writing-Report",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "value": "No for generative LLM training; conditional use of anonymised current student writing to train AI detection classifier where Turnitin Originality AI detection is enabled"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing",
+            "value": "Retention details depend on institutional configuration and product terms"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "value": "Turnitin in-house classifier for AI writing detection; Claude 4.5 Haiku for Turnitin Clarity AI assistant; Claude Haiku 4.5 for citation checking; Amazon Nova 2 Lite for grammar checking (vendor Trust Center, Oct 2026)"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Turnitin Clarity AI assistant provides feedback and guidance without writing for the student or changing their content; detector itself does not generate answers."
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "quizlet",
+    "wayground",
+    "kahoot",
+    "gradescope"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[High] Clarify product scope, model disclosures and student-data use across Turnitin Clarity, detector, citation and grammar AI: Please provide a current product-by-product AI model/provider table, prompt retention schedule, student chat visibility controls and exact training/evaluation uses for each feature. (route: Institutional account manager / Trust Center; evidence wanted: Trust Center export, product feature matrix, DPA, retention schedule)",
+    "Clarify whether this is a generative AI learning product or AI-enabled assessment/integrity product; capture retention, ownership, staff access and institutional configuration from contract.",
+    "Ask vendor (Trains AI models on customer data): Is customer data used to train, fine-tune, evaluate or improve foundation models or classifiers? Please distinguish opt-in, opt-out and default behaviour.",
+    "Ask vendor (How long prompts and chats are kept): How long are prompts, chats, uploaded files, generated outputs and logs retained? Please distinguish platform retention from model-provider retention.",
+    "Ask vendor (Who processes the data): Please provide the complete current list of AI model providers and subprocessors that process prompts, chats, uploaded files or generated outputs, including processing locations.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Minimum learner age): What is the minimum learner age under your current terms, and what school/parental consent conditions apply?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
+    "Researcher note (dataPrivacy), not shown until sourced: Separate generative AI assistant data processing from classifier training. Turnitin states pre-trained LLMs do not use or retain student/assignment data for AI training/evaluation; limited de-identified data may be used to improve assistant features.",
+    "Researcher note (outputOwnership), not shown until sourced: Vendor says it does not train a generative AI model on student essays; when AI detection is enabled, anonymised current student data may be used to train its classifier. Detection should not be sole basis for adverse action."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

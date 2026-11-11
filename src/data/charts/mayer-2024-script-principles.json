@@ -1,0 +1,23 @@
+{
+  "title": "Conversational wording had an effect size of 1.00 across 15 tests",
+  "subtitle": "Effect sizes Mayer reports for six principles a narration script settles, from his research group's experiments",
+  "type": "bar",
+  "unit": "effect size",
+  "highlight": "Personalisation (conversational wording)",
+  "series": [
+    { "label": "Personalisation (conversational wording)", "value": 1.0 },
+    { "label": "Modality (narrate, don't print)", "value": 1.0 },
+    { "label": "Coherence (cut extras)", "value": 0.86 },
+    { "label": "Voice (friendly human voice)", "value": 0.74 },
+    { "label": "Signalling (cue what matters)", "value": 0.69 },
+    { "label": "Redundancy (no on-screen copy of narration)", "value": 0.1 }
+  ],
+  "yMax": 1.2,
+  "source": {
+    "authors": "Mayer, R. E.",
+    "year": 2024,
+    "doi": "10.1007/s10648-023-09842-1",
+    "url": "https://link.springer.com/content/pdf/10.1007/s10648-023-09842-1.pdf",
+    "figureOrTable": "Table 6"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "title": "Prompted to explain each line, students gained 32 points against 22 for reading twice",
+  "subtitle": "Gain from pretest to posttest in eighth graders' understanding of the circulatory system: 14 students prompted to self-explain while reading, 10 who read the same text twice",
+  "type": "groupedBar",
+  "unit": "gain, pretest to posttest (% correct)",
+  "highlight": "Prompted to self-explain",
+  "series": [
+    { "label": "All questions", "values": { "Prompted to self-explain": 32, "Read the text twice": 22 } },
+    { "label": "Harder questions (inference and health)", "values": { "Prompted to self-explain": 22.6, "Read the text twice": 12.5 } }
+  ],
+  "yMax": 40,
+  "source": {
+    "authors": "Chi, M. T. H., de Leeuw, N., Chiu, M.-H., & LaVancher, C.",
+    "year": 1994,
+    "doi": "10.1207/s15516709cog1803_3",
+    "url": "https://pcl.sitehost.iu.edu/rgoldsto/courses/cogscilearning/chiselfexplanation.pdf",
+    "figureOrTable": "Figure 3 and Results text (overall gain; Categories 3 and 4)"
+  }
+}

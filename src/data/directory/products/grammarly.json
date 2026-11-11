@@ -1,0 +1,225 @@
+{
+  "name": "Grammarly",
+  "vendor": "grammarly-inc",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.grammarly.com/",
+  "summary": "AI writing assistant used by students and professionals for writing feedback, revision and communication support.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Writing feedback",
+      "Grammar",
+      "Clarity",
+      "Revision",
+      "Communication support"
+    ],
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Generative AI writing assistance",
+      "Feedback and revision tools"
+    ],
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Browser",
+      "Desktop",
+      "Mobile",
+      "Integrations vary"
+    ],
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid individual/business/education plans."
+    },
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.grammarly.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "Grammarly AI models and third-party models; exact current model list not confirmed"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No by default for Grammarly for Education and accounts purchased through Sales; consumer account settings and account type differ"
+    },
+    "source": "https://support.grammarly.com/hc/en-us/articles/25555503115277-Product-Improvement-and-Training-Control",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No by default for Grammarly for Education and accounts purchased through Sales; consumer account settings and account type differ",
+            "source": "https://support.grammarly.com/hc/en-us/articles/25555503115277-Product-Improvement-and-Training-Control",
+            "checked": "2026-11-09",
+            "note": "Consumer settings/account tiers differ; training and product improvement are separately defined."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "Grammarly AI models and third-party models; exact current model list not confirmed",
+            "source": "https://support.grammarly.com/hc/en-us/articles/25555503115277-Product-Improvement-and-Training-Control",
+            "checked": "2026-11-09",
+            "note": "Consumer settings/account tiers differ; training and product improvement are separately defined."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "vendor-disclosed",
+            "value": "Gives direct writing suggestions and revisions; not primarily a tutoring/coaching product",
+            "source": "https://www.grammarly.com/",
+            "checked": "2026-11-09",
+            "note": "Product-level description; distinguish AI writing from study tutoring."
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing",
+            "value": "Yes"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] Model/provider, age, retention and generated text ownership: Please provide the model/provider list, education-specific retention schedule, minimum age, output ownership and any teacher/administrator access to learner activity. (route: Grammarly for Education sales; evidence wanted: Education DPA, Trust Center, terms, AI model disclosure)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (How long prompts and chats are kept): What are prompt/chat retention periods, subprocessors and data residency options for Grammarly for Education?",
+    "Ask vendor (Who processes the data): What are prompt/chat retention periods, subprocessors and data residency options for Grammarly for Education?",
+    "Ask vendor (Minimum learner age): What minimum age applies to Grammarly for Education and which consent terms apply to school-age learners?",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
+    "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated/revised text and does Grammarly receive any licence to retain or reuse it?",
+    "Researcher note (dataPrivacy), not shown until sourced: Grammarly distinguishes model training from product improvement. Product Improvement and Training is off by default for Grammarly for Education and qualifying sales-managed accounts.",
+    "Researcher note (outputOwnership), not shown until sourced: Do not treat Grammarly's general writing features as a dedicated tutor. Need exact education privacy, retention, AI provider and generated-output rights terms."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid individual/business/education plans"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid individual/business/education plans"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

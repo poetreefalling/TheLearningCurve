@@ -1,0 +1,50 @@
+{
+  "name": "Epignosis LLC",
+  "website": "https://www.epignosishq.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Athens, Greece (company presence); exact registered HQ not verified",
+    "source": "https://www.epignosishq.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "51–200 employees (public company profile range)",
+    "source": "https://www.linkedin.com/company/epignosis/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.epignosishq.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2012,
+    "source": "https://www.epignosishq.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://www.epignosishq.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held",
+    "source": "https://www.epignosishq.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "ownership",
+      "note": "\"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
+}

@@ -8,7 +8,7 @@ type Series = { id: string; label: string; values: (number | null)[]; estimate?:
 type View = { upTo?: number; highlight?: string[]; focus?: number[]; annotations: { at: number; series?: string; text: string }[] };
 type Story = {
   title: string; subtitle: string; type: 'line' | 'column' | 'bar' | 'groupedBar';
-  format: 'percent' | 'number' | 'compact' | 'usd-billions' | 'millions' | 'sd';
+  format: 'percent' | 'number' | 'compact' | 'usd' | 'usd-billions' | 'millions' | 'sd';
   yMax?: number; categories: string[]; series: Series[]; views: Record<string, View>;
 };
 

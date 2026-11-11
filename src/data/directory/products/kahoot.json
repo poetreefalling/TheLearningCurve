@@ -1,0 +1,234 @@
+{
+  "name": "Kahoot!",
+  "vendor": "kahoot-asa",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://kahoot.com/",
+  "summary": "Game-based learning platform with AI-assisted quiz and learning-content creation features.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Quiz creation",
+      "Formative assessment",
+      "Review",
+      "Live and self-paced learning"
+    ],
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI-assisted question generation",
+      "Interactive quizzes",
+      "Reporting"
+    ],
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "Mobile",
+      "LMS integrations to verify"
+    ],
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid individual, school and business plans."
+    },
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://kahoot.com/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "OpenAI GPT-4 (AI tools help article); Trust Center describes Microsoft Azure as main partner/LLM provider. Confirm whether GPT-4 is served via Azure and current model version."
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "No (Kahoot! says prompts and uploaded documents are processed transiently and not used to train/fine-tune underlying models)"
+    },
+    "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No (Kahoot! says prompts and uploaded documents are processed transiently and not used to train/fine-tune underlying models)",
+            "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+            "checked": "2026-11-09",
+            "note": "Help article names GPT-4; Trust Center says Microsoft Azure is main AI partner. Confirm precise architecture/version."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "vendor-disclosed",
+            "value": "Prompts and uploaded documents for AI generation are processed transiently; vendor says not stored for training. Platform data retention is separate.",
+            "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+            "checked": "2026-11-09",
+            "note": "This describes AI generation prompt/doc handling, not overall platform retention."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "vendor-disclosed",
+            "value": "Microsoft Azure (main LLM processing partner); underlying model named as OpenAI GPT-4 in help documentation",
+            "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+            "checked": "2026-11-09",
+            "note": "This describes AI generation prompt/doc handling, not overall platform retention."
+          },
+          {
+            "question": "AI models used",
+            "level": "vendor-disclosed",
+            "value": "OpenAI GPT-4 (AI tools help article); Trust Center describes Microsoft Azure as main partner/LLM provider. Confirm whether GPT-4 is served via Azure and current model version.",
+            "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+            "checked": "2026-11-09",
+            "note": "Help article names GPT-4; Trust Center says Microsoft Azure is main AI partner. Confirm precise architecture/version."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://support.kahoot.com/hc/en-us/articles/17152945038355-How-to-use-Kahoot-AI-tools?page=1",
+            "checked": "2026-11-09",
+            "note": "Workspace owners and individual users can disable AI features; author remains responsible for review."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "quizlet",
+    "wayground",
+    "gradescope",
+    "turnitin"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] Reconcile GPT-4 vs Azure AI provider description; age and ownership: Please clarify the current model/provider architecture, age/consent for AI features, retention, generated quiz ownership and admin visibility of prompts/outputs. (route: Vendor privacy contact; evidence wanted: AI Trust Center, terms, DPA, product documentation)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (Minimum learner age): What minimum age applies to AI content-generation features, and how are parental consent and student accounts handled?",
+    "Ask vendor (Staff can review AI output before learners see it): Can school admins review AI prompts and outputs and configure student access by age/role?",
+    "Ask vendor (Staff can see learner conversations): Can school admins review AI prompts and outputs and configure student access by age/role?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Answers from your own course content): Are source citations exposed to learners or authors for generated questions?",
+    "Ask vendor (Shows its sources): Are source citations exposed to learners or authors for generated questions?",
+    "Ask vendor (Who owns what the AI produces): Who owns AI-generated questions, quizzes and images, and what licence does Kahoot! receive?",
+    "Researcher note (pedagogy), not shown until sourced: Vendor says generated content may be inaccurate/biased and the author remains responsible for review.",
+    "Researcher note (outputOwnership), not shown until sourced: Official product and privacy documentation needs deeper review before recording model, age, retention, oversight and ownership."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid individual, school and business plans"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid individual, school and business plans"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

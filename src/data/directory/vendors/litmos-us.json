@@ -1,0 +1,45 @@
+{
+  "name": "Litmos US, LP",
+  "website": "https://www.litmos.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "San Ramon, California, USA (business office; confirm legal HQ)",
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "201–500 employees (public company profile range; standalone current headcount unverified)",
+    "source": "https://www.linkedin.com/company/litmos/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2007,
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "private-equity",
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held; acquired by Francisco Partners from SAP in 2022",
+    "source": "https://www.litmos.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": []
+}

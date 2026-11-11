@@ -24,7 +24,13 @@
   }
   * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.55 var(--sans); }
-  header { border-bottom: 1px solid var(--rule); background: var(--surface); }
+  /* The header is always dark so the white wordmark reads in both themes */
+  header { border-bottom: 1px solid #2e2f31; background: #16181d; color: #eeebe5; }
+  header .logo { display: block; line-height: 0; }
+  header .logo img { height: 40px; width: auto; }
+  header .tabs button { color: #a39f98; }
+  header .tabs button[aria-current=page] { background: #2a2c31; color: #ffffff; }
+  header button.link { color: #eeebe5; }
   .bar { max-width: 960px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 16px; }
   .bar strong { font-family: var(--serif); font-size: 20px; font-weight: 600; }
   .bar span { color: var(--muted); font-size: 14px; }
@@ -95,16 +101,30 @@
   .check input { width: 18px; height: 18px; }
   .preview { max-width: 100%; max-height: 260px; border: 1px solid var(--rule); border-radius: 6px; display: block; margin-top: 8px; }
   .scroll { overflow-x: auto; }
+  .fact-row { border-top: 1px solid var(--rule); padding: 14px 0; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 10px 16px; }
+  .fact-row:first-of-type { border-top: 0; padding-top: 4px; }
+  .fact-row textarea { min-height: 64px; font-size: 15px; }
+  .fact-row .src { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 160px; gap: 8px; }
+  .fact-row .src .day { display: flex; gap: 6px; }
+  .fact-row .tools { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+  .fact-row .tools button, .fact-row .src button { padding: 6px 9px; font-size: 13px; font-weight: 500; }
+  .fact-row .mini { font-size: 12px; color: var(--muted); margin: 0 0 3px; font-weight: 600; }
+  input.group-title { font: 600 18px var(--serif); border: 1px solid transparent; padding: 4px 6px; margin-left: -7px; width: 100%; }
+  input.group-title:hover, input.group-title:focus { border-color: var(--rule); }
+  @media (max-width: 760px) { .fact-row { grid-template-columns: 1fr; } .fact-row .src { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <header>
   <div class="bar">
-    <strong>The Learning Curve</strong>
+    <a class="logo" href="/" title="Go to the live site"><img src="/admin/logo-white.svg" alt="The Learning Curve" width="245" height="40"></a>
     <nav class="tabs hidden" id="tabs" aria-label="Admin">
       <button type="button" data-tab="articles" aria-current="page">Articles</button>
+      <button type="button" data-tab="changes">Changes</button>
       <button type="button" data-tab="ads">Ads</button>
+      <button type="button" data-tab="facts">Facts</button>
+      <button type="button" data-tab="submissions">Submissions</button>
     </nav>
     <div class="spacer"></div>
     <button class="link hidden" id="logout">Sign out</button>
@@ -428,13 +448,236 @@ function setTab(tab) {
   document.getElementById('logout').classList.remove('hidden');
   document.getElementById('tabs').classList.remove('hidden');
   document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.setAttribute('aria-current', b.dataset.tab === tab ? 'page' : 'false'));
-  if (location.hash !== (tab === 'ads' ? '#ads' : '')) history.replaceState(null, '', tab === 'ads' ? '#ads' : location.pathname);
+  const hash = tab === 'articles' ? '' : '#' + tab;
+  if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname);
 }
 document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
-  if (b.dataset.tab === 'ads') { if (unsavedOk()) { state.current = null; loadAds(); } }
-  else if (adsUnsavedOk()) loadQueue();
+  if (!changeUnsavedOk()) return;
+  if (b.dataset.tab === 'ads') { if (unsavedOk() && factsUnsavedOk()) { state.current = null; loadAds(); } }
+  else if (b.dataset.tab === 'facts') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadFacts(); } }
+  else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSubmissions(); } }
+  else if (b.dataset.tab === 'changes') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadChanges(); } }
+  else if (adsUnsavedOk() && factsUnsavedOk()) loadQueue();
 });
-function start() { location.hash === '#ads' ? loadAds() : loadQueue(); }
+function start() { location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
+
+// ---------- changes ----------
+// Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
+// live; the server refuses unless the site check passes and the PR merges cleanly.
+let changes = { items: [], open: {}, edit: null }; // edit: { pr, title, branch, files, file: { path, content, sha } | null }
+const changeDirty = () => { const e = changes.edit; if (!e || !e.file) return false; const t = document.getElementById('changeText'); return !!t && t.value !== e.file.content; };
+function changeUnsavedOk() { return !changeDirty() || confirm('You have edits to this file you haven\'t saved. Leave without saving?'); }
+
+async function loadChanges() {
+  clearTimeout(state.pollTimer);
+  changes.edit = null;
+  setTab('changes');
+  app.innerHTML = '<p class="muted">Loading open changes…</p>';
+  try {
+    const data = await api('changes');
+    changes.items = data.items || [];
+    renderChanges();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Changes</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderChanges() {
+  const items = changes.items;
+  const fmt = (t) => new Date(t).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short' });
+  app.innerHTML = notice() + `
+    <h1>Changes</h1>
+    <p class="muted">${items.length ? `${items.length} open ${items.length === 1 ? 'change' : 'changes'} that aren't articles: site features, docs and settings, oldest first. Merging one makes it live.` : 'No open changes. Articles are in the Articles tab.'}</p>
+    ${items.map((c, i) => {
+      const ready = !c.draft && c.checks === 'passing';
+      const pill = c.draft ? '<span class="pill">Draft on GitHub</span>' : checksPill(c.checks, 0);
+      return `<div class="card">
+        <div class="item" style="padding:0;border:0">
+          <div class="grow">
+            <div class="slot">Opened ${esc(fmt(c.opened))} · ${esc(c.branch)} · <a href="${esc(c.url)}" target="_blank" rel="noopener" class="prnum">#${esc(c.number)}</a></div>
+            <h3>${esc(c.title)}</h3>
+            ${pill}
+          </div>
+          <button type="button" data-edit="${i}">Edit</button>
+          <button class="primary" data-merge="${i}" ${ready ? '' : 'disabled'}>Merge</button>
+        </div>
+        <p class="small"><a href="${esc(c.preview)}/" target="_blank" rel="noopener">Open the preview</a> · <a href="${esc(c.url)}/files" target="_blank" rel="noopener">See the changed files</a> · <button type="button" class="link" data-more="${i}">${changes.open[c.number] ? 'Hide' : 'Show'} the description</button></p>
+        ${changes.open[c.number] ? `<div class="context" style="white-space:pre-wrap">${esc(c.body || 'No description.')}</div>` : ''}
+      </div>`;
+    }).join('')}
+    <p class="small muted">Merge is only possible once the site check has passed. Anything you're unsure about, ask Claude first.</p>`;
+  app.querySelectorAll('[data-more]').forEach((b) => b.onclick = () => { const n = changes.items[b.dataset.more].number; changes.open[n] = !changes.open[n]; renderChanges(); });
+  app.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => openChange(changes.items[b.dataset.edit]));
+  app.querySelectorAll('[data-merge]').forEach((b) => b.onclick = async () => {
+    const c = changes.items[b.dataset.merge];
+    if (!confirm(`Merge #${c.number}, "${c.title}"? It goes live on the site in about two minutes.`)) return;
+    b.disabled = true; b.textContent = 'Merging…';
+    try {
+      const res = await api('changes/merge', { method: 'POST', body: { pr: c.number, sha: c.sha } });
+      state.notice = { kind: 'ok', text: res.message };
+      await loadChanges();
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+      renderChanges();
+    }
+  });
+}
+
+// Editing a change: list the files it touches, open a text file, save it back to the change's own
+// branch (never the live site). The change then needs its site check to pass again before Merge.
+const STATUS_LABEL = { added: 'New', modified: 'Changed', renamed: 'Renamed', removed: 'Deleted', copied: 'Copied', changed: 'Changed' };
+async function openChange(c) {
+  setTab('changes');
+  app.innerHTML = `<p class="muted">Loading the files in #${esc(c.number)}…</p>`;
+  try {
+    const data = await api('changes/files?pr=' + c.number);
+    changes.edit = { pr: c.number, title: data.title, branch: data.branch, preview: c.preview, files: data.files, file: null };
+    const editable = data.files.filter((f) => f.editable);
+    if (editable.length === 1) return openChangeFile(editable[0].path);
+    renderChangeEdit();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+    renderChanges();
+  }
+}
+
+async function openChangeFile(path) {
+  const e = changes.edit;
+  try {
+    const data = await api(`changes/file?pr=${e.pr}&path=${encodeURIComponent(path)}`);
+    e.file = { path: data.path, content: data.content, sha: data.sha };
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    e.file = null;
+  }
+  renderChangeEdit();
+}
+
+function renderChangeEdit() {
+  const e = changes.edit, f = e.file;
+  const isJson = f && /\.json$/i.test(f.path);
+  const isMdx = f && /\.mdx?$/i.test(f.path);
+  app.innerHTML = `${notice()}
+    <p><button class="link" id="chBack">← All changes</button></p>
+    <div class="slot">#${esc(e.pr)} · ${esc(e.branch)}</div>
+    <h1 style="margin-top:4px">${esc(e.title)}</h1>
+    <p class="small muted">Edits save to this change only, not the live site. After you save, the site check runs again (a minute or two) and the preview updates; merge from the Changes list when you're happy.
+      <a href="${esc(e.preview)}/" target="_blank" rel="noopener">Open the preview</a></p>
+    <div class="card scroll"><table class="list">
+      <thead><tr><th>File in this change</th><th></th><th></th></tr></thead>
+      <tbody>${e.files.map((x) => `<tr>
+        <td><code style="font-size:13px;overflow-wrap:anywhere">${esc(x.path)}</code>${f && f.path === x.path ? ' <span class="pill ok">Open</span>' : ''}</td>
+        <td class="small muted" style="white-space:nowrap">${esc(STATUS_LABEL[x.status] || x.status)} · +${esc(x.additions)} −${esc(x.deletions)}</td>
+        <td class="acts">${x.editable ? `<button type="button" data-file="${esc(x.path)}" ${f && f.path === x.path ? 'disabled' : ''}>Edit</button>` : `<span class="small muted">${esc(x.why)}</span>`}</td>
+      </tr>`).join('')}</tbody></table></div>
+    ${f ? `
+      <h2>${esc(f.path)}</h2>
+      <p class="small muted">${isJson ? 'This is a data file: keep the quotes, commas and brackets exactly as they are and change only the text inside quotes. It is checked before saving.'
+        : isMdx ? 'In article text, avoid the characters { } and &lt;, which the site treats as code. Keep any settings block between --- lines as it is, apart from wording inside quotes.'
+        : 'This file is part of how the site works. Change wording you can see, and leave anything that looks like code alone; ask Claude if you\'re unsure.'}</p>
+      <textarea class="full" id="changeText" spellcheck="${isJson ? 'false' : 'true'}">${esc(f.content)}</textarea>
+      <div class="actions">
+        <button class="primary" id="chSave">Save to this change</button>
+        <span class="small muted" id="chState">Saving commits to ${esc(e.branch)}.</span>
+      </div>` : `<p class="muted">Choose a file to edit.</p>`}`;
+  document.getElementById('chBack').onclick = () => { if (changeUnsavedOk()) loadChanges(); };
+  app.querySelectorAll('[data-file]').forEach((b) => b.onclick = () => { if (changeUnsavedOk()) openChangeFile(b.dataset.file); });
+  if (f) document.getElementById('chSave').onclick = saveChangeFile;
+}
+
+async function saveChangeFile() {
+  const e = changes.edit, f = e.file;
+  const text = document.getElementById('changeText').value;
+  if (/\.json$/i.test(f.path)) {
+    try { JSON.parse(text); } catch (err) { state.notice = { kind: 'bad', text: `That isn't valid JSON yet, so it wasn't saved: ${err.message}. Check for a missing comma or quote.` }; const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep; return; }
+  }
+  const btn = document.getElementById('chSave'); btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const res = await api('changes/save', { method: 'POST', body: { pr: e.pr, path: f.path, sha: f.sha, content: text } });
+    f.sha = res.sha; f.content = text;
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: `Saved ${f.path} to #${e.pr}. The site check and preview update in a minute or two.` };
+    renderChangeEdit();
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep;
+  }
+}
+
+window.addEventListener('beforeunload', (ev) => { if (changeDirty()) { ev.preventDefault(); ev.returnValue = ''; } });
+
+// ---------- submissions ----------
+// Platform submissions from /submit, stored in D1 by functions/api/submit.ts (docs/submissions.md).
+// Set a status and a private note; reply to the vendor by email (the address links straight to it).
+const SUB_LABELS = { new: ['New', 'bad'], reviewing: ['Reviewing', 'warn'], accepted: ['Accepted', 'ok'], declined: ['Declined', ''] };
+let subs = { items: [], filter: 'open' };
+
+async function loadSubmissions() {
+  clearTimeout(state.pollTimer);
+  setTab('submissions');
+  app.innerHTML = '<p class="muted">Loading submissions…</p>';
+  try {
+    const data = await api('submissions');
+    subs.items = data.items || [];
+    renderSubmissions();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Submissions</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderSubmissions() {
+  const shown = subs.items.filter((s) => subs.filter === 'all' || (subs.filter === 'open' ? (s.status === 'new' || s.status === 'reviewing') : s.status === subs.filter));
+  const count = (k) => subs.items.filter((s) => s.status === k).length;
+  const fmt = (t) => new Date(Number(t)).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+  const filters = [['open', `Open (${count('new') + count('reviewing')})`], ['accepted', `Accepted (${count('accepted')})`], ['declined', `Declined (${count('declined')})`], ['all', `All (${subs.items.length})`]];
+  app.innerHTML = `${notice()}
+    <h1>Submissions</h1>
+    <p class="muted">Platforms put forward at /submit. We promise a reply within 3 working days.</p>
+    <div class="choice">${filters.map(([k, l]) => `<button type="button" data-f="${k}" aria-pressed="${subs.filter === k}">${esc(l)}</button>`).join('')}</div>
+    ${shown.length ? '' : '<div class="card muted">Nothing here.</div>'}
+    ${shown.map((s) => {
+      const [label, kind] = SUB_LABELS[s.status] || [s.status, ''];
+      const age = (Date.now() - Number(s.at)) / 86400000;
+      const late = s.status === 'new' && age > 3 ? '<span class="pill bad">Reply overdue</span>' : '';
+      return `<div class="card" data-id="${esc(s.id)}">
+        <div class="slot">${esc(fmt(s.at))} · ${esc(s.category)}${s.stage ? ' · ' + esc(s.stage) : ''}</div>
+        <h3 style="font-family:var(--serif);font-size:20px;margin:4px 0 8px">${esc(s.product)} <span class="muted small">— ${esc(s.organisation)}${s.org_type ? ' (' + esc(s.org_type) + ')' : ''}</span></h3>
+        <p><span class="pill ${kind}">${esc(label)}</span>${late}</p>
+        <p class="small"><a href="${esc(s.url)}" target="_blank" rel="noopener">${esc(s.url)}</a></p>
+        <p class="small">${esc(s.name)}${s.role ? ', ' + esc(s.role) : ''} · <a href="mailto:${esc(s.email)}?subject=${encodeURIComponent('Your Learning Curve submission: ' + s.product)}">${esc(s.email)}</a></p>
+        ${s.audience ? `<p class="small muted">Built for: ${esc(s.audience)}</p>` : ''}
+        <div class="context">${esc(s.description)}</div>
+        ${s.learning ? `<p class="small"><strong>How it helps people learn:</strong> ${esc(s.learning)}</p>` : ''}
+        ${s.access ? `<p class="small"><strong>Reviewer access:</strong> ${esc(s.access)}</p>` : ''}
+        ${s.notes ? `<p class="small"><strong>Anything else:</strong> ${esc(s.notes)}</p>` : ''}
+        <label class="small" style="font-weight:600;display:block;margin:12px 0 6px" for="note-${esc(s.id)}">Private note</label>
+        <textarea id="note-${esc(s.id)}" rows="2">${esc(s.editor_note || '')}</textarea>
+        <div class="choice" style="margin-top:10px">${Object.entries(SUB_LABELS).map(([k, [l]]) => `<button type="button" data-status="${k}" aria-pressed="${s.status === k}">${esc(l)}</button>`).join('')}</div>
+      </div>`;
+    }).join('')}`;
+  app.querySelectorAll('[data-f]').forEach((b) => b.onclick = () => { subs.filter = b.dataset.f; renderSubmissions(); });
+  app.querySelectorAll('[data-status]').forEach((b) => b.onclick = async () => {
+    const card = b.closest('[data-id]');
+    const id = card.dataset.id;
+    const note = card.querySelector('textarea').value;
+    b.disabled = true;
+    try {
+      await api('submissions/status', { method: 'POST', body: { id, status: b.dataset.status, note } });
+      const item = subs.items.find((x) => x.id === id);
+      item.status = b.dataset.status; item.editor_note = note;
+      state.notice = { kind: 'ok', text: `Saved: ${item.product} is now ${SUB_LABELS[item.status][0].toLowerCase()}.` };
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+    }
+    renderSubmissions();
+  });
+}
 
 // ---------- ads ----------
 // The ad manager edits src/data/ads.json (rules: src/lib/ads.ts, docs/ads.md). Changes stay in this
@@ -648,6 +891,131 @@ async function saveAds() {
 }
 
 window.addEventListener('beforeunload', (e) => { if (adsDirty()) { e.preventDefault(); e.returnValue = ''; } });
+
+// ---------- facts ----------
+// The facts editor edits src/data/facts.json: the data behind /facts/ and /facts.json. Changes stay
+// in this page until "Save and publish", which commits them to the live site in one go.
+let facts = null; // { data, sha, saved }
+const factsDirty = () => facts && JSON.stringify(facts.data) !== facts.saved;
+function factsUnsavedOk() { return !factsDirty() || confirm('You have changes to the facts you haven\'t published. Leave without publishing?'); }
+const slugify = (t) => String(t || 'fact').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 50) || 'fact';
+function uniqueId(base, taken) { let id = base, n = 2; while (taken.has(id)) id = `${base}-${n++}`; return id; }
+const allFactIds = () => new Set(facts.data.groups.flatMap((g) => g.facts.map((f) => f.id)));
+
+async function loadFacts() {
+  clearTimeout(state.pollTimer);
+  setTab('facts');
+  app.innerHTML = '<p class="muted">Loading the facts…</p>';
+  try {
+    const data = await api('facts');
+    facts = { data: data.facts, sha: data.sha, saved: JSON.stringify(data.facts) };
+    renderFacts();
+  } catch (e) { if (e.message !== 'signed-out') app.innerHTML = `<div class="notice bad">${esc(e.message)}</div>`; }
+}
+
+function renderFacts() {
+  const d = facts.data, today = sydneyToday();
+  const total = d.groups.reduce((n, g) => n + g.facts.length, 0);
+  const stale = d.groups.flatMap((g) => g.facts).filter((f) => (new Date(today) - new Date(f.checked)) / 864e5 > 180).length;
+  app.innerHTML = `${notice()}
+    <h1>Facts</h1>
+    <p class="muted">The basics about the publication, shown at <a href="/facts/" target="_blank" rel="noopener">/facts/</a> and as data at <a href="/facts.json" target="_blank" rel="noopener">/facts.json</a>, for readers, search engines and AI assistants. Each fact needs a source (the page that states it) and the date you last checked it. ${total} facts${stale ? `; <strong>${stale} not checked in over six months</strong>` : ''}.</p>
+    <p><button type="button" id="allToday">Mark every fact checked today</button></p>
+    ${d.groups.map((g, gi) => `
+      <div class="card">
+        <input type="text" class="group-title" data-gtitle="${gi}" value="${esc(g.title)}" maxlength="60" aria-label="Group heading">
+        ${g.facts.map((f, fi) => `
+          <div class="fact-row">
+            <div>
+              <p class="mini">Label</p>
+              <input type="text" data-f="${gi}.${fi}.label" value="${esc(f.label)}" maxlength="60">
+              <div class="tools" style="margin-top:8px">
+                <button type="button" data-up="${gi}.${fi}" ${fi === 0 ? 'disabled' : ''} title="Move up">↑</button>
+                <button type="button" data-down="${gi}.${fi}" ${fi === g.facts.length - 1 ? 'disabled' : ''} title="Move down">↓</button>
+                <button type="button" data-rm="${gi}.${fi}">Remove</button>
+              </div>
+            </div>
+            <div>
+              <p class="mini">Detail</p>
+              <textarea data-f="${gi}.${fi}.value" maxlength="600">${esc(f.value)}</textarea>
+              <div class="src" style="margin-top:8px">
+                <div><p class="mini">Source (a page on this site, like /about/, or a full https:// address)</p><input type="text" data-f="${gi}.${fi}.source" value="${esc(f.source)}" spellcheck="false"></div>
+                <div><p class="mini">Source name (optional)</p><input type="text" data-f="${gi}.${fi}.sourceLabel" value="${esc(f.sourceLabel || '')}" maxlength="50" placeholder="e.g. About"></div>
+                <div><p class="mini">Checked</p><div class="day"><input type="date" data-f="${gi}.${fi}.checked" value="${esc(f.checked)}"><button type="button" data-today="${gi}.${fi}" title="Checked today">Today</button></div></div>
+              </div>
+            </div>
+          </div>`).join('')}
+        <p style="margin:10px 0 0"><button type="button" data-add="${gi}">Add a fact</button></p>
+      </div>`).join('')}
+    <div class="actions">
+      <button class="primary" id="saveFacts" ${factsDirty() ? '' : 'disabled'}>Save and publish</button>
+      <span class="small muted" id="factsState">${factsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.'}</span>
+    </div>`;
+
+  const at = (key) => { const [gi, fi] = key.split('.').map(Number); return [d.groups[gi], fi]; };
+  const refresh = () => {
+    const btn = document.getElementById('saveFacts'); btn.disabled = !factsDirty();
+    document.getElementById('factsState').textContent = factsDirty() ? 'You have changes that aren\'t live yet.' : 'Everything here is live.';
+  };
+  app.querySelectorAll('[data-f]').forEach((el) => el.oninput = () => {
+    const [gi, fi, field] = el.dataset.f.split('.');
+    const f = d.groups[gi].facts[fi];
+    const v = field === 'value' ? el.value : el.value.trim();
+    if (field === 'sourceLabel' && !v) delete f.sourceLabel; else f[field] = v;
+    refresh();
+  });
+  app.querySelectorAll('[data-gtitle]').forEach((el) => el.oninput = () => { d.groups[el.dataset.gtitle].title = el.value.trim(); refresh(); });
+  app.querySelectorAll('[data-today]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.today); g.facts[fi].checked = today; renderFacts(); });
+  app.querySelectorAll('[data-up]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.up); [g.facts[fi - 1], g.facts[fi]] = [g.facts[fi], g.facts[fi - 1]]; renderFacts(); });
+  app.querySelectorAll('[data-down]').forEach((b) => b.onclick = () => { const [g, fi] = at(b.dataset.down); [g.facts[fi + 1], g.facts[fi]] = [g.facts[fi], g.facts[fi + 1]]; renderFacts(); });
+  app.querySelectorAll('[data-rm]').forEach((b) => b.onclick = () => {
+    const [g, fi] = at(b.dataset.rm);
+    if (g.facts.length === 1) { alert('Each group needs at least one fact.'); return; }
+    if (confirm(`Remove "${g.facts[fi].label}"? It comes off the page when you publish.`)) { g.facts.splice(fi, 1); renderFacts(); }
+  });
+  app.querySelectorAll('[data-add]').forEach((b) => b.onclick = () => {
+    const g = d.groups[b.dataset.add];
+    g.facts.push({ id: uniqueId('new-fact', allFactIds()), label: '', value: '', source: '/about/', checked: today });
+    renderFacts();
+  });
+  document.getElementById('allToday').onclick = () => {
+    if (!confirm('Mark every fact as checked today? Only do this once you\'ve read them all against their sources.')) return;
+    d.groups.forEach((g) => g.facts.forEach((f) => { f.checked = today; }));
+    renderFacts();
+  };
+  document.getElementById('saveFacts').onclick = saveFacts;
+}
+
+async function saveFacts() {
+  const d = facts.data;
+  for (const g of d.groups) for (const f of g.facts) {
+    const where = `${g.title || 'A group'}: ${f.label || 'a new fact'}`;
+    if (!f.label || !f.value.trim()) { state.notice = { kind: 'bad', text: `${where} needs a label and the detail.` }; renderFacts(); return; }
+    if (!/^\/\S*$/.test(f.source) && !/^https:\/\/[^\s/]+\.[^\s]+/.test(f.source)) { state.notice = { kind: 'bad', text: `${where}: the source must be a page on this site (starting /) or a full https:// address.` }; renderFacts(); return; }
+    if (!f.checked) { state.notice = { kind: 'bad', text: `${where}: add the date you checked it.` }; renderFacts(); return; }
+  }
+  // New facts get a stable id from their label, used as the anchor on the page
+  const taken = new Set(d.groups.flatMap((g) => g.facts.map((f) => f.id)).filter((id) => !id.startsWith('new-fact')));
+  d.groups.forEach((g) => g.facts.forEach((f) => { if (f.id.startsWith('new-fact')) { f.id = uniqueId(slugify(f.label), taken); taken.add(f.id); } }));
+  const btn = document.getElementById('saveFacts'); btn.disabled = true; btn.textContent = 'Publishing…';
+  const before = JSON.parse(facts.saved);
+  const labels = (data) => new Map(data.groups.flatMap((g) => g.facts.map((f) => [f.id, f.label])));
+  const was = labels(before), now = labels(d);
+  const added = [...now].filter(([id]) => !was.has(id)).map(([, l]) => l);
+  const removed = [...was].filter(([id]) => !now.has(id)).map(([, l]) => l);
+  const summary = [added.length && 'add ' + added.join(', '), removed.length && 'remove ' + removed.join(', ')].filter(Boolean).join('; ') || 'update the facts page';
+  try {
+    const res = await api('facts/save', { method: 'POST', body: { facts: d, sha: facts.sha, summary } });
+    facts.sha = res.sha; facts.data = res.facts; facts.saved = JSON.stringify(res.facts);
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: 'Published. The site rebuilds now; /facts/ updates in about two minutes.' };
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+  }
+  renderFacts();
+}
+
+window.addEventListener('beforeunload', (e) => { if (factsDirty()) { e.preventDefault(); e.returnValue = ''; } });
 
 // Start
 api('session').then(start).catch((e) => { if (e.message !== 'signed-out') showLogin(e.message); });

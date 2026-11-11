@@ -1,0 +1,22 @@
+{
+  "title": "In HarvardX and MITx courses, about half of paying learners finished, against 3 to 6% of all participants",
+  "subtitle": "Percentage of each group who completed (passed) a course, by academic year, across HarvardX and MITx MOOCs. The groups overlap: paying learners and those who said they intended to finish are also participants.",
+  "type": "groupedBar",
+  "unit": "% of group who completed",
+  "highlight": "Paid for a verified certificate",
+  "series": [
+    { "label": "2013–14", "values": { "All participants": 4.96, "Said they intended to finish": 11.51, "Paid for a verified certificate": 44.23 } },
+    { "label": "2014–15", "values": { "All participants": 5.91, "Said they intended to finish": 17.74, "Paid for a verified certificate": 50.17 } },
+    { "label": "2015–16", "values": { "All participants": 4.13, "Said they intended to finish": 16.44, "Paid for a verified certificate": 49.73 } },
+    { "label": "2016–17", "values": { "All participants": 3.98, "Said they intended to finish": 16.13, "Paid for a verified certificate": 56.43 } },
+    { "label": "2017–18", "values": { "All participants": 3.13, "Said they intended to finish": 15.42, "Paid for a verified certificate": 46.02 } }
+  ],
+  "yMax": 60,
+  "source": {
+    "authors": "Reich, J., & Ruipérez-Valiente, J. A.",
+    "year": 2019,
+    "doi": "10.1126/science.aav7958",
+    "url": "https://webs.um.es/jruiperez/papers/journals/2019_Science_MOOCPivot_postprint.pdf",
+    "figureOrTable": "Table S3 (aggregate data of Figure 3), Percentage completion column"
+  }
+}
