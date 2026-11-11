@@ -88,8 +88,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 35 | The Best Microlearning Apps, Judged on Learning | best microlearning apps | 880 · 26 | comparison | todo |
 | 36 | Self-Determination Theory: Motivating Learners in Online Courses | self determination theory (row keyword "motivation in online learning" is 10 · 5 US; kept as secondary with "self determination theory in education" 70 · 46; AU 4,400 · 25; checked 10 Nov 2026) | 18,100 · 23 | library | in PR (Thu 12 Nov 12:00) |
 | 37 | How Long Should a Course Video Be? | how long should a training video be (row keyword "how long should course videos be" had 0 US volume, SD 4; kept as secondary with "what is the recommended length for an instructional video segment" 20 · 39 and "what makes a good instructional video" 20 · 11; AU 10 · 5; checked 11 Nov 2026) | 10 · 5 | guide | in PR (Fri 13 Nov 00:00) |
-| 38 | Open Badges and Verifiable Credentials, Explained | open badges | check | trends | next |
-| 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect | check | library | todo |
+| 38 | Open Badges and Verifiable Credentials, Explained | open badges 3.0 (row keyword "open badges" is 210 · 62 US, too hard for now; kept as secondary with "verifiable credentials" 6,600 · 47; AU 10 · 20; checked 11 Nov 2026). Angle: the Learning Mobility Coalition, SchooLinks' Open Badges 3.0 and CLR 2.0 certification, and federal policy that doesn't yet name the standard | 50 · 28 | trends | in PR (Fri 13 Nov 12:00) |
+| 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect | check | library | next |
 | 40 | How to Pilot a Course Before Launch | how to test an online course | check | guide | todo |
 | 41 | What Is Scaffolding in Education? A Guide for Course Designers | what scaffolding in education | 5,400 · 7 | library | todo |
 | 42 | Instructional Design Jobs: Where the Work Is and What It Asks For | jobs instructional design | 14,800 · 21 | guide | todo |
