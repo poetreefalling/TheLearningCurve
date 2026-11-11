@@ -14,6 +14,9 @@
 // presses Merge, but only when its checks pass, GitHub says it merges cleanly, and it is still
 // the exact version he was shown.
 //
+// It also lets Jim edit the text files a change touches (Edit, then pick a file): saving commits to
+// that pull request's own branch, like the review desk does for articles, never to the live site.
+//
 // The ad manager (Ads tab) reads src/data/ads.json from the default branch and saves it, plus any
 // new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
 // The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
@@ -62,6 +65,14 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     if (route === 'save' && request.method === 'POST') return json(200, await save(gh, await request.json()));
     if (route === 'publish' && request.method === 'POST') return await publish(gh, await request.json());
     if (route === 'changes' && request.method === 'GET') return json(200, await listChanges(gh));
+    if (route === 'changes/files' && request.method === 'GET') {
+      return json(200, await changeFiles(gh, Number(new URL(request.url).searchParams.get('pr'))));
+    }
+    if (route === 'changes/file' && request.method === 'GET') {
+      const u = new URL(request.url);
+      return json(200, await readChangeFile(gh, Number(u.searchParams.get('pr')), u.searchParams.get('path') ?? ''));
+    }
+    if (route === 'changes/save' && request.method === 'POST') return json(200, await saveChangeFile(gh, await request.json()));
     if (route === 'changes/merge' && request.method === 'POST') return await mergeChange(gh, await request.json());
     if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
     if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
@@ -438,6 +449,81 @@ async function mergeChange(gh: GH, body: any) {
     body: JSON.stringify({ merge_method: 'merge', sha: pr.head.sha, commit_title: `${pr.title} (#${number})` }),
   });
   return json(200, { ok: true, message: `Merged #${number}. The live site rebuilds in about two minutes.` });
+}
+
+// ---------- editing a change's files ----------
+
+// Text files the editor can open; images and other binary files are left to GitHub
+const TEXT_FILE = /\.(md|mdx|json|astro|ts|tsx|js|mjs|cjs|css|html|txt|ya?ml|toml|svg|xml|csv)$/i;
+const MAX_TEXT = 400_000;
+
+async function openChangePr(gh: GH, number: number) {
+  if (!Number.isInteger(number) || number <= 0) throw new Problem(400, 'Unknown pull request.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'This change is no longer open (it may already be merged or closed). Reload the list.');
+  if (String(pr.head.ref).startsWith('article/')) throw new Problem(400, 'Articles are edited in the Articles tab.');
+  if (pr.head.repo?.full_name !== pr.base.repo?.full_name) throw new Problem(400, 'This change comes from another copy of the repository, so it can only be edited on GitHub.');
+  return pr;
+}
+
+async function changeFiles(gh: GH, number: number) {
+  const pr = await openChangePr(gh, number);
+  const files: any[] = await gh(`/pulls/${number}/files?per_page=100`);
+  return {
+    number,
+    title: pr.title,
+    branch: pr.head.ref,
+    files: files.map((f) => {
+      const path = String(f.filename);
+      const editable = f.status !== 'removed' && TEXT_FILE.test(path);
+      return {
+        path,
+        status: f.status as string,
+        additions: f.additions as number,
+        deletions: f.deletions as number,
+        editable,
+        why: editable ? '' : f.status === 'removed' ? 'Deleted in this change' : 'Not a text file',
+      };
+    }),
+  };
+}
+
+async function readChangeFile(gh: GH, number: number, path: string, pr?: any) {
+  pr ??= await openChangePr(gh, number);
+  if (!TEXT_FILE.test(path) || path.includes('..') || path.startsWith('/')) throw new Problem(400, 'That file can\'t be edited here.');
+  const files: any[] = await gh(`/pulls/${number}/files?per_page=100`);
+  if (!files.some((f) => f.filename === path && f.status !== 'removed')) throw new Problem(400, 'That file isn\'t part of this change.');
+  const file = await gh(`/contents/${path.split('/').map(encodeURIComponent).join('/')}?ref=${encodeURIComponent(pr.head.ref)}`);
+  if (typeof file.content !== 'string' || (!file.content && file.size > 0)) throw new Problem(400, 'That file is too large to edit here. Ask Claude, or edit it on GitHub.');
+  return { path, sha: file.sha as string, content: decode(file.content), headSha: pr.head.sha as string };
+}
+
+async function saveChangeFile(gh: GH, body: any) {
+  const pr = await openChangePr(gh, Number(body?.pr));
+  const path = String(body?.path ?? '');
+  let content = String(body?.content ?? '');
+  if (content.length > MAX_TEXT) throw new Problem(400, 'That file is too long to save here.');
+  if (/\.json$/i.test(path)) {
+    try { JSON.parse(content); } catch (e) {
+      throw new Problem(400, `That isn't valid JSON, so it would break the build: ${e instanceof Error ? e.message : e}. Check for a missing comma or quote.`);
+    }
+  }
+  const current = await readChangeFile(gh, pr.number, path, pr);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'This file changed since you opened it (perhaps Claude updated it). Reload to get the latest version, then make your change again.');
+  }
+  if (!content.endsWith('\n') && current.content.endsWith('\n')) content += '\n';
+  if (current.content === content) return { ok: true, unchanged: true, sha: current.sha };
+  const res = await gh(`/contents/${path.split('/').map(encodeURIComponent).join('/')}`, {
+    method: 'PUT',
+    body: JSON.stringify({
+      message: `Edit via changes desk: ${path}`,
+      content: encode(content),
+      sha: current.sha,
+      branch: pr.head.ref,
+    }),
+  });
+  return { ok: true, sha: res.content?.sha as string };
 }
 
 // ---------- ads ----------

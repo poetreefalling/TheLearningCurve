@@ -20,6 +20,14 @@ Every other open pull request: site features, docs, plans and settings (anything
 `article/` branch), oldest first. Each shows its site check, a link to the preview, the changed
 files and the description. **Merge** makes it live; the site rebuilds in about two minutes.
 
+**Edit** opens the change's files. Text files (wording in docs, data files such as
+`section-intros.json`, page templates) open in a plain editor; images and deleted files are listed
+but left to GitHub. **Save to this change** commits the file to that pull request's own branch
+("Edit via changes desk: …"), never to the live site, so the site check and preview run again
+before you merge. Data files (`.json`) are checked before saving, so a missing comma can't break
+the build. Like the article editor, it refuses to overwrite a file Claude changed after you opened
+it (reload and make the change again).
+
 Merge stays disabled until the site check passes, and the server refuses if GitHub reports a
 conflict, the PR is a draft, or it changed after you loaded the list (reload to see the latest).
 Articles never appear here: they're published from the Articles tab, which checks every flag first.

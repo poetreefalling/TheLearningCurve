@@ -452,6 +452,7 @@ function setTab(tab) {
   if (location.hash !== hash) history.replaceState(null, '', hash || location.pathname);
 }
 document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
+  if (!changeUnsavedOk()) return;
   if (b.dataset.tab === 'ads') { if (unsavedOk() && factsUnsavedOk()) { state.current = null; loadAds(); } }
   else if (b.dataset.tab === 'facts') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadFacts(); } }
   else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSubmissions(); } }
@@ -463,10 +464,13 @@ function start() { location.hash === '#ads' ? loadAds() : location.hash === '#fa
 // ---------- changes ----------
 // Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
 // live; the server refuses unless the site check passes and the PR merges cleanly.
-let changes = { items: [], open: {} };
+let changes = { items: [], open: {}, edit: null }; // edit: { pr, title, branch, files, file: { path, content, sha } | null }
+const changeDirty = () => { const e = changes.edit; if (!e || !e.file) return false; const t = document.getElementById('changeText'); return !!t && t.value !== e.file.content; };
+function changeUnsavedOk() { return !changeDirty() || confirm('You have edits to this file you haven\'t saved. Leave without saving?'); }
 
 async function loadChanges() {
   clearTimeout(state.pollTimer);
+  changes.edit = null;
   setTab('changes');
   app.innerHTML = '<p class="muted">Loading open changes…</p>';
   try {
@@ -495,6 +499,7 @@ function renderChanges() {
             <h3>${esc(c.title)}</h3>
             ${pill}
           </div>
+          <button type="button" data-edit="${i}">Edit</button>
           <button class="primary" data-merge="${i}" ${ready ? '' : 'disabled'}>Merge</button>
         </div>
         <p class="small"><a href="${esc(c.preview)}/" target="_blank" rel="noopener">Open the preview</a> · <a href="${esc(c.url)}/files" target="_blank" rel="noopener">See the changed files</a> · <button type="button" class="link" data-more="${i}">${changes.open[c.number] ? 'Hide' : 'Show'} the description</button></p>
@@ -503,6 +508,7 @@ function renderChanges() {
     }).join('')}
     <p class="small muted">Merge is only possible once the site check has passed. Anything you're unsure about, ask Claude first.</p>`;
   app.querySelectorAll('[data-more]').forEach((b) => b.onclick = () => { const n = changes.items[b.dataset.more].number; changes.open[n] = !changes.open[n]; renderChanges(); });
+  app.querySelectorAll('[data-edit]').forEach((b) => b.onclick = () => openChange(changes.items[b.dataset.edit]));
   app.querySelectorAll('[data-merge]').forEach((b) => b.onclick = async () => {
     const c = changes.items[b.dataset.merge];
     if (!confirm(`Merge #${c.number}, "${c.title}"? It goes live on the site in about two minutes.`)) return;
@@ -518,6 +524,91 @@ function renderChanges() {
     }
   });
 }
+
+// Editing a change: list the files it touches, open a text file, save it back to the change's own
+// branch (never the live site). The change then needs its site check to pass again before Merge.
+const STATUS_LABEL = { added: 'New', modified: 'Changed', renamed: 'Renamed', removed: 'Deleted', copied: 'Copied', changed: 'Changed' };
+async function openChange(c) {
+  setTab('changes');
+  app.innerHTML = `<p class="muted">Loading the files in #${esc(c.number)}…</p>`;
+  try {
+    const data = await api('changes/files?pr=' + c.number);
+    changes.edit = { pr: c.number, title: data.title, branch: data.branch, preview: c.preview, files: data.files, file: null };
+    const editable = data.files.filter((f) => f.editable);
+    if (editable.length === 1) return openChangeFile(editable[0].path);
+    renderChangeEdit();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: e.message };
+    renderChanges();
+  }
+}
+
+async function openChangeFile(path) {
+  const e = changes.edit;
+  try {
+    const data = await api(`changes/file?pr=${e.pr}&path=${encodeURIComponent(path)}`);
+    e.file = { path: data.path, content: data.content, sha: data.sha };
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    e.file = null;
+  }
+  renderChangeEdit();
+}
+
+function renderChangeEdit() {
+  const e = changes.edit, f = e.file;
+  const isJson = f && /\.json$/i.test(f.path);
+  const isMdx = f && /\.mdx?$/i.test(f.path);
+  app.innerHTML = `${notice()}
+    <p><button class="link" id="chBack">← All changes</button></p>
+    <div class="slot">#${esc(e.pr)} · ${esc(e.branch)}</div>
+    <h1 style="margin-top:4px">${esc(e.title)}</h1>
+    <p class="small muted">Edits save to this change only, not the live site. After you save, the site check runs again (a minute or two) and the preview updates; merge from the Changes list when you're happy.
+      <a href="${esc(e.preview)}/" target="_blank" rel="noopener">Open the preview</a></p>
+    <div class="card scroll"><table class="list">
+      <thead><tr><th>File in this change</th><th></th><th></th></tr></thead>
+      <tbody>${e.files.map((x) => `<tr>
+        <td><code style="font-size:13px;overflow-wrap:anywhere">${esc(x.path)}</code>${f && f.path === x.path ? ' <span class="pill ok">Open</span>' : ''}</td>
+        <td class="small muted" style="white-space:nowrap">${esc(STATUS_LABEL[x.status] || x.status)} · +${esc(x.additions)} −${esc(x.deletions)}</td>
+        <td class="acts">${x.editable ? `<button type="button" data-file="${esc(x.path)}" ${f && f.path === x.path ? 'disabled' : ''}>Edit</button>` : `<span class="small muted">${esc(x.why)}</span>`}</td>
+      </tr>`).join('')}</tbody></table></div>
+    ${f ? `
+      <h2>${esc(f.path)}</h2>
+      <p class="small muted">${isJson ? 'This is a data file: keep the quotes, commas and brackets exactly as they are and change only the text inside quotes. It is checked before saving.'
+        : isMdx ? 'In article text, avoid the characters { } and &lt;, which the site treats as code. Keep any settings block between --- lines as it is, apart from wording inside quotes.'
+        : 'This file is part of how the site works. Change wording you can see, and leave anything that looks like code alone; ask Claude if you\'re unsure.'}</p>
+      <textarea class="full" id="changeText" spellcheck="${isJson ? 'false' : 'true'}">${esc(f.content)}</textarea>
+      <div class="actions">
+        <button class="primary" id="chSave">Save to this change</button>
+        <span class="small muted" id="chState">Saving commits to ${esc(e.branch)}.</span>
+      </div>` : `<p class="muted">Choose a file to edit.</p>`}`;
+  document.getElementById('chBack').onclick = () => { if (changeUnsavedOk()) loadChanges(); };
+  app.querySelectorAll('[data-file]').forEach((b) => b.onclick = () => { if (changeUnsavedOk()) openChangeFile(b.dataset.file); });
+  if (f) document.getElementById('chSave').onclick = saveChangeFile;
+}
+
+async function saveChangeFile() {
+  const e = changes.edit, f = e.file;
+  const text = document.getElementById('changeText').value;
+  if (/\.json$/i.test(f.path)) {
+    try { JSON.parse(text); } catch (err) { state.notice = { kind: 'bad', text: `That isn't valid JSON yet, so it wasn't saved: ${err.message}. Check for a missing comma or quote.` }; const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep; return; }
+  }
+  const btn = document.getElementById('chSave'); btn.disabled = true; btn.textContent = 'Saving…';
+  try {
+    const res = await api('changes/save', { method: 'POST', body: { pr: e.pr, path: f.path, sha: f.sha, content: text } });
+    f.sha = res.sha; f.content = text;
+    state.notice = res.unchanged ? { kind: 'warn', text: 'Nothing had changed.' } : { kind: 'ok', text: `Saved ${f.path} to #${e.pr}. The site check and preview update in a minute or two.` };
+    renderChangeEdit();
+  } catch (err) {
+    if (err.message === 'signed-out') return;
+    state.notice = { kind: 'bad', text: err.message };
+    const keep = text; renderChangeEdit(); document.getElementById('changeText').value = keep;
+  }
+}
+
+window.addEventListener('beforeunload', (ev) => { if (changeDirty()) { ev.preventDefault(); ev.returnValue = ''; } });
 
 // ---------- submissions ----------
 // Platform submissions from /submit, stored in D1 by functions/api/submit.ts (docs/submissions.md).
