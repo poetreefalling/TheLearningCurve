@@ -87,8 +87,8 @@ approve the template file; the draft leaves a `[JIM: grid template]` slot.
 | 34 | Backward Design in Instructional Design: Start With the Assessment | backwards design instructional design (row keyword "backward design" is 2,400 · 55 US, 210 · 44 AU, too hard for now; kept as secondary with "backwards design" 2,400 · 49; checked 9 Nov 2026) | 50 · 18 | guide | in PR (Thu 12 Nov 00:00) |
 | 35 | The Best Microlearning Apps, Judged on Learning | best microlearning apps | 880 · 26 | comparison | todo |
 | 36 | Self-Determination Theory: Motivating Learners in Online Courses | self determination theory (row keyword "motivation in online learning" is 10 · 5 US; kept as secondary with "self determination theory in education" 70 · 46; AU 4,400 · 25; checked 10 Nov 2026) | 18,100 · 23 | library | in PR (Thu 12 Nov 12:00) |
-| 37 | How Long Should a Course Video Be? | how long should course videos be | check | guide | next |
-| 38 | Open Badges and Verifiable Credentials, Explained | open badges | check | trends | todo |
+| 37 | How Long Should a Course Video Be? | how long should a training video be (row keyword "how long should course videos be" had 0 US volume, SD 4; kept as secondary with "what is the recommended length for an instructional video segment" 20 · 39 and "what makes a good instructional video" 20 · 11; AU 10 · 5; checked 11 Nov 2026) | 10 · 5 | guide | in PR (Fri 13 Nov 00:00) |
+| 38 | Open Badges and Verifiable Credentials, Explained | open badges | check | trends | next |
 | 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect | check | library | todo |
 | 40 | How to Pilot a Course Before Launch | how to test an online course | check | guide | todo |
 | 41 | What Is Scaffolding in Education? A Guide for Course Designers | what scaffolding in education | 5,400 · 7 | library | todo |
