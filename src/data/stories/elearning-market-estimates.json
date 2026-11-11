@@ -1,0 +1,62 @@
+{
+  "title": "Four research firms put the 2025 eLearning market anywhere from US$111B to US$370B",
+  "subtitle": "Headline estimates of the global eLearning market for 2025, by firm, US$ billions",
+  "type": "bar",
+  "format": "usd-billions",
+  "categories": [
+    "Market Research Future",
+    "Grand View Research*",
+    "Fortune Business Insights*",
+    "IMARC Group"
+  ],
+  "series": [
+    {
+      "id": "est",
+      "label": "2025 estimate",
+      "values": [
+        111.01,
+        353.0,
+        356.66,
+        369.7
+      ]
+    }
+  ],
+  "views": {
+    "low": {
+      "focus": [
+        0
+      ]
+    },
+    "high": {
+      "focus": [
+        3
+      ]
+    }
+  },
+  "notes": [
+    "* Grand View Research and Fortune Business Insights size the e-learning services market; definitions differ between firms, which is a large part of the gap.",
+    "These are paid reports; we could read only the headline figures on each firm's own page, not the methods behind them."
+  ],
+  "sources": [
+    {
+      "label": "Market Research Future, E-Learning Market",
+      "url": "https://www.marketresearchfuture.com/reports/e-learning-market",
+      "figureOrTable": "Headline market size, 2025"
+    },
+    {
+      "label": "Grand View Research, E-Learning Services Market",
+      "url": "https://www.grandviewresearch.com/industry-analysis/e-learning-services-market",
+      "figureOrTable": "Headline market size, 2025"
+    },
+    {
+      "label": "Fortune Business Insights, E-Learning Market",
+      "url": "https://fortunebusinessinsights.com/industry-reports/e-100757",
+      "figureOrTable": "Headline market size, 2025"
+    },
+    {
+      "label": "IMARC Group, E-Learning Market",
+      "url": "https://imarcgroup.com/e-learning-market",
+      "figureOrTable": "Headline market size, 2025"
+    }
+  ]
+}

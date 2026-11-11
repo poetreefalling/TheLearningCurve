@@ -1,0 +1,86 @@
+{
+  "title": "Docebo's revenue grew almost sixfold, but growth fell from 66% to 12% a year",
+  "subtitle": "Docebo total revenue by financial year, US$ millions",
+  "type": "column",
+  "format": "millions",
+  "categories": [
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "rev",
+      "label": "Revenue",
+      "values": [
+        41.443,
+        62.917,
+        104.242,
+        142.912,
+        180.839,
+        216.931,
+        242.687
+      ]
+    }
+  ],
+  "views": {
+    "boom": {
+      "upTo": 2,
+      "focus": [
+        2
+      ],
+      "annotations": [
+        {
+          "at": 2,
+          "text": "+66% in 2021"
+        }
+      ]
+    },
+    "slow": {
+      "focus": [
+        6
+      ],
+      "annotations": [
+        {
+          "at": 6,
+          "text": "+12% in 2025"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Docebo bought forMetris in October 2020; its contribution isn't reported separately.",
+    "The 2021 growth rate is calculated from the revenue figures shown; Docebo's own release states the 2025 rate (11.9%)."
+  ],
+  "sources": [
+    {
+      "label": "Docebo Q4 2020 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829959/000182995921000011/doceboq42020pr.htm",
+      "figureOrTable": "2019 and 2020 revenue"
+    },
+    {
+      "label": "Docebo 2021 MD&A",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828022005638/docebo2021q4mda.htm",
+      "figureOrTable": "Selected Annual Information"
+    },
+    {
+      "label": "Docebo Q4 2022 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828023007133/docebo2022q4pr.htm",
+      "figureOrTable": "2022 revenue"
+    },
+    {
+      "label": "Docebo Q4 2023 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828024006514/docebo2023q4pr.htm",
+      "figureOrTable": "Selected Financial Measures"
+    },
+    {
+      "label": "Docebo Q4 2025 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1829959/000162828026012570/docebo2025q4pr.htm",
+      "figureOrTable": "2024 and 2025 revenue"
+    }
+  ]
+}

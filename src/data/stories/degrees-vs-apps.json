@@ -1,0 +1,155 @@
+{
+  "title": "Duolingo now earns more than Coursera, and more than 2U did at its peak",
+  "subtitle": "Annual revenue, US$ millions: Duolingo, Coursera and 2U",
+  "type": "line",
+  "format": "millions",
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "twou",
+      "label": "2U (online degrees)",
+      "values": [
+        774.5,
+        945.7,
+        963.1,
+        946.0,
+        null,
+        null
+      ]
+    },
+    {
+      "id": "coursera",
+      "label": "Coursera",
+      "values": [
+        293.5,
+        415.3,
+        523.8,
+        635.8,
+        694.7,
+        757.5
+      ]
+    },
+    {
+      "id": "duolingo",
+      "label": "Duolingo",
+      "values": [
+        161.7,
+        250.8,
+        369.5,
+        531.1,
+        748.0,
+        1037.6
+      ]
+    }
+  ],
+  "views": {
+    "degrees": {
+      "highlight": [
+        "twou"
+      ],
+      "upTo": 3,
+      "annotations": [
+        {
+          "at": 2,
+          "series": "twou",
+          "text": "Peak, 2022"
+        }
+      ]
+    },
+    "mooc": {
+      "highlight": [
+        "coursera"
+      ]
+    },
+    "app": {
+      "highlight": [
+        "duolingo"
+      ],
+      "annotations": [
+        {
+          "at": 5,
+          "series": "duolingo",
+          "text": "Passed US$1B"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "2U's 2023 revenue includes US$88.0 million of one-off payments for exiting degree programmes. 2U filed for Chapter 11 in July 2024 and has been private since September 2024, so it publishes no later figures.",
+    "Coursera figures are before its May 2026 merger with Udemy."
+  ],
+  "sources": [
+    {
+      "label": "2U Q4 and full-year 2020 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1459417/000110465921020662/tm216246d1_ex99-1.htm",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "2U Q4 and full-year 2021 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1459417/000119312522032646/d259606dex991.htm",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "2U Q4 and full-year 2023 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1459417/000145941724000006/a2uq42023earningsreleaseex.htm",
+      "figureOrTable": "Revenue, 2022 and 2023"
+    },
+    {
+      "label": "Coursera full-year 2021 results",
+      "url": "https://www.businesswire.com/news/home/20220210005825/en/Coursera-Reports-Fourth-Quarter-and-Full-Year-2021-Financial-Results",
+      "figureOrTable": "Revenue, 2020 and 2021"
+    },
+    {
+      "label": "Coursera full-year 2022 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1651562/000095017023002350/cour-ex99_1.htm",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Coursera full-year 2023 results",
+      "url": "https://www.businesswire.com/news/home/20240201986101/en/Coursera-Reports-Fourth-Quarter-and-Full-Year-2023-Financial-Results/",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Coursera full-year 2024 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1651562/000165156225000004/cour-20241231xexx991.htm",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Coursera full-year 2025 results",
+      "url": "https://s27.q4cdn.com/928340662/files/doc_financials/2025/q4/COUR_Earnings-Release_Q4-2025.pdf",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Duolingo Q4 and full-year 2021 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1562088/000156208822000033/q4fy21pressrelease.htm",
+      "figureOrTable": "Revenue, 2020 and 2021"
+    },
+    {
+      "label": "Duolingo Q4 and full-year 2022 results",
+      "url": "https://investors.duolingo.com/news-releases/news-release-details/duolingo-reports-62-dau-growth-record-bookings-and-revenue",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Duolingo Q4 and full-year 2023 results",
+      "url": "https://investors.duolingo.com/news-releases/news-release-details/duolingo-reports-65-dau-growth-45-revenue-growth-and-record",
+      "figureOrTable": "Revenue"
+    },
+    {
+      "label": "Duolingo Q4 2024 shareholder letter",
+      "url": "https://investors.duolingo.com/static-files/d0adccff-bfe0-4d10-a5bc-f116d746afd2",
+      "figureOrTable": "Summary table"
+    },
+    {
+      "label": "Duolingo Q4 2025 shareholder letter",
+      "url": "https://www.sec.gov/Archives/edgar/data/1562088/000162828026012246/q4fy25duolingo12-31x25shar.htm",
+      "figureOrTable": "Summary table"
+    }
+  ]
+}
