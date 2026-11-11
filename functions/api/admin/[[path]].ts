@@ -21,6 +21,9 @@
 // new ad images in public/ads/, as one commit there. Cloudflare then rebuilds the live site.
 // The file's rules are in src/lib/ads.ts and docs/ads.md; they are checked here too, so a save
 // can't break the build.
+//
+// The facts editor (Facts tab) does the same for src/data/facts.json, the data behind /facts/ and
+// /facts.json: it reads the file from the default branch and saves it as one commit there.
 
 interface SubDb {
   prepare(sql: string): { bind(...v: unknown[]): any; all<T>(): Promise<{ results: T[] }>; run(): Promise<unknown> };
@@ -73,6 +76,8 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     if (route === 'changes/merge' && request.method === 'POST') return await mergeChange(gh, await request.json());
     if (route === 'ads' && request.method === 'GET') return json(200, await readAds(gh));
     if (route === 'ads/save' && request.method === 'POST') return json(200, await saveAds(gh, await request.json()));
+    if (route === 'facts' && request.method === 'GET') return json(200, await readFacts(gh));
+    if (route === 'facts/save' && request.method === 'POST') return json(200, await saveFacts(gh, await request.json()));
     if (route === 'submissions' && request.method === 'GET') return json(200, await listSubmissions(env));
     if (route === 'submissions/status' && request.method === 'POST') return json(200, await setSubmission(env, await request.json()));
     return json(404, { error: 'Not found.' });
@@ -609,6 +614,80 @@ async function saveAds(gh: GH, body: any) {
   const summary = String(body?.summary ?? '').slice(0, 120) || 'update ad settings';
   await commitFiles(gh, current.branch, files, `Ads: ${summary} (via the ad manager)`);
   return { ok: true, sha: await blobSha(text) };
+}
+
+// ---------- facts (/facts/) ----------
+
+const FACTS_PATH = 'src/data/facts.json';
+const SLUG = /^[a-z0-9][a-z0-9-]{0,59}$/;
+
+async function readFacts(gh: GH) {
+  const branch = await defaultBranch(gh);
+  let file: any;
+  try {
+    file = await gh(`/contents/${FACTS_PATH}?ref=${encodeURIComponent(branch)}`);
+  } catch (e) {
+    if (e instanceof Problem && e.status === 404) throw new Problem(404, 'The facts page isn\'t live yet: merge the "Facts page" change in the Changes tab first.');
+    throw e;
+  }
+  return { facts: JSON.parse(decode(file.content)), sha: file.sha as string, branch };
+}
+
+function checkFacts(d: any) {
+  const bad = (m: string) => { throw new Problem(400, m); };
+  if (!d || !Array.isArray(d.groups) || !d.groups.length) bad('The facts are missing.');
+  if (d.groups.length > 12) bad('Keep it to 12 groups or fewer.');
+  const ids = new Set<string>();
+  const groupIds = new Set<string>();
+  d.groups.forEach((g: any, gi: number) => {
+    const gw = `Group ${gi + 1}${g?.title ? ` (${g.title})` : ''}`;
+    if (!SLUG.test(String(g?.id ?? '')) || groupIds.has(g.id)) bad(`${gw}: missing or repeated id.`);
+    groupIds.add(g.id);
+    if (!g.title || String(g.title).length > 60) bad(`${gw}: give it a heading (up to 60 characters).`);
+    if (!Array.isArray(g.facts) || !g.facts.length) bad(`${gw}: add at least one fact, or remove the group.`);
+    if (g.facts.length > 40) bad(`${gw}: keep it to 40 facts or fewer.`);
+    g.facts.forEach((f: any, fi: number) => {
+      const fw = `${g.title}, fact ${fi + 1}${f?.label ? ` (${f.label})` : ''}`;
+      if (!SLUG.test(String(f?.id ?? '')) || ids.has(f.id)) bad(`${fw}: missing or repeated id.`);
+      ids.add(f.id);
+      if (!f.label || String(f.label).length > 60) bad(`${fw}: add a label (up to 60 characters).`);
+      if (!f.value || String(f.value).length > 600) bad(`${fw}: add the detail (up to 600 characters).`);
+      const src = String(f.source ?? '');
+      const okSrc = /^\/[^\s]*$/.test(src) || (() => { try { return new URL(src).protocol === 'https:'; } catch { return false; } })();
+      if (!okSrc) bad(`${fw}: the source must be a page on this site (starting /) or a full https:// address.`);
+      if (f.sourceLabel != null && (typeof f.sourceLabel !== 'string' || f.sourceLabel.length > 50)) bad(`${fw}: keep the source name to 50 characters.`);
+      if (!DAY.test(String(f.checked ?? ''))) bad(`${fw}: add the date you checked it.`);
+    });
+  });
+}
+
+async function saveFacts(gh: GH, body: any) {
+  const facts = body?.facts;
+  checkFacts(facts);
+  const current = await readFacts(gh);
+  if (body?.sha && body.sha !== current.sha) {
+    throw new Problem(409, 'The facts changed since you opened them (perhaps in another tab, or Claude edited them). Reload, then make your change again.');
+  }
+  // The page's "Last checked" date is the newest date on any fact
+  const dates = facts.groups.flatMap((g: any) => g.facts.map((f: any) => f.checked)).sort();
+  const clean = {
+    checked: dates[dates.length - 1],
+    groups: facts.groups.map((g: any) => ({
+      id: g.id,
+      title: String(g.title).trim(),
+      facts: g.facts.map((f: any) => {
+        const o: any = { id: f.id, label: String(f.label).trim(), value: String(f.value).trim(), source: String(f.source).trim() };
+        if (f.sourceLabel && String(f.sourceLabel).trim()) o.sourceLabel = String(f.sourceLabel).trim();
+        o.checked = f.checked;
+        return o;
+      }),
+    })),
+  };
+  const text = JSON.stringify(clean, null, 2) + '\n';
+  if (text === JSON.stringify(current.facts, null, 2) + '\n') return { ok: true, unchanged: true, sha: current.sha, facts: clean };
+  const summary = String(body?.summary ?? '').slice(0, 120) || 'update the facts page';
+  await commitFiles(gh, current.branch, [{ path: FACTS_PATH, base64: encode(text) }], `Facts: ${summary} (via the facts editor)`);
+  return { ok: true, sha: await blobSha(text), facts: clean };
 }
 
 // The SHA GitHub gives a file's contents, so the next save can check nothing changed in between
