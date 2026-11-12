@@ -81,19 +81,22 @@ async function checkHeroes(all: Article[]) {
   heroesChecked = true;
   const { default: sharp } = await import('sharp');
   const { existsSync } = await import('node:fs');
-  const hashes: { slug: string; bits: boolean[] }[] = [];
-  for (const a of all.filter((x) => !x.data.draft)) {
+  // Published articles are compared with each other and with drafts (including the samples),
+  // so a sample's placeholder can't be reused. Drafts aren't compared with each other.
+  const hashes: { slug: string; draft: boolean; bits: boolean[] }[] = [];
+  for (const a of all) {
     const src = a.data.hero.src ?? `/images/articles/${slugOf(a)}-card.webp`;
     const file = `public${src}`;
     if (!existsSync(file)) continue;
     const px = await sharp(file).greyscale().resize(17, 16, { fit: 'fill' }).raw().toBuffer();
     const bits: boolean[] = [];
     for (let r = 0; r < 16; r++) for (let c = 0; c < 16; c++) bits.push(px[r * 17 + c] > px[r * 17 + c + 1]);
-    hashes.push({ slug: slugOf(a), bits });
+    hashes.push({ slug: slugOf(a), draft: !!a.data.draft, bits });
   }
   const problems: string[] = [];
   for (let i = 0; i < hashes.length; i++)
     for (let j = i + 1; j < hashes.length; j++) {
+      if (hashes[i].draft && hashes[j].draft) continue;
       const d = hashes[i].bits.reduce((n, b, k) => n + (b !== hashes[j].bits[k] ? 1 : 0), 0);
       if (d <= 24) problems.push(`"${hashes[i].slug}" and "${hashes[j].slug}" use the same hero image (difference ${d}/256). Give one a new image.`);
     }
