@@ -104,7 +104,8 @@
   .fact-row { border-top: 1px solid var(--rule); padding: 14px 0; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 10px 16px; }
   .fact-row:first-of-type { border-top: 0; padding-top: 4px; }
   .fact-row textarea { min-height: 64px; font-size: 15px; }
-  .fact-row .src { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 160px; gap: 8px; }
+  .fact-row .src { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(220px, auto); gap: 8px; }
+  .fact-row .src .day input { flex: 1; min-width: 0; }
   .fact-row .src .day { display: flex; gap: 6px; }
   .fact-row .tools { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
   .fact-row .tools button, .fact-row .src button { padding: 6px 9px; font-size: 13px; font-weight: 500; }
