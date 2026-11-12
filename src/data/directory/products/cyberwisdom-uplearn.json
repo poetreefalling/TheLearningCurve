@@ -1,0 +1,126 @@
+{
+  "name": "Cyberwisdom UpLearn",
+  "vendor": "cyberwisdom",
+  "category": "lms-platforms",
+  "secondaryCategories": [],
+  "website": "https://www.cyberwisdom.com.hk/uplearn/",
+  "summary": "An enterprise LMS from Hong Kong for company training: online courses, classroom sessions and CPD compliance in one system, with question-pool exams and an audit trail, offered as shared SaaS, private cloud or on-premise.",
+  "primaryMarket": {
+    "value": ["corporate"],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "compliance and CPD training",
+      "blended classroom and online courses",
+      "staff onboarding",
+      "multi-entity training with separate areas per business unit"
+    ],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Course builder mixing SCORM packages, video, assessments and assignments",
+      "Enrolment by role, department or rule, with approval workflows",
+      "Classroom sessions with facility booking, attendance and reminders",
+      "Exam engine with question pools, random or fixed papers, time and attempt limits, and an audit record of each attempt",
+      "CPD tracking and compliance reports",
+      "Dashboards and downloadable reports for managers and auditors",
+      "Surveys, knowledge centre and gamification",
+      "Training Centers that keep each business unit's courses and records separate"
+    ],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": ["HR systems (user and organisation sync)", "ERP systems", "single sign-on with existing identity systems", "APIs for training records"],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": ["aicc"],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": ["cloud", "self-hosted"],
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified",
+    "note": "Bebox Corp (shared SaaS), Bebox Enterprise (private cloud on AWS, Microsoft Azure or Alibaba Cloud, or the customer's data centre) and on-premise."
+  },
+  "pricing": {
+    "value": { "public": false, "notes": "No prices published. Annual subscription and project scope by quotation." },
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": { "basis": "quote" },
+    "source": "https://www.cyberwisdom.com.hk/uplearn/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "alternatives": ["cornerstone-learning", "docebo", "absorb-lms", "litmos"],
+  "evidence": [],
+  "commercialRelationship": { "kind": "none" },
+  "assurance": {
+    "accessibility": {
+      "level": "research-ongoing",
+      "finding": "No accessibility standard or conformance report is named on the UpLearn or About pages.",
+      "sources": [{ "title": "Cyberwisdom UpLearn", "url": "https://www.cyberwisdom.com.hk/uplearn/" }],
+      "checked": "2026-11-12"
+    },
+    "security": {
+      "level": "research-ongoing",
+      "finding": "No security certifications are named on the UpLearn or About pages.",
+      "sources": [
+        { "title": "Cyberwisdom UpLearn", "url": "https://www.cyberwisdom.com.hk/uplearn/" },
+        { "title": "About Cyberwisdom", "url": "https://www.cyberwisdom.com.hk/about/" }
+      ],
+      "checked": "2026-11-12"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "On-premise keeps data inside the customer's own infrastructure, and private cloud runs on AWS, Microsoft Azure or Alibaba Cloud, or in the customer's data centre. Where the shared SaaS edition is hosted is not stated, and no privacy policy is linked from the pages we opened.",
+      "sources": [{ "title": "Cyberwisdom UpLearn", "url": "https://www.cyberwisdom.com.hk/uplearn/" }],
+      "checked": "2026-11-12"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "No AI features are described on the UpLearn page.",
+      "sources": [{ "title": "Cyberwisdom UpLearn", "url": "https://www.cyberwisdom.com.hk/uplearn/" }],
+      "checked": "2026-11-12"
+    },
+    "procurementChecks": [
+      "Confirm the contracting company and its registration.",
+      "Ask where the shared SaaS edition is hosted, and for the privacy policy and data processing terms.",
+      "Request any security certifications or penetration-test summary, and an accessibility conformance report."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "lastVerified": "2026-11-12",
+  "researchTasks": [
+    "Submitted at /submit on 11 Nov 2026 by Karilyn Cheung, Marketing Director (accepted). Questions sent: legal entity, pricing basis, SaaS hosting and privacy policy, xAPI/cmi5/LTI, certificates, certifications and accessibility, AI.",
+    "Hands-on review depends on a test site; a vendor-led demo doesn't count as an evaluation.",
+    "Vendor asks that UpLearn keep its \"LMS / Enterprise LMS\" positioning.",
+    "Add logo and screenshots (from the vendor, credited, or Jim's own)."
+  ],
+  "dataGaps": [
+    { "field": "standards", "note": "Product page says \"UpLearn conforms to both\" SCORM and AICC without a SCORM version, so SCORM is left out until they confirm 1.2 or 2004. xAPI, cmi5 and LTI not mentioned." },
+    { "field": "certificates", "note": "Certificates aren't mentioned on the product page; asked." },
+    { "field": "dataPrivacy", "note": "No privacy policy linked; SaaS hosting location not stated." },
+    { "field": "security", "note": "No certifications named." },
+    { "field": "accessibility", "note": "No standard or conformance report named." },
+    { "field": "aiDisclosure", "note": "No AI features described; asked whether any are used." },
+    { "field": "geographicAvailability", "note": "Offices across Hong Kong, mainland China, Southeast Asia, Australia and the UK, but markets served not stated for UpLearn." }
+  ]
+}

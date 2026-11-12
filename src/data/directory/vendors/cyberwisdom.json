@@ -1,0 +1,30 @@
+{
+  "name": "Cyberwisdom Group",
+  "website": "https://www.cyberwisdom.com.hk/",
+  "status": "active",
+  "draft": false,
+  "headquarters": {
+    "value": "Kowloon, Hong Kong",
+    "source": "https://www.cyberwisdom.com.hk/about/",
+    "checked": "2026-11-12",
+    "origin": "verified",
+    "note": "Regional headquarters in Singapore and Guangzhou; other offices listed include Kuala Lumpur, Manila, Melbourne, Shanghai, Beijing and London."
+  },
+  "founded": {
+    "value": 1999,
+    "source": "https://www.cyberwisdom.com.hk/about/",
+    "checked": "2026-11-12",
+    "origin": "verified"
+  },
+  "lastVerified": "2026-11-12",
+  "researchTasks": [
+    "Asked Karilyn Cheung (Marketing Director) which company signs customer contracts; the site footer reads \"Cyberwisdom Asia Ltd.\" but the submission says no legal entity is asserted.",
+    "Size, funding and ownership not published; ask."
+  ],
+  "dataGaps": [
+    { "field": "legalEntity", "note": "Footer of cyberwisdom.com.hk reads \"© 1999–2026 Cyberwisdom Asia Ltd.\"; the 11 Nov 2026 submission says \"Cyberwisdom Group is the brand/group name; no legal registration entity is asserted.\" Left out until they confirm." },
+    { "field": "size", "note": "Not published. The UpLearn page claims 800+ enterprise clients, which isn't staff size." },
+    { "field": "ownership", "note": "Not published." },
+    { "field": "funding", "note": "Not published." }
+  ]
+}
