@@ -1,0 +1,5 @@
+# Cloudflare Pages response headers (https://developers.cloudflare.com/pages/configuration/headers/)
+
+# Report PDFs are lead magnets: readers get them after signing up, so keep them out of search results.
+/reports/*
+  X-Robots-Tag: noindex
