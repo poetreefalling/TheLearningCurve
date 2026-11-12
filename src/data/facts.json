@@ -15,7 +15,7 @@
         {
           "id": "what",
           "label": "What it is",
-          "value": "An independent publication on how to design online courses that work.",
+          "value": "An independent media and intelligence platform exploring the technologies, ideas, research and innovations transforming how the world learns. We connect the people shaping learning with the insights, evidence and tools to make better decisions.",
           "source": "/about/",
           "checked": "2026-11-11"
         },
@@ -43,7 +43,7 @@
         {
           "id": "audience",
           "label": "Who it's for",
-          "value": "People who build online courses.",
+          "value": "Course creators, instructional designers, L&D teams, educators and the people who choose learning technology for their organisations.",
           "source": "/",
           "checked": "2026-11-11"
         },
