@@ -138,10 +138,10 @@
         },
         {
           "id": "credentialcraft-rule",
-          "label": "The founder's business",
-          "value": "CredentialCraft is named as the founder's business at first mention and is never ranked or scored against the platforms reviewed.",
+          "label": "Our co-founder's business",
+          "value": "CredentialCraft is mentioned only where it genuinely helps the reader, and is never ranked or scored against the platforms reviewed.",
           "source": "/disclosure/",
-          "checked": "2026-11-11"
+          "checked": "2026-11-12"
         }
       ]
     },
