@@ -29,7 +29,7 @@ const row2 = others.slice(row1.length, row1.length + 3 - Number(hasCard));
 const shown = new Set([lead, ...row1, ...row2].filter(Boolean));
 const jsonLd = [
   { '@context': 'https://schema.org', '@type': 'WebSite', name: SITE.name, url: SITE.url, potentialAction: { '@type': 'SearchAction', target: `${SITE.url}/search/?q={query}`, 'query-input': 'required name=query' } },
-  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon-512.png`, founder: { '@type': 'Person', name: SITE.author.name } },
+  { '@context': 'https://schema.org', '@type': 'Organization', name: SITE.name, url: SITE.url, logo: `${SITE.url}/icon-512.png`, founder: [{ '@type': 'Person', name: SITE.author.name }, { '@type': 'Person', name: 'Lynnette Lounsbury', honorificPrefix: 'Dr' }] },
 ];
 ---
 
