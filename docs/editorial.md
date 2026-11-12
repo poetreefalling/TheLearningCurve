@@ -68,6 +68,23 @@ The four-part shape every library entry follows, so the collection reads as a re
    verification rule.
 4. **Further reading.** Three to six sources worth reading in full, with one line on why.
 
+Every library entry also fills two fields for the [evidence map](/library/evidence-map/), the
+page that lists every principle with its rating:
+
+- `library.verdict`: one sentence, at most 200 characters (aim for 160), saying what to do in a course. It
+  reads after "In practice:", so start with a verb. Good: "Explain a meaningful picture with
+  narration at the same moment; keep on-screen text to key terms." Not a summary of the research.
+- `library.category`: one of `Memory and practice`, `Presenting information`, `Feedback and
+  assessment`, `Course structure`, `Motivation and engagement`, or `Myths and
+  misconceptions` for an entry about a claim the evidence doesn't support.
+- Use the rating definitions shown on the map: **strong** (consistent across many studies and
+  reviews, including real courses), **moderate** (consistent experiments, but mostly lab, one
+  programme or one kind of learner), **emerging** (early, small or mixed).
+
+The map's "Popular but unsupported" section comes from `src/data/myths.json`. When an entry
+debunks a popular claim (learning styles, the learning pyramid), set that myth's `article` to the
+entry's slug so the map links to it. Add a new myth only with a primary source you've opened.
+
 ### Guide (`kind: guide`), 1,500–2,500 words
 
 Answer the query in the opening paragraph. Then a numbered process or a decision framework,
