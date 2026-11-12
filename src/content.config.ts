@@ -62,7 +62,7 @@ const stories = defineCollection({
       title: z.string().max(120), // states the finding
       subtitle: z.string().max(160),
       type: z.enum(['line', 'column', 'bar', 'groupedBar']),
-      format: z.enum(['percent', 'number', 'compact', 'usd', 'usd-billions', 'millions', 'sd']),
+      format: z.enum(['percent', 'number', 'compact', 'usd', 'usd-millions', 'usd-billions', 'millions', 'sd']),
       yMax: z.number().optional(),
       categories: z.array(z.string()).min(1),
       series: z.array(z.object({
@@ -509,8 +509,13 @@ const articles = defineCollection({
       });
       if (a.readerCheck) {
         const rc = a.readerCheck;
-        if (a.kind === 'review' || a.kind === 'comparison') {
-          ctx.addIssue({ code: 'custom', message: 'Reviews and comparisons have no readerCheck (a poll must never sit next to a score)' });
+        if (a.kind === 'review') {
+          ctx.addIssue({ code: 'custom', message: 'Reviews have no readerCheck (a poll must never sit next to a score)' });
+        }
+        // Unscored comparisons may end with a poll about the reader's own practice; never a quiz.
+        // Once a comparison carries scores, remove its poll (docs/editorial.md section 11).
+        if (a.kind === 'comparison' && rc.kind !== 'poll') {
+          ctx.addIssue({ code: 'custom', message: 'A comparison\'s readerCheck can only be a poll' });
         }
         if (a.kind === 'trends' && rc.kind !== 'poll') {
           ctx.addIssue({ code: 'custom', message: 'A trends article\'s readerCheck is always a poll' });

@@ -1,0 +1,91 @@
+{
+  "title": "On Teachable Starter, the 7.5% fee outweighs the lower price once sales pass about US$533 a month",
+  "subtitle": "Monthly platform cost by monthly course sales, plans billed annually, US$ (before payment processing)",
+  "type": "line",
+  "format": "usd",
+  "categories": [
+    "US$0",
+    "US$250",
+    "US$500",
+    "US$750",
+    "US$1,000",
+    "US$1,250",
+    "US$1,500",
+    "US$1,750",
+    "US$2,000"
+  ],
+  "series": [
+    {
+      "id": "starter",
+      "label": "Teachable Starter",
+      "values": [
+        29.0,
+        47.75,
+        66.5,
+        85.25,
+        104.0,
+        122.75,
+        141.5,
+        160.25,
+        179.0
+      ]
+    },
+    {
+      "id": "start",
+      "label": "Thinkific Start",
+      "values": [
+        82,
+        82,
+        82,
+        82,
+        82,
+        82,
+        82,
+        82,
+        82
+      ]
+    },
+    {
+      "id": "builder",
+      "label": "Teachable Builder",
+      "values": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ]
+    }
+  ],
+  "views": {
+    "all": {
+      "annotations": [
+        {
+          "at": 2,
+          "series": "starter",
+          "text": "Passes Builder at US$533"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Our calculation from published prices: Teachable Starter is US$29 a month plus a 7.5% transaction fee on sales; Builder is US$69 and Thinkific Start US$82 a month, both with no platform transaction fee. Payment processing fees apply on top on every plan and aren't shown.",
+    "Thinkific Start includes certificates and assignments; Teachable Starter and Builder don't list certificates."
+  ],
+  "sources": [
+    {
+      "label": "Teachable pricing (checked 7 Nov 2026)",
+      "url": "https://teachable.com/pricing",
+      "figureOrTable": "Plan prices and transaction fees"
+    },
+    {
+      "label": "Thinkific pricing (checked 7 Nov 2026)",
+      "url": "https://www.thinkific.com/pricing/",
+      "figureOrTable": "Plan prices"
+    }
+  ]
+}
