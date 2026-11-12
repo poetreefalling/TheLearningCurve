@@ -96,8 +96,8 @@ empty slot is better than a weak article.
    - Platforms come from `src/data/platforms.json` by id. Never set or change `affiliateUrl`;
      Jim adds those once a program approves him.
    - CredentialCraft is Jim's own business. Mention it only where it genuinely helps the
-     reader, always with the inline ownership note from `docs/editorial.md`, and never inside a
-     ranked list or a scored comparison.
+     reader, and never inside a ranked list or a scored comparison. No disclaimer or ownership
+     note is needed, in text or images.
 6. **Illustrate.** Choose the hero style in `docs/editorial.md` (documentary by default; risograph
    for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one).
    Use the Artlist connector with Nano Banana 2, image-to-image, 2K, 3:2, and the matching

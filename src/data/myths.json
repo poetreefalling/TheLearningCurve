@@ -1,0 +1,52 @@
+[
+  {
+    "id": "learning-styles",
+    "claim": "People learn best when teaching matches their learning style: visual, auditory or kinaesthetic.",
+    "rating": "Not supported",
+    "summary": "A major review found virtually no evidence that matching teaching to a preferred style improves learning, and several well-designed studies that contradict it. Its authors concluded there is no adequate evidence base for using learning-styles assessments in general teaching. Giving every learner words and a relevant picture together (dual coding) is a different idea, and better supported.",
+    "sources": [
+      {
+        "label": "Pashler, McDaniel, Rohrer & Bjork (2008), Learning styles: Concepts and evidence",
+        "url": "https://doi.org/10.1111/j.1539-6053.2009.01038.x"
+      },
+      {
+        "label": "Weinstein, Madan & Sumeracki (2018), Teaching the science of learning",
+        "url": "https://doi.org/10.1186/s41235-017-0087-y"
+      }
+    ],
+    "related": [
+      "dual-coding"
+    ],
+    "article": "learning-styles"
+  },
+  {
+    "id": "learning-pyramid",
+    "claim": "We remember 10% of what we read, 20% of what we hear, and 90% of what we teach others.",
+    "rating": "Not supported",
+    "summary": "The percentages have no known empirical source. Tracing the model's history, Letrud and Hernes write that nobody knows how the learning pyramids originated or whether any evidence supported them. The model is often credited to Edgar Dale's Cone of Experience, which ranked teaching media by how abstract they are, not by how much people remember.",
+    "sources": [
+      {
+        "label": "Letrud & Hernes (2018), Excavating the origins of the learning pyramid myths",
+        "url": "https://doi.org/10.1080/2331186X.2018.1518638"
+      }
+    ],
+    "related": [],
+    "article": "learning-pyramid"
+  },
+  {
+    "id": "six-minute-rule",
+    "claim": "Course videos should never be longer than six minutes.",
+    "rating": "Overstated",
+    "summary": "The figure comes from a study of 6.9 million viewing sessions on edX, which found median viewing time topped out at about six minutes whatever the video's length. It measured how long people kept watching, not what they learned, and its authors warned against drawing conclusions about learning from it. Short segments are a sensible default, not a proven rule.",
+    "sources": [
+      {
+        "label": "Guo, Kim & Rubin (2014), How video production affects student engagement",
+        "url": "https://doi.org/10.1145/2556325.2566239"
+      }
+    ],
+    "article": "microlearning",
+    "related": [
+      "cognitive-load-theory"
+    ]
+  }
+]
