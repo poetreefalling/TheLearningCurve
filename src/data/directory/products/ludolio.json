@@ -138,8 +138,7 @@
   "researchTasks": [
     "Prepared 13 Nov 2026 at Jim's request (Ludolio will be at EduTECH 2027). Jim works with Ludolio: stays a draft until the relationship is recorded in commercialRelationship (kind, since, notes) so the profile discloses it.",
     "Ask: catalogue size and titles, year levels and subjects for schools, curriculum alignment (Australian Curriculum?), SSO providers, LMS integrations, hosting location, pricing basis, whether the waitlist means schools can't sign up yet.",
-    "Startup Daily (Harrison Polites, 23 Sep 2026) reports a fixed-price catalogue model, a 70/30 split with developers, 20 launch titles and a focus on independent schools; the vendor's pages don't state these, so they're not on the profile.",
-    "Add a screenshot (vendor-supplied with credit, or Jim's own)."
+    "Startup Daily (Harrison Polites, 23 Sep 2026) reports a fixed-price catalogue model, a 70/30 split with developers, 20 launch titles and a focus on independent schools; the vendor's pages don't state these, so they're not on the profile."
   ],
   "dataGaps": [
     {
@@ -162,5 +161,21 @@
       "field": "dataPrivacy",
       "note": "Hosting location not stated."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/ludolio/logo.webp",
+      "alt": "Ludolio logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/ludolio/screenshot-1.webp",
+        "alt": "The Ludolio desktop library on Windows: a list of the student's university units on the left, and a grid of game cards, each with a short description, platform tags such as DRM-free, Windows and Mac, and Play or Install buttons",
+        "caption": "The game library, with titles grouped by the units a student is enrolled in.",
+        "credit": "Image: Ludolio",
+        "width": 840,
+        "frame": true
+      }
+    ]
+  }
 }
