@@ -16,15 +16,27 @@
     "checked": "2026-11-12",
     "origin": "verified"
   },
-  "lastVerified": "2026-11-12",
+  "lastVerified": "2026-11-13",
   "researchTasks": [
-    "Asked Karilyn Cheung (Marketing Director) which company signs customer contracts; the site footer reads \"Cyberwisdom Asia Ltd.\" but the submission says no legal entity is asserted.",
+    "Contracting company not confirmed: 13 Nov 2026 email says Cyberwisdom Group is the brand, not a verified legal entity, and asks us not to infer it from the site footer (\"Cyberwisdom Asia Ltd.\"). They will confirm internally.",
     "Size, funding and ownership not published; ask."
   ],
   "dataGaps": [
-    { "field": "legalEntity", "note": "Footer of cyberwisdom.com.hk reads \"© 1999–2026 Cyberwisdom Asia Ltd.\"; the 11 Nov 2026 submission says \"Cyberwisdom Group is the brand/group name; no legal registration entity is asserted.\" Left out until they confirm." },
-    { "field": "size", "note": "Not published. The UpLearn page claims 800+ enterprise clients, which isn't staff size." },
-    { "field": "ownership", "note": "Not published." },
-    { "field": "funding", "note": "Not published." }
+    {
+      "field": "legalEntity",
+      "note": "Footer of cyberwisdom.com.hk reads \"© 1999–2026 Cyberwisdom Asia Ltd.\"; the 11 Nov 2026 submission says \"Cyberwisdom Group is the brand/group name; no legal registration entity is asserted.\" Left out until they confirm."
+    },
+    {
+      "field": "size",
+      "note": "Not published. The UpLearn page claims 800+ enterprise clients, which isn't staff size."
+    },
+    {
+      "field": "ownership",
+      "note": "Not published."
+    },
+    {
+      "field": "funding",
+      "note": "Not published."
+    }
   ]
 }
