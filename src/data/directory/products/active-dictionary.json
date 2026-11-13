@@ -95,8 +95,7 @@
           {
             "question": "Minimum learner age",
             "level": "research-ongoing",
-            "note": "The submission says adults 18+; the privacy policy says the service is aimed at users 13 and over (16 where local law requires).",
-            "conflict": true
+            "note": "Asked the vendor to confirm: the submission says 18+, the privacy policy 13+ (16+ where local law requires)."
           },
           {
             "question": "Staff can review AI output before learners see it",
@@ -209,7 +208,7 @@
     "procurementChecks": [
       "Ask which AI providers process learner text, chats and voice, and whether any of it trains models.",
       "Ask how long chats, recordings and uploaded material are kept.",
-      "Confirm the minimum age: the submission says 18+, the privacy policy 13+."
+      "Confirm the minimum age for learners."
     ]
   },
   "status": "active",
@@ -220,7 +219,7 @@
     "Submission says there's ongoing free access with paid features, no card needed to start, and AI usage limits; no pricing page found and the terms say only that some features may be paid. Ask for a page to cite.",
     "Submission mentions spaced repetition for saved words; not described on the public pages (the mobile app is for reviewing saved words). Ask where it's documented.",
     "Which languages can people learn? The site shows English–Russian and Russian–English dictionaries and an English interface only.",
-    "Age conflict: submission 18+, privacy policy 13+ (16+ where required). Ask which is current and update the policy reference.",
+    "Age: submission says 18+, privacy policy (effective 1 March 2025) says 13+ (16+ where required). Shown as research ongoing, not a conflict, while the vendor confirms and updates the policy (emailed 13 Nov 2026).",
     "Ask: AI providers and models, training on learner content, retention of chats and voice, and who owns AI-generated output.",
     "Vendor states it supplies no independent evidence of learning outcomes."
   ],
