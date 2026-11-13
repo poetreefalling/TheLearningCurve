@@ -59,6 +59,13 @@ function check(all: Article[]) {
     ) {
       problems.push(`${where}: needs a readerCheck (a quiz or a poll; see docs/editorial.md section 11)`);
     }
+    const inlinePoll = body.includes('<ReaderPoll');
+    if (a.data.readerCheck?.placement === 'inline' && !inlinePoll) {
+      problems.push(`${where}: readerCheck.placement is "inline" but the body has no <ReaderPoll />`);
+    }
+    if (inlinePoll && a.data.readerCheck?.placement !== 'inline') {
+      problems.push(`${where}: the body places <ReaderPoll /> but readerCheck.placement isn't "inline"`);
+    }
     if (
       PUBLISH_CHECKS && !a.data.draft && a.data.library && a.data.published >= READER_CHECKS_FROM &&
       (!a.data.library.verdict || !a.data.library.category)

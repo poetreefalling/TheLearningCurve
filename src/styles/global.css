@@ -20,6 +20,7 @@
   --dv-1: #2e5aa8;
   --dv-2: #c27b1f;
   --dv-3: #8c5aa6;
+  --warn: #b3362c;
   --band: #f6c847;
   --band-ink: #16181d;
   --kicker: #c0391b;
@@ -60,6 +61,7 @@
     --dv-1: #4f80d4;
     --dv-2: #c08428;
     --dv-3: #9a70bf;
+    --warn: #ef8a80;
     --kicker: #ff6b4a;
     --page-ink: #eeebe5;
     --page-ink-2: #cfcbc3;
@@ -85,6 +87,7 @@
   --dv-1: #4f80d4;
   --dv-2: #c08428;
   --dv-3: #9a70bf;
+  --warn: #ef8a80;
   --kicker: #ff6b4a;
   --page-ink: #eeebe5;
   --page-ink-2: #cfcbc3;
@@ -897,6 +900,16 @@ html, body { overflow-x: clip; }
 .stat-source a { color: var(--muted); }
 @media (max-width: 720px) { .stat-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 16px; } }
 
+/* Feature widgets: interactive explainers placed in an article body (src/components/feature/) */
+.prose > .fw { max-width: var(--measure); }
+.fw { margin: 2.6em auto; padding: 18px 20px 16px; background: var(--surface); border: 1px solid var(--rule); border-top: 6px solid var(--band); }
+.fw .fw-label { font: 800 11.5px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); margin-bottom: 10px; }
+.fw .fw-title { font-size: 1.35rem; line-height: 1.25; margin: 0; font-variation-settings: 'opsz' 30; }
+.fw .fw-sub { font: 400 15px/1.5 var(--sans); color: var(--muted); margin: 6px 0 0; }
+.fw .fw-note { font: 400 12.5px/1.5 var(--sans); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 8px; margin-top: 16px; }
+.fw .fw-note a { color: var(--muted); }
+.prose .reader-check { margin-top: 2.6em; margin-bottom: 2.6em; }
+@media (max-width: 560px) { .fw { padding: 16px 14px 14px; margin-left: calc(-1 * var(--side) + 4px); margin-right: calc(-1 * var(--side) + 4px); } }
 
 /* ---------- Home: the lead story in the band, then the grid ---------- */
 
