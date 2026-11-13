@@ -248,6 +248,16 @@ From `src/data/stories/<id>.json`, drawn in the browser with no chart library:
 - **`<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`**: a row of
   big Fraunces numbers that count up as they appear, each with a plain label and a linked source.
 
+- **`<VideoTimeline id="…" />`**: one video planned segment by segment, from
+  `src/data/timelines/<id>.json`. A 16:9 "screen" shows what the learner sees and a timeline below
+  it has a lane for each kind of picture (to camera in `--dv-1`, slides in `--dv-2`, drawing in
+  `--dv-3`, the learner's task hatched in ink). On desktop it sticks beside the cards; on phones the
+  timeline sticks above them and the screen drops away. As each card reaches the middle of the
+  screen, its segment grows onto the timeline, the playhead moves to its end, and earlier segments
+  fade back. Each card gives the segment's time, word budget, what's on screen, the research (with
+  numbers from the source) and what we'd do. Without JavaScript every segment is drawn and the
+  plan is also a table. Timings are labelled as our design, never as findings.
+
 Palette: `--dv-1` blue, `--dv-2` amber, `--dv-3` violet, faded to `--chart-base` when another
 series is highlighted. Example: `src/content/articles/trends/sample-data-story.mdx`.
 

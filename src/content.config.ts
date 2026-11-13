@@ -372,6 +372,45 @@ export const LIBRARY_CATEGORIES = [
   'Myths and misconceptions',
 ] as const;
 
+// Video timelines (src/data/timelines/<id>.json): one video planned segment by segment, drawn by
+// <VideoTimeline id="…" /> as lanes for what's on screen, with the research behind each segment.
+// The timings are a design; every research claim names a source the routine opened.
+const timelines = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/timelines' }),
+  schema: z
+    .object({
+      title: z.string().max(120), // states the finding
+      subtitle: z.string().max(220), // says what the plan is, and that the timings are ours
+      duration: z.number().int().positive(), // seconds
+      wordsPerMinute: z.number().int().positive().optional(), // narration pace for word budgets
+      segments: z.array(z.object({
+        id: z.string(),
+        start: z.number().int().min(0), // seconds
+        end: z.number().int().positive(),
+        mode: z.enum(['camera', 'slides', 'drawing', 'practice']),
+        inset: z.enum(['slides']).optional(), // e.g. instructor with a slide beside them
+        label: z.string().max(60), // the segment's job: "Explain the idea"
+        onScreen: z.string().max(160),
+        research: z.string().max(700), // what the studies found, with numbers from the source
+        practice: z.string().max(300), // what we'd do
+        sources: z.array(z.string()).min(1), // ids from sources[]
+      })).min(2),
+      sources: z.array(z.object({ id: z.string(), label: z.string(), url: z.string().url() })).min(1),
+      notes: z.array(z.string()).default([]),
+    })
+    .superRefine((t, ctx) => {
+      const ids = new Set(t.sources.map((s) => s.id));
+      t.segments.forEach((s, i) => {
+        if (s.end <= s.start) ctx.addIssue({ code: 'custom', message: `segments[${i}] ends before it starts` });
+        if (i === 0 && s.start !== 0) ctx.addIssue({ code: 'custom', message: 'the first segment must start at 0' });
+        if (i > 0 && s.start !== t.segments[i - 1].end) ctx.addIssue({ code: 'custom', message: `segments[${i}] doesn't start where segments[${i - 1}] ends` });
+        s.sources.forEach((id) => { if (!ids.has(id)) ctx.addIssue({ code: 'custom', message: `segments[${i}]: unknown source "${id}"` }); });
+      });
+      const last = t.segments[t.segments.length - 1];
+      if (last && last.end !== t.duration) ctx.addIssue({ code: 'custom', message: `the last segment ends at ${last.end}s, not at duration ${t.duration}s` });
+    }),
+});
+
 // Popular claims about learning that the evidence doesn't back, shown on the evidence map
 const myths = defineCollection({
   loader: file('src/data/myths.json'),
@@ -536,4 +575,4 @@ const articles = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles, myths, stories, categories, vendors, products, evaluations };
+export const collections = { platforms, charts, articles, myths, stories, timelines, categories, vendors, products, evaluations };

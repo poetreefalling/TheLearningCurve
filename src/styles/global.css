@@ -776,6 +776,116 @@ html, body { overflow-x: clip; }
   .scrolly-card, .dv-line, .dv-col, .scrolly-graphic::after { transition: none; }
 }
 
+/* Video timelines: one video planned segment by segment (src/components/story/VideoTimeline.astro) */
+.prose > .vt, .prose > .vt-head, .prose > .vt-meta { max-width: var(--wide); }
+.vt-head { margin: 2.8em auto 0; }
+.vt { margin: 0 auto; position: relative; --vt-camera: var(--dv-1); --vt-slides: var(--dv-2); --vt-drawing: var(--dv-3); --vt-practice: var(--ink); }
+.vt-m-camera { --vt-c: var(--vt-camera); }
+.vt-m-slides { --vt-c: var(--vt-slides); }
+.vt-m-drawing { --vt-c: var(--vt-drawing); }
+.vt-m-practice { --vt-c: var(--vt-practice); }
+.vt-graphic { background: var(--paper); }
+
+/* The screen: what the learner sees during the current segment */
+.vt-screen { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--rule); background: var(--surface); overflow: hidden; margin-bottom: 14px; }
+.vt-art { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity 0.35s; }
+.vt-screen[data-mode='camera'] .vt-art-camera, .vt-screen[data-mode='slides'] .vt-art-slides,
+.vt-screen[data-mode='drawing'] .vt-art-drawing, .vt-screen[data-mode='practice'] .vt-art-practice { opacity: 1; }
+.vt-art-bg { fill: color-mix(in srgb, var(--dv-1) 10%, var(--surface)); }
+.vt-art-desk { fill: color-mix(in srgb, var(--ochre) 22%, var(--surface)); }
+.vt-art-fig { fill: var(--dv-1); }
+.vt-art-inset { opacity: 0; transition: opacity 0.35s; }
+.vt-screen[data-inset] .vt-art-inset { opacity: 1; }
+.vt-art-slide { fill: var(--surface); stroke: var(--rule); stroke-width: 1; }
+.vt-art-line { fill: var(--chart-base); }
+.vt-art-rule { fill: var(--rule); }
+.vt-art-box { fill: color-mix(in srgb, var(--dv-2) 18%, var(--surface)); stroke: var(--dv-2); stroke-width: 1.2; }
+.vt-art-mark { fill: var(--highlight, #f6c84780); }
+.vt-art-arrow { stroke: var(--ink-2); stroke-width: 1.6; fill: none; }
+.vt-art-ink { stroke: var(--dv-3); stroke-width: 2.4; fill: none; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+.vt.is-live .vt-screen.is-drawing .vt-art-ink { animation: vt-draw 2.4s ease-out both; }
+@keyframes vt-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.vt-art-card { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.vt-now { position: absolute; left: 8px; bottom: 8px; margin: 0; font: 600 12px/1 var(--sans); background: var(--surface); color: var(--ink); border: 1px solid var(--rule); padding: 5px 8px; border-radius: 3px; }
+.vt-now-time { font-variant-numeric: tabular-nums; color: var(--muted); margin-right: 6px; }
+
+/* The timeline: a lane for each kind of picture, segments placed by time */
+.vt-track { position: relative; font: 500 12px/1 var(--sans); padding-top: 18px; --vt-label-w: 72px; }
+.vt-ruler { position: relative; height: 14px; margin-left: var(--vt-label-w); border-bottom: 1px solid var(--rule-strong); margin-bottom: 6px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.vt-ruler span { position: absolute; bottom: 4px; transform: translateX(-50%); }
+.vt-ruler span:first-child { transform: none; }
+.vt-ruler span:last-child { transform: translateX(-100%); }
+.vt-lane { display: flex; align-items: center; height: 26px; }
+.vt-lane-label { width: var(--vt-label-w); flex: none; color: var(--ink-2); font: 700 10.5px/1 var(--label); text-transform: uppercase; letter-spacing: 0.06em; }
+.vt-lane-bar { position: relative; flex: 1; height: 18px; background: repeating-linear-gradient(90deg, transparent 0 calc(20% - 1px), var(--rule) calc(20% - 1px) 20%); border-radius: 2px; }
+.vt-seg { position: absolute; top: 0; bottom: 0; background: var(--vt-c); border-radius: 2px; transform-origin: left center; transition: transform 0.5s cubic-bezier(.2,.7,.2,1), opacity 0.3s, box-shadow 0.3s; display: flex; align-items: center; justify-content: center; text-decoration: none; color: var(--surface); outline-offset: 2px; }
+.vt-m-practice .vt-seg { background: repeating-linear-gradient(135deg, var(--ink) 0 3px, var(--surface) 3px 6px); border: 1.5px solid var(--ink); }
+.vt-seg-n { font: 700 10px/1 var(--sans); color: #fff; }
+.vt-m-practice .vt-seg-n { display: none; }
+.vt-inset { position: absolute; top: 3px; bottom: 3px; border: 1.5px dashed var(--vt-slides); border-radius: 2px; pointer-events: none; transition: opacity 0.3s; }
+.vt.is-live .vt-seg.is-ahead { transform: scaleX(0); opacity: 0; }
+.vt.is-live .vt-inset.is-ahead { opacity: 0; }
+.vt.is-live .vt-seg:not(.is-current):not(.is-ahead) { opacity: 0.45; }
+.vt-seg.is-current { box-shadow: 0 0 0 2px var(--paper), 0 0 0 3.5px var(--vt-c); }
+.vt-playzone { display: none; position: absolute; left: var(--vt-label-w); right: 0; top: 12px; bottom: -4px; pointer-events: none; }
+.vt.is-live .vt-playzone { display: block; }
+.vt-playhead { position: absolute; top: 0; bottom: 0; left: 0; width: 2px; margin-left: -1px; background: var(--ink); transition: left 0.5s cubic-bezier(.2,.7,.2,1); }
+.vt-playhead::before { content: ''; position: absolute; top: -4px; left: -4px; border: 5px solid transparent; border-top-color: var(--ink); }
+.vt-pace { font: 400 12.5px/1.45 var(--sans); color: var(--muted); margin: 10px 0 0; }
+
+/* The cards */
+.vt-steps { list-style: none; padding: 0; margin: 0; }
+.vt-card { font-size: 1.02rem; line-height: 1.58; transition: opacity 0.4s; }
+.vt-card p { margin: 0 0 0.7em; }
+.vt-card > :last-child { margin-bottom: 0; }
+.vt-kicker { font: 700 11px/1.4 var(--label) !important; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+.vt-swatch { width: 12px; height: 12px; border-radius: 2px; background: var(--vt-c); flex: none; }
+.vt-swatch.vt-m-practice { background: repeating-linear-gradient(135deg, var(--ink) 0 2px, var(--surface) 2px 4px); border: 1px solid var(--ink); }
+.vt-card-title { font: 700 1.3rem/1.2 var(--display); margin: 4px 0 10px; outline: none; }
+.vt-tag { font: 700 10.5px/1 var(--label); text-transform: uppercase; letter-spacing: 0.08em; color: var(--kicker); margin-right: 4px; }
+.vt-onscreen { font-style: italic; color: var(--ink-2); }
+.vt-onscreen .vt-tag { font-style: normal; }
+.vt-cites { font: 400 12.5px/1.5 var(--sans); color: var(--muted); border-top: 1px solid var(--rule); padding-top: 8px; }
+.vt-cites a { color: var(--muted); }
+.vt-meta { margin-top: 1.2em; }
+.vt-meta .story-data td:nth-child(n+2), .vt-meta .story-data th { white-space: normal; text-align: left; }
+
+/* Without the script: the timeline sits above the cards, which read as a list */
+.vt:not(.is-live) .vt-screen { max-width: 420px; }
+.vt:not(.is-live) .vt-step + .vt-step { margin-top: 24px; }
+.vt:not(.is-live) .vt-steps { margin-top: 24px; }
+
+.vt.is-live .vt-step { min-height: 70vh; display: flex; align-items: center; }
+.vt.is-live .vt-step:first-child { margin-top: 6vh; }
+.vt.is-live .vt-step:last-child { min-height: 55vh; }
+.vt.is-live .vt-step:not(.is-active) .vt-card { opacity: 0.35; }
+@media (min-width: 900px) {
+  .vt.is-live { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 48px; }
+  .vt.is-live .vt-graphic { grid-column: 2; grid-row: 1; position: sticky; top: 76px; align-self: start; padding-top: 6vh; }
+  .vt.is-live .vt-steps { grid-column: 1; grid-row: 1; }
+}
+@media (max-width: 899px) {
+  /* On phones the cards are long, so the timeline stays on top and the cards scroll beneath it */
+  .vt.is-live .vt-graphic { position: sticky; top: 52px; z-index: 3; padding: 8px 0 10px; border-bottom: 1px solid var(--rule-strong); box-shadow: 0 8px 12px -10px rgba(0, 0, 0, 0.25); }
+  .vt.is-live .vt-screen { aspect-ratio: auto; border: 0; background: none; overflow: visible; margin: 0 0 4px; }
+  .vt.is-live .vt-screen .vt-art { display: none; }
+  .vt.is-live .vt-now { position: static; border: 0; padding: 0; background: none; font-size: 12px; }
+  .vt.is-live .vt-track { padding-top: 0; --vt-label-w: 60px; }
+  .vt.is-live .vt-lane { height: 20px; }
+  .vt.is-live .vt-lane-bar { height: 14px; }
+  .vt.is-live .vt-lane-label { font-size: 9.5px; }
+  .vt.is-live .vt-pace { display: none; }
+  .vt-steps { position: relative; z-index: 1; }
+  .vt.is-live .vt-step { min-height: 0; display: block; padding: 28px 0 0; }
+  .vt.is-live .vt-step:first-child { margin-top: 0; }
+  .vt.is-live .vt-step:last-child { min-height: 0; padding-bottom: 12px; }
+  .vt.is-live .vt-step:not(.is-active) .vt-card { opacity: 0.5; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vt-art, .vt-art-inset, .vt-seg, .vt-inset, .vt-playhead, .vt-card { transition: none !important; }
+  .vt.is-live .vt-screen.is-drawing .vt-art-ink { animation: none; }
+}
+
 /* Headline figures that count up */
 .stat-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 2.4em auto; padding: 20px 0; border-top: 1px solid var(--rule-strong); border-bottom: 1px solid var(--rule); }
 /* Each figure sizes to its own column, so long values like "US$102.8B" never spill into the next one */
