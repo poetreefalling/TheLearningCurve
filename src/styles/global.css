@@ -947,6 +947,35 @@ html, body { overflow-x: clip; }
 }
 .ad-box img { width: 100%; height: 100%; object-fit: cover; }
 .ad-network { aspect-ratio: auto; min-height: 90px; border: 0; background: none; }
+/* AdSense units take no space until Google fills them; a house promo shows meanwhile, and stays if
+   the unit is never filled (AdSense sets data-ad-status on the <ins>). */
+.ad-flex { gap: 0; }
+.ad-flex > div { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 100%; }
+.ad-network-wrap { height: 0; overflow: hidden; }
+.ad-flex:has(ins[data-ad-status="filled"]) .ad-network-wrap { height: auto; overflow: visible; }
+.ad-flex:has(ins[data-ad-status="filled"]) .house-wrap { display: none; }
+.ad-flex:has(ins[data-ad-status="unfilled"]) .ad-network-wrap { display: none; }
+.ad-flex:not(:has(.house-wrap)):not(:has(ins[data-ad-status="filled"])) { margin: 0; padding: 0; border: 0; }
+/* House promos: our own guides, the newsletter and the directory, never styled as an ad */
+.prose .house, .house { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: var(--house-w, 300px); padding: 20px 22px; background: var(--surface); border: 1px solid var(--rule); border-top: 3px solid var(--rule-strong); color: var(--ink); text-decoration: none; text-align: left; }
+.house:hover .house-cta { text-decoration: underline; }
+.house-band { background: var(--band); border-color: var(--band); border-top-color: var(--band-ink); color: var(--band-ink); }
+.house-kicker { font: 700 11px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); }
+.house-band .house-kicker { color: var(--band-ink); }
+.house-headline { font: 800 1.3rem/1.15 var(--display); color: var(--ink); }
+.house-band .house-headline { color: var(--band-ink); }
+.house-text { font: 400 14.5px/1.5 var(--sans); color: var(--ink-2); }
+.house-band .house-text { color: var(--band-ink); }
+.house-cta { font: 700 13px/1 var(--sans); margin-top: 4px; color: var(--accent); }
+.house-band .house-cta { color: var(--band-ink); }
+.house-halfpage { min-height: 360px; justify-content: center; padding: 28px 24px; }
+.house-halfpage .house-headline { font-size: 1.6rem; }
+.house-billboard { --house-w: 970px; }
+@media (min-width: 720px) {
+  .house-billboard { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; align-items: center; padding: 24px 28px; }
+  .house-billboard .house-kicker, .house-billboard .house-headline, .house-billboard .house-text { grid-column: 1; }
+  .house-billboard .house-cta { grid-column: 2; grid-row: 1 / span 3; white-space: nowrap; margin: 0; }
+}
 .ad-band { margin: 48px 0 0; padding: 24px 0; border-top: 2px dotted var(--rule-strong); border-bottom: 2px dotted var(--rule-strong); }
 .ad-cell { justify-content: flex-start; }
 .ad-inline { margin: 2em auto; padding: 20px 0; border-top: 2px dotted var(--rule-strong); border-bottom: 2px dotted var(--rule-strong); max-width: var(--measure); }

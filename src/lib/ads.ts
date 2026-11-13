@@ -7,6 +7,7 @@
 
 import { z } from 'astro/zod';
 import raw from '../data/ads.json';
+import houseRaw from '../data/house-ads.json';
 
 export const SLOTS = {
   billboard: { label: 'Billboard', width: 970, height: 250, where: 'Home page between rows, and the end of each article' },
@@ -79,4 +80,32 @@ export function pickAd(slot: SlotId, page: Page): Pick {
     if (adSlot) return { kind: 'network', client: ADS.network.client, adSlot };
   }
   return null;
+}
+
+// ---- House promos: our own billboards for slots with nothing paid to show (src/data/house-ads.json) ----
+
+const housePromo = z.object({
+  id: z.string().min(1),
+  kicker: z.string().max(40),
+  headline: z.string().max(90),
+  text: z.string().max(160),
+  cta: z.string().max(30),
+  url: z.string().startsWith('/'),
+  slots: z.array(z.enum(['billboard', 'rectangle', 'halfpage'])).min(1),
+  style: z.enum(['band', 'plain']).default('plain'),
+});
+export type HousePromo = z.infer<typeof housePromo>;
+export const HOUSE = z.object({ promos: z.array(housePromo).default([]) }).parse(houseRaw).promos;
+
+/** A house promo for this slot on this page: never one pointing at the page itself, and the same
+ *  choice on every build of a page, and a different one in each slot (from a hash of its path). */
+export function pickHouse(slot: Exclude<SlotId, 'card'>, path: string): HousePromo | null {
+  const norm = (p: string) => p.replace(/\/?$/, '/');
+  const options = HOUSE.filter((h) => h.slots.includes(slot) && norm(h.url) !== norm(path));
+  if (!options.length) return null;
+  let hash = 0;
+  for (const ch of path) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  // A different promo in each slot on the same page: offset the pick by the slot.
+  const offset = { rectangle: 0, billboard: 1, halfpage: 2 }[slot];
+  return options[(hash + offset) % options.length];
 }

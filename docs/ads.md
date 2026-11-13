@@ -5,9 +5,10 @@ How advertising works on The Learning Curve, and how to run it. You manage every
 
 ## The rule of the house
 
-- **Direct sponsors first, the network second.** Each slot shows a live sponsor booking if there
-  is one; otherwise Google AdSense fills it (if switched on); otherwise the slot doesn't appear at
-  all. Pages never show an empty box.
+- **Direct sponsors first, the network second, our own promos third.** Each slot shows a live
+  sponsor booking if there is one; otherwise Google AdSense, but only once Google has actually
+  filled the unit; otherwise a house promo (below). Pages never show an empty box: an AdSense unit
+  takes no space until it is filled, and disappears if Google reports it unfilled.
 - **No ads on reviews or comparisons.** An ad next to a platform score would read as part of the
   score. The site enforces this; there is no switch for it.
 - **Ads never look like editorial.** Every ad is labelled "Advertisement" (sponsored cards:
@@ -31,6 +32,24 @@ billboard image scales down on phones (to about 360 × 93), so any text in it ne
 On the home page, a booked sponsored card takes the last cell of the second row, and the article it
 displaces moves down into the section bands. The medium rectangle sits in the rail beside the
 section bands, under Start here, so it is never placed right under the billboard.
+
+## House promos (our own billboards)
+
+`src/data/house-ads.json` holds promos for our own pages: the newsletter, the evidence map, the
+course design checklist and the directory. A slot shows one while AdSense hasn't filled (for
+example while the AdSense account is still under review, or when Google has no ad for the page),
+and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the promo.
+
+- Labelled **"From The Learning Curve"**, never "Advertisement", and styled as our own content
+  (the newsletter promo on marigold, the rest on white with an ink rule).
+- Each page gets the same promo on every build, a different one in each slot, and never a promo
+  for the page it's on.
+- Never on reviews or comparisons, like every other slot.
+- To add or change one, edit the file (kicker, headline, text, button label, link, which slots).
+  The build checks the lengths.
+
+How it works: AdSense marks each unit `data-ad-status="filled"` or `"unfilled"` once it has
+decided. The stylesheet keeps the unit at zero height and shows the promo until it is filled.
 
 ## Booking a sponsor
 
@@ -67,6 +86,7 @@ comparisons), and `/ads.txt` lists Google as an authorised seller automatically.
 - `src/data/ads.json`: the bookings and network settings (written by the ad manager)
 - `src/lib/ads.ts`: the rules (slot sizes, which ad a slot shows), checked at build time, so a bad
   file fails the build rather than the live site
+- `src/data/house-ads.json`: house promos, shown when no paid ad fills a slot
 - `src/components/AdSlot.astro`, `src/components/SponsoredCard.astro`: the slots
 - `src/pages/ads.txt.ts`: `/ads.txt`
 - `public/ads/`: sponsor images
