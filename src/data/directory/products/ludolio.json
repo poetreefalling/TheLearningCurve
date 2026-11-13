@@ -1,0 +1,166 @@
+{
+  "name": "Ludolio",
+  "vendor": "ludolio",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://www.ludolio.com/",
+  "summary": "A platform that lets universities, schools and libraries lend commercial video games to students, like eBooks: students sign in with their institutional account, install curated titles on Windows or Mac, and play in class or at home, while teachers see play time and achievements on a dashboard.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://www.ludolio.com/",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "teaching with commercial video games in class and at home",
+      "library lending of digital games",
+      "game design and game studies courses"
+    ],
+    "source": "https://www.ludolio.com/for-universities",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Curated catalogue of commercial games, chosen to fit curriculum goals",
+      "Institutions and libraries control which students can access which games",
+      "Sign-in with institutional email or single sign-on, with no new accounts",
+      "Desktop app for Windows and Mac (not every game runs on Mac)",
+      "Teacher dashboard showing play time, progress and in-game achievements",
+      "Accessibility Wizard that shares students' accessibility information with instructors"
+    ],
+    "source": "https://www.ludolio.com/",
+    "checked": "2026-11-13",
+    "origin": "verified",
+    "note": "Features from the home, Schools, Universities, How it works and Story pages."
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.ludolio.com/how-it-works",
+    "checked": "2026-11-13",
+    "origin": "verified",
+    "note": "Hosted service with a desktop client for Windows and Mac."
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Fixed institutional pricing; amounts not published. Free for students through their institution."
+    },
+    "source": "https://www.ludolio.com/for-universities",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.1 (desktop client)",
+      "evidence": "Stated on the vendor's story page; no conformance report published."
+    },
+    "source": "https://www.ludolio.com/ludolio-story",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Australia"
+    ],
+    "source": "https://www.ludolio.com/how-it-works",
+    "checked": "2026-11-13",
+    "origin": "verified",
+    "note": "How it works lists the University of Sydney and the University of Melbourne; the privacy policy also covers US education privacy laws."
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "level": "vendor-disclosed",
+      "finding": "Ludolio says its desktop client conforms to WCAG 2.1 and that an Accessibility Wizard shares students' accessibility needs with instructors.",
+      "caveat": "No conformance level or accessibility conformance report is published; the claim covers the client, not the games in the catalogue.",
+      "sources": [
+        {
+          "title": "The Ludolio story",
+          "url": "https://www.ludolio.com/ludolio-story"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "security": {
+      "level": "research-ongoing",
+      "finding": "No security certifications are named. The privacy policy commits to notifying breaches likely to cause serious harm within 72 hours.",
+      "sources": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.ludolio.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "The privacy policy (effective 17 July 2026) cites the Australian Privacy Act and Australian Privacy Principles, collects institutional email, enrolment and in-game data (installs, play time, achievements), shares only aggregated data with game developers, and deletes or anonymises identifiable data within 90 days of an institution's agreement ending. Where data is hosted is not stated.",
+      "sources": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.ludolio.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "No AI features are described, and the privacy policy says Ludolio does not use automated decision-making or profiling.",
+      "sources": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://www.ludolio.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "procurementChecks": [
+      "Ask where student data is hosted and processed.",
+      "Ask which games are in the catalogue for your year levels, and their age ratings.",
+      "Ask how licences work: concurrent users, loan periods and what happens when the agreement ends.",
+      "Request an accessibility conformance report for the client."
+    ]
+  },
+  "status": "active",
+  "draft": true,
+  "lastVerified": "2026-11-13",
+  "researchTasks": [
+    "Prepared 13 Nov 2026 at Jim's request (Ludolio will be at EduTECH 2027). Jim works with Ludolio: stays a draft until the relationship is recorded in commercialRelationship (kind, since, notes) so the profile discloses it.",
+    "Ask: catalogue size and titles, year levels and subjects for schools, curriculum alignment (Australian Curriculum?), SSO providers, LMS integrations, hosting location, pricing basis, whether the waitlist means schools can't sign up yet.",
+    "Startup Daily (Harrison Polites, 23 Sep 2026) reports a fixed-price catalogue model, a 70/30 split with developers, 20 launch titles and a focus on independent schools; the vendor's pages don't state these, so they're not on the profile.",
+    "Add a screenshot (vendor-supplied with credit, or Jim's own)."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricingModel",
+      "note": "Fixed institutional pricing per the Universities page; basis and amounts not published."
+    },
+    {
+      "field": "integrations",
+      "note": "SSO mentioned without naming providers; no LMS integrations named."
+    },
+    {
+      "field": "standards",
+      "note": "None stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "dataPrivacy",
+      "note": "Hosting location not stated."
+    }
+  ]
+}
