@@ -20,6 +20,14 @@ Every other open pull request: site features, docs, plans and settings (anything
 `article/` branch), oldest first. Each shows its site check, a link to the preview, the changed
 files and the description. **Merge** makes it live; the site rebuilds in about two minutes.
 
+**Edit** opens the change's files. Text files (wording in docs, data files such as
+`section-intros.json`, page templates) open in a plain editor; images and deleted files are listed
+but left to GitHub. **Save to this change** commits the file to that pull request's own branch
+("Edit via changes desk: …"), never to the live site, so the site check and preview run again
+before you merge. Data files (`.json`) are checked before saving, so a missing comma can't break
+the build. Like the article editor, it refuses to overwrite a file Claude changed after you opened
+it (reload and make the change again).
+
 Merge stays disabled until the site check passes, and the server refuses if GitHub reports a
 conflict, the PR is a draft, or it changed after you loaded the list (reload to see the latest).
 Articles never appear here: they're published from the Articles tab, which checks every flag first.
@@ -35,6 +43,20 @@ rebuilds in about two minutes. How the slots work, the image sizes and the AdSen
 Saving needs the same token as the review desk (Contents: read and write). If `main` has branch
 protection that blocks direct commits, the save fails with GitHub's message: allow the token to
 push, or ask Claude to open a pull request with the change instead.
+
+## Facts tab
+
+The facts behind /facts/ and /facts.json: who runs the site, how it's funded, how it works. Edit
+any label, detail or source, rename a group, reorder or remove facts, or add one. Each fact needs a
+source (a page on this site such as `/about/`, or a full https:// address; the source name is
+optional) and the date you last checked it: **Today** sets one, and **Mark every fact checked
+today** sets them all, once you've read them against their sources. The page's "Last checked" date
+is the newest of those dates. Facts not checked for six months are counted at the top.
+
+**Save and publish** commits `src/data/facts.json` to `main` in one commit ("Facts: … (via the
+facts editor)"); the live site rebuilds in about two minutes. Like the Ads tab, it refuses to
+overwrite if the file changed after you opened it (reload and make the change again), and it needs
+the same token.
 
 ## Submissions tab
 

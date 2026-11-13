@@ -221,5 +221,21 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/itslearning/logo.webp",
+      "alt": "itslearning logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/itslearning/screenshot-1.webp",
+        "width": 708,
+        "frame": true,
+        "alt": "The itslearning student home page: starred courses shown as coloured cards, each with the teacher's photo and name, the number of tasks due this week and new announcements",
+        "caption": "The student home page, with starred courses, tasks due this week and new announcements.",
+        "credit": "Image: itslearning"
+      }
+    ]
+  }
 }

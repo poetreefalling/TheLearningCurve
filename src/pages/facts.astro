@@ -1,0 +1,109 @@
+---
+// /facts/: the basic facts about The Learning Curve in one place, each with where it's stated and when we
+// last checked it, so people, search engines and AI assistants don't have to guess. Edit the facts in the
+// Facts tab at /admin (or src/data/facts.json directly); /facts.json is built from the same file.
+import Base from '../layouts/Base.astro';
+import facts from '../data/facts.json';
+import { SITE } from '../site.config';
+
+const fmt = (iso: string) =>
+  new Date(`${iso}T12:00:00+11:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: SITE.timezone });
+const label = (src: string) => {
+  if (/^https?:\/\//.test(src)) return new URL(src).hostname.replace(/^www\./, '');
+  if (src === '/') return 'Home page';
+  if (src === '/facts/') return 'This page';
+  const names: Record<string, string> = { '/about/': 'About', '/disclosure/': 'Disclosure', '/how-we-review/': 'How we review', '/guides/addie-model/': 'Our first article' };
+  return names[src] ?? src;
+};
+const isEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[a-z]{2,}$/i.test(v);
+const sourceName = (f: { source: string; sourceLabel?: string }) => f.sourceLabel ?? label(f.source);
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'NewsMediaOrganization',
+    '@id': `${SITE.url}/#organization`,
+    name: SITE.name,
+    url: SITE.url,
+    logo: `${SITE.url}/icon-512.png`,
+    description: SITE.description,
+    email: 'hello@thelearningcurve.net',
+    founder: [
+      {
+        '@type': 'Person',
+        name: SITE.author.name,
+        url: `${SITE.url}/about/`,
+        jobTitle: 'Learning designer and filmmaker',
+        sameAs: ['https://www.imdb.com/name/nm2420157/'],
+      },
+      {
+        '@type': 'Person',
+        name: 'Lynnette Lounsbury',
+        honorificPrefix: 'Dr',
+        url: `${SITE.url}/about/`,
+        jobTitle: 'Head of Arts and Business, Avondale University',
+      },
+    ],
+    publishingPrinciples: `${SITE.url}/how-we-review/`,
+    ownershipFundingInfo: `${SITE.url}/disclosure/`,
+    actionableFeedbackPolicy: `${SITE.url}/about/`,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `Facts about ${SITE.name}`,
+    url: `${SITE.url}/facts/`,
+    dateModified: facts.checked,
+    about: { '@id': `${SITE.url}/#organization` },
+  },
+];
+---
+<Base
+  title="Facts"
+  description="The basic facts about The Learning Curve: who runs it, how it's funded, how platforms are reviewed and how AI is used, each with its source and the date checked."
+  jsonLd={jsonLd}
+>
+  <link slot="head" rel="alternate" type="application/json" href="/facts.json" title="Facts about The Learning Curve (JSON)" />
+  <article class="wrap">
+    <header class="article-head measure">
+      <h1>Facts about The Learning Curve</h1>
+      <p class="standfirst">The basics in one place, each with where it's stated and when we last checked it.</p>
+    </header>
+    <div class="page-body measure" style="margin-top:32px">
+      <p>
+        This page is here so readers, search engines and AI assistants can get the basic facts right. Each fact links
+        to the page that states it. The same list is available as data at <a href="/facts.json">/facts.json</a>.
+        If something here is wrong or out of date, tell us at
+        <a href="mailto:hello@thelearningcurve.net">hello@thelearningcurve.net</a>.
+      </p>
+      <p class="facts-checked">Last checked {fmt(facts.checked)}.</p>
+      {facts.groups.map((g) => (
+        <section aria-labelledby={`facts-${g.id}`}>
+          <h2 id={`facts-${g.id}`}>{g.title}</h2>
+          <dl class="facts">
+            {g.facts.map((f) => (
+              <div class="fact" id={f.id}>
+                <dt>{f.label}</dt>
+                <dd>
+                  {isEmail(f.value) ? <a href={`mailto:${f.value}`}>{f.value}</a> : f.value}
+                  <span class="fact-source">Source: <a href={f.source}>{sourceName(f)}</a> · checked {fmt(f.checked)}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      ))}
+    </div>
+  </article>
+</Base>
+
+<style>
+  .facts-checked { color: var(--muted); font-size: 0.95rem; }
+  .facts { margin: 0; }
+  .fact { display: grid; grid-template-columns: 13rem 1fr; gap: 4px 24px; padding: 14px 0; border-top: 1px solid var(--rule); }
+  .fact:last-child { border-bottom: 1px solid var(--rule); }
+  .fact dt { font-family: var(--sans); font-weight: 600; font-size: 0.95rem; }
+  .fact dd { margin: 0; }
+  .fact-source { display: block; margin-top: 4px; font-family: var(--sans); font-size: 0.85rem; color: var(--muted); }
+  @media (max-width: 640px) { .fact { grid-template-columns: 1fr; } }
+</style>

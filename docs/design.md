@@ -159,7 +159,13 @@ Four variable fonts, self-hosted through Fontsource (no external font requests).
 - **Editorial grid.** The home page reads like a front page: a marigold masthead with search,
   wordmark and newsletter button; a nav bar of five sections, each with an italic description
   (Discover, Compare, Insights, Resources, Intelligence); then a lead story in a marigold frame and
-  a river of cards.
+  a grid of cards. Below the fold, a **Browse** tab strip (All, then one tab per section with
+  live articles) filters **section bands**: each band pairs a lead with its picture and two
+  text-only headlines, and a selected tab shows up to eight more. A 336px **rail** (300px of content, the width of a medium rectangle) beside the
+  bands holds Start here (library classics as square cards), the home page's medium rectangle ad, Jim's take (articles with
+  `opinion: true`, byline in small caps, italic headline) and the latest reader poll. Mixing
+  picture and text-only items keeps the page from reading as a wall of cards, so don't give
+  every item an image.
 - **Space is a feature.** Sections breathe (56px above a section head). Hairlines, not boxes,
   separate most items.
 - **Cards** are flat: image, kicker, headline, a line of summary. No drop shadows except on framed
@@ -241,6 +247,16 @@ From `src/data/stories/<id>.json`, drawn in the browser with no chart library:
   the argument one step at a time.
 - **`<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`**: a row of
   big Fraunces numbers that count up as they appear, each with a plain label and a linked source.
+
+- **`<VideoTimeline id="…" />`**: one video planned segment by segment, from
+  `src/data/timelines/<id>.json`. A 16:9 "screen" shows what the learner sees and a timeline below
+  it has a lane for each kind of picture (to camera in `--dv-1`, slides in `--dv-2`, drawing in
+  `--dv-3`, the learner's task hatched in ink). On desktop it sticks beside the cards; on phones the
+  timeline sticks above them and the screen drops away. As each card reaches the middle of the
+  screen, its segment grows onto the timeline, the playhead moves to its end, and earlier segments
+  fade back. Each card gives the segment's time, word budget, what's on screen, the research (with
+  numbers from the source) and what we'd do. Without JavaScript every segment is drawn and the
+  plan is also a table. Timings are labelled as our design, never as findings.
 
 Palette: `--dv-1` blue, `--dv-2` amber, `--dv-3` violet, faded to `--chart-base` when another
 series is highlighted. Example: `src/content/articles/trends/sample-data-story.mdx`.

@@ -68,6 +68,23 @@ The four-part shape every library entry follows, so the collection reads as a re
    verification rule.
 4. **Further reading.** Three to six sources worth reading in full, with one line on why.
 
+Every library entry also fills two fields for the [evidence map](/library/evidence-map/), the
+page that lists every principle with its rating:
+
+- `library.verdict`: one sentence, at most 200 characters (aim for 160), saying what to do in a course. It
+  reads after "In practice:", so start with a verb. Good: "Explain a meaningful picture with
+  narration at the same moment; keep on-screen text to key terms." Not a summary of the research.
+- `library.category`: one of `Memory and practice`, `Presenting information`, `Feedback and
+  assessment`, `Course structure`, `Motivation and engagement`, or `Myths and
+  misconceptions` for an entry about a claim the evidence doesn't support.
+- Use the rating definitions shown on the map: **strong** (consistent across many studies and
+  reviews, including real courses), **moderate** (consistent experiments, but mostly lab, one
+  programme or one kind of learner), **emerging** (early, small or mixed).
+
+The map's "Popular but unsupported" section comes from `src/data/myths.json`. When an entry
+debunks a popular claim (learning styles, the learning pyramid), set that myth's `article` to the
+entry's slug so the map links to it. Add a new myth only with a primary source you've opened.
+
 ### Guide (`kind: guide`), 1,500–2,500 words
 
 Answer the query in the opening paragraph. Then a numbered process or a decision framework,
@@ -128,8 +145,8 @@ dressed as facts. A trends piece that's really evergreen should become a guide i
   "Some links on this page are affiliate links: if you sign up through one, we may earn a
   commission at no cost to you. It never affects how we score a platform.
   [How we're funded](/disclosure/)."
-- Any mention of CredentialCraft carries, at first mention:
-  "(CredentialCraft is the course-design company run by this site's founder.)"
+- CredentialCraft (Jim's own business) needs no disclaimer or ownership note, in the text or in
+  images (its name, logo or screens).
 - CredentialCraft is never ranked, scored against the platforms, or placed in a "best of" list.
   Case studies need the client's permission; Jim provides them.
 
@@ -169,8 +186,10 @@ Every article has one hero image. Choose the style:
 | Risograph | Ideas people can't show: a design model, a memory effect, a process | About 20% |
 | Screenshot | Reviews, when Jim has supplied one | Reviews only |
 
-Never put words, numbers, charts or diagrams in a generated image. Those are research cards
-and charts, which the site builds from source data.
+Never make words, numbers, charts or diagrams the subject of a generated image (incidental screen or page detail is fine). Those are research cards
+and charts, which the site builds from source data. The one exception: an image Jim has approved that shows
+CredentialCraft (for example its course screens) may show its name and readable screen text. Don't
+flag or replace those.
 
 ### Documentary: what to show
 
@@ -201,8 +220,9 @@ Use with `brand/documentary-reference.webp`. Fill the brackets; keep the rest wo
 > turned away, in profile or softly out of focus; hands and the device or paper are the
 > sharpest part of the frame. Natural daylight, clean true-to-life colour with gentle warmth,
 > soft shadows. 35mm film look, light fine grain, slightly imperfect framing, shallow depth of
-> field. Screens show only a soft, unreadable blur of a lesson layout. Use the reference image
-> for photographic style only, not its people, room or objects. No text, no logos, no brand
+> field. Screens show a natural, realistic lesson or video layout, in whatever focus the depth of
+> field gives them. Use the reference image for photographic style only, not its people, room or
+> objects. No logos, logomarks or brand names on screens, devices or clothing, no brand
 > marks, no watermarks, no glossy stock-photo styling, no staged smiles at the camera.
 
 Alt text describes what's in the photo plainly. Caption is optional. Documentary images carry no
@@ -222,7 +242,9 @@ Credit: "Illustration: The Learning Curve".
 
 ### Checking the image
 
-Reject and regenerate once if it has: any text or pseudo-text, a logo, malformed hands or
+Reject and regenerate once if it has: a logo, logomark or brand name (on a screen, a device, clothing
+or anything else), large or prominent words (a headline, sign or caption you can read at a glance;
+small interface text and handwriting in the background of a screen or page are fine), malformed hands or
 extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
 subject that doesn't match the article. If the second attempt also fails, stop and report;
 don't publish a weak image.

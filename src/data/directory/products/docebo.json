@@ -330,5 +330,21 @@
         ]
       }
     }
+  },
+  "media": {
+    "logo": {
+      "src": "/images/directory/docebo/logo.webp",
+      "alt": "Docebo logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/docebo/screenshot-1.webp",
+        "width": 677,
+        "frame": true,
+        "alt": "The Docebo Questions & Answers page: learners' questions linked to courses and channels, replies with one marked Best Answer and up and down votes, and side panels for new questions, the most popular channels and the top experts",
+        "caption": "Questions & Answers in Docebo: learners ask, colleagues answer, and the best answer is marked.",
+        "credit": "Image: Docebo"
+      }
+    ]
   }
 }

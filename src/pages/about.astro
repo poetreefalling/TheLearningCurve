@@ -3,12 +3,12 @@ import Page from '../layouts/Page.astro';
 import { SITE } from '../site.config';
 const jsonLd = [{
   '@context': 'https://schema.org', '@type': 'AboutPage', name: `About ${SITE.name}`,
-  mainEntity: { '@type': 'Person', name: SITE.author.name, url: `${SITE.url}/about/`, sameAs: ['https://www.imdb.com/name/nm2420157/'], jobTitle: 'Learning designer and filmmaker' },
+  mainEntity: { '@type': 'Organization', name: SITE.name, url: SITE.url, founder: [{ '@type': 'Person', name: SITE.author.name, url: `${SITE.url}/about/`, sameAs: ['https://www.imdb.com/name/nm2420157/'], jobTitle: 'Learning designer and filmmaker' }, { '@type': 'Person', name: 'Lynnette Lounsbury', honorificPrefix: 'Dr', jobTitle: 'Head of Arts and Business, Avondale University' }] },
 }];
 ---
 <Page
   title="About"
-  description="The Learning Curve is an independent publication on how to design online courses that work, founded by learning designer and filmmaker Jim Lounsbury."
+  description="The Learning Curve is an independent publication on how to design online courses that work, founded by learning designer and filmmaker Jim Lounsbury and Dr Lynnette Lounsbury."
   standfirst="An independent publication on how to design online courses that work."
   jsonLd={jsonLd}
 >
@@ -26,15 +26,21 @@ const jsonLd = [{
   </ul>
   <h2>Who's behind it</h2>
   <p>
-    The Learning Curve was founded by Jim Lounsbury, a learning designer and documentary filmmaker based in Sydney.
-    Jim works in educational development at Avondale University, designing course content and microcredentials, and
+    The Learning Curve was founded by Jim Lounsbury and Dr Lynnette Lounsbury.
+  </p>
+  <p>
+    Jim is a learning designer and documentary filmmaker based in Sydney. He works in educational development at <a href="https://www.avondale.edu.au/" rel="noopener">Avondale University</a>, designing course content and microcredentials, and
     runs CredentialCraft, a course-design studio. Alongside that, he has spent his career making
     documentaries and factual television in more than 20 countries, and his work can be seen on Apple TV, Prime
     Video, Stan, National Geographic and more.
   </p>
   <p>
-    That mix shapes the publication: a learning designer's respect for evidence, and a filmmaker's sense of what
-    keeps people watching.
+    Dr Lynnette Lounsbury is Head of Arts and Business at <a href="https://www.avondale.edu.au/" rel="noopener">Avondale University</a>
+    and leads The Learning Curve's academic quality assurance development team.
+  </p>
+  <p>
+    That mix shapes the publication: a learning designer's respect for evidence, academic standards of quality
+    assurance, and a filmmaker's sense of what keeps people watching.
   </p>
   <h2>How we work</h2>
   <p>

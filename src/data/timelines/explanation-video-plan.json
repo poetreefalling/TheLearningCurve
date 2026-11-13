@@ -1,0 +1,88 @@
+{
+  "title": "Change the picture when the idea changes, and end on a question",
+  "subtitle": "One five-minute explanation video, planned segment by segment: the grant writer's video on writing a need statement. The timings are our design; each segment shows the research behind it.",
+  "duration": 300,
+  "wordsPerMinute": 150,
+  "segments": [
+    {
+      "id": "open",
+      "start": 0,
+      "end": 20,
+      "mode": "camera",
+      "label": "Open with the payoff",
+      "onScreen": "The instructor, to camera, looking at the lens.",
+      "research": "Showing the instructor isn't the benefit in itself. A meta-analysis of 20 experiments found instructor-present videos raised motivation and cognitive load, but their effect on learning was not statistically significant (Alemdağ, 2022). In Mayer's summary of his group's experiments, adding the speaker's image to the screen had an effect size of 0.20 across 7 tests, while an onscreen instructor who displays high embodiment had 0.58 across 17 (Mayer, 2024).",
+      "practice": "Use the camera for connection, not content: say what the learner will be able to do by the end and why it matters to them, then move to the material. Much of a video's dropout comes in its first few per cent (Kim et al., 2014).",
+      "sources": ["alemdag-2022", "mayer-2024", "kim-2014"]
+    },
+    {
+      "id": "explain",
+      "start": 20,
+      "end": 110,
+      "mode": "slides",
+      "label": "Explain the idea on one simple slide",
+      "onScreen": "One diagram of a need statement's three parts, labels only, each part highlighted as it's discussed.",
+      "research": "Explaining a graphic with narration rather than on-screen text had an effect size of 1.00 across 19 tests; adding printed text that repeats the narration had 0.10 across 12 (Mayer, 2024). A meta-analysis of 29 experiments with 2,726 participants found signalling, cues such as highlighting that point to what matters, was associated with better learning, d = 0.38 (Alpizar, Adesope & Wong, 2020).",
+      "practice": "Narrate the slide rather than printing your script on it. Keep words to labels and key terms, and highlight each part as you talk about it.",
+      "sources": ["mayer-2024", "alpizar-2020"]
+    },
+    {
+      "id": "example",
+      "start": 110,
+      "end": 200,
+      "mode": "drawing",
+      "label": "Work an example, drawn as you talk",
+      "onScreen": "A real need statement, annotated live with a pen: the problem underlined, the evidence circled, the gap marked.",
+      "research": "College students who watched an instructor draw diagrams while explaining a lesson on the human kidney outperformed students who saw the same explanation with already-drawn diagrams, d = 0.54 (Fiorella et al., 2019). In the edX data, Khan-style tablet drawing tutorials were more engaging than PowerPoint slides or code screencasts (Guo, Kim & Rubin, 2014).",
+      "practice": "Build the example up on screen, step by step, in time with what you say. If you're working from slides, Guo and colleagues' advice is to add emphasis by sketching over them.",
+      "sources": ["fiorella-2019", "guo-2014"]
+    },
+    {
+      "id": "mistake",
+      "start": 200,
+      "end": 260,
+      "mode": "camera",
+      "inset": "slides",
+      "label": "Name the common mistake",
+      "onScreen": "Back to the instructor, with a weak and a strong opening sentence on a slide beside them.",
+      "research": "In the edX courses, videos that interspersed the instructor's talking head with slides were more engaging than slides alone (Guo, Kim & Rubin, 2014). In the same data, 61% of the categorised peaks in re-watching involved a visual transition, and the authors warn that excessive transitions might prevent students from referring to earlier content (Kim et al., 2014).",
+      "practice": "Cut back to camera when the idea changes, not every few seconds, and leave a key slide up long enough to read. A change of picture tells the learner a new part has started.",
+      "sources": ["guo-2014", "kim-2014"]
+    },
+    {
+      "id": "recap",
+      "start": 260,
+      "end": 285,
+      "mode": "camera",
+      "label": "Recap the one thing to remember",
+      "onScreen": "The instructor, to camera.",
+      "research": "Words in conversational rather than formal style had an effect size of 1.00 across 15 tests (Mayer, 2024). In the edX data, videos where instructors spoke fairly fast and with high enthusiasm were more engaging (Guo, Kim & Rubin, 2014).",
+      "practice": "Talk to one learner, at your natural pace. Don't replay the whole video: name the single thing to take into the task.",
+      "sources": ["mayer-2024", "guo-2014"]
+    },
+    {
+      "id": "practice",
+      "start": 285,
+      "end": 300,
+      "mode": "practice",
+      "label": "Stop for a task before the next video",
+      "onScreen": "The task, on screen: write the first two sentences of your own need statement.",
+      "research": "When an online lecture was split into segments with a few test questions after each, students reported half as much mind wandering and scored 90% on the final test, against 76% and 68% in the comparison groups (Szpunar, Khan & Schacter, 2013). Guided generative activities during learning had an effect size of 0.71 across 44 tests (Mayer, 2024).",
+      "practice": "End the video, not the lesson. The question or task comes next, before the following video starts.",
+      "sources": ["szpunar-2013", "mayer-2024"]
+    }
+  ],
+  "sources": [
+    { "id": "alemdag-2022", "label": "Alemdağ (2022)", "url": "https://doi.org/10.1007/s10639-022-11154-w" },
+    { "id": "mayer-2024", "label": "Mayer (2024), Table 6", "url": "https://doi.org/10.1007/s10648-023-09842-1" },
+    { "id": "kim-2014", "label": "Kim et al. (2014)", "url": "https://doi.org/10.1145/2556325.2566237" },
+    { "id": "alpizar-2020", "label": "Alpizar, Adesope & Wong (2020)", "url": "https://doi.org/10.1007/s11423-020-09748-7" },
+    { "id": "fiorella-2019", "label": "Fiorella et al. (2019), Experiment 1", "url": "https://doi.org/10.1037/edu0000325" },
+    { "id": "guo-2014", "label": "Guo, Kim & Rubin (2014), Table 1", "url": "https://doi.org/10.1145/2556325.2566239" },
+    { "id": "szpunar-2013", "label": "Szpunar, Khan & Schacter (2013)", "url": "https://doi.org/10.1073/pnas.1221764110" }
+  ],
+  "notes": [
+    "The segments, timings and word budgets are an example plan, not study results. Word budgets assume about 150 words of narration a minute, our rule of thumb.",
+    "Effect sizes from Mayer (2024) summarise his research group's own experiments."
+  ]
+}

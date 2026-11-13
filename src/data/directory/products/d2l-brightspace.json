@@ -231,5 +231,20 @@
       "field": "data residency",
       "note": "no committed region; confirm the tenant region in the contract."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/d2l-brightspace/logo.webp",
+      "alt": "D2L Brightspace logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/d2l-brightspace/screenshot-1.webp",
+        "width": 960,
+        "alt": "A Brightspace course on a laptop: the Statistics 101 navigation bar with Content, Assignments, Discussions, Quizzes, Grades and Virtual Classroom, a video assignment page, and a separate recorder window where a student records a video response beside his slides",
+        "caption": "A video assignment in a Brightspace course, with a student recording his response in a separate recorder window.",
+        "credit": "Image: D2L"
+      }
+    ]
+  }
 }

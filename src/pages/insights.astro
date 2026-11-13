@@ -1,4 +1,5 @@
 ---
+import SectionAbout from '../components/SectionAbout.astro';
 // Insights hub: news, trends and editorial. Today that's the Trends section.
 import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -24,5 +25,6 @@ const [lead, ...rest] = items;
         <ul class="river">{rest.slice(3, 23).map((a) => <li><ArticleCard article={a} variant="river" /></li>)}</ul>
       </section>
     )}
+    <SectionAbout page="insights" />
   </div>
 </Base>

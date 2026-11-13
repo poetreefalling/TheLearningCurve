@@ -19,6 +19,7 @@ import Scrolly from '../../components/story/Scrolly.astro';
 import Step from '../../components/story/Step.astro';
 import StatGrid from '../../components/story/StatGrid.astro';
 import Stat from '../../components/story/Stat.astro';
+import VideoTimeline from '../../components/story/VideoTimeline.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { adsAllowedFor, pickAd } from '../../lib/ads';
 import { SITE, SECTIONS } from '../../site.config';
@@ -110,7 +111,7 @@ const adsOk = adsAllowedFor(d.kind);
 const rail = adsOk && !!pickAd('halfpage', 'article');
 const layout = rail ? 'article-layout has-rail' : 'article-layout';
 
-const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat };
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, VideoTimeline };
 ---
 
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section} masthead="slim" ads={adsOk}>
@@ -127,6 +128,7 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
         <span><time datetime={d.published.toISOString()}>{formatDate(d.published)}</time></span>
         {d.updated && <span>Updated <time datetime={d.updated.toISOString()}>{formatDate(d.updated)}</time></span>}
         {d.library && <span>Last reviewed <time datetime={d.library.lastReviewed.toISOString()}>{formatDate(d.library.lastReviewed)}</time></span>}
+        {d.library && <span><a href="/library/evidence-map/">{d.library.evidence[0].toUpperCase() + d.library.evidence.slice(1)} evidence</a></span>}
         <span>{readingTime(a)} min read</span>
       </div>
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="top" />

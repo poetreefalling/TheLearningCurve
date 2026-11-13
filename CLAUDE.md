@@ -23,6 +23,9 @@ commissions pay its way; they never decide what gets written or how a platform s
   `<Scrolly chart="…"><Step view="…">…</Step></Scrolly>` (the chart sticks and changes as each
   step scrolls past) and `<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`.
   `src/content/articles/trends/sample-data-story.mdx` shows them all.
+  `<VideoTimeline id="…" />` plans one video segment by segment from `src/data/timelines/<id>.json`:
+  lanes for what's on screen (camera, slides, drawing, task), drawn onto a timeline as each segment's
+  card scrolls past, with the research behind it. Timings are a design; research claims need opened sources.
   Every research card and chart listed in the frontmatter must be placed in the body. MDX
   treats `{`, `}` and `<` as code, so don't use them in prose.
 - Editor flags (`[JIM: …]`, `[TO VERIFY: …]`) show highlighted on preview builds. Production
@@ -96,14 +99,19 @@ empty slot is better than a weak article.
    - Platforms come from `src/data/platforms.json` by id. Never set or change `affiliateUrl`;
      Jim adds those once a program approves him.
    - CredentialCraft is Jim's own business. Mention it only where it genuinely helps the
-     reader, always with the inline ownership note from `docs/editorial.md`, and never inside a
-     ranked list or a scored comparison.
+     reader, and never inside a ranked list or a scored comparison. No disclaimer or ownership
+     note is needed, in text or images.
 6. **Illustrate.** Choose the hero style in `docs/editorial.md` (documentary by default; risograph
    for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one).
    Use the Artlist connector with Nano Banana 2, image-to-image, 2K, 3:2, and the matching
    reference image in `brand/` (if `risograph-reference.webp` doesn't exist yet, use a
-   documentary hero and say so in the PR). Look at every result before using it. Regenerate once if it
-   has any text, logo, brand mark, extra or malformed fingers, a face in sharp focus, a
+   documentary hero and say so in the PR). **Supplied heroes first:** if `brand/supplied/` holds an
+   image for this article (named after its slug, or listed for its backlog row in
+   `brand/supplied/README.md`), check it against the rules below and use it instead of
+   generating one: `git mv` it to `brand/originals/<slug>.webp` (so it can't be used twice), remove
+   its line from the README, and say in the PR that Jim supplied it. If it fails the checks, leave
+   it in place, generate as usual, and say why in the PR. Look at every result before using it. Regenerate once if it
+   has a logo, logomark or brand name, large or prominent words (small screen text and handwriting are fine), extra or malformed fingers, a face in sharp focus, a
    glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
    per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.

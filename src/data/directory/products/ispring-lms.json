@@ -201,5 +201,19 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/ispring-lms/logo.webp",
+      "alt": "iSpring logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/ispring-lms/screenshot-1.webp",
+        "alt": "iSpring LMS on a laptop and phone: the learner's My Courses page with an enrolled course in progress, the mobile app's course list with assigned and offline tabs, and two report cards showing team progress and an employee's results",
+        "caption": "iSpring LMS on desktop and mobile, with team progress and employee results reports.",
+        "credit": "Image: iSpring"
+      }
+    ]
+  }
 }

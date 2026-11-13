@@ -1,0 +1,6 @@
+# Cloudflare Pages response headers (https://developers.cloudflare.com/pages/configuration/headers/)
+
+# Report PDFs are lead magnets: readers get them after signing up, so keep the files out of search
+# results. The landing pages under /reports/ stay indexable. Add a line for each new report PDF.
+/reports/ai-tools-for-learning-design/tlc-25-ai-tools-for-learning-design.pdf
+  X-Robots-Tag: noindex
