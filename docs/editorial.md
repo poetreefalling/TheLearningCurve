@@ -118,6 +118,21 @@ What happened (dated, linked to the primary source), why it matters for people w
 courses, what the evidence says about the underlying idea, and what we'd do. No predictions
 dressed as facts. A trends piece that's really evergreen should become a guide instead.
 
+**Show the data, don't just describe it.** Whenever the sources give numbers worth seeing, a
+trends piece carries at least one animated or interactive graphic. Pick what fits the story
+(`docs/design.md` §7.3):
+
+- a `<StatGrid>` of two to four headline numbers that count up, each with its linked source;
+- a `<DataChart>` for a trend over time or a comparison across groups;
+- a `<Scrolly>` when the argument has steps (a before and after, a change year by year);
+- a feature widget (`<EvidenceMap>`, `<ConditionsCheck>`, `<DayBudget>`) when it helps readers
+  apply the idea to their own work.
+
+Every number comes from a dated primary source you opened, with the table, figure or page in the
+data file; mark estimates as estimates. If the sources hold nothing worth charting, use no graphic
+rather than a decorative one, and say why in the PR. Follow "What every graphic needs" in
+`docs/design.md`.
+
 ## 6. Research and citations
 
 - Cite primary sources: the study, the review, the report. Not a blog that cited it.
