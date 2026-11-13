@@ -1,0 +1,34 @@
+{
+  "name": "Ludolio",
+  "website": "https://www.ludolio.com/",
+  "ownershipDetail": {
+    "value": "Platform developed at the University of Sydney's Sydney Games and Play Lab and exclusively licensed to Ludolio Pty Ltd",
+    "source": "https://www.ludolio.com/ludolio-story",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "legalEntity": "Ludolio Pty Ltd",
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Legal entity from the privacy policy (effective 17 July 2026); no ABN or address published. Team (About page): Marcus Carter (CEO), Jen Scott Curwood (Chief Learning Officer), Eduardo Velloso (CTO), Ben Egliston (Chief Officer of Games), all University of Sydney academics."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not stated; the team is at the University of Sydney."
+    },
+    {
+      "field": "founded",
+      "note": "Not stated. Story page dates the work to 2021; site copyright 2025–2026."
+    },
+    {
+      "field": "size",
+      "note": "Not published."
+    },
+    {
+      "field": "funding",
+      "note": "Not disclosed."
+    }
+  ]
+}
