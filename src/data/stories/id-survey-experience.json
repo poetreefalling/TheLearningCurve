@@ -1,0 +1,46 @@
+{
+  "title": "Surveyed designers with 16–25 years' experience averaged about US$108,000–110,000, against US$77,856 at 0–3 years",
+  "subtitle": "Average salary of US full-time employed instructional designers by years of experience, self-reported, 2023 (number of respondents in brackets)",
+  "type": "column",
+  "format": "usd",
+  "yMax": 120000,
+  "categories": [
+    "0–3 (308)",
+    "4–8 (135)",
+    "9–15 (47)",
+    "16–20 (14)",
+    "21–25 (8)",
+    "26+ (6)"
+  ],
+  "series": [
+    {
+      "id": "avg",
+      "label": "Average salary",
+      "values": [
+        77856,
+        87809,
+        93046,
+        108214,
+        109750,
+        95583
+      ]
+    }
+  ],
+  "views": {
+    "early": {
+      "upTo": 2
+    },
+    "all": {}
+  },
+  "notes": [
+    "The three most experienced groups have 14, 8 and 6 respondents, too few to read much into; the dip at 26+ years may be noise.",
+    "Same survey and caveats as the sector chart."
+  ],
+  "sources": [
+    {
+      "label": "Devlin Peck, Instructional Designer Salary Report 2024 (survey data collected 2023)",
+      "url": "https://www.devlinpeck.com/content/instructional-designer-salary",
+      "figureOrTable": "Salary by Experience (US full-time employees)"
+    }
+  ]
+}

@@ -1,0 +1,272 @@
+---
+// The evidence map: every library principle on one page, with its evidence rating, the question
+// it answers and a one-line verdict, plus popular claims the evidence doesn't back.
+// It builds itself from each library entry's frontmatter (library.*) and src/data/myths.json.
+// Readers can search, filter by evidence strength and re-sort; without JavaScript they get the
+// full list grouped by topic.
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site.config';
+import { LIBRARY_CATEGORIES } from '../../content.config';
+import { getArticles, urlOf, slugOf, formatDate, type Article } from '../../lib/articles';
+
+const all = await getArticles();
+const library = all.filter((a) => a.data.section === 'library' && a.data.library);
+const bySlug = new Map(all.map((a) => [slugOf(a), a]));
+
+const STRENGTH = { strong: 3, moderate: 2, emerging: 1 } as const;
+const OTHER = 'Other principles';
+const firstSentence = (t: string) => (t.match(/^.*?[.!?](\s|$)/)?.[0] ?? t).trim();
+
+// "Applied in": live articles that link to the entry
+const appliedIn = (a: Article) => {
+  const href = urlOf(a);
+  return all.filter((o) => o.id !== a.id && (o.body ?? '').includes(`](${href}`));
+};
+
+const entries = library
+  .map((a) => {
+    const l = a.data.library!;
+    return {
+      a,
+      url: urlOf(a),
+      principle: l.principle,
+      question: l.question,
+      evidence: l.evidence,
+      verdict: l.verdict ?? firstSentence(a.data.summary),
+      category: l.category ?? OTHER,
+      reviewed: l.lastReviewed,
+      applied: appliedIn(a),
+    };
+  })
+  .sort((x, y) => x.principle.localeCompare(y.principle));
+
+const groups = [...LIBRARY_CATEGORIES, OTHER]
+  .map((c) => ({ name: c, items: entries.filter((e) => e.category === c) }))
+  .filter((g) => g.items.length);
+
+const counts = { strong: 0, moderate: 0, emerging: 0 } as Record<string, number>;
+entries.forEach((e) => counts[e.evidence]++);
+const latest = entries.reduce<Date | null>((d, e) => (!d || e.reviewed > d ? e.reviewed : d), null);
+
+const myths = (await getCollection('myths')).map((m) => ({
+  ...m.data,
+  id: m.id,
+  article: m.data.article ? bySlug.get(m.data.article) : undefined,
+  related: m.data.related.map((s) => bySlug.get(s)).filter((x): x is Article => !!x),
+}));
+
+const title = 'The Evidence Map: What the Research Says About Learning Design';
+const description =
+  'Every learning principle in our library on one page: how strong the evidence is, what it means for your course, and popular claims the research does not support.';
+const url = new URL('/library/evidence-map/', SITE.url).href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url,
+    isPartOf: { '@type': 'WebSite', name: SITE.name, url: SITE.url },
+    ...(latest && { dateModified: latest.toISOString() }),
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: entries.map((e, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: new URL(e.url, SITE.url).href,
+        name: `${e.principle}: ${e.evidence} evidence`,
+      })),
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.url + '/' },
+      { '@type': 'ListItem', position: 2, name: 'Library', item: `${SITE.url}/library/` },
+      { '@type': 'ListItem', position: 3, name: 'The evidence map', item: url },
+    ],
+  },
+];
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} current="library">
+  <div class="wrap evidence-map">
+    <header class="page-head">
+      <a class="kicker" href="/library/">Library</a>
+      <h1>The evidence map</h1>
+      <p>
+        Every learning principle in our library on one page: how strong the research is, the question it answers, and
+        what it means for your course. It grows as each new entry is published.
+      </p>
+      <p class="em-meta">
+        {entries.length} {entries.length === 1 ? 'principle' : 'principles'}
+        {latest && <> · last reviewed {formatDate(latest)}</>}
+      </p>
+    </header>
+
+    <section class="em-legend" aria-labelledby="em-legend-h">
+      <h2 id="em-legend-h" class="visually-hidden">How we rate the evidence</h2>
+      <dl>
+        <div><dt><span class="evidence strong">Strong</span></dt><dd>Consistent results across many studies and reviews, including with real learners in real courses.</dd></div>
+        <div><dt><span class="evidence moderate">Moderate</span></dt><dd>Consistent experimental support, but mostly from labs, one research programme or one kind of learner.</dd></div>
+        <div><dt><span class="evidence emerging">Emerging</span></dt><dd>Early, small or mixed studies. Worth trying in a course, but don't expect a guaranteed effect.</dd></div>
+      </dl>
+    </section>
+
+    {entries.length > 0 && (
+      <form class="em-controls" data-em-controls role="search" aria-label="Filter the evidence map" hidden>
+        <label class="em-search">
+          <span class="visually-hidden">Search principles</span>
+          <input type="search" name="q" placeholder="Search principles, questions or verdicts" autocomplete="off" />
+        </label>
+        <fieldset class="em-chips">
+          <legend class="visually-hidden">Evidence strength</legend>
+          <label><input type="radio" name="ev" value="" checked /><span>All <b>{entries.length}</b></span></label>
+          {(['strong', 'moderate', 'emerging'] as const).map((k) => (
+            <label><input type="radio" name="ev" value={k} disabled={!counts[k]} /><span>{k[0].toUpperCase() + k.slice(1)} <b>{counts[k]}</b></span></label>
+          ))}
+        </fieldset>
+        <label class="em-sort">
+          <span>Show</span>
+          <select name="sort">
+            <option value="topic">By topic</option>
+            <option value="strength">Strongest evidence first</option>
+            <option value="az">A to Z</option>
+            <option value="reviewed">Most recently reviewed</option>
+          </select>
+        </label>
+      </form>
+    )}
+    <p class="em-count" data-em-count aria-live="polite"></p>
+
+    {entries.length === 0 && <p>The first library entries are on their way. <a href="/newsletter/">Get them by email.</a></p>}
+
+    <div class="em-list" data-em-list>
+      {groups.map((g) => (
+        <>
+          <h2 class="em-group" data-em-group={g.name}>{g.name}</h2>
+          {g.items.map((e) => (
+            <article
+              class="em-item"
+              data-em-item
+              data-group={g.name}
+              data-name={e.principle.toLowerCase()}
+              data-ev={e.evidence}
+              data-strength={STRENGTH[e.evidence]}
+              data-reviewed={e.reviewed.valueOf()}
+              data-text={`${e.principle} ${e.question} ${e.verdict} ${g.name}`.toLowerCase()}
+            >
+              <div class="em-item-head">
+                <h3><a href={e.url}>{e.principle}</a></h3>
+                <span class={`evidence ${e.evidence}`}>{e.evidence} evidence</span>
+              </div>
+              <p class="em-question">{e.question}</p>
+              <p class="em-verdict"><span>In practice:</span> {e.verdict}</p>
+              <p class="em-item-meta">
+                <span class="em-cat">{g.name}</span>
+                <span>Reviewed {formatDate(e.reviewed)}</span>
+                {e.applied.length > 0 && (
+                  <span>Applied in {e.applied.map((o, i) => <>{i > 0 && ', '}<a href={urlOf(o)}>{o.data.title}</a></>)}</span>
+                )}
+              </p>
+            </article>
+          ))}
+        </>
+      ))}
+      <p class="em-empty" data-em-empty hidden>No principles match. <button type="button" class="link-button" data-em-reset>Show them all</button></p>
+    </div>
+
+    {myths.length > 0 && (
+      <section class="em-myths" aria-labelledby="em-myths-h">
+        <h2 id="em-myths-h">Popular but unsupported</h2>
+        <p class="em-myths-intro">Claims you'll still see in training decks and course-creator advice, and what the research actually says.</p>
+        {myths.map((m) => (
+          <article class="em-myth" id={m.id}>
+            <div class="em-item-head">
+              <h3>“{m.claim}”</h3>
+              <span class={`evidence myth ${m.rating === 'Overstated' ? 'overstated' : 'unsupported'}`}>{m.rating}</span>
+            </div>
+            <p>{m.summary}</p>
+            <p class="em-item-meta">
+              <span>Sources: {m.sources.map((s, i) => <>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.label}</a></>)}</span>
+              {m.article && <span>Read more: <a href={urlOf(m.article)}>{m.article.data.title}</a></span>}
+              {!m.article && m.related.length > 0 && (
+                <span>What to do instead: {m.related.map((r, i) => <>{i > 0 && ', '}<a href={urlOf(r)}>{r.data.library?.principle ?? r.data.title}</a></>)}</span>
+              )}
+            </p>
+          </article>
+        ))}
+      </section>
+    )}
+
+    <p class="em-foot">
+      Ratings are our judgement of the research each entry cites, and every entry links to its sources. We re-check each
+      entry at least once a year. Spotted something the evidence has moved on? <a href="mailto:hello@thelearningcurve.net">Tell us</a>.
+    </p>
+  </div>
+</Base>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-em-controls]');
+  const list = document.querySelector<HTMLElement>('[data-em-list]');
+  if (form && list) {
+    form.hidden = false;
+    const items = [...list.querySelectorAll<HTMLElement>('[data-em-item]')];
+    const groups = [...list.querySelectorAll<HTMLElement>('[data-em-group]')];
+    const original = [...list.children];
+    const empty = list.querySelector<HTMLElement>('[data-em-empty]')!;
+    const count = document.querySelector<HTMLElement>('[data-em-count]')!;
+    const q = form.elements.namedItem('q') as HTMLInputElement;
+    const sort = form.elements.namedItem('sort') as HTMLSelectElement;
+
+    // Remember the reader's last view, and accept ?evidence=strong&sort=az in shared links
+    const params = new URLSearchParams(location.search);
+    try {
+      const saved = JSON.parse(localStorage.getItem('tlc-evidence-map') ?? '{}');
+      if (saved.sort) sort.value = saved.sort;
+    } catch { /* fine without it */ }
+    if (params.get('sort')) sort.value = params.get('sort')!;
+    const ev0 = params.get('evidence');
+    if (ev0) form.querySelector<HTMLInputElement>(`input[name="ev"][value="${CSS.escape(ev0)}"]`)?.click();
+    if (params.get('q')) q.value = params.get('q')!;
+
+    const apply = () => {
+      const ev = (form.querySelector<HTMLInputElement>('input[name="ev"]:checked')?.value) ?? '';
+      const terms = q.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+      let shown = 0;
+      for (const it of items) {
+        const ok = (!ev || it.dataset.ev === ev) && terms.every((t) => it.dataset.text!.includes(t));
+        it.hidden = !ok;
+        if (ok) shown++;
+      }
+      const mode = sort.value;
+      if (mode === 'topic') {
+        original.forEach((el) => list.appendChild(el));
+        groups.forEach((g) => (g.hidden = !items.some((it) => !it.hidden && it.dataset.group === g.dataset.emGroup)));
+      } else {
+        groups.forEach((g) => (g.hidden = true));
+        const key = (it: HTMLElement) =>
+          mode === 'strength' ? -Number(it.dataset.strength) : mode === 'reviewed' ? -Number(it.dataset.reviewed) : 0;
+        [...items]
+          .sort((a, b) => key(a) - key(b) || a.dataset.name!.localeCompare(b.dataset.name!))
+          .forEach((el) => list.appendChild(el));
+        list.appendChild(empty);
+      }
+      list.classList.toggle('em-flat', mode !== 'topic');
+      empty.hidden = shown > 0;
+      count.textContent = shown === items.length ? '' : `Showing ${shown} of ${items.length}`;
+      try { localStorage.setItem('tlc-evidence-map', JSON.stringify({ sort: mode })); } catch { /* ignore */ }
+    };
+
+    form.addEventListener('input', apply);
+    form.addEventListener('submit', (e) => e.preventDefault());
+    list.querySelector('[data-em-reset]')?.addEventListener('click', () => {
+      q.value = '';
+      form.querySelector<HTMLInputElement>('input[name="ev"][value=""]')!.checked = true;
+      apply();
+    });
+    apply();
+  }
+</script>

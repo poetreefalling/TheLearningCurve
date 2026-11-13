@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
+import SectionAbout from '../../components/SectionAbout.astro';
 import { SITE, SECTIONS, type SectionKey } from '../../site.config';
 import { getArticles, urlOf, formatDate, type Article } from '../../lib/articles';
 
@@ -39,6 +40,9 @@ const jsonLd = [{
     <header class="page-head">
       <h1>{meta.label}</h1>
       <p>{meta.blurb}</p>
+      {section === 'library' && (
+        <p class="library-map-link"><a href="/library/evidence-map/">See every principle on the evidence map</a>, with how strong the research is and what to do about it.</p>
+      )}
     </header>
 
     {items.length === 0 && (
@@ -84,5 +88,6 @@ const jsonLd = [{
         )}
       </>
     )}
+    <SectionAbout page={section} />
   </div>
 </Base>

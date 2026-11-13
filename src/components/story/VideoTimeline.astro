@@ -1,0 +1,167 @@
+---
+// <VideoTimeline id="explanation-video-plan" /> — one video, planned segment by segment, from
+// src/data/timelines/<id>.json. The timeline (lanes for what's on screen) sticks while a card for
+// each segment scrolls past; each card draws its segment onto the timeline and moves the playhead.
+// Without JavaScript every segment is drawn, every card is readable, and the plan is in a table.
+import { getEntry } from 'astro:content';
+
+interface Props { id: string }
+const { id } = Astro.props;
+const entry = await getEntry('timelines', id);
+if (!entry) throw new Error(`VideoTimeline: no src/data/timelines/${id}.json`);
+const t = entry.data;
+
+const MODES = {
+  camera: 'To camera',
+  slides: 'Slides',
+  drawing: 'Drawing',
+  practice: 'Task',
+} as const;
+type Mode = keyof typeof MODES;
+const lanes = Object.keys(MODES) as Mode[];
+
+const clock = (s: number) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`;
+const pct = (s: number) => `${((s / t.duration) * 100).toFixed(3)}%`;
+const words = (seg: { start: number; end: number }) =>
+  t.wordsPerMinute ? Math.round((((seg.end - seg.start) / 60) * t.wordsPerMinute) / 5) * 5 : null;
+const modeLabel = (seg: (typeof t.segments)[number]) =>
+  seg.inset === 'slides' ? 'To camera, with a slide' : seg.mode === 'slides' ? 'Slides with narration' : seg.mode === 'drawing' ? 'Drawing, narrated' : seg.mode === 'practice' ? 'Task for the learner' : 'To camera';
+const sourceById = new Map(t.sources.map((s) => [s.id, s]));
+const minutes = Array.from({ length: Math.floor(t.duration / 60) + 1 }, (_, i) => i * 60);
+const totalWords = t.wordsPerMinute ? Math.round((t.duration / 60) * t.wordsPerMinute) : null;
+const summary = `Timeline of a ${clock(t.duration)} video: ` +
+  t.segments.map((s) => `${clock(s.start)} to ${clock(s.end)}, ${s.label} (${modeLabel(s).toLowerCase()})`).join('; ') + '.';
+---
+
+<div class="vt-head">
+  <h3 class="story-title">{t.title}</h3>
+  <p class="story-sub">{t.subtitle}</p>
+</div>
+<section class="vt" data-vt id={`vt-${id}`} aria-label={t.title}>
+  <div class="vt-graphic">
+    <div class="vt-screen" aria-hidden="true" data-vt-screen data-mode={t.segments[0].mode}>
+      <svg viewBox="0 0 160 90" class="vt-art vt-art-camera">
+        <rect x="0" y="0" width="160" height="90" class="vt-art-bg" />
+        <rect x="0" y="62" width="160" height="28" class="vt-art-desk" />
+        <circle cx="62" cy="38" r="13" class="vt-art-fig" />
+        <path d="M36 90 C38 66 50 56 62 56 C74 56 86 66 88 90 Z" class="vt-art-fig" />
+        <g class="vt-art-inset">
+          <rect x="100" y="16" width="48" height="32" rx="2" class="vt-art-slide" />
+          <rect x="106" y="23" width="36" height="5" rx="1" class="vt-art-line" />
+          <rect x="106" y="33" width="16" height="9" rx="1" class="vt-art-mark" />
+          <rect x="126" y="33" width="16" height="9" rx="1" class="vt-art-line" />
+        </g>
+      </svg>
+      <svg viewBox="0 0 160 90" class="vt-art vt-art-slides">
+        <rect x="0" y="0" width="160" height="90" class="vt-art-slide" />
+        <rect x="16" y="12" width="70" height="7" rx="1.5" class="vt-art-line" />
+        <rect x="16" y="36" width="34" height="30" rx="3" class="vt-art-box vt-art-mark" />
+        <rect x="63" y="36" width="34" height="30" rx="3" class="vt-art-box" />
+        <rect x="110" y="36" width="34" height="30" rx="3" class="vt-art-box" />
+        <path d="M51 51 H61 M98 51 H108" class="vt-art-arrow" />
+      </svg>
+      <svg viewBox="0 0 160 90" class="vt-art vt-art-drawing">
+        <rect x="0" y="0" width="160" height="90" class="vt-art-slide" />
+        <rect x="18" y="16" width="96" height="4" rx="1" class="vt-art-line" />
+        <rect x="18" y="28" width="110" height="4" rx="1" class="vt-art-line" />
+        <rect x="18" y="40" width="88" height="4" rx="1" class="vt-art-line" />
+        <rect x="18" y="52" width="104" height="4" rx="1" class="vt-art-line" />
+        <path d="M16 36 C40 37 70 35 100 37 M110 46 m-12 0 a12 8 0 1 0 24 0 a12 8 0 1 0 -24 0 M128 60 C134 66 142 70 150 70" class="vt-art-ink" pathLength="1" />
+      </svg>
+      <svg viewBox="0 0 160 90" class="vt-art vt-art-practice">
+        <rect x="0" y="0" width="160" height="90" class="vt-art-bg" />
+        <rect x="30" y="18" width="100" height="54" rx="4" class="vt-art-card" />
+        <rect x="42" y="30" width="60" height="5" rx="1" class="vt-art-line" />
+        <rect x="42" y="44" width="76" height="3" rx="1" class="vt-art-rule" />
+        <rect x="42" y="56" width="76" height="3" rx="1" class="vt-art-rule" />
+      </svg>
+      <p class="vt-now" data-vt-now>
+        <span class="vt-now-time" data-vt-time>{clock(t.segments[0].start)}–{clock(t.segments[0].end)}</span>
+        <span data-vt-label>{modeLabel(t.segments[0])}</span>
+      </p>
+    </div>
+
+    <div class="vt-track">
+      <p class="visually-hidden">{summary}</p>
+      <div class="vt-ruler" aria-hidden="true">
+        {minutes.map((m) => <span style={`left:${pct(m)}`}>{clock(m)}</span>)}
+      </div>
+      {lanes.map((lane) => (
+        <div class={`vt-lane vt-m-${lane}`}>
+          <span class="vt-lane-label">{MODES[lane]}</span>
+          <div class="vt-lane-bar">
+            {t.segments.map((s, i) => s.mode === lane && (
+              <a
+                class="vt-seg"
+                href={`#vt-step-${s.id}`}
+                data-vt-seg={i}
+                style={`left:${pct(s.start)};width:${pct(s.end - s.start)}`}
+                title={`${clock(s.start)}–${clock(s.end)} · ${s.label}`}
+              ><span class="vt-seg-n">{i + 1}</span><span class="visually-hidden">: {clock(s.start)} to {clock(s.end)}, {s.label}</span></a>
+            ))}
+            {lane === 'camera' && t.segments.map((s, i) => s.inset === 'slides' && (
+              <span class="vt-inset" data-vt-seg={i} style={`left:${pct(s.start)};width:${pct(s.end - s.start)}`}></span>
+            ))}
+          </div>
+        </div>
+      ))}
+      <div class="vt-playzone" aria-hidden="true"><div class="vt-playhead" data-vt-playhead></div></div>
+    </div>
+    {totalWords && <p class="vt-pace">About {totalWords} words of narration in all, at {t.wordsPerMinute} a minute.</p>}
+  </div>
+
+  <ol class="vt-steps">
+    {t.segments.map((s, i) => (
+      <li class="vt-step" id={`vt-step-${s.id}`} data-vt-step={i} data-mode={s.mode} data-inset={s.inset}
+          data-time={`${clock(s.start)}–${clock(s.end)}`} data-label={modeLabel(s)}>
+        <div class="vt-card">
+          <p class="vt-kicker">
+            <span class={`vt-swatch vt-m-${s.mode}`} aria-hidden="true"></span>
+            {i + 1} · {clock(s.start)}–{clock(s.end)} · {modeLabel(s)}{words(s) && <> · about {words(s)} words</>}
+          </p>
+          <h4 class="vt-card-title" tabindex="-1">{s.label}</h4>
+          <p class="vt-onscreen"><span class="vt-tag">On screen</span> {s.onScreen}</p>
+          <p><span class="vt-tag">The research</span> {s.research}</p>
+          <p><span class="vt-tag">In practice</span> {s.practice}</p>
+          <p class="vt-cites">
+            {s.sources.map((sid, j) => {
+              const src = sourceById.get(sid)!;
+              return <>{j > 0 && ' · '}<a href={src.url} rel="noopener">{src.label}</a></>;
+            })}
+          </p>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+<div class="story-chart story-meta vt-meta">
+  <details class="story-data">
+    <summary>Show the plan as a table</summary>
+    <div class="story-table-wrap">
+      <table>
+        <thead>
+          <tr><td>Time</td><th scope="col">Segment</th><th scope="col">On screen</th>{t.wordsPerMinute && <th scope="col">Words</th>}<th scope="col">Research</th></tr>
+        </thead>
+        <tbody>
+          {t.segments.map((s) => (
+            <tr>
+              <th scope="row">{clock(s.start)}–{clock(s.end)}</th>
+              <td>{s.label}</td>
+              <td>{modeLabel(s)}</td>
+              {t.wordsPerMinute && <td>{words(s)}</td>}
+              <td>{s.sources.map((sid) => sourceById.get(sid)!.label).join('; ')}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <p class="story-source">
+    {t.notes.length > 0 && <span class="story-note">{t.notes.join(' ') + ' '}</span>}
+    <span>Sources: {t.sources.map((s, i) => (<>{i > 0 && '; '}<a href={s.url} rel="noopener">{s.label}</a></>))}.</span>
+  </p>
+</div>
+
+<script>
+  import '../../scripts/videotimeline';
+</script>

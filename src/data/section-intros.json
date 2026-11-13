@@ -1,0 +1,73 @@
+{
+  "_note": "Short 'About this section' text shown at the foot of section, hub and directory category pages (src/components/SectionAbout.astro). Plain sentences; links as <a href> to pages on this site. Keep each page to about 100-150 words.",
+  "guides": {
+    "heading": "About the guides",
+    "paragraphs": [
+      "The guides are practical help for building an online course, from the first analysis to the last quiz question: how to write learning objectives you can actually measure, storyboard and script a module and write multiple-choice questions that teach. Each one answers its question in the opening paragraph, then works through the process step by step with an example.",
+      "Every guide rests on the evidence. Where a step depends on a learning principle, such as <a href=\"/library/cognitive-load-theory/\">cognitive load</a> or <a href=\"/library/formative-assessment/\">formative assessment</a>, it links to the <a href=\"/library/\">Library</a> entry that sets out the research. Claims link to their sources, and we say plainly when the evidence is thin. There are also guides for people moving into instructional design, on the jobs, the skills that transfer and what the work pays."
+    ]
+  },
+  "trends": {
+    "heading": "About Trends",
+    "paragraphs": [
+      "Trends is our dated news on where online education is going: AI tutors and course generators, microcredentials, the business of course platforms, and new research worth knowing about. Each piece starts with what happened, linked to the primary source (the announcement, the report, the study), then explains why it matters for people who build courses and what we'd do about it.",
+      "We don't dress predictions up as facts. When a development rests on an idea from learning science, we say what the evidence shows and link to the <a href=\"/library/\">Library</a> entry. Every trends piece carries its date, because news ages; the evergreen how-to material lives in the <a href=\"/guides/\">guides</a>."
+    ]
+  },
+  "reviews": {
+    "heading": "About our reviews",
+    "paragraphs": [
+      "Our reviews judge course platforms on the question most reviews skip: how well does this platform help the people taking your course actually learn? Each platform is scored on seven criteria using <a href=\"/how-we-review/\">one published method</a>. Learning design (retrieval practice, assessment, credentials and learner analytics) carries 60% of the score; business tools (pricing, payments and marketing) carry 40%.",
+      "We test by building a real course on each platform, comparing like with like: the cheapest plan that includes certificates. Prices carry the date we checked them. Some links to platforms are affiliate links, which never decide what we review or how a platform scores; our <a href=\"/disclosure/\">disclosure</a> has the details, and advertising never appears on a review or comparison."
+    ]
+  },
+  "insights": {
+    "heading": "About Insights",
+    "paragraphs": [
+      "Insights brings together our news, trends and editorial on online learning: what changed this term in AI for education, where microcredentials are heading, what the latest research found, and what course platforms are doing as businesses. It's written for course creators, instructional designers, L&amp;D teams and educators who want to know what's happening without the hype.",
+      "Every piece is dated and links to its primary sources, and each one ends with what we'd actually do about it. For the evidence on how people learn, see the <a href=\"/library/\">Library</a>; for step-by-step help building a course, see the <a href=\"/guides/\">guides</a>."
+    ]
+  },
+  "resources": {
+    "heading": "About Resources",
+    "paragraphs": [
+      "Resources is where the practical material lives. The <a href=\"/guides/\">guides</a> walk through the work of building a course, from analysis and objectives to storyboards, scripts and quiz questions, with an example at every step. The <a href=\"/library/\">Library</a> has one evergreen page per learning principle, such as retrieval practice, cognitive load or feedback, setting out what the research says, how strong the evidence is and how to apply it in a course.",
+      "Library pages are re-checked against new research every year, and every research claim links to its source. The free field guides go deeper on a single question, with every source listed."
+    ]
+  },
+  "discover": {
+    "heading": "About the directory",
+    "paragraphs": [
+      "Discover is an independent directory of learning technology: learning management systems, AI tools for teaching and learning, authoring tools, assessment and credentialing, and more. Each profile describes the product in our own words, never the vendor's marketing copy, and every fact on it records where it came from, when we checked it and how far to trust it.",
+      "Where we couldn't find or verify something, the profile says \"Research ongoing\" rather than guessing. AI products also show how well each answer is evidenced, on our <a href=\"/evidence-and-assurance/\">Evidence &amp; Assurance levels</a>. Money never buys a place in the directory, a better profile or a score, and any commercial relationship with a vendor is shown on its profile."
+    ]
+  },
+  "lms-platforms": {
+    "heading": "About this directory",
+    "paragraphs": [
+      "A learning management system (LMS) is the software an organisation uses to deliver courses, enrol learners, run assessments and track progress. This directory covers the systems universities, schools, training providers and companies use, from open-source options like Moodle to enterprise platforms built into HR suites. Each profile sets out who the product is mainly for, how it's priced, how it's deployed and which interoperability standards it supports, such as LTI, SCORM and xAPI.",
+      "Every fact links to the page we checked, with the date. Where a vendor doesn't publish something, such as its pricing, the profile says so rather than estimating. Profiles are our own words, and no vendor pays to be listed."
+    ]
+  },
+  "authoring-tools": {
+    "heading": "About this directory",
+    "paragraphs": [
+      "Authoring tools are the software learning designers use to build eLearning modules and course content: interactive lessons, quizzes, branching scenarios and packages that run in an LMS. A growing group of them now use AI to draft course outlines, lessons and questions from source material.",
+      "Each profile describes what the tool does in our own words and records where every fact came from and when we checked it. AI features also show how the product handles data, what control staff keep over the output and who owns what it produces, each with the evidence behind the answer. For help planning the content itself, see our guides to <a href=\"/guides/elearning-storyboard/\">storyboarding</a> and <a href=\"/guides/elearning-script/\">writing an eLearning script</a>."
+    ]
+  },
+  "assessment-credentialing": {
+    "heading": "About this directory",
+    "paragraphs": [
+      "This directory covers the tools for testing what learners know and recognising what they've achieved: grading and feedback tools, academic integrity and similarity checking, proctoring, e-portfolios, digital badges and verifiable credentials.",
+      "Each profile is in our own words, with a source and a checked date for every fact. AI-assisted grading and integrity tools also show how they handle student data and what oversight teaching staff keep, with the evidence behind each answer. For the research on assessment that improves learning, see the <a href=\"/library/formative-assessment/\">formative assessment</a> and <a href=\"/library/effective-feedback/\">feedback</a> entries in the Library."
+    ]
+  },
+  "video-interactive": {
+    "heading": "About this directory",
+    "paragraphs": [
+      "This directory covers video platforms, interactive video and simulation tools for learning, including AI video generators that turn a script into a presenter-led video. Each profile describes the product in our own words and records where every fact came from and when we checked it.",
+      "Video works best when it's planned around how people learn. Our guide to <a href=\"/guides/elearning-script/\">writing an eLearning script</a> covers narration that works with what's on screen, and the <a href=\"/library/dual-coding/\">dual coding</a> entry explains how pictures and narration work together."
+    ]
+  }
+}

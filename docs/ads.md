@@ -21,15 +21,16 @@ How advertising works on The Learning Curve, and how to run it. You manage every
 | Slot | Image size | Where it shows |
 |---|---|---|
 | Billboard | 970 × 250 | Home page between the first and second rows; the end of each article (scaled to the column) |
-| Medium rectangle | 300 × 250 | Home page grid (last cell of the second row); inside articles, after the fifth paragraph, on screens narrower than 1240 px or when no half page is booked |
+| Medium rectangle | 300 × 250 | Home page rail, beside the section bands (under Start here); inside articles, after the fifth paragraph, on screens narrower than 1240 px or when no half page is booked |
 | Half page | 300 × 600 | A sticky rail beside articles on screens 1240 px and wider |
 | Sponsored card | 1200 × 800 (3:2) | Home page grid, styled like an article card. Direct sponsors only |
 
 Supply images at the size shown, or twice it for sharp screens: WebP or JPEG, under 1.5 MB. The
 billboard image scales down on phones (to about 360 × 93), so any text in it needs to be large.
 
-On the home page, a booked sponsored card and rectangle take the last two cells of the second row;
-the articles they displace move down into "Latest".
+On the home page, a booked sponsored card takes the last cell of the second row, and the article it
+displaces moves down into the section bands. The medium rectangle sits in the rail beside the
+section bands, under Start here, so it is never placed right under the billboard.
 
 ## Booking a sponsor
 

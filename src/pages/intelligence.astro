@@ -1,0 +1,25 @@
+---
+// Intelligence: the members' area for market research, industry reports and analysis. Not open
+// yet, so this page previews it and takes sign-ups through the newsletter.
+import Base from '../layouts/Base.astro';
+import IntelligencePreview from '../components/home/IntelligencePreview.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+import { NAV } from '../site.config';
+const nav = NAV.find((n) => n.key === 'intelligence')!;
+---
+<Base title={nav.label} description={`${nav.note}, for members of The Learning Curve.`} current="intelligence">
+  <section class="ink-band" style="margin-top:0" aria-labelledby="in-h">
+    <div class="wrap">
+      <p class="ink-kicker">Intelligence · Members</p>
+      <h1 id="in-h" class="ink-title">Market research, industry reports and analysis.</h1>
+      <p class="ink-lede">The numbers behind the learning technology market, read by people who build courses. Membership opens soon: the newsletter is the first place we'll say so.</p>
+    </div>
+  </section>
+  <div class="wrap">
+    <div style="margin-top:56px"><IntelligencePreview /></div>
+    <section class="hub-cta band" aria-labelledby="nl-h">
+      <div><h2 id="nl-h">Hear first when Intelligence opens</h2><p>One email a month, and a note the day membership opens.</p></div>
+      <div style="flex:1 1 360px"><NewsletterForm placement="intelligence" /></div>
+    </section>
+  </div>
+</Base>

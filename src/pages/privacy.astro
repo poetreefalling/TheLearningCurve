@@ -1,0 +1,87 @@
+---
+import Page from '../layouts/Page.astro';
+// Keep this page true to the code: it describes what the site actually collects (newsletter:
+// functions/api/subscribe.ts; quizzes and polls: functions/api/check/[slug].ts; ads: src/lib/ads.ts).
+// Update it, and the date below, whenever one of those changes.
+---
+<Page
+  title="Privacy"
+  description="What The Learning Curve collects when you read, subscribe or answer a quiz, the cookies advertising may use, and how to ask about or delete your data."
+  standfirst="We collect as little as we can: your email address if you subscribe, and nothing that identifies you otherwise."
+>
+  <p class="meta">Last updated 8 November 2026.</p>
+
+  <h2>When you read</h2>
+  <p>
+    You can read every article without an account, and we don't set tracking cookies of our own. The site is hosted
+    on Cloudflare, which handles each request and keeps routine logs (such as IP addresses) to run and protect the
+    service. Fonts, search and images are served from our own site, and the share buttons are plain links, so no
+    other company sees what you read here unless you click through to it.
+  </p>
+  <p>
+    To count readers, we use Cloudflare Web Analytics. It records which pages are visited, the referring site, and
+    the broad type of browser, device and country, without cookies, without fingerprinting and without following you
+    across other sites. We see only totals, never individual visitors. Cloudflare explains it in
+    <a href="https://www.cloudflare.com/web-analytics/" rel="noopener">its Web Analytics overview</a>.
+  </p>
+  <p>
+    Your browser stores two small things for your convenience only: whether you chose the light or dark theme, and
+    your answers to any quiz or poll, so the results show again if you come back. They stay in your browser and you
+    can clear them at any time.
+  </p>
+
+  <h2>Quizzes and polls</h2>
+  <p>
+    When you answer a quiz or poll, we add your choices to that article's totals. To stop one browser being counted
+    twice, we keep a one-way code made from your IP address, your browser and the article, mixed with a secret.
+    We don't store your IP address or anything else that identifies you, and the totals can't be traced back to you.
+  </p>
+
+  <h2>The newsletter</h2>
+  <p>
+    If you subscribe, we send your email address to Beehiiv, the service that sends the newsletter, along with the
+    page you signed up on and whether you ticked the optional CredentialCraft box. We use your address only to send
+    the newsletter. Every email has a one-click unsubscribe link. Beehiiv's handling of your data is set out in
+    <a href="https://www.beehiiv.com/privacy" rel="noopener">its privacy policy</a>.
+  </p>
+  <p>
+    If you tick the CredentialCraft box, we also pass your address to CredentialCraft, the course-design studio run by
+    our founder, so it can send you occasional updates. You can unsubscribe from those separately. We never sell or
+    rent email addresses.
+  </p>
+
+  <h2 id="advertising">Advertising and cookies</h2>
+  <p>
+    Some pages carry advertising (never reviews or comparisons). Ads booked directly with us are images served from
+    our own site; clicking one takes you to the advertiser, whose own privacy policy then applies.
+  </p>
+  <p>
+    Spaces with no direct booking may be filled by Google AdSense. When they are, Google and its partners use cookies
+    and similar technologies to show ads, limit how often you see them and measure them, and may use information about
+    your visits here and to other sites to show ads based on your interests. Visitors in the UK, the European Economic
+    Area and Switzerland are asked for consent first and can change their choice at any time. You can learn
+    <a href="https://policies.google.com/technologies/partner-sites" rel="noopener">how Google uses information from
+    sites that use its services</a>, and turn personalised ads off in
+    <a href="https://adssettings.google.com/" rel="noopener">Google's ad settings</a>.
+  </p>
+
+  <h2>Your choices</h2>
+  <ul>
+    <li>Unsubscribe from the newsletter with the link at the foot of any issue.</li>
+    <li>Clear this site's stored data in your browser's settings.</li>
+    <li>Block or delete cookies in your browser, or use Google's ad settings to stop personalised ads.</li>
+    <li>
+      Ask what we hold about you, or ask us to correct or delete it, by emailing
+      <a href="mailto:hello@thelearningcurve.net">hello@thelearningcurve.net</a>.
+    </li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>The Learning Curve is written for adults who build courses. It isn't aimed at children.</p>
+
+  <h2>Changes</h2>
+  <p>
+    If we change what we collect, we'll update this page and the date at the top. How we're funded, including
+    advertising and affiliate links, is on our <a href="/disclosure/">disclosure page</a>.
+  </p>
+</Page>

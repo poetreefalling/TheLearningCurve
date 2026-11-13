@@ -1,0 +1,55 @@
+{
+  "name": "aXcelerate Pty Ltd",
+  "website": "https://www.axcelerate.com.au/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "North Rocks, New South Wales, Australia",
+    "source": "https://lei.bloomberg.com/leis/view/984500MWA79D1F0I4605",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "size": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.axcelerate.com.au/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2019,
+    "source": "https://lei.bloomberg.com/leis/view/984500MWA79D1F0I4605",
+    "checked": "2026-11-08",
+    "origin": "verified",
+    "note": "2019 (company registration date)"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://lei.bloomberg.com/leis/view/984500MWA79D1F0I4605",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Privately held Australian proprietary company",
+    "source": "https://lei.bloomberg.com/leis/view/984500MWA79D1F0I4605",
+    "checked": "2026-11-08",
+    "origin": "verified"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "stored the year 2019; the workbook qualifies it: \"2019 (company registration date)\"."
+    },
+    {
+      "field": "ownership",
+      "note": "\"Privately held Australian proprietary company\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
+}

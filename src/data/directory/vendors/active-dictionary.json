@@ -1,0 +1,35 @@
+{
+  "name": "Active Dictionary",
+  "website": "https://activedictionary.com/",
+  "headquarters": {
+    "value": "Sheung Wan, Hong Kong",
+    "source": "https://activedictionary.com/terms",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "legalEntity": "Active Dictionary Company Limited",
+  "status": "active",
+  "draft": false,
+  "lastVerified": "2026-11-13",
+  "researchTasks": [
+    "Submitted at /submit on 13 Nov 2026 by Dmitry Yurkin, CTO. Legal entity and Hong Kong address are as named in the Terms of Service (effective 1 March 2025); company registration number not published."
+  ],
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "Not stated on the About page."
+    },
+    {
+      "field": "size",
+      "note": "Not published."
+    },
+    {
+      "field": "ownership",
+      "note": "Not published."
+    },
+    {
+      "field": "funding",
+      "note": "Not published."
+    }
+  ]
+}

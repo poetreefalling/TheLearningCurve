@@ -1,12 +1,12 @@
 {
   "network": {
-    "enabled": false,
+    "enabled": true,
     "provider": "adsense",
-    "client": "",
+    "client": "ca-pub-9489672162391954",
     "slots": {
-      "billboard": "",
-      "rectangle": "",
-      "halfpage": ""
+      "billboard": "9015589007",
+      "rectangle": "6766885527",
+      "halfpage": "6031342179"
     }
   },
   "campaigns": []

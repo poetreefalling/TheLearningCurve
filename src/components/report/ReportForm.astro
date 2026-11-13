@@ -1,0 +1,63 @@
+---
+// Sign-up form that delivers a report. Posts to /api/subscribe (functions/api/subscribe.ts) with
+// `magnet`, which sets the Beehiiv custom field "Lead magnet" (the delivery automation keys on it)
+// and `placement`, so each form on the page is measured separately. With JavaScript the download
+// appears in place; without it, the API redirects to the thank-you page.
+import { SITE } from '../../site.config';
+import { REPORT } from '../../data/reports/ai-tools-for-learning-design';
+interface Props { placement: string; button?: string; tone?: 'band' | 'page' }
+const { placement, button = 'Get the free guide', tone = 'page' } = Astro.props;
+const on = SITE.newsletter !== null;
+const id = `rf-${placement}`;
+---
+<form class:list={['rf', `rf-${tone}`]} method="post" action="/api/subscribe" data-report-form>
+  <input type="hidden" name="placement" value={placement} />
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  <input type="hidden" name="magnet" value={REPORT.magnet} />
+  <input type="hidden" name="next" value={`/reports/${REPORT.slug}/thanks/`} />
+  <div class="nl-hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="rf-row">
+    <label class="visually-hidden" for={`${id}-name`}>First name</label>
+    <input id={`${id}-name`} class="rf-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" maxlength="60" required disabled={!on} />
+    <label class="visually-hidden" for={`${id}-email`}>Work email address</label>
+    <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
+    <button class="rf-button" type="submit" disabled={!on}>{on ? button : 'Coming soon'}</button>
+  </div>
+  <label class="nl-optin rf-optin">
+    <input type="checkbox" name="credentialcraft" value="yes" />
+    <span>I'd also like to receive occasional updates from CredentialCraft, our specialist course design and development studio.</span>
+  </label>
+  <p class="rf-note" role="status" aria-live="polite">Free PDF, {REPORT.pages} pages. You'll also get our monthly newsletter; unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</p>
+  <p class="rf-done" hidden>
+    <a class="rf-download" href={REPORT.pdf} download>Download the guide (PDF)</a>
+  </p>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-report-form]').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const note = form.querySelector<HTMLElement>('.rf-note')!;
+      const done = form.querySelector<HTMLElement>('.rf-done')!;
+      const button = form.querySelector<HTMLButtonElement>('button')!;
+      const body = Object.fromEntries(new FormData(form).entries());
+      button.disabled = true;
+      note.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const json = await res.json();
+        note.textContent = json.message;
+        if (res.ok) {
+          form.classList.add('is-done');
+          done.hidden = false;
+          done.querySelector('a')?.focus();
+        } else button.disabled = false;
+      } catch {
+        note.textContent = 'Something went wrong. Please try again.';
+        button.disabled = false;
+      }
+    });
+  });
+</script>

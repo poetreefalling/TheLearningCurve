@@ -1,0 +1,235 @@
+{
+  "name": "Perplexity",
+  "vendor": "perplexity-ai",
+  "category": "ai-for-learning",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.perplexity.ai/",
+  "summary": "AI answer and research engine that synthesises web and uploaded sources with citations; useful for guided study and research.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Research",
+      "Source discovery",
+      "Summarisation",
+      "Question answering"
+    ],
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Web search with citations",
+      "File-based research",
+      "Collections/spaces depending on plan"
+    ],
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Web",
+      "Mobile",
+      "Browser",
+      "Integrations vary"
+    ],
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid Pro/Enterprise plans."
+    },
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.perplexity.ai/",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "No, for Enterprise customer data"
+    },
+    "source": "https://trust.perplexity.ai/faq",
+    "checked": "2026-11-09",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": [],
+    "audience": [],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "vendor-disclosed",
+            "value": "No, for Enterprise customer data",
+            "source": "https://trust.perplexity.ai/faq",
+            "checked": "2026-11-09",
+            "note": "The Trust Center statement covers Enterprise customers. Other plans not established."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "value": "Multiple models available; specific model varies by selected mode/plan"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "vendor-disclosed",
+            "value": "13",
+            "source": "https://www.perplexity.ai/en-GB/hub/legal/terms-of-service",
+            "checked": "2026-11-09",
+            "note": "Under-18 users require parent/guardian acceptance."
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "research-ongoing",
+            "value": "Gives answers directly with citations"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.perplexity.ai/en-GB/hub/legal/terms-of-service",
+            "checked": "2026-11-09",
+            "note": "Terms require users to cite Perplexity and not misrepresent AI output; product is source-linked research."
+          },
+          {
+            "question": "Shows its sources",
+            "level": "vendor-disclosed",
+            "value": "Yes",
+            "source": "https://www.perplexity.ai/en-GB/hub/legal/terms-of-service",
+            "checked": "2026-11-09",
+            "note": "Terms require users to cite Perplexity and not misrepresent AI output; product is source-linked research."
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "value": "Customer"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "chatgpt",
+    "gemini-for-education",
+    "microsoft-copilot",
+    "claude",
+    "notebooklm"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-09",
+  "draft": false,
+  "researchTasks": [
+    "[Medium] Consumer vs Enterprise data controls, age, retention and output rights: Please provide Enterprise retention schedule, model/provider list, Australian data residency, learner age conditions and output ownership/licensing. (route: Perplexity Enterprise sales; evidence wanted: Enterprise terms, DPA, Trust Center, subprocessor list)",
+    "Confirm current pricing, market availability, integrations/standards, accessibility, security evidence and commercial relationship. Complete blank AI fields from current vendor terms/help/trust documentation; record a separate source per field.",
+    "Ask vendor (How long prompts and chats are kept): Please provide retention schedule, complete subprocessors and distinguish Enterprise from consumer account data use.",
+    "Ask vendor (Who processes the data): Please provide retention schedule, complete subprocessors and distinguish Enterprise from consumer account data use.",
+    "Ask vendor (AI models used): Please identify the current model names/version or state explicitly that models are proprietary/in-house or not disclosed. Please map models to AI features.",
+    "Ask vendor (Staff can review AI output before learners see it): Can staff review AI-generated content before learners see it or before grades/feedback are released?",
+    "Ask vendor (Staff can set limits on the AI): Can administrators/educators set topic, prompt, feature, or access restrictions?",
+    "Ask vendor (Staff can see learner conversations): Can staff see learner conversations? Which roles can access them, and can this be disabled?",
+    "Ask vendor (How it responds to learners): Is the AI designed to coach learners with questions/hints, follow educator-defined behaviour, or provide direct answers? Can this be configured?",
+    "Ask vendor (Who owns what the AI produces): Who owns generated outputs and what licence does Perplexity retain in user inputs and outputs?",
+    "Researcher note (dataPrivacy), not shown until sourced: Enterprise customer data is not used to train, fine-tune or improve models; consumer settings and account terms differ.",
+    "Researcher note (learnerOversight), not shown until sourced: Terms require users to be at least 13; minors below age of majority need parent/guardian acceptance.",
+    "Researcher note (outputOwnership), not shown until sourced: Privacy and training controls vary by plan and settings; exact retention, age and output rights require verification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Workbook: Research ongoing"
+    },
+    {
+      "field": "pricing basis",
+      "note": "Free and paid Pro/Enterprise plans"
+    },
+    {
+      "field": "price from",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "free tier",
+      "note": "Free and paid Pro/Enterprise plans"
+    },
+    {
+      "field": "trial",
+      "note": "Not in workbook"
+    },
+    {
+      "field": "accessibility standard",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "security",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "data residency",
+      "note": "Not in AI workbook"
+    },
+    {
+      "field": "geographic availability",
+      "note": "Not in AI workbook"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+---
+// "About this section": a short introduction at the foot of section, hub and directory category
+// pages, from src/data/section-intros.json. Renders nothing for a page with no entry.
+import intros from '../data/section-intros.json';
+interface Props { page: string }
+const entry = (intros as Record<string, { heading: string; paragraphs: string[] } | string>)[Astro.props.page];
+const about = entry && typeof entry === 'object' ? entry : null;
+---
+{about && (
+  <section class="section-about" aria-labelledby={`about-${Astro.props.page}`}>
+    <h2 id={`about-${Astro.props.page}`}>{about.heading}</h2>
+    {about.paragraphs.map((p) => <p set:html={p} />)}
+  </section>
+)}
+
+<style>
+  .section-about { max-width: 720px; margin: 56px 0 24px; padding-top: 24px; border-top: 1px solid var(--rule); }
+  .section-about h2 { font: 700 12px/1.4 var(--label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .section-about p { font-size: 1.02rem; line-height: 1.6; color: var(--ink-2); margin: 0 0 12px; }
+  .section-about a { color: inherit; }
+</style>

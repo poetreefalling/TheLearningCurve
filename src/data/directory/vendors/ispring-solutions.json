@@ -1,0 +1,50 @@
+{
+  "name": "iSpring Solutions, Inc.",
+  "website": "https://www.ispring.com/",
+  "status": "active",
+  "draft": false,
+  "researchTasks": [],
+  "headquarters": {
+    "value": "Alexandria, Virginia, USA (US corporate office); company operations also in other regions",
+    "source": "https://www.ispring.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "201–500 employees (LinkedIn company range)",
+    "source": "https://www.linkedin.com/company/ispring-solutions/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Not publicly disclosed",
+    "source": "https://www.ispring.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2001,
+    "source": "https://www.ispring.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "other",
+    "source": "https://www.ispring.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Privately held",
+    "source": "https://www.ispring.com/",
+    "checked": "2026-11-08",
+    "origin": "vendor-supplied"
+  },
+  "lastVerified": "2026-11-08",
+  "dataGaps": [
+    {
+      "field": "ownership",
+      "note": "\"Privately held\" doesn't say whether it is independent or venture-backed, so stored as other."
+    }
+  ]
+}
