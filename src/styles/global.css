@@ -1148,7 +1148,7 @@ html, body { overflow-x: clip; }
 .ev-marks i.on { background: var(--ev-c, var(--accent)); }
 .ev-1 { --ev-c: #8a8378; } .ev-2 { --ev-c: #c8902e; } .ev-3 { --ev-c: #2e5aa8; } .ev-4 { --ev-c: #1f7a52; }
 .ev-0 { color: var(--kicker); border-color: transparent; background: none; padding-left: 0; }
-.ev-conflict { color: var(--kicker); border-color: var(--kicker); }
+.ev-conflict { color: var(--kicker); border-color: var(--kicker); background: var(--surface); padding-left: 9px; }
 /* AI profile: the four comparison criteria */
 .ai-trust { margin-bottom: 12px; }
 .ai-areas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); margin-top: 14px; }
