@@ -23,10 +23,6 @@ const id = `rf-${placement}`;
     <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
     <button class="rf-button" type="submit" disabled={!on}>{on ? button : 'Coming soon'}</button>
   </div>
-  <label class="nl-optin rf-optin">
-    <input type="checkbox" name="credentialcraft" value="yes" />
-    <span>I'd also like to receive occasional updates from CredentialCraft, our specialist course design and development studio.</span>
-  </label>
   <p class="rf-note" role="status" aria-live="polite">Free PDF, {REPORT.pages} pages. You'll also get our monthly newsletter; unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</p>
   <p class="rf-done" hidden>
     <a class="rf-download" href={REPORT.pdf} download>Download the guide (PDF)</a>
