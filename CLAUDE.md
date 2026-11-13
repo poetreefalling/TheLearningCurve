@@ -23,6 +23,9 @@ commissions pay its way; they never decide what gets written or how a platform s
   `<Scrolly chart="…"><Step view="…">…</Step></Scrolly>` (the chart sticks and changes as each
   step scrolls past) and `<StatGrid><Stat value="54" suffix="%" label="…" source="…" href="…" /></StatGrid>`.
   `src/content/articles/trends/sample-data-story.mdx` shows them all.
+  `<VideoTimeline id="…" />` plans one video segment by segment from `src/data/timelines/<id>.json`:
+  lanes for what's on screen (camera, slides, drawing, task), drawn onto a timeline as each segment's
+  card scrolls past, with the research behind it. Timings are a design; research claims need opened sources.
   Every research card and chart listed in the frontmatter must be placed in the body. MDX
   treats `{`, `}` and `<` as code, so don't use them in prose.
 - Editor flags (`[JIM: …]`, `[TO VERIFY: …]`) show highlighted on preview builds. Production
