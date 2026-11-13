@@ -579,8 +579,6 @@ html, body { overflow-x: clip; }
 }
 /* Newsletter form extras */
 .nl-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-.nl-optin { display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; font: 400 13px/1.45 var(--sans); color: var(--ink-2); cursor: pointer; }
-.nl-optin input { margin-top: 2px; accent-color: var(--accent); flex: none; }
 .nl-note a { color: var(--muted); }
 .nl-note.nl-error { color: var(--ink); font-weight: 600; }
 .nl-done { border-left: 3px solid var(--ochre); padding: 4px 0 4px 16px; outline: none; }
@@ -1275,13 +1273,12 @@ html, body { overflow-x: clip; }
 .rf-button[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }
 .rf-page .rf-row input { border-color: var(--rule-strong); }
 .rf-page .rf-button { background: var(--ink); color: var(--paper); }
-.rf-optin { margin-top: 12px; font-size: 13px; }
 .rf-note { font: 400 13px/1.45 var(--sans); margin: 10px 0 0; opacity: 0.85; }
 .rf-note a { color: inherit; }
 .rf-done { margin: 14px 0 0; }
 .rf-download, .rl-mid-btn { display: inline-flex; align-items: center; gap: 10px; font: 700 14px/1 var(--label); letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 22px; border-radius: 6px; background: var(--band-ink); color: var(--band) !important; text-decoration: none; }
 .rf-download::before { content: '↓'; font-size: 16px; }
-.rf.is-done .rf-row, .rf.is-done .rf-optin { display: none; }
+.rf.is-done .rf-row { display: none; }
 @media (max-width: 520px) { .rf-row { flex-direction: column; } .rf-button { padding: 16px; } }
 /* the page fan */
 .rl-fan { position: relative; aspect-ratio: 1 / 1.05; max-width: 520px; width: 100%; justify-self: center; }

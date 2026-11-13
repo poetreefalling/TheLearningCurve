@@ -16,16 +16,9 @@ const id = `nl-${placement}`;
     <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
     <button class="button" type="submit" disabled={!on}>{on ? 'Subscribe' : 'Coming soon'}</button>
   </div>
-  {on && (
-    <label class="nl-optin">
-      <input type="checkbox" name="credentialcraft" value="yes" />
-      <span>I'd also like to receive occasional updates from CredentialCraft, our specialist course design and development studio.</span>
-    </label>
-  )}
   <div class="nl-done" hidden tabindex="-1">
     <p class="nl-done-title">You're subscribed.</p>
     <p class="nl-done-text">We've sent a welcome email to <strong data-nl-email></strong>. If it isn't in your inbox in a few minutes, check your spam or promotions folder.</p>
-    <p class="nl-done-text" data-nl-cc hidden>You'll also get occasional updates from CredentialCraft.</p>
     <button type="button" class="nl-again">Use a different address</button>
   </div>
   <p class="nl-note" role="status" aria-live="polite">
@@ -40,7 +33,7 @@ const id = `nl-${placement}`;
     const note = form.querySelector<HTMLElement>('.nl-note')!;
     const button = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
     const emailInput = form.querySelector<HTMLInputElement>('input[type=email]')!;
-    const fields = form.querySelectorAll<HTMLElement>('.nl-form, .nl-optin');
+    const fields = form.querySelectorAll<HTMLElement>('.nl-form');
     const done = form.querySelector<HTMLElement>('.nl-done')!;
     const defaultNote = note.innerHTML;
 
@@ -65,7 +58,6 @@ const id = `nl-${placement}`;
         const json = await res.json().catch(() => ({ message: 'Something went wrong. Please try again.' }));
         if (res.ok) {
           done.querySelector<HTMLElement>('[data-nl-email]')!.textContent = String(body.email ?? '').trim();
-          done.querySelector<HTMLElement>('[data-nl-cc]')!.hidden = body.credentialcraft !== 'yes';
           fields.forEach((el) => (el.hidden = true));
           note.hidden = true;
           done.hidden = false;

@@ -45,7 +45,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   }
 
   const page = (data.page ?? '').slice(0, 200);
-  const credentialcraft = data.credentialcraft === 'yes' || data.credentialcraft === 'on';
   // Lead magnets: a form that offers a download sends `magnet` (e.g. "AI report"). It's stored in
   // the Beehiiv custom field "Lead magnet" so the welcome automation can send the file and Jim can
   // see which offer and placement earned each subscriber. Only known values are accepted.
@@ -58,7 +57,6 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const fields = [
     ...(firstName ? [{ name: 'First Name', value: firstName }] : []),
     { name: 'Signup page', value: page || '/' },
-    { name: 'CredentialCraft opt-in', value: credentialcraft ? 'Yes' : 'No' },
   ];
   const subscribe = (custom_fields: { name: string; value: string }[]) =>
     fetch(`https://api.beehiiv.com/v2/publications/${env.BEEHIIV_PUBLICATION_ID}/subscriptions`, {
