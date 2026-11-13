@@ -25,7 +25,7 @@ import ConditionsCheck from '../../components/feature/ConditionsCheck.astro';
 import EvidenceMap from '../../components/feature/EvidenceMap.astro';
 import VideoTimeline from '../../components/story/VideoTimeline.astro';
 import AdSlot from '../../components/AdSlot.astro';
-import { adsAllowedFor, pickAd } from '../../lib/ads';
+import { adsAllowedFor, pickAd, pickHouse } from '../../lib/ads';
 import { SITE, SECTIONS } from '../../site.config';
 import {
   type Article, getArticles, slugOf, urlOf, heroSrc, heroSrcset, heroCredit, isLive, hasAffiliateLinks,
@@ -112,7 +112,7 @@ if (d.review) {
 // Ads: none on reviews and comparisons. On wide screens a half-page sits in a sticky rail; below
 // that width (or when no half-page is booked) a medium rectangle goes inside the article instead.
 const adsOk = adsAllowedFor(d.kind);
-const rail = adsOk && !!pickAd('halfpage', 'article');
+const rail = adsOk && (!!pickAd('halfpage', 'article') || !!pickHouse('halfpage', Astro.url.pathname));
 const layout = rail ? 'article-layout has-rail' : 'article-layout';
 
 const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, VideoTimeline, ReaderPoll, DayBudget, ConditionsCheck, EvidenceMap };

@@ -1,0 +1,42 @@
+{
+  "_about": "House promos: our own billboards for ad slots with nothing paid to show. A slot shows a direct sponsor first, then an AdSense ad once Google actually fills it, then one of these. Labelled 'From The Learning Curve', never 'Advertisement'. Rules: docs/ads.md.",
+  "promos": [
+    {
+      "id": "newsletter",
+      "kicker": "The Learning Curve Newsletter",
+      "headline": "The research and technology shaping learning, once a month",
+      "text": "Studies worth understanding, developments worth knowing about, and what they mean for your work. Free, one email a month.",
+      "cta": "Get the newsletter",
+      "url": "/newsletter/",
+      "slots": ["billboard", "rectangle", "halfpage"],
+      "style": "band"
+    },
+    {
+      "id": "evidence-map",
+      "kicker": "The evidence map",
+      "headline": "Which learning principles hold up?",
+      "text": "Every principle in our library, rated by the strength of its evidence, with what to do in a course.",
+      "cta": "See the evidence map",
+      "url": "/library/evidence-map/",
+      "slots": ["billboard", "rectangle", "halfpage"]
+    },
+    {
+      "id": "course-checklist",
+      "kicker": "Free guide",
+      "headline": "An online course design checklist, grounded in the research",
+      "text": "Seven checks to run before you build: objectives, assessment, practice, feedback and a pilot.",
+      "cta": "Open the checklist",
+      "url": "/guides/online-course-design-checklist/",
+      "slots": ["billboard", "rectangle", "halfpage"]
+    },
+    {
+      "id": "discover",
+      "kicker": "Discover",
+      "headline": "Compare learning platforms on the evidence",
+      "text": "LMS platforms, course platforms and AI tools, with the source and date behind every fact.",
+      "cta": "Browse the directory",
+      "url": "/discover/",
+      "slots": ["billboard", "rectangle", "halfpage"]
+    }
+  ]
+}

@@ -1,25 +1,52 @@
 ---
-// One ad slot. Shows the live direct campaign for this slot, else the AdSense unit, else nothing:
-// an empty slot takes no space. (The prop is `unit`, not `slot`: Astro reserves `slot`.) Labelled "Advertisement" and kept visually apart from editorial.
-import { pickAd, SLOTS, type SlotId, type Page } from '../lib/ads';
+// One ad slot, in this order:
+//   1. a live direct sponsor campaign;
+//   2. the AdSense unit, shown only once Google actually fills it (AdSense marks the unit
+//      data-ad-status="filled" or "unfilled"; until it's filled, the unit takes no space);
+//   3. a house promo from src/data/house-ads.json, our own billboard for a guide, the newsletter
+//      or the directory, labelled "From The Learning Curve". It shows while AdSense hasn't filled,
+//      and stays if it never does.
+// With none of these, the slot renders nothing. (The prop is `unit`, not `slot`: Astro reserves `slot`.)
+// Ads are labelled "Advertisement" and kept visually apart from editorial. Rules: docs/ads.md.
+import { pickAd, pickHouse, SLOTS, type SlotId, type Page, type HousePromo } from '../lib/ads';
 
 interface Props { unit: Exclude<SlotId, 'card'>; page: Page; class?: string }
 const { unit: slot, page, class: cls = '' } = Astro.props;
 const ad = pickAd(slot, page);
+const house: HousePromo | null = ad?.kind === 'direct' ? null : pickHouse(slot, Astro.url.pathname);
 const spec = SLOTS[slot];
+const box = `--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`;
 ---
 
-{ad && (
-  <aside class={`ad ad-${slot} ${cls}`} aria-label="Advertisement" data-pagefind-ignore data-ad-end={ad.kind === 'direct' ? ad.campaign.end : undefined}>
+{ad?.kind === 'direct' && (
+  <aside class={`ad ad-${slot} ${cls}`} aria-label="Advertisement" data-pagefind-ignore data-ad-end={ad.campaign.end}>
     <div class="ad-label">Advertisement</div>
-    {ad.kind === 'direct' ? (
-      <a class="ad-box" href={ad.campaign.url} rel="sponsored noopener" target="_blank" style={`--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`}>
-        <img src={ad.campaign.image} alt={ad.campaign.alt} width={spec.width} height={spec.height} loading="lazy" decoding="async" />
-      </a>
-    ) : (
-      <div class="ad-box ad-network" style={`--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`}>
-        <ins class="adsbygoogle" style="display:block" data-ad-client={ad.client} data-ad-slot={ad.adSlot} data-ad-format={slot === 'halfpage' ? 'vertical' : slot === 'billboard' ? 'horizontal' : 'rectangle'} data-full-width-responsive="true"></ins>
-        <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <a class="ad-box" href={ad.campaign.url} rel="sponsored noopener" target="_blank" style={box}>
+      <img src={ad.campaign.image} alt={ad.campaign.alt} width={spec.width} height={spec.height} loading="lazy" decoding="async" />
+    </a>
+  </aside>
+)}
+
+{ad?.kind !== 'direct' && (ad || house) && (
+  <aside class={`ad ad-${slot} ad-flex ${cls}`} aria-label={house ? 'From The Learning Curve' : 'Advertisement'} data-pagefind-ignore>
+    {ad?.kind === 'network' && (
+      <div class="ad-network-wrap">
+        <div class="ad-label">Advertisement</div>
+        <div class="ad-box ad-network" style={box}>
+          <ins class="adsbygoogle" style="display:block" data-ad-client={ad.client} data-ad-slot={ad.adSlot} data-ad-format={slot === 'halfpage' ? 'vertical' : slot === 'billboard' ? 'horizontal' : 'rectangle'} data-full-width-responsive="true"></ins>
+          <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+    )}
+    {house && (
+      <div class="house-wrap">
+        <div class="ad-label">From The Learning Curve</div>
+        <a class={`house house-${slot} house-${house.style}`} href={house.url}>
+          <span class="house-kicker">{house.kicker}</span>
+          <span class="house-headline">{house.headline}</span>
+          <span class="house-text">{house.text}</span>
+          <span class="house-cta">{house.cta} <span aria-hidden="true">→</span></span>
+        </a>
       </div>
     )}
   </aside>
