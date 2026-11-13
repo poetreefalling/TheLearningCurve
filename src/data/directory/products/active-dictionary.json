@@ -1,0 +1,261 @@
+{
+  "name": "Active Dictionary",
+  "vendor": "active-dictionary",
+  "category": "ai-for-learning",
+  "secondaryCategories": [],
+  "website": "https://activedictionary.com/",
+  "summary": "A reading and vocabulary tool for adult language learners: open a text, PDF or captioned YouTube video, get explanations in context, save expressions with the sentence they came from, then use them in AI conversation and writing practice about the same material.",
+  "useCases": {
+    "value": [
+      "reading work or study material in another language",
+      "building vocabulary from your own texts, PDFs and videos",
+      "speaking and writing practice about material you've read"
+    ],
+    "source": "https://activedictionary.com/",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Works with texts, PDFs and YouTube videos that have captions",
+      "Look up words and ask about difficult passages beside the open material",
+      "Personal dictionary that keeps each saved expression with its context",
+      "AI chat for follow-up questions about a text",
+      "Speaking practice: discuss the material with an AI character, with your saved phrases to hand",
+      "Writing tasks with hints on grammar, spelling, punctuation, word choice and style",
+      "Public library usable without an account; browser extension and mobile app for saving and reviewing words"
+    ],
+    "source": "https://activedictionary.com/",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "YouTube (videos with captions)"
+    ],
+    "source": "https://activedictionary.com/",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://activedictionary.com/",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "The privacy policy (effective 1 March 2025) doesn't mention AI, model providers or training; it lists user content among data collected and \"improve features and performance\" among uses."
+    },
+    "source": "https://activedictionary.com/privacy-policy",
+    "checked": "2026-11-13",
+    "origin": "verified"
+  },
+  "aiProfile": {
+    "toolTypes": [
+      "reading assistant",
+      "vocabulary builder",
+      "conversation practice",
+      "writing feedback"
+    ],
+    "audience": [
+      "adult language learners"
+    ],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "level": "research-ongoing",
+            "note": "Privacy policy doesn't address AI training."
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "level": "research-ongoing",
+            "note": "Privacy policy gives no retention periods and doesn't mention chats or voice."
+          },
+          {
+            "question": "Who processes the data",
+            "level": "research-ongoing",
+            "note": "Only unnamed service providers, plus Payoneer for payments."
+          },
+          {
+            "question": "AI models used",
+            "level": "research-ongoing",
+            "note": "No provider or model named on the site."
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "level": "research-ongoing",
+            "note": "The submission says adults 18+; the privacy policy says the service is aimed at users 13 and over (16 where local law requires).",
+            "conflict": true
+          },
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing",
+            "note": "Built for individual adult learners; no staff, teacher or institution accounts are described."
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing",
+            "note": "Built for individual adult learners; no staff, teacher or institution accounts are described."
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing",
+            "note": "Built for individual adult learners; no staff, teacher or institution accounts are described."
+          }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "level": "vendor-disclosed",
+            "value": "In writing practice the learner writes the response; the tool gives hints and the learner decides which changes to make.",
+            "source": "https://activedictionary.com/features/writing",
+            "checked": "2026-11-13"
+          },
+          {
+            "question": "Answers from your own course content",
+            "level": "vendor-disclosed",
+            "value": "Yes: explanations, chat and speaking practice work from the text, PDF or video the learner has open.",
+            "source": "https://activedictionary.com/features/speaking",
+            "checked": "2026-11-13"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "level": "research-ongoing",
+            "note": "Terms say users keep ownership of content they submit, create or store, with a licence to the company to run and improve the service; AI-generated output isn't addressed."
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [
+    "duolingo-max",
+    "notebooklm",
+    "quizlet"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "assurance": {
+    "accessibility": {
+      "level": "research-ongoing",
+      "finding": "No accessibility standard or conformance report is named on the pages we opened.",
+      "sources": [
+        {
+          "title": "Active Dictionary",
+          "url": "https://activedictionary.com/"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "security": {
+      "level": "research-ongoing",
+      "finding": "No security certifications are named on the pages we opened.",
+      "sources": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://activedictionary.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "dataResidency": {
+      "level": "research-ongoing",
+      "finding": "The operator is based in Hong Kong, and the privacy policy says information may be processed in other countries with appropriate safeguards. No hosting provider or storage location is named. The policy states it adheres to the GDPR.",
+      "sources": [
+        {
+          "title": "Privacy Policy",
+          "url": "https://activedictionary.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "ai": {
+      "level": "research-ongoing",
+      "finding": "The site describes an AI chat, an AI conversation partner and writing hints, but names no AI provider or model, and the privacy policy doesn't say whether learner content or chats train AI models.",
+      "sources": [
+        {
+          "title": "Speaking practice",
+          "url": "https://activedictionary.com/features/speaking"
+        },
+        {
+          "title": "Privacy Policy",
+          "url": "https://activedictionary.com/privacy-policy"
+        }
+      ],
+      "checked": "2026-11-13"
+    },
+    "procurementChecks": [
+      "Ask which AI providers process learner text, chats and voice, and whether any of it trains models.",
+      "Ask how long chats, recordings and uploaded material are kept.",
+      "Confirm the minimum age: the submission says 18+, the privacy policy 13+."
+    ]
+  },
+  "status": "active",
+  "draft": false,
+  "lastVerified": "2026-11-13",
+  "researchTasks": [
+    "Submitted at /submit on 13 Nov 2026 by Dmitry Yurkin, CTO, Active Dictionary Company Limited, for AI for Learning. Individual adult learners (18+, B1 and above); not an LMS or authoring tool; no institutional deployment claimed. Demo only: public access, no reviewer account, so profile only, not an evaluation.",
+    "Submission says there's ongoing free access with paid features, no card needed to start, and AI usage limits; no pricing page found and the terms say only that some features may be paid. Ask for a page to cite.",
+    "Submission mentions spaced repetition for saved words; not described on the public pages (the mobile app is for reviewing saved words). Ask where it's documented.",
+    "Which languages can people learn? The site shows English–Russian and Russian–English dictionaries and an English interface only.",
+    "Age conflict: submission 18+, privacy policy 13+ (16+ where required). Ask which is current and update the policy reference.",
+    "Ask: AI providers and models, training on learner content, retention of chats and voice, and who owns AI-generated output.",
+    "Vendor states it supplies no independent evidence of learning outcomes."
+  ],
+  "dataGaps": [
+    {
+      "field": "primaryMarket",
+      "note": "Individual adult learners; none of the market values (higher education, schools, corporate…) fits, so left out."
+    },
+    {
+      "field": "pricing",
+      "note": "No prices or plans published; submission describes free access with paid features."
+    },
+    {
+      "field": "pricingModel",
+      "note": "Not published."
+    },
+    {
+      "field": "standards",
+      "note": "None; not relevant to a consumer app."
+    },
+    {
+      "field": "geographicAvailability",
+      "note": "Not stated; languages offered not stated."
+    },
+    {
+      "field": "accessibility",
+      "note": "No standard or report named."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "dataPrivacy",
+      "note": "No storage location or hosting provider named."
+    }
+  ]
+}
