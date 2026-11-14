@@ -89,6 +89,11 @@ empty slot is better than a weak article.
    schema field. Australian/British spelling. Library, guide and trends articles end with a
    `readerCheck`: a quiz or a poll, chosen and written by the rules in `docs/editorial.md`
    section 11 (trends always a poll; library and guides alternate with the previous one).
+   **Trends pieces get visual data whenever possible:** an animated infographic, data
+   visualisation or interactive element (`<StatGrid>`, `<DataChart>`, `<Scrolly>`, or a feature
+   widget), built from the numbers in the dated primary sources, per the Trends shape in
+   `docs/editorial.md`. Skip it only when the sources have nothing worth charting, and say so in
+   the PR.
 5. **Hard rules.**
    - Never invent a statistic, study, quote, client, result or feature. If you can't link it,
      cut it.
@@ -136,6 +141,8 @@ empty slot is better than a weak article.
      - the angle in 2–3 lines, and what the ranking pages miss
      - every `[JIM:]` and `[TO VERIFY]` item as a checklist
      - each research card and chart with its source link, for Jim to check against the paper
+     - for trends: each interactive graphic or stat with its source and figure/table/page, or
+       why the piece has none
      - the image and its style
      - the reader check: quiz or poll, and why that kind (the previous article's kind)
    - Never push to `main`, and never merge.
