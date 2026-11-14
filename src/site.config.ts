@@ -2,11 +2,11 @@
 export const SITE = {
   name: 'The Learning Curve',
   url: 'https://thelearningcurve.net',
-  tagline: 'Research, practice and reviews for people who build courses',
+  tagline: 'Independent media and intelligence on how the world learns',
   // The line under the wordmark in the masthead
   motto: 'Intelligence for the people shaping the future of learning.',
   description:
-    'An independent publication on how to design online courses that work: the research on how people learn, practical course design, and honest platform reviews.',
+    'An independent media and intelligence platform exploring the technologies, ideas, research and innovations transforming how the world learns. We connect the people shaping learning with the insights, evidence and tools to make better decisions.',
   author: {
     name: 'Jim Lounsbury',
     url: '/about/',
