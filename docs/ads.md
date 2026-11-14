@@ -80,7 +80,13 @@ footer, the disclosure page and /submit.
   each one in the D1 table `ad_enquiries` (the same database as submissions) and emails it, with
   reply-to set to the enquirer. The email goes to `ADVERTISING_NOTIFY_TO` (Cloudflare Pages →
   Settings → Variables), or advertising@thelearningcurve.net if that isn't set. It uses the same
-  `RESEND_API_KEY` as submissions. Check the advertiser against "Who we accept" before sending the kit.
+  `RESEND_API_KEY` as submissions. Check the advertiser against "Who we accept" before following up.
+- **The media kit download:** after a successful enquiry the thanks page offers the PDF at
+  `public/media-kit/the-learning-curve-media-kit.pdf`. The link is signed and lasts 7 days;
+  `functions/media-kit/[[path]].ts` checks it and sends anyone without a valid link to the form. Signed
+  with `MEDIA_KIT_SECRET` (any long random string, Cloudflare Pages → Settings → Variables), or
+  `RESEND_API_KEY` if that isn't set. To update the kit, export the new PDF from the design canvas and
+  replace that file under the same name.
 
 ## Switching on AdSense (the fallback)
 
