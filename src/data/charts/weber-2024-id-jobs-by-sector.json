@@ -1,0 +1,22 @@
+{
+  "title": "Six in ten instructional design job ads were in corporate settings; 2% were in schools",
+  "subtitle": "Share of 130 full-time US instructional designer and instructional technologist postings on Indeed, by sector, May 2023",
+  "type": "bar",
+  "unit": "% of job postings",
+  "highlight": "Corporate (including healthcare)",
+  "series": [
+    { "label": "Corporate (including healthcare)", "value": 60.0 },
+    { "label": "Higher education", "value": 23.8 },
+    { "label": "Other (military, government, research)", "value": 10.8 },
+    { "label": "Non-profit", "value": 3.1 },
+    { "label": "K-12 schools", "value": 2.3 }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Weber, N. L., McCarthy, C., Campbell, K., & Bauer, H.",
+    "year": 2024,
+    "doi": "10.30935/cedtech/14606",
+    "url": "https://cedtech.editorialpark.com/download/what-are-employers-expecting-from-instructional-design-and-learning-technology-professionals-across-14606.pdf",
+    "figureOrTable": "Table 2"
+  }
+}

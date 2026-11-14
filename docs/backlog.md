@@ -102,8 +102,8 @@ don't use a queue row.
 | 39 | The Expertise Reversal Effect: When Help Starts to Hurt | expertise reversal effect example (row keyword "expertise reversal effect" is 90 · 49 US, 110 · 44 AU, too hard for now; kept as secondary with "the expertise reversal effect" 10 · 5 and "expertise reversal effect kalyuga" 10 · 5; checked 12 Nov 2026) | 10 · 5 | library | in PR (Sat 14 Nov 00:00) |
 | 40 | How to Pilot a Course Before Launch | elearning testing (row keyword "how to test an online course" had 0 US/AU volume, SD 4; kept as secondary with "beta test online course" 0 · 4, "pilot testing" 1,000 · 35 and "formative evaluation" 1,300 · 31; AU 10 · 18; checked 12 Nov 2026) | 40 · 19 | guide | in PR (Sat 14 Nov 12:00) |
 | 41 | What Is Scaffolding in Education? A Guide for Course Designers | what scaffolding in education (secondary: scaffolding in education 6,600 · 55, scaffolding in education vygotsky 1,300 · 37, 4 types of scaffolding in education 170 · 38; AU 320 · 5; checked 14 Nov 2026) | 5,400 · 7 | library | in PR (Sun 15 Nov 00:00) |
-| 42 | Instructional Design Jobs: Where the Work Is and What It Asks For | jobs instructional design | 14,800 · 21 | guide | next |
-| 43 | Instructional Design Models Compared: ADDIE, SAM, Dick and Carey and More | instructional design models | 390 · 28 | guide | todo |
+| 42 | Instructional Design Jobs: Most Are Corporate. Here's How to Get Hired | jobs instructional design (secondary: job instructional design 12,100 · 35, instructional design remote jobs 5,400 · 33, instructional design job remote 4,400 · 22; AU 110 · 18; checked 15 Nov 2026) | 14,800 · 21 | guide | in PR (Mon 16 Nov 12:00) |
+| 43 | Instructional Design Models Compared: ADDIE, SAM, Dick and Carey and More | instructional design models | 390 · 28 | guide | next |
 | 44 | Instructional Design Portfolio Examples Hiring Managers Remember | instructional design portfolio examples | 260 · 18 | guide | todo |
 | 45 | Digital Badges on LinkedIn: What Changed | linkedin digital badges | 140 · 19 | trends | todo |
 | 46 | Types of Scaffolding, With Online Course Examples | types of scaffolding in education | 90 · 21 | library | todo |
