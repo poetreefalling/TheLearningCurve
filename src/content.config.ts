@@ -459,6 +459,8 @@ const articles = defineCollection({
         style: z.enum(['documentary', 'risograph', 'screenshot']),
         alt: z.string().min(20),
         caption: z.string().optional(),
+        // A per-image credit, e.g. "Photo: Gustavo Fring" for a supplied photograph; overrides the style's default
+        credit: z.string().optional(),
         // Defaults to /images/articles/<slug>.webp
         src: z.string().optional(),
       }),

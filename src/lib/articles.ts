@@ -24,6 +24,7 @@ export const heroSrc = (a: Article, variant: '' | '-1200' | '-card' | '-og' = ''
 };
 
 export const heroCredit = (a: Article) =>
+  a.data.hero.credit ??
   ({
     documentary: '',
     risograph: 'Illustration: The Learning Curve',
