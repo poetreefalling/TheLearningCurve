@@ -134,7 +134,7 @@ const timings = ['As soon as possible', 'In the next three months', 'Later this 
           <div class="sub-field"><label for="e-email">Work email</label><input id="e-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required maxlength="254" /></div>
           <div class="sub-field"><label for="e-org">Company or organisation</label><input id="e-org" name="organisation" type="text" autocomplete="organization" required maxlength="160" /></div>
           <div class="sub-field"><label for="e-role">Your role <span class="sub-opt">Optional</span></label><input id="e-role" name="role" type="text" autocomplete="organization-title" maxlength="120" /></div>
-          <div class="sub-field"><label for="e-url">Website <span class="sub-opt">Optional</span></label><input id="e-url" name="url" type="url" placeholder="https://" maxlength="300" /></div>
+          <div class="sub-field"><label for="e-url">Website <span class="sub-opt">Optional</span></label><input id="e-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" maxlength="300" /></div>
           <div class="sub-field">
             <label for="e-timing">When are you looking to run?</label>
             <select id="e-timing" name="timing"><option value="">Choose one</option>{timings.map((t) => <option>{t}</option>)}</select>

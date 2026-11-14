@@ -58,7 +58,7 @@ const failed = Astro.url.searchParams.get('error');
         <legend>2 · About the platform</legend>
         <div class="sub-grid">
           <div class="sub-field"><label for="f-pname">Platform or product name</label><input id="f-pname" name="product" type="text" required maxlength="160" /></div>
-          <div class="sub-field"><label for="f-url">Website</label><input id="f-url" name="url" type="url" placeholder="https://" required maxlength="300" /></div>
+          <div class="sub-field"><label for="f-url">Website</label><input id="f-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="yourplatform.com" required maxlength="300" /></div>
           <div class="sub-field">
             <label for="f-cat">Category</label>
             <select id="f-cat" name="category" required>

@@ -80,7 +80,9 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
 
   if (!d.name || !d.organisation) return reply(isJson, 400, 'Please fill in your name and organisation.');
   if (!EMAIL.test(d.email)) return reply(isJson, 400, 'Please enter a valid work email.');
-  if (d.url && !/^https?:\/\/[^\s.]+\.[^\s]{2,}/i.test(d.url)) return reply(isJson, 400, 'Please enter your website starting https://, or leave it blank.');
+  // Accept bare domains (example.com, www.example.com) by adding https://
+  if (d.url && !/^https?:\/\//i.test(d.url)) d.url = `https://${d.url}`;
+  if (d.url && !/^https?:\/\/[^\s.]+\.[^\s]{2,}$/i.test(d.url)) return reply(isJson, 400, 'Please check your website address, for example yourcompany.com, or leave it blank.');
 
   const id = crypto.randomUUID();
   const at = Date.now();
