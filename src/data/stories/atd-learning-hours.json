@@ -1,0 +1,22 @@
+{
+  "title": "Formal learning hours per employee fell by more than half in four years, then edged up",
+  "subtitle": "Average formal learning hours used per employee a year, organisations in ATD's State of the Industry surveys",
+  "type": "line",
+  "format": "number",
+  "categories": ["2020", "2021", "2022", "2023", "2024", "2025"],
+  "series": [
+    { "id": "hours", "label": "Formal learning hours per employee", "values": [35, 32.9, 20.7, 17.4, 13.7, 16.7] }
+  ],
+  "views": {
+    "fall": { "upTo": 4, "annotations": [{ "at": 0, "series": "hours", "text": "35 hours" }, { "at": 4, "series": "hours", "text": "13.7 hours" }] },
+    "rebound": { "annotations": [{ "at": 5, "series": "hours", "text": "16.7, the first rise in five years" }] }
+  },
+  "notes": [
+    "Each year is a separate group of organisations (539 reported 2024 data; 340 took part in the 2026 report on 2025), not the same organisations tracked over time.",
+    "Formal learning only: on-the-job and informal learning are not counted."
+  ],
+  "sources": [
+    { "label": "ATD, 2025 State of the Industry: Talent Development Benchmarks and Trends", "url": "https://assets.td.org/m/483691e33fbdf4db/original/State_of_the_Industry_PDF_Download_2025.pdf", "figureOrTable": "page 10 (2020–2024)" },
+    { "label": "ATD, Highlights From ATD's 2026 State of the Industry Report (11 May 2026)", "url": "https://www.td.org/content/atd-blog/highlights-from-atd-s-2026-state-of-the-industry-report", "figureOrTable": "2025 figure in text" }
+  ]
+}

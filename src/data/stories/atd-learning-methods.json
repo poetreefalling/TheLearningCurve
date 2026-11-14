@@ -1,0 +1,30 @@
+{
+  "title": "Two in three organisations already use microlearning; one in five more are considering it",
+  "subtitle": "Share of organisations using or considering each technology-based learning method, 2024",
+  "type": "groupedBar",
+  "format": "percent",
+  "yMax": 100,
+  "categories": [
+    "Simulations and scenarios",
+    "Microlearning and short-form",
+    "Podcasts and videos",
+    "Immersive learning",
+    "AI embedded in learning",
+    "Games and gamification"
+  ],
+  "series": [
+    { "id": "used", "label": "Used", "values": [69, 66, 63, 55, 40, 31] },
+    { "id": "considering", "label": "Considering", "values": [20, 22, 19, 29, 36, 33] }
+  ],
+  "views": {
+    "all": {},
+    "micro": { "focus": [1], "highlight": ["used", "considering"] },
+    "ai": { "focus": [4], "highlight": ["considering"] }
+  },
+  "notes": [
+    "539 organisations reported 2024 data. ATD's category label is \"Microlearning and short-form learning\"."
+  ],
+  "sources": [
+    { "label": "ATD, 2025 State of the Industry: Talent Development Benchmarks and Trends", "url": "https://assets.td.org/m/483691e33fbdf4db/original/State_of_the_Industry_PDF_Download_2025.pdf", "figureOrTable": "page 41" }
+  ]
+}
