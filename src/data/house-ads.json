@@ -8,7 +8,11 @@
       "text": "Studies worth understanding, developments worth knowing about, and what they mean for your work. Free, one email a month.",
       "cta": "Get the newsletter",
       "url": "/newsletter/",
-      "slots": ["billboard", "rectangle", "halfpage"],
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ],
       "style": "band"
     },
     {
@@ -18,7 +22,11 @@
       "text": "Every principle in our library, rated by the strength of its evidence, with what to do in a course.",
       "cta": "See the evidence map",
       "url": "/library/evidence-map/",
-      "slots": ["billboard", "rectangle", "halfpage"]
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
     },
     {
       "id": "course-checklist",
@@ -27,7 +35,11 @@
       "text": "Seven checks to run before you build: objectives, assessment, practice, feedback and a pilot.",
       "cta": "Open the checklist",
       "url": "/guides/online-course-design-checklist/",
-      "slots": ["billboard", "rectangle", "halfpage"]
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
     },
     {
       "id": "discover",
@@ -36,7 +48,24 @@
       "text": "LMS platforms, course platforms and AI tools, with the source and date behind every fact.",
       "cta": "Browse the directory",
       "url": "/discover/",
-      "slots": ["billboard", "rectangle", "halfpage"]
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
+    },
+    {
+      "id": "advertise",
+      "kicker": "Advertise with us",
+      "headline": "Your ad could be here",
+      "text": "Reach the people who design, run and buy learning, beside research they trust. Clearly labelled. Never a verdict.",
+      "cta": "Get the media kit",
+      "url": "/advertising/",
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
     }
   ]
 }
