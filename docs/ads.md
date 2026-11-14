@@ -67,6 +67,21 @@ dates (the end date is the last day it shows). Then **Save and publish**.
 There's no click or impression counting built in. Use the sponsor's UTM tags (their analytics
 see the visits) or a link shortener with stats.
 
+## The advertise page and media kit enquiries
+
+`/advertising/` is the public page: who reads the site, the formats, where ads appear, and the full
+advertising and sponsorship policy. It never shows prices. Rates, packages and the founding partner
+offer go out one-to-one in the media kit deck. Every "Advertisement" label links to it, as do the
+footer, the disclosure page and /submit.
+
+- **Changing the policy:** edit `src/pages/advertising/index.astro` and set
+  `SITE.advertising.policyUpdated` in `src/site.config.ts` to the date, so "Last updated" stays true.
+- **Enquiries:** the "Request the media kit" form posts to `functions/api/enquiry.ts`, which saves
+  each one in the D1 table `ad_enquiries` (the same database as submissions) and emails it, with
+  reply-to set to the enquirer. The email goes to `ADVERTISING_NOTIFY_TO` (Cloudflare Pages →
+  Settings → Variables), or advertising@thelearningcurve.net if that isn't set. It uses the same
+  `RESEND_API_KEY` as submissions. Check the advertiser against "Who we accept" before sending the kit.
+
 ## Switching on AdSense (the fallback)
 
 1. Apply at adsense.google.com with thelearningcurve.net. Google reviews the site.
@@ -90,4 +105,5 @@ comparisons), and `/ads.txt` lists Google as an authorised seller automatically.
 - `src/components/AdSlot.astro`, `src/components/SponsoredCard.astro`: the slots
 - `src/pages/ads.txt.ts`: `/ads.txt`
 - `public/ads/`: sponsor images
+- `src/pages/advertising/`: the advertise page and its thanks page; `functions/api/enquiry.ts`: its form
 - `functions/api/admin/[[path]].ts` and `public/admin/index.html`: the ad manager

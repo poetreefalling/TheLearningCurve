@@ -20,6 +20,9 @@ export const SITE = {
   // /submit: where platform submissions are emailed, and the reply promise shown on the page.
   // Storage and email setup: docs/submissions.md.
   submissions: { notifyEmail: 'jim@thelearningcurve.net', replyDays: 3 },
+  // /advertising: the public advertising page and policy. Media kit requests post to /api/enquiry.
+  // `policyUpdated` is the "last changed" date shown on the page: change it whenever the policy does.
+  advertising: { email: 'advertising@thelearningcurve.net', policyUpdated: '2026-11-14' },
 };
 
 // The main navigation (v2). Each entry is a hub page; the article sections below sit inside them,

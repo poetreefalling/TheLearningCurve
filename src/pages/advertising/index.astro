@@ -1,0 +1,358 @@
+---
+// /advertising: the public advertising page. Who reads the site, what can be booked, and the full
+// advertising and sponsorship policy, with a "Request the media kit" form. No prices here: rates and
+// the founding partner offer go out one-to-one in the media kit. The form posts to /api/enquiry
+// (functions/api/enquiry.ts). No ads on this page. Setup: docs/ads.md.
+import Base from '../../layouts/Base.astro';
+import { SITE } from '../../site.config';
+import { getProducts } from '../../lib/directory';
+
+const { email, policyUpdated } = SITE.advertising;
+const profiled = (await getProducts()).length;
+const updated = new Date(`${policyUpdated}T00:00:00+11:00`).toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Sydney' });
+const failed = Astro.url.searchParams.get('error');
+
+const readers = [
+  ['Instructional designers', 'Building courses and choosing the tools to build them with'],
+  ['L&D leaders', 'Running workplace learning, and the budgets behind it'],
+  ['Educators and academics', 'Teaching online in universities, colleges and schools'],
+  ['Course creators', 'Turning expertise into courses that sell and teach'],
+  ['Technology buyers', 'Comparing LMS, course and AI platforms before they sign'],
+  ['People moving into ID', 'Teachers and trainers building a new career'],
+];
+
+const formats = [
+  ['Billboard', '970 × 250 display ad', 'Home page between rows; the end of articles'],
+  ['Medium rectangle', '300 × 250 display ad', 'Home page side rail; inside articles on smaller screens'],
+  ['Half page', '300 × 600 display ad', 'Sticky side rail beside articles on wide screens'],
+  ['Sponsored card', 'An image, headline and line of text in the style of an article card, marked "Sponsored"', 'Home page grid'],
+  ['Newsletter sponsorship', 'One sponsor message per monthly issue', 'The Learning Curve newsletter'],
+  ['Sponsored research', 'Research a sponsor funds, labelled as sponsored on every page', 'Intelligence'],
+  ['Enhanced directory profile', 'Extra media and a way for buyers to contact the vendor', "The vendor's own directory profile"],
+];
+
+const interests = ['Display ads', 'Sponsored card', 'Newsletter', 'Sponsored research', 'Enhanced directory profile', 'Founding partner offer', 'Not sure yet'];
+const timings = ['As soon as possible', 'In the next three months', 'Later this year or next', 'Just exploring'];
+---
+
+<Base
+  title="Advertise with The Learning Curve"
+  description="Reach the people who design, run and buy online learning. Formats, audience and our full advertising and sponsorship policy: sponsors buy visibility, never a verdict."
+>
+  <section class="ink-band adv-hero" aria-labelledby="adv-h">
+    <div class="wrap">
+      <p class="ink-kicker">Advertise</p>
+      <h1 id="adv-h" class="ink-title">Sponsors buy visibility. Never a verdict.</h1>
+      <p class="ink-lede">
+        The Learning Curve is read by the people who design, run and buy online learning. Every placement is clearly
+        labelled and sits beside research our readers trust, because no sponsor can touch it.
+      </p>
+      <p class="adv-cta"><a class="pill-btn pill-marigold" href="#media-kit">Request the media kit →</a></p>
+    </div>
+  </section>
+
+  <div class="wrap adv">
+    <section class="adv-promise" aria-labelledby="promise-h">
+      <h2 id="promise-h" class="adv-h">Our promise</h2>
+      <div class="adv-measure">
+        <p>Advertising and sponsorship provide revenue for The Learning Curve. Our advertising and sponsorship clients never decide what we write, how we score a platform or which products we list.</p>
+        <p>Our readers choose courses, platforms and technology on the strength of what we publish. That only works if they can trust that our judgements aren't for sale. It's also why a placement here is worth more to a sponsor: it sits beside work people believe.</p>
+      </div>
+      <div class="adv-two">
+        <div>
+          <h3>Money can buy</h3>
+          <ul><li>Clearly labelled ad space</li><li>Newsletter sponsorship</li><li>Labelled sponsored research</li><li>An enhanced directory profile</li></ul>
+        </div>
+        <div>
+          <h3>Money can never buy</h3>
+          <ul><li>A score, ranking or recommendation</li><li>A place in the directory, or an evidence level</li><li>An article, or a say in one</li><li>Ads on reviews or comparisons</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="readers-h">
+      <h2 id="readers-h" class="adv-h">Who reads The Learning Curve</h2>
+      <p class="adv-measure adv-lead">The people who design, run and buy learning. Most arrive searching for a specific problem, such as how long a course video should be or which LMS fits their organisation, so sponsors meet them while they're deciding.</p>
+      <ul class="adv-readers">
+        {readers.map(([t, d]) => <li><b>{t}</b><span>{d}</span></li>)}
+      </ul>
+      <ul class="adv-facts" aria-label="The publication">
+        <li><b>2</b><span>new articles every day, researched and cited</span></li>
+        <li><b>{profiled}</b><span>learning technologies profiled in the directory</span></li>
+        <li><b>3</b><span>streams: the library, guides and trends, and the directory</span></li>
+      </ul>
+      <p class="adv-small">Audience figures, rates and packages are in the media kit.</p>
+    </section>
+
+    <section aria-labelledby="book-h">
+      <h2 id="book-h" class="adv-h">What sponsors can book</h2>
+      <p class="adv-measure adv-lead">Sponsors can buy visibility, clearly labelled. Every format below is booked directly with us.</p>
+      <div class="adv-table-wrap">
+        <table class="adv-table">
+          <thead><tr><th scope="col">Format</th><th scope="col">What it is</th><th scope="col">Where it appears</th></tr></thead>
+          <tbody>{formats.map(([f, w, p]) => <tr><th scope="row">{f}</th><td>{w}</td><td>{p}</td></tr>)}</tbody>
+        </table>
+      </div>
+      <p class="adv-small">When no sponsor has booked a slot, it may show a Google ad or a promotion for our own pages.</p>
+    </section>
+
+    <section aria-labelledby="where-h">
+      <h2 id="where-h" class="adv-h">Where ads appear, and where they never do</h2>
+      <div class="adv-where">
+        <figure class="adv-mock" aria-hidden="true">
+          <div class="mock-band"></div>
+          <div class="mock-line w80"></div><div class="mock-line w70 light"></div><div class="mock-line w75 light"></div>
+          <div class="mock-ad mock-1">1</div>
+          <div class="mock-line w80 light"></div><div class="mock-line w70 light"></div>
+          <div class="mock-ad mock-2">2</div>
+          <div class="mock-ad mock-3">3</div>
+        </figure>
+        <div>
+          <ol class="adv-legend">
+            <li><b>Medium rectangle</b> inside the article, after the opening section, on phones and tablets</li>
+            <li><b>Half page</b> in a rail that stays in view beside the article on wide screens</li>
+            <li><b>Billboard</b> at the end of the article, and between rows on the home page</li>
+          </ol>
+          <ul class="adv-rules">
+            <li><b>Never on reviews or comparisons.</b> An ad beside a platform score would read as part of the score. The site enforces this; there is no override.</li>
+            <li><b>Never before the short answer</b> at the top of an article, inside a research card or chart, or as a pop-up.</li>
+            <li><b>At most two ads inside an article:</b> one in the body or side rail, one at the end.</li>
+            <li><b>Never on directory profiles,</b> apart from a vendor's own enhanced profile content, which is labelled.</li>
+            <li><b>No ads that play sound, expand or cover content.</b></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="media-kit" class="adv-kit" aria-labelledby="kit-h">
+      <form class="sub-form adv-form" method="post" action="/api/enquiry" data-enquiry novalidate>
+        <h2 id="kit-h">Request the media kit</h2>
+        <p class="adv-form-intro">Tell us a little about you and we'll send the media kit: audience figures, rates, packages and our founding partner offer.</p>
+        <div class="nl-hp" aria-hidden="true"><label>Website address <input name="website_confirm" tabindex="-1" autocomplete="off" /></label></div>
+        <div class="sub-grid">
+          <div class="sub-field"><label for="e-name">Your name</label><input id="e-name" name="name" type="text" autocomplete="name" required maxlength="120" /></div>
+          <div class="sub-field"><label for="e-email">Work email</label><input id="e-email" name="email" type="email" autocomplete="email" placeholder="you@company.com" required maxlength="254" /></div>
+          <div class="sub-field"><label for="e-org">Company or organisation</label><input id="e-org" name="organisation" type="text" autocomplete="organization" required maxlength="160" /></div>
+          <div class="sub-field"><label for="e-role">Your role <span class="sub-opt">Optional</span></label><input id="e-role" name="role" type="text" autocomplete="organization-title" maxlength="120" /></div>
+          <div class="sub-field"><label for="e-url">Website <span class="sub-opt">Optional</span></label><input id="e-url" name="url" type="url" placeholder="https://" maxlength="300" /></div>
+          <div class="sub-field">
+            <label for="e-timing">When are you looking to run?</label>
+            <select id="e-timing" name="timing"><option value="">Choose one</option>{timings.map((t) => <option>{t}</option>)}</select>
+          </div>
+        </div>
+        <div class="sub-field">
+          <span class="sub-q" id="e-int-l">Interested in <span class="sub-opt">Choose any</span></span>
+          <div class="sub-checks" role="group" aria-labelledby="e-int-l">
+            {interests.map((i) => <label><input type="checkbox" name="interests" value={i} />{i}</label>)}
+          </div>
+        </div>
+        <div class="sub-field">
+          <label for="e-msg">Anything else? <span class="sub-opt">Optional</span></label>
+          <textarea id="e-msg" name="message" rows="3" maxlength="2000" placeholder="What you'd like readers to do, budget, dates"></textarea>
+        </div>
+        <div class="sub-send">
+          <button type="submit" class="pill-btn pill-ink sub-button">Send me the media kit →</button>
+          <span class="sub-hint">Or email <a href={`mailto:${email}?subject=Media%20kit`}>{email}</a>.</span>
+        </div>
+        <p class="sub-status" role="status" aria-live="polite">{failed ? 'Something went wrong. Please check the form and try again.' : ''}</p>
+      </form>
+      <aside class="adv-kit-aside" aria-label="How booking works">
+        <h3 class="sub-aside-h">How booking works</h3>
+        <ol class="sub-steps">
+          <li><span>1</span><div><b>Tell us what you need</b><p>The format, dates and what you want readers to do.</p></div></li>
+          <li><span>2</span><div><b>We confirm and check</b><p>Availability, the rate, and that the ad meets this policy.</p></div></li>
+          <li><span>3</span><div><b>It goes live</b><p>Send artwork and your tracking link. It switches on at the next publishing slot.</p></div></li>
+        </ol>
+        <p class="adv-small">We use what you send only to reply about advertising. See our <a href="/privacy/">privacy policy</a>.</p>
+      </aside>
+    </section>
+
+    <section class="adv-policy adv-measure" aria-labelledby="policy-h">
+      <p class="ink-kicker adv-kicker">The full policy</p>
+      <h2 id="policy-h">Advertising and sponsorship policy</h2>
+      <p>This page sets out exactly what money can and can't buy, how we label it, and how we handle our own interests.</p>
+
+      <h3>What money can never buy</h3>
+      <p>No payment, sponsorship, affiliate commission or business relationship can buy any of these:</p>
+      <ul>
+        <li><b>Scores or verdicts.</b> Reviews are scored against our <a href="/how-we-review/">published method</a> from hands-on testing. A sponsor's product is scored like any other, and a score changes only when the product changes or we re-test.</li>
+        <li><b>Rankings or comparisons.</b> No one can pay to be ranked, recommended or placed higher.</li>
+        <li><b>Inclusion in the directory.</b> Listing is free and editorial. Paying never adds a product, and not paying never keeps one out.</li>
+        <li><b>Evidence levels.</b> The <a href="/evidence-and-assurance/">evidence level</a> on a directory profile reflects only the evidence we've checked.</li>
+        <li><b>Coverage.</b> No one can buy an article, an interview or a mention, or stop one.</li>
+        <li><b>A preview or veto.</b> Sponsors never see our articles, reviews or profiles before they publish, and can't approve or change them. We do ask vendors to correct factual errors in their profiles, with a source.</li>
+      </ul>
+
+      <h3>How paid and promotional content is labelled</h3>
+      <p>Every paid placement says so, in words, where you see it.</p>
+      <div class="adv-table-wrap">
+        <table class="adv-table">
+          <thead><tr><th scope="col">Label</th><th scope="col">Means</th><th scope="col">How it looks</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">Advertisement</th><td>A display ad, booked directly or served by Google</td><td>Small grey label above, set apart from articles by dotted rules</td></tr>
+            <tr><th scope="row">Sponsored · <i>sponsor name</i></th><td>A sponsored card, newsletter message or sponsored research</td><td>Label and sponsor name on the item itself</td></tr>
+            <tr><th scope="row">From The Learning Curve</th><td>A promotion for our own pages, such as the newsletter or a guide</td><td>Our own colours, never styled as an ad</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Paid links carry <code>rel="sponsored"</code>, which tells search engines they're paid. Ads never use our marigold or tomato colours, so they can't be mistaken for our own content.</p>
+
+      <h3 id="who-we-accept">Who we accept</h3>
+      <p>We choose our advertisers, and we'd rather run a house promotion than a placement we can't stand behind. We don't accept:</p>
+      <ul>
+        <li>A vendor while we're reviewing or evaluating it. It becomes eligible again 30 days after the review publishes.</li>
+        <li>Ads that make claims we can't verify, or that we know to be misleading.</li>
+        <li>Products that conflict with what we stand for: anything unsafe for learners, essay mills or cheating services, deceptive "get rich" or income schemes, and data brokers.</li>
+        <li>Political or issue advertising, cryptocurrency and high-risk financial products, and health or weight-loss products making claims we can't check.</li>
+        <li>The usual exclusions: adult content, gambling, weapons, tobacco and vaping, and anything illegal in Australia.</li>
+        <li>Ads designed to look like our editorial, or that imitate another company.</li>
+      </ul>
+      <p>Accepting a booking isn't an endorsement. We can decline or pull any placement, and we'll refund the unused part if we do.</p>
+
+      <h3>Conflicts of interest</h3>
+      <p>Jim Lounsbury runs The Learning Curve and other businesses, and works with people across the learning industry. Where that touches something we publish, we disclose that on the page itself.</p>
+      <ul>
+        <li><b>A product Jim works with or has a stake in</b> may be listed in the directory and may advertise, but we don't review it, scored or otherwise. Its directory profile and any ad carry a one-line disclosure naming the relationship.</li>
+        <li><b>Jim's other companies</b> (Cubic Content and the film business) may handle production or invoicing. That's noted where it's relevant, and never changes a verdict.</li>
+      </ul>
+
+      <h3>Affiliate links</h3>
+      <p>Some links to platforms are affiliate links: if you sign up through one, we may earn a commission at no cost to you.</p>
+      <ul>
+        <li>An affiliate link <b>never changes how we score or rank a platform.</b> A platform with no affiliate program is treated exactly the same.</li>
+        <li>Any article with an affiliate link shows a disclosure above the first one, linking to our <a href="/disclosure/">disclosure page</a>.</li>
+        <li>We only add an affiliate link to a platform already covered on its own merits, never the other way round.</li>
+        <li>Affiliate links carry <code>rel="sponsored"</code>.</li>
+      </ul>
+
+      <h3>Reader data and reporting</h3>
+      <p>We don't sell reader data, and sponsors don't get our reader list.</p>
+      <ul>
+        <li><b>No reader lists.</b> We never hand a sponsor our subscribers or readers, and we never sell or rent reader data.</li>
+        <li><b>Lead routing</b> on an enhanced directory profile sends a vendor only what a reader chooses to submit to be contacted, with the reader's consent on the form.</li>
+        <li><b>Sponsor reporting</b> comes from the sponsor's own tracking links and our aggregate figures (impressions, clicks). We don't track individual readers on a sponsor's behalf.</li>
+        <li>Our <a href="/privacy/">privacy policy</a> covers how we handle reader data, and <a href="https://adssettings.google.com/" rel="noopener">Google's ad settings</a> for anyone who sees a Google ad.</li>
+      </ul>
+
+      <h3>Corrections, complaints and changes</h3>
+      <ul>
+        <li><b>Spotted a paid placement that isn't clearly labelled?</b> Tell us and we'll fix it.</li>
+        <li><b>A factual error</b> in an article or profile: email us with a source and we'll correct it, whoever it's about.</li>
+        <li><b>Advertising enquiries and complaints:</b> <a href={`mailto:${email}`}>{email}</a>.</li>
+        <li>We may update this policy as the site grows. The date below shows when it last changed.</li>
+      </ul>
+      <p class="adv-updated">Last updated <time datetime={policyUpdated}>{updated}</time></p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .adv-hero .ink-lede { max-width: 640px; }
+  .adv-cta { margin: 28px 0 0; }
+  .adv { display: flex; flex-direction: column; gap: 72px; padding: 56px var(--side) 80px; }
+  .adv-h { margin: 0 0 20px; padding-top: 14px; border-top: 1.5px solid var(--rule-strong); font: 800 12px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+  .adv-measure { max-width: var(--measure); }
+  .adv-measure p, .adv-lead { font: 400 19px/1.55 var(--serif); color: var(--ink-2); margin: 0 0 16px; }
+  .adv-small { font: 400 14px/1.5 var(--sans); color: var(--muted); margin: 16px 0 0; }
+
+  .adv-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; margin-top: 28px; }
+  .adv-two > div { background: var(--surface); border: 1px solid var(--rule); border-top: 4px solid var(--band); padding: 24px 24px 20px; }
+  .adv-two > div + div { border-top-color: var(--kicker); }
+  .adv-two h3 { margin: 0 0 12px; font: 700 22px/1.2 var(--display); color: var(--ink); }
+  .adv-two ul { margin: 0; padding-left: 20px; font: 400 17px/1.6 var(--sans); color: var(--ink-2); }
+
+  .adv-readers { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 0 32px; }
+  .adv-readers li { padding: 16px 0; border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 4px; }
+  .adv-readers b { font: 700 18px/1.25 var(--display); color: var(--ink); }
+  .adv-readers span { font: 400 15px/1.45 var(--sans); color: var(--muted); }
+  .adv-facts { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; }
+  .adv-facts li { display: flex; flex-direction: column; gap: 6px; }
+  .adv-facts b { font: 800 52px/1 var(--display); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .adv-facts span { font: 400 15px/1.4 var(--sans); color: var(--ink-2); max-width: 22ch; }
+
+  .adv-table-wrap { overflow-x: auto; margin: 8px 0 0; }
+  .adv-table { width: 100%; border-collapse: collapse; font: 400 15px/1.45 var(--sans); color: var(--ink-2); min-width: 520px; }
+  .adv-table th, .adv-table td { text-align: left; vertical-align: top; padding: 12px 16px 12px 0; border-bottom: 1px solid var(--rule); }
+  .adv-table thead th { font: 800 11px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); border-bottom: 1.5px solid var(--rule-strong); }
+  .adv-table tbody th { font-weight: 700; color: var(--ink); white-space: nowrap; }
+
+  .adv-where { display: grid; grid-template-columns: minmax(0, 360px) minmax(0, 1fr); gap: 40px; align-items: start; }
+  .adv-mock { position: relative; margin: 0; aspect-ratio: 4 / 3.4; background: var(--surface); border: 1px solid var(--rule); display: grid; grid-template-columns: 1fr 34%; grid-auto-rows: min-content; gap: 10px 16px; padding: 0 20px 20px; align-content: start; }
+  .mock-band { grid-column: 1 / -1; height: 22px; margin: 0 -20px 6px; background: var(--band); }
+  .mock-line { grid-column: 1; height: 8px; background: var(--ink); width: 90%; }
+  .mock-line.light { background: var(--rule); }
+  .mock-line.w70 { width: 70%; } .mock-line.w75 { width: 78%; } .mock-line.w80 { width: 88%; }
+  .mock-ad { display: flex; align-items: center; justify-content: center; border: 2px dashed var(--ink); background: var(--paper); font: 800 28px/1 var(--display); color: var(--ink); }
+  .mock-1 { grid-column: 1; height: 70px; width: 70%; }
+  .mock-2 { grid-column: 2; grid-row: 2 / span 6; min-height: 150px; }
+  .mock-3 { grid-column: 1 / -1; height: 52px; }
+  .adv-legend { margin: 0 0 24px; padding-left: 24px; font: 400 16px/1.5 var(--sans); color: var(--ink-2); }
+  .adv-legend li { margin-bottom: 8px; }
+  .adv-legend li::marker { font: 800 16px var(--display); color: var(--kicker); }
+  .adv-rules { margin: 0; padding-left: 20px; font: 400 16px/1.55 var(--sans); color: var(--ink-2); }
+  .adv-rules li { margin-bottom: 8px; }
+  .adv-rules b, .adv-legend b { color: var(--ink); }
+
+  .adv-kit { display: flex; flex-wrap: wrap; gap: 48px 64px; align-items: flex-start; scroll-margin-top: 24px; }
+  .adv-form { flex: 2 1 480px; }
+  .adv-form h2 { margin: 0 0 8px; }
+  .adv-form-intro { font: 400 17px/1.5 var(--serif); color: var(--ink-2); margin: 0 0 24px; }
+  .adv-kit-aside { flex: 1 1 300px; min-width: 0; }
+
+  .adv-policy { scroll-margin-top: 24px; }
+  .adv-kicker { color: var(--kicker); margin: 0 0 8px; }
+  .adv-policy h2 { margin: 0 0 16px; font: 700 34px/1.15 var(--display); color: var(--ink); }
+  .adv-policy h3 { margin: 40px 0 12px; font: 700 23px/1.25 var(--display); color: var(--ink); scroll-margin-top: 24px; }
+  .adv-policy ul { padding-left: 20px; font: 400 17px/1.6 var(--serif); color: var(--ink-2); }
+  .adv-policy li { margin-bottom: 10px; }
+  .adv-policy li b { color: var(--ink); }
+  .adv-policy .adv-table-wrap { margin: 16px 0; }
+  .adv-updated { margin-top: 40px !important; font: 400 14px/1.4 var(--sans) !important; color: var(--muted) !important; }
+
+  @media (max-width: 760px) {
+    .adv { gap: 56px; padding-top: 40px; }
+    .adv-where { grid-template-columns: 1fr; }
+    .adv-mock { max-width: 360px; }
+    .adv-facts b { font-size: 44px; }
+  }
+  @media (max-width: 640px) {
+    .adv-table { min-width: 0; }
+    .adv-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .adv-table tr { display: block; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+    .adv-table th, .adv-table td { display: block; padding: 0; border: 0; }
+    .adv-table tbody th { white-space: normal; margin-bottom: 4px; }
+    .adv-table td + td { margin-top: 4px; color: var(--muted); }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('form[data-enquiry]');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector<HTMLElement>('.sub-status')!;
+      const button = form.querySelector<HTMLButtonElement>('.sub-button')!;
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const fd = new FormData(form);
+      const body: Record<string, unknown> = Object.fromEntries(fd.entries());
+      body.interests = fd.getAll('interests');
+      button.disabled = true;
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const json = await res.json();
+        if (res.ok) {
+          location.href = '/advertising/thanks/';
+          return;
+        }
+        status.textContent = json.message;
+      } catch {
+        status.textContent = 'Something went wrong. Please try again.';
+      }
+      button.disabled = false;
+    });
+  }
+</script>

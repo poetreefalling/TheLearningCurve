@@ -939,6 +939,8 @@ html, body { overflow-x: clip; }
 
 .ad { display: flex; flex-direction: column; align-items: center; gap: 8px; }
 .ad-label { font: 700 11px/1 var(--label); letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
+a.ad-label { display: block; text-decoration: none; }
+a.ad-label:hover, a.ad-label:focus-visible { color: var(--ink); text-decoration: underline; }
 .ad-box {
   display: block; width: 100%; max-width: var(--ad-w); aspect-ratio: var(--ad-ratio);
   background: var(--surface); border: 1px solid var(--rule); overflow: hidden;
