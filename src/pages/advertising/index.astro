@@ -167,8 +167,9 @@ const timings = ['As soon as possible', 'In the next three months', 'Later this 
       </aside>
     </section>
 
+    <div class="adv-policy-row">
     <section class="adv-policy adv-measure" aria-labelledby="policy-h">
-      <p class="ink-kicker adv-kicker">The full policy</p>
+      <p class="adv-kicker">The full policy</p>
       <h2 id="policy-h">Advertising and sponsorship policy</h2>
       <p>This page sets out exactly what money can and can't buy, how we label it, and how we handle our own interests.</p>
 
@@ -243,6 +244,19 @@ const timings = ['As soon as possible', 'In the next three months', 'Later this 
       </ul>
       <p class="adv-updated">Last updated <time datetime={policyUpdated}>{updated}</time></p>
     </section>
+
+    <aside class="adv-rail" aria-label="Advertise here">
+      <div class="adv-rail-in">
+        <p class="ad-label">Advertise here</p>
+        <a class="adv-spot" href="#media-kit">
+          <span class="adv-spot-size">Half page · 300 × 600</span>
+          <span class="adv-spot-head">Your ad could be here</span>
+          <span class="adv-spot-text">Stay in view beside the article while readers scroll, on every article page on wide screens.</span>
+          <span class="adv-spot-cta">Request the media kit <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+    </aside>
+    </div>
   </div>
 </Base>
 
@@ -300,7 +314,17 @@ const timings = ['As soon as possible', 'In the next three months', 'Later this 
   .adv-kit-aside { flex: 1 1 300px; min-width: 0; }
 
   .adv-policy { scroll-margin-top: 24px; }
-  .adv-kicker { color: var(--kicker); margin: 0 0 8px; }
+  .adv-policy .adv-kicker { margin: 0 0 10px; font: 800 12px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); }
+  .adv-policy-row { display: grid; grid-template-columns: minmax(0, var(--measure)) 300px; justify-content: space-between; gap: 64px; align-items: start; }
+  .adv-rail { position: sticky; top: 76px; }
+  .adv-rail .ad-label { margin: 0 0 8px; }
+  .adv-spot { box-sizing: border-box; width: 300px; height: 600px; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 32px 28px; background: var(--paper); border: 2px dashed var(--ink); color: var(--ink); text-decoration: none; transition: background 0.2s; }
+  .adv-spot:hover, .adv-spot:focus-visible { background: var(--surface); }
+  .adv-spot-size { font: 800 11px/1 var(--label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+  .adv-spot-head { font: 800 40px/1.05 var(--display); color: var(--ink); }
+  .adv-spot-text { font: 400 16px/1.5 var(--serif); color: var(--ink-2); }
+  .adv-spot-cta { align-self: flex-start; padding: 12px 18px; border-radius: 999px; background: var(--band); color: #16181d; font: 800 12px/1 var(--label); letter-spacing: 0.08em; text-transform: uppercase; }
+  @media (max-width: 1080px) { .adv-policy-row { grid-template-columns: 1fr; } .adv-rail { display: none; } }
   .adv-policy h2 { margin: 0 0 16px; font: 700 34px/1.15 var(--display); color: var(--ink); }
   .adv-policy h3 { margin: 40px 0 12px; font: 700 23px/1.25 var(--display); color: var(--ink); scroll-margin-top: 24px; }
   .adv-policy ul { padding-left: 20px; font: 400 17px/1.6 var(--serif); color: var(--ink-2); }
