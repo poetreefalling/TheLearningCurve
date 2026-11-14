@@ -38,7 +38,7 @@ their pinned weeks; the queue fills every other slot.
 | 7 Dec 2026 | What Are Microcredentials, and Are They Worth It? | what are microcredentials | 590 · 15 | trends | documentary | todo |
 | 14 Dec 2026 | Kajabi Review: How Well Does It Support Learning? | kajabi review | 480 · 16 | review | screenshot | todo |
 | 21 Dec 2026 | Spaced Repetition: Scheduling Review Across a Course | spaced repetition scheduler | 260 · 13 | library | risograph | todo |
-| 4 Jan 2027 | Microlearning: What the Evidence Supports, With Examples | microlearning example | 320 · 23 | library | documentary | todo |
+| 4 Jan 2027 | Microlearning: What the Evidence Supports, With Examples | microlearning example | 320 · 23 | library | documentary | todo: check against /guides/microlearning-best-practices/ (covers examples) before writing; re-angle or block as a duplicate |
 | 11 Jan 2027 | The Best Kajabi Alternatives, Ranked by How Well Students Learn | kajabi alternatives | 260 · 21 | comparison | documentary | todo |
 | 18 Jan 2027 | Interleaving: Should Your Lessons Mix Topics? | interleaving learning strategy | check | library | risograph | todo |
 | 25 Jan 2027 | Choosing an Instructional Design Course: What to Look For | online course on instructional design | 590 · 15 | guide | documentary | todo |
@@ -55,6 +55,7 @@ don't use a queue row.
 | Slot | Title | Keyword | Vol · SD | Kind | Status |
 |---|---|---|---|---|---|
 | Wed 11 Nov 00:00 (Tue 10 Nov 08:00 New York) | The Workplace Learning Paradox: More Training, Less Time to Learn | workplace learning | 140 · 23 | trends (feature) | in PR |
+| Mon 16 Nov 00:00 | Microlearning: What Works, What's Changing and How to Do It Well | microlearning | 4,400 · 17 | guide (data) | in PR |
 
 ## Queue
 
