@@ -1017,6 +1017,8 @@ a.ad-label:hover, a.ad-label:focus-visible { color: var(--ink); text-decoration:
   background: #16181d; color: #f7f4ee; padding: 72px 0; margin-top: 56px;
   --ink: #f7f4ee; --ink-2: #e3ded4; --muted: #b9b3a8; --rule: rgba(247, 244, 238, 0.2); --kicker: var(--band); --accent: var(--band);
 }
+/* A band that opens the page sits flush under the masthead (no strip of page colour above it) */
+main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 :root[data-theme='dark'] .hwe-band, :root[data-theme='dark'] .ink-band { border-top: 1px solid #2e2f31; border-bottom: 1px solid #2e2f31; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) .hwe-band, :root:not([data-theme='light']) .ink-band { border-top: 1px solid #2e2f31; border-bottom: 1px solid #2e2f31; } }
 .hwe-inner { display: flex; flex-wrap: wrap; gap: 40px 72px; align-items: center; }
