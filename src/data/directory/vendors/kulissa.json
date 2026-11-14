@@ -1,0 +1,26 @@
+{
+  "name": "Kulissa",
+  "website": "https://kulissa.com/",
+  "headquarters": {
+    "value": "Zurich, Switzerland, and Paris, France",
+    "source": "https://kulissa.com/imprint",
+    "checked": "2026-11-14",
+    "origin": "verified"
+  },
+  "status": "active",
+  "draft": true,
+  "researchTasks": [
+    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO (fernando@kulissa.com). Jim emailed questions on 14 Nov 2026; waiting for a reply.",
+    "Legal entity: the imprint and privacy policy say the company is still being incorporated in Paris and Zurich, with the legal name, form, register entry, address and managing directors all placeholders (checked 14 Nov 2026). Add legalEntity once the register entry exists.",
+    "Startbase lists a Kulissa start-up in Volketswil (Zurich canton); the page didn't load on 14 Nov 2026. Re-open it to confirm it's the same company.",
+    "Homepage logo strip ('Supported by teams from' NVIDIA, Anthropic, Google, Atlassian, Cursor, BCG, ElevenLabs): asked what the support is. Don't repeat it on the profile.",
+    "Submission says the company won the Cursor Track at the RAISE Summit Hackathon 2026. Not on raisesummit.com/hackathon (no 2026 winners listed; Cursor is main sponsor, not a track). Asked for a confirming page; don't use until there is one."
+  ],
+  "dataGaps": [
+    { "field": "legalEntity", "note": "Company still being incorporated; imprint fields are placeholders." },
+    { "field": "founded", "note": "Not published." },
+    { "field": "size", "note": "Homepage mentions four founders; no headcount published." },
+    { "field": "ownership", "note": "Not published." },
+    { "field": "funding", "note": "Not published." }
+  ]
+}
