@@ -1,0 +1,19 @@
+{
+  "title": "In online university courses, meta-cognitive scaffolding had the largest effect, g = 1.10",
+  "subtitle": "Average effect on learning outcomes by type of scaffolding, with 95% confidence intervals, from a meta-analysis of 64 effect sizes (18 studies, 2010–2019). Conceptual and strategic rest on five effect sizes each.",
+  "type": "dotRange",
+  "unit": "effect size (Hedges' g)",
+  "highlight": "Meta-cognitive (k = 39)",
+  "series": [
+    { "label": "Meta-cognitive (k = 39)", "value": 1.104, "low": 0.864, "high": 1.344 },
+    { "label": "Conceptual (k = 5)", "value": 0.964, "low": 0.287, "high": 1.64 },
+    { "label": "Strategic (k = 5)", "value": 0.44, "low": -0.235, "high": 1.115 },
+    { "label": "Procedural (k = 15)", "value": 0.393, "low": 0.021, "high": 0.766 }
+  ],
+  "source": {
+    "authors": "Doo, M. Y., Bonk, C. J., & Heo, H.",
+    "year": 2020,
+    "url": "https://www.irrodl.org/index.php/irrodl/article/view/4638",
+    "figureOrTable": "Table 4"
+  }
+}
