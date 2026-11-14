@@ -38,7 +38,29 @@ The voice is a working learning designer who reads the research, writing for a c
 - Headline ≤ 70 characters, contains the target keyword naturally, makes a specific promise.
   Good: "Worked Examples: How to Teach a Complex Skill Online". Bad: "The Ultimate Guide to
   Worked Examples".
+- **Lead with the hook: interest bait, not clickbait.** Our keywords mirror what people search,
+  and searches are plain and informational. Keep the keyword first, then give the reader a reason
+  to be curious. We're an academic-leaning intelligence platform, so curiosity comes from what the
+  evidence reveals, never from teasing or withholding. Before writing the headline, find the most
+  interesting true thing in the research: a revealing fact, a finding that overturns what people
+  assume, a provocative but defensible take, or the reader's pain point. Put it in the headline
+  after the keyword, and open the standfirst and first paragraph with it. Our best early performer shows the pattern: "Online Learning Research: The
+  AI Tutor Trial That Lowered Grades" reached page one of Google within days, with an early
+  click-through rate of about a third. Other shapes that work: "Microlearning: Why Two-Minute Videos
+  Miss the Point", "Course Completion Rates: Why the Scary Numbers Come From Free MOOCs".
+  - The test: a sceptical researcher would read the headline, then the paper, and agree it's
+    fair. Clickbait withholds ("You won't believe…", "This one mistake…"); interest bait states
+    the surprising thing outright and earns the click by promising the evidence behind it.
+  - Provocative, never misleading. The hook must be stated in a source we cite, with the same
+    scope: if the trial was one course at one university, the article says so in the first
+    paragraph. No hook we can't link, no exaggeration, no question headlines that the article
+    answers "no".
+  - If the sources hold nothing surprising, use the pain point ("Why your learners stop at
+    module two") rather than inventing drama.
+  - Pick the hook and the headline at the end of research, from what the ranking pages miss.
+    State the hook in the PR description.
 - Standfirst ≤ 220 characters: the article's answer or argument in one sentence, not a teaser.
+  Where there's a hook, it carries it.
 - Meta description 140–160 characters: what the reader will learn, with the keyword.
 - Kicker: the library principle, the platform, or the section ("Retrieval practice",
   "Thinkific", "Trends").

@@ -88,7 +88,9 @@ empty slot is better than a weak article.
    - Reviews: work from Jim's testing notes plus the platform's own current pricing and help
      pages. Record the date you checked prices.
 4. **Write** to `docs/editorial.md`: the voice, the shape for this kind of article, and every
-   schema field. Australian/British spelling. Library, guide and trends articles end with a
+   schema field. **Lead with the hook** (editorial.md §3): interest bait, not clickbait. Keyword first,
+   then the revealing fact, overturned assumption, defensible provocative take or pain point,
+   in the headline, standfirst and opening, provided a cited source states it. Australian/British spelling. Library, guide and trends articles end with a
    `readerCheck`: a quiz or a poll, chosen and written by the rules in `docs/editorial.md`
    section 11 (trends always a poll; library and guides alternate with the previous one).
    **Trends pieces get visual data whenever possible:** an animated infographic, data
@@ -140,7 +142,7 @@ empty slot is better than a weak article.
    - Title: `<slot, e.g. Tue 10 Nov 12:00> · <title>`.
    - Description:
      - target keyword with volume and SD
-     - the angle in 2–3 lines, and what the ranking pages miss
+     - the angle in 2–3 lines, the hook the headline leads with, and what the ranking pages miss
      - every `[JIM:]` and `[TO VERIFY]` item as a checklist
      - each research card and chart with its source link, for Jim to check against the paper
      - for trends: each interactive graphic or stat with its source and figure/table/page, or
