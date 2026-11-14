@@ -1,7 +1,9 @@
 # The Learning Curve
 
-thelearningcurve.net is an independent publication on how to design online courses that work,
-by Jim Lounsbury. It has three streams, in order of weight:
+thelearningcurve.net is an independent media and intelligence platform exploring the technologies,
+ideas, research and innovations transforming how the world learns, by Jim Lounsbury. We connect the
+people shaping learning with the insights, evidence and tools to make better decisions. Media, decks
+and pages describe it in those words. It has three streams, in order of weight:
 
 1. **Library:** one evergreen page per learning principle (retrieval practice, worked examples,
    cognitive load…), grounded in primary research.

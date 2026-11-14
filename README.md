@@ -1,7 +1,7 @@
 # The Learning Curve
 
-Source for [thelearningcurve.net](https://thelearningcurve.net): an independent publication on how
-to design online courses that work. Astro static site, deployed by Cloudflare Pages.
+Source for [thelearningcurve.net](https://thelearningcurve.net): an independent media and intelligence
+platform exploring the technologies, ideas, research and innovations transforming how the world learns. Astro static site, deployed by Cloudflare Pages.
 
 ```sh
 npm ci
