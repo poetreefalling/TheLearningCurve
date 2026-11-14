@@ -20,7 +20,7 @@ const box = `--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`;
 
 {ad?.kind === 'direct' && (
   <aside class={`ad ad-${slot} ${cls}`} aria-label="Advertisement" data-pagefind-ignore data-ad-end={ad.campaign.end}>
-    <div class="ad-label">Advertisement</div>
+    <a class="ad-label" href="/advertising/" title="About advertising on The Learning Curve">Advertisement</a>
     <a class="ad-box" href={ad.campaign.url} rel="sponsored noopener" target="_blank" style={box}>
       <img src={ad.campaign.image} alt={ad.campaign.alt} width={spec.width} height={spec.height} loading="lazy" decoding="async" />
     </a>
@@ -31,7 +31,7 @@ const box = `--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`;
   <aside class={`ad ad-${slot} ad-flex ${cls}`} aria-label={house ? 'From The Learning Curve' : 'Advertisement'} data-pagefind-ignore>
     {ad?.kind === 'network' && (
       <div class="ad-network-wrap">
-        <div class="ad-label">Advertisement</div>
+        <a class="ad-label" href="/advertising/" title="About advertising on The Learning Curve">Advertisement</a>
         <div class="ad-box ad-network" style={box}>
           <ins class="adsbygoogle" style="display:block" data-ad-client={ad.client} data-ad-slot={ad.adSlot} data-ad-format={slot === 'halfpage' ? 'vertical' : slot === 'billboard' ? 'horizontal' : 'rectangle'} data-full-width-responsive="true"></ins>
           <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
