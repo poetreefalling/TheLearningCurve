@@ -55,7 +55,7 @@ don't use a queue row.
 | Slot | Title | Keyword | Vol · SD | Kind | Status |
 |---|---|---|---|---|---|
 | Wed 11 Nov 00:00 (Tue 10 Nov 08:00 New York) | The Workplace Learning Paradox: More Training, Less Time to Learn | workplace learning | 140 · 23 | trends (feature) | in PR |
-| Mon 16 Nov 00:00 | Microlearning: What Works, What's Changing and How to Do It Well | microlearning | 4,400 · 17 | guide (data) | in PR |
+| Mon 16 Nov 00:00 | Microlearning: Why Two-Minute Videos Miss the Point | microlearning | 4,400 · 17 | guide (data) | in PR |
 
 ## Queue
 
