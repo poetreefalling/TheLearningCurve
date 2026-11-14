@@ -4,3 +4,7 @@
 # results. The landing pages under /reports/ stay indexable. Add a line for each new report PDF.
 /reports/ai-tools-for-learning-design/tlc-25-ai-tools-for-learning-design.pdf
   X-Robots-Tag: noindex
+
+# The media kit is sent one-to-one (functions/media-kit/ checks the download link). Keep it out of search.
+/media-kit/*
+  X-Robots-Tag: noindex, nofollow

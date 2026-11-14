@@ -4,11 +4,22 @@ import { SITE } from '../../site.config';
 const { email } = SITE.advertising;
 ---
 <Page
-  title="Thanks for your enquiry"
-  description="Your media kit request has reached The Learning Curve."
-  standfirst="Thanks. We'll reply with the media kit: audience figures, rates, packages and our founding partner offer."
+  title="Your media kit"
+  description="Download The Learning Curve media kit."
+  standfirst="Thanks. Your media kit is ready: our audiences, formats, rates, packages and the founding partner offer."
   noindex
 >
-  <p>If it hasn't arrived in a couple of working days, write to <a href={`mailto:${email}`}>{email}</a>.</p>
-  <p>In the meantime, our <a href="/advertising/#policy-h">advertising and sponsorship policy</a> sets out what sponsors can and can't buy.</p>
+  <p class="kit-ready" hidden><a class="pill-btn pill-ink" href="/advertising/#media-kit" data-kit>Download the media kit (PDF) →</a></p>
+  <p class="kit-ready" hidden>The link works for seven days. We'll also be in touch to talk through what you need.</p>
+  <p class="kit-missing">To get the media kit, <a href="/advertising/#media-kit">fill in the short form</a> and it downloads straight away.</p>
+  <p>Questions, or ready to book? Write to <a href={`mailto:${email}`}>{email}</a>. Our <a href="/advertising/#policy-h">advertising and sponsorship policy</a> sets out what sponsors can and can't buy.</p>
 </Page>
+
+<script>
+  const kit = new URLSearchParams(location.search).get('kit');
+  if (kit && kit.startsWith('/media-kit/')) {
+    document.querySelector<HTMLAnchorElement>('[data-kit]')!.href = kit;
+    document.querySelectorAll<HTMLElement>('.kit-ready').forEach((el) => (el.hidden = false));
+    document.querySelector<HTMLElement>('.kit-missing')!.hidden = true;
+  }
+</script>

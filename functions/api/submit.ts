@@ -64,7 +64,9 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
   const missing = (['name', 'organisation', 'product', 'description'] as const).filter((k) => !d[k]);
   if (missing.length) return reply(isJson, 400, 'Please fill in your name, organisation, the platform name and what it does.');
   if (!EMAIL.test(d.email)) return reply(isJson, 400, 'Please enter a valid work email.');
-  if (!/^https?:\/\/[^\s.]+\.[^\s]{2,}/i.test(d.url)) return reply(isJson, 400, 'Please enter the platform\'s website, starting https://');
+  // Accept bare domains (example.com, www.example.com) by adding https://
+  if (d.url && !/^https?:\/\//i.test(d.url)) d.url = `https://${d.url}`;
+  if (!/^https?:\/\/[^\s.]+\.[^\s]{2,}$/i.test(d.url)) return reply(isJson, 400, 'Please check the platform\'s website address, for example yourplatform.com');
   if (!d.category) return reply(isJson, 400, 'Please choose a category.');
   if (raw.consent !== 'yes' && raw.consent !== 'on' && raw.consent !== true) return reply(isJson, 400, 'Please tick the box to confirm you understand how reviews work.');
 

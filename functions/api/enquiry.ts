@@ -7,6 +7,10 @@
 //   RESEND_API_KEY          secret, from resend.com (thelearningcurve.net verified there)
 //   ADVERTISING_NOTIFY_TO   optional, defaults to advertising@thelearningcurve.net
 //   SUBMIT_FROM             optional, defaults to "The Learning Curve <submissions@thelearningcurve.net>"
+//   MEDIA_KIT_SECRET        optional, signs the media kit download link (falls back to RESEND_API_KEY)
+//
+// On success the enquirer gets a download link for the media kit PDF (public/media-kit/), valid for
+// 7 days. functions/media-kit/[[path]].ts checks the link before serving the file.
 //
 // Saved even when email isn't set up, and emailed even if storage isn't. Only if both are missing
 // does the reader see an error (with the address to write to instead).
@@ -21,6 +25,20 @@ interface Env {
   RESEND_API_KEY?: string;
   ADVERTISING_NOTIFY_TO?: string;
   SUBMIT_FROM?: string;
+  MEDIA_KIT_SECRET?: string;
+}
+
+const KIT_PATH = '/media-kit/the-learning-curve-media-kit.pdf';
+const KIT_DAYS = 7;
+
+async function kitLink(env: Env): Promise<string> {
+  const secret = env.MEDIA_KIT_SECRET || env.RESEND_API_KEY;
+  if (!secret) return KIT_PATH;
+  const exp = Math.floor(Date.now() / 1000) + KIT_DAYS * 86400;
+  const key = await crypto.subtle.importKey('raw', new TextEncoder().encode(secret), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const mac = new Uint8Array(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(`kit:${exp}`)));
+  const sig = btoa(String.fromCharCode(...mac)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  return `${KIT_PATH}?t=${exp}.${sig}`;
 }
 
 const TABLE = `CREATE TABLE IF NOT EXISTS ad_enquiries (
@@ -52,7 +70,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
   }
 
   // Honeypot: real people never fill this field in
-  if (raw.website_confirm) return reply(isJson, 200, 'Thanks. The media kit is on its way.');
+  if (raw.website_confirm) return reply(isJson, 200, 'Thanks.');
 
   const d: Record<string, string> = {};
   for (const [k, max] of Object.entries(LIMITS)) d[k] = String(raw[k] ?? '').trim().slice(0, max);
@@ -62,7 +80,9 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
 
   if (!d.name || !d.organisation) return reply(isJson, 400, 'Please fill in your name and organisation.');
   if (!EMAIL.test(d.email)) return reply(isJson, 400, 'Please enter a valid work email.');
-  if (d.url && !/^https?:\/\/[^\s.]+\.[^\s]{2,}/i.test(d.url)) return reply(isJson, 400, 'Please enter your website starting https://, or leave it blank.');
+  // Accept bare domains (example.com, www.example.com) by adding https://
+  if (d.url && !/^https?:\/\//i.test(d.url)) d.url = `https://${d.url}`;
+  if (d.url && !/^https?:\/\/[^\s.]+\.[^\s]{2,}$/i.test(d.url)) return reply(isJson, 400, 'Please check your website address, for example yourcompany.com, or leave it blank.');
 
   const id = crypto.randomUUID();
   const at = Date.now();
@@ -94,7 +114,7 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
       `Media kit request: ${d.organisation}`, '',
       ...rows.filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`), '',
       ...(d.message ? ['Message:', d.message, ''] : []),
-      'Reply with the media kit. Check the advertiser against "Who we accept" in the policy first (/advertising/#who-we-accept).',
+      'They were given the media kit download on the site. Follow up, and check the advertiser against "Who we accept" first (/advertising/#who-we-accept).',
       stored ? '' : 'Not stored: the D1 binding is missing.',
     ].join('\n');
     try {
@@ -110,17 +130,20 @@ export const onRequestPost = async ({ request, env }: { request: Request; env: E
     }
   }
 
-  if (!stored && !emailed) return reply(isJson, 503, `The form isn't taking requests just now. Please email ${FALLBACK}.`);
-  return reply(isJson, 200, 'Thanks. The media kit is on its way.');
+  // The enquirer gets the kit even if storage and email both failed; log it so it isn't silent.
+  if (!stored && !emailed) console.log('Enquiry neither stored nor emailed', d.email, d.organisation);
+  return reply(isJson, 200, 'Thanks. Your media kit is ready.', await kitLink(env));
 };
 
-function reply(isJson: boolean, status: number, message: string) {
+function reply(isJson: boolean, status: number, message: string, download?: string) {
   if (isJson) {
-    return new Response(JSON.stringify({ ok: status < 300, message }), {
+    return new Response(JSON.stringify({ ok: status < 300, message, download }), {
       status,
       headers: { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' },
     });
   }
-  const to = status < 300 ? '/advertising/thanks/' : '/advertising/?error=1#media-kit';
+  const to = status < 300
+    ? `/advertising/thanks/${download ? `?kit=${encodeURIComponent(download)}` : ''}`
+    : '/advertising/?error=1#media-kit';
   return Response.redirect(new URL(to, 'https://thelearningcurve.net').toString(), 303);
 }
