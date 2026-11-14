@@ -1,0 +1,166 @@
+{
+  "name": "Maya by Kulissa",
+  "vendor": "kulissa",
+  "category": "ai-for-learning",
+  "secondaryCategories": ["video-interactive"],
+  "website": "https://kulissa.com/",
+  "summary": "Voice role-play for sales training: learners talk through a practice call with an AI virtual customer, an AI coach steps in when they go wrong, and the session is scored with quotes from the transcript. Runs in the browser with a microphone. In beta.",
+  "primaryMarket": {
+    "value": ["corporate"],
+    "source": "https://kulissa.com/privacy",
+    "checked": "2026-11-14",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": ["Sales call practice", "Sales onboarding", "Interview practice"],
+    "source": "https://kulissa.com/",
+    "checked": "2026-11-14",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Spoken practice calls with an AI virtual customer",
+      "Live coaching that pauses the call and suggests a better approach",
+      "Scored feedback after each session",
+      "Browser and microphone only, nothing to install"
+    ],
+    "source": "https://kulissa.com/",
+    "checked": "2026-11-14",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": { "public": false, "notes": "A free three-minute public demo; no team pricing published." },
+    "source": "https://kulissa.com/",
+    "checked": "2026-11-14",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": ["cloud"],
+    "source": "https://kulissa.com/subprocessors",
+    "checked": "2026-11-14",
+    "origin": "verified"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "gdpr": true,
+      "notes": "Privacy policy is written for the GDPR and the Swiss FADP. The app and database run on Hetzner; AI processing is by US providers (OpenAI, Google, ElevenLabs, via OpenRouter for some requests). Several processing locations are marked 'to be confirmed'."
+    },
+    "source": "https://kulissa.com/subprocessors",
+    "checked": "2026-11-14",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": ["OpenAI models", "Google Gemini", "ElevenLabs speech", "Anthropic models via OpenRouter"],
+      "trainsOnCustomerData": "no",
+      "notes": "Providers named on the subprocessor page, without model versions. Kulissa says it doesn't train its own models on customer content and requires providers not to."
+    },
+    "source": "https://kulissa.com/ai-transparency",
+    "checked": "2026-11-14",
+    "origin": "vendor-supplied"
+  },
+  "aiProfile": {
+    "toolTypes": ["conversation practice", "role-play simulation"],
+    "audience": ["Sales teams", "Corporate L&D"],
+    "areas": {
+      "dataPrivacy": {
+        "answers": [
+          {
+            "question": "Trains AI models on customer data",
+            "value": "No: Kulissa says it doesn't train its own models on customer content and requires providers not to",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/ai-transparency",
+            "checked": "2026-11-14"
+          },
+          {
+            "question": "How long prompts and chats are kept",
+            "value": "Demo transcripts up to 90 days; session traces 7 days; customer data for the life of the contract, then deleted or returned within 30 days",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/privacy",
+            "checked": "2026-11-14",
+            "note": "Backup retention 'to be confirmed'. Live audio is not kept beyond transcription unless the customer sets longer retention."
+          },
+          {
+            "question": "Who processes the data",
+            "value": "Hetzner (hosting), Cloudflare, OpenAI, Google, OpenRouter, ElevenLabs and others listed by name",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/subprocessors",
+            "checked": "2026-11-14",
+            "note": "AI providers process in the US; several locations 'to be confirmed'."
+          },
+          {
+            "question": "AI models used",
+            "value": "OpenAI and Google Gemini language models, ElevenLabs speech, and Anthropic models via OpenRouter; versions not named",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/subprocessors",
+            "checked": "2026-11-14"
+          }
+        ]
+      },
+      "learnerOversight": {
+        "answers": [
+          {
+            "question": "Minimum learner age",
+            "value": "16",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/privacy",
+            "checked": "2026-11-14",
+            "note": "Privacy policy: does not knowingly collect data from anyone under 16; described as a B2B product for adults at work."
+          },
+          { "question": "Staff can review AI output before learners see it", "level": "research-ongoing" },
+          { "question": "Staff can set limits on the AI", "level": "research-ongoing" },
+          { "question": "Staff can see learner conversations", "level": "research-ongoing" }
+        ]
+      },
+      "pedagogy": {
+        "answers": [
+          {
+            "question": "How it responds to learners",
+            "value": "Coaches: the coach pauses the call when the learner goes wrong, shows a better approach, and the learner tries again",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/",
+            "checked": "2026-11-14"
+          },
+          { "question": "Answers from your own course content", "level": "research-ongoing" },
+          { "question": "Shows its sources", "level": "research-ongoing" }
+        ]
+      },
+      "outputOwnership": {
+        "answers": [
+          {
+            "question": "Who owns what the AI produces",
+            "value": "Customer: playbooks and recordings belong to the customer; transcripts and scores stay under the customer's control",
+            "level": "vendor-disclosed",
+            "source": "https://kulissa.com/privacy",
+            "checked": "2026-11-14"
+          }
+        ]
+      }
+    }
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": { "kind": "none" },
+  "status": "beta",
+  "draft": true,
+  "researchTasks": [
+    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO, under video-interactive; moved to ai-for-learning (AI voice role-play with AI scoring), with video-interactive as secondary. Jim emailed questions on 14 Nov 2026.",
+    "Submission claims (not yet on a page we've opened): upload your own playbooks, ICP and evaluation criteria; the same buyer and rubric for every job applicant; English, French and German tuned for sales practice. The site footer shows English only. Confirm each on a public page or record it as vendor-supplied from Fernando's reply.",
+    "Test it: the free three-minute demo is public, and the submission says a free trial covers reviewer access. Product video: https://youtu.be/dR1t7_wX3Vs.",
+    "Privacy policy mentions 'recordings' as customer product data in Roles and the FAQ, but the retention table says live audio isn't kept beyond transcription. Ask which is right before setting retention above vendor-disclosed.",
+    "Ask: can staff see learners' sessions and scores; can admins restrict scenarios or the AI's behaviour; does the AI use the customer's uploaded playbooks, and does feedback cite them?",
+    "Ask: team pricing and pricing basis; geographic availability; accessibility conformance; any security certification.",
+    "Find comparable products for alternatives once other AI role-play tools are in the directory."
+  ],
+  "dataGaps": [
+    { "field": "pricing", "note": "No team pricing published; only a free public demo." },
+    { "field": "pricingModel", "note": "Basis not published." },
+    { "field": "integrations", "note": "None listed apart from Google and Microsoft sign-in." },
+    { "field": "standards", "note": "None listed." },
+    { "field": "accessibility", "note": "No conformance report or standard published." },
+    { "field": "security", "note": "No certifications claimed." },
+    { "field": "geographicAvailability", "note": "Not stated." },
+    { "field": "data residency", "note": "Hetzner server locations partly 'to be confirmed'; AI processing in the US." }
+  ]
+}
