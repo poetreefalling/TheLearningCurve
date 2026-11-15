@@ -107,5 +107,12 @@
       "field": "accessibility",
       "note": "Captions and player accessibility need validation against current VPAT and applicable WCAG criteria."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/vimeo-enterprise/logo.webp",
+      "alt": "Vimeo logo",
+      "source": "https://vimeo.com/enterprise"
+    }
+  }
 }

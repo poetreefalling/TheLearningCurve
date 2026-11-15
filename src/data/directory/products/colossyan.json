@@ -108,5 +108,12 @@
       "field": "security",
       "note": "Vendor states customer content is not used to train foundation models and inputs remain within workspace boundary; verify contract and subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/colossyan/logo.webp",
+      "alt": "Colossyan logo",
+      "source": "https://www.colossyan.com/"
+    }
+  }
 }

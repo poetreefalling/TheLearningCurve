@@ -103,5 +103,12 @@
       "field": "security",
       "note": "Trust and safety page describes enterprise privacy controls; exact security certifications need Trust Center review."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/heygen/logo.webp",
+      "alt": "HeyGen logo",
+      "source": "https://www.heygen.com/"
+    }
+  }
 }

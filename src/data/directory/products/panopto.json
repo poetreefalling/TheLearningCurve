@@ -114,5 +114,12 @@
       "field": "deployment",
       "note": "Not recorded in the dataset."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/panopto/logo.webp",
+      "alt": "Panopto logo",
+      "source": "https://www.panopto.com/"
+    }
+  }
 }

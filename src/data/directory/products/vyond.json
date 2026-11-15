@@ -91,5 +91,12 @@
       "field": "security",
       "note": "Enterprise security features listed; detailed certifications and data handling require Trust Center review."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/vyond/logo.webp",
+      "alt": "Vyond logo",
+      "source": "https://www.vyond.com/"
+    }
+  }
 }

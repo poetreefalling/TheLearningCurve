@@ -211,5 +211,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/turnitin/logo.webp",
+      "alt": "Turnitin logo",
+      "source": "https://www.turnitin.com/"
+    }
+  }
 }

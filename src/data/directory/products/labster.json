@@ -96,5 +96,12 @@
       "field": "accessibility",
       "note": "Vendor advertises accessibility features; obtain current VPAT and simulation-specific accessibility statement."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/labster/logo.webp",
+      "alt": "Labster logo",
+      "source": "https://www.labster.com/"
+    }
+  }
 }

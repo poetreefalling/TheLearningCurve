@@ -93,5 +93,12 @@
       "field": "security",
       "note": "Institutional security and privacy documentation requires review; no independent assurance inspected in this pass."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/nearpod/logo.webp",
+      "alt": "Renaissance Nearpod logo",
+      "source": "https://nearpod.com/"
+    }
+  }
 }

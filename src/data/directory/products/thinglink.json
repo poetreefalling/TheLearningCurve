@@ -109,5 +109,12 @@
       "field": "security",
       "note": "Enterprise security details require trust-centre documentation and contract review."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/thinglink/logo.webp",
+      "alt": "ThingLink logo",
+      "source": "https://www.thinglink.com/"
+    }
+  }
 }

@@ -236,5 +236,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/khanmigo/logo.webp",
+      "alt": "Khanmigo by Khan Academy logo",
+      "source": "https://www.khanmigo.ai/"
+    }
+  }
 }

@@ -93,5 +93,12 @@
       "field": "security",
       "note": "School-domain verification and admin panel described; obtain DPA, security report and retention details."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/edpuzzle/logo.webp",
+      "alt": "Edpuzzle logo",
+      "source": "https://edpuzzle.com/"
+    }
+  }
 }
