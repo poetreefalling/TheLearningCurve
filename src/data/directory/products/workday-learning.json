@@ -200,5 +200,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/workday-learning/logo.webp",
+      "alt": "Workday logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/workday-learning/screenshot-1.webp",
+        "frame": false,
+        "alt": "The Workday Learning home page: a featured course banner, a Required for You row of course cards marked expired, overdue, due or not started, a Based on Your Interests row of courses and short videos, and a side menu for learning topics, progress, creating lessons and certifications",
+        "caption": "The learner home page in Workday Learning, with required training and its status, recommended courses and videos, and links to progress and certifications.",
+        "credit": "Image: Workday"
+      }
+    ]
+  }
 }
