@@ -103,5 +103,11 @@
       "field": "security",
       "note": "Adobe enterprise security/privacy framework applies; Captivate-specific AI data flows and independent assurance need verification."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/adobe-captivate/logo.webp",
+      "alt": "Adobe Captivate logo"
+    }
+  }
 }

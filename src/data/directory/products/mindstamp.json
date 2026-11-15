@@ -55,7 +55,7 @@
   },
   "alternatives": [
     "edpuzzle",
-    "playposit",
+    "wevideo",
     "nearpod",
     "hihaho"
   ],
@@ -92,5 +92,11 @@
       "field": "security",
       "note": "Enterprise security reviews and custom SSO/SAML are available; formal independent assurance not verified in reviewed page."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/mindstamp/logo.webp",
+      "alt": "Mindstamp logo"
+    }
+  }
 }

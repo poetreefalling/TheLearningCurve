@@ -1,9 +1,9 @@
 {
-  "name": "PlayPosit",
-  "vendor": "playposit",
+  "name": "WeVideo (formerly PlayPosit)",
+  "vendor": "wevideo",
   "category": "video-interactive",
   "secondaryCategories": [],
-  "website": "https://www.playposit.com/welcome",
+  "website": "https://www.wevideo.com/",
   "summary": "Interactive video platform that adds time-based questions, branching and rich media to existing video.",
   "primaryMarket": {
     "value": [
@@ -60,7 +60,8 @@
   "researchTasks": [
     "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product page reviewed; independent claims not verified.",
     "AI: AI functionality not verified in reviewed source. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
-    "Vendor outreach (High priority): Request pricing, supported LMS/LTI matrix, gradebook and analytics schema, accessibility report, DPA, security assurance, AI inventory and data processing terms."
+    "Vendor outreach (High priority): Request pricing, supported LMS/LTI matrix, gradebook and analytics schema, accessibility report, DPA, security assurance, AI inventory and data processing terms.",
+    "PlayPosit is now WeVideo (playposit.com redirects readers to wevideo.com). Re-check features, integrations and pricing against WeVideo's current pages; the facts above were sourced from playposit.com."
   ],
   "dataGaps": [
     {
@@ -87,5 +88,11 @@
       "field": "security",
       "note": "Current SOC 2/ISO, DPA, data residency and retention not verified in reviewed sources."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/wevideo/logo.webp",
+      "alt": "WeVideo logo"
+    }
+  }
 }

@@ -105,5 +105,11 @@
       "field": "security",
       "note": "Hosted Enterprise offers SSO and compliance assistance; self-hosted security depends on institution's hosting and maintenance."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/h5p/logo.webp",
+      "alt": "H5P logo"
+    }
+  }
 }

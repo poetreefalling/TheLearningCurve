@@ -96,5 +96,11 @@
       "field": "security",
       "note": "Enterprise platform positioning; independent security assurance and data residency not verified."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/evolve/logo.webp",
+      "alt": "Evolve logo"
+    }
+  }
 }

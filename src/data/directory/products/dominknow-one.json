@@ -109,5 +109,11 @@
       "field": "security",
       "note": "Security documentation available from vendor; SOC 2/ISO status and data residency need confirmation."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/dominknow-one/logo.webp",
+      "alt": "dominKnow logo"
+    }
+  }
 }

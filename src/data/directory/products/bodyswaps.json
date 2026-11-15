@@ -108,5 +108,11 @@
       "field": "security",
       "note": "Vendor privacy page explains learner activity collection and use for feedback, session continuity, progress and product improvement; further contractual details required."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/bodyswaps/logo.webp",
+      "alt": "Bodyswaps logo"
+    }
+  }
 }
