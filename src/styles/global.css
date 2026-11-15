@@ -1426,6 +1426,19 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
   .rc:hover .rc-p3 { transform: translateX(-80%) rotate(-13deg); }
 }
 @media (prefers-reduced-motion: reduce) { .rc-page { transition: none; } }
+/* 16:9 variant (resources page), and the course design kit card (components/kit/KitCard.astro):
+   a portrait cover in front of two landscape template pages */
+.rc-wide .rc-fan, .kc-fan { aspect-ratio: 16 / 9; }
+.kc-page { position: absolute; display: block; border-radius: 2px !important; background: #ffffff; box-shadow: 0 10px 24px rgba(22, 24, 29, 0.25); transform-origin: 50% 100%; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.kc-cover { z-index: 3; height: 96%; width: auto !important; aspect-ratio: 636 / 900 !important; left: 25%; top: 12%; transform: rotate(-4deg); }
+.kc-p1 { z-index: 2; width: 46% !important; height: auto !important; aspect-ratio: 900 / 636 !important; left: 40%; top: 24%; transform: rotate(4deg); }
+.kc-p2 { z-index: 1; width: 46% !important; height: auto !important; aspect-ratio: 900 / 636 !important; left: 43%; top: 10%; transform: rotate(9deg); }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .kc:hover .kc-cover { transform: translateX(-12%) translateY(-3%) rotate(-7deg) scale(1.02); }
+  .kc:hover .kc-p1 { transform: translateX(10%) translateY(-6%) rotate(1deg); }
+  .kc:hover .kc-p2 { transform: translateX(22%) translateY(-8%) rotate(13deg); }
+}
+@media (prefers-reduced-motion: reduce) { .kc-page { transition: none; } }
 
 /* Home: section tabs, section bands and the rail (components/home/SectionBands.astro).
    Front-page rhythm: a picture lead with text-only headlines beside it, hairlines between. */

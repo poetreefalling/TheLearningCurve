@@ -3,9 +3,11 @@
 // article card, with the guide's pages fanned on marigold. They splay out on hover (mouse only,
 // not under reduced motion). Our own offer, so it's labelled "Free field guide", never "Sponsored".
 import { REPORT } from '../../data/reports/ai-tools-for-learning-design';
+interface Props { wide?: boolean } // wide: a 16:9 fan, to sit beside the kit card on /resources/
+const { wide = false } = Astro.props;
 const img = (name: string) => `/images/reports/${REPORT.slug}/${name}.webp`;
 ---
-<a class="card card-standard rc" href={`/reports/${REPORT.slug}/`}>
+<a class:list={['card card-standard rc', { 'rc-wide': wide }]} href={`/reports/${REPORT.slug}/`}>
   <div class="rc-fan" aria-hidden="true">
     <img class="rc-page rc-p3" src={img('page-checklist')} alt="" width="640" height="905" loading="lazy" decoding="async" />
     <img class="rc-page rc-p2" src={img('page-roles')} alt="" width="640" height="905" loading="lazy" decoding="async" />
