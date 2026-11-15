@@ -245,5 +245,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/open-edx/logo.webp",
+      "alt": "Open edX logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/open-edx/screenshot-1.webp",
+        "frame": true,
+        "alt": "A course on edX.org running on Open edX: the course outline down the left (Introduction to Esports, with Module 1's video and two quizzes, then Modules 2 to 5), and a video unit with the player, a synchronised transcript beside it, and links to download the video, an SRT subtitle file and a text transcript",
+        "caption": "A video unit in an edX.org course, built on Open edX: course outline, transcript synced to the video, and downloadable video and transcript files. The Summarize button and Xpert assistant are edX.org features, not part of core Open edX.",
+        "credit": "Screenshot: The Learning Curve"
+      }
+    ]
+  }
 }
