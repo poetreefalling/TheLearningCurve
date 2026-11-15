@@ -230,5 +230,20 @@
       "field": "AI trains on customer data",
       "note": "\"not-applicable / implementation-dependent\" is not an allowed value; stored as not-disclosed."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/sakai/logo.webp",
+      "alt": "Sakai logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/sakai/screenshot-1.webp",
+        "frame": true,
+        "alt": "The Rubrics tool in a Sakai course site: the site's tool menu down the left (Announcements, Assignments, Gradebook, Lessons, Rubrics, Tests and Quizzes and others), and a Manage Rubrics page listing site rubrics and shared rubrics, with an essay rubric expanded to show content and mechanics criteria scored at 1, 3 and 5 points",
+        "caption": "Building and sharing rubrics in a Sakai course site. This screenshot is from a 2019 release; the current interface may look different.",
+        "credit": "Image: Sakai"
+      }
+    ]
+  }
 }
