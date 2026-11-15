@@ -204,5 +204,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/totara-learn/logo.webp",
+      "alt": "Totara Learn logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/totara-learn/screenshot-1.webp",
+        "frame": true,
+        "alt": "A Totara Learn My Learning page: a top menu with Learn, Collaborate, Develop and Reports, a banner image, Recommended for you blocks with trending and micro-learning course cards showing duration and likes, a survey card, and side panels for upcoming events and latest announcements",
+        "caption": "A learner's My Learning page in Totara Learn, with recommended courses, short micro-learning items, events and announcements.",
+        "credit": "Image: Totara"
+      }
+    ]
+  }
 }
