@@ -3,24 +3,54 @@
   "website": "https://kulissa.com/",
   "headquarters": {
     "value": "Zurich, Switzerland, and Paris, France",
-    "source": "https://kulissa.com/imprint",
-    "checked": "2026-11-14",
+    "source": "https://kulissa.com/press",
+    "checked": "2026-11-16",
     "origin": "verified"
   },
+  "founded": {
+    "value": 2026,
+    "source": "https://kulissa.com/press",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "size": {
+    "value": "Four founders; no headcount published",
+    "source": "https://kulissa.com/about",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "funding": {
+    "value": "Pre-seed: grants, credits and pro bono work (stated as US$215K+); no equity sold",
+    "source": "https://kulissa.com/press",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "ownership": {
+    "value": "independent",
+    "source": "https://kulissa.com/about",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "ownershipDetail": {
+    "value": "Founder-owned by its four founders, with no outside investors yet",
+    "source": "https://kulissa.com/about",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
   "status": "active",
-  "draft": true,
+  "lastVerified": "2026-11-16",
+  "draft": false,
   "researchTasks": [
-    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO (fernando@kulissa.com). Jim emailed questions on 14 Nov 2026; waiting for a reply.",
-    "Legal entity: the imprint and privacy policy say the company is still being incorporated in Paris and Zurich, with the legal name, form, register entry, address and managing directors all placeholders (checked 14 Nov 2026). Add legalEntity once the register entry exists.",
+    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO (fernando@kulissa.com). Jim emailed questions on 14 Nov 2026; Fernando replied on 16 Nov 2026 (Sydney).",
+    "Legal entity, sources disagree: Fernando's reply says the entity is 'TN1', in registration in Switzerland and the USA. The imprint, privacy policy and press kit say the company is being incorporated in Paris and Zurich, with legal name, form, register entry and address marked STEALTH (checked 16 Nov 2026). Ask which jurisdictions and which name the contracting entity will use; add legalEntity once a register entry exists.",
     "Startbase lists a Kulissa start-up in Volketswil (Zurich canton); the page didn't load on 14 Nov 2026. Re-open it to confirm it's the same company.",
-    "Homepage logo strip ('Supported by teams from' NVIDIA, Anthropic, Google, Atlassian, Cursor, BCG, ElevenLabs): asked what the support is. Don't repeat it on the profile.",
-    "Submission says the company won the Cursor Track at the RAISE Summit Hackathon 2026. Not on raisesummit.com/hackathon (no 2026 winners listed; Cursor is main sponsor, not a track). Asked for a confirming page; don't use until there is one."
+    "Homepage strip 'Supported by teams from' (NVIDIA Inception, Anthropic, Google for Startups, Cursor, RAISE, BCG, ETH clubs, ElevenLabs, Atlassian, Launch, Logificiel, altalab): Fernando says these are programmes and partners that back the company (startup programmes, credits), not customers. Don't repeat any of them on the profile.",
+    "RAISE Summit Hackathon 2026, Cursor Track (5 July 2026, Paris): claimed on Kulissa's blog (28 Oct 2026), about page and press kit, and reported by El Español (9 Jul 2026), which quotes Fernando and a TN1 press release, not the organisers. raisesummit.com/hackathon lists no 2026 winners and names Cursor as main sponsor, not a track (checked 16 Nov 2026). Fernando agrees RAISE's site doesn't list it. Not independently confirmed, so not on the profile. Also note: prize given as EUR 20K (press kit) and $20,000 (El Español); the hackathon team TN1 (Ismanalijev, Glushenkov, Almer, Novikov, Leyra) is not the same as the four founders on /about (Leyra, Novikov, Almer, Sarituc)."
   ],
   "dataGaps": [
-    { "field": "legalEntity", "note": "Company still being incorporated; imprint fields are placeholders." },
-    { "field": "founded", "note": "Not published." },
-    { "field": "size", "note": "Homepage mentions four founders; no headcount published." },
-    { "field": "ownership", "note": "Not published." },
-    { "field": "funding", "note": "Not published." }
+    {
+      "field": "legalEntity",
+      "note": "Company still being incorporated; imprint fields marked STEALTH; jurisdictions differ between the site (Paris, Zurich) and the vendor's email (Switzerland, USA)."
+    }
   ]
 }
