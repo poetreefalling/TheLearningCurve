@@ -1,0 +1,96 @@
+---
+// Sign-up form for The Evidence-Based Course Design Kit. Posts to /api/subscribe
+// (functions/api/subscribe.ts) with `magnet=course-design-kit`: the reader joins the Beehiiv list
+// (custom field "Lead magnet" = "Course design kit") and gets the delivery email through Resend.
+// `placement` measures each form separately. With JavaScript the download appears in place;
+// without it, the API redirects to /kit/thanks/.
+import { SITE } from '../../site.config';
+import { KIT, ROLES } from '../../data/kit';
+interface Props { placement: string; button?: string; tone?: 'band' | 'page' }
+const { placement, button = 'Send me the kit', tone = 'page' } = Astro.props;
+const on = SITE.newsletter !== null;
+const id = `kf-${placement}`;
+---
+<form class:list={['kf', `kf-${tone}`]} method="post" action="/api/subscribe" data-kit-form>
+  <input type="hidden" name="placement" value={placement} />
+  <input type="hidden" name="page" value={Astro.url.pathname} />
+  <input type="hidden" name="magnet" value={KIT.magnet} />
+  <input type="hidden" name="next" value="/kit/thanks/" />
+  <div class="nl-hp" aria-hidden="true"><label>Company <input name="company" tabindex="-1" autocomplete="off" /></label></div>
+  <div class="kf-row">
+    <label class="visually-hidden" for={`${id}-name`}>First name</label>
+    <input id={`${id}-name`} class="kf-name" name="first_name" type="text" placeholder="First name" autocomplete="given-name" maxlength="60" required disabled={!on} />
+    <label class="visually-hidden" for={`${id}-email`}>Email address</label>
+    <input id={`${id}-email`} class="kf-email" name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
+  </div>
+  <div class="kf-row">
+    <label class="visually-hidden" for={`${id}-role`}>What do you build?</label>
+    <select id={`${id}-role`} class="kf-role" name="role" required disabled={!on}>
+      <option value="">What do you build?</option>
+      {ROLES.map((r) => <option>{r}</option>)}
+    </select>
+    <button class="kf-button" type="submit" disabled={!on}>{on ? button : 'Coming soon'}</button>
+  </div>
+  <p class="kf-note" role="status" aria-live="polite">Free. Editable Google Docs and Sheets, plus a printable PDF. You'll also get our monthly newsletter; unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</p>
+  <div class="kf-done" hidden>
+    <p class="kf-done-head">Check your inbox for the kit.</p>
+    <p>It comes from hello@thelearningcurve.net, with links to every template. If it hasn't arrived in five minutes, look in your promotions or spam folder.</p>
+    <p><a class="kf-download" href={KIT.pdf} download>Download the PDF now ({KIT.pages} pages)</a></p>
+  </div>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>('form[data-kit-form]').forEach((form) => {
+    if (form.dataset.bound) return;
+    form.dataset.bound = '1';
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const note = form.querySelector<HTMLElement>('.kf-note')!;
+      const done = form.querySelector<HTMLElement>('.kf-done')!;
+      const button = form.querySelector<HTMLButtonElement>('button')!;
+      const body = Object.fromEntries(new FormData(form).entries());
+      button.disabled = true;
+      note.textContent = 'Sending…';
+      try {
+        const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        const json = await res.json();
+        if (res.ok) {
+          form.classList.add('is-done');
+          note.hidden = true;
+          done.hidden = false;
+          done.querySelector('a')?.focus();
+        } else {
+          note.textContent = json.message;
+          button.disabled = false;
+        }
+      } catch {
+        note.textContent = 'Something went wrong. Please try again.';
+        button.disabled = false;
+      }
+    });
+  });
+</script>
+
+<style>
+  .kf { display: flex; flex-direction: column; gap: 10px; max-width: 560px; }
+  .kf-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kf input, .kf select, .kf-button {
+    height: 52px; box-sizing: border-box; border: 2px solid var(--band-ink); border-radius: 0;
+    font: 400 16px var(--sans); color: #16181d; background: #ffffff;
+  }
+  .kf input, .kf select { padding: 0 16px; min-width: 0; }
+  .kf-name { flex: 1 1 150px; }
+  .kf-email { flex: 2 1 240px; }
+  .kf-role { flex: 2 1 260px; padding-right: 10px !important; }
+  .kf-button { flex: 1 1 200px; background: #16181d; color: #f7f4ee; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; cursor: pointer; }
+  .kf-button:hover:not(:disabled) { background: #1f2e4d; border-color: #1f2e4d; }
+  .kf-button:disabled { opacity: 0.7; cursor: default; }
+  .kf input:focus, .kf select:focus, .kf-button:focus-visible, .kf a:focus-visible { outline: 3px solid #1f2e4d; outline-offset: 2px; }
+  .kf-note { margin: 0; font: 400 13px/1.45 var(--sans); }
+  .kf-done { background: #16181d; color: #f7f4ee; padding: 22px 26px; }
+  .kf-done p { margin: 0 0 8px; font: 400 14px/1.5 var(--sans); color: #eeebe5; }
+  .kf-done .kf-done-head { font: 700 24px/1.15 var(--display); color: #f7f4ee; }
+  .kf-done a { color: #f6c847; font-weight: 600; }
+  .kf.is-done .kf-row { display: none; }
+  .kf-page input, .kf-page select { border-color: var(--rule-strong); }
+</style>

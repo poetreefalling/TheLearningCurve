@@ -4,21 +4,30 @@
 // Environment variables (Cloudflare Pages → Settings → Variables and secrets):
 //   BEEHIIV_API_KEY         secret, from Beehiiv → Settings → API
 //   BEEHIIV_PUBLICATION_ID  e.g. pub_00000000-0000-0000-0000-000000000000
+//   RESEND_API_KEY          secret (already set for /api/submit); sends the kit delivery email
+//   KIT_FROM                optional, default "The Learning Curve <hello@thelearningcurve.net>"
 //
 // Accepts JSON (from the site's script) or a normal form post (no-JavaScript fallback).
+
+import { kitEmail } from '../../emails/kit-delivery';
+import { ROLES } from '../../src/data/kit';
 
 interface Env {
   BEEHIIV_API_KEY?: string;
   BEEHIIV_PUBLICATION_ID?: string;
+  RESEND_API_KEY?: string;
+  KIT_FROM?: string;
 }
 
-const MAGNETS: Record<string, string> = { 'ai-report': 'AI report' };
+const MAGNETS: Record<string, string> = { 'ai-report': 'AI report', 'course-design-kit': 'Course design kit' };
 // The Beehiiv automation that delivers each lead magnet. Its sign-up trigger only fires for new
 // subscribers, so the site also enrols every requester through the automation's API trigger;
 // that way people already on the list get the email too. Enrolment is "limited" (once per
 // person), so a new subscriber caught by both triggers still gets one email.
 const MAGNET_AUTOMATIONS: Record<string, string> = { 'ai-report': 'aut_c21b98cc-5af3-40a5-8cbc-46f8f1cc5399' };
-const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/']);
+// Lead magnets delivered by the site itself through Resend (no Beehiiv automation needed).
+const RESEND_MAGNETS = new Set(['course-design-kit']);
+const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/', '/kit/thanks/']);
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
@@ -74,16 +83,46 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
       }),
     });
 
-  let res = await subscribe(magnet ? [...fields, { name: 'Lead magnet', value: magnet }] : fields);
-  // If the "Lead magnet" field hasn't been created in Beehiiv yet, never lose the sign-up over it.
-  if (!res.ok && magnet) {
-    console.log('Beehiiv error with Lead magnet field, retrying without it', res.status, await res.text());
+  // "What do you build?" from the kit form: only the form's own options are accepted.
+  const role = ROLES.includes(data.role ?? '') ? data.role! : '';
+  const extra = [
+    ...(magnet ? [{ name: 'Lead magnet', value: magnet }] : []),
+    ...(role ? [{ name: 'What do you build', value: role }] : []),
+  ];
+  let res = await subscribe([...fields, ...extra]);
+  // If a custom field ("Lead magnet", "What do you build") hasn't been created in Beehiiv yet,
+  // never lose the sign-up over it.
+  if (!res.ok && extra.length) {
+    console.log('Beehiiv error with custom fields, retrying without them', res.status, await res.text());
     res = await subscribe(fields);
   }
 
   if (!res.ok) {
     console.log('Beehiiv error', res.status, await res.text());
     return reply(isJson, 502, 'Something went wrong. Please try again in a minute.');
+  }
+  if (magnet && RESEND_MAGNETS.has(data.magnet ?? '')) {
+    // Send the kit by email. Never fail the sign-up over this: the PDF is already on the page.
+    if (env.RESEND_API_KEY) {
+      const mail = kitEmail(firstName);
+      const sent = await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: env.KIT_FROM || 'The Learning Curve <hello@thelearningcurve.net>',
+          to: [email],
+          reply_to: 'jim@thelearningcurve.net',
+          subject: mail.subject,
+          html: mail.html,
+          text: mail.text,
+          tags: [{ name: 'magnet', value: data.magnet! }, { name: 'placement', value: (data.placement ?? 'site').replace(/[^\w-]/g, '').slice(0, 50) || 'site' }],
+        }),
+      }).catch((e) => { console.log('Resend send failed', String(e)); return null; });
+      if (sent && !sent.ok) console.log('Resend error', sent.status, await sent.text());
+    } else {
+      console.log('RESEND_API_KEY not set: kit email not sent');
+    }
+    return reply(isJson, 200, 'Thanks. Check your inbox for the kit.', next);
   }
   if (magnet) {
     const automation = MAGNET_AUTOMATIONS[data.magnet ?? ''];

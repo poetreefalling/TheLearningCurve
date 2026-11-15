@@ -1,0 +1,14 @@
+---
+// Where the kit form lands without JavaScript (functions/api/subscribe.ts redirects here).
+import Page from '../../layouts/Page.astro';
+import { KIT, ITEMS } from '../../data/kit';
+---
+<Page title="Your kit is on its way" description="Download The Evidence-Based Course Design Kit." noindex>
+  <p>Thanks for signing up. Check your inbox: <i>{KIT.title}</i> comes from hello@thelearningcurve.net, with a link to every template. If it hasn't arrived in five minutes, look in your promotions or spam folder.</p>
+  <p><a class="rf-download" href={KIT.pdf} download>Download the PDF now ({KIT.pages} pages)</a></p>
+  <p>Or make your own copy of each template now:</p>
+  <ul>
+    {ITEMS.filter((i) => i.copy).map((i) => <li><a href={i.copy}>{i.n} · {i.title}</a> ({i.format})</li>)}
+  </ul>
+  <p>Not sure where to start? Building something new: start with 01, the objectives builder. Improving a course you already run: start with 07, the audit, and fix the zeros first.</p>
+</Page>
