@@ -4,9 +4,9 @@
     {
       "id": "newsletter",
       "kicker": "The Learning Curve Newsletter",
-      "headline": "The research and technology shaping learning, once a month",
-      "text": "Studies worth understanding, developments worth knowing about, and what they mean for your work. Free, one email a month.",
-      "cta": "Get the newsletter",
+      "headline": "Get featured in our newsletter",
+      "text": "Each month we feature products, courses and learning discoveries from subscribers picked at random, plus the latest research on learning.",
+      "cta": "Subscribe free",
       "url": "/newsletter/",
       "slots": [
         "billboard",
