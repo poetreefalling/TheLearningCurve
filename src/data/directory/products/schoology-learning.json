@@ -230,10 +230,9 @@
       {
         "src": "/images/directory/schoology-learning/screenshot-1.webp",
         "frame": true,
-        "width": 1100,
-        "alt": "A Schoology course page: course tools down the left (Materials, Updates, Gradebook, Badges, Attendance, Members, Analytics), a list of course materials including a welcome page, a discussion, a link, a quiz, a file, a folder and an assignment with due dates, and an Upcoming panel showing a quiz due",
-        "caption": "The Materials page of a Schoology course, where teachers add pages, discussions, quizzes, files and assignments. This screenshot is from about 2016; the current interface looks different.",
-        "credit": "Image: Casey Meile"
+        "alt": "A new Schoology course in a web browser: the top menu with Courses, Groups, Resources and Tools, course tools down the left (Materials, Updates, Gradebook, Grade Setup, Mastery, Badges, Attendance, Members, Analytics, Workload Planning and installed apps), and an empty Materials page explaining how to add and organise materials, with an Upcoming panel on the right",
+        "caption": "An empty course in Schoology, with the Add Materials menu, course tools and installed apps such as WeVideo down the left.",
+        "credit": "Screenshot: The Learning Curve"
       }
     ]
   }
