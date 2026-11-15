@@ -1,0 +1,113 @@
+{
+  "name": "ThingLink",
+  "vendor": "thinglink",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "emerging-technologies"
+  ],
+  "website": "https://www.thinglink.com/",
+  "summary": "Authoring platform for interactive images, video, 360° media, 3D models, virtual tours and scenario-based immersive learning.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "vet",
+      "corporate"
+    ],
+    "source": "https://support.thinglink.com/hc/en-us/articles/360024750573-Pricing-Plans",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Virtual field trips",
+      "Safety tours",
+      "Equipment familiarisation",
+      "Interactive video",
+      "AR/VR learning and simulation"
+    ],
+    "source": "https://support.thinglink.com/hc/en-us/articles/360024750573-Pricing-Plans",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Hotspots on images/video/360°",
+      "3D models",
+      "Scenario Builder",
+      "AI-powered authoring features",
+      "Analytics and immersive publishing"
+    ],
+    "source": "https://support.thinglink.com/hc/en-us/articles/360024750573-Pricing-Plans",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Business plans include LTI/xAPI integrations at higher tiers",
+      "Education plans and LMS integrations vary by licence"
+    ],
+    "source": "https://www.thinglink.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://www.thinglink.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Public business pricing includes Starter US$232/year, XR US$792/year, Team from US$500/month, Business from US$1,500/month; education pricing varies, e.g. Teacher US$108/year and institutional tiers.",
+      "from": "US$108 a year (Teacher)"
+    },
+    "source": "https://support.thinglink.com/hc/en-us/articles/360024750573-Pricing-Plans",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "articulate-360",
+    "adobe-captivate",
+    "ispring-suite"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor support pricing article updated July 2026; pricing and features are vendor-published.",
+    "AI: AI-powered creation features are advertised; exact model/provider and AI feature scope require confirmation. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI model/provider and training policy, data retention, subprocessors, DPA, VPAT, LTI/xAPI version matrix, hosting regions and education pricing in AUD."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "LTI/xAPI listed for Business tier; confirm exact version and tracking depth."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility and device compatibility need product-specific VPAT/testing; not fully verified."
+    },
+    {
+      "field": "security",
+      "note": "Enterprise security details require trust-centre documentation and contract review."
+    }
+  ]
+}

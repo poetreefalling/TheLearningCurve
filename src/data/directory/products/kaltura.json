@@ -1,0 +1,109 @@
+{
+  "name": "Kaltura",
+  "vendor": "kaltura",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://corp.kaltura.com/",
+  "summary": "Video platform for education with lecture capture, live/VOD, video quizzes, interactive paths, analytics and LMS embedding.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Lecture capture",
+      "Video assignments",
+      "Interactive lecture content",
+      "Blended learning",
+      "Institutional video portals"
+    ],
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Video quizzes with multiple choice, true/false, open response and reflection points",
+      "Hotspots",
+      "Interactive learning paths",
+      "Captions/translations",
+      "Analytics"
+    ],
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS/VLE integrations",
+      "Gradebook-connected video quizzes",
+      "Embeds and permissions linked to LMS entitlements. Exact LTI versions to confirm"
+    ],
+    "source": "https://knowledge.kaltura.com/help/d2l-add-media-kaltura-video-quiz",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise/institutional quote; no public list price captured."
+    },
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "Section 508 (video player)",
+      "evidence": "Vendor claim; VPAT not reviewed"
+    },
+    "source": "https://corp-dev.kaltura.com/education-video-platform/lms-video-integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "panopto",
+    "yuja-lumina",
+    "vimeo-enterprise"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor Knowledge Center and education integration page reviewed. Product capabilities are vendor claims; independent validation not conducted.",
+    "AI: AI capabilities not sufficiently verified in reviewed Kaltura pages; advanced search/metadata described, but AI provider and feature scope need confirmation. Models: Not publicly verified in reviewed sources. Training: Not publicly verified; ask whether prompts, recordings, transcripts or learner interactions train vendor or third-party models. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (Medium priority): Request product architecture, current LTI 1.3 support, SCORM/xAPI export, AI features/model providers, data-training terms, retention, subprocessors, SOC 2/ISO evidence, VPAT and Australian data residency.",
+    "Two of the workbook sources are on corp-dev.kaltura.com, a development subdomain. Re-open the equivalent pages on the public site and replace the sources."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integrations; verify LTI version, SCORM/xAPI options and gradebook mapping for target LMS."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "security",
+      "note": "Vendor describes use of LMS permissions and entitlements; independent security assurance and certifications not verified in this pass."
+    }
+  ]
+}

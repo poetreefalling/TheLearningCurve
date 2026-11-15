@@ -1,0 +1,100 @@
+{
+  "name": "Evolve",
+  "vendor": "intellum",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.intellum.com/products/evolve-content-authoring",
+  "summary": "Enterprise authoring tool integrated with Intellum LMS for responsive branded courses and interactive learning content.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.intellum.com/products/evolve-content-authoring",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Rapid eLearning",
+      "Branded course production",
+      "Interactive microlearning",
+      "Global workforce training"
+    ],
+    "source": "https://www.intellum.com/products/evolve-content-authoring",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Drag-and-drop authoring, 50+ interactions including flip cards, carousels and simulations",
+      "Themes and accessibility controls"
+    ],
+    "source": "https://www.intellum.com/products/evolve-content-authoring",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Tight integration with Intellum LMS",
+      "Confirm standalone LMS exports, API and LTI options"
+    ],
+    "source": "https://www.intellum.com/resources/blog/elearning-authoring-tools",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "21-day trial; commercial pricing not shown in reviewed page."
+    },
+    "source": "https://www.intellum.com/products/evolve-content-authoring",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG (level not stated)",
+      "evidence": "Vendor claim; VPAT not reviewed"
+    },
+    "source": "https://www.intellum.com/products/evolve-content-authoring",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "thinglink",
+    "articulate-360",
+    "adobe-captivate"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product page reviewed; vendor claims only.",
+    "AI: AI readiness marketed; detailed AI features and availability not verified in reviewed page. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request current AI capability list, models/providers, training/retention, subprocessors, DPA, SOC 2/ISO, VPAT, SCORM/xAPI/LTI options and standalone pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "SCORM/export specifics not fully visible in reviewed product page; vendor confirmation required."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free trial offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "security",
+      "note": "Enterprise platform positioning; independent security assurance and data residency not verified."
+    }
+  ]
+}

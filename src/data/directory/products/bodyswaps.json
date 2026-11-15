@@ -1,0 +1,112 @@
+{
+  "name": "Bodyswaps",
+  "vendor": "bodyswaps",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "emerging-technologies"
+  ],
+  "website": "https://bodyswaps.co/",
+  "summary": "Immersive roleplay platform for soft-skills practice, perspective-taking and behavioural feedback through VR and browser experiences.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "vet",
+      "corporate"
+    ],
+    "source": "https://bodyswaps.co/features/lms-integration",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Communication",
+      "Interviews",
+      "Leadership",
+      "Customer service",
+      "Inclusion",
+      "Conflict and feedback practice"
+    ],
+    "source": "https://bodyswaps.co/features/lms-integration",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Roleplay scenarios, perspective swapping, AI-supported feedback and learner progress reporting",
+      "Web portal for educator/facilitator management"
+    ],
+    "source": "https://bodyswaps.co/features/lms-integration",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LTI integrations with Moodle, Canvas, Blackboard and other LTI 1.3 systems",
+      "LMS course launch and progress tracking"
+    ],
+    "source": "https://play.google.com/store/apps/details?hl=en_AU&id=com.bodyswaps.bodyswap",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.3"
+    ],
+    "source": "https://play.google.com/store/apps/details?hl=en_AU&id=com.bodyswaps.bodyswap",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional/enterprise quote; no public list price captured."
+    },
+    "source": "https://bodyswaps.co/features/lms-integration",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://bodyswaps.co/features/lms-integration",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "labster",
+    "mursion",
+    "kulissa-maya"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor LMS integration page and Google Play data safety declaration reviewed; app-store declarations are developer-provided, not independent audit.",
+    "AI: AI-supported conversational/behavioural feedback and dynamic simulation. Models: Specific model/provider not identified in reviewed sources. Training: Vendor says activity data may be used internally to improve the product; whether it trains third-party or foundation models is not clear. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (Medium priority): Request model/provider, data categories, training/improvement distinction, retention, subprocessors, DPA, SOC 2/ISO, data residency, VPAT, headset/browser requirements and LMS tracking details.",
+    "One source is the Google Play data-safety declaration, which the developer writes; it is not independent evidence."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "LTI 1.3; confirm xAPI/SCORM support and depth of analytics export."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "VR and browser delivery options; obtain VPAT and accessibility alternatives for headset-dependent activities."
+    },
+    {
+      "field": "security",
+      "note": "Vendor privacy page explains learner activity collection and use for feedback, session continuity, progress and product improvement; further contractual details required."
+    }
+  ]
+}

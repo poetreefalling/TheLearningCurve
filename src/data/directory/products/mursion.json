@@ -1,0 +1,100 @@
+{
+  "name": "Mursion",
+  "vendor": "mursion",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "emerging-technologies"
+  ],
+  "website": "https://www.mursion.com/",
+  "summary": "Immersive simulation platform for practising high-stakes conversations and interpersonal skills with realistic virtual characters and coaching.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.mursion.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Leadership conversations",
+      "Performance reviews",
+      "Classroom management",
+      "Difficult conversations",
+      "Communication and feedback practice"
+    ],
+    "source": "https://www.mursion.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Scenario-based roleplay, virtual characters, AI-supported interactions with human facilitation, immediate feedback and measurable practice"
+    ],
+    "source": "https://www.mursion.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Vendor states web platform or LMS with SSO",
+      "Exact LTI/API and analytics integration require confirmation"
+    ],
+    "source": "https://www.mursion.com/solutions/education/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Quote/demo-led; no public price captured."
+    },
+    "source": "https://www.mursion.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.mursion.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "labster",
+    "bodyswaps",
+    "kulissa-maya"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product and education pages reviewed; impact metrics are vendor-reported.",
+    "AI: AI-powered simulations; blended AI precision with live human facilitation. Models: Specific models/providers and human/AI processing boundaries not disclosed in reviewed pages. Training: Not verified; sensitive voice, video, performance and behavioural data require detailed disclosure. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request architecture and human facilitator role, model/provider inventory, recording/voice retention, training use, subprocessors, DPA, SOC 2/ISO, data residency, VPAT, LMS/API options and pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS/SSO mentioned; SCORM/xAPI/LTI details not verified."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility statement and VPAT not located in this pass."
+    },
+    {
+      "field": "security",
+      "note": "Security, privacy, data residency and independent assurance not verified in reviewed pages."
+    }
+  ]
+}

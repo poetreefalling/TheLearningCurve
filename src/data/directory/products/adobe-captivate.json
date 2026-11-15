@@ -1,0 +1,107 @@
+{
+  "name": "Adobe Captivate",
+  "vendor": "adobe",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://www.adobe.com/au/products/captivate.html",
+  "summary": "Authoring tool for responsive courses, interactive video, branching scenarios, software simulations and slide-based content.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "vet",
+      "corporate"
+    ],
+    "source": "https://www.adobe.com/au/products/captivate.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Software training",
+      "Process simulation",
+      "Interactive video",
+      "Compliance",
+      "Responsive course development"
+    ],
+    "source": "https://www.adobe.com/au/products/captivate.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI-assisted content generation, avatars, voices, transcripts, responsive design, software simulations, branching and interactive video"
+    ],
+    "source": "https://www.adobe.com/au/products/captivate.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS publishing via HTML5 LMS packages",
+      "Adobe ecosystem and review workflows"
+    ],
+    "source": "https://www.adobe.com/au/products/captivate/interactive-elearning.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "aicc",
+      "xapi"
+    ],
+    "source": "https://www.adobe.com/au/products/captivate/interactive-elearning.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Australian page lists A$57.99/month including GST (A$695.88/year); verify current plan and tax treatment.",
+      "from": "A$57.99 a month including GST"
+    },
+    "source": "https://www.adobe.com/au/products/captivate.html",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "thinglink",
+    "articulate-360",
+    "ispring-suite"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Adobe Australia product page reviewed; price and features are vendor-published.",
+    "AI: Generative AI for text, images, avatars, voices and transcripts. Models: Specific model providers not verified in reviewed product page. Training: Not verified for Captivate-specific AI workflows. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI model/provider, training use, retention, subprocessors, DPA, SOC 2/ISO, VPAT, Australian data processing, SCORM/xAPI technical matrix and enterprise licensing."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility capabilities and conformance need current VPAT and product-specific testing."
+    },
+    {
+      "field": "security",
+      "note": "Adobe enterprise security/privacy framework applies; Captivate-specific AI data flows and independent assurance need verification."
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "name": "dominKnow | ONE",
+  "vendor": "dominknow",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://dominknow.com/lcms",
+  "summary": "Cloud authoring and learning content management platform for responsive and slide-based content, reusable assets and collaborative production.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://dominknow.com/lcms",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Enterprise course libraries",
+      "Software training",
+      "Multilingual content",
+      "Multi-channel publishing",
+      "Content reuse"
+    ],
+    "source": "https://dominknow.com/lcms",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Real-time co-authoring, reusable learning objects, responsive authoring, software training capture and single-source updates"
+    ],
+    "source": "https://dominknow.com/lcms",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS/LRS delivery",
+      "PENS upload",
+      "Central repository and collaboration workflows"
+    ],
+    "source": "https://dominknow.com/lcms-learning-content-management-system",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi",
+      "cmi5",
+      "aicc"
+    ],
+    "source": "https://dominknow.com/lcms-learning-content-management-system",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Quote-based; public price not confirmed."
+    },
+    "source": "https://dominknow.com/lcms",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://dominknow.com/lcms",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA, Section 508",
+      "evidence": "Vendor claim; VPAT not reviewed"
+    },
+    "source": "https://dominknow.com/software-training",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "thinglink",
+    "articulate-360",
+    "adobe-captivate"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor LCMS and software training pages reviewed; accessibility claims are vendor statements.",
+    "AI: AI feature set not verified in reviewed product pages. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI inventory, privacy/security reports, VPAT, DPA, data residency, supported standards/version matrix, API documentation, content ownership and price per author/enterprise."
+  ],
+  "dataGaps": [
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "security",
+      "note": "Security documentation available from vendor; SOC 2/ISO status and data residency need confirmation."
+    }
+  ]
+}

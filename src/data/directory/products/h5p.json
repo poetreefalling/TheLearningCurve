@@ -1,0 +1,109 @@
+{
+  "name": "H5P",
+  "vendor": "h5p-group",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://h5p.com/",
+  "summary": "Authoring ecosystem for interactive quizzes, videos, branching stories, presentations and other reusable learning activities.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://h5p.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Interactive video",
+      "Formative assessment",
+      "Branching scenarios",
+      "Microlearning",
+      "LMS-embedded activities"
+    ],
+    "source": "https://h5p.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "50+ content types, interactive video, polls, quizzes, branching, analytics and gradebook scoring",
+      "Hosted tiers add AI Smart Import and multilingual generation"
+    ],
+    "source": "https://h5p.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LTI integrations with LMS",
+      "External LRS access",
+      "Embed codes",
+      "Gradebook scoring depends on LMS LTI support"
+    ],
+    "source": "https://h5p.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://h5p.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://h5p.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "genially",
+    "thinglink",
+    "articulate-360",
+    "adobe-captivate",
+    "ispring-suite"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor H5P.com product/pricing pages reviewed. Open-source core and hosted service are distinct deployment models.",
+    "AI: AI-assisted Smart Import, prompt customisation and multilingual content generation on Premium/Enterprise tiers. Models: Underlying AI model/provider not identified in reviewed public pages. Training: Customer content training policy not verified. Retention: Retention and deletion for AI inputs/outputs not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Confirm hosted vs self-hosted product scope, AI provider/model, training exclusion, retention, subprocessors, LTI 1.3 support, grade passback, xAPI semantics, VPAT and enterprise DPA."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "LTI; xAPI/LRS pathways; SCORM support depends on implementation or third-party plugins—verify architecture."
+    },
+    {
+      "field": "pricing",
+      "note": "Open-source/self-hosted H5P differs from hosted H5P.com Pro, Premium and Enterprise plans; quote/plan-dependent."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "accessibility",
+      "note": "Vendor states built-in accessibility; verify content-type-specific WCAG conformance and VPAT."
+    },
+    {
+      "field": "security",
+      "note": "Hosted Enterprise offers SSO and compliance assistance; self-hosted security depends on institution's hosting and maintenance."
+    }
+  ]
+}
