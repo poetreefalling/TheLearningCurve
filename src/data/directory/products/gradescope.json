@@ -206,5 +206,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/gradescope/logo.webp",
+      "alt": "Gradescope by Turnitin logo",
+      "source": "https://www.gradescope.com/"
+    }
+  }
 }

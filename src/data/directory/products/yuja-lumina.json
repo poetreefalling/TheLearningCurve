@@ -105,5 +105,12 @@
       "field": "deployment",
       "note": "Not recorded in the dataset."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/yuja-lumina/logo.webp",
+      "alt": "YuJa logo",
+      "source": "https://www.yuja.com/"
+    }
+  }
 }

@@ -113,5 +113,12 @@
       "field": "security",
       "note": "Vendor states zero data retention with AI subprocessors and says customer content is not used to train its AI."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/articulate-360/logo.webp",
+      "alt": "Articulate logo",
+      "source": "https://www.articulate.com/360/"
+    }
+  }
 }

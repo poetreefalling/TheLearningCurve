@@ -93,5 +93,12 @@
       "field": "security",
       "note": "Vendor has security/privacy feature pages; independent assurance and certifications not verified in this pass."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/genially/logo.webp",
+      "alt": "Genially logo",
+      "source": "https://genially.com/"
+    }
+  }
 }

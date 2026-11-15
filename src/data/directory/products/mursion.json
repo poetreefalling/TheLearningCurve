@@ -96,5 +96,12 @@
       "field": "security",
       "note": "Security, privacy, data residency and independent assurance not verified in reviewed pages."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/mursion/logo.webp",
+      "alt": "Mursion logo",
+      "source": "https://www.mursion.com/"
+    }
+  }
 }
