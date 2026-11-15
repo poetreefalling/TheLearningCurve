@@ -2,17 +2,25 @@
   "name": "Maya by Kulissa",
   "vendor": "kulissa",
   "category": "ai-for-learning",
-  "secondaryCategories": ["video-interactive"],
+  "secondaryCategories": [
+    "video-interactive"
+  ],
   "website": "https://kulissa.com/",
   "summary": "Voice role-play for sales training: learners talk through a practice call with an AI virtual customer, an AI coach steps in when they go wrong, and the session is scored with quotes from the transcript. Runs in the browser with a microphone. In beta.",
   "primaryMarket": {
-    "value": ["corporate"],
+    "value": [
+      "corporate"
+    ],
     "source": "https://kulissa.com/privacy",
     "checked": "2026-11-14",
     "origin": "verified"
   },
   "useCases": {
-    "value": ["Sales call practice", "Sales onboarding", "Interview practice"],
+    "value": [
+      "Sales call practice",
+      "Sales onboarding",
+      "Interview practice"
+    ],
     "source": "https://kulissa.com/",
     "checked": "2026-11-14",
     "origin": "vendor-supplied"
@@ -29,13 +37,18 @@
     "origin": "verified"
   },
   "pricing": {
-    "value": { "public": false, "notes": "A free three-minute public demo; no team pricing published." },
+    "value": {
+      "public": false,
+      "notes": "A free three-minute public demo; no team pricing published."
+    },
     "source": "https://kulissa.com/",
     "checked": "2026-11-14",
     "origin": "verified"
   },
   "deployment": {
-    "value": ["cloud"],
+    "value": [
+      "cloud"
+    ],
     "source": "https://kulissa.com/subprocessors",
     "checked": "2026-11-14",
     "origin": "verified"
@@ -52,7 +65,12 @@
   },
   "aiDisclosure": {
     "value": {
-      "models": ["OpenAI models", "Google Gemini", "ElevenLabs speech", "Anthropic models via OpenRouter"],
+      "models": [
+        "OpenAI models",
+        "Google Gemini",
+        "ElevenLabs speech",
+        "Anthropic models via OpenRouter"
+      ],
       "trainsOnCustomerData": "no",
       "notes": "Providers named on the subprocessor page, without model versions. Kulissa says it doesn't train its own models on customer content and requires providers not to."
     },
@@ -61,8 +79,14 @@
     "origin": "vendor-supplied"
   },
   "aiProfile": {
-    "toolTypes": ["conversation practice", "role-play simulation"],
-    "audience": ["Sales teams", "Corporate L&D"],
+    "toolTypes": [
+      "conversation practice",
+      "role-play simulation"
+    ],
+    "audience": [
+      "Sales teams",
+      "Corporate L&D"
+    ],
     "areas": {
       "dataPrivacy": {
         "answers": [
@@ -108,9 +132,18 @@
             "checked": "2026-11-14",
             "note": "Privacy policy: does not knowingly collect data from anyone under 16; described as a B2B product for adults at work."
           },
-          { "question": "Staff can review AI output before learners see it", "level": "research-ongoing" },
-          { "question": "Staff can set limits on the AI", "level": "research-ongoing" },
-          { "question": "Staff can see learner conversations", "level": "research-ongoing" }
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
         ]
       },
       "pedagogy": {
@@ -122,8 +155,14 @@
             "source": "https://kulissa.com/",
             "checked": "2026-11-14"
           },
-          { "question": "Answers from your own course content", "level": "research-ongoing" },
-          { "question": "Shows its sources", "level": "research-ongoing" }
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
         ]
       },
       "outputOwnership": {
@@ -141,7 +180,9 @@
   },
   "alternatives": [],
   "evidence": [],
-  "commercialRelationship": { "kind": "none" },
+  "commercialRelationship": {
+    "kind": "none"
+  },
   "status": "beta",
   "draft": true,
   "researchTasks": [
@@ -154,13 +195,43 @@
     "Find comparable products for alternatives once other AI role-play tools are in the directory."
   ],
   "dataGaps": [
-    { "field": "pricing", "note": "No team pricing published; only a free public demo." },
-    { "field": "pricingModel", "note": "Basis not published." },
-    { "field": "integrations", "note": "None listed apart from Google and Microsoft sign-in." },
-    { "field": "standards", "note": "None listed." },
-    { "field": "accessibility", "note": "No conformance report or standard published." },
-    { "field": "security", "note": "No certifications claimed." },
-    { "field": "geographicAvailability", "note": "Not stated." },
-    { "field": "data residency", "note": "Hetzner server locations partly 'to be confirmed'; AI processing in the US." }
-  ]
+    {
+      "field": "pricing",
+      "note": "No team pricing published; only a free public demo."
+    },
+    {
+      "field": "pricingModel",
+      "note": "Basis not published."
+    },
+    {
+      "field": "integrations",
+      "note": "None listed apart from Google and Microsoft sign-in."
+    },
+    {
+      "field": "standards",
+      "note": "None listed."
+    },
+    {
+      "field": "accessibility",
+      "note": "No conformance report or standard published."
+    },
+    {
+      "field": "security",
+      "note": "No certifications claimed."
+    },
+    {
+      "field": "geographicAvailability",
+      "note": "Not stated."
+    },
+    {
+      "field": "data residency",
+      "note": "Hetzner server locations partly 'to be confirmed'; AI processing in the US."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/kulissa-maya/logo.webp",
+      "alt": "Kulissa logo"
+    }
+  }
 }
