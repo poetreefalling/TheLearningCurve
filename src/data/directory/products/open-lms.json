@@ -223,5 +223,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/open-lms/logo.webp",
+      "alt": "Open LMS logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/open-lms/screenshot-1.webp",
+        "frame": true,
+        "alt": "An Open LMS program catalogue page: a navigation bar with My Programs, My Report, Buy Products and Dashboard, program filters by name and duration, course filters by name, category, duration and rating, and a listing for a Cabin Crew and Customer Service Training program with its description and a cover image",
+        "caption": "The program catalogue in an Open LMS site, where learners filter programs by duration or by the courses they contain.",
+        "credit": "Screenshot: The Learning Curve"
+      }
+    ]
+  }
 }
