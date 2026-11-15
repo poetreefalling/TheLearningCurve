@@ -1,0 +1,1318 @@
+{
+  "active-dictionary": {
+    "url": "https://activedictionary.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 8,
+        "tag": "img",
+        "src": "https://activedictionary.com/svg/logo.svg",
+        "alt": "Active Dictionary",
+        "w": 159,
+        "h": 36,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://activedictionary.com/",
+    "icon": "https://activedictionary.com/favicon-96x96.png"
+  },
+  "adobe-captivate": {
+    "url": "https://www.adobe.com/products/captivate.html",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://www.adobe.com/products/captivate.html"
+  },
+  "articulate-360-ai": {
+    "url": "https://www.articulate.com/360/ai-assistant/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.articulate.com/wp-content/uploads/2023/06/articulate-logo.svg",
+        "alt": "Articulate",
+        "w": 134,
+        "h": 28,
+        "file": "cand-0.svg",
+        "contentType": "text/html"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.articulate.com/360/ai-assistant/"
+  },
+  "articulate-360": {
+    "url": "https://www.articulate.com/360/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.articulate.com/wp-content/uploads/2023/06/articulate-logo.svg",
+        "alt": "Articulate",
+        "w": 134,
+        "h": 28,
+        "file": "cand-0.svg",
+        "contentType": "text/html"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.articulate.com/360/"
+  },
+  "bodyswaps": {
+    "url": "https://bodyswaps.co/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 8,
+        "tag": "img",
+        "src": "https://bodyswaps.co/hs-fs/hubfs/Primary%20White%20High%20Res.png?width=2400&height=375&name=Primary%20White%20High%20Res.png",
+        "alt": "Bodyswaps White Logo",
+        "w": 220,
+        "h": 34,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://bodyswaps.co/"
+  },
+  "brisk-teaching": {
+    "url": "https://www.briskteaching.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/6a6b7e36c7e8274794581e32/6a6b7e36c7e8274794582e27_BriskTeaching_Logo-p-500.png",
+        "alt": "Brisk Teaching logo",
+        "w": 247,
+        "h": 32,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.briskteaching.com/",
+    "icon": "https://cdn.prod.website-files.com/6a6b7e36c7e8274794581e32/6a6b7e36c7e8274794582e22_Brisk%20Logo.png"
+  },
+  "camtasia": {
+    "url": "https://www.techsmith.com/camtasia/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 146,
+        "h": 60,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 9,
+        "tag": "img",
+        "src": "https://www.techsmith.com/wp-content/uploads/2025/10/camtasia_product_product_camtasia-editor.svg",
+        "alt": "Camtasia Icon Logo Color",
+        "w": 24,
+        "h": 24,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 2,
+        "score": 6,
+        "tag": "img",
+        "src": "https://www.techsmith.com/wp-content/uploads/2025/10/snagit_product_product_snagit.svg",
+        "alt": "Snagit Icon Logo Color",
+        "w": 24,
+        "h": 24,
+        "file": "cand-2.svg",
+        "contentType": "image/svg+xml",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 3,
+        "score": 6,
+        "tag": "img",
+        "src": "https://www.techsmith.com/wp-content/uploads/2025/10/camtasia_product_product_assets-for-camtasia.svg",
+        "alt": "Assets for Camtasia Icon Logo Color",
+        "w": 24,
+        "h": 24,
+        "file": "cand-3.svg",
+        "contentType": "image/svg+xml",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.techsmith.com/camtasia/",
+    "icon": "https://www.techsmith.com/wp-content/uploads/2021/08/cropped-favicon-1-32x32.png"
+  },
+  "chatgpt": {
+    "url": "https://chatgpt.com/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://chatgpt.com/"
+  },
+  "claude": {
+    "url": "https://claude.com/product/overview",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "Claude",
+        "w": 120,
+        "h": 26,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-1.svg",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 2,
+        "score": 5,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-2.svg",
+        "error": "Locator.screenshot: Timeout 29984ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-3.svg",
+        "error": "Locator.screenshot: Timeout 29987ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://claude.com/product/overview",
+    "icon": "https://claude.com/icon.png"
+  },
+  "colossyan": {
+    "url": "https://www.colossyan.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://lp-assets.colossyan.com/website-images/images/logo.svg",
+        "alt": "Colossyan",
+        "w": 108,
+        "h": 22,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "img",
+        "src": "https://lp-assets.colossyan.com/website-images/images/logo.svg",
+        "alt": "",
+        "w": 323,
+        "h": 67,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml",
+        "error": "Locator.screenshot: Timeout 29992ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 34,
+        "h": 34,
+        "file": "cand-2.svg",
+        "error": "Locator.screenshot: Timeout 29993ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 43,
+        "h": 43,
+        "file": "cand-3.svg",
+        "error": "Locator.screenshot: Timeout 29992ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.colossyan.com/",
+    "icon": "https://lp-assets.colossyan.com/website-images/images/images/webclip-256.png"
+  },
+  "coursebox": {
+    "url": "https://www.coursebox.ai/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.coursebox.ai/_next/image?url=https%3A%2F%2Fcdn.sanity.io%2Fimages%2F3qyhkhue%2Fproduction%2F76b631843d8c0fd6498bebc70375730c263a06b4-1296x275.png%3Ffm%3Dwebp%26fit%3Dclip&w=384&q=75",
+        "alt": "Coursebox Logo",
+        "w": 133,
+        "h": 28,
+        "file": "cand-0.jpg",
+        "contentType": "image/jpeg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.coursebox.ai/",
+    "icon": "https://www.coursebox.ai/icons/favicon.png"
+  },
+  "curipod": {
+    "url": "https://curipod.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 5,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 81,
+        "h": 22,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://curipod.com/"
+  },
+  "diffit": {
+    "url": "https://diffit.me/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://app.diffit.me/logo.svg",
+        "alt": "Diffit",
+        "w": 85,
+        "h": 48,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 6,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-1.svg"
+      },
+      {
+        "i": 2,
+        "score": 6,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-2.svg"
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 20,
+        "h": 20,
+        "file": "cand-3.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://app.diffit.me/"
+  },
+  "dominknow-one": {
+    "url": "https://www.dominknow.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/5aec1b77e4867cada14d7021/5e99cd6d4efadd0ab814e05e_6331a0c8fe982bcffd5b5cbd22fc3fbb_dominKnow%20Logo%20white-03.avif",
+        "alt": "dominKnow eLearning Authoring Tools & Software",
+        "w": 188,
+        "h": 32,
+        "file": "cand-0.avif",
+        "contentType": "image/avif"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/5aa979555a2ad7f771cdad40/5aaa45c254f9f5babf02b535_search%20(4).svg",
+        "alt": "Magnify glass symbolizing search",
+        "w": 17,
+        "h": 17,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://dominknow.com/",
+    "icon": "https://cdn.prod.website-files.com/5aec1b77e4867cada14d7021/5aeffe49f167d685ce69c657_Wegclip.jpg"
+  },
+  "duolingo-max": {
+    "url": "https://www.duolingo.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 7,
+        "tag": "img",
+        "src": "https://d35aaqx5ub95lt.cloudfront.net/images/splash/f92d5f2f7d56636846861c458c0d0b6c.svg",
+        "alt": "Duolingo",
+        "w": 179,
+        "h": 42,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 424,
+        "h": 424,
+        "file": "cand-1.svg",
+        "error": "Locator.screenshot: Timeout 29984ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 424,
+        "h": 424,
+        "file": "cand-2.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.duolingo.com/",
+    "icon": "https://d35aaqx5ub95lt.cloudfront.net/images/duolingo-touch-icon2.png"
+  },
+  "edpuzzle": {
+    "url": "https://edpuzzle.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 8,
+        "tag": "img",
+        "src": "https://image.edpuzzle.com/edpuzzle-logos/horizontal-logo.svg",
+        "alt": "Edpuzzle",
+        "w": 138,
+        "h": 33,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 18,
+        "h": 14,
+        "file": "cand-1.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://edpuzzle.com/"
+  },
+  "evolve": {
+    "url": "https://www.intellum.com/products/evolve-content-authoring",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 117,
+        "h": 32,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.intellum.com/products/evolve-content-authoring",
+    "icon": "https://cdn.prod.website-files.com/5b588875bbd7c19c9dace03c/5d9f900eaef3141facd4a126_webclip.png"
+  },
+  "gemini-for-education": {
+    "url": "https://gemini.google/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 4,
+        "tag": "img",
+        "src": "https://www.gstatic.com/lamda/images/gemini_sparkle_aurora_33f86dc0c0257da337c63.svg",
+        "alt": "",
+        "w": 24,
+        "h": 24,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://gemini.google.com/app",
+    "icon": "https://www.gstatic.com/lamda/images/gemini_sparkle_4g_512_lt_f94943af3be039176192d.png"
+  },
+  "genially": {
+    "url": "https://genially.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "Genially",
+        "w": 96,
+        "h": 32,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 7,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-1.svg"
+      },
+      {
+        "i": 2,
+        "score": 7,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-2.svg"
+      },
+      {
+        "i": 3,
+        "score": 6,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-3.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://genially.com/",
+    "icon": "https://genially.com/favicon.ico"
+  },
+  "gradescope": {
+    "url": "https://www.gradescope.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.gradescope.com/assets/logo/logo_endorsed-398f617f55771b79c2d978dadbe5d55563caf6dfa2625233b8a3743947e1e6ab.svg",
+        "alt": "Gradescope",
+        "w": 200,
+        "h": 45,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 375,
+        "h": 414,
+        "file": "cand-1.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.gradescope.com/"
+  },
+  "grammarly": {
+    "url": "https://www.grammarly.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 158,
+        "h": 34,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.grammarly.com/",
+    "icon": "https://static-web.grammarly.com/cms/master/public/favicon-16x16.png"
+  },
+  "h5p": {
+    "url": "https://h5p.org/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://h5p.org/"
+  },
+  "heygen": {
+    "url": "https://www.heygen.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.heygen.com/_next/image?url=%2Fimages%2Fheygen-logo.png&w=256&q=75&dpl=dpl_99cL3VQjrSBjc6ZaZbNfaST9LWDr",
+        "alt": "HeyGen logo",
+        "w": 70,
+        "h": 50,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-1.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.heygen.com/",
+    "icon": "https://www.heygen.com/favicon.ico?favicon.2m321y0geyyfh.ico"
+  },
+  "hihaho": {
+    "url": "https://hihaho.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://hihaho.com/wp-content/uploads/2019/11/logo-dark-iconx4.png",
+        "alt": "",
+        "w": 180,
+        "h": 40,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      },
+      {
+        "i": 1,
+        "score": 10,
+        "tag": "img",
+        "src": "https://hihaho.com/wp-content/uploads/2019/11/logo-dark-iconx4.png",
+        "alt": "",
+        "w": 180,
+        "h": 40,
+        "file": "cand-1.png",
+        "contentType": "image/png",
+        "error": "Locator.screenshot: Timeout 29996ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://hihaho.com/",
+    "icon": "https://hihaho.com/wp-content/uploads/2019/11/favicon.png"
+  },
+  "ispring-suite": {
+    "url": "https://www.ispringsolutions.com/ispring-suite",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://www.ispringsolutions.com/",
+    "icon": "https://cdn2.ispringsolutions.com/ispring_content/content/images/favicon/icons/favicon-48x48.png"
+  },
+  "kahoot": {
+    "url": "https://kahoot.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 64,
+        "h": 22,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 6,
+        "tag": "img",
+        "src": "https://kahoot.com/wp-content/themes/kahoot2017/assets/img/go-bar/kahoot-go-horizontal-logo.svg",
+        "alt": "Kahoot! Go",
+        "w": 100,
+        "h": 22,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 2,
+        "score": 5,
+        "tag": "img",
+        "src": "https://kahoot.com/wp-content/themes/kahoot2017/assets/img/go-bar/join-game-buttons.svg",
+        "alt": "",
+        "w": 24,
+        "h": 24,
+        "file": "cand-2.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "img",
+        "src": "https://kahoot.com/wp-content/themes/kahoot2017/assets/img/go-bar/discover-compass.svg",
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-3.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://kahoot.com/en-GB/"
+  },
+  "kaltura": {
+    "url": "https://corp.kaltura.com/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://corp.kaltura.com/"
+  },
+  "khanmigo": {
+    "url": "https://www.khanmigo.ai/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/659ee90e075c502b5cc49dae/65a1e178aefd9be9305d6476_Khanmigo%20Logo.svg",
+        "alt": "",
+        "w": 96,
+        "h": 47,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.khanmigo.ai/",
+    "icon": "https://cdn.prod.website-files.com/659ee90e075c502b5cc49dae/659ee90e075c502b5cc49e16_KA_Favicon_72x72.png"
+  },
+  "kulissa-maya": {
+    "url": "https://kulissa.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 9,
+        "tag": "img",
+        "src": "https://kulissa.com/_next/image?url=%2Fbrand%2Flogo-mark.png&w=96&q=75",
+        "alt": "",
+        "w": 36,
+        "h": 36,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      },
+      {
+        "i": 1,
+        "score": 7,
+        "tag": "svg",
+        "src": null,
+        "alt": "Kulissa",
+        "w": 72,
+        "h": 17,
+        "file": "cand-1.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://kulissa.com/",
+    "icon": "https://kulissa.com/favicon.ico?favicon.40bugrge93318.ico"
+  },
+  "labster": {
+    "url": "https://www.labster.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 9,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 148,
+        "h": 30,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.labster.com/",
+    "icon": "https://cdn.prod.website-files.com/63105b5082760e06eb992f00/6363f9db746e4da702f56409_b622e33cf09e3a9da15692367e77f5de-32bits-256.png"
+  },
+  "magicschool-ai": {
+    "url": "https://www.magicschool.ai/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/645187265d5e5e386be40629/6960237ddf1dfc1de13a396f_logo.png",
+        "alt": "MagicSchool Logo",
+        "w": 190,
+        "h": 23,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.magicschool.ai/",
+    "icon": "https://cdn.prod.website-files.com/645187265d5e5e386be40629/69446a3bf302af048b1b6297_Webclip_256x256.webp"
+  },
+  "microsoft-copilot": {
+    "url": "https://www.microsoft.com/en-us/microsoft-copilot/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://uhf.microsoft.com/images/microsoft/RE1Mu3b.png",
+        "alt": "Microsoft",
+        "w": 108,
+        "h": 23,
+        "file": "cand-0.png",
+        "contentType": "image/png"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.microsoft.com/en-us/copilot"
+  },
+  "mindsmith": {
+    "url": "https://www.mindsmith.ai/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 7,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 118,
+        "h": 28,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.mindsmith.ai/",
+    "icon": "https://www.mindsmith.ai/favicon.ico?favicon.0snaio43m789w.ico"
+  },
+  "mindstamp": {
+    "url": "https://mindstamp.com/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://mindstamp.com/",
+    "icon": "https://mindstamp.com/favicon-32x32.png"
+  },
+  "mursion": {
+    "url": "https://www.mursion.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 60,
+        "h": 40,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.mursion.com/",
+    "icon": "https://www.mursion.com/wp-content/themes/mursion/build/static/favicon/favicon-96x96.png"
+  },
+  "nearpod": {
+    "url": "https://nearpod.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 8,
+        "tag": "img",
+        "src": "https://cdn.nearpod.com/1794599456255/img/global/nearpod_renaissance.svg",
+        "alt": "Nearpod - a Renaissance company",
+        "w": 152,
+        "h": 37,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://nearpod.com/",
+    "icon": "https://cdn.nearpod.com/1794599456255/icon_60.png"
+  },
+  "notebooklm": {
+    "url": "https://notebooklm.google/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://notebook.google/_/static/branding/v6/light_mode/notebook-logo.svg",
+        "alt": "Gemini Notebook logo",
+        "w": 211,
+        "h": 18,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://notebook.google/",
+    "icon": "https://notebook.google/_/static/branding/v6/light_mode/favicon/favicon-32x32.png"
+  },
+  "panopto": {
+    "url": "https://www.panopto.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 188,
+        "h": 47,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "img",
+        "src": "https://www.panopto.com/wp-content/uploads/2026/06/navigation-video-knowledge-platform.webp",
+        "alt": "",
+        "w": 499,
+        "h": 362,
+        "file": "cand-1.webp",
+        "contentType": "image/webp",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 2,
+        "score": 5,
+        "tag": "img",
+        "src": "https://www.panopto.com/wp-content/uploads/2026/07/panopto-for-higher-education-nav.jpg",
+        "alt": "",
+        "w": 304,
+        "h": 130,
+        "file": "cand-2.jpg",
+        "contentType": "image/jpeg",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 3,
+        "score": 5,
+        "tag": "img",
+        "src": "https://www.panopto.com/wp-content/uploads/2026/07/panopto-for-business-nav.jpg",
+        "alt": "",
+        "w": 304,
+        "h": 130,
+        "file": "cand-3.jpg",
+        "contentType": "image/jpeg",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.panopto.com/",
+    "icon": "https://www.panopto.com/wp-content/uploads/2026/05/panopto-favicon-150x150.png"
+  },
+  "perplexity": {
+    "url": "https://www.perplexity.ai/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 6,
+        "tag": "svg",
+        "src": null,
+        "alt": "Perplexity",
+        "w": 20,
+        "h": 21,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-1.svg"
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 16,
+        "h": 16,
+        "file": "cand-2.svg"
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 18,
+        "h": 18,
+        "file": "cand-3.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.perplexity.ai/",
+    "icon": "https://www.perplexity.ai/favicon.png"
+  },
+  "photomath": {
+    "url": "https://photomath.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 212,
+        "h": 40,
+        "file": "cand-0.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://photomath.com/",
+    "icon": "https://photomath.com/apple-touch-icon.png"
+  },
+  "playposit": {
+    "url": "https://www.playposit.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://images.squarespace-cdn.com/content/v1/5c9bd26d92441ba9c1cfb631/da9abfcb-e605-4784-b800-b33a1ba7519e/WV+350+x+150.png?format=1500w",
+        "alt": "PlayPosit by WeVideo",
+        "w": 75,
+        "h": 32,
+        "file": "cand-0.webp",
+        "contentType": "image/webp"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://go.playposit.com/"
+  },
+  "quizlet": {
+    "url": "https://quizlet.com/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://quizlet.com/",
+    "iconError": "APIRequestContext.get: Protocol \"data:\" not supported. Expected \"http:\""
+  },
+  "schoolai": {
+    "url": "https://schoolai.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://schoolai.com/images/logo.svg?dpl=dpl_GsDNQtQ8pgDQf4EMAvst9n9hJJRz",
+        "alt": "SchoolAI",
+        "w": 125,
+        "h": 24,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://schoolai.com/",
+    "icon": "https://schoolai.com/favicon.ico?favicon.0ff776b1.ico"
+  },
+  "synthesia": {
+    "url": "https://www.synthesia.io/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d710/65eae689ace95f5017dc17a0_Logo-main.svg",
+        "alt": "Synthesia Logo",
+        "w": 149,
+        "h": 24,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.synthesia.io/",
+    "icon": "https://cdn.prod.website-files.com/65e89895c5a4b8d764c0d710/6618fd69d436784c0bba5e9e_webclip.png"
+  },
+  "teachable": {
+    "url": "https://www.teachable.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/687904fb2b26c434698c47e9/68daba31282892b31e937809_teachable-logo-color.svg",
+        "alt": "Teachable - Ir para p\u00e1gina inicial",
+        "w": 135,
+        "h": 20,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/687904fb2b26c434698c47e9/6aea46347b08bd7586e446a4_bf26-banner-logo.webp",
+        "alt": "Black Friday",
+        "w": 156,
+        "h": 60,
+        "file": "cand-1.webp",
+        "contentType": "image/webp"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.teachable.com/",
+    "icon": "https://cdn.prod.website-files.com/687904fb2b26c434698c47e9/68f25a572e5e73f1b13d70cf_Webclip.png"
+  },
+  "thinglink": {
+    "url": "https://www.thinglink.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 7,
+        "tag": "img",
+        "src": "https://cdn.thinglink.me/landings-next/images/logo/navy-sparkle-one-purple.svg",
+        "alt": "ThingLink logo",
+        "w": 143,
+        "h": 32,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.thinglink.com/",
+    "icon": "https://www.thinglink.com/favicon.ico"
+  },
+  "thinkific": {
+    "url": "https://www.thinkific.com/",
+    "candidates": [],
+    "error": null,
+    "finalUrl": "https://www.thinkific.com/"
+  },
+  "turnitin": {
+    "url": "https://www.turnitin.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.turnitin.com/system/shared-assets/product-logos/turnitin-logo.svg",
+        "alt": "Turnitin",
+        "w": 200,
+        "h": 75,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 4,
+        "tag": "img",
+        "src": "https://www.turnitin.com/assets/images/page-images/home/top-bento.webp",
+        "alt": "",
+        "w": 624,
+        "h": 447,
+        "file": "cand-1.webp",
+        "contentType": "image/webp"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.turnitin.com/"
+  },
+  "vimeo-enterprise": {
+    "url": "https://vimeo.com/enterprise",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 98,
+        "h": 52,
+        "file": "cand-0.svg"
+      },
+      {
+        "i": 1,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 24,
+        "h": 24,
+        "file": "cand-1.svg"
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 24,
+        "h": 24,
+        "file": "cand-2.svg"
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "svg",
+        "src": null,
+        "alt": "",
+        "w": 24,
+        "h": 24,
+        "file": "cand-3.svg"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://vimeo.com/enterprise",
+    "icon": "https://f.vimeocdn.com/cms/images/apple-icon.png"
+  },
+  "vyond": {
+    "url": "https://www.vyond.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.vyond.com/wp-content/uploads/2024/07/vyond-logo.svg",
+        "alt": "Vyond Logo",
+        "w": 99,
+        "h": 36,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 9,
+        "tag": "img",
+        "src": "https://www.vyond.com/wp-content/uploads/2024/07/vyond-logo.svg",
+        "alt": "Vyond Logo",
+        "w": 99,
+        "h": 36,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "img",
+        "src": "https://www.vyond.com/wp-content/uploads/2024/11/vyond-turbo-menu-banner.webp",
+        "alt": "Vyond Turbo",
+        "w": 323,
+        "h": 196,
+        "file": "cand-2.webp",
+        "contentType": "image/webp",
+        "error": "Locator.screenshot: Timeout 29992ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      },
+      {
+        "i": 3,
+        "score": 4,
+        "tag": "img",
+        "src": "https://www.vyond.com/wp-content/uploads/2024/07/image-enterprise-flyout.webp",
+        "alt": "Enterprise",
+        "w": 323,
+        "h": 215,
+        "file": "cand-3.webp",
+        "contentType": "image/webp",
+        "error": "Locator.screenshot: Timeout 29994ms exceeded.\nCall log:\ntaking element screenshot\n  - waiting for fonts to load...\n  - fonts loaded\n  - attempting scroll into view action\n  -   waiting for element to "
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.vyond.com/",
+    "icon": "https://www.vyond.com/wp-content/uploads/2024/11/vyond1-150x150.png"
+  },
+  "wayground": {
+    "url": "https://wayground.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://cdn.prod.website-files.com/68355113496452bf05789e95/6a30fc5de39195ab4c4d9a4c_%5BBrand%5D%20Wayground%20Logotype.svg",
+        "alt": "",
+        "w": 180,
+        "h": 28,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://wayground.com/",
+    "icon": "https://cdn.prod.website-files.com/68355113496452bf05789e95/684fb7c379960cd368b11abd_Wayground-webclip.svg"
+  },
+  "yuja-lumina": {
+    "url": "https://www.yuja.com/",
+    "candidates": [
+      {
+        "i": 0,
+        "score": 10,
+        "tag": "img",
+        "src": "https://www.yuja.com/wp-content/themes/yuja/img/yuja-logo.svg",
+        "alt": "YuJa logo",
+        "w": 108,
+        "h": 27,
+        "file": "cand-0.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 1,
+        "score": 5,
+        "tag": "img",
+        "src": "https://www.yuja.com/wp-content/themes/yuja/img/global/notif-stars-l.svg",
+        "alt": "",
+        "w": 80,
+        "h": 48,
+        "file": "cand-1.svg",
+        "contentType": "image/svg+xml"
+      },
+      {
+        "i": 2,
+        "score": 4,
+        "tag": "img",
+        "src": "https://www.yuja.com/wp-content/themes/yuja/img/global/notif-stars-r.svg",
+        "alt": "",
+        "w": 80,
+        "h": 53,
+        "file": "cand-2.svg",
+        "contentType": "image/svg+xml"
+      }
+    ],
+    "error": null,
+    "finalUrl": "https://www.yuja.com/"
+  }
+}

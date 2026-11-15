@@ -1,0 +1,20 @@
+<svg class="nav26-logo-morph" viewBox="0 0 117.161 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-logocand="0">
+  <defs>
+    <mask id="nav26-logo-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="117.161" height="32">
+      <rect id="nav26-logo-body" x="0" y="0" width="117.161" height="32" fill="white"></rect>
+      <rect id="nav26-logo-center" x="2.165" y="2.145" width="112.831" height="27.699" fill="black"></rect>
+      <polygon id="nav26-logo-notch" points="101.731,0.000 107.833,0.000 117.161,9.244 117.161,15.290" fill="black"></polygon>
+    </mask>
+  </defs>
+  <rect x="0" y="0" width="117.161" height="32" fill="white" mask="url(#nav26-logo-mask)"></rect>
+  <g id="nav26-logo-letters" style="opacity: 1;">
+    <path d="M14.2207 21.2527H11.4614V10.7473H14.2207V21.2527Z" fill="white"></path>
+    <path d="M19.1553 10.7473H21.9145L26.966 17.1725H26.9979V10.7473H29.7571V21.2527H26.9979L21.9463 14.8169H21.9145V21.2527H19.1553V10.7473Z" fill="white"></path>
+    <path d="M39.4252 21.2527H36.666V13.0608H34.3843V10.7473H41.7069V13.0608H39.4252V21.2527Z" fill="white"></path>
+    <path d="M49.6768 13.0608V14.8169H52.7863V17.1304H49.6768V18.9392H52.9561V21.2527H46.9282V10.7473H52.9561V13.0608H49.6768Z" fill="white"></path>
+    <path d="M61.6264 18.9392H64.9268V21.2527H58.8672V10.7473H61.6264V18.9392Z" fill="white"></path>
+    <path d="M72.8012 18.9392H76.1017V21.2527H70.042V10.7473H72.8012V18.9392Z" fill="white"></path>
+    <path d="M89.3356 10.7473V16.6572C89.3356 18.0033 89.2825 19.3493 88.2213 20.3588C87.3404 21.2211 85.9396 21.5261 84.7086 21.5261C83.4669 21.5261 82.0767 21.2211 81.1958 20.3588C80.1452 19.3388 80.0815 18.0033 80.0815 16.6572V10.7473H82.8408V16.2786C82.8408 17.6457 82.9363 19.139 84.7086 19.139C86.4808 19.139 86.5764 17.6457 86.5764 16.2786V10.7473H89.3356Z" fill="white"></path>
+    <path d="M94.833 10.7473H97.5498L99.7042 16.3628L101.986 10.7473H104.724L106.326 21.2527H103.567L102.792 15.206H102.761L100.214 21.2527H99.1205L96.6902 15.206H96.6584L95.7776 21.2527H93.0396L94.833 10.7473Z" fill="white"></path>
+  </g>
+</svg>
