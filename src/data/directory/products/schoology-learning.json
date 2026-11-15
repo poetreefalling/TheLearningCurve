@@ -220,5 +220,21 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/schoology-learning/logo.webp",
+      "alt": "Schoology logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/schoology-learning/screenshot-1.webp",
+        "frame": true,
+        "width": 1100,
+        "alt": "A Schoology course page: course tools down the left (Materials, Updates, Gradebook, Badges, Attendance, Members, Analytics), a list of course materials including a welcome page, a discussion, a link, a quiz, a file, a folder and an assignment with due dates, and an Upcoming panel showing a quiz due",
+        "caption": "The Materials page of a Schoology course, where teachers add pages, discussions, quizzes, files and assignments. This screenshot is from about 2016; the current interface looks different.",
+        "credit": "Image: Casey Meile"
+      }
+    ]
+  }
 }
