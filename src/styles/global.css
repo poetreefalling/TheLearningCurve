@@ -1141,6 +1141,13 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 .dir-grid b { font: 800 1.15rem/1.2 var(--display); }
 .dir-summary { font: 400 14.5px/1.5 var(--sans); color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 .dir-foot { margin: 28px 0 0; }
+/* Discover: category switcher above a category page's title */
+.dir-cats { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 0 0 14px; }
+.dir-cats ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px 20px; }
+.dir-cats li { font: 600 13px/1.3 var(--label); }
+.dir-cats a:not(.kicker) { color: var(--ink-2); text-decoration: none; }
+.dir-cats a:not(.kicker):hover { color: var(--ink); text-decoration: underline; }
+.dir-cats [aria-current] { color: var(--ink); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
 .chips { list-style: none; margin: 2px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
 .chips li { font: 600 12px/1 var(--label); padding: 6px 9px; border: 1px solid var(--rule); border-radius: 999px; color: var(--ink-2); }
 .chips-links li { padding: 0; }
