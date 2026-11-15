@@ -1,0 +1,97 @@
+{
+  "name": "Nearpod",
+  "vendor": "nearpod",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://nearpod.com/pricing/",
+  "summary": "Interactive lesson platform combining presentations, video, formative assessment, collaboration and live or student-paced delivery.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://nearpod.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Live classroom instruction",
+      "Asynchronous lessons",
+      "Formative assessment",
+      "Interactive video",
+      "Collaborative activities"
+    ],
+    "source": "https://nearpod.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "20+ formative assessment types, dynamic media, lesson library, real-time feedback and post-session reports",
+      "AI question generator on paid tier"
+    ],
+    "source": "https://nearpod.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "School/district LMS and LTI integrations",
+      "Google Slides add-on",
+      "Confirm exact LMS/SSO list for institutional deployments"
+    ],
+    "source": "https://nearpod.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free Silver tier; Gold listed at US$159/year; school/district quote plans. Check current pricing and local currency.",
+      "from": "US$159 a year (Gold)"
+    },
+    "source": "https://nearpod.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "edpuzzle",
+    "playposit",
+    "mindstamp",
+    "hihaho"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing page reviewed; feature and price are vendor-published.",
+    "AI: AI Create Question Generator listed in Gold; details of model/provider and safeguards not found. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request model/provider, data flow for prompts and learner content, training/retention policy, DPA, VPAT, SOC 2/ISO evidence, LMS LTI version and school/district quote."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LTI and LMS integration; SCORM/xAPI exports not confirmed."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free tier offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility conformance and VPAT need vendor confirmation."
+    },
+    {
+      "field": "security",
+      "note": "Institutional security and privacy documentation requires review; no independent assurance inspected in this pass."
+    }
+  ]
+}

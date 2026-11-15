@@ -1,0 +1,107 @@
+{
+  "name": "HeyGen",
+  "vendor": "heygen",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.heygen.com/trust-and-safety",
+  "summary": "AI video creation platform for avatar-led video, translation, localisation and personalised communications.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.heygen.com/trust-and-safety",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Training explainers",
+      "Localisation",
+      "Microlearning",
+      "Onboarding",
+      "Instructor-style video without filming"
+    ],
+    "source": "https://www.heygen.com/trust-and-safety",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI avatars, voice and translation tools",
+      "Exact education-specific SCORM and LMS features require verification"
+    ],
+    "source": "https://www.heygen.com/trust-and-safety",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "API and workflow integrations",
+      "LMS/SCORM capabilities need confirmation for institutional use"
+    ],
+    "source": "https://www.heygen.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid subscriptions; enterprise quote; verify current plan matrix."
+    },
+    "source": "https://www.heygen.com/trust-and-safety",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "opt-out",
+      "notes": "Vendor states enterprise customer data is not used to train AI; non-enterprise data may be used to train or improve services, with an opt-out. Uses internal and third-party AI vendors, not all named."
+    },
+    "source": "https://www.heygen.com/trust-and-safety",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "synthesia",
+    "colossyan",
+    "vyond",
+    "camtasia"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor Trust & Safety page reviewed.",
+    "AI: AI avatar/video generation and localisation. Models: HeyGen uses internal and third-party AI vendors; complete model/provider inventory not identified in reviewed source. Training: Vendor states enterprise customer data is not used to train AI systems; non-enterprise data may be used to train/improve services, with opt-out. Retention: Retention/deletion details not verified. Subprocessors: Vendor states agreements with AI vendors prohibit training on HeyGen customer data; obtain list.",
+    "Vendor outreach (Medium priority): Request model/subprocessor list, retention and deletion schedule, enterprise DPA, SOC 2/ISO, data residency, education/SCORM capability, VPAT and enterprise pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "SCORM/xAPI not verified in reviewed source."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free tier offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions and translation; VPAT/WCAG status not verified."
+    },
+    {
+      "field": "security",
+      "note": "Trust and safety page describes enterprise privacy controls; exact security certifications need Trust Center review."
+    }
+  ]
+}

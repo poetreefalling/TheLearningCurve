@@ -1,0 +1,91 @@
+{
+  "name": "PlayPosit",
+  "vendor": "playposit",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://www.playposit.com/welcome",
+  "summary": "Interactive video platform that adds time-based questions, branching and rich media to existing video.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://www.playposit.com/welcome",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Flipped learning",
+      "Lecture comprehension",
+      "Pre-class preparation",
+      "Formative assessment",
+      "Video-based training"
+    ],
+    "source": "https://www.playposit.com/welcome",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Time-embedded questions, branching, rich media, reusable interactive video library and learner analytics"
+    ],
+    "source": "https://www.playposit.com/welcome",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Works with existing video hosts and advertises LMS integrations",
+      "Exact supported LMS list and LTI versions require confirmation"
+    ],
+    "source": "https://www.playposit.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "edpuzzle",
+    "nearpod",
+    "mindstamp",
+    "hihaho"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product page reviewed; independent claims not verified.",
+    "AI: AI functionality not verified in reviewed source. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request pricing, supported LMS/LTI matrix, gradebook and analytics schema, accessibility report, DPA, security assurance, AI inventory and data processing terms."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integration; confirm LTI 1.3, grade passback, xAPI and SCORM availability."
+    },
+    {
+      "field": "pricing",
+      "note": "Institutional and individual plan details require current vendor confirmation."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions and accessibility conformance need current VPAT and product testing."
+    },
+    {
+      "field": "security",
+      "note": "Current SOC 2/ISO, DPA, data residency and retention not verified in reviewed sources."
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "name": "Vimeo Enterprise",
+  "vendor": "vimeo",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://vimeo.com/enterprise",
+  "summary": "Centralised enterprise video management and distribution with interactive player options, analytics, live events and AI-assisted discovery/creation.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Internal video libraries",
+      "Employee training",
+      "Executive communications",
+      "Live events",
+      "Customer education"
+    ],
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Branded players, live Q&A, polls, video analytics, central administration, AI search and language libraries",
+      "Advanced security controls"
+    ],
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Enterprise API and integrations",
+      "Marketing automation integrations",
+      "SCORM/xAPI/LMS support described for enterprise workflows"
+    ],
+    "source": "https://vimeo.com/features/interactive-video",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://vimeo.com/features/interactive-video",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise quote; standard Vimeo plans are separate. No enterprise list price captured."
+    },
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2"
+    ],
+    "source": "https://vimeo.com/enterprise",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "panopto",
+    "kaltura",
+    "yuja-lumina"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor enterprise page reviewed. SOC 2 statement is vendor-published; obtain report and VPAT.",
+    "AI: Ask AI/deep-search, AI-driven video creation and custom AI language libraries; feature availability varies by plan. Models: Specific model providers not disclosed in reviewed enterprise page. Training: Not verified; ask whether enterprise media, transcripts, prompts and analytics are excluded from model training by default. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request SOC 2 report, VPAT, model/provider and subprocessors, AI training exclusion, retention/deletion, data residency, SCORM/xAPI detail, API limits and enterprise price."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "SCORM and xAPI support described; confirm exact export/launch behaviour and LMS grade passback."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions and player accessibility need validation against current VPAT and applicable WCAG criteria."
+    }
+  ]
+}
