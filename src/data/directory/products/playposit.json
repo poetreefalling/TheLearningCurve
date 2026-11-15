@@ -87,5 +87,11 @@
       "field": "security",
       "note": "Current SOC 2/ISO, DPA, data residency and retention not verified in reviewed sources."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/playposit/logo.webp",
+      "alt": "PlayPosit logo"
+    }
+  }
 }

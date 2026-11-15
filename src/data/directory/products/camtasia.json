@@ -91,5 +91,11 @@
       "field": "security",
       "note": "Desktop application and cloud/service data handling should be reviewed separately; enterprise assurance not verified."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/camtasia/logo.webp",
+      "alt": "Camtasia logo"
+    }
+  }
 }

@@ -97,5 +97,11 @@
       "field": "security",
       "note": "Security assurance, DPA, data residency and retention not verified in reviewed pages."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/hihaho/logo.webp",
+      "alt": "Hihaho logo"
+    }
+  }
 }

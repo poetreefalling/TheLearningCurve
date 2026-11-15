@@ -105,5 +105,11 @@
       "field": "security",
       "note": "Vendor describes use of LMS permissions and entitlements; independent security assurance and certifications not verified in this pass."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/kaltura/logo.webp",
+      "alt": "Kaltura logo"
+    }
+  }
 }

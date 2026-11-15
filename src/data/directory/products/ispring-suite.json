@@ -106,5 +106,11 @@
       "field": "security",
       "note": "Cloud collaboration security and enterprise controls require review; independent assurance not inspected."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/ispring-suite/logo.webp",
+      "alt": "iSpring logo"
+    }
+  }
 }
