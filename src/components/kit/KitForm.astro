@@ -75,13 +75,14 @@ const id = `kf-${placement}`;
   .kf { display: flex; flex-direction: column; gap: 10px; max-width: 560px; }
   .kf-row { display: flex; flex-wrap: wrap; gap: 8px; }
   .kf input, .kf select, .kf-button {
-    height: 52px; box-sizing: border-box; border: 2px solid var(--band-ink); border-radius: 0;
+    height: 52px; box-sizing: border-box; border: 2px solid var(--band-ink); border-radius: 999px;
     font: 400 16px var(--sans); color: #16181d; background: #ffffff;
   }
-  .kf input, .kf select { padding: 0 16px; min-width: 0; }
+  .kf input, .kf select { padding: 0 20px; min-width: 0; }
+  .kf select { appearance: none; -webkit-appearance: none; cursor: pointer; background: #ffffff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%2316181d' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 18px center / 12px 8px; }
   .kf-name { flex: 1 1 150px; }
   .kf-email { flex: 2 1 240px; }
-  .kf-role { flex: 2 1 260px; padding-right: 10px !important; }
+  .kf-role { flex: 2 1 260px; padding-right: 42px !important; }
   .kf-button { flex: 1 1 200px; background: #16181d; color: #f7f4ee; font-weight: 700; font-size: 15px; letter-spacing: 0.02em; cursor: pointer; }
   .kf-button:hover:not(:disabled) { background: #1f2e4d; border-color: #1f2e4d; }
   .kf-button:disabled { opacity: 0.7; cursor: default; }
