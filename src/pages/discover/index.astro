@@ -25,10 +25,12 @@ const soon = cats.filter((c) => c.n === 0);
       <div class="section-head" style="margin-top:0"><h2 id="cat-h">Live directories</h2><span class="meta">{products.length} profiles so far</span></div>
       <ul class="cat-live">{live.map((c) => (
         <li>
-          <a href={categoryUrl(c.id)}>
-            <span class="cat-count"><b>{c.n}</b> {c.n === 1 ? 'profile' : 'profiles'}</span>
-            <h3>{c.name}</h3>
-            <span class="cat-desc">{c.description}</span>
+          <a class="roll" href={categoryUrl(c.id)}>
+            <span class="cat-top roll-fill">
+              <span class="cat-count"><b>{c.n}</b> {c.n === 1 ? 'profile' : 'profiles'}</span>
+              <h3>{c.name}</h3>
+              <span class="cat-desc">{c.description}</span>
+            </span>
             {c.logos.length > 0 && <span class="cat-logos" aria-hidden="true">{c.logos.map((p) => <span class="logo-tile logo-tile-sm"><img src={p.data.media!.logo!.src} alt="" loading="lazy" /></span>)}</span>}
             <span class="cat-foot">{c.checked && <span class="meta">Checked {c.checked.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Sydney' })}</span>}<em>Browse →</em></span>
           </a>
