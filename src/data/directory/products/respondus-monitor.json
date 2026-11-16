@@ -1,0 +1,104 @@
+{
+  "name": "Respondus Monitor",
+  "vendor": "respondus",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://web.respondus.com/he/monitor/",
+  "summary": "Automated remote proctoring that works with LockDown Browser to record exam sessions and flag events for instructor review.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://web.respondus.com/he/monitor/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Secure remote online exams",
+      "Deter unauthorised browsing and application use",
+      "Review flagged session events after exams"
+    ],
+    "source": "https://web.respondus.com/he/monitor/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "LockDown Browser",
+      "Webcam recording",
+      "Automated flagging",
+      "Post-exam instructor review",
+      "Broad LMS and publisher integration"
+    ],
+    "source": "https://web.respondus.com/he/monitor/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas",
+      "Blackboard",
+      "Moodle",
+      "Brightspace",
+      "Publisher systems including Pearson, McGraw Hill and Cengage"
+    ],
+    "source": "https://web.respondus.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional licence; quote-based."
+    },
+    "source": "https://web.respondus.com/he/monitor/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://web.respondus.com/he/monitor/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "proctorio",
+    "honorlock",
+    "proctoru",
+    "pearson-vue-onvue"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product page. Independent research on remote proctoring bias/privacy should be included before procurement.",
+    "AI: Automated proctoring and flagged-event analysis disclosed; whether specific ML/AI models are used and their role is not fully described on reviewed page. Model/provider: Not disclosed in reviewed source. Training: Not disclosed; obtain explicit assurance that exam recordings and student data are not used to train external models without permission. Retention: Recording retention and deletion controls require institution-specific confirmation. Subprocessors: Request hosting, video processing and analytics subprocessors. Status: Automated proctoring disclosed; AI/ML details and governance unconfirmed.",
+    "Vendor outreach (High priority): Request AI/ML detection explanation; false-positive rates; human review; biometric/face processing; retention/deletion; subprocessors; AU data residency; ACR; student accommodations; SOC 2/ISO."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integration stated; confirm LTI version, supported browser/device matrix and grade workflow."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request accessibility conformance report and accommodations process for students unable to use webcam/browser controls."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Video and device activity are sensitive student data. Obtain privacy impact assessment, DPA, security reports, retention controls and incident procedures."
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "name": "ExamSoft",
+  "vendor": "turnitin-llc",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.turnitin.com.au/products/examsoft/",
+  "summary": "Secure digital assessment platform with offline exam delivery, lockdown, item banks, rubrics and performance analytics.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://www.turnitin.com.au/products/examsoft/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Run secure exams where connectivity is unreliable",
+      "Support health, law and professional programmes",
+      "Analyse item performance and accreditation outcomes"
+    ],
+    "source": "https://www.turnitin.com.au/products/examsoft/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Offline exams",
+      "Lockdown",
+      "Question randomisation",
+      "Item bank",
+      "Multiple question types",
+      "Rubrics",
+      "Essay/oral scoring",
+      "Analytics",
+      "Optional identity verification and remote proctoring"
+    ],
+    "source": "https://www.turnitin.com.au/products/examsoft/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas",
+      "Blackboard",
+      "D2L Brightspace",
+      "Moodle (grade synchronisation)"
+    ],
+    "source": "https://www.turnitin.com.au/products/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional licence with tiered feature packages and add-ons; quote-based."
+    },
+    "source": "https://www.turnitin.com.au/products/examsoft/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.turnitin.com.au/products/examsoft/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "inspera-assessment",
+    "questionmark",
+    "tao-testing",
+    "exam-net",
+    "mobius"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied Turnitin/ExamSoft product documentation.",
+    "AI: ExamSoft describes AI-related misconduct protections and AI-driven behaviour detection in optional proctoring; exact AI components and decision role require clarification. Model/provider: AI model/vendor for behaviour detection not identified in reviewed product page. Training: Not disclosed in reviewed page. Retention: Exam recordings, identity images, incident flags and AI processing retention need contract-level confirmation. Subprocessors: Request proctoring, identity verification and AI subprocessor list. Status: AI detection capability described for optional proctoring; model, training, retention and oversight details unconfirmed.",
+    "Vendor outreach (High priority): Separate core ExamSoft from ExamID/ExamMonitor AI functions; identify model and human review; request retention and deletion rules for video/biometrics; SOC 2/ISO; accessibility; Australian data locations; pricing and LMS specs."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integration stated; request technical documentation, LTI details and gradebook workflow confirmation."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Product-specific ACR/VPAT not verified in this pass."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor describes encryption, lockdown and optional identity/proctoring controls. Obtain SOC 2/ISO evidence, DPA and data-flow diagrams."
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "name": "Sertifier",
+  "vendor": "sertifier",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://sertifier.com/",
+  "summary": "Credential issuing and verification platform for employee learning, partner certification and customer education programmes.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate",
+      "nonprofit"
+    ],
+    "source": "https://sertifier.com/solutions/enterprise",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Design, issue and verify badges/certificates",
+      "Automate credential workflows",
+      "Connect learning systems",
+      "Manage analytics across programmes"
+    ],
+    "source": "https://sertifier.com/solutions/enterprise",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Credential design and issuing",
+      "Verification",
+      "REST API",
+      "Webhooks",
+      "Sandbox",
+      "Analytics",
+      "Integrations",
+      "EU or US data residency options described by vendor"
+    ],
+    "source": "https://sertifier.com/solutions/enterprise",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Degreed",
+      "Docebo",
+      "Absorb",
+      "Adobe Learning Manager",
+      "Skilljar",
+      "Salesforce",
+      "Canvas",
+      "Moodle",
+      "Zoom",
+      "Zapier"
+    ],
+    "source": "https://sertifier.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "View pricing / sales contact; enterprise quote."
+    },
+    "source": "https://sertifier.com/solutions/enterprise",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://sertifier.com/solutions/enterprise",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "credly",
+    "accredible",
+    "parchment-digital-badges",
+    "open-badge-factory",
+    "my-equals"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied enterprise page; security certification claim needs independent artefact review.",
+    "AI: No AI capability established in reviewed enterprise product page. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Request credential, learner profile, analytics and webhook log retention/deletion. Subprocessors: Request current subprocessor register and selected data residency region. Status: No AI feature established in reviewed page; explicit confirmation required.",
+    "Vendor outreach (Medium priority): Request certificate names/reports; Open Badges/VC standard status; API rate limits; AU data residency; subprocessors; ACR; AI use; retention/deletion; pricing.",
+    "Check the 1EdTech Open Badges 3.0 conformance directory (https://www.imsglobal.org/spec/ob/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Confirm Open Badges 3.0, CLR and W3C Verifiable Credentials compatibility and certification."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific ACR/VPAT and learner portal testing."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor describes independent certifications and a trust centre; obtain exact SOC/ISO certificate, scope, dates and DPA."
+    }
+  ]
+}

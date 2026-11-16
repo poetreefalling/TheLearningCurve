@@ -1,0 +1,126 @@
+{
+  "name": "Questionmark",
+  "vendor": "questionmark",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.questionmark.com/",
+  "summary": "Enterprise assessment platform for knowledge, skills and competency testing across locations, devices and languages.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Build and deliver formative/summative assessments",
+      "Run certification and compliance tests",
+      "Analyse item difficulty, results and skill gaps"
+    ],
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Assessment authoring and delivery",
+      "Item analysis",
+      "Reporting",
+      "Feedback",
+      "Locked-down browser options",
+      "Proctoring choices",
+      "Multilingual assessment"
+    ],
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi",
+      "aicc"
+    ],
+    "source": "https://www.questionmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise subscription/quote; public price not identified."
+    },
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "ISO 27001"
+    ],
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "gdpr": true
+    },
+    "source": "https://www.questionmark.com/platform/online-assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "inspera-assessment",
+    "examsoft",
+    "tao-testing",
+    "exam-net",
+    "mobius"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied platform and security claims; ISO 27001 claim not independently audited in this research pass.",
+    "AI: Vendor describes AI-powered feedback tools. Specific functions, human oversight and availability by plan require clarification. Model/provider: AI model/provider not identified in reviewed product page. Training: Not disclosed in reviewed page. Retention: Not disclosed in reviewed page; obtain assessment response and AI prompt/output retention schedule. Subprocessors: Not disclosed in reviewed page; obtain current list. Status: AI-powered feedback disclosed by vendor; model and data governance details unconfirmed.",
+    "Vendor outreach (Medium priority): Request AI feature inventory/model provider; training policy; retention/deletion; current ISO certificate and scope; SOC 2 report; ACR; data residency; API/LTI/xAPI documentation; pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Vendor states LTI, SCORM, AICC and xAPI integrations."
+    },
+    {
+      "field": "standards (detail)",
+      "note": "Vendor also states LTI and SCORM support without naming versions. LTI, SCORM, AICC and xAPI stated; confirm version/profile, QTI, APIs and gradebook/HRIS integration details."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific WCAG 2.2 AA ACR/VPAT and testing evidence."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor states ISO 27001 certification and GDPR compliance. Obtain certificate scope, current validity, SOC 2 status, DPA and subprocessor list."
+    }
+  ]
+}

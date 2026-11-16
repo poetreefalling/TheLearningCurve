@@ -1,0 +1,32 @@
+{
+  "name": "Kritik",
+  "website": "https://www.kritik.io/",
+  "status": "active",
+  "draft": false,
+  "lastVerified": "2026-11-16",
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Confirm legal entity, headquarters, ownership/parent, founding date, product status, customer segments and current roadmap."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "founded",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "size",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "ownership",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "funding",
+      "note": "Not recorded in the dataset."
+    }
+  ]
+}

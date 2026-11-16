@@ -1,0 +1,96 @@
+{
+  "name": "Kritik",
+  "vendor": "kritik",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.kritik.io/",
+  "summary": "Peer assessment platform designed to support learner feedback, evaluation and critical thinking through structured peer review.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.kritik.io/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Scale peer assessment",
+      "Develop evaluative judgement",
+      "Use rubrics and guided feedback",
+      "Support formative and summative peer review"
+    ],
+    "source": "https://www.kritik.io/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Peer assessment workflows",
+      "Rubric-based review",
+      "Feedback",
+      "Instructor analytics",
+      "Calibration and review structures (confirm feature availability by plan)"
+    ],
+    "source": "https://www.kritik.io/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional quote; public pricing not captured."
+    },
+    "source": "https://www.kritik.io/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.kritik.io/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "gradescope",
+    "crowdmark",
+    "feedbackfruits"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor product information should be supplemented with independent institutional evaluations and user feedback.",
+    "AI: AI capabilities not established in the reviewed source set; ask vendor to confirm any AI-assisted feedback, moderation or analytics. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Not disclosed; request policy. Subprocessors: Not disclosed; request list. Status: AI disclosure incomplete; no inference of absence.",
+    "Vendor outreach (Medium priority): Confirm AI use or non-use; LMS/LTI details; security certification; privacy/DPA; accessibility; pricing; evidence of impact on feedback quality and learner outcomes."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "LMS integrations marketed; request current list, LTI version and grade passback detail."
+    },
+    {
+      "field": "standards",
+      "note": "Not verified in this pass."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific ACR/VPAT and testing evidence."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request SOC 2/ISO, DPA, data residency, encryption and subprocessors."
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "name": "Accredible",
+  "vendor": "accredible",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.accredible.com/features",
+  "summary": "Credential management platform for issuing verifiable digital badges and certificates, building pathways and analysing credential engagement.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate",
+      "nonprofit"
+    ],
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Issue microcredentials and certificates",
+      "Automate awards",
+      "Build stackable pathways",
+      "Support learner wallets and verification",
+      "Measure sharing and engagement"
+    ],
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Badge/certificate designer",
+      "Metadata",
+      "Issuer pages",
+      "Skills frameworks",
+      "Verification",
+      "API/integrations",
+      "Bulk upload",
+      "Expiry",
+      "Pathways",
+      "Analytics",
+      "Wallet cards"
+    ],
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS, CMS and API integrations (described by the vendor; list not captured)"
+    ],
+    "source": "https://www.accredible.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Tiered plans/enterprise quote; request current institution pricing."
+    },
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2 Type II"
+    ],
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "gdpr": true
+    },
+    "source": "https://www.accredible.com/features",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "credly",
+    "parchment-digital-badges",
+    "open-badge-factory",
+    "sertifier",
+    "my-equals"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product/security claims; obtain current SOC 2 Type II report and independent standards evidence.",
+    "AI: No AI capability confirmed in reviewed features page. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; explicit vendor confirmation required. Retention: Request credential record, recipient profile, analytics and deletion schedule. Subprocessors: Request current subprocessor register and data locations. Status: No AI feature established in reviewed page; vendor confirmation required.",
+    "Vendor outreach (Medium priority): Confirm Open Badges 3.0/VC standards; SOC 2 report; AU data residency; API; LMS integrations; accessibility; AI use; data deletion/retention; pricing and exit/export.",
+    "Check the 1EdTech Open Badges 3.0 conformance directory (https://www.imsglobal.org/spec/ob/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations (detail)",
+      "note": "Vendor describes LMS/CMS/API integrations; obtain current integration list and technical docs."
+    },
+    {
+      "field": "standards",
+      "note": "Open Badges compatibility should be confirmed by version and certification; request CLR/VC support and export format."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific accessibility conformance report for issuer and recipient experience."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor states GDPR and SOC 2 Type II compliance and describes security audits. Obtain current report/certificate and scope."
+    }
+  ]
+}
