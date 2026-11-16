@@ -68,6 +68,26 @@ const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follo
     {adNetwork && (
       <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS.network.client}`} crossorigin="anonymous"></script>
     )}
+    {SITE.fathomSiteId && (
+      <>
+        <script src="https://cdn.usefathom.com/script.js" data-site={SITE.fathomSiteId} data-included-domains="thelearningcurve.net" defer></script>
+        <script is:inline>
+          // Fathom goals. tlcTrack is called by the sign-up forms; clicks are counted here.
+          window.tlcTrack = function (name) { try { if (window.fathom) window.fathom.trackEvent(name); } catch (e) {} };
+          document.addEventListener('click', function (e) {
+            var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+            if (!a) return;
+            var promo = a.closest('[data-promo]');
+            if (promo) return window.tlcTrack('House promo: ' + promo.getAttribute('data-promo'));
+            if (/\bsponsored\b/.test(a.getAttribute('rel') || '')) {
+              var host = '';
+              try { host = new URL(a.href, location.href).hostname.replace(/^www\./, ''); } catch (err) {}
+              window.tlcTrack((a.closest('.ad') ? 'Ad click: ' : 'Affiliate click: ') + host);
+            }
+          }, true);
+        </script>
+      </>
+    )}
     {SITE.analyticsToken && (
       <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: SITE.analyticsToken })}></script>
     )}

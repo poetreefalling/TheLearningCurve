@@ -17,6 +17,9 @@ export const SITE = {
   newsletter: { provider: 'beehiiv' } as null | { provider: string },
   // Cloudflare Web Analytics token (cookieless). Leave null to disable.
   analyticsToken: null as null | string,
+  // Fathom Analytics site ID (cookieless; counts only on thelearningcurve.net, not previews).
+  // Also records goals: sign-ups and clicks on affiliate links, ads and house promos. Null disables.
+  fathomSiteId: 'TZXKWWSZ' as null | string,
   // /submit: where platform submissions are emailed, and the reply promise shown on the page.
   // Storage and email setup: docs/submissions.md.
   submissions: { notifyEmail: 'jim@thelearningcurve.net', replyDays: 3 },
