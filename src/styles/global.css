@@ -535,6 +535,8 @@ table.data .best td, table.data .best th { background: var(--surface); font-weig
 
 /* Plain pages */
 .page-body { font-size: 1.12rem; line-height: 1.65; }
+.page-body > :first-child { margin-top: 0; }
+.page-article-head { padding-bottom: 22px; }
 .page-body h2 { font-size: 1.6rem; margin: 1.8em 0 0.5em; }
 .page-body a { color: var(--accent); }
 .page-body ul { padding-left: 1.2em; }
