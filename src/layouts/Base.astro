@@ -28,7 +28,7 @@ const { title, description, jsonLd = [], ogImage, ogType = 'website', noindex = 
 const adNetwork = ads && networkReady();
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const fullTitle = title === SITE.name ? `${SITE.name}: ${SITE.tagline}` : `${title} | ${SITE.name}`;
-const og = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og-default.jpg', Astro.site).href;
+const og = ogImage ? new URL(ogImage, Astro.site).href : new URL('/og-site.jpg', Astro.site).href;
 // Preview builds must never be indexed
 const robots = noindex || SHOW_UNPUBLISHED ? 'noindex, nofollow' : 'index, follow, max-image-preview:large';
 ---
