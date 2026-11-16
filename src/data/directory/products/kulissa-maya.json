@@ -2,17 +2,25 @@
   "name": "Maya by Kulissa",
   "vendor": "kulissa",
   "category": "ai-for-learning",
-  "secondaryCategories": ["video-interactive"],
+  "secondaryCategories": [
+    "video-interactive"
+  ],
   "website": "https://kulissa.com/",
   "summary": "Voice role-play for sales training: learners talk through a practice call with an AI virtual customer, an AI coach steps in when they go wrong, and the session is scored with quotes from the transcript. Runs in the browser with a microphone. In beta.",
   "primaryMarket": {
-    "value": ["corporate"],
+    "value": [
+      "corporate"
+    ],
     "source": "https://kulissa.com/privacy",
     "checked": "2026-11-14",
     "origin": "verified"
   },
   "useCases": {
-    "value": ["Sales call practice", "Sales onboarding", "Interview practice"],
+    "value": [
+      "Sales call practice",
+      "Sales onboarding",
+      "Interview practice"
+    ],
     "source": "https://kulissa.com/",
     "checked": "2026-11-14",
     "origin": "vendor-supplied"
@@ -22,20 +30,26 @@
       "Spoken practice calls with an AI virtual customer",
       "Live coaching that pauses the call and suggests a better approach",
       "Scored feedback after each session",
-      "Browser and microphone only, nothing to install"
+      "Browser and microphone only, nothing to install",
+      "Practice in English, French, German and Spanish"
     ],
-    "source": "https://kulissa.com/",
-    "checked": "2026-11-14",
-    "origin": "verified"
+    "source": "https://kulissa.com/press",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
   },
   "pricing": {
-    "value": { "public": false, "notes": "A free three-minute public demo; no team pricing published." },
+    "value": {
+      "public": false,
+      "notes": "A free three-minute public demo; no team pricing published."
+    },
     "source": "https://kulissa.com/",
     "checked": "2026-11-14",
     "origin": "verified"
   },
   "deployment": {
-    "value": ["cloud"],
+    "value": [
+      "cloud"
+    ],
     "source": "https://kulissa.com/subprocessors",
     "checked": "2026-11-14",
     "origin": "verified"
@@ -52,7 +66,12 @@
   },
   "aiDisclosure": {
     "value": {
-      "models": ["OpenAI models", "Google Gemini", "ElevenLabs speech", "Anthropic models via OpenRouter"],
+      "models": [
+        "OpenAI models",
+        "Google Gemini",
+        "ElevenLabs speech",
+        "Anthropic models via OpenRouter"
+      ],
       "trainsOnCustomerData": "no",
       "notes": "Providers named on the subprocessor page, without model versions. Kulissa says it doesn't train its own models on customer content and requires providers not to."
     },
@@ -61,8 +80,14 @@
     "origin": "vendor-supplied"
   },
   "aiProfile": {
-    "toolTypes": ["conversation practice", "role-play simulation"],
-    "audience": ["Sales teams", "Corporate L&D"],
+    "toolTypes": [
+      "conversation practice",
+      "role-play simulation"
+    ],
+    "audience": [
+      "Sales teams",
+      "Corporate L&D"
+    ],
     "areas": {
       "dataPrivacy": {
         "answers": [
@@ -75,11 +100,11 @@
           },
           {
             "question": "How long prompts and chats are kept",
-            "value": "Demo transcripts up to 90 days; session traces 7 days; customer data for the life of the contract, then deleted or returned within 30 days",
-            "level": "vendor-disclosed",
+            "value": "Demo audio is processed turn by turn and not kept; demo transcripts up to 90 days. In a customer workspace, practice-call audio is kept only until the transcript is made unless the customer sets longer retention; transcripts and scores stay for the life of the contract, then are deleted or returned within 30 days",
+            "level": "vendor-confirmed",
             "source": "https://kulissa.com/privacy",
-            "checked": "2026-11-14",
-            "note": "Backup retention 'to be confirmed'. Live audio is not kept beyond transcription unless the customer sets longer retention."
+            "checked": "2026-11-16",
+            "note": "Confirmed by Kulissa's CEO by email on 16 Nov 2026, pointing to the privacy policy. The policy's mentions of customer 'recordings' apply when a customer sets longer audio retention. Backups and session traces aren't covered in the current policy."
           },
           {
             "question": "Who processes the data",
@@ -108,9 +133,18 @@
             "checked": "2026-11-14",
             "note": "Privacy policy: does not knowingly collect data from anyone under 16; described as a B2B product for adults at work."
           },
-          { "question": "Staff can review AI output before learners see it", "level": "research-ongoing" },
-          { "question": "Staff can set limits on the AI", "level": "research-ongoing" },
-          { "question": "Staff can see learner conversations", "level": "research-ongoing" }
+          {
+            "question": "Staff can review AI output before learners see it",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can set limits on the AI",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Staff can see learner conversations",
+            "level": "research-ongoing"
+          }
         ]
       },
       "pedagogy": {
@@ -122,8 +156,14 @@
             "source": "https://kulissa.com/",
             "checked": "2026-11-14"
           },
-          { "question": "Answers from your own course content", "level": "research-ongoing" },
-          { "question": "Shows its sources", "level": "research-ongoing" }
+          {
+            "question": "Answers from your own course content",
+            "level": "research-ongoing"
+          },
+          {
+            "question": "Shows its sources",
+            "level": "research-ongoing"
+          }
         ]
       },
       "outputOwnership": {
@@ -141,26 +181,60 @@
   },
   "alternatives": [],
   "evidence": [],
-  "commercialRelationship": { "kind": "none" },
+  "commercialRelationship": {
+    "kind": "none"
+  },
   "status": "beta",
-  "draft": true,
+  "lastVerified": "2026-11-16",
+  "draft": false,
   "researchTasks": [
-    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO, under video-interactive; moved to ai-for-learning (AI voice role-play with AI scoring), with video-interactive as secondary. Jim emailed questions on 14 Nov 2026.",
-    "Submission claims (not yet on a page we've opened): upload your own playbooks, ICP and evaluation criteria; the same buyer and rubric for every job applicant; English, French and German tuned for sales practice. The site footer shows English only. Confirm each on a public page or record it as vendor-supplied from Fernando's reply.",
+    "Submitted at /submit on 12 Nov 2026 by Fernando Leyra, CEO, under video-interactive; moved to ai-for-learning (AI voice role-play with AI scoring), with video-interactive as secondary. Jim emailed questions on 14 Nov 2026; Fernando replied on 16 Nov 2026 (Sydney).",
+    "Languages: the press kit lists English, French, German and Spanish (recorded). Fernando's reply adds Arabic ('Arab'). Confirm Arabic on a public page before adding it; the site itself is in English only.",
+    "Submission claims (not yet on a page we've opened): upload your own playbooks, ICP and evaluation criteria; the same buyer and rubric for every job applicant. Confirm each on a public page or record it as vendor-supplied from a reply.",
     "Test it: the free three-minute demo is public, and the submission says a free trial covers reviewer access. Product video: https://youtu.be/dR1t7_wX3Vs.",
-    "Privacy policy mentions 'recordings' as customer product data in Roles and the FAQ, but the retention table says live audio isn't kept beyond transcription. Ask which is right before setting retention above vendor-disclosed.",
-    "Ask: can staff see learners' sessions and scores; can admins restrict scenarios or the AI's behaviour; does the AI use the customer's uploaded playbooks, and does feedback cite them?",
-    "Ask: team pricing and pricing basis; geographic availability; accessibility conformance; any security certification.",
+    "Privacy policy no longer covers backups or session traces (the 14 Nov record had session traces at 7 days and backups 'to be confirmed'). Ask, if useful for buyers.",
+    "Still to ask (not answered in the 16 Nov reply): can staff see learners' sessions and scores; can admins restrict scenarios or the AI's behaviour; does the AI use the customer's uploaded playbooks, and does feedback cite them?",
+    "Still to ask: team pricing and pricing basis; geographic availability; accessibility conformance; any security certification.",
     "Find comparable products for alternatives once other AI role-play tools are in the directory."
   ],
   "dataGaps": [
-    { "field": "pricing", "note": "No team pricing published; only a free public demo." },
-    { "field": "pricingModel", "note": "Basis not published." },
-    { "field": "integrations", "note": "None listed apart from Google and Microsoft sign-in." },
-    { "field": "standards", "note": "None listed." },
-    { "field": "accessibility", "note": "No conformance report or standard published." },
-    { "field": "security", "note": "No certifications claimed." },
-    { "field": "geographicAvailability", "note": "Not stated." },
-    { "field": "data residency", "note": "Hetzner server locations partly 'to be confirmed'; AI processing in the US." }
-  ]
+    {
+      "field": "pricing",
+      "note": "No team pricing published; only a free public demo."
+    },
+    {
+      "field": "pricingModel",
+      "note": "Basis not published."
+    },
+    {
+      "field": "integrations",
+      "note": "None listed apart from Google and Microsoft sign-in."
+    },
+    {
+      "field": "standards",
+      "note": "None listed."
+    },
+    {
+      "field": "accessibility",
+      "note": "No conformance report or standard published."
+    },
+    {
+      "field": "security",
+      "note": "No certifications claimed."
+    },
+    {
+      "field": "geographicAvailability",
+      "note": "Not stated."
+    },
+    {
+      "field": "data residency",
+      "note": "Hetzner server locations partly 'to be confirmed'; AI processing in the US."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/kulissa-maya/logo.webp",
+      "alt": "Kulissa logo"
+    }
+  }
 }

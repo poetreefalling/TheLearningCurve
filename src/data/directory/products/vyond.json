@@ -1,0 +1,102 @@
+{
+  "name": "Vyond",
+  "vendor": "vyond",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://www.vyond.com/plans/",
+  "summary": "Visual video creation platform for animated explainers, scenario videos, screen recordings and AI-assisted video production.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.vyond.com/plans/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Process explainers",
+      "Onboarding",
+      "Safety",
+      "Scenario-based learning",
+      "Internal communications"
+    ],
+    "source": "https://www.vyond.com/plans/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Animated characters/scenes, text-to-video, AI avatars, text-to-speech, screen/webcam recording, translation and asset libraries"
+    ],
+    "source": "https://www.vyond.com/plans/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Video export and team collaboration",
+      "SCORM/LMS support needs confirmation for current product tiers"
+    ],
+    "source": "https://www.vyond.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Public annual prices: Starter US$699/year, Professional US$1,199/year, Enterprise US$1,649/year; plan and seat details apply.",
+      "from": "US$699 a year (Starter)"
+    },
+    "source": "https://www.vyond.com/plans/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "synthesia",
+    "colossyan",
+    "heygen",
+    "camtasia"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing page reviewed; prices are vendor-published and may change.",
+    "AI: AI avatars, text-to-video, text-to-speech, script/document/URL to video and translation. Models: Model providers not disclosed in reviewed pricing page. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI provider/model list, training and retention terms, subprocessors, DPA, SOC 2/ISO, data residency, VPAT and LMS/SCORM roadmap."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "MP4/video delivery; SCORM export not verified."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions, audio and visual accessibility need VPAT and manual review."
+    },
+    {
+      "field": "security",
+      "note": "Enterprise security features listed; detailed certifications and data handling require Trust Center review."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/vyond/logo.webp",
+      "alt": "Vyond logo",
+      "source": "https://www.vyond.com/"
+    }
+  }
+}

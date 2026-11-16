@@ -225,5 +225,21 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/sap-successfactors-learning/logo.webp",
+      "alt": "SAP SuccessFactors logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/sap-successfactors-learning/screenshot-1.webp",
+        "frame": true,
+        "width": 1540,
+        "alt": "The SAP SuccessFactors Learning home page for a manager: a banner carousel, an alert that one team member has overdue training with a Send a Reminder link, and rows of course cards for Required Learning and Non-Required Learning showing due dates, overdue badges, delivery type, duration and buttons to register or continue",
+        "caption": "The learner home page in SAP SuccessFactors Learning, with required and optional training as cards and overdue items flagged.",
+        "credit": "Image: SAP"
+      }
+    ]
+  }
 }

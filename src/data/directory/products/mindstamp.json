@@ -1,0 +1,102 @@
+{
+  "name": "Mindstamp",
+  "vendor": "mindstamp",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://mindstamp.com/pricing",
+  "summary": "Layer interactive questions, hotspots, buttons and branching onto existing video, with per-viewer reporting and SCORM export on paid tiers.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://mindstamp.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Scenario-based video",
+      "Product training",
+      "Compliance",
+      "Video assessment",
+      "Personalised learner journeys"
+    ],
+    "source": "https://mindstamp.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Questions, voice/drawing/image responses, branching, hotspots, transcripts, conditional logic, viewer reporting and SCORM export"
+    ],
+    "source": "https://mindstamp.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Embeds and LMS publishing",
+      "Zapier, HubSpot, Google Sheets and API integrations on higher tiers",
+      "Accepts video from Vimeo, Wistia, S3 and others"
+    ],
+    "source": "https://mindstamp.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Public pricing: Basic US$83/month annual-equivalent; Core US$250/month; Pro US$416/month; Scale US$833/month; Ultra US$2,083/month; Enterprise from US$15,000/year.",
+      "from": "US$83 a month, billed annually (Basic)"
+    },
+    "source": "https://mindstamp.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "edpuzzle",
+    "wevideo",
+    "nearpod",
+    "hihaho"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing page reviewed; pricing and feature limits are vendor-published.",
+    "AI: Genie AI included from Core tier; specific capabilities and provider not described in detail on pricing page. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request Genie AI model/provider, training exclusion, retention, subprocessors, DPA, SOC 2/ISO, VPAT, LMS launch/gradebook details, Australian hosting and AUD pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "SCORM export on Core and above; xAPI not confirmed."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Transcripts listed; full WCAG/VPAT status not verified."
+    },
+    {
+      "field": "security",
+      "note": "Enterprise security reviews and custom SSO/SAML are available; formal independent assurance not verified in reviewed page."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/mindstamp/logo.webp",
+      "alt": "Mindstamp logo"
+    }
+  }
+}

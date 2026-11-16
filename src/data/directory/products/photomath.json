@@ -208,5 +208,11 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/photomath/logo.webp",
+      "alt": "Photomath logo"
+    }
+  }
 }

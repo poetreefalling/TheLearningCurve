@@ -1,0 +1,21 @@
+---
+// Card for the free course design kit (/kit/), in the same family as the field guide's ReportCard:
+// the kit's cover and two template pages fanned on marigold, splaying out on hover (mouse only,
+// not under reduced motion). 16:9, because two of the kit's pages are landscape. Our own offer,
+// so it's labelled "Free toolkit", never "Sponsored".
+import { KIT, ITEMS } from '../../data/kit';
+const templates = ITEMS.filter((i) => i.kind !== 'Cards').length;
+---
+<a class="card card-standard rc kc" href="/kit/">
+  <div class="rc-fan kc-fan" aria-hidden="true">
+    <img class="kc-page kc-p2" src="/images/kit/page-storyboard.webp" alt="" width="900" height="636" loading="lazy" decoding="async" />
+    <img class="kc-page kc-p1" src="/images/kit/page-retrieval.webp" alt="" width="900" height="636" loading="lazy" decoding="async" />
+    <img class="kc-page kc-cover" src="/images/kit/cover.webp" alt="" width="636" height="900" loading="lazy" decoding="async" />
+  </div>
+  <div class="card-body">
+    <span class="kicker">Free toolkit</span>
+    <h3>{KIT.title}</h3>
+    <p>Templates for objectives, retrieval practice, storyboards, scripts and quizzes, a course audit and eight evidence cards.</p>
+    <div class="meta">{templates} templates · {KIT.pages}-page PDF · <span class="rc-cta">Get the free kit →</span></div>
+  </div>
+</a>

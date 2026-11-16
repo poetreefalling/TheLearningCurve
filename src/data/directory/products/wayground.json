@@ -213,5 +213,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/wayground/logo.webp",
+      "alt": "Wayground (formerly Quizizz) logo",
+      "source": "https://wayground.com/"
+    }
+  }
 }

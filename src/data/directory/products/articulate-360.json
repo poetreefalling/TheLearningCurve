@@ -1,0 +1,124 @@
+{
+  "name": "Articulate 360",
+  "vendor": "articulate",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://www.articulate.com/360/RISE/",
+  "summary": "Authoring suite combining responsive block-based Rise courses with highly customisable Storyline interactions and simulations.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.articulate.com/360/RISE/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Compliance courses",
+      "Scenario-based learning",
+      "Software simulations",
+      "Assessments",
+      "Responsive microlearning"
+    ],
+    "source": "https://www.articulate.com/360/RISE/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Rise interactive blocks and scenarios",
+      "Storyline custom interactions",
+      "AI Assistant for outlines, drafts, knowledge checks and media generation"
+    ],
+    "source": "https://www.articulate.com/360/RISE/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS publishing and review workflows",
+      "Supports standard eLearning packages",
+      "Confirm exact LMS integrations and hosting options"
+    ],
+    "source": "https://www.articulate.com/360/ai-assistant/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi",
+      "aicc",
+      "cmi5"
+    ],
+    "source": "https://www.articulate.com/360/ai-assistant/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Annual per-user subscription; public pricing varies by individual/team and AI tier. Obtain current quote."
+    },
+    "source": "https://www.articulate.com/360/RISE/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat"
+    },
+    "source": "https://www.articulate.com/360/RISE/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "thinglink",
+    "adobe-captivate",
+    "ispring-suite"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Official product and AI Assistant pages reviewed. Privacy claims are vendor statements; obtain contractual documentation.",
+    "AI: AI Assistant creates course drafts, lessons, quizzes, summaries and images from prompts/source files. Models: Vendor describes proprietary AI Assistant but does not identify all underlying models/providers in reviewed page. Training: Vendor states it never uses customer content to train its AI. Retention: Vendor states zero data retention with AI subprocessors; confirm scope and exceptions contractually. Subprocessors: Vendor says AI subprocessors are used but specific list should be requested/currently checked.",
+    "Vendor outreach (Medium priority): Request current AI model/subprocessor list, DPA, SOC 2/ISO, data residency, AI retention scope, VPAT, LTI options, content ownership and Australian institutional pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "SCORM, xAPI, AICC and cmi5 support varies by publishing format/product; verify against current technical specs."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility features and documentation available; obtain current VPAT and test custom Storyline interactions."
+    },
+    {
+      "field": "security",
+      "note": "Vendor states zero data retention with AI subprocessors and says customer content is not used to train its AI."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/articulate-360/logo.webp",
+      "alt": "Articulate logo",
+      "source": "https://www.articulate.com/360/"
+    }
+  }
+}

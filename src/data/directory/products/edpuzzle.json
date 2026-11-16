@@ -1,0 +1,104 @@
+{
+  "name": "Edpuzzle",
+  "vendor": "edpuzzle",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://edpuzzle.com/",
+  "summary": "Teachers turn existing video into assigned lessons with embedded questions, notes and learner progress tracking.",
+  "primaryMarket": {
+    "value": [
+      "schools"
+    ],
+    "source": "https://edpuzzle.com/pricing?plan=free",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Flipped classroom",
+      "Video comprehension",
+      "Formative assessment",
+      "Asynchronous lesson delivery"
+    ],
+    "source": "https://edpuzzle.com/pricing?plan=free",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Interactive video lessons",
+      "Embedded questions",
+      "Assignment tracking",
+      "Supported video sources",
+      "Multilingual captions",
+      "Content moderation and school libraries"
+    ],
+    "source": "https://edpuzzle.com/pricing?plan=free",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Google Classroom, Microsoft Teams, Canvas, Schoology, Moodle, Blackboard, Blackbaud, Clever, ClassLink, D2L Brightspace and eKadence"
+    ],
+    "source": "https://support.edpuzzle.com/hc/en-us/articles/4422778145165-What-is-a-Learning-Management-System-LMS",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free and paid teacher/school plans; pricing varies by plan and region. Verify current institutional quote."
+    },
+    "source": "https://edpuzzle.com/pricing?plan=free",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "wevideo",
+    "nearpod",
+    "mindstamp",
+    "hihaho"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor Help Center and pricing page reviewed; independent security/accessibility verification not conducted.",
+    "AI: AI features may be evolving; AI-specific feature/model disclosure not verified in reviewed pages. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Ask for AI feature inventory, models/subprocessors, training and retention policy, DPA, SOC 2/ISO status, VPAT, data residency, LMS LTI/gradebook matrix and school/district pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integrations; confirm LTI version, grade passback and roster sync by LMS."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free tier offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Multi-language closed captions listed; obtain VPAT and test keyboard/screen-reader experience."
+    },
+    {
+      "field": "security",
+      "note": "School-domain verification and admin panel described; obtain DPA, security report and retention details."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/edpuzzle/logo.webp",
+      "alt": "Edpuzzle logo",
+      "source": "https://edpuzzle.com/"
+    }
+  }
+}

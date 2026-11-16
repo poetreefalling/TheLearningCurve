@@ -1,0 +1,104 @@
+{
+  "name": "Genially",
+  "vendor": "genially",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://genially.com/solutions/elearning-authoring-tool/",
+  "summary": "No-code platform for interactive presentations, eLearning, gamified content, branching scenarios and visual explainers.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://genially.com/solutions/elearning-authoring-tool/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Interactive course pages",
+      "Branching scenarios",
+      "Gamification",
+      "Interactive presentations",
+      "Learner resource hubs"
+    ],
+    "source": "https://genially.com/solutions/elearning-authoring-tool/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Click-to-reveal interactions, animations, branching, widgets, quizzes, templates, mobile-adaptable content and AI voiceovers/question generation/translation"
+    ],
+    "source": "https://genially.com/solutions/elearning-authoring-tool/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS integration and publishing options",
+      "Exact plan-level LTI/SCORM capabilities require validation"
+    ],
+    "source": "https://genially.com/features",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free tier plus paid plans; current enterprise and authoring plan pricing should be checked at procurement."
+    },
+    "source": "https://genially.com/solutions/elearning-authoring-tool/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "thinglink",
+    "articulate-360",
+    "adobe-captivate",
+    "ispring-suite"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product feature and eLearning pages reviewed; customer quote on page is vendor-selected testimonial, not independent user evidence.",
+    "AI: AI-assisted text editing, quiz questions, voiceovers, image editing and translation. Models: Model providers not disclosed in reviewed product pages. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI provider/model list, training policy, prompt/output retention, subprocessors, DPA, SOC 2/ISO, VPAT, plan-level LMS standards and data residency."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "SCORM and LTI availability depends on plan; verify SCORM 1.2/2004, xAPI and LTI versions."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free tier offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Vendor describes ALT text, link descriptions and text hierarchy support; obtain VPAT and test interactive components."
+    },
+    {
+      "field": "security",
+      "note": "Vendor has security/privacy feature pages; independent assurance and certifications not verified in this pass."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/genially/logo.webp",
+      "alt": "Genially logo",
+      "source": "https://genially.com/"
+    }
+  }
+}

@@ -1,0 +1,119 @@
+{
+  "name": "Colossyan",
+  "vendor": "colossyan",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
+  "website": "https://www.colossyan.com/features/ai-video-generator/",
+  "summary": "AI video platform for training and enablement, with avatars, translations, interactive learning and SCORM export.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.colossyan.com/features/ai-video-generator/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Workplace training",
+      "Compliance",
+      "Onboarding",
+      "Product education",
+      "Multilingual course video"
+    ],
+    "source": "https://www.colossyan.com/features/ai-video-generator/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI avatars, script-to-video, translation, interactive elements and Colossyan Learn",
+      "SCORM export with completion/score tracking"
+    ],
+    "source": "https://www.colossyan.com/features/ai-video-generator/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "SCORM export",
+      "Verify LMS-specific integrations, SSO, APIs and gradebook tracking"
+    ],
+    "source": "https://www.colossyan.com/features/scorm/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004"
+    ],
+    "source": "https://www.colossyan.com/features/scorm/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free plan and paid plans; current tier pricing should be confirmed on pricing page."
+    },
+    "source": "https://www.colossyan.com/features/ai-video-generator/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "Vendor states it does not train foundation models on customer content and keeps inputs within the workspace. Model providers not named."
+    },
+    "source": "https://www.colossyan.com/features/ai-video-generator/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "synthesia",
+    "heygen",
+    "vyond",
+    "camtasia"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor feature and SCORM documentation reviewed.",
+    "AI: Generative video planning, avatar video, voices, translation and interactive video features. Models: Underlying model providers not specified in reviewed feature page. Training: Vendor states it does not train foundation models on customer content. Retention: Retention/deletion terms not verified. Subprocessors: Vendor states agreements with AI vendors prohibit training on customer data; identify vendors and subprocessors.",
+    "Vendor outreach (Medium priority): Request list of foundation models/subprocessors, retention schedule, DPA, SOC 2/ISO, data residency, VPAT, SCORM completion semantics and pricing in AUD."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages. Free tier offered."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions, translations and video accessibility need VPAT and WCAG testing."
+    },
+    {
+      "field": "security",
+      "note": "Vendor states customer content is not used to train foundation models and inputs remain within workspace boundary; verify contract and subprocessors."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/colossyan/logo.webp",
+      "alt": "Colossyan logo",
+      "source": "https://www.colossyan.com/"
+    }
+  }
+}
