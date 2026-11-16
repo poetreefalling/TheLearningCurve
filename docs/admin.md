@@ -10,6 +10,13 @@ article pull request (branches starting `article/`), earliest slot first, and fo
 - **Publish**, which merges the pull request. It stays disabled until no items are left and the
   site check passes. The article then goes live at its slot.
 
+**Preview links are private.** Every branch preview (`*.thelearningcurve-1qx.pages.dev`) sits behind
+Cloudflare Access: opening one asks for an email address and sends a one-time code, and only
+Jim's own addresses (the "Jim only" policy) are allowed in (a sign-in lasts a week). The live
+site and the bare `thelearningcurve-1qx.pages.dev` address stay public. To let someone else review,
+add their address to the "Jim only" policy on the "The Learning Curve preview builds" application in
+Cloudflare Zero Trust → Access → Applications.
+
 Saving commits to the article's branch ("Edit via review desk: …"), so Claude and GitHub see the
 same text. If Claude changed the article after you opened it, the desk refuses to overwrite and
 asks you to reload.
