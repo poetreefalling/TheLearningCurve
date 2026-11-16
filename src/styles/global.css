@@ -372,13 +372,13 @@ h1, h2, h3, h4 { font-family: var(--display); font-weight: 700; line-height: 1.1
 .newsletter-inner p { color: var(--ink-2); margin: 8px 0 0; }
 .nl-form { display: flex; gap: 8px; }
 .nl-form input {
-  flex: 1; min-width: 0; font: 400 16px var(--sans); padding: 12px 14px;
-  border: 1px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 0;
+  flex: 1; min-width: 0; font: 400 16px var(--sans); padding: 12px 20px;
+  border: 1.5px solid var(--ink); background: var(--paper); color: var(--ink); border-radius: 999px;
 }
 .button {
   display: inline-block; font: 600 14px/1 var(--sans); letter-spacing: 0.02em;
   background: var(--ink); color: var(--paper); border: 1px solid var(--ink);
-  padding: 13px 20px; text-decoration: none; cursor: pointer; border-radius: 0;
+  padding: 13px 24px; text-decoration: none; cursor: pointer; border-radius: 999px;
 }
 .button:hover { background: var(--accent); border-color: var(--accent); }
 .button[disabled] { opacity: 0.5; cursor: not-allowed; }
@@ -1297,8 +1297,8 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 .rf { max-width: 560px; }
 .rf-row { display: flex; gap: 8px; }
 .rf-row .rf-name { flex: 1; }
-.rf-row input { flex: 2; min-width: 0; font: 400 16px/1 var(--sans); padding: 16px 16px; border: 2px solid var(--band-ink); border-radius: 6px; background: #ffffff; color: #16181d; }
-.rf-button { font: 700 14px/1 var(--label); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 22px; border: 0; border-radius: 6px; background: var(--band-ink); color: var(--band); cursor: pointer; white-space: nowrap; transition: transform 0.15s; }
+.rf-row input { flex: 2; min-width: 0; font: 400 16px/1 var(--sans); padding: 16px 20px; border: 2px solid var(--band-ink); border-radius: 999px; background: #ffffff; color: #16181d; }
+.rf-button { font: 700 14px/1 var(--label); letter-spacing: 0.06em; text-transform: uppercase; padding: 0 24px; border: 0; border-radius: 999px; background: var(--band-ink); color: var(--band); cursor: pointer; white-space: nowrap; transition: transform 0.15s; }
 .rf-button:hover { transform: translateY(-1px); }
 .rf-button[disabled] { opacity: 0.6; cursor: not-allowed; transform: none; }
 .rf-page .rf-row input { border-color: var(--rule-strong); }
