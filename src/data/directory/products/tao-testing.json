@@ -1,0 +1,115 @@
+{
+  "name": "TAO",
+  "vendor": "open-assessment-technologies",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.taotesting.com/",
+  "summary": "Open digital assessment platform for everyday testing through complex high-stakes programmes, with open standards and extensible architecture.",
+  "primaryMarket": {
+    "value": [
+      "government"
+    ],
+    "source": "https://www.taotesting.com/products/assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Build and deliver large-scale assessments",
+      "Support multilingual and accessible testing",
+      "Integrate with LMS and assessment ecosystems",
+      "Manage secure test sessions"
+    ],
+    "source": "https://www.taotesting.com/products/assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Secure online testing",
+      "Accessibility accommodations",
+      "Flexible delivery",
+      "Test-session controls",
+      "Multilingual delivery",
+      "Open architecture"
+    ],
+    "source": "https://www.taotesting.com/products/assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Moodle",
+      "Canvas",
+      "Blackboard",
+      "APIs"
+    ],
+    "source": "https://www.taotesting.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "qti"
+    ],
+    "source": "https://www.taotesting.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise and deployment-dependent; quote required. Open-source/community components and commercial services should be distinguished."
+    },
+    "source": "https://www.taotesting.com/products/assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.taotesting.com/products/assessment-platform/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "inspera-assessment",
+    "examsoft",
+    "questionmark",
+    "exam-net",
+    "mobius"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product documentation; QTI specification is independent standards context.",
+    "AI: No specific generative AI feature confirmed in reviewed assessment platform page. Model/provider: Not disclosed / no model confirmed in reviewed source. Training: Not disclosed; ask vendor to explicitly confirm whether any ML/AI processing uses candidate responses. Retention: Not disclosed; obtain configurable retention and deletion policy. Subprocessors: Not disclosed; request deployment-specific subprocessor list. Status: No AI feature established in reviewed product source; vendor confirmation required rather than assuming no AI.",
+    "Vendor outreach (Medium priority): Confirm AI/ML use or explicit non-use; QTI 3.0 conformance evidence; LTI/API details; cloud/on-prem options; Australian data residency; security certificates; accessibility report; pricing and support model.",
+    "Distinguish the open-source TAO community edition from the commercial cloud service when profiling deployment and pricing.",
+    "Check the 1EdTech QTI 3.0 implementation directory (https://www.imsglobal.org/spec/qti/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "Vendor states QTI 2.2 compatibility and native QTI 3.0, and that it is LTI-ready (version not named). QTI 2.2 compatible and QTI 3.0 native per vendor; LTI ready; confirm exact conformance/certification."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility is a stated product focus; request ACR/VPAT and test evidence for authoring and test-taking workflows."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request hosting architecture, penetration-test summary, SOC 2/ISO evidence, DPA and incident-response policy."
+    }
+  ]
+}

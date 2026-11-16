@@ -1,0 +1,102 @@
+{
+  "name": "Open Badge Factory",
+  "vendor": "open-badge-factory",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://openbadgefactory.com/",
+  "summary": "Badge creation and issuing platform with API, LTI and plugins to connect badge awards to LMS and other systems.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "nonprofit"
+    ],
+    "source": "https://openbadgefactory.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Design and issue Open Badges",
+      "Automate or trigger awards from learning systems",
+      "Manage badge applications and learner achievement records"
+    ],
+    "source": "https://openbadgefactory.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Badge creation/management",
+      "REST API",
+      "OAuth2",
+      "LTI",
+      "Moodle plugin",
+      "Canvas, Blackboard and Brightspace integrations",
+      "Badge application workflows"
+    ],
+    "source": "https://openbadgefactory.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "REST API",
+      "LTI",
+      "Plugins for Moodle, Canvas, Blackboard and Brightspace"
+    ],
+    "source": "https://openbadgefactory.com/en/for-developers/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Subscription tiers; advanced API/LTI functions may require Pro subscription."
+    },
+    "source": "https://openbadgefactory.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "credly",
+    "accredible",
+    "parchment-digital-badges",
+    "sertifier",
+    "my-equals"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor-supplied developer documentation; 1EdTech specification provides independent standards context.",
+    "AI: No AI feature confirmed in reviewed developer page. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Request retention/deletion policy for issuer and recipient data. Subprocessors: Request current list and data locations. Status: No AI feature established in reviewed source; explicit confirmation required.",
+    "Vendor outreach (Medium priority): Confirm Open Badges 3.0 support/certification; security evidence; EU/AU data processing; API limits; LTI 1.3; Moodle plugin maintenance; accessibility; AI use; pricing.",
+    "Check the 1EdTech Open Badges 3.0 conformance directory (https://www.imsglobal.org/spec/ob/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Open Badges standard support; confirm current 2.0/3.0 conformance and certification."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request current accessibility statement/ACR for issuer and learner interfaces."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request security certificates, hosting regions, DPA, encryption, backup and subprocessors."
+    }
+  ]
+}

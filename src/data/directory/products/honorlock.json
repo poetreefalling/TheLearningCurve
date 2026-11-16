@@ -1,0 +1,109 @@
+{
+  "name": "Honorlock",
+  "vendor": "honorlock",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://honorlock.com/",
+  "summary": "Remote proctoring platform combining browser security, identity checks, analytics and automated detection with human review options.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://honorlock.com/proctoring/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Secure online exams",
+      "Apply browser controls",
+      "Use webcam/second-camera options",
+      "Review suspicious activity and institution-level trends"
+    ],
+    "source": "https://honorlock.com/proctoring/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "BrowserGuard",
+      "ID verification",
+      "Second camera",
+      "Voice detection",
+      "Analytics hub",
+      "LMS integrations",
+      "Open APIs"
+    ],
+    "source": "https://honorlock.com/proctoring/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas",
+      "Blackboard",
+      "Moodle",
+      "D2L",
+      "Open LMS",
+      "Docebo",
+      "Intellum",
+      "Open APIs"
+    ],
+    "source": "https://honorlock.com/security-privacy/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional quote; pricing not public in reviewed pages."
+    },
+    "source": "https://honorlock.com/proctoring/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://honorlock.com/proctoring/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "respondus-monitor",
+    "proctorio",
+    "proctoru",
+    "pearson-vue-onvue"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied proctoring and privacy pages; privacy claims not independently audited in this pass.",
+    "AI: Automated voice/behaviour detection and analytics described; AI model details and human review controls need confirmation. Model/provider: Model/provider not identified in reviewed sources. Training: Not disclosed in reviewed pages. Retention: Vendor says retention follows institution policy; request exact configurable schedule and deletion evidence. Subprocessors: Request current subprocessor list including AI/video/identity processing providers. Status: Automated detection features disclosed; model, training and subprocessor details unconfirmed.",
+    "Vendor outreach (High priority): Request AI model/provider; human review; false-positive rates; voice/face processing; retention/deletion; AU data locations; subprocessors; SOC 2/ISO; ACR; student appeal process."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS/API support stated; confirm LTI 1.3, grade passback and exact integration architecture."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request ACR/VPAT, accessibility test results and accommodation process."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor privacy page describes collection based on exam settings and retention according to institutional policy. Obtain SOC 2/ISO, DPA and technical security pack."
+    }
+  ]
+}

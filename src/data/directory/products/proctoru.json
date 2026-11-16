@@ -1,0 +1,96 @@
+{
+  "name": "ProctorU (Meazure Learning)",
+  "vendor": "meazure-learning",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.meazurelearning.com/",
+  "summary": "Remote proctoring services with live and review-based options for online assessments and certification exams.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://www.meazurelearning.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Provide live human invigilation or review-based proctoring",
+      "Support high-stakes and remote certification",
+      "Validate candidate identity and exam conditions"
+    ],
+    "source": "https://www.meazurelearning.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Live proctors",
+      "Review-based monitoring",
+      "Candidate authentication",
+      "Session recording and review",
+      "Configurable service levels"
+    ],
+    "source": "https://www.meazurelearning.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Service-level and volume-based quote."
+    },
+    "source": "https://www.meazurelearning.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.meazurelearning.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "respondus-monitor",
+    "proctorio",
+    "honorlock",
+    "pearson-vue-onvue"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor/partner information; reviewed Meazure-related material includes partner description, not a full vendor assurance pack.",
+    "AI: AI use not established in reviewed source set; distinguish human proctor review from any automated flagging/identity tools. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; request explicit policy. Retention: Request recording retention, candidate identity data retention and deletion policy. Subprocessors: Request all technology and proctoring subprocessors and locations. Status: AI disclosure incomplete; do not infer AI absence from human-proctor service descriptions.",
+    "Vendor outreach (High priority): Confirm current ProctorU product/service naming; AI/automation inventory; human vs automated decision roles; recording retention; data residency; subprocessors; security certificates; accessibility and appeals; pricing.",
+    "The workbook's secondary source is a McGraw Hill page (https://www.mheducation.com/highered/digital-products/aleksppl/assessment-integrity.html), not Meazure Learning's own; it isn't used as a source here."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Integrations depend on assessment platform and delivery partner; verify institution's LMS/exam platform and API needs."
+    },
+    {
+      "field": "standards",
+      "note": "No named interoperability standard confirmed in reviewed source."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request candidate accessibility and accommodation policy, ACR and support model."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Sensitive identity, video and exam data. Request current SOC 2/ISO, DPA, data-flow diagrams, retention and subcontractor information."
+    }
+  ]
+}

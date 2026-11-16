@@ -1,0 +1,117 @@
+{
+  "name": "Inspera Assessment",
+  "vendor": "inspera",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://inspera.com/inspera-assessment/",
+  "summary": "Digital assessment platform spanning formative quizzes, coursework, portfolios and secure high-stakes exams, with collaborative grading.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://inspera.com/inspera-assessment/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Create and deliver online exams",
+      "Build reusable item banks",
+      "Assess coursework and portfolios",
+      "Grade with rubrics",
+      "Provide feedback and monitor assessment sessions"
+    ],
+    "source": "https://inspera.com/inspera-assessment/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "25+ question types",
+      "Item banks",
+      "Multimedia questions",
+      "Secure exam modes",
+      "Real-time monitoring",
+      "Collaborative/double-blind grading",
+      "Written, audio and automated feedback"
+    ],
+    "source": "https://inspera.com/inspera-assessment/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas",
+      "Moodle",
+      "Blackboard Learn",
+      "D2L Brightspace",
+      "Sakai"
+    ],
+    "source": "https://inspera.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "lti-1.1",
+      "lti-1.3"
+    ],
+    "source": "https://inspera.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise/institutional quote; public price not identified."
+    },
+    "source": "https://inspera.com/inspera-assessment/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://inspera.com/inspera-assessment/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "examsoft",
+    "questionmark",
+    "tao-testing",
+    "exam-net",
+    "mobius"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product page. Vendor reports customer and submission metrics; independent assurance documents not inspected.",
+    "AI: Automated feedback is described; AI-specific functions and scope need confirmation. Do not assume automated feedback necessarily uses generative AI. Model/provider: No model/provider identified in reviewed Assessment product page. Training: Not disclosed in reviewed product page; request written confirmation for all AI/ML processing. Retention: Not disclosed in reviewed product page; request retention schedule for recordings, submissions, prompts and outputs. Subprocessors: Not disclosed in reviewed product page; request current subprocessor register. Status: AI disclosure incomplete; automated feedback capability is vendor described, underlying AI status unconfirmed.",
+    "Vendor outreach (Medium priority): Clarify AI vs rule-based automation; model/provider and training policy; data residency including backups; proctoring subprocessors; SOC 2/ISO; ACR; LTI/QTI/API technical specifications; pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "LTI 1.1/1.3 stated; confirm QTI import/export, grade passback, API and accessibility behaviour."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility is an important platform claim; request current ACR/VPAT and testing across candidate and authoring interfaces."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Security controls include configurable browser/integrity modes and optional proctoring. Obtain current security certifications, DPA and hosting schedule."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "name": "Proctorio",
+  "vendor": "proctorio",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://proctorio.com/",
+  "summary": "Remote proctoring and browser-locking solution with configurable recording and identity-verification options.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://proctorio.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Monitor remote assessments",
+      "Configure identity verification and exam security settings",
+      "Review recordings and flags"
+    ],
+    "source": "https://proctorio.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Browser lockdown",
+      "Webcam/audio/screen recording options",
+      "Identity verification",
+      "Configurable exam settings",
+      "LMS integration"
+    ],
+    "source": "https://proctorio.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional quote; public pricing not captured."
+    },
+    "source": "https://proctorio.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://proctorio.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "respondus-monitor",
+    "honorlock",
+    "proctoru",
+    "pearson-vue-onvue"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor-supplied product information should be balanced with independent research and institutional privacy reviews.",
+    "AI: Automated monitoring/flagging marketed; exact AI/ML components, model providers and human review requirements need clarification. Model/provider: Not disclosed in reviewed source set. Training: Not disclosed; request explicit no-training or permitted-use statement. Retention: Request detailed retention by data type, configurable deletion and post-exam access rules. Subprocessors: Request current list including cloud, identity and AI analytics providers. Status: Automated analysis implied; AI/ML disclosure and data governance unconfirmed.",
+    "Vendor outreach (High priority): Request AI model inventory; decision/flag logic; false-positive and bias testing; human review; biometric processing; retention; subprocessors; data residency; SOC 2/ISO; ACR; accessibility accommodations."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Integrated through LMS platforms; confirm current list, LTI/API specifications and supported browsers."
+    },
+    {
+      "field": "standards",
+      "note": "No standard conformance confirmed in this pass."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request current accessibility report, accommodation guidance and independent testing."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Highly sensitive video, audio, identity and device data. Request security certifications, DPA, privacy impact materials, encryption and data location."
+    }
+  ]
+}

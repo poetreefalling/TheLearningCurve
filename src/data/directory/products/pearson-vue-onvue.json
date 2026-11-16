@@ -1,0 +1,84 @@
+{
+  "name": "Pearson VUE OnVUE",
+  "vendor": "pearson",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.pearsonvue.com/us/en/onvue.html",
+  "summary": "Online proctored exam delivery service for professional and vendor certification programmes.",
+  "useCases": {
+    "value": [
+      "Deliver remotely proctored certification exams",
+      "Support candidate identity checks, secure testing environments and exam programme operations"
+    ],
+    "source": "https://www.pearsonvue.com/us/en/onvue.html",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Online proctoring",
+      "System checks",
+      "Candidate check-in",
+      "Secure exam delivery",
+      "Live monitoring",
+      "Programme-level exam administration"
+    ],
+    "source": "https://www.pearsonvue.com/us/en/onvue.html",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Exam fees vary by certification sponsor and programme; not a general institutional SaaS price."
+    },
+    "source": "https://www.pearsonvue.com/us/en/onvue.html",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "respondus-monitor",
+    "proctorio",
+    "honorlock",
+    "proctoru"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor service descriptions and programme rules should be supplemented with independent candidate experience and accessibility evidence.",
+    "AI: AI use in identity verification or proctoring not established in reviewed sources. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Candidate identity and proctoring data retention requires programme-specific confirmation. Subprocessors: Request OnVUE-specific subprocessor list and geographic processing. Status: AI disclosure incomplete; verify directly with vendor.",
+    "Vendor outreach (Medium priority): Confirm AI/ML use in identity and monitoring; biometric handling; retention/deletion; data residency; accessibility and accommodation; appeals; security assurance; exam sponsor controls.",
+    "OnVUE is paid per exam by candidates or certification sponsors, not licensed by institutions; pricing basis left as a gap."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Typically integrated with certification programme registration and exam delivery systems; institution-specific LMS integration is not the primary use case."
+    },
+    {
+      "field": "standards",
+      "note": "No LMS standard confirmed in this pass; investigate APIs and candidate management integrations."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Pearson VUE provides accommodations processes; obtain OnVUE-specific accessibility and assistive technology compatibility details."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request Pearson VUE privacy notice, security certifications, data-flow and retention schedules, subprocessors and regional processing details."
+    }
+  ]
+}

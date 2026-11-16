@@ -1,0 +1,113 @@
+{
+  "name": "My eQuals",
+  "vendor": "my-equals",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://myequals.org/",
+  "summary": "Australian and New Zealand digital credential network for secure access to certified official academic records and credentials.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "vet"
+    ],
+    "source": "https://myequals.org/educationproviders/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Issue and share official transcripts, testamurs and academic documents",
+      "Enable graduate-controlled credential sharing and employer verification"
+    ],
+    "source": "https://myequals.org/educationproviders/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Digital academic documents",
+      "Secure sharing",
+      "Verification",
+      "Institution network",
+      "Learner access",
+      "Document certification"
+    ],
+    "source": "https://myequals.org/educationproviders/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Sector/provider membership and service model; obtain current institution fees."
+    },
+    "source": "https://myequals.org/educationproviders/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Australia"
+      ],
+      "notes": "Vendor states credentials are stored in Australia."
+    },
+    "source": "https://myequals.org/about-us/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Australia",
+      "New Zealand"
+    ],
+    "source": "https://myequals.org/educationproviders/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "credly",
+    "accredible",
+    "parchment-digital-badges",
+    "open-badge-factory",
+    "sertifier"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor/network statements; participating-provider governance is a distinctive sector model. Australian data storage is vendor stated and should be contractually verified.",
+    "AI: No AI feature established in reviewed provider page. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Official academic records have long-term retention requirements; confirm platform retention, account closure and document access rules. Subprocessors: Request hosting, backup, identity and verification subprocessors and data locations. Status: No AI feature established in reviewed pages; explicit confirmation required.",
+    "Vendor outreach (Medium priority): Confirm governance and ownership; Australian data residency scope incl. backups; security audit/certifications; API; standards; accessibility; retention/exit; AI use; fee model."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Institutional systems connect through member-provider processes; request API and student management integration details."
+    },
+    {
+      "field": "standards",
+      "note": "Credential authenticity and verification described; confirm standards alignment, metadata schema and interoperability export."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request current WCAG conformance and accessibility testing for student and verifier interfaces."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor states Australian data storage and cryptographic hardware/banking-level security. Obtain current independent assurance and architecture documentation."
+    }
+  ]
+}

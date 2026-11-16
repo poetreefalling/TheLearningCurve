@@ -1,0 +1,111 @@
+{
+  "name": "Mahara",
+  "vendor": "mahara-project",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://mahara.org/",
+  "summary": "Open-source ePortfolio system for creating, sharing and assessing learner portfolios, reflections and evidence of competencies.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Build learner portfolios",
+      "Document work-integrated learning",
+      "Reflect on professional practice",
+      "Map evidence to competency or registration requirements",
+      "Submit portfolios for assessment"
+    ],
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Portfolio creation",
+      "Evidence uploads",
+      "Reflections",
+      "Controlled sharing",
+      "Groups and collaboration",
+      "Comments/feedback",
+      "LTI submission to LMS for marking"
+    ],
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LTI portfolio submission to an LMS, commonly Moodle"
+    ],
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Open-source software; hosting, support, implementation and customisation may incur costs."
+    },
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source"
+    },
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted"
+    ],
+    "source": "https://mahara.org/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "pebblepad"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Official project website; product is open-source, but deployment-level security and accessibility require separate assessment.",
+    "AI: No AI feature confirmed in reviewed official homepage. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor/community confirmation required. Retention: Depends on deployment and institution configuration; document retention and backup policies. Subprocessors: Depends on hosting provider and integrations; identify for each deployment. Status: No AI feature established in reviewed homepage; explicit maintainer/host confirmation required.",
+    "Vendor outreach (Medium priority): Confirm maintained release and support model; AI plugins/features; hosting responsibilities; LTI version; accessibility statement; data export; backup/retention; implementation costs.",
+    "Peer-reviewed study involving Mahara (https://www.frontiersin.org/journals/education/articles/10.3389/feduc.2023.1169363/full); check before citing as evidence."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations (detail)",
+      "note": "LTI portfolio submission to LMS is described by Mahara; Moodle ecosystem links are common; confirm local deployment plugins and version."
+    },
+    {
+      "field": "standards",
+      "note": "LTI support described; verify version, API, export and interoperability for the deployed release."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request current version accessibility statement and independent WCAG testing; deployment customisations may affect conformance."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Security depends partly on deployment, hosting and local configuration. Request host-specific security evidence and patching/support arrangements."
+    }
+  ]
+}

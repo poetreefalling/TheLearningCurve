@@ -1,0 +1,95 @@
+{
+  "name": "FeedbackFruits",
+  "vendor": "feedbackfruits",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://feedbackfruits.com/",
+  "summary": "Teaching and learning platform with assessment, collaboration, peer interaction, feedback and learning analytics.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://feedbackfruits.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Run peer review, group work, rubric assessment, formative feedback and collaborative learning activities",
+      "Standardise pedagogical practice across faculties"
+    ],
+    "source": "https://feedbackfruits.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Feedback and assessment tools",
+      "Peer review",
+      "Collaboration",
+      "Analytics",
+      "Reusable templates",
+      "Acai AI companion",
+      "AI-supported feedback"
+    ],
+    "source": "https://feedbackfruits.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional bundles and quote-based plans."
+    },
+    "source": "https://feedbackfruits.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://feedbackfruits.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "gradescope",
+    "crowdmark",
+    "kritik"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied homepage/product messaging; institutional adoption claims are vendor reported.",
+    "AI: Vendor explicitly markets Acai AI companion and ethical, transparent AI assistance for feedback and learning support. Model/provider: Underlying model/provider, model routing and regional processing not identified in reviewed homepage. Training: Not disclosed in reviewed homepage; request whether student submissions, prompts and outputs train vendor or third-party models. Retention: AI interaction and assessment data retention not disclosed in reviewed homepage. Subprocessors: Request list of AI model providers and all subprocessors. Status: AI capabilities disclosed; model/provider, training, retention and subprocessor disclosures remain unconfirmed.",
+    "Vendor outreach (Medium priority): Request AI feature-by-feature model inventory; prompt/output retention; training exclusion; human oversight; LTI 1.3 technical docs; SOC 2/ISO; accessibility report; AU data residency; pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Institutional LMS integrations are central to the platform; confirm LTI version, grade passback, roster sync and supported LMS versions."
+    },
+    {
+      "field": "standards",
+      "note": "Confirm LTI 1.3/Advantage, API and accessibility conformance in procurement."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific ACR/VPAT and accessibility testing across each tool."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request trust-centre pack, SOC 2/ISO evidence, DPA, subprocessor register and data residency."
+    }
+  ]
+}
