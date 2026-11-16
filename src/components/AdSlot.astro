@@ -41,7 +41,7 @@ const box = `--ad-w:${spec.width}px; --ad-ratio:${spec.width} / ${spec.height}`;
     {house && (
       <div class="house-wrap">
         <div class="ad-label">From The Learning Curve</div>
-        <a class={`house house-${slot} house-${house.style}`} href={house.url}>
+        <a class={`house house-${slot} house-${house.style}`} href={house.url} data-promo={house.id}>
           <span class="house-kicker">{house.kicker}</span>
           <span class="house-headline">{house.headline}</span>
           <span class="house-text">{house.text}</span>

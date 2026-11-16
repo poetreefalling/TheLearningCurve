@@ -72,7 +72,7 @@ dates (the end date is the last day it shows). Then **Save and publish**.
 - **Pause** keeps a booking but takes it down; **Remove** deletes it. Its image stays in
   `public/ads/` (harmless; ask Claude to tidy old ones).
 
-There's no click or impression counting built in. Use the sponsor's UTM tags (their analytics
+Clicks are counted as totals in Fathom Analytics (goals "Ad click: <host>", "Affiliate click: <host>" and "House promo: <id>", added in `src/layouts/Base.astro`); impressions aren't counted. For a sponsor's own reporting, use their UTM tags (their analytics
 see the visits) or a link shortener with stats.
 
 ## The advertise page and media kit enquiries

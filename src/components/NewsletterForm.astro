@@ -57,6 +57,7 @@ const id = `nl-${placement}`;
         const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
         const json = await res.json().catch(() => ({ message: 'Something went wrong. Please try again.' }));
         if (res.ok) {
+          (window as any).tlcTrack?.('Newsletter signup');
           done.querySelector<HTMLElement>('[data-nl-email]')!.textContent = String(body.email ?? '').trim();
           fields.forEach((el) => (el.hidden = true));
           note.hidden = true;

@@ -46,6 +46,7 @@ const id = `rf-${placement}`;
         const json = await res.json();
         note.textContent = json.message;
         if (res.ok) {
+          (window as any).tlcTrack?.('Field guide signup');
           form.classList.add('is-done');
           done.hidden = false;
           done.querySelector('a')?.focus();
