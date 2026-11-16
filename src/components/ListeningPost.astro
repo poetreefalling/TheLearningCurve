@@ -1,0 +1,170 @@
+---
+// The Listening Post: readers leave a short note in answer to the article's prompt, and read the
+// notes others have left. Placed automatically after the article body when the frontmatter has
+// `listeningPost`. Notes come from /api/comments/<slug> (functions/api/comments/[slug].ts) and are
+// approved in the Comments tab at /admin. No JavaScript means no form, just a note. Setup and
+// moderation: docs/listening-post.md.
+import type { Article } from '../lib/articles';
+import { slugOf } from '../lib/articles';
+
+interface Props { article: Article }
+const a = Astro.props.article;
+const lp = a.data.listeningPost!;
+const slug = slugOf(a);
+const id = `lp-${slug}`;
+---
+
+<section class="listening-post end-section measure" data-listening-post data-slug={slug} aria-labelledby={`${id}-h`} data-pagefind-ignore>
+  <h2 id={`${id}-h`}>The Listening Post</h2>
+  <div class="lp-panel">
+    <p class="lp-prompt">{lp.prompt}</p>
+    <p class="lp-intro">{lp.intro ?? 'Leave a short note. We read every one, and the best of them shape what we write next.'}</p>
+
+    <form class="lp-form" data-lp-form novalidate hidden>
+      <label class="lp-label" for={`${id}-text`}>Your note</label>
+      <textarea id={`${id}-text`} name="text" maxlength="600" rows="4" required></textarea>
+      <div class="lp-row">
+        <div>
+          <label class="lp-label" for={`${id}-name`}>Name <span>(optional)</span></label>
+          <input id={`${id}-name`} name="name" type="text" maxlength="60" autocomplete="given-name" />
+        </div>
+        <div>
+          <label class="lp-label" for={`${id}-role`}>Role <span>(optional)</span></label>
+          <input id={`${id}-role`} name="role" type="text" maxlength="80" placeholder="e.g. L&D manager" />
+        </div>
+      </div>
+      <div class="lp-hp" aria-hidden="true">
+        <label>Leave this empty <input name="website_confirm" type="text" tabindex="-1" autocomplete="off" /></label>
+      </div>
+      <div class="lp-actions">
+        <button type="submit" class="lp-btn">Post your note</button>
+        <span class="lp-count" data-lp-count>0 / 600</span>
+      </div>
+      <p class="lp-status" data-lp-status aria-live="polite"></p>
+      <p class="lp-small">No links, please. Notes are checked before they appear. We don't store your IP address.</p>
+    </form>
+    <noscript><p class="lp-small">The Listening Post needs JavaScript to post and show notes.</p></noscript>
+  </div>
+
+  <div class="lp-wall" data-lp-wall aria-live="polite"></div>
+</section>
+
+<style>
+  .listening-post .lp-panel { background: var(--surface); border: 1px solid var(--rule); border-top: 6px solid var(--band); padding: 20px 20px 16px; margin-top: 14px; }
+  .lp-prompt { font-family: var(--display); font-size: 1.5rem; line-height: 1.25; margin: 0; font-variation-settings: 'opsz' 40; }
+  .lp-intro { font: 400 15px/1.5 var(--sans); color: var(--muted); margin: 8px 0 16px; }
+  .lp-label { display: block; font: 600 13px/1.3 var(--sans); color: var(--ink); margin: 0 0 6px; }
+  .lp-label span { font-weight: 400; color: var(--muted); }
+  .lp-form textarea, .lp-form input { width: 100%; box-sizing: border-box; font: 400 16px/1.5 var(--sans); color: var(--ink); background: var(--paper); border: 1px solid var(--rule); padding: 10px 12px; border-radius: 0; }
+  .lp-form textarea { resize: vertical; min-height: 104px; }
+  .lp-form textarea:focus-visible, .lp-form input:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .lp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px; }
+  @media (max-width: 560px) { .lp-row { grid-template-columns: 1fr; } }
+  .lp-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .lp-actions { display: flex; align-items: center; gap: 14px; margin-top: 14px; }
+  .lp-btn { font: 700 14px/1 var(--sans); background: var(--ink); color: var(--paper); border: 0; padding: 13px 20px; cursor: pointer; }
+  .lp-btn:hover { background: var(--accent); }
+  .lp-btn:disabled { opacity: 0.55; cursor: default; }
+  .lp-count { font: 400 13px var(--sans); color: var(--muted); font-variant-numeric: tabular-nums; }
+  .lp-status { font: 500 14.5px/1.45 var(--sans); color: var(--ink-2); min-height: 1.4em; margin: 10px 0 0; }
+  .lp-status.bad { color: var(--warn); }
+  .lp-small { font: 400 12.5px/1.5 var(--sans); color: var(--muted); margin: 6px 0 0; }
+  .lp-wall { margin-top: 18px; columns: 2 280px; column-gap: 14px; }
+  .lp-wall .lp-empty { font: italic 400 1.05rem/1.5 var(--serif); color: var(--muted); column-span: all; margin: 4px 0; }
+  .lp-note { break-inside: avoid; margin: 0 0 14px; padding: 16px 16px 12px; background: var(--paper); border-left: 4px solid var(--band); }
+  .lp-note:nth-child(3n+2) { border-left-color: var(--kicker); }
+  .lp-note:nth-child(3n) { border-left-color: var(--accent); }
+  .lp-note blockquote { margin: 0 0 10px; font: 400 1.08rem/1.55 var(--serif); color: var(--ink); white-space: pre-line; }
+  .lp-note figcaption { font: 400 12.5px/1.4 var(--sans); color: var(--muted); }
+  .lp-note figcaption b { color: var(--ink); font-weight: 600; }
+  @media (prefers-reduced-motion: no-preference) {
+    .lp-note.new { animation: lp-in 0.5s ease-out both; }
+    @keyframes lp-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  }
+</style>
+
+<script>
+  type Note = { id: string; at: number; name: string; role: string; text: string };
+  const fmt = (t: number) => new Date(t).toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-listening-post]')) {
+    const slug = root.dataset.slug!;
+    const form = root.querySelector<HTMLFormElement>('[data-lp-form]')!;
+    const wall = root.querySelector<HTMLElement>('[data-lp-wall]')!;
+    const status = root.querySelector<HTMLElement>('[data-lp-status]')!;
+    const count = root.querySelector<HTMLElement>('[data-lp-count]')!;
+    const text = form.querySelector<HTMLTextAreaElement>('textarea')!;
+    const btn = form.querySelector<HTMLButtonElement>('button[type=submit]')!;
+    const api = `/api/comments/${slug}`;
+    let shown = new Set<string>();
+    form.hidden = false;
+
+    const say = (msg: string, bad = false) => { status.textContent = msg; status.classList.toggle('bad', bad); };
+    text.addEventListener('input', () => { count.textContent = `${text.value.length} / 600`; });
+
+    const render = (items: Note[]) => {
+      wall.replaceChildren();
+      if (!items.length) {
+        const p = document.createElement('p');
+        p.className = 'lp-empty';
+        p.textContent = 'No notes yet. Be the first voice in the room.';
+        wall.append(p);
+        return;
+      }
+      for (const n of items) {
+        const fig = document.createElement('figure');
+        fig.className = 'lp-note' + (shown.size && !shown.has(n.id) ? ' new' : '');
+        const q = document.createElement('blockquote');
+        q.textContent = n.text;
+        const cap = document.createElement('figcaption');
+        const b = document.createElement('b');
+        b.textContent = n.name || 'A reader';
+        cap.append(b, document.createTextNode(`${n.role ? ', ' + n.role : ''} · ${fmt(n.at)}`));
+        fig.append(q, cap);
+        wall.append(fig);
+      }
+      shown = new Set(items.map((n) => n.id));
+    };
+
+    const load = async () => {
+      try {
+        const res = await fetch(api, { headers: { Accept: 'application/json' } });
+        if (res.status === 503) { wall.replaceChildren(); return; }
+        if (!res.ok) return;
+        render(((await res.json()) as { items: Note[] }).items);
+      } catch {}
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const fd = new FormData(form);
+      if (String(fd.get('text') ?? '').trim().length < 3) { say('Write a little more first.', true); text.focus(); return; }
+      btn.disabled = true;
+      say('Posting…');
+      try {
+        const res = await fetch(api, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(Object.fromEntries(fd)),
+        });
+        const data = (await res.json().catch(() => ({}))) as { error?: string; posted?: string; items?: Note[] };
+        if (!res.ok) {
+          say(res.status === 503 ? 'The Listening Post opens shortly. Please try again soon.' : data.error || 'Something went wrong. Please try again.', true);
+        } else {
+          form.reset();
+          count.textContent = '0 / 600';
+          say(data.posted === 'approved' ? 'Thanks. Your note is on the wall.' : 'Thanks. Your note is in, and it will appear here once we\'ve read it.');
+          if (data.items) render(data.items);
+        }
+      } catch {
+        say('Something went wrong. Please try again.', true);
+      }
+      btn.disabled = false;
+    });
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((es) => { if (es.some((x) => x.isIntersecting)) { io.disconnect(); load(); } }, { rootMargin: '400px' });
+      io.observe(root);
+    } else load();
+  }
+</script>

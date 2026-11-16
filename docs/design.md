@@ -258,6 +258,14 @@ From `src/data/stories/<id>.json`, drawn in the browser with no chart library:
   numbers from the source) and what we'd do. Without JavaScript every segment is drawn and the
   plan is also a table. Timings are labelled as our design, never as findings.
 
+- **`<Milestones>`, `<DotField>`, `<ListeningLoop>`** (feature widgets): a dated timeline that draws
+  itself in with the story's key moment in the kicker colour; a dot-per-item field for a count too
+  big to feel as a number (the number stays as text beside it); and a ring of steps for a method,
+  always labelled as ours rather than a finding. All three show everything at once under reduced
+  motion or without JavaScript.
+- **The Listening Post** (`listeningPost` in frontmatter): a prompt, a note box and a wall of approved
+  reader notes, after the reader check. Notes are moderated in the Comments tab at /admin.
+
 Palette: `--dv-1` blue, `--dv-2` amber, `--dv-3` violet, faded to `--chart-base` when another
 series is highlighted. Example: `src/content/articles/trends/sample-data-story.mdx`.
 

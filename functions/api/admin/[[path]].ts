@@ -35,6 +35,9 @@ interface Env {
   // Platform submissions from /submit (functions/api/submit.ts, docs/submissions.md)
   SUBMISSIONS_DB?: SubDb;
   CHECKS_DB?: SubDb;
+  // Listening Post notes (functions/api/comments/[slug].ts, docs/listening-post.md)
+  COMMENTS_DB?: SubDb;
+  COMMENTS_AUTO_APPROVE?: string;
 }
 
 type Ctx = { request: Request; env: Env; params: { path?: string | string[] } };
@@ -80,6 +83,8 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     if (route === 'facts/save' && request.method === 'POST') return json(200, await saveFacts(gh, await request.json()));
     if (route === 'submissions' && request.method === 'GET') return json(200, await listSubmissions(env));
     if (route === 'submissions/status' && request.method === 'POST') return json(200, await setSubmission(env, await request.json()));
+    if (route === 'comments' && request.method === 'GET') return json(200, await listComments(env));
+    if (route === 'comments/status' && request.method === 'POST') return json(200, await setComment(env, await request.json()));
     return json(404, { error: 'Not found.' });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -121,6 +126,39 @@ async function setSubmission(env: Env, body: { id?: string; status?: string; not
   if (!body.id || !SUB_STATUSES.includes(String(body.status))) throw new Problem(400, 'Unknown submission or status.');
   await db.prepare('UPDATE submissions SET status = ?, editor_note = ? WHERE id = ?')
     .bind(String(body.status), String(body.note ?? '').slice(0, 2000), String(body.id)).run();
+  return { ok: true };
+}
+
+// ---------- Listening Post notes (/api/comments/<slug>) ----------
+
+const COMMENT_STATUSES = ['pending', 'approved', 'hidden'];
+const COMMENTS_TABLE = `CREATE TABLE IF NOT EXISTS comments (
+  id TEXT PRIMARY KEY, slug TEXT NOT NULL, at INTEGER NOT NULL, status TEXT NOT NULL DEFAULT 'pending',
+  name TEXT, role TEXT, text TEXT NOT NULL, voter TEXT NOT NULL
+)`;
+
+function commentDb(env: Env) {
+  const db = env.COMMENTS_DB ?? env.CHECKS_DB;
+  if (!db) throw new Problem(503, 'Listening Post storage is not set up yet: it uses the CHECKS_DB binding (docs/listening-post.md).');
+  return db;
+}
+
+async function listComments(env: Env) {
+  const db = commentDb(env);
+  await db.prepare(COMMENTS_TABLE).run();
+  const { results } = await db.prepare('SELECT id, slug, at, status, name, role, text FROM comments ORDER BY at DESC LIMIT 500').all<Record<string, unknown>>();
+  return { items: results, statuses: COMMENT_STATUSES, autoApprove: env.COMMENTS_AUTO_APPROVE === '1' };
+}
+
+async function setComment(env: Env, body: { id?: string; status?: string; remove?: boolean }) {
+  const db = commentDb(env);
+  if (!body.id) throw new Problem(400, 'Unknown note.');
+  if (body.remove) {
+    await db.prepare('DELETE FROM comments WHERE id = ?').bind(String(body.id)).run();
+    return { ok: true };
+  }
+  if (!COMMENT_STATUSES.includes(String(body.status))) throw new Problem(400, 'Unknown status.');
+  await db.prepare('UPDATE comments SET status = ? WHERE id = ?').bind(String(body.status), String(body.id)).run();
   return { ok: true };
 }
 

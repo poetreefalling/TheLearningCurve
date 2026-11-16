@@ -513,6 +513,13 @@ const articles = defineCollection({
         })
         .optional(),
       readerCheck: readerCheck.optional(),
+      // The Listening Post: readers leave a note after the article (docs/listening-post.md)
+      listeningPost: z
+        .object({
+          prompt: z.string().max(160), // the question readers answer
+          intro: z.string().max(300).optional(),
+        })
+        .optional(),
       faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
       sources: z.array(source).default([]),
       featured: z.boolean().default(false),

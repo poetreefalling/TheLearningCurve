@@ -14,6 +14,7 @@ import AuthorBox from '../../components/AuthorBox.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
 import ShareButtons from '../../components/ShareButtons.astro';
 import ReaderCheck from '../../components/ReaderCheck.astro';
+import ListeningPost from '../../components/ListeningPost.astro';
 import DataChart from '../../components/story/DataChart.astro';
 import Scrolly from '../../components/story/Scrolly.astro';
 import Step from '../../components/story/Step.astro';
@@ -23,6 +24,9 @@ import ReaderPoll from '../../components/ReaderPoll.astro';
 import DayBudget from '../../components/feature/DayBudget.astro';
 import ConditionsCheck from '../../components/feature/ConditionsCheck.astro';
 import EvidenceMap from '../../components/feature/EvidenceMap.astro';
+import Milestones from '../../components/feature/Milestones.astro';
+import DotField from '../../components/feature/DotField.astro';
+import ListeningLoop from '../../components/feature/ListeningLoop.astro';
 import VideoTimeline from '../../components/story/VideoTimeline.astro';
 import AdSlot from '../../components/AdSlot.astro';
 import { adsAllowedFor, pickAd, pickHouse } from '../../lib/ads';
@@ -115,7 +119,7 @@ const adsOk = adsAllowedFor(d.kind);
 const rail = adsOk && (!!pickAd('halfpage', 'article') || !!pickHouse('halfpage', Astro.url.pathname));
 const layout = rail ? 'article-layout has-rail' : 'article-layout';
 
-const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, VideoTimeline, ReaderPoll, DayBudget, ConditionsCheck, EvidenceMap };
+const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, ComparisonTable, PriceTable, DataChart, Scrolly, Step, StatGrid, Stat, VideoTimeline, ReaderPoll, DayBudget, ConditionsCheck, EvidenceMap, Milestones, DotField, ListeningLoop };
 ---
 
 <Base title={d.title} description={d.description} jsonLd={jsonLd} ogImage={heroSrc(a, '-og')} ogType="article" current={d.section} masthead="slim" ads={adsOk}>
@@ -195,6 +199,8 @@ const components = { ResearchCard, Chart, Callout, Figure, PlatformLink, Compari
     )}
 
     {d.readerCheck && d.readerCheck.placement !== 'inline' && <ReaderCheck article={a} />}
+
+    {d.listeningPost && <ListeningPost article={a} />}
 
     <div class="measure">
       <ShareButtons url={url} title={d.title} summary={d.standfirst} placement="end" />

@@ -1,0 +1,60 @@
+---
+// <Milestones title="…" items={[{ date, title, text, highlight?, href? }]} source="…" />: a dated
+// vertical timeline that draws itself in as it scrolls into view, one milestone after another.
+// The highlighted milestone (the point of the story) is marked in the kicker colour. Every item
+// is plain text in the page, so it reads the same with no JavaScript or with reduced motion.
+interface Item { date: string; title: string; text?: string; highlight?: boolean; href?: string }
+interface Props { title: string; sub?: string; label?: string; items: Item[]; source?: string }
+const { title, sub, label = 'Timeline', items, source } = Astro.props;
+---
+
+<figure class="fw fw-ms" data-milestones data-pagefind-ignore>
+  <div class="fw-label">{label}</div>
+  <h3 class="fw-title">{title}</h3>
+  {sub && <p class="fw-sub">{sub}</p>}
+  <ol class="ms-list">
+    {items.map((it) => (
+      <li class:list={['ms-item', { 'ms-hi': it.highlight }]}>
+        <span class="ms-dot" aria-hidden="true"></span>
+        <span class="ms-date">{it.date}</span>
+        <span class="ms-title">{it.href ? <a href={it.href}>{it.title}</a> : it.title}</span>
+        {it.text && <span class="ms-text">{it.text}</span>}
+      </li>
+    ))}
+  </ol>
+  {source && <figcaption class="fw-note">{source}</figcaption>}
+</figure>
+
+<style>
+  .fw-ms .ms-list { list-style: none; margin: 18px 0 0; padding: 0 0 0 4px; position: relative; }
+  .fw-ms .ms-list::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 2px; background: var(--rule); }
+  .fw-ms .ms-list::after { content: ''; position: absolute; left: 11px; top: 8px; width: 2px; height: calc(100% - 16px); background: linear-gradient(var(--band), var(--kicker)); transform-origin: top; }
+  .fw-ms .ms-item { position: relative; padding: 0 0 20px 34px; display: grid; gap: 2px; }
+  .fw-ms .ms-item:last-child { padding-bottom: 0; }
+  .fw-ms .ms-dot { position: absolute; left: 0; top: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--surface); border: 3px solid var(--band); z-index: 1; }
+  .fw-ms .ms-hi .ms-dot { background: var(--kicker); border-color: var(--kicker); box-shadow: 0 0 0 5px color-mix(in srgb, var(--kicker) 18%, transparent); }
+  .fw-ms .ms-date { font: 700 11.5px/1.3 var(--label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .fw-ms .ms-title { font: 600 1.08rem/1.35 var(--display); color: var(--ink); }
+  .fw-ms .ms-hi .ms-title, .fw-ms .ms-hi .ms-title a { color: var(--kicker); }
+  .fw-ms .ms-text { font: 400 14.5px/1.45 var(--sans); color: var(--ink-2); }
+  @media (prefers-reduced-motion: no-preference) {
+    .fw-ms.ms-js .ms-list::after { transform: scaleY(0); transition: transform 2s cubic-bezier(0.3, 0.7, 0.2, 1); }
+    .fw-ms.ms-js .ms-item { opacity: 0; transform: translateX(-6px); transition: opacity 0.5s, transform 0.5s; }
+    .fw-ms.ms-js.ms-on .ms-list::after { transform: none; }
+    .fw-ms.ms-js.ms-on .ms-item { opacity: 1; transform: none; }
+  }
+</style>
+
+<script>
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const root of document.querySelectorAll<HTMLElement>('[data-milestones]')) {
+    if (reduce || !('IntersectionObserver' in window)) continue;
+    const items = [...root.querySelectorAll<HTMLElement>('.ms-item')];
+    items.forEach((it, i) => { it.style.transitionDelay = `${200 + i * 320}ms`; });
+    root.classList.add('ms-js');
+    const io = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting)) { io.disconnect(); requestAnimationFrame(() => root.classList.add('ms-on')); }
+    }, { threshold: 0.3 });
+    io.observe(root);
+  }
+</script>
