@@ -1245,9 +1245,10 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 .ev-levels p { margin: 0; }
 /* Discover hub: live directories as cards, the rest muted under "In research" */
 .cat-live { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(205px, 1fr)); gap: var(--gutter); }
-.cat-live > li > a { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 18px 18px 16px; background: var(--surface); border: 1px solid var(--rule); border-top: 6px solid var(--band); border-radius: 0 0 10px 10px; color: inherit; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
+.cat-live > li > a { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 0 18px 16px; background: var(--surface); border: 1px solid var(--rule); border-top: 6px solid var(--band); border-radius: 0 0 10px 10px; color: inherit; text-decoration: none; transition: border-color 0.15s, box-shadow 0.15s; }
 .cat-live > li > a:hover { border-color: var(--ink-2); border-top-color: var(--band); box-shadow: 0 8px 24px rgba(22, 24, 29, 0.08); }
 .cat-live > li > a:hover h3 { text-decoration: underline; }
+.cat-top { display: flex; flex-direction: column; gap: 8px; margin: 0 -18px; padding: 18px 18px 14px; }
 .cat-count { font: 700 11.5px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .cat-count b { display: block; font: 800 2.6rem/1 var(--display); letter-spacing: -0.02em; color: var(--ink); text-transform: none; margin-bottom: 2px; }
 .cat-live h3 { font: 800 1.3rem/1.2 var(--display); margin-top: 4px; }
@@ -1262,6 +1263,21 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 .cat-soon b { font: 700 1.02rem/1.25 var(--display); color: var(--muted); }
 .cat-soon span { font: 400 14px/1.45 var(--sans); color: var(--muted); }
 @media (prefers-reduced-motion: reduce) { .cat-live > li > a { transition: none; } }
+
+/* Rollover fill: on hover, the card's marigold top bar runs down over the part marked .roll-fill
+   (title and description), stopping short of logos and anything below, so they keep their
+   colours. Mark the card .roll and the area .roll-fill. Mouse and keyboard focus only (touch
+   screens would leave it stuck on); instant, not animated, under reduced motion. */
+.roll-fill { position: relative; isolation: isolate; }
+.roll-fill::before { content: ''; position: absolute; inset: 0 0 auto 0; height: 0; background: var(--band); z-index: -1; transition: height 0.45s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.roll-fill > * { transition: color 0.3s; }
+@media (hover: hover) and (pointer: fine) {
+  .roll:hover .roll-fill::before { height: 100%; }
+  .roll:hover .roll-fill > *, .roll:hover .roll-fill b { color: var(--band-ink); }
+}
+.roll:focus-visible .roll-fill::before { height: 100%; }
+.roll:focus-visible .roll-fill > *, .roll:focus-visible .roll-fill b { color: var(--band-ink); }
+@media (prefers-reduced-motion: reduce) { .roll-fill::before, .roll-fill > * { transition: none; } }
 
 /* ---------- Report landing page (/reports/…): docs/design.md ---------- */
 .rl-hero { padding: 56px 0 64px; overflow: hidden; }
