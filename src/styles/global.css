@@ -540,7 +540,7 @@ table.data .best td, table.data .best th { background: var(--surface); font-weig
 .page-body ul { padding-left: 1.2em; }
 
 /* Search */
-.search-page { --pagefind-ui-scale: 0.9; --pagefind-ui-primary: var(--accent); --pagefind-ui-text: var(--ink); --pagefind-ui-background: var(--paper); --pagefind-ui-border: var(--ink); --pagefind-ui-tag: var(--surface); --pagefind-ui-border-width: 1px; --pagefind-ui-border-radius: 0; --pagefind-ui-font: var(--sans); }
+.search-page { --pagefind-ui-scale: 0.9; --pagefind-ui-primary: var(--accent); --pagefind-ui-text: var(--ink); --pagefind-ui-background: var(--paper); --pagefind-ui-border: var(--ink); --pagefind-ui-tag: var(--surface); --pagefind-ui-border-width: 1.5px; --pagefind-ui-border-radius: 999px; --pagefind-ui-font: var(--sans); }
 .search-page .pagefind-ui__result-title { font-family: var(--serif); }
 
 /* No double gap when a page ends with the newsletter band */
@@ -603,7 +603,7 @@ html, body { overflow-x: clip; }
 .rc-opts { display: grid; gap: 8px; }
 .rc-opt {
   display: grid; grid-template-columns: auto 1fr auto; align-items: center; column-gap: 10px;
-  border: 1px solid var(--rule); background: var(--surface); padding: 10px 12px; cursor: pointer;
+  border: 1px solid var(--rule); background: var(--surface); padding: 10px 16px; cursor: pointer; border-radius: 14px;
   font: 400 15px/1.4 var(--sans); color: var(--ink);
 }
 .rc-opt:hover { border-color: var(--ink-2); }
@@ -628,7 +628,7 @@ html, body { overflow-x: clip; }
 .rc-done .rc-opt.is-correct .rc-tag { color: var(--accent); }
 .rc-done .rc-opt.is-wrong .rc-tag { color: var(--ochre); }
 .rc-has-results .rc-pct { display: block; font: 600 14px var(--sans); font-variant-numeric: tabular-nums; }
-.rc-has-results .rc-bar { display: block; grid-column: 1 / -1; height: 10px; background: var(--rule); }
+.rc-has-results .rc-bar { display: block; grid-column: 1 / -1; height: 10px; background: var(--rule); border-radius: 999px; overflow: hidden; }
 .rc-fill { display: block; height: 100%; width: 0; background: var(--chart-base); transition: width 0.6s ease; }
 .rc-done[data-kind='poll'] .is-mine .rc-fill,
 .rc-done[data-kind='quiz'] .is-correct .rc-fill { background: var(--accent); }
@@ -1085,11 +1085,13 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 .sub-field > label, .sub-q { font: 600 14px/1.4 var(--sans); color: var(--ink); }
 .sub-opt { font-weight: 400; color: var(--muted); }
 .sub-form input[type='text'], .sub-form input[type='email'], .sub-form input[type='url'], .sub-form select, .sub-form textarea {
-  width: 100%; box-sizing: border-box; border: 1.5px solid var(--rule-strong); border-radius: 0;
+  width: 100%; box-sizing: border-box; border: 1.5px solid var(--rule-strong); border-radius: 999px;
   background: var(--surface); color: var(--ink); font: 400 15px/1.5 var(--sans);
 }
-.sub-form input[type='text'], .sub-form input[type='email'], .sub-form input[type='url'], .sub-form select { height: 46px; padding: 0 14px; }
-.sub-form textarea { padding: 12px 14px; resize: vertical; }
+.sub-form input[type='text'], .sub-form input[type='email'], .sub-form input[type='url'], .sub-form select { height: 46px; padding: 0 20px; }
+.sub-form select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 42px; background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8' fill='none' stroke='%236a6660' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 18px center / 12px 8px; }
+.sub-form textarea { padding: 14px 20px; resize: vertical; border-radius: 20px; }
+.sub-form input:hover, .sub-form select:hover, .sub-form textarea:hover { border-color: var(--ink-2); }
 .sub-hint { font: 400 13px/1.4 var(--sans); color: var(--muted); }
 .sub-chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .sub-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1.5px solid var(--rule-strong); border-radius: 999px; font: 600 14px/1 var(--sans); cursor: pointer; }
