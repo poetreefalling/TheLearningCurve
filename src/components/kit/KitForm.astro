@@ -55,6 +55,7 @@ const id = `kf-${placement}`;
         const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
         const json = await res.json();
         if (res.ok) {
+          (window as any).tlcTrack?.('Kit signup');
           form.classList.add('is-done');
           note.hidden = true;
           done.hidden = false;

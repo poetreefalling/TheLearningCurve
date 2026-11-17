@@ -24,9 +24,26 @@
 //
 // The facts editor (Facts tab) does the same for src/data/facts.json, the data behind /facts/ and
 // /facts.json: it reads the file from the default branch and saves it as one commit there.
+//
+// Review links (Sharing tab): every branch preview (*.thelearningcurve-1qx.pages.dev) sits behind a
+// Cloudflare Access application that lets only Jim in. Sharing a draft adds a more specific Access
+// application for that one preview hostname, which Access uses instead of the wildcard:
+//   - invite: Jim plus the invited email addresses can sign in with an emailed one-time code; the
+//     link is the branch preview, so reviewers always see the latest version of the draft
+//   - open link: anyone with the link can view, no sign-in; the link is the preview of that exact
+//     version (an unguessable deployment address), so later edits aren't shown
+// Each share has an end date. Expired and revoked shares are removed from Access whenever the
+// Sharing tab is opened or a share is created. Shares are kept in D1 (the submissions database).
+// Extra settings (docs/admin.md, "Review links"):
+//   CF_API_TOKEN          secret: a Cloudflare API token with Account > Access: Apps and Policies > Edit
+//   CF_ACCOUNT_ID         the Cloudflare account ID
+//   ACCESS_OWNER_EMAILS   secret: Jim's addresses, comma-separated, always allowed on every preview
+//   ACCESS_IDP_ID         optional: the Access login method to use (the email one-time code)
+//   RESEND_API_KEY        optional: emails the invitation (already set for /api/submit)
 
+interface SubStmt { bind(...v: unknown[]): SubStmt; all<T>(): Promise<{ results: T[] }>; run(): Promise<unknown> }
 interface SubDb {
-  prepare(sql: string): { bind(...v: unknown[]): any; all<T>(): Promise<{ results: T[] }>; run(): Promise<unknown> };
+  prepare(sql: string): SubStmt;
 }
 interface Env {
   ADMIN_PASSWORD?: string;
@@ -38,6 +55,12 @@ interface Env {
   // Listening Post notes (functions/api/comments/[slug].ts, docs/listening-post.md)
   COMMENTS_DB?: SubDb;
   COMMENTS_AUTO_APPROVE?: string;
+  // Review links (Sharing tab)
+  CF_API_TOKEN?: string;
+  CF_ACCOUNT_ID?: string;
+  ACCESS_OWNER_EMAILS?: string;
+  ACCESS_IDP_ID?: string;
+  RESEND_API_KEY?: string;
 }
 
 type Ctx = { request: Request; env: Env; params: { path?: string | string[] } };
@@ -85,6 +108,9 @@ export const onRequest = async (ctx: Ctx): Promise<Response> => {
     if (route === 'submissions/status' && request.method === 'POST') return json(200, await setSubmission(env, await request.json()));
     if (route === 'comments' && request.method === 'GET') return json(200, await listComments(env));
     if (route === 'comments/status' && request.method === 'POST') return json(200, await setComment(env, await request.json()));
+    if (route === 'shares' && request.method === 'GET') return json(200, await listShares(env, gh));
+    if (route === 'shares/create' && request.method === 'POST') return json(200, await createShare(env, gh, await request.json()));
+    if (route === 'shares/revoke' && request.method === 'POST') return json(200, await revokeShare(env, await request.json()));
     return json(404, { error: 'Not found.' });
   } catch (e) {
     const msg = e instanceof Error ? e.message : String(e);
@@ -160,6 +186,190 @@ async function setComment(env: Env, body: { id?: string; status?: string; remove
   if (!COMMENT_STATUSES.includes(String(body.status))) throw new Problem(400, 'Unknown status.');
   await db.prepare('UPDATE comments SET status = ? WHERE id = ?').bind(String(body.status), String(body.id)).run();
   return { ok: true };
+}
+
+// ---------- review links (Sharing tab) ----------
+
+const PREVIEW_ZONE = 'thelearningcurve-1qx.pages.dev';
+const SHARE_TABLE = `CREATE TABLE IF NOT EXISTS review_shares (
+  id TEXT PRIMARY KEY, at INTEGER NOT NULL, expires INTEGER NOT NULL, revoked INTEGER NOT NULL DEFAULT 0,
+  cleaned INTEGER NOT NULL DEFAULT 0, mode TEXT NOT NULL, host TEXT NOT NULL, url TEXT NOT NULL,
+  pr INTEGER, title TEXT, name TEXT, email TEXT, note TEXT
+)`;
+const EMAIL_RE = /^[^\s@,;]+@[^\s@,;]+\.[^\s@,;]{2,}$/;
+
+type Share = { id: string; at: number; expires: number; revoked: number; cleaned: number; mode: string; host: string; url: string; pr: number; title: string; name: string; email: string; note: string };
+
+function sharesReady(env: Env) {
+  return !!(env.CF_API_TOKEN && env.CF_ACCOUNT_ID && env.ACCESS_OWNER_EMAILS);
+}
+
+async function shareDb(env: Env) {
+  const db = subDb(env);
+  await db.prepare(SHARE_TABLE).run();
+  return db;
+}
+
+async function cf(env: Env, path: string, init: RequestInit = {}) {
+  const res = await fetch(`https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}${path}`, {
+    ...init,
+    headers: { Authorization: `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+  });
+  const data: any = await res.json().catch(() => ({}));
+  if (!res.ok || data.success === false) {
+    const msg = data?.errors?.[0]?.message || `error ${res.status}`;
+    if (res.status === 401 || res.status === 403) throw new Problem(500, `Cloudflare refused the API token (${msg}). Check CF_API_TOKEN has Access: Apps and Policies: Edit.`);
+    throw new Problem(502, `Cloudflare: ${msg}`);
+  }
+  return data.result;
+}
+
+// Make Cloudflare Access match the active shares for one preview hostname: no app when nothing is
+// shared (the wildcard app then lets only Jim in), otherwise one app for exactly that hostname.
+async function syncHost(env: Env, db: SubDb, host: string) {
+  const now = Date.now();
+  const { results } = await db.prepare('SELECT * FROM review_shares WHERE host = ? AND revoked = 0 AND expires > ?').bind(host, now).all<Share>();
+  const apps: any[] = await cf(env, '/access/apps?per_page=1000');
+  for (const app of apps.filter((a) => a.domain === host)) await cf(env, `/access/apps/${app.id}`, { method: 'DELETE' });
+  if (!results.length) return;
+  const open = results.some((s) => s.mode === 'link');
+  const owners = String(env.ACCESS_OWNER_EMAILS).split(/[\s,;]+/).filter((e) => EMAIL_RE.test(e));
+  const guests = results.filter((s) => s.mode === 'invite' && s.email).map((s) => s.email);
+  const emails = [...new Set([...owners, ...guests].map((e) => e.toLowerCase()))];
+  const until = Math.max(...results.map((s) => s.expires));
+  await cf(env, '/access/apps', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: `Review link: ${host.split('.')[0]} (until ${new Date(until).toISOString().slice(0, 10)})`,
+      type: 'self_hosted',
+      domain: host,
+      session_duration: '24h',
+      app_launcher_visible: false,
+      ...(env.ACCESS_IDP_ID ? { allowed_idps: [env.ACCESS_IDP_ID], auto_redirect_to_identity: true } : {}),
+      policies: [open
+        ? { name: 'Anyone with the link', decision: 'bypass', precedence: 1, include: [{ everyone: {} }] }
+        : { name: 'Jim and invited reviewers', decision: 'allow', precedence: 1, include: emails.map((email) => ({ email: { email } })) }],
+    }),
+  });
+}
+
+// Remove expired and revoked shares from Access (once each).
+async function cleanShares(env: Env, db: SubDb) {
+  const { results } = await db.prepare('SELECT DISTINCT host FROM review_shares WHERE cleaned = 0 AND (revoked = 1 OR expires <= ?)').bind(Date.now()).all<{ host: string }>();
+  for (const { host } of results) {
+    await syncHost(env, db, host);
+    await db.prepare('UPDATE review_shares SET cleaned = 1 WHERE host = ? AND (revoked = 1 OR expires <= ?)').bind(host, Date.now()).run();
+  }
+}
+
+// The drafts that can be shared: open article pull requests (each article's page) and other open
+// changes (the preview's home page).
+async function shareableDrafts(gh: GH) {
+  const prs: any[] = await gh('/pulls?state=open&per_page=50&sort=created&direction=asc');
+  return Promise.all(prs.map(async (pr) => {
+    const isArticle = String(pr.head.ref).startsWith('article/');
+    const paths = isArticle
+      ? (await articlePaths(gh, pr.number)).map((p) => { const [, section, slug] = p.match(ARTICLE)!; return { label: slug.replace(/-/g, ' '), path: `/${section}/${slug}/` }; })
+      : [{ label: 'Home page', path: '/' }];
+    return { pr: pr.number, title: pr.title, kind: isArticle ? 'article' : 'change', paths };
+  }));
+}
+
+async function deploymentBase(gh: GH, number: number) {
+  const comments: any[] = await gh(`/issues/${number}/comments?per_page=50`);
+  for (const c of comments.reverse()) {
+    const m = String(c.body ?? '').match(/<strong>Preview URL:<\/strong>[\s\S]*?href='([^']+)'/);
+    if (m) return m[1].replace(/\/$/, '');
+  }
+  throw new Problem(409, 'This draft has no finished preview yet. Wait for its preview to build (a few minutes after each save) and try again.');
+}
+
+async function listShares(env: Env, gh: GH) {
+  const drafts = await shareableDrafts(gh);
+  if (!sharesReady(env)) return { ready: false, items: [], drafts };
+  const db = await shareDb(env);
+  await cleanShares(env, db);
+  const { results } = await db.prepare('SELECT * FROM review_shares ORDER BY at DESC LIMIT 100').all<Share>();
+  const now = Date.now();
+  const items = results.map((s) => ({ ...s, status: s.revoked ? 'revoked' : s.expires <= now ? 'expired' : 'active' }));
+  return { ready: true, items, drafts };
+}
+
+async function createShare(env: Env, gh: GH, body: any) {
+  if (!sharesReady(env)) throw new Problem(503, 'Review links are not set up yet: add CF_API_TOKEN, CF_ACCOUNT_ID and ACCESS_OWNER_EMAILS in Cloudflare (docs/admin.md).');
+  const number = Number(body?.pr);
+  const mode = body?.mode === 'link' ? 'link' : 'invite';
+  const days = Math.min(30, Math.max(1, Math.round(Number(body?.days) || 7)));
+  const name = String(body?.name ?? '').trim().slice(0, 120);
+  const note = String(body?.note ?? '').trim().slice(0, 1500);
+  const email = String(body?.email ?? '').trim().toLowerCase();
+  if (mode === 'invite' && !EMAIL_RE.test(email)) throw new Problem(400, 'Add the reviewer\'s email address: they sign in with a code sent to it.');
+  if (email && !EMAIL_RE.test(email)) throw new Problem(400, 'That email address doesn\'t look right.');
+  const pr = await gh(`/pulls/${number}`);
+  if (pr.state !== 'open') throw new Problem(409, 'That draft is no longer open, so there is nothing to share. Reload the list.');
+  const drafts = await shareableDrafts(gh);
+  const draft = drafts.find((d) => d.pr === number);
+  const path = draft?.paths.some((p) => p.path === body?.path) ? String(body.path) : draft?.paths[0]?.path ?? '/';
+  const base = mode === 'link' ? await deploymentBase(gh, number) : await previewBase(gh, number, pr.head.ref);
+  const host = new URL(base).hostname;
+  if (!host.endsWith('.' + PREVIEW_ZONE)) throw new Problem(500, `Unexpected preview address: ${host}`);
+  const url = base + path;
+  const db = await shareDb(env);
+  const id = crypto.randomUUID();
+  const now = Date.now();
+  const expires = now + days * 86400_000;
+  await db.prepare('INSERT INTO review_shares (id, at, expires, mode, host, url, pr, title, name, email, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+    .bind(id, now, expires, mode, host, url, number, String(pr.title).slice(0, 300), name, email, note).run();
+  try {
+    await syncHost(env, db, host);
+  } catch (e) {
+    await db.prepare('DELETE FROM review_shares WHERE id = ?').bind(id).run();
+    throw e;
+  }
+  await cleanShares(env, db).catch(() => {});
+  let emailed = false;
+  if (email && body?.send !== false && env.RESEND_API_KEY) emailed = await sendInvite(env, { email, name, note, url, mode, expires, title: String(pr.title) });
+  const until = new Date(expires).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', weekday: 'short', day: 'numeric', month: 'short' });
+  return {
+    ok: true, url,
+    message: `${mode === 'link' ? 'Open link' : 'Invitation'} ready until ${until}.${emailed ? ` We've emailed it to ${email}.` : email ? ' Copy the link below and send it yourself.' : ' Copy the link below to share it.'} It can take a minute for Cloudflare to apply.`,
+  };
+}
+
+async function revokeShare(env: Env, body: any) {
+  if (!sharesReady(env)) throw new Problem(503, 'Review links are not set up yet.');
+  const db = await shareDb(env);
+  const { results } = await db.prepare('SELECT * FROM review_shares WHERE id = ?').bind(String(body?.id ?? '')).all<Share>();
+  const share = results[0];
+  if (!share) throw new Problem(404, 'Unknown review link.');
+  await db.prepare('UPDATE review_shares SET revoked = 1 WHERE id = ?').bind(share.id).run();
+  await syncHost(env, db, share.host);
+  await db.prepare('UPDATE review_shares SET cleaned = 1 WHERE id = ?').bind(share.id).run();
+  return { ok: true, message: `Stopped. ${share.name || share.email || 'That link'} can no longer open the preview (within a minute or so).` };
+}
+
+async function sendInvite(env: Env, s: { email: string; name: string; note: string; url: string; mode: string; expires: number; title: string }) {
+  const until = new Date(s.expires).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', weekday: 'long', day: 'numeric', month: 'long' });
+  const title = s.title.replace(/^[A-Z][a-z]{2} \d{1,2} [A-Z][a-z]{2} \d{2}:\d{2} · /, '');
+  const esc = (t: string) => t.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+  const how = s.mode === 'invite'
+    ? `Open the link and enter this email address (${s.email}). Cloudflare will email you a one-time code to sign in.`
+    : 'Open the link: no sign-in needed.';
+  const text = [`Hi ${s.name || 'there'},`, '', `Jim Lounsbury has shared a draft from The Learning Curve for you to review: "${title}".`, '', s.note, '', s.url, '', how, `The link works until ${until}. Please don't share it further.`, '', 'The Learning Curve', 'https://thelearningcurve.net/'].filter((l, i, a) => !(l === '' && a[i - 1] === '')).join('\n');
+  const html = `<div style="font:16px/1.55 -apple-system,Segoe UI,Helvetica,Arial,sans-serif;color:#16181d;max-width:560px">
+<p>Hi ${esc(s.name || 'there')},</p>
+<p>Jim Lounsbury has shared a draft from <strong>The Learning Curve</strong> for you to review:</p>
+<p style="font:700 20px/1.3 Georgia,serif;margin:16px 0">${esc(title)}</p>
+${s.note ? `<p style="background:#f7f4ee;border-left:3px solid #f6c847;padding:10px 14px;white-space:pre-wrap">${esc(s.note)}</p>` : ''}
+<p><a href="${esc(s.url)}" style="display:inline-block;background:#16181d;color:#f6c847;text-decoration:none;font-weight:700;padding:12px 20px;border-radius:999px">Open the draft</a></p>
+<p style="font-size:14px;color:#3a3c42">${esc(how)} The link works until ${esc(until)}. Please don't share it further.</p>
+<p style="font-size:13px;color:#6a6660;margin-top:24px">The Learning Curve · <a href="https://thelearningcurve.net/" style="color:#6a6660">thelearningcurve.net</a></p></div>`;
+  const res = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from: 'The Learning Curve <hello@thelearningcurve.net>', to: [s.email], reply_to: 'jim@thelearningcurve.net', subject: `Draft for your review: ${title}`.slice(0, 200), html, text }),
+  }).catch(() => null);
+  return !!res && res.ok;
 }
 
 // ---------- sessions ----------
