@@ -181,6 +181,7 @@
       <button type="button" data-tab="ads">Ads</button>
       <button type="button" data-tab="facts">Facts</button>
       <button type="button" data-tab="submissions">Submissions</button>
+      <button type="button" data-tab="comments">Comments</button>
       <button type="button" data-tab="sharing">Sharing</button>
     </nav>
     <div class="spacer"></div>
@@ -512,12 +513,13 @@ document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
   if (!changeUnsavedOk()) return;
   if (b.dataset.tab === 'ads') { if (unsavedOk() && factsUnsavedOk()) { state.current = null; loadAds(); } }
   else if (b.dataset.tab === 'facts') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadFacts(); } }
+  else if (b.dataset.tab === 'comments') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadComments(); } }
   else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSubmissions(); } }
   else if (b.dataset.tab === 'changes') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadChanges(); } }
   else if (b.dataset.tab === 'sharing') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSharing(); } }
   else if (adsUnsavedOk() && factsUnsavedOk()) loadQueue();
 });
-function start() { location.hash === '#sharing' ? loadSharing() : location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
+function start() { location.hash === '#sharing' ? loadSharing() : location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#comments' ? loadComments() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
 
 // ---------- changes ----------
 // Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
@@ -734,6 +736,81 @@ function renderSubmissions() {
       state.notice = { kind: 'bad', text: e.message };
     }
     renderSubmissions();
+  });
+}
+
+// ---------- comments ----------
+// Listening Post notes, stored in D1 by functions/api/comments/[slug].ts (docs/listening-post.md).
+// Approve to show a note on its article, hide to take it down, delete to remove it for good.
+const COM_LABELS = { pending: ['Waiting', 'bad'], approved: ['Live', 'ok'], hidden: ['Hidden', ''] };
+let coms = { items: [], filter: 'pending', autoApprove: false };
+
+async function loadComments() {
+  clearTimeout(state.pollTimer);
+  setTab('comments');
+  app.innerHTML = '<p class="muted">Loading notes…</p>';
+  try {
+    const data = await api('comments');
+    coms.items = data.items || [];
+    coms.autoApprove = !!data.autoApprove;
+    if (coms.filter === 'pending' && !coms.items.some((c) => c.status === 'pending')) coms.filter = 'all';
+    renderComments();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Comments</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderComments() {
+  const shown = coms.items.filter((c) => coms.filter === 'all' || c.status === coms.filter);
+  const count = (k) => coms.items.filter((c) => c.status === k).length;
+  const fmt = (t) => new Date(Number(t)).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+  const filters = [['pending', `Waiting (${count('pending')})`], ['approved', `Live (${count('approved')})`], ['hidden', `Hidden (${count('hidden')})`], ['all', `All (${coms.items.length})`]];
+  app.innerHTML = `${notice()}
+    <h1>Comments</h1>
+    <p class="muted">Notes readers leave on the Listening Post. ${coms.autoApprove ? 'New notes go live straight away (COMMENTS_AUTO_APPROVE is on); hide any that shouldn\'t be there.' : 'New notes wait here until you approve them.'}</p>
+    <div class="choice">${filters.map(([k, l]) => `<button type="button" data-cf="${k}" aria-pressed="${coms.filter === k}">${esc(l)}</button>`).join('')}</div>
+    ${shown.length ? '' : '<div class="card muted">Nothing here.</div>'}
+    ${shown.map((c) => {
+      const [label, kind] = COM_LABELS[c.status] || [c.status, ''];
+      return `<div class="card" data-cid="${esc(c.id)}">
+        <div class="slot">${esc(fmt(c.at))} · ${esc(c.slug)}</div>
+        <p><span class="pill ${kind}">${esc(label)}</span></p>
+        <div class="context" style="white-space:pre-line">${esc(c.text)}</div>
+        <p class="small muted">${esc(c.name || 'A reader')}${c.role ? ', ' + esc(c.role) : ''}</p>
+        <div class="choice" style="margin-top:10px">
+          ${c.status !== 'approved' ? '<button type="button" data-cs="approved">Approve</button>' : ''}
+          ${c.status !== 'hidden' ? '<button type="button" data-cs="hidden">Hide</button>' : ''}
+          <button type="button" data-cdel>Delete</button>
+        </div>
+      </div>`;
+    }).join('')}`;
+  app.querySelectorAll('[data-cf]').forEach((b) => b.onclick = () => { coms.filter = b.dataset.cf; renderComments(); });
+  const act = async (b, body, done) => {
+    b.disabled = true;
+    try {
+      await api('comments/status', { method: 'POST', body });
+      done();
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+    }
+    renderComments();
+  };
+  app.querySelectorAll('[data-cs]').forEach((b) => b.onclick = () => {
+    const id = b.closest('[data-cid]').dataset.cid;
+    act(b, { id, status: b.dataset.cs }, () => {
+      coms.items.find((x) => x.id === id).status = b.dataset.cs;
+      state.notice = { kind: 'ok', text: b.dataset.cs === 'approved' ? 'Approved: the note is live on its article.' : 'Hidden: the note no longer shows on its article.' };
+    });
+  });
+  app.querySelectorAll('[data-cdel]').forEach((b) => b.onclick = () => {
+    if (!confirm('Delete this note for good?')) return;
+    const id = b.closest('[data-cid]').dataset.cid;
+    act(b, { id, remove: true }, () => {
+      coms.items = coms.items.filter((x) => x.id !== id);
+      state.notice = { kind: 'ok', text: 'Deleted.' };
+    });
   });
 }
 

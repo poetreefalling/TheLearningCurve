@@ -30,6 +30,12 @@ commissions pay its way; they never decide what gets written or how a platform s
   `<EvidenceMap id="…" />` (sources by cluster, from `src/data/evidence/<id>.json`; link to an entry
   with `#ev-<source>`) and `<ReaderPoll />` (places the reader check inside the body; needs
   `readerCheck.placement: inline`).
+  `<Milestones title="…" items={[…]} />` (a dated timeline that draws in; mark the point of the story
+  with `highlight: true`), `<DotField value={…} label="…" title="…" source="…" />` (one dot per item,
+  filling in, with an optional `compare` panel) and `<ListeningLoop title="…" steps={[…]} />` (a cycle of
+  steps that turns on its own; labelled as our method, not a finding). Any article can end with a
+  Listening Post, where readers leave notes Jim approves at /admin: add `listeningPost.prompt` to the
+  frontmatter (`docs/listening-post.md`).
   `<VideoTimeline id="…" />` plans one video segment by segment from `src/data/timelines/<id>.json`:
   lanes for what's on screen (camera, slides, drawing, task), drawn onto a timeline as each segment's
   card scrolls past, with the research behind it. Timings are a design; research claims need opened sources.
