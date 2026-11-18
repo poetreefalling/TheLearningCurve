@@ -45,7 +45,7 @@ A product has one main `category` and any number of `secondaryCategories`.
 | `primaryMarket` | `higher-education`, `schools`, `vet`, `corporate`, `government`, `creators`, `nonprofit` |
 | `useCases`, `keyFeatures` | Short plain-English lists |
 | `integrations` | Other products it connects to: "Canvas", "Microsoft Teams" |
-| `standards` | Interoperability standards only: `lti-1.3`, `scorm-2004`, `xapi`, `cmi5`, `open-badges-3`… |
+| `standards` | Interoperability standards only: `lti-1.3`, `scorm-2004`, `xapi`, `cmi5`, `open-badges-3`… Use plain `scorm` (shown as "SCORM (edition not stated)") only when the vendor's own page claims SCORM without naming 1.2 or 2004 |
 | `pricing` | Whether prices are public, the entry price as published, notes |
 | `pricingModel` | Basis (`per-seat`, `per-active-user`, `flat`, `quote`…), free tier, trial |
 | `deployment` | `cloud`, `self-hosted`, `hybrid` |
