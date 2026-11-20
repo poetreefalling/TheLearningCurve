@@ -133,6 +133,17 @@
     "logo": {
       "src": "/images/directory/accredible/logo.webp",
       "alt": "Accredible logo"
-    }
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/accredible/screenshot-1.webp",
+        "width": 1258,
+        "still": "/images/directory/accredible/screenshot-1-still.webp",
+        "frame": true,
+        "alt": "The Accredible issuer dashboard, moving from the welcome page (getting-started links, analytics on recipient views and credentials issued, and integration options such as Canvas, D2L Brightspace and Moodle) to a list of credential groups, a group's settings with its badge and certificate designs, and a preview of an issued credential",
+        "caption": "From the issuer dashboard to a group's credential settings and a preview of the credential recipients see.",
+        "credit": "Image: Accredible"
+      }
+    ]
   }
 }
