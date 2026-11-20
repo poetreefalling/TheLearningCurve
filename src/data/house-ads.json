@@ -55,6 +55,19 @@
       ]
     },
     {
+      "id": "advertise",
+      "kicker": "Advertise with us",
+      "headline": "Your ad could be here",
+      "text": "Reach the people who design, run and buy learning, beside research they trust. Clearly labelled. Never a verdict.",
+      "cta": "Get the media kit",
+      "url": "/advertising/",
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
+    },
+    {
       "id": "kit-retrieval",
       "kicker": "Free: Retrieval Practice Kit",
       "headline": "Plan where every key idea gets recalled again",
