@@ -109,5 +109,11 @@
       "field": "security (assurance)",
       "note": "Vendor states Australian data storage and cryptographic hardware/banking-level security. Obtain current independent assurance and architecture documentation."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/my-equals/logo.webp",
+      "alt": "My eQuals logo"
+    }
+  }
 }

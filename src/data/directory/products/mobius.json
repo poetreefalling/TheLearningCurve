@@ -95,5 +95,11 @@
       "field": "security (assurance)",
       "note": "Request current security pack, DPA, hosting regions, SOC 2/ISO and subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/mobius/logo.webp",
+      "alt": "Möbius logo"
+    }
+  }
 }
