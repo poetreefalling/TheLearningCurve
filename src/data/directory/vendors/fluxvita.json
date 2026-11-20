@@ -1,0 +1,18 @@
+{
+  "name": "FluxVita Corporation",
+  "website": "https://ahanow.ai/",
+  "legalEntity": "FluxVita Corporation, a Delaware corporation (operates AhaNow)",
+  "status": "active",
+  "draft": false,
+  "lastVerified": "2026-11-21",
+  "researchTasks": [
+    "Added from a /submit entry (20 Nov 2026, partnerships@ahanow.ai). Ask the vendor for headquarters, founding year, team size, ownership and funding; the policies give only a Dover, Delaware mailing address, which may be a registered-agent address."
+  ],
+  "dataGaps": [
+    { "field": "headquarters", "note": "Policies give a Delaware mailing address only; operating HQ not stated." },
+    { "field": "founded", "note": "Not stated on the vendor's pages." },
+    { "field": "size", "note": "Not stated on the vendor's pages." },
+    { "field": "ownership", "note": "Not stated on the vendor's pages." },
+    { "field": "funding", "note": "Not stated on the vendor's pages." }
+  ]
+}
