@@ -1,0 +1,27 @@
+{
+  "title": "Distributed practice and practice testing had the largest effects of ten techniques, at 0.85 and 0.74",
+  "subtitle": "Mean effect size (d) for each technique across 1,619 effects. Most of the studies measured surface or factual learning",
+  "type": "bar",
+  "unit": "effect size (d)",
+  "highlight": "Distributed practice",
+  "series": [
+    { "label": "Distributed practice", "value": 0.85 },
+    { "label": "Practice testing", "value": 0.74 },
+    { "label": "Elaborative interrogation", "value": 0.56 },
+    { "label": "Imagery", "value": 0.56 },
+    { "label": "Self-explanation", "value": 0.54 },
+    { "label": "Mnemonics", "value": 0.5 },
+    { "label": "Rereading", "value": 0.47 },
+    { "label": "Interleaved practice", "value": 0.47 },
+    { "label": "Underlining", "value": 0.44 },
+    { "label": "Summarisation", "value": 0.44 }
+  ],
+  "yMax": 1,
+  "source": {
+    "authors": "Donoghue, G. M., & Hattie, J. A. C.",
+    "year": 2021,
+    "doi": "10.3389/feduc.2021.581216",
+    "url": "https://www.frontiersin.org/articles/10.3389/feduc.2021.581216/pdf",
+    "figureOrTable": "Table 1"
+  }
+}
