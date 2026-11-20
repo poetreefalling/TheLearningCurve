@@ -7,3 +7,4 @@ before generating (CLAUDE.md step 6). When it uses an image it moves it to
 
 | File | Backlog row | Style | Scene | Alt text (starting point) | Notes |
 |---|---|---|---|---|---|
+| row-55-part-time-instructional-design-jobs.webp | 55 (Part-Time Instructional Design Jobs) | documentary (supplied photograph) | Course builder at work | "Seen from above, a woman's hand marks up a printed sheet of chart and diagram sketches with a red marker, on a timber desk covered with technical drawings, markers, a pen and a lined notebook" | Pexels photo by RDNE Stock project: set `hero.credit: "Photo: RDNE Stock project / Pexels"`. Brand text on the three markers blurred so it passes the logo check. |
