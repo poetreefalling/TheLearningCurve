@@ -4,7 +4,7 @@
   "category": "lms-platforms",
   "secondaryCategories": [],
   "website": "https://www.cyberwisdom.com.hk/uplearn/",
-  "summary": "An enterprise LMS from Hong Kong, now at version 7.0, for company training: online, mobile and classroom learning in one system, with question-pool exams, an audit record of each attempt and CPD tracking, offered as shared SaaS, private cloud or on-premise.",
+  "summary": "An enterprise LMS from Hong Kong, now at version 7.0, for company training: online, mobile and classroom learning in one system, with question-pool exams, an audit record of each attempt and CPD tracking through its CPD Engine, offered as shared SaaS, private cloud or on-premise.",
   "primaryMarket": {
     "value": [
       "corporate"
@@ -31,13 +31,13 @@
       "Online and mobile delivery, with completion tracked as learners progress",
       "Classroom sessions with facility booking, attendance and reminders",
       "Exam engine with question pools, random or fixed papers, time and attempt limits, and an audit record of each attempt",
-      "CPD tracking and compliance reports",
+      "CPD tracking and compliance reports when the Cyberwisdom CPD Engine is deployed in UpLearn, with rules set for each organisation (by regulator, role, grade or professional body) and certificate expiry reminders",
       "Dashboards and downloadable reports for managers and auditors",
       "Surveys, knowledge centre and gamification",
       "Training Centers that keep each business unit's courses and records separate"
     ],
     "source": "https://www.cyberwisdom.com.hk/uplearn/",
-    "checked": "2026-11-13",
+    "checked": "2026-11-18",
     "origin": "verified"
   },
   "integrations": {
@@ -53,10 +53,11 @@
   },
   "standards": {
     "value": [
+      "scorm",
       "aicc"
     ],
     "source": "https://www.cyberwisdom.com.hk/uplearn/#scorm",
-    "checked": "2026-11-13",
+    "checked": "2026-11-18",
     "origin": "verified"
   },
   "deployment": {
@@ -156,6 +157,7 @@
   "lastVerified": "2026-11-13",
   "researchTasks": [
     "Submitted at /submit on 11 Nov 2026 by Karilyn Cheung, Marketing Director (accepted). 13 Nov 2026 email: asked for the ordinary free profile, no scored review or test environment; product name UpLearn LMS 7.0; facts to come from the Hong Kong site only. Still to confirm internally (they offered to send answers): contracting entity, billing basis, starting price and minimum contract, shared SaaS hosting provider and region, data storage and processing locations, privacy and retention policy, SCORM editions and AICC transport, xAPI, cmi5, LTI, certificate expiry and renewal, Open Badges, security certifications, accessibility evidence, any AI features and data-training policy.",
+    "18 Nov 2026 email from Karilyn Cheung asked for four updates. Done from their own pages, opened 18 Nov: SCORM added to standards (no edition named), and CPD tracking described as depending on the CPD Engine deployed in UpLearn, configured per organisation (sources: /uplearn/ and /cpd-compliance-lms/). Already on the profile, so no change: blended learning (use cases, key features) and on-premise alongside SaaS and private cloud (deployment). Not added, pending Jim: sales email, phone/WhatsApp and demo enquiry details, because lead routing is part of the paid enhanced profile under the vendor firewall; the free profile links the product page. Company name unchanged. Reply to say the page is updated once merged.",
     "Custom Courseware (https://www.cyberwisdom.com.hk/bespoke-courseware/) is a separate service for bespoke content that runs in UpLearn or other LMSs via SCORM/AICC. If it's ever mentioned on the profile, present it as a separate service, not an UpLearn module.",
     "Hands-on review depends on a test site; a vendor-led demo doesn't count as an evaluation. Not requested at this stage (13 Nov 2026).",
     "Vendor asks that UpLearn keep its \"LMS / Enterprise LMS\" positioning.",
@@ -164,11 +166,11 @@
   "dataGaps": [
     {
       "field": "standards",
-      "note": "Product page says UpLearn \"conforms to both\" SCORM and AICC without a SCORM edition or AICC transport, so SCORM is left out until they confirm 1.2 or 2004 (13 Nov 2026 email: not yet specified). xAPI, cmi5 and LTI not confirmed."
+      "note": "Product page says UpLearn \"conforms to both\" SCORM and AICC but names no SCORM edition or AICC transport, so SCORM is listed as edition not stated (18 Nov 2026, at the vendor's request) until they confirm 1.2 or 2004. xAPI, cmi5 and LTI not confirmed."
     },
     {
       "field": "certificates",
-      "note": "Certificates, expiry and renewal, and Open Badges aren't mentioned on the product page; vendor to confirm."
+      "note": "The CPD Engine page (https://www.cyberwisdom.com.hk/cpd-compliance-lms/) mentions certificate tracking with expiry and renewal reminders; Open Badges and certificate issuing in UpLearn itself still to confirm."
     },
     {
       "field": "dataPrivacy",
