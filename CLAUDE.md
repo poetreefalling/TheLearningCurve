@@ -122,33 +122,43 @@ empty slot is better than a weak article.
      reader, and never inside a ranked list or a scored comparison. No disclaimer or ownership
      note is needed, in text or images.
 6. **Illustrate.** Choose the hero style in `docs/editorial.md` (documentary by default; risograph
-   for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one).
-   Use the Artlist connector with Nano Banana 2, image-to-image, 2K, 3:2, and the matching
-   reference image in `brand/` (if `risograph-reference.webp` doesn't exist yet, use a
-   documentary hero and say so in the PR). **Supplied heroes first:** if `brand/supplied/` holds an
-   image for this article (named after its slug, or listed for its backlog row in
-   `brand/supplied/README.md`), check it against the rules below and use it instead of
-   generating one: `git mv` it to `brand/originals/<slug>.webp` (so it can't be used twice), remove
-   its line from the README, and say in the PR that Jim supplied it. If it fails the checks, leave
-   it in place, generate as usual, and say why in the PR. Look at every result before using it. Regenerate once if it
-   has a logo, logomark or brand name, large or prominent words (small screen text and handwriting are fine), extra or malformed fingers, a face in sharp focus, a
-   glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
-   per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
-   `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
-   Every article gets its own image: never reuse or copy another article's hero, a sample's, or
-   a reference image as a placeholder. The build fails if two published articles share a hero
-   (it compares image fingerprints, so re-encoded copies are caught). Check the Artlist balance
-   before generating.
-   **No image? Use a placeholder, don't skip the slot.** If there's no supplied hero and Artlist
-   has too few credits, is unavailable, or gives no image that passes after one regeneration, Jim
-   uploads the hero himself before merging. Draw a unique placeholder with Pillow (a plain abstract
-   pattern on off-white, seeded with the slug so no two match; no words or logos), save it as
-   `brand/originals/<slug>.webp` and run `images.py` on it. Set `hero.alt` to say it's a placeholder,
-   and set `hero.caption` to `[JIM: upload the hero image (<style>, <one-line scene suggestion>).
-   This one is a placeholder.]`. That flag fails the production check, so a placeholder can never
-   go live. Make the image the first item of the PR checklist, with the scene suggestion and how to
-   swap it (drop it in `brand/supplied/<slug>.webp` on the branch, or replace the original and rerun
-   `images.py`, then update `hero.alt` and delete the caption flag).
+   for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one). If
+   `risograph-reference.webp` doesn't exist yet, use documentary and say so in the PR. Then get the
+   hero from the first of these four sources that works, and say in the PR which one you used:
+   1. **An assigned supplied image.** If the Assigned table in `brand/supplied/README.md` lists an
+      image for this backlog row (or `brand/supplied/` has one named after the slug), use it. Check
+      it against the image rules below unless its Notes say Jim approved it as is.
+   2. **Artlist.** Check the balance and the cost first (`get_balance`, `get_generation_cost`). If
+      the credits cover it (never more than 300 per run), generate with Nano Banana 2,
+      image-to-image, 2K, 3:2, and the style's reference image from `brand/`, using the prompt
+      template in `docs/editorial.md` §10. Regenerate once if the result fails the rules.
+   3. **A pool image that fits.** If Artlist can't produce a passing image (too few credits,
+      unavailable, or two failures), look at the Pool table in `brand/supplied/README.md`. Use one
+      only if its scene genuinely fits the article and it doesn't repeat the scene type of the last
+      two heroes; read its Notes for limits. A weak fit is worse than step 4.
+   4. **Ask Jim for a photo.** Draw a unique placeholder with Pillow (a plain abstract pattern on
+      off-white, seeded with the slug so no two match; no words or logos). Set `hero.alt` to say
+      it's a placeholder, and `hero.caption` to `[JIM: upload the hero image (<style>, <one-line
+      scene suggestion>). This one is a placeholder.]`. That flag fails the production check, so a
+      placeholder can never go live. Make it the first item of the PR checklist, with a
+      ready-to-paste Artlist prompt (the §10 template, brackets filled in for this article) and how
+      to swap it: drop the image in `brand/supplied/<slug>.webp` on the branch, or replace the
+      original and rerun `images.py`, then update `hero.alt` and delete the caption flag.
+
+   **Image rules** (for generated, supplied and pool images): reject an image with a logo,
+   logomark or brand name, large or prominent words (small screen text and handwriting are fine),
+   extra or malformed fingers, a face in sharp focus, a glossy stock-photo look, or the wrong
+   subject. Jim can approve an image as is in its README Notes (for example a licensed photo
+   where a face may show); then skip those checks. Look at every image before using it.
+
+   **Every source ends the same way.** `git mv` a supplied or pool image (so it can't be used
+   twice) or save a generated or placeholder image as `brand/originals/<slug>.webp` (quality 92),
+   delete its README line, and run
+   `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`. If its Notes give
+   a credit, set `hero.credit` to exactly that. Every article gets its own image: never reuse
+   another article's hero or a sample's, and never take one from `brand/references/` (the pool
+   holds the ones Jim released). The build fails if two published articles share a hero (it
+   compares image fingerprints, so re-encoded copies are caught).
 7. **Update `docs/backlog.md`.** Mark the row `in PR` with the slot, and mark the next `todo`
    row `next`.
 8. **Build.** Run `npm ci && npm run build`. Fix anything that fails. (Flags don't fail this

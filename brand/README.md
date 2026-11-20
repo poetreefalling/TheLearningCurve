@@ -11,9 +11,9 @@
 | `favicon-original.png` | The C from the wordmark (November 2026), cut out of `logo-wordmark.svg`; the browser-tab and app icons in `public/` are made from it, ink on the paper colour | Added |
 | `documentary-reference.webp` | Style reference for documentary heroes: candid, window-lit, film grain, muted warm colour | Added (Jim's pick from the style tests) |
 | `references/` | The other documentary tests Jim approved, kept for comparison | Added |
-| `references/direction-*.webp` | Samples of the brighter direction (November 2026): a learner on a phone in a student room, a workplace pair on a tablet, a mature-age student in a campus library. Examples only; don't reuse them as heroes | Added |
+| `references/direction-*.webp` | Samples of the brighter direction (November 2026): a learner on a phone in a student room, a workplace pair on a tablet, a mature-age student in a campus library. Kept here for comparison; copies are in the supplied pool, which is the only place the routine may take them from | Added |
 | `risograph-reference.webp` | Style reference for risograph heroes: navy and ochre on off-white, grain, misregistration | **Still needed** |
-| `supplied/` | Heroes Jim generated ahead of time, waiting for their article; the routine moves each one into `originals/` when it uses it (see `supplied/README.md`) | Jim |
+| `supplied/` | Heroes waiting for an article: assigned to a backlog row, or in the pool for any article they fit (including the unused style tests, released November 2026). The routine moves each one into `originals/` when it uses it (see `supplied/README.md`) | Jim |
 | `originals/` | Full-size originals of every hero, as `<slug>.webp` (quality 92) | Written by the routine |
 | `screenshots/<platform>/` | Jim's own screenshots from testing | Jim |
 
