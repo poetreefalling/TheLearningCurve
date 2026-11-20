@@ -30,6 +30,12 @@ commissions pay its way; they never decide what gets written or how a platform s
   `<EvidenceMap id="…" />` (sources by cluster, from `src/data/evidence/<id>.json`; link to an entry
   with `#ev-<source>`) and `<ReaderPoll />` (places the reader check inside the body; needs
   `readerCheck.placement: inline`).
+  `<Milestones title="…" items={[…]} />` (a dated timeline that draws in; mark the point of the story
+  with `highlight: true`), `<DotField value={…} label="…" title="…" source="…" />` (one dot per item,
+  filling in, with an optional `compare` panel) and `<ListeningLoop title="…" steps={[…]} />` (a cycle of
+  steps that turns on its own; labelled as our method, not a finding). Any article can end with a
+  Listening Post, where readers leave notes Jim approves at /admin: add `listeningPost.prompt` to the
+  frontmatter (`docs/listening-post.md`).
   `<VideoTimeline id="…" />` plans one video segment by segment from `src/data/timelines/<id>.json`:
   lanes for what's on screen (camera, slides, drawing, task), drawn onto a timeline as each segment's
   card scrolls past, with the research behind it. Timings are a design; research claims need opened sources.
@@ -88,7 +94,9 @@ empty slot is better than a weak article.
    - Reviews: work from Jim's testing notes plus the platform's own current pricing and help
      pages. Record the date you checked prices.
 4. **Write** to `docs/editorial.md`: the voice, the shape for this kind of article, and every
-   schema field. Australian/British spelling. Library, guide and trends articles end with a
+   schema field. **Lead with the hook** (editorial.md §3): interest bait, not clickbait. Keyword first,
+   then the revealing fact, overturned assumption, defensible provocative take or pain point,
+   in the headline, standfirst and opening, provided a cited source states it. Australian/British spelling. Library, guide and trends articles end with a
    `readerCheck`: a quiz or a poll, chosen and written by the rules in `docs/editorial.md`
    section 11 (trends always a poll; library and guides alternate with the previous one).
    **Trends pieces get visual data whenever possible:** an animated infographic, data
@@ -114,23 +122,43 @@ empty slot is better than a weak article.
      reader, and never inside a ranked list or a scored comparison. No disclaimer or ownership
      note is needed, in text or images.
 6. **Illustrate.** Choose the hero style in `docs/editorial.md` (documentary by default; risograph
-   for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one).
-   Use the Artlist connector with Nano Banana 2, image-to-image, 2K, 3:2, and the matching
-   reference image in `brand/` (if `risograph-reference.webp` doesn't exist yet, use a
-   documentary hero and say so in the PR). **Supplied heroes first:** if `brand/supplied/` holds an
-   image for this article (named after its slug, or listed for its backlog row in
-   `brand/supplied/README.md`), check it against the rules below and use it instead of
-   generating one: `git mv` it to `brand/originals/<slug>.webp` (so it can't be used twice), remove
-   its line from the README, and say in the PR that Jim supplied it. If it fails the checks, leave
-   it in place, generate as usual, and say why in the PR. Look at every result before using it. Regenerate once if it
-   has a logo, logomark or brand name, large or prominent words (small screen text and handwriting are fine), extra or malformed fingers, a face in sharp focus, a
-   glossy stock-photo look, or the wrong subject. Never spend more than 300 Artlist credits
-   per run. Save the original as `brand/originals/<slug>.webp` (quality 92, so the repo stays small), then run
-   `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
-   Every article gets its own image: never reuse or copy another article's hero, a sample's, or
-   a reference image as a placeholder. The build fails if two published articles share a hero
-   (it compares image fingerprints, so re-encoded copies are caught). If you can't produce a new
-   image that passes, open no PR.
+   for abstract ideas; a screenshot from Jim's notes for reviews where he has supplied one). If
+   `risograph-reference.webp` doesn't exist yet, use documentary and say so in the PR. Then get the
+   hero from the first of these four sources that works, and say in the PR which one you used:
+   1. **An assigned supplied image.** If the Assigned table in `brand/supplied/README.md` lists an
+      image for this backlog row (or `brand/supplied/` has one named after the slug), use it. Check
+      it against the image rules below unless its Notes say Jim approved it as is.
+   2. **Artlist.** Check the balance and the cost first (`get_balance`, `get_generation_cost`). If
+      the credits cover it (never more than 300 per run), generate with Nano Banana 2,
+      image-to-image, 2K, 3:2, and the style's reference image from `brand/`, using the prompt
+      template in `docs/editorial.md` §10. Regenerate once if the result fails the rules.
+   3. **A pool image that fits.** If Artlist can't produce a passing image (too few credits,
+      unavailable, or two failures), look at the Pool table in `brand/supplied/README.md`. Use one
+      only if its scene genuinely fits the article and it doesn't repeat the scene type of the last
+      two heroes; read its Notes for limits. A weak fit is worse than step 4.
+   4. **Ask Jim for a photo.** Draw a unique placeholder with Pillow (a plain abstract pattern on
+      off-white, seeded with the slug so no two match; no words or logos). Set `hero.alt` to say
+      it's a placeholder, and `hero.caption` to `[JIM: upload the hero image (<style>, <one-line
+      scene suggestion>). This one is a placeholder.]`. That flag fails the production check, so a
+      placeholder can never go live. Make it the first item of the PR checklist, with a
+      ready-to-paste Artlist prompt (the §10 template, brackets filled in for this article) and how
+      to swap it: drop the image in `brand/supplied/<slug>.webp` on the branch, or replace the
+      original and rerun `images.py`, then update `hero.alt` and delete the caption flag.
+
+   **Image rules** (for generated, supplied and pool images): reject an image with a logo,
+   logomark or brand name, large or prominent words (small screen text and handwriting are fine),
+   extra or malformed fingers, a face in sharp focus, a glossy stock-photo look, or the wrong
+   subject. Jim can approve an image as is in its README Notes (for example a licensed photo
+   where a face may show); then skip those checks. Look at every image before using it.
+
+   **Every source ends the same way.** `git mv` a supplied or pool image (so it can't be used
+   twice) or save a generated or placeholder image as `brand/originals/<slug>.webp` (quality 92),
+   delete its README line, and run
+   `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`. If its Notes give
+   a credit, set `hero.credit` to exactly that. Every article gets its own image: never reuse
+   another article's hero or a sample's, and never take one from `brand/references/` (the pool
+   holds the ones Jim released). The build fails if two published articles share a hero (it
+   compares image fingerprints, so re-encoded copies are caught).
 7. **Update `docs/backlog.md`.** Mark the row `in PR` with the slot, and mark the next `todo`
    row `next`.
 8. **Build.** Run `npm ci && npm run build`. Fix anything that fails. (Flags don't fail this
@@ -140,7 +168,7 @@ empty slot is better than a weak article.
    - Title: `<slot, e.g. Tue 10 Nov 12:00> · <title>`.
    - Description:
      - target keyword with volume and SD
-     - the angle in 2–3 lines, and what the ranking pages miss
+     - the angle in 2–3 lines, the hook the headline leads with, and what the ranking pages miss
      - every `[JIM:]` and `[TO VERIFY]` item as a checklist
      - each research card and chart with its source link, for Jim to check against the paper
      - for trends: each interactive graphic or stat with its source and figure/table/page, or
@@ -149,7 +177,7 @@ empty slot is better than a weak article.
      - the reader check: quiz or poll, and why that kind (the previous article's kind)
    - Never push to `main`, and never merge.
 10. **If anything blocks you** (build won't pass, a connector is down, no `next` row, nothing
-    citable for a research claim, no image that passes after one regeneration), open no PR and
+    citable for a research claim), open no PR and
     report what happened and which slot is now empty.
 
 ## Library re-checks (first run of each month)

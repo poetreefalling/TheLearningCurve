@@ -211,5 +211,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/diffit/logo.webp",
+      "alt": "Diffit logo",
+      "source": "https://app.diffit.me/"
+    }
+  }
 }

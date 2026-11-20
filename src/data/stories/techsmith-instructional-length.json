@@ -1,0 +1,22 @@
+{
+  "title": "Only 8% of viewers prefer instructional videos under three minutes",
+  "subtitle": "Preferred length of instructional videos, share of 929 viewers in six countries, May 2024",
+  "type": "column",
+  "format": "percent",
+  "yMax": 30,
+  "categories": ["Under 30 sec", "30 sec–1 min", "1–2 min", "3–4 min", "5–6 min", "7–9 min", "10–19 min", "20–39 min", "40–60 min", "Over 60 min"],
+  "series": [
+    { "id": "pref", "label": "Prefer instructional videos of this length", "values": [0, 2, 6, 13, 17, 15, 26, 15, 4, 2] }
+  ],
+  "views": {
+    "all": {},
+    "short": { "focus": [0, 1, 2], "annotations": [{ "at": 2, "series": "pref", "text": "8% in total under 3 min" }] },
+    "peak": { "focus": [6], "annotations": [{ "at": 6, "series": "pref", "text": "26%, the most popular" }] }
+  },
+  "notes": [
+    "Survey of 929 people in the US, UK, Australia, Canada, France and Germany, run by Qualtrics for TechSmith (a video software company) in May 2024. Preferences, not learning outcomes."
+  ],
+  "sources": [
+    { "label": "TechSmith, 2024 Video Viewer Study", "url": "https://assets.techsmith.com/docs/TechSmith-Video-Viewer-Study-2024.pdf", "figureOrTable": "page 15, \"How long do you prefer instructional videos to be?\"" }
+  ]
+}

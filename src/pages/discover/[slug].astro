@@ -69,6 +69,12 @@ const areas = [
   ['AI', assurance?.ai],
 ] as const;
 
+// Categories with at least one live profile, for the category switcher at the top of each category page.
+const allProducts = await getProducts();
+const liveCats = categories
+  .filter((c) => allProducts.some((x) => x.data.category.id === c.id || x.data.secondaryCategories.some((s) => s.id === c.id)))
+  .sort((x, y) => (x.order ?? 99) - (y.order ?? 99));
+
 const title = p ? `${d!.name}: profile` : `${category!.name}: directory`;
 const description = p
   ? `${d!.name} by ${v?.data.name ?? ''}: markets, pricing model, standards, security, data residency and AI, each with its source.`.slice(0, 160)
@@ -79,7 +85,16 @@ const description = p
     {props.kind === 'category' ? (
       <>
         <header class="page-head">
-          <a class="kicker" href="/discover/">Discover</a>
+          <nav class="dir-cats" aria-label="Discover categories">
+            <a class="kicker" href="/discover/">Discover</a>
+            <ul>
+              {liveCats.map((c) => (
+                <li>{c.id === category!.id
+                  ? <span aria-current="page">{c.name}</span>
+                  : <a href={categoryUrl(c.id)}>{c.name}</a>}</li>
+              ))}
+            </ul>
+          </nav>
           <h1>{category!.name}</h1>
           <p>{(category as { intro?: string }).intro ?? category!.description}</p>
         </header>

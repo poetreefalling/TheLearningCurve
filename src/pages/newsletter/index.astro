@@ -1,19 +1,24 @@
 ---
 import Page from '../../layouts/Page.astro';
 import NewsletterForm from '../../components/NewsletterForm.astro';
+import IssuePreview from '../../components/newsletter/IssuePreview.astro';
 ---
 <Page
   title="Newsletter"
   heading="The Learning Curve Newsletter"
-  description="Once a month: the stories, research and technologies shaping the future of learning, from education and workplace learning to AI. Free, one email a month."
-  standfirst="The ideas, research and developments shaping the future of learning."
+  description="Once a month: the research and developments shaping the future of learning, and a spotlight on products, courses and discoveries from subscribers we select at random."
+  standfirst="Get featured, and stay ahead: each month we randomly select subscribers to feature their products, courses and learning discoveries, alongside the latest research on the future of learning."
 >
   <p>
     Once a month, we bring together the stories worth reading, research worth understanding and technologies worth
     knowing about. From education and workplace learning to AI, emerging technologies and the changing business of
     learning.
   </p>
-  <p>A little perspective on where things are heading, and what it might mean for your work.</p>
+  <IssuePreview />
+  <p>
+    The subscriber spotlight puts the people building learning in front of the people buying and using it, and every
+    subscriber can be selected.
+  </p>
   <NewsletterForm placement="newsletter-page" />
   <h2>Inside each issue</h2>
   <ul>
@@ -21,6 +26,7 @@ import NewsletterForm from '../../components/NewsletterForm.astro';
     <li><b>Research worth reading:</b> New studies and findings, translated into what they actually mean.</li>
     <li><b>Ideas to consider:</b> Fresh thinking, practical insights and perspectives on how learning is changing.</li>
     <li><b>Technology to watch:</b> One platform, tool or emerging technology worth taking a closer look at.</li>
+    <li><b>Subscriber spotlight:</b> Products, courses and learning discoveries from subscribers we select at random.</li>
   </ul>
   <p>
     No sponsored content. No unnecessary noise. Just independent thinking and useful intelligence for people building

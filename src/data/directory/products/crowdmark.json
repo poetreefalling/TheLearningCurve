@@ -1,0 +1,97 @@
+{
+  "name": "Crowdmark",
+  "vendor": "crowdmark",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.crowdmark.com/",
+  "summary": "Grading platform for online and paper-based assessments, including detailed per-question feedback, group submissions and AI-assisted grading workflows.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://www.crowdmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Grade handwritten exams and digital assignments",
+      "Coordinate marking teams",
+      "Provide granular feedback",
+      "Review question-level learning trends"
+    ],
+    "source": "https://www.crowdmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Per-question grading",
+      "Annotation and feedback",
+      "Group assessment",
+      "Equation/LaTeX support",
+      "File/code attachments",
+      "AI-assisted grading",
+      "Analytics"
+    ],
+    "source": "https://www.crowdmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional pricing/quote; no public price captured."
+    },
+    "source": "https://www.crowdmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.crowdmark.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "gradescope",
+    "feedbackfruits",
+    "kritik"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product page; performance/time-saving claims are not independently verified here.",
+    "AI: Vendor states AI enables faster grading; exact AI tasks, educator control and review process need clarification. Model/provider: Underlying model/provider not disclosed in reviewed product page. Training: Not disclosed in reviewed page. Retention: Not disclosed; request submission, prompt and output retention/deletion schedule. Subprocessors: Not disclosed; request AI subprocessor list. Status: AI use explicitly disclosed at high level; model and governance details unconfirmed.",
+    "Vendor outreach (Medium priority): Request AI workflow demo; model/provider; human approval controls; student data training policy; retention; subprocessor list; LTI/API; SOC 2/ISO; accessibility; Australian hosting."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "LMS integration options need confirmation by institution; request supported LTI versions and grade passback."
+    },
+    {
+      "field": "standards",
+      "note": "Not confirmed in reviewed product page."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request ACR/VPAT and screen-reader/keyboard test evidence."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request SOC 2/ISO evidence, DPA, encryption details, data residency and subprocessor list."
+    }
+  ]
+}

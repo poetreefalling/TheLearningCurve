@@ -1,0 +1,100 @@
+{
+  "name": "Exam.net",
+  "vendor": "exam-net",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://exam.net/",
+  "summary": "Online exam platform for creating, delivering, monitoring and marking digital exams, including secure and offline modes.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://exam.net/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Set classroom tests, quizzes, essays and high-stakes exams",
+      "Collect handwritten attachments",
+      "Monitor candidate progress",
+      "Auto-mark objective questions"
+    ],
+    "source": "https://exam.net/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "PDF exam import",
+      "Secure browser lockdown",
+      "Online/offline collection",
+      "Auto-marking",
+      "Question library",
+      "Live monitoring and teacher-student chat"
+    ],
+    "source": "https://exam.net/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Free 30-day trial; institutional/school pricing requires current quote."
+    },
+    "source": "https://exam.net/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "trial": true
+    },
+    "source": "https://exam.net/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "inspera-assessment",
+    "examsoft",
+    "questionmark",
+    "tao-testing",
+    "mobius"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product page and vendor-published usage metrics/testimonials.",
+    "AI: No specific AI feature confirmed in reviewed source. Model/provider: Not disclosed / no model confirmed in reviewed source. Training: Not disclosed; vendor confirmation required. Retention: Not disclosed; request retention policy for exams, student data and any automated analysis. Subprocessors: Not disclosed; request subprocessor list. Status: No AI feature established in reviewed source; explicit vendor confirmation required.",
+    "Vendor outreach (Medium priority): Confirm AI/ML use; school/student privacy; data residency; integrations/API; security certifications; WCAG report; retention; pricing and service support."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Can be used standalone or through an LMS; specific integrations and grade passback need confirmation."
+    },
+    {
+      "field": "standards",
+      "note": "No named interoperability standard confirmed in reviewed page."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Vendor describes individual accommodations; request product-specific accessibility conformance report."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor describes security levels, browser lockdown and anti-cheating controls. Obtain security certifications, data processing terms and retention details."
+    }
+  ]
+}

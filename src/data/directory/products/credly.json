@@ -1,0 +1,119 @@
+{
+  "name": "Credly",
+  "vendor": "pearson",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://info.credly.com/",
+  "summary": "Digital credential platform for designing, issuing, managing, verifying and analysing badges and skills credentials.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://info.credly.com/issue-digital-credentials",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Issue credentials for courses and certifications",
+      "Automate awards",
+      "Track acceptance and sharing",
+      "Connect credential records to learning and talent systems"
+    ],
+    "source": "https://info.credly.com/issue-digital-credentials",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Badge and credential design",
+      "Issuer pages",
+      "Metadata",
+      "Credential verification",
+      "Analytics",
+      "Skills mapping",
+      "Learner sharing",
+      "API and integrations"
+    ],
+    "source": "https://info.credly.com/issue-digital-credentials",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas",
+      "Degreed",
+      "Cornerstone",
+      "Docebo",
+      "Moodle",
+      "API and integration directory"
+    ],
+    "source": "https://info.credly.com/integration-listing",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "open-badges-3"
+    ],
+    "source": "https://info.credly.com/integration-listing",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Enterprise/institutional quote."
+    },
+    "source": "https://info.credly.com/issue-digital-credentials",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://info.credly.com/issue-digital-credentials",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "accredible",
+    "parchment-digital-badges",
+    "open-badge-factory",
+    "sertifier",
+    "my-equals"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor-supplied product, integrations and Open Badges pages; 1EdTech Open Badges 3.0 specification is independent standards evidence.",
+    "AI: No specific AI capability confirmed in reviewed credential product pages. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Credential records are intended to persist; request retention/deletion rules for learner personal data and analytics. Subprocessors: Request current processor/subprocessor list and data residency. Status: No AI feature established in reviewed pages; explicit vendor confirmation required.",
+    "Vendor outreach (Medium priority): Confirm Open Badges 3.0 certification, CLR support, API and integration coverage; AI use; data residency; SOC/ISO certificates; privacy/retention; ACR; learner portability and export.",
+    "Check the 1EdTech Open Badges 3.0 conformance directory (https://www.imsglobal.org/spec/ob/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards (detail)",
+      "note": "Open Badges 3.0 compatibility is described on a feature page; conformance certification not checked. Open Badges 3.0 feature page describes compatibility and metadata; verify current conformance/certification and CLR support."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request credential issuer/learner portal ACR/VPAT and WCAG test evidence."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Vendor states ISO certifications and GDPR compliance; obtain current certificate names, scope and validity, SOC 2 status, DPA and subprocessors."
+    }
+  ]
+}

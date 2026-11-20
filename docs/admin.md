@@ -10,6 +10,13 @@ article pull request (branches starting `article/`), earliest slot first, and fo
 - **Publish**, which merges the pull request. It stays disabled until no items are left and the
   site check passes. The article then goes live at its slot.
 
+**Preview links are private.** Every branch preview (`*.thelearningcurve-1qx.pages.dev`) sits behind
+Cloudflare Access: opening one asks for an email address and sends a one-time code, and only
+Jim's own addresses (the "Jim only" policy) are allowed in (a sign-in lasts a week). The live
+site and the bare `thelearningcurve-1qx.pages.dev` address stay public. To let someone else review,
+add their address to the "Jim only" policy on the "The Learning Curve preview builds" application in
+Cloudflare Zero Trust → Access → Applications.
+
 Saving commits to the article's branch ("Edit via review desk: …"), so Claude and GitHub see the
 same text. If Claude changed the article after you opened it, the desk refuses to overwrite and
 asks you to reload.
@@ -64,6 +71,29 @@ Platforms put forward at /submit. Filter by status, open the vendor's site, emai
 private note, and set New, Reviewing, Accepted or Declined. New entries older than 3 days are
 flagged as overdue. Setup and storage: `docs/submissions.md`.
 
+## Sharing tab (review links)
+
+Send a draft to a contributor or partner. Branch previews are private (only you can open them), so
+sharing one opens it to the people you choose, for a set time:
+
+- **Invite by email:** enter their name and email. They open the link, type their email, and
+  Cloudflare emails them a one-time code to sign in. The link is the draft's branch preview, so they
+  always see the latest version, including your edits after you shared it.
+- **Open link:** anyone with the link can view, no sign-in. The link points at the exact version
+  you shared (an unguessable address), so later edits don't appear. Easiest for busy partners;
+  only send it to people you trust not to forward it.
+
+Choose how long it works (2 days to 30 days). With "Email them the link" ticked, they get an email
+from hello@thelearningcurve.net with your message, the link and how to open it (replies come to
+you); untick it to copy the link and send it yourself. **Stop sharing** ends a link straight away.
+Links that reach their end date are removed the next time you open the Sharing tab or share
+something, so open the tab now and then.
+
+How it works: the wildcard Access application "The Learning Curve preview builds" lets only you
+into every preview. Each share creates a Cloudflare Access application for that one preview address
+("Review link: …"), which Access uses instead of the wildcard. Shares are recorded in the
+`review_shares` table of the submissions database.
+
 ## One-time setup
 
 1. **GitHub token.** github.com → your photo → Settings → Developer settings → Personal access
@@ -75,6 +105,12 @@ flagged as overdue. Setup and storage: `docs/submissions.md`.
    Variables and secrets → Add, for **Production**:
    - `ADMIN_PASSWORD` (type Secret): the password you want for /admin
    - `GITHUB_TOKEN` (type Secret): the token from step 1
+   - For review links (Sharing tab): `CF_API_TOKEN` (Secret), `CF_ACCOUNT_ID` (Plaintext),
+     `ACCESS_OWNER_EMAILS` (Secret: your addresses, comma-separated; they can always open every
+     preview) and optionally `ACCESS_IDP_ID` (Plaintext: the "Email one-time code" login method's
+     ID, so reviewers go straight to it). Make the token at dash.cloudflare.com → My Profile → API
+     Tokens → Create Token → Custom token: Permissions **Account · Access: Apps and Policies ·
+     Edit**, Account resources: your account. The emails use the existing `RESEND_API_KEY`.
 3. Redeploy so the new secrets apply: Deployments → the latest production deployment → ⋯ →
    Retry deployment (or simply merge the next article).
 4. Visit https://thelearningcurve.net/admin and sign in. You stay signed in for 14 days on

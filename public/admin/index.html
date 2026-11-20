@@ -114,6 +114,61 @@
   input.group-title:hover, input.group-title:focus { border-color: var(--rule); }
   @media (max-width: 760px) { .fact-row { grid-template-columns: 1fr; } .fact-row .src { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .form { grid-template-columns: 1fr; } }
+  input[type=email], input[type=number] {
+    width: 100%; font: 16px/1.4 var(--sans); color: var(--ink); background: var(--surface);
+    border: 1px solid var(--rule); border-radius: 8px; padding: 9px 11px;
+  }
+  .share-url { display: flex; gap: 8px; align-items: center; margin-top: 8px; }
+  .share-url input { flex: 1; min-width: 0; font: 13px/1.4 var(--mono); }
+  .share-url button { flex: none; padding: 8px 12px; font-size: 14px; }
+  .share-meta { font-size: 14px; color: var(--muted); }
+  .share-row { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; }
+  .share-row .grow { flex: 1; min-width: 220px; }
+  .share-row h3 { font-family: var(--serif); font-size: 18px; font-weight: 600; margin: 2px 0 4px; line-height: 1.3; }
+  .modes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .modes label { display: block; border: 1px solid var(--rule); border-radius: 10px; padding: 12px 14px; cursor: pointer; font-weight: 400; margin: 0; }
+  .modes label:has(input:checked) { border-color: var(--accent); outline: 1px solid var(--accent); }
+  .modes strong { font-size: 15px; }
+  .modes span { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+  .modes input { margin: 0 6px 0 0; }
+  .check.push { margin-top: 30px; }
+  @media (max-width: 640px) { .check.push { margin-top: 0; } }
+  /* Phones and small tablets */
+  @media (max-width: 760px) {
+    .bar { flex-wrap: wrap; gap: 8px 12px; padding: 12px 16px 0; }
+    header .logo img { height: 30px; }
+    .tabs { order: 3; flex: 0 0 calc(100% + 32px); margin: 0 -16px; padding: 2px 12px 10px; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .tabs::-webkit-scrollbar { display: none; }
+    .tabs { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+    .tabs button { flex: none; white-space: nowrap; padding: 8px 11px; }
+    main { padding: 18px 14px 80px; }
+    h1 { font-size: 24px; }
+    .card { padding: 14px; border-radius: 10px; }
+    .item { gap: 12px; }
+    .item .grow { min-width: 0; flex: 1 1 100%; }
+    .item > button { flex: 1 1 auto; }
+    .item h3 { font-size: 18px; }
+    .context { font-size: 16px; padding: 10px 12px; }
+    .choice button { flex: 1 1 auto; text-align: center; }
+    .actions { gap: 10px; }
+    .actions button { flex: 1 1 auto; }
+    table.list { font-size: 14px; }
+    table.list td.acts { white-space: normal; }
+    table.list td.acts button { margin: 2px 0; }
+    .modes { grid-template-columns: 1fr; }
+  }
+  /* Tables become stacked cards on phones */
+  @media (max-width: 640px) {
+    .card.scroll { overflow: visible; }
+    table.list, table.list tbody, table.list tr, table.list td { display: block; width: 100%; }
+    table.list thead { display: none; }
+    table.list tr { padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    table.list tr:last-child { border-bottom: 0; }
+    table.list td { border: 0; padding: 3px 0; }
+    table.list td.acts { text-align: left; padding-top: 8px; }
+    table.list .thumb { width: 120px; height: 80px; margin-bottom: 4px; }
+    textarea.full { min-height: 60vh; }
+  }
 </style>
 </head>
 <body>
@@ -126,6 +181,8 @@
       <button type="button" data-tab="ads">Ads</button>
       <button type="button" data-tab="facts">Facts</button>
       <button type="button" data-tab="submissions">Submissions</button>
+      <button type="button" data-tab="comments">Comments</button>
+      <button type="button" data-tab="sharing">Sharing</button>
     </nav>
     <div class="spacer"></div>
     <button class="link hidden" id="logout">Sign out</button>
@@ -456,11 +513,13 @@ document.querySelectorAll('#tabs [data-tab]').forEach((b) => b.onclick = () => {
   if (!changeUnsavedOk()) return;
   if (b.dataset.tab === 'ads') { if (unsavedOk() && factsUnsavedOk()) { state.current = null; loadAds(); } }
   else if (b.dataset.tab === 'facts') { if (unsavedOk() && adsUnsavedOk()) { state.current = null; loadFacts(); } }
+  else if (b.dataset.tab === 'comments') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadComments(); } }
   else if (b.dataset.tab === 'submissions') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSubmissions(); } }
   else if (b.dataset.tab === 'changes') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadChanges(); } }
+  else if (b.dataset.tab === 'sharing') { if (unsavedOk() && adsUnsavedOk() && factsUnsavedOk()) { state.current = null; loadSharing(); } }
   else if (adsUnsavedOk() && factsUnsavedOk()) loadQueue();
 });
-function start() { location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
+function start() { location.hash === '#sharing' ? loadSharing() : location.hash === '#ads' ? loadAds() : location.hash === '#facts' ? loadFacts() : location.hash === '#submissions' ? loadSubmissions() : location.hash === '#comments' ? loadComments() : location.hash === '#changes' ? loadChanges() : loadQueue(); }
 
 // ---------- changes ----------
 // Every open pull request that isn't an article: site features, docs, ad settings. Merge goes
@@ -677,6 +736,196 @@ function renderSubmissions() {
       state.notice = { kind: 'bad', text: e.message };
     }
     renderSubmissions();
+  });
+}
+
+// ---------- comments ----------
+// Listening Post notes, stored in D1 by functions/api/comments/[slug].ts (docs/listening-post.md).
+// Approve to show a note on its article, hide to take it down, delete to remove it for good.
+const COM_LABELS = { pending: ['Waiting', 'bad'], approved: ['Live', 'ok'], hidden: ['Hidden', ''] };
+let coms = { items: [], filter: 'pending', autoApprove: false };
+
+async function loadComments() {
+  clearTimeout(state.pollTimer);
+  setTab('comments');
+  app.innerHTML = '<p class="muted">Loading notes…</p>';
+  try {
+    const data = await api('comments');
+    coms.items = data.items || [];
+    coms.autoApprove = !!data.autoApprove;
+    if (coms.filter === 'pending' && !coms.items.some((c) => c.status === 'pending')) coms.filter = 'all';
+    renderComments();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Comments</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderComments() {
+  const shown = coms.items.filter((c) => coms.filter === 'all' || c.status === coms.filter);
+  const count = (k) => coms.items.filter((c) => c.status === k).length;
+  const fmt = (t) => new Date(Number(t)).toLocaleString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short', hour: 'numeric', minute: '2-digit' });
+  const filters = [['pending', `Waiting (${count('pending')})`], ['approved', `Live (${count('approved')})`], ['hidden', `Hidden (${count('hidden')})`], ['all', `All (${coms.items.length})`]];
+  app.innerHTML = `${notice()}
+    <h1>Comments</h1>
+    <p class="muted">Notes readers leave on the Listening Post. ${coms.autoApprove ? 'New notes go live straight away (COMMENTS_AUTO_APPROVE is on); hide any that shouldn\'t be there.' : 'New notes wait here until you approve them.'}</p>
+    <div class="choice">${filters.map(([k, l]) => `<button type="button" data-cf="${k}" aria-pressed="${coms.filter === k}">${esc(l)}</button>`).join('')}</div>
+    ${shown.length ? '' : '<div class="card muted">Nothing here.</div>'}
+    ${shown.map((c) => {
+      const [label, kind] = COM_LABELS[c.status] || [c.status, ''];
+      return `<div class="card" data-cid="${esc(c.id)}">
+        <div class="slot">${esc(fmt(c.at))} · ${esc(c.slug)}</div>
+        <p><span class="pill ${kind}">${esc(label)}</span></p>
+        <div class="context" style="white-space:pre-line">${esc(c.text)}</div>
+        <p class="small muted">${esc(c.name || 'A reader')}${c.role ? ', ' + esc(c.role) : ''}</p>
+        <div class="choice" style="margin-top:10px">
+          ${c.status !== 'approved' ? '<button type="button" data-cs="approved">Approve</button>' : ''}
+          ${c.status !== 'hidden' ? '<button type="button" data-cs="hidden">Hide</button>' : ''}
+          <button type="button" data-cdel>Delete</button>
+        </div>
+      </div>`;
+    }).join('')}`;
+  app.querySelectorAll('[data-cf]').forEach((b) => b.onclick = () => { coms.filter = b.dataset.cf; renderComments(); });
+  const act = async (b, body, done) => {
+    b.disabled = true;
+    try {
+      await api('comments/status', { method: 'POST', body });
+      done();
+    } catch (e) {
+      if (e.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: e.message };
+    }
+    renderComments();
+  };
+  app.querySelectorAll('[data-cs]').forEach((b) => b.onclick = () => {
+    const id = b.closest('[data-cid]').dataset.cid;
+    act(b, { id, status: b.dataset.cs }, () => {
+      coms.items.find((x) => x.id === id).status = b.dataset.cs;
+      state.notice = { kind: 'ok', text: b.dataset.cs === 'approved' ? 'Approved: the note is live on its article.' : 'Hidden: the note no longer shows on its article.' };
+    });
+  });
+  app.querySelectorAll('[data-cdel]').forEach((b) => b.onclick = () => {
+    if (!confirm('Delete this note for good?')) return;
+    const id = b.closest('[data-cid]').dataset.cid;
+    act(b, { id, remove: true }, () => {
+      coms.items = coms.items.filter((x) => x.id !== id);
+      state.notice = { kind: 'ok', text: 'Deleted.' };
+    });
+  });
+}
+
+// ---------- sharing (review links) ----------
+// Send a draft's preview to a contributor or partner. Invite: they sign in with a one-time code sent
+// to their email and always see the latest version. Open link: anyone with the link can view that
+// exact version, no sign-in. Both end on a date; Stop ends one straight away.
+let sharing = { items: [], drafts: [], ready: true, made: null, form: { pr: '', path: '', mode: 'invite', name: '', email: '', days: 7, note: '', send: true } };
+
+async function loadSharing() {
+  clearTimeout(state.pollTimer);
+  setTab('sharing');
+  app.innerHTML = '<p class="muted">Loading review links…</p>';
+  try {
+    const data = await api('shares');
+    sharing.items = data.items || []; sharing.drafts = data.drafts || []; sharing.ready = data.ready !== false;
+    if (!sharing.drafts.some((d) => String(d.pr) === String(sharing.form.pr))) sharing.form.pr = sharing.drafts[0] ? String(sharing.drafts[0].pr) : '';
+    renderSharing();
+  } catch (e) {
+    if (e.message === 'signed-out') return;
+    app.innerHTML = `<h1>Sharing</h1><div class="notice bad">${esc(e.message)}</div>`;
+  }
+}
+
+function renderSharing() {
+  const f = sharing.form;
+  const draft = sharing.drafts.find((d) => String(d.pr) === String(f.pr));
+  const pages = draft ? draft.paths : [];
+  if (!pages.some((p) => p.path === f.path)) f.path = pages[0] ? pages[0].path : '';
+  const fmt = (t) => new Date(Number(t)).toLocaleDateString('en-AU', { timeZone: 'Australia/Sydney', day: 'numeric', month: 'short' });
+  const active = sharing.items.filter((s) => s.status === 'active');
+  const past = sharing.items.filter((s) => s.status !== 'active').slice(0, 20);
+  const row = (s) => `<div class="card"><div class="share-row">
+      <div class="grow">
+        <div class="slot">${s.mode === 'invite' ? 'Invitation' : 'Open link'} · #${esc(s.pr)} · ${s.status === 'active' ? `until ${esc(fmt(s.expires))}` : s.status === 'revoked' ? 'stopped' : `ended ${esc(fmt(s.expires))}`}</div>
+        <h3>${esc(s.name || s.email || 'Anyone with the link')}</h3>
+        <div class="share-meta">${s.email ? esc(s.email) + ' · ' : ''}${esc(String(s.title || '').replace(/^[A-Z][a-z]{2} \d{1,2} [A-Z][a-z]{2} \d{2}:\d{2} · /, ''))}</div>
+        ${s.status === 'active' ? `<div class="share-url"><input type="text" readonly value="${esc(s.url)}" aria-label="Review link"><button type="button" data-copy="${esc(s.url)}">Copy</button></div>` : ''}
+      </div>
+      ${s.status === 'active' ? `<button type="button" data-stop="${esc(s.id)}">Stop sharing</button>` : `<span class="pill">${s.status === 'revoked' ? 'Stopped' : 'Ended'}</span>`}
+    </div></div>`;
+
+  app.innerHTML = notice() + `
+    <h1>Sharing</h1>
+    <p class="muted">Send a draft to a contributor or partner for review. Previews are private: only you can open them unless you share one here.</p>
+    ${sharing.ready ? '' : `<div class="notice warn">Review links aren't switched on yet. Add <strong>CF_API_TOKEN</strong>, <strong>CF_ACCOUNT_ID</strong> and <strong>ACCESS_OWNER_EMAILS</strong> in Cloudflare (docs/admin.md, "Review links"), then reload.</div>`}
+    ${sharing.made ? `<div class="card"><strong>Your link</strong><div class="share-url"><input type="text" readonly value="${esc(sharing.made)}" aria-label="New review link"><button type="button" class="primary" data-copy="${esc(sharing.made)}">Copy</button></div></div>` : ''}
+
+    <h2>Share a draft</h2>
+    ${sharing.drafts.length ? `<form class="card form" id="shareForm">
+      <div class="full"><label for="sh-pr">Draft</label>
+        <select id="sh-pr">${sharing.drafts.map((d) => `<option value="${d.pr}" ${String(d.pr) === String(f.pr) ? 'selected' : ''}>#${d.pr} · ${esc(d.title)}</option>`).join('')}</select></div>
+      ${pages.length > 1 ? `<div class="full"><label for="sh-path">Page</label><select id="sh-path">${pages.map((p) => `<option value="${esc(p.path)}" ${p.path === f.path ? 'selected' : ''}>${esc(p.label)}</option>`).join('')}</select></div>` : ''}
+      <div class="full"><div class="modes" role="radiogroup" aria-label="Kind of link">
+        <label><input type="radio" name="sh-mode" value="invite" ${f.mode === 'invite' ? 'checked' : ''}><strong>Invite by email</strong><span>They sign in with a one-time code sent to their email, and always see the latest version. Best for drafts in progress.</span></label>
+        <label><input type="radio" name="sh-mode" value="link" ${f.mode === 'link' ? 'checked' : ''}><strong>Open link</strong><span>Anyone with the link can view this version, no sign-in. Easiest for partners; later edits won't show.</span></label>
+      </div></div>
+      <div><label for="sh-name">Their name</label><input type="text" id="sh-name" value="${esc(f.name)}" autocomplete="off"></div>
+      <div><label for="sh-email">Their email${f.mode === 'link' ? ' <span class="muted">(optional)</span>' : ''}</label><input type="email" id="sh-email" value="${esc(f.email)}" autocomplete="off" ${f.mode === 'invite' ? 'required' : ''}></div>
+      <div><label for="sh-days">Works for</label><select id="sh-days">${[[2, '2 days'], [7, '1 week'], [14, '2 weeks'], [30, '30 days']].map(([v, l]) => `<option value="${v}" ${Number(f.days) === v ? 'selected' : ''}>${l}</option>`).join('')}</select></div>
+      <div><label class="check push"><input type="checkbox" id="sh-send" ${f.send ? 'checked' : ''}> Email them the link</label></div>
+      <div class="full"><label for="sh-note">Message <span class="muted">(optional, included in the email)</span></label><textarea id="sh-note" rows="3" placeholder="What you'd like them to look at">${esc(f.note)}</textarea></div>
+      <div class="full"><button class="primary" type="submit" ${sharing.ready ? '' : 'disabled'}>Create review link</button></div>
+    </form>` : '<div class="card muted">No open drafts to share. Drafts appear here when an article or change is waiting.</div>'}
+
+    <h2>Active links (${active.length})</h2>
+    ${active.length ? active.map(row).join('') : '<p class="muted">Nothing shared right now.</p>'}
+    ${past.length ? `<h2>Recently ended</h2>${past.map(row).join('')}` : ''}
+    <p class="small muted">Links stop working on their end date. Stop sharing ends one straight away. Cloudflare can take a minute to apply either.</p>`;
+
+  const read = () => {
+    const v = (id) => { const el = document.getElementById(id); return el ? el.value : ''; };
+    f.pr = v('sh-pr'); f.path = v('sh-path') || f.path; f.name = v('sh-name'); f.email = v('sh-email'); f.days = Number(v('sh-days')) || 7; f.note = v('sh-note');
+    const m = app.querySelector('input[name=sh-mode]:checked'); if (m) f.mode = m.value;
+    const s = document.getElementById('sh-send'); if (s) f.send = s.checked;
+  };
+  const form = document.getElementById('shareForm');
+  if (form) {
+    document.getElementById('sh-pr').onchange = () => { read(); f.path = ''; renderSharing(); };
+    app.querySelectorAll('input[name=sh-mode]').forEach((r) => r.onchange = () => { read(); renderSharing(); });
+    form.onsubmit = async (e) => {
+      e.preventDefault(); read();
+      const btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Creating…';
+      try {
+        const res = await api('shares/create', { method: 'POST', body: { pr: Number(f.pr), path: f.path, mode: f.mode, name: f.name, email: f.email, days: f.days, note: f.note, send: f.send } });
+        state.notice = { kind: 'ok', text: res.message };
+        sharing.made = res.url;
+        sharing.form = { ...f, name: '', email: '', note: '' };
+        await loadSharing();
+      } catch (err) {
+        if (err.message === 'signed-out') return;
+        state.notice = { kind: 'bad', text: err.message };
+        renderSharing();
+      }
+    };
+  }
+  app.querySelectorAll('[data-copy]').forEach((b) => b.onclick = async () => {
+    try { await navigator.clipboard.writeText(b.dataset.copy); b.textContent = 'Copied'; }
+    catch { const i = b.parentElement.querySelector('input'); i.select(); document.execCommand('copy'); b.textContent = 'Copied'; }
+    setTimeout(() => { b.textContent = 'Copy'; }, 1800);
+  });
+  app.querySelectorAll('[data-stop]').forEach((b) => b.onclick = async () => {
+    const s = sharing.items.find((x) => x.id === b.dataset.stop);
+    if (!confirm(`Stop sharing with ${s.name || s.email || 'anyone with the link'}? The link stops working within a minute or so.`)) return;
+    b.disabled = true; b.textContent = 'Stopping…';
+    try {
+      const res = await api('shares/revoke', { method: 'POST', body: { id: s.id } });
+      state.notice = { kind: 'ok', text: res.message };
+      sharing.made = null;
+      await loadSharing();
+    } catch (err) {
+      if (err.message === 'signed-out') return;
+      state.notice = { kind: 'bad', text: err.message };
+      renderSharing();
+    }
   });
 }
 

@@ -1,0 +1,99 @@
+{
+  "name": "Möbius",
+  "vendor": "digitaled",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.digitaled.com/",
+  "summary": "Online assessment and learning environment for mathematics, science and technical subjects, with question authoring, automated evaluation and feedback.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.digitaled.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Create algorithmic STEM questions",
+      "Deliver formative practice and summative assessment",
+      "Provide immediate feedback",
+      "Support large-enrolment STEM courses"
+    ],
+    "source": "https://www.digitaled.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Question authoring",
+      "Algorithmic/randomised questions",
+      "Automated marking",
+      "Feedback",
+      "Interactive math notation",
+      "Analytics and course content tools"
+    ],
+    "source": "https://www.digitaled.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional licence / quote-based."
+    },
+    "source": "https://www.digitaled.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.digitaled.com/",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "inspera-assessment",
+    "examsoft",
+    "questionmark",
+    "tao-testing",
+    "exam-net"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Initial product scope record; requires further official-source and independent-user validation before publication.",
+    "AI: No generative AI feature confirmed in reviewed source set; automated evaluation should not be conflated with AI. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Request assessment response and learner data retention schedule. Subprocessors: Request current subprocessor list. Status: No AI feature established in reviewed source set; explicit confirmation required.",
+    "Vendor outreach (Medium priority): Confirm current product naming/ownership; AI/ML use; LTI/API; item bank portability; security and accessibility evidence; data residency; pricing; STEM user references."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "LMS integrations and publisher/learning ecosystem connections; confirm current LTI, grade passback, APIs and supported platforms."
+    },
+    {
+      "field": "standards",
+      "note": "LTI and LMS compatibility require current technical confirmation; QTI support not verified."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request current product ACR/VPAT, math accessibility and screen-reader test evidence."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request current security pack, DPA, hosting regions, SOC 2/ISO and subprocessors."
+    }
+  ]
+}

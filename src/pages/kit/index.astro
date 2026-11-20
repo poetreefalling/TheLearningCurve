@@ -1,0 +1,228 @@
+---
+// Landing page for the free Evidence-Based Course Design Kit (lead magnet for the newsletter).
+// Designed on the Claude canvas "The Evidence-Based Course Design Kit". The sign-up form joins the
+// Beehiiv list and sends the kit by email through Resend (functions/api/subscribe.ts); the PDF also
+// appears in place. Without JavaScript the forms still work and land on /kit/thanks/.
+// Design rules: docs/design.md.
+import Base from '../../layouts/Base.astro';
+import KitForm from '../../components/kit/KitForm.astro';
+import { KIT, ITEMS, FAQS } from '../../data/kit';
+
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'CreativeWork', name: KIT.title,
+  description: 'A free kit of seven course design templates and eight evidence cards that put the research on how people learn to work in your next course.',
+  datePublished: '2026-11-16', inLanguage: 'en-AU', isAccessibleForFree: true,
+  publisher: { '@type': 'Organization', name: 'The Learning Curve', url: 'https://thelearningcurve.net/' },
+}];
+---
+<Base
+  title="Free: The Evidence-Based Course Design Kit"
+  description="Seven templates and eight evidence cards that turn the research on how people learn into tools you can use: objectives, retrieval practice, storyboards, scripts, quizzes and a course audit."
+  ogImage="/images/kit/og.jpg"
+  jsonLd={jsonLd}
+  current="resources"
+>
+  <div class="kit">
+    <!-- Hero -->
+    <section class="band kit-hero" aria-labelledby="kit-h">
+      <svg class="kit-curve" viewBox="0 0 46 35" preserveAspectRatio="none" aria-hidden="true"><path d="M3 31 C 12 31, 14 6, 43 4" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" /></svg>
+      <div class="wrap kit-hero-grid">
+        <div class="kit-hero-copy">
+          <p class="kicker">Free toolkit · For people who build courses</p>
+          <h1 id="kit-h">The Evidence-Based Course Design Kit</h1>
+          <p class="kit-stand">Seven templates and a set of evidence cards that turn the research on how people learn into tools you can use right away. Plan the objectives, storyboard the lessons, write the quizzes and audit the course, with the studies built in.</p>
+          <div id="get"><KitForm placement="kit-hero" tone="band" /></div>
+        </div>
+        <div class="kit-fan" aria-hidden="true">
+          <img class="kit-page kit-page-2" src="/images/kit/page-storyboard.webp" alt="" width="900" height="636" loading="eager" />
+          <img class="kit-page kit-page-1" src="/images/kit/page-retrieval.webp" alt="" width="900" height="636" loading="eager" />
+          <img class="kit-page kit-cover" src="/images/kit/cover.webp" alt="" width="636" height="900" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Proof strip -->
+    <div class="kit-proof">
+      <div class="wrap">
+        <span><strong>7</strong> working templates</span>
+        <span><strong>8</strong> one-page evidence cards</span>
+        <span><strong>Google Docs, Sheets and PDF</strong>, ready to copy</span>
+        <span>Every template links to the research behind it</span>
+      </div>
+    </div>
+
+    <!-- What's inside -->
+    <section class="wrap kit-section" id="inside" aria-labelledby="kit-inside">
+      <div class="kit-sechead">
+        <h2 id="kit-inside">What's inside</h2>
+        <span>In the order you'd use them on a course build</span>
+      </div>
+      <p class="kit-big">One kit for the whole build, from the first objective to the final audit.</p>
+      <div class="kit-items">
+        {ITEMS.map((it) => (
+          <article class="kit-item">
+            <div class="kit-item-top"><span class="kit-n">{it.n}</span><span class="kicker">{it.kind}</span></div>
+            <h3>{it.title}</h3>
+            <p>{it.body}</p>
+            <p class="kit-basis">Built on: {it.basis}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- A look inside -->
+    <section class="wrap kit-section kit-sample-wrap" aria-labelledby="kit-sample">
+      <div class="kit-sample">
+        <div class="kit-sample-copy">
+          <p class="kicker">A look inside · Template 02</p>
+          <h2 id="kit-sample">The Retrieval Practice Kit</h2>
+          <p>List the ideas that matter in each module, then plan where learners will be asked to recall each one again: a quick quiz two modules later, a scenario question at the end. The grid makes it obvious which ideas you only ever test once.</p>
+          <p class="kit-small">As a Google Sheet, it colours itself as you fill it in.</p>
+        </div>
+        <div class="kit-table-box">
+          <table class="kit-table">
+            <caption class="visually-hidden">Example retrieval practice plan for a bookkeeping course</caption>
+            <thead><tr><th scope="col">Key idea</th><th scope="col">M1</th><th scope="col">M2</th><th scope="col">M3</th><th scope="col">M4</th><th scope="col">Final</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Chart of accounts</th><td><span class="c-t">Teach</span></td><td><span class="c-q">Quiz</span></td><td></td><td><span class="c-q">Case</span></td><td><span class="c-q">Test</span></td></tr>
+              <tr><th scope="row">Bank reconciliation</th><td></td><td><span class="c-t">Teach</span></td><td><span class="c-q">Quiz</span></td><td></td><td><span class="c-q">Test</span></td></tr>
+              <tr><th scope="row">GST on sales</th><td></td><td></td><td><span class="c-t">Teach</span></td><td><span class="c-q">Quiz</span></td><td><span class="c-gap">Gap</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why -->
+    <section class="kit-why" aria-labelledby="kit-why">
+      <div class="wrap kit-section">
+        <div class="kit-sechead"><h2 id="kit-why">Why this kit is different</h2></div>
+        <div class="kit-three">
+          <div><h3>Built on the research, not on habit</h3><p>Each template puts one or more findings from our research library to work, and links to the entry that explains the studies, how strong the evidence is and where it stops.</p></div>
+          <div><h3>Ready to use, not just to read</h3><p>Make a copy of each Google Doc or Sheet and start filling it in, or print the PDF and work on paper. No sign-up to another tool, no special software.</p></div>
+          <div><h3>It grows with the library</h3><p>As new library entries and guides publish, we add templates and evidence cards. Everyone who has the kit gets the new pages by email.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who it's for + who made it -->
+    <section class="wrap kit-section kit-two">
+      <div>
+        <div class="kit-sechead"><h2>Who it's for</h2></div>
+        <p class="kit-big kit-big-s">Anyone who builds courses and wants them to work.</p>
+        <ul class="kit-pills">
+          <li>Course creators</li><li>Instructional designers</li><li>L&amp;D teams</li><li>Educators moving online</li><li>New instructional designers</li>
+        </ul>
+      </div>
+      <div>
+        <div class="kit-sechead"><h2>Who made it</h2></div>
+        <p class="kit-prose">The Learning Curve is an independent publication on how to design online courses that work. It's edited by Jim Lounsbury, who works in educational development at Avondale University, designing course content and microcredentials.</p>
+        <p class="kit-prose">“I put this kit together because I think we can do a better job of designing courses around how people actually learn, rather than simply following convention or relying on what we've always done.”</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="wrap kit-section kit-faq-wrap" id="faq" aria-labelledby="kit-faq">
+      <div class="kit-sechead"><h2 id="kit-faq">Questions</h2></div>
+      <div class="kit-faqs">
+        {FAQS.map((f) => (<div class="kit-faq"><h3>{f.q}</h3><p>{f.a}</p></div>))}
+      </div>
+    </section>
+
+    <!-- Ink band CTA -->
+    <section class="kit-ink" aria-labelledby="kit-cta">
+      <div class="wrap kit-ink-grid">
+        <div>
+          <p class="kicker">Free · Seven templates · Eight evidence cards</p>
+          <h2 id="kit-cta">Build your next course on the evidence.</h2>
+        </div>
+        <a class="kit-pill-cta" href="#get">Get the free kit</a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .kit-hero { position: relative; overflow: hidden; border-top: 2px solid var(--band-ink); }
+  .kit-curve { position: absolute; right: -6%; top: 6%; width: 70%; height: 92%; opacity: 0.16; color: #16181d; pointer-events: none; }
+  .kit-hero-grid { position: relative; display: flex; flex-wrap: wrap; gap: 56px; align-items: center; padding-top: 72px; padding-bottom: 88px; }
+  .kit-hero-copy { flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 22px; }
+  .kit-hero h1 { font-weight: 800; font-size: clamp(40px, 5.4vw, 66px); line-height: 1.02; letter-spacing: -0.024em; font-variation-settings: 'opsz' 144; }
+  .kit-stand { margin: 0; font: 400 22px/1.5 var(--serif); max-width: 560px; }
+  .kit-fan { flex: 1 1 380px; min-width: 0; position: relative; height: 470px; max-width: 460px; margin: 0 auto; }
+  .kit-page { position: absolute; display: block; height: auto; box-shadow: 0 10px 24px rgba(22, 24, 29, 0.25); background: #fff; }
+  .kit-cover { width: 62%; left: 0; top: 0; }
+  .kit-page-1 { width: 78%; right: 0; top: 30%; transform: rotate(5deg); }
+  .kit-page-2 { width: 74%; right: 4%; top: 6%; transform: rotate(-4deg); }
+
+  .kit-proof { border-bottom: 1px solid var(--rule); }
+  .kit-proof .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 48px; padding-top: 28px; padding-bottom: 28px; font: 400 14px var(--sans); color: var(--ink-2); }
+  .kit-proof strong { color: var(--ink); }
+
+  .kit-section { padding-top: 72px; padding-bottom: 40px; }
+  .kit-sechead { border-top: 2px dotted var(--rule-strong); padding-top: 14px; margin-bottom: 28px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .kit-sechead h2 { font: 800 13px var(--label); letter-spacing: 0.09em; text-transform: uppercase; }
+  .kit-sechead span { font: 400 13px var(--sans); color: var(--muted); }
+  .kit-big { margin: 0 0 36px; font: 800 clamp(30px, 3.6vw, 44px)/1.06 var(--display); letter-spacing: -0.015em; max-width: 820px; }
+  .kit-big-s { font-size: 28px; line-height: 1.2; font-weight: 700; margin-bottom: 18px; }
+
+  .kit-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 24px; }
+  .kit-item { background: var(--surface); border-top: 2px solid var(--rule-strong); padding: 22px 24px 26px; display: flex; flex-direction: column; gap: 10px; }
+  .kit-item-top { display: flex; justify-content: space-between; align-items: baseline; }
+  .kit-n { font: 800 44px/0.9 var(--display); letter-spacing: -0.04em; }
+  .kit-item h3 { font-size: 21px; font-weight: 750; line-height: 1.16; margin-top: 4px; }
+  .kit-item p { margin: 0; font: 400 17px/1.5 var(--serif); color: var(--ink-2); }
+  .kit-item .kit-basis { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--rule); font: 400 12.5px/1.45 var(--sans); color: var(--muted); }
+
+  .kit-sample-wrap { padding-top: 40px; padding-bottom: 72px; }
+  .kit-sample { background: var(--surface); border: 1px solid var(--rule); position: relative; padding: 40px; display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+  .kit-sample::before { content: ''; position: absolute; left: 0; top: 0; width: 64px; height: 4px; background: var(--band); }
+  .kit-sample-copy { flex: 1 1 320px; min-width: 0; display: flex; flex-direction: column; gap: 14px; }
+  .kit-sample-copy h2 { font-size: 32px; font-weight: 800; line-height: 1.08; letter-spacing: -0.015em; }
+  .kit-sample-copy p { margin: 0; font: 400 18px/1.6 var(--serif); color: var(--ink-2); }
+  .kit-sample-copy .kit-small { font: 400 13px var(--sans); color: var(--muted); }
+  .kit-table-box { flex: 1.3 1 420px; min-width: 0; overflow-x: auto; }
+  .kit-table { width: 100%; min-width: 440px; border-collapse: collapse; font: 400 13px var(--sans); font-variant-numeric: tabular-nums; }
+  .kit-table thead tr { border-bottom: 2px solid var(--rule-strong); }
+  .kit-table th { padding: 8px; font-weight: 600; color: var(--muted); }
+  .kit-table thead th:first-child, .kit-table tbody th { text-align: left; padding-left: 0; }
+  .kit-table tbody th { font-weight: 500; color: var(--ink); padding: 10px 8px 10px 0; }
+  .kit-table tbody tr { border-bottom: 1px solid var(--rule); }
+  .kit-table tbody tr:last-child { border-bottom: 0; }
+  .kit-table td { padding: 6px; }
+  .kit-table td span { display: block; text-align: center; padding: 4px 0; font-weight: 600; }
+  .c-t { background: #16181d; color: #f7f4ee; }
+  .c-q { background: var(--band); color: #16181d; }
+  .c-gap { border: 2px dashed var(--kicker); color: var(--kicker); padding: 2px 0 !important; }
+
+  .kit-why { background: var(--surface); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .kit-why .kit-section { padding-bottom: 72px; }
+  .kit-three { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+  .kit-three h3 { font-size: 24px; font-weight: 750; line-height: 1.15; margin-bottom: 10px; }
+  .kit-three p, .kit-prose { margin: 0; font: 400 18px/1.6 var(--serif); color: var(--ink-2); }
+  .kit-prose + .kit-prose { margin-top: 18px; }
+
+  .kit-two { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 56px; padding-bottom: 72px; }
+  .kit-pills { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .kit-pills li { border: 2px solid var(--rule-strong); border-radius: 999px; padding: 9px 16px; font: 800 12px var(--label); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  .kit-faq-wrap { padding-top: 0; padding-bottom: 72px; }
+  .kit-faqs { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 0 56px; }
+  .kit-faq { border-bottom: 1px solid var(--rule); padding: 22px 0; }
+  .kit-faq h3 { font-size: 21px; font-weight: 750; line-height: 1.2; margin-bottom: 8px; }
+  .kit-faq p { margin: 0; font: 400 17px/1.55 var(--serif); color: var(--ink-2); }
+
+  .kit-ink { background: #16181d; color: #f7f4ee; }
+  .kit-ink-grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; justify-content: space-between; padding-top: 72px; padding-bottom: 72px; }
+  .kit-ink .kicker { color: var(--band); margin-bottom: 14px; }
+  .kit-ink h2 { font-weight: 800; font-size: clamp(32px, 4vw, 48px); line-height: 1.04; letter-spacing: -0.02em; color: #f7f4ee; }
+  .kit-pill-cta { display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; background: var(--band); color: #16181d; border-radius: 999px; text-decoration: none; font: 800 13px var(--label); letter-spacing: 0.08em; text-transform: uppercase; }
+  .kit-pill-cta:focus-visible { outline: 3px solid #f6c847; outline-offset: 3px; }
+
+  @media (max-width: 720px) {
+    .kit-two, .kit-faqs { grid-template-columns: 1fr; }
+    .kit-fan { height: 360px; }
+    .kit-hero-grid { padding-top: 48px; padding-bottom: 56px; gap: 40px; }
+    .kit-sample { padding: 28px 22px; }
+  }
+</style>

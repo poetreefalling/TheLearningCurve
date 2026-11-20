@@ -1,0 +1,107 @@
+{
+  "name": "Labster",
+  "vendor": "labster",
+  "category": "video-interactive",
+  "secondaryCategories": [
+    "emerging-technologies"
+  ],
+  "website": "https://www.labster.com/",
+  "summary": "Immersive 3D virtual laboratory simulations for STEM learning, practice, assessment and preparation for physical labs.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://www.labster.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Biology, chemistry, physics and health science labs",
+      "Pre-lab preparation",
+      "Remote practical learning"
+    ],
+    "source": "https://www.labster.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "300+ simulations, interactive lab equipment, inquiry-based storylines, real-time feedback, repeated attempts, automated grading and reporting"
+    ],
+    "source": "https://www.labster.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Canvas, Blackboard, D2L Brightspace, Moodle and other LMSs",
+      "Assignment and gradebook workflows"
+    ],
+    "source": "https://www.labster.com/live-demo",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Institutional purchase; annual plans start at US$5,000 according to vendor; tailored by courses/enrolment.",
+      "from": "US$5,000 a year (institutional plans)"
+    },
+    "source": "https://www.labster.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2",
+      "TX-RAMP"
+    ],
+    "source": "https://www.labster.com/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "mursion",
+    "bodyswaps",
+    "kulissa-maya"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product, pricing and capabilities pages reviewed. Vendor case-study outcomes are not independent evidence.",
+    "AI: AI not established as a core learner-facing capability in reviewed pages; AI use in recommendation or platform operations needs clarification. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Ask whether AI is used in simulations, assessment, analytics or authoring; model/provider and data terms if applicable; SOC 2 report, TX-RAMP evidence, VPAT, DPA, retention, subprocessors and Australian pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integrations; confirm LTI version and xAPI/SCORM availability for the chosen implementation."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Vendor advertises accessibility features; obtain current VPAT and simulation-specific accessibility statement."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/labster/logo.webp",
+      "alt": "Labster logo",
+      "source": "https://www.labster.com/"
+    }
+  }
+}

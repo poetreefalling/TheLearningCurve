@@ -153,5 +153,11 @@
   },
   "status": "active",
   "lastVerified": "2026-11-07",
-  "draft": true
+  "draft": true,
+  "media": {
+    "logo": {
+      "src": "/images/directory/thinkific/logo.webp",
+      "alt": "Thinkific logo"
+    }
+  }
 }

@@ -1,0 +1,19 @@
+{
+  "title": "Spacing digital lessons out beat cramming them together, most of all for skills and behaviour",
+  "subtitle": "Pooled effect of spaced versus massed digital education for health professionals, with 95% confidence intervals, from a meta-analysis of 23 trials (2024). Clinical behaviour compares spaced online education with massed delivery or no training",
+  "type": "dotRange",
+  "unit": "standardised mean difference (SMD)",
+  "highlight": "Clinical behaviour (3 studies)",
+  "series": [
+    { "label": "Knowledge, online (9 studies)", "value": 0.32, "low": 0.13, "high": 0.51 },
+    { "label": "Clinical behaviour (3 studies)", "value": 0.67, "low": 0.43, "high": 0.91 },
+    { "label": "Surgical skills, simulation (2 studies)", "value": 1.15, "low": 0.34, "high": 1.96 }
+  ],
+  "source": {
+    "authors": "Martinengo, L., Ng, M. S. P., Ng, T. D. R., Ang, Y.-I., Jabir, A. I., Kyaw, B. M., & Tudor Car, L.",
+    "year": 2024,
+    "doi": "10.2196/57760",
+    "url": "https://jmir.org/2024/1/e57760/PDF",
+    "figureOrTable": "Figures 3, 6 and 8 (pooled estimates, also reported in the abstract)"
+  }
+}

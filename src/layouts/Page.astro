@@ -5,11 +5,11 @@ const { title, heading, description, standfirst, jsonLd, noindex } = Astro.props
 ---
 <Base title={title} description={description} jsonLd={jsonLd} noindex={noindex}>
   <article class="wrap">
-    <header class="article-head measure">
+    <header class="article-head measure page-article-head">
       <h1>{heading ?? title}</h1>
       {standfirst && <p class="standfirst">{standfirst}</p>}
     </header>
-    <div class="page-body measure" style="margin-top:32px">
+    <div class="page-body measure">
       <slot />
     </div>
   </article>

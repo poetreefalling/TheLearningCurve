@@ -228,5 +228,12 @@
       "field": "geographic availability",
       "note": "Not in AI workbook"
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/articulate-360-ai/logo.webp",
+      "alt": "Articulate logo",
+      "source": "https://www.articulate.com/360/ai-assistant/"
+    }
+  }
 }

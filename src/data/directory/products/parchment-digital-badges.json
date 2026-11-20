@@ -1,0 +1,101 @@
+{
+  "name": "Parchment Digital Badges",
+  "vendor": "instructure",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+  "summary": "Digital badging solution for issuing stackable credentials and connecting learning progress with academic and career pathways.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "vet",
+      "corporate"
+    ],
+    "source": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Issue badges tied to learning achievements",
+      "Map stackable pathways",
+      "Make skills visible and verifiable",
+      "Align academic credentials with workforce opportunities"
+    ],
+    "source": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Automated badge issuing",
+      "Credential pathways",
+      "Learner progress",
+      "Skills alignment",
+      "Credential verification"
+    ],
+    "source": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional/enterprise quote."
+    },
+    "source": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.instructure.com/en-au/parchment/award/digital-badges",
+    "checked": "2026-11-16",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "credly",
+    "accredible",
+    "open-badge-factory",
+    "sertifier",
+    "my-equals"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-16",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the The Learning Curve assessment & credentialing dataset (research snapshot 16 Nov 2026). Evidence status: Vendor supplied product page; verify exact product ownership/roadmap and standards with Instructure/Parchment.",
+    "AI: No AI function established in reviewed digital badges page. Model/provider: Not disclosed / no model confirmed. Training: Not disclosed; vendor confirmation required. Retention: Request credential and learner data retention/deletion policy. Subprocessors: Request product-specific subprocessor list. Status: AI disclosure incomplete; no AI feature established in reviewed page.",
+    "Vendor outreach (Medium priority): Confirm product naming/roadmap after Parchment-Instructure integration; Open Badges/CLR standards; LMS integrations; AI use; SOC 2/ISO; AU hosting; privacy; accessibility; price and export.",
+    "Instructure has been folding Canvas Credentials into Parchment; the workbook listed both. Confirm the current product name and packaging.",
+    "Check the 1EdTech Open Badges 3.0 conformance directory (https://www.imsglobal.org/spec/ob/v3p0/impl/) for a current certification."
+  ],
+  "dataGaps": [
+    {
+      "field": "integrations",
+      "note": "Part of Parchment/Instructure ecosystem; confirm Canvas and other LMS integration scope, API and data flows."
+    },
+    {
+      "field": "standards",
+      "note": "Confirm Open Badges version, CLR and verifiable credential support."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Request product-specific accessibility conformance report."
+    },
+    {
+      "field": "security (assurance)",
+      "note": "Request current Instructure/Parchment trust-centre evidence, SOC 2/ISO scope, DPA and data residency."
+    }
+  ]
+}

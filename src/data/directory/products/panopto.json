@@ -1,0 +1,125 @@
+{
+  "name": "Panopto",
+  "vendor": "panopto",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://www.panopto.com/features/enterprise-video-platform/",
+  "summary": "Enterprise video CMS for capture, hosting, live streaming, searchable recordings, interactive quizzes, captions and analytics.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Lecture capture",
+      "Searchable training libraries",
+      "Flipped learning",
+      "Onboarding",
+      "Compliance and knowledge sharing"
+    ],
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Video capture and CMS",
+      "AI video search across speech and on-screen content",
+      "Smart chapters",
+      "Captions/transcripts",
+      "In-video quizzes, comments and notes",
+      "Analytics"
+    ],
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS LTI integrations including Canvas, Blackboard, Moodle and Brightspace",
+      "Zoom, Teams and Webex recording sync",
+      "SSO via SAML/AD/OAuth"
+    ],
+    "source": "https://www.panopto.com/capabilities/integrations/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Quote/demo-led; no public list price captured."
+    },
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.1 AA, Section 508",
+      "evidence": "Vendor claim; VPAT not reviewed"
+    },
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "ISO 27001",
+      "ISO 27017",
+      "ISO 27018",
+      "ISO 9001",
+      "SOC 2 Type II",
+      "TX-RAMP Level 2"
+    ],
+    "source": "https://www.panopto.com/features/enterprise-video-platform/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "kaltura",
+    "yuja-lumina",
+    "vimeo-enterprise"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor documentation reviewed; certifications are vendor-stated and should be checked against current certificates/Trust Center. No independent audit report inspected.",
+    "AI: AI Video Search, transcription, visual indexing, smart chapters; AI Video Studio and Access AI add-ons. Models: Underlying model/provider not identified in reviewed public pages. Training: Customer-content training policy not verified in reviewed sources; obtain contractual answer. Retention: Prompt/content retention and deletion periods not verified; obtain DPA and subprocessor list. Subprocessors: AI subprocessors not identified in reviewed pages.",
+    "Vendor outreach (High priority): Request current SOC 2 Type II report, ISO certificates, VPAT, data residency options, AI model/provider list, customer-data training terms, retention schedule, subprocessors, API limits and Australian hosting options."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LTI; LMS grade/usage workflows. Confirm package/export support for each intended use."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/panopto/logo.webp",
+      "alt": "Panopto logo",
+      "source": "https://www.panopto.com/"
+    }
+  }
+}

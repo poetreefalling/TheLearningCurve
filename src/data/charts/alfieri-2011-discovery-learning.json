@@ -1,0 +1,18 @@
+{
+  "title": "Unassisted discovery did worse than explicit teaching (d = −0.38); guided forms of discovery did better (d = 0.30)",
+  "subtitle": "Average effect sizes with 95% confidence intervals, from two meta-analyses: 580 comparisons of unassisted discovery against explicit instruction, and 360 comparisons of enhanced discovery against other methods",
+  "type": "dotRange",
+  "unit": "effect size (Cohen's d)",
+  "highlight": "Enhanced discovery vs other methods",
+  "series": [
+    { "label": "Unassisted discovery vs explicit instruction", "value": -0.38, "low": -0.44, "high": -0.31 },
+    { "label": "Enhanced discovery vs other methods", "value": 0.30, "low": 0.23, "high": 0.36 }
+  ],
+  "source": {
+    "authors": "Alfieri, L., Brooks, P. J., Aldrich, N. J., & Tenenbaum, H. R.",
+    "year": 2011,
+    "doi": "10.1037/a0021017",
+    "url": "https://www.fisme.science.uu.nl/publicaties/literatuur/2011_alfieri_discovery_learning.pdf",
+    "figureOrTable": "Table 2, comparison level, random effects"
+  }
+}

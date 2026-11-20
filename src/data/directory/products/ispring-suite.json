@@ -1,0 +1,116 @@
+{
+  "name": "iSpring Suite",
+  "vendor": "ispring-solutions",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://www.ispringsolutions.com/ispring-suite",
+  "summary": "PowerPoint-based authoring suite for courses, quizzes, video lectures, screen recordings, interactions and role-play simulations.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.ispringsolutions.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Rapid course conversion",
+      "Compliance",
+      "Product training",
+      "Dialogue simulations",
+      "Video tutorials and assessments"
+    ],
+    "source": "https://www.ispringsolutions.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "PowerPoint add-in, quizzes, interactions, TalkMaster role-play, screen recording, video narration and AI assistant in AI tiers"
+    ],
+    "source": "https://www.ispringsolutions.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LMS publishing and compatibility with 150+ LMSs claimed by vendor",
+      "Content export and cloud collaboration"
+    ],
+    "source": "https://www.ispringsolutions.com/products",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "aicc",
+      "xapi",
+      "cmi5"
+    ],
+    "source": "https://www.ispringsolutions.com/products",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Vendor page lists Suite US$970/author/year; Suite AI US$1,290/author/year; Cloud AI US$720/author/year. Discounts/education pricing by quote.",
+      "from": "US$970 an author a year (Suite)"
+    },
+    "source": "https://www.ispringsolutions.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat"
+    },
+    "source": "https://www.ispringsolutions.com/pricing",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "h5p",
+    "genially",
+    "thinglink",
+    "articulate-360",
+    "adobe-captivate"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing, product and LMS compatibility pages reviewed.",
+    "AI: AI assistant for authoring and AI text-to-speech; cloud AI creation features. Models: Model providers not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI model/provider, training and retention terms, subprocessors, DPA, SOC 2/ISO, VPAT, deployment architecture, Windows/PowerPoint dependencies and Australian education pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Accessibility capabilities and VPAT need vendor confirmation."
+    },
+    {
+      "field": "security",
+      "note": "Cloud collaboration security and enterprise controls require review; independent assurance not inspected."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/ispring-suite/logo.webp",
+      "alt": "iSpring logo"
+    }
+  }
+}

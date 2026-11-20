@@ -36,7 +36,7 @@ section bands, under Start here, so it is never placed right under the billboard
 ## House promos (our own billboards)
 
 `src/data/house-ads.json` holds promos for our own pages: the newsletter, the evidence map, the
-course design checklist and the directory. A slot shows one while AdSense hasn't filled (for
+course design checklist, the directory and the course design kit. A slot shows one while AdSense hasn't filled (for
 example while the AdSense account is still under review, or when Google has no ad for the page),
 and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the promo.
 
@@ -47,6 +47,14 @@ and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the
 - Never on reviews or comparisons, like every other slot.
 - To add or change one, edit the file (kicker, headline, text, button label, link, which slots).
   The build checks the lengths.
+- **Targeted promos** list `pages` (article paths such as `/library/retrieval-practice/`). They show
+  only on those pages, in the in-article slot (the rectangle after the fifth paragraph, or the half
+  page that takes its place on wide screens), and never in the general rotation. The billboard at
+  the end of the article keeps to the general promos, so a reader never sees the same promo twice.
+  The six `kit-*` promos send readers to the free course design kit (`/kit/`), each one written for
+  the articles whose topic matches a kit template: retrieval practice, objectives, storyboards and
+  scripts, the course audit, mixed audiences and the evidence cards. To place the kit on another
+  article, add its path to the promo that fits best.
 
 How it works: AdSense marks each unit `data-ad-status="filled"` or `"unfilled"` once it has
 decided. The stylesheet keeps the unit at zero height and shows the promo until it is filled.
@@ -64,7 +72,7 @@ dates (the end date is the last day it shows). Then **Save and publish**.
 - **Pause** keeps a booking but takes it down; **Remove** deletes it. Its image stays in
   `public/ads/` (harmless; ask Claude to tidy old ones).
 
-There's no click or impression counting built in. Use the sponsor's UTM tags (their analytics
+Clicks are counted as totals in Fathom Analytics (goals "Ad click: <host>", "Affiliate click: <host>" and "House promo: <id>", added in `src/layouts/Base.astro`); impressions aren't counted. For a sponsor's own reporting, use their UTM tags (their analytics
 see the visits) or a link shortener with stats.
 
 ## The advertise page and media kit enquiries

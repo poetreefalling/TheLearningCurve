@@ -220,5 +220,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/schoology-learning/logo.webp",
+      "alt": "Schoology logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/schoology-learning/screenshot-1.webp",
+        "frame": true,
+        "alt": "A new Schoology course in a web browser: the top menu with Courses, Groups, Resources and Tools, course tools down the left (Materials, Updates, Gradebook, Grade Setup, Mastery, Badges, Attendance, Members, Analytics, Workload Planning and installed apps), and an empty Materials page explaining how to add and organise materials, with an Upcoming panel on the right",
+        "caption": "An empty course in Schoology, with the Add Materials menu, course tools and installed apps such as WeVideo down the left.",
+        "credit": "Screenshot: The Learning Curve"
+      }
+    ]
+  }
 }

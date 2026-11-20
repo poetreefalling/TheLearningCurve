@@ -35,7 +35,7 @@ export const BASIS: Record<string, string> = {
 export const DEPLOYMENT: Record<string, string> = { cloud: 'Cloud', 'self-hosted': 'Self-hosted', hybrid: 'Hybrid' };
 export const STANDARDS: Record<string, string> = {
   'lti-1.1': 'LTI 1.1', 'lti-1.3': 'LTI 1.3', 'lti-advantage': 'LTI Advantage', 'scorm-1.2': 'SCORM 1.2',
-  'scorm-2004': 'SCORM 2004', xapi: 'xAPI', cmi5: 'cmi5', aicc: 'AICC', qti: 'QTI', caliper: 'Caliper',
+  'scorm-2004': 'SCORM 2004', scorm: 'SCORM (edition not stated)', xapi: 'xAPI', cmi5: 'cmi5', aicc: 'AICC', qti: 'QTI', caliper: 'Caliper',
   oneroster: 'OneRoster', 'open-badges-2': 'Open Badges 2', 'open-badges-3': 'Open Badges 3', clr: 'CLR',
 };
 export const OWNERSHIP: Record<string, string> = {

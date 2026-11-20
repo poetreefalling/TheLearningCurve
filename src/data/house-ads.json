@@ -4,9 +4,9 @@
     {
       "id": "newsletter",
       "kicker": "The Learning Curve Newsletter",
-      "headline": "The research and technology shaping learning, once a month",
-      "text": "Studies worth understanding, developments worth knowing about, and what they mean for your work. Free, one email a month.",
-      "cta": "Get the newsletter",
+      "headline": "Get featured in our newsletter",
+      "text": "Each month we feature products, courses and learning discoveries from subscribers picked at random, plus the latest research on learning.",
+      "cta": "Subscribe free",
       "url": "/newsletter/",
       "slots": [
         "billboard",
@@ -65,6 +65,116 @@
         "billboard",
         "rectangle",
         "halfpage"
+      ]
+    },
+    {
+      "id": "kit-retrieval",
+      "kicker": "Free: Retrieval Practice Kit",
+      "headline": "Plan where every key idea gets recalled again",
+      "text": "A Google Sheet that maps recall across your modules, so nothing important is tested once and forgotten. Part of our free course design kit.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/library/retrieval-practice/",
+        "/library/formative-assessment/",
+        "/library/effective-feedback/",
+        "/library/elaborative-interrogation/",
+        "/guides/writing-multiple-choice-questions/",
+        "/library/microlearning/",
+        "/guides/microlearning-best-practices/"
+      ]
+    },
+    {
+      "id": "kit-objectives",
+      "kicker": "Free: course design kit",
+      "headline": "Turn a vague goal into objectives learners can meet",
+      "text": "A learning objectives builder with verbs matched to the level of thinking you want, plus six more evidence-based templates.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/guides/how-to-write-learning-objectives/",
+        "/guides/blooms-taxonomy-examples/",
+        "/guides/backward-design/",
+        "/guides/addie-model/"
+      ]
+    },
+    {
+      "id": "kit-storyboard",
+      "kicker": "Free: course design kit",
+      "headline": "Storyboard and script each lesson, screen by screen",
+      "text": "A lesson storyboard and a script sheet built on cognitive load and dual coding, plus five more templates. Free Google Docs and Sheets.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/guides/elearning-storyboard/",
+        "/guides/elearning-script/",
+        "/library/dual-coding/",
+        "/library/cognitive-load-theory/",
+        "/guides/how-long-should-course-videos-be/"
+      ]
+    },
+    {
+      "id": "kit-audit",
+      "kicker": "Free: course design kit",
+      "headline": "Score your course against 24 evidence-based checks",
+      "text": "A course design audit that shows where to fix first, plus seven templates for the rest of the build. Free Google Docs and Sheets.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/guides/online-course-design-checklist/",
+        "/guides/how-to-pilot-an-online-course/",
+        "/guides/online-course-completion-rates/",
+        "/guides/how-to-create-an-online-course-that-sells/"
+      ]
+    },
+    {
+      "id": "kit-mixed",
+      "kicker": "Free: course design kit",
+      "headline": "Plan for beginners and experts in the same course",
+      "text": "A mixed-audience planner: where beginners get worked examples and where experienced learners can skip ahead. Plus six more templates.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/library/expertise-reversal-effect/",
+        "/library/scaffolding-in-education/",
+        "/library/constructivist-learning-theory/"
+      ]
+    },
+    {
+      "id": "kit-cards",
+      "kicker": "Free: course design kit",
+      "headline": "Eight evidence cards: what works, and what to do on Monday",
+      "text": "One printable page per learning principle, with how strong the evidence is. Plus seven templates for building your course.",
+      "cta": "Get the free kit",
+      "url": "/kit/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "pages": [
+        "/library/learning-styles/",
+        "/library/learning-pyramid/",
+        "/library/self-determination-theory/"
       ]
     }
   ]

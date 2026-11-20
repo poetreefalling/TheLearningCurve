@@ -1,0 +1,116 @@
+{
+  "name": "YuJa Lumina",
+  "vendor": "yuja",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://www.yuja.com/lumina/",
+  "summary": "Cloud video CMS for recording, hosting, streaming, interactive video quizzes, captioning, accessibility workflows and analytics.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "government"
+    ],
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Lecture capture",
+      "Video assignments",
+      "Video quizzes",
+      "Course media libraries",
+      "Accessibility compliance reporting"
+    ],
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Video quizzes, note-taking, bookmarks, comments, multi-stream playback, AI captions, chapters, audio descriptions, video compliance reports and analytics"
+    ],
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "LTI-compliant LMS integration",
+      "Canvas, Moodle, D2L, Blackboard",
+      "SSO including CAS, Shibboleth, OpenID, PingFederate, LDAP and Active Directory"
+    ],
+    "source": "https://www.yuja.com/lumina/lms-integration/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Institutional quote; no public list price captured."
+    },
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA",
+      "evidence": "VPAT 2.5 (INT), January 2026, published by the vendor"
+    },
+    "source": "https://www.yuja.com/pdf/accessibility/LUMINA-VPAT2.5INT%28Jan-2026%29.pdf",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2"
+    ],
+    "source": "https://www.yuja.com/lumina/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "panopto",
+    "kaltura",
+    "vimeo-enterprise"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor product documentation and vendor-published VPAT reviewed. VPAT is a vendor-issued conformance report, not independent certification.",
+    "AI: GenAI Video PowerPack: chapters, enhanced audio descriptions, captions, quiz questions; AI/ML metadata categorisation and ASR. Models: Specific foundation models and subprocessors not identified in reviewed sources. Training: Not verified; request explicit policy for video/audio, transcripts, learner data and prompts. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request SOC 2 Type II report, AI model/provider and subprocessors, data training/retention terms, data residency, VPAT testing scope, accessibility roadmap and Australian institutional references."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LTI; gradebook sync; confirm exact LTI 1.3 deployment and xAPI support for chosen modules."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/yuja-lumina/logo.webp",
+      "alt": "YuJa logo",
+      "source": "https://www.yuja.com/"
+    }
+  }
+}

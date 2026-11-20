@@ -93,18 +93,30 @@ const housePromo = z.object({
   url: z.string().startsWith('/'),
   slots: z.array(z.enum(['billboard', 'rectangle', 'halfpage'])).min(1),
   style: z.enum(['band', 'plain']).default('plain'),
+  // Targeted promos: shown only on these pages (article paths, e.g. "/library/retrieval-practice/"),
+  // in the in-article slot (the rectangle, or the half page that replaces it on wide screens).
+  // Promos without `pages` rotate everywhere else, including the end-of-article billboard.
+  pages: z.array(z.string().regex(/^\/[a-z-]+\/[a-z0-9-]+\/$/, 'an article path like /library/retrieval-practice/')).optional(),
 });
 export type HousePromo = z.infer<typeof housePromo>;
 export const HOUSE = z.object({ promos: z.array(housePromo).default([]) }).parse(houseRaw).promos;
 
 /** A house promo for this slot on this page: never one pointing at the page itself, and the same
- *  choice on every build of a page, and a different one in each slot (from a hash of its path). */
+ *  choice on every build of a page, and a different one in each slot (from a hash of its path).
+ *  On a page a targeted promo lists, the in-article slot (rectangle or half page, which never show
+ *  together) shows that promo, and the billboard keeps to the general rotation. */
 export function pickHouse(slot: Exclude<SlotId, 'card'>, path: string): HousePromo | null {
   const norm = (p: string) => p.replace(/\/?$/, '/');
-  const options = HOUSE.filter((h) => h.slots.includes(slot) && norm(h.url) !== norm(path));
-  if (!options.length) return null;
+  const here = norm(path);
+  const eligible = HOUSE.filter((h) => h.slots.includes(slot) && norm(h.url) !== here);
   let hash = 0;
   for (const ch of path) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  if (slot !== 'billboard') {
+    const targeted = eligible.filter((h) => h.pages?.some((p) => norm(p) === here));
+    if (targeted.length) return targeted[hash % targeted.length];
+  }
+  const options = eligible.filter((h) => !h.pages);
+  if (!options.length) return null;
   // A different promo in each slot on the same page: offset the pick by the slot.
   const offset = { rectangle: 0, billboard: 1, halfpage: 2 }[slot];
   return options[(hash + offset) % options.length];

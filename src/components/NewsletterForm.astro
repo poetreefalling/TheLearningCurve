@@ -22,7 +22,7 @@ const id = `nl-${placement}`;
     <button type="button" class="nl-again">Use a different address</button>
   </div>
   <p class="nl-note" role="status" aria-live="polite">
-    {on ? <>Free to subscribe. One email a month. Unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
+    {on ? <>Free, one email a month. Each month we randomly select subscribers to feature their products, courses and learning discoveries. Unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</> : 'The monthly newsletter opens soon.'}
   </p>
 </form>
 
@@ -57,6 +57,7 @@ const id = `nl-${placement}`;
         const res = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
         const json = await res.json().catch(() => ({ message: 'Something went wrong. Please try again.' }));
         if (res.ok) {
+          (window as any).tlcTrack?.('Newsletter signup');
           done.querySelector<HTMLElement>('[data-nl-email]')!.textContent = String(body.email ?? '').trim();
           fields.forEach((el) => (el.hidden = true));
           note.hidden = true;

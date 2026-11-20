@@ -188,7 +188,9 @@ const aiArea = z.object({ summary: z.string().max(400).optional(), answers: z.ar
 
 const productStatus = z.enum(['active', 'beta', 'acquired', 'discontinued']);
 const standard = z.enum([
-  'lti-1.1', 'lti-1.3', 'lti-advantage', 'scorm-1.2', 'scorm-2004', 'xapi', 'cmi5', 'aicc',
+  'lti-1.1', 'lti-1.3', 'lti-advantage', 'scorm-1.2', 'scorm-2004',
+  'scorm', // the vendor states SCORM conformance but names no edition
+  'xapi', 'cmi5', 'aicc',
   'qti', 'caliper', 'oneroster', 'open-badges-2', 'open-badges-3', 'clr',
 ]);
 
@@ -513,6 +515,13 @@ const articles = defineCollection({
         })
         .optional(),
       readerCheck: readerCheck.optional(),
+      // The Listening Post: readers leave a note after the article (docs/listening-post.md)
+      listeningPost: z
+        .object({
+          prompt: z.string().max(160), // the question readers answer
+          intro: z.string().max(300).optional(),
+        })
+        .optional(),
       faqs: z.array(z.object({ q: z.string(), a: z.string() })).min(3),
       sources: z.array(source).default([]),
       featured: z.boolean().default(false),

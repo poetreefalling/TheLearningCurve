@@ -234,5 +234,20 @@
       "field": "AI models",
       "note": "no named model or provider, so models is empty; the description is kept as a note."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/moodle-lms/logo.webp",
+      "alt": "Moodle logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/moodle-lms/screenshot-1.webp",
+        "frame": true,
+        "alt": "A Moodle course page for Modern American Literature: the course navigation down the left (participants, badges, competencies, grades and course sections), and an embedded YuJa video library showing media folders and a grid of video thumbnails",
+        "caption": "A Moodle course with a third-party video platform (YuJa) embedded in a course section, one of the many integrations Moodle supports.",
+        "credit": "Image: YuJa"
+      }
+    ]
+  }
 }

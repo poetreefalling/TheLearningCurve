@@ -1,0 +1,107 @@
+{
+  "name": "Hihaho",
+  "vendor": "hihaho",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://hihaho.com/pricing/",
+  "summary": "Interactive video platform for adding questions, hotspots, branching, menus and data capture to existing video.",
+  "primaryMarket": {
+    "value": [
+      "government",
+      "corporate"
+    ],
+    "source": "https://hihaho.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Safety and compliance video",
+      "Branching scenarios",
+      "Onboarding",
+      "Product/process training",
+      "Interactive demonstrations"
+    ],
+    "source": "https://hihaho.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Video overlays, branching, questions, click tracking, analytics, transcription, APIs and LMS data transfer"
+    ],
+    "source": "https://hihaho.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "SCORM, xAPI and embed code",
+      "API connections",
+      "Data can sync to LMS, CRM or marketing automation systems"
+    ],
+    "source": "https://hihaho.com/features/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://hihaho.com/features/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Public annual pricing: Starter €2,497; Professional €4,997; Enterprise from €14,997; usage/view limits apply.",
+      "from": "€2,497 a year (Starter)"
+    },
+    "source": "https://hihaho.com/pricing/",
+    "checked": "2026-11-15",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [
+    "edpuzzle",
+    "wevideo",
+    "nearpod",
+    "mindstamp"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-15",
+  "draft": false,
+  "researchTasks": [
+    "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing, features and help-centre pages reviewed.",
+    "AI: Limited AI features in Starter/Professional; all AI features in Enterprise. Exact feature list and models require confirmation. Models: Not disclosed in reviewed sources. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
+    "Vendor outreach (High priority): Request AI model/provider list, training and retention policies, subprocessors, DPA, SOC 2/ISO, VPAT, Australian data residency and exact xAPI statements."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing basis",
+      "note": "Not stated in the reviewed pages."
+    },
+    {
+      "field": "deployment",
+      "note": "Not recorded in the dataset."
+    },
+    {
+      "field": "accessibility",
+      "note": "Transcription and multilingual transcripts supported; VPAT/WCAG conformance not verified."
+    },
+    {
+      "field": "security",
+      "note": "Security assurance, DPA, data residency and retention not verified in reviewed pages."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/hihaho/logo.webp",
+      "alt": "Hihaho logo"
+    }
+  }
+}

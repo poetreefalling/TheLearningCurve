@@ -1,0 +1,118 @@
+---
+// "A look inside": a mock-up of one issue of the newsletter, for /newsletter/. Every item except
+// the spotlight is real and drawn from the site at build time (the latest trends piece, the latest
+// library entry, the newest Discover profile), so the preview changes as the site does. The
+// subscriber spotlight is an empty, labelled slot: we never show an invented subscriber.
+// Rows rise in as the preview scrolls into view; without
+// JavaScript, or under reduced motion, everything is simply shown.
+import { getArticles, urlOf } from '../../lib/articles';
+import { getProducts, productUrl } from '../../lib/directory';
+
+const [trend] = await getArticles('trends');
+const [library] = await getArticles('library');
+const products = (await getProducts()).filter((p) => p.data.media?.logo && p.data.lastVerified);
+const product = products.sort((a, b) => b.data.lastVerified!.valueOf() - a.data.lastVerified!.valueOf() || a.data.name.localeCompare(b.data.name))[0];
+const month = new Date().toLocaleDateString('en-AU', { month: 'long', year: 'numeric', timeZone: 'Australia/Sydney' });
+const rows = [
+  trend && { label: "What's happening", title: trend.data.title, text: trend.data.standfirst, href: urlOf(trend) },
+  library && { label: 'Research worth reading', title: library.data.title, text: library.data.standfirst, href: urlOf(library) },
+  product && { label: 'New in Discover', title: product.data.name, text: product.data.summary, href: productUrl(product.id), logo: product.data.media!.logo!.src },
+].filter(Boolean) as { label: string; title: string; text: string; href: string; logo?: string }[];
+const kinds = ['course', 'product', 'learning discovery'];
+---
+<figure class="ip" data-ip aria-labelledby="ip-cap">
+  <figcaption id="ip-cap" class="ip-cap">A look inside an issue <span>Drawn from the site this month</span></figcaption>
+  <div class="ip-sheet">
+    <div class="ip-mast">
+      <span class="ip-mark">The Learning Curve</span>
+      <span class="ip-issue">{month}</span>
+    </div>
+    <ol class="ip-rows">
+      {rows.map((r, i) => (
+        <li class="ip-row" style={`--i:${i}`}>
+          <span class="ip-label">{r.label}</span>
+          <a class="ip-item" href={r.href}>
+            {r.logo && <span class="ip-logo"><img src={r.logo} alt="" loading="lazy" /></span>}
+            <span class="ip-title">{r.title}</span>
+            <span class="ip-text">{r.text}</span>
+          </a>
+        </li>
+      ))}
+      <li class="ip-row ip-spot" style={`--i:${rows.length}`}>
+        <span class="ip-label">Subscriber spotlight</span>
+        <div class="ip-spot-card">
+          <span class="ip-title">Your <span class="ip-kind" data-ip-kind data-kinds={kinds.join('|')}>{kinds[0]}</span> could be here</span>
+          <span class="ip-text">Each month we pick subscribers at random and feature what they're building: a course, a product or a discovery about how people learn.</span>
+          <span class="ip-lines" aria-hidden="true"><i></i><i></i><i></i></span>
+          <a class="ip-go" href="#nl-newsletter-page-email">Subscribe to be eligible <span aria-hidden="true">↓</span></a>
+        </div>
+      </li>
+    </ol>
+  </div>
+</figure>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-ip]').forEach((el) => {
+    const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (still || !('IntersectionObserver' in window)) return;
+    el.classList.add('ip-anim');
+    const io = new IntersectionObserver((entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      el.classList.add('ip-in');
+      io.disconnect();
+      // Cycle "Your course / product / learning discovery could be here".
+      const kind = el.querySelector<HTMLElement>('[data-ip-kind]');
+      const words = kind?.dataset.kinds?.split('|') ?? [];
+      let n = 0;
+      if (kind && words.length > 1) {
+        setInterval(() => {
+          kind.classList.add('ip-swap');
+          setTimeout(() => { n = (n + 1) % words.length; kind.textContent = words[n]; kind.classList.remove('ip-swap'); }, 220);
+        }, 2600);
+      }
+    }, { threshold: 0.25 });
+    io.observe(el);
+  });
+</script>
+
+<style>
+  .ip { margin: 40px 0 36px; }
+  .ip-cap { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-top: 10px; border-top: 2px dotted var(--rule-strong); margin-bottom: 18px; font: 800 11.5px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+  .ip-cap span { font: 400 13px/1.2 var(--sans); letter-spacing: 0; text-transform: none; color: var(--muted); }
+  .ip-sheet { position: relative; background: var(--surface); border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; box-shadow: 0 1px 0 var(--rule), 0 18px 40px rgba(22, 24, 29, 0.08); }
+  .ip-mast { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 16px 22px; background: var(--band); color: var(--band-ink); }
+  .ip-mark { font: 800 1.25rem/1 var(--display); letter-spacing: -0.01em; }
+  .ip-issue { font: 700 11px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; }
+  .ip-rows { list-style: none; margin: 0; padding: 6px 22px 22px; }
+  .ip-row { display: grid; grid-template-columns: 150px 1fr; gap: 6px 22px; padding: 18px 0; border-top: 1px solid var(--rule); }
+  .ip-row:first-child { border-top: 0; }
+  .ip-label { font: 700 11px/1.5 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); padding-top: 3px; }
+  .ip-item { display: flex; flex-direction: column; gap: 5px; color: inherit; text-decoration: none; }
+  .ip-item:hover .ip-title { text-decoration: underline; }
+  .ip-logo { align-self: flex-start; display: inline-flex; background: #ffffff; border: 1px solid var(--rule); border-radius: 8px; padding: 5px 9px; margin-bottom: 3px; }
+  .ip-logo img { display: block; height: 18px; width: auto; max-width: 120px; object-fit: contain; }
+  .ip-title { font: 800 1.12rem/1.25 var(--display); color: var(--ink); }
+  .ip-text { font: 400 14.5px/1.5 var(--sans); color: var(--ink-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .ip-spot { border-top: 0; padding-bottom: 0; }
+  .ip-spot .ip-label { color: var(--ink); }
+  .ip-spot-card { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 18px 20px; border-radius: 12px; background: var(--band); color: var(--band-ink); }
+  .ip-spot-card .ip-title, .ip-spot-card .ip-text { color: var(--band-ink); }
+  .ip-spot-card .ip-text { -webkit-line-clamp: unset; display: block; }
+  .ip-kind { display: inline-block; border-bottom: 3px solid var(--band-ink); transition: opacity 0.22s, transform 0.22s; }
+  .ip-kind.ip-swap { opacity: 0; transform: translateY(6px); }
+  .ip-lines { display: grid; gap: 7px; margin: 4px 0 2px; }
+  .ip-lines i { display: block; height: 9px; border-radius: 999px; border: 1.5px dashed rgba(22, 24, 29, 0.45); }
+  .ip-lines i:nth-child(1) { width: 92%; } .ip-lines i:nth-child(2) { width: 78%; } .ip-lines i:nth-child(3) { width: 55%; }
+  .ip-go { align-self: flex-start; margin-top: 4px; font: 700 12px/1 var(--label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--band-ink); text-decoration: none; padding: 11px 16px; border-radius: 999px; background: var(--band-ink); color: var(--band); }
+  .ip-go:hover { background: #2b2d33; }
+
+  /* Motion (only once JavaScript has confirmed the reader allows it) */
+  .ip-anim .ip-row { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1); transition-delay: calc(var(--i) * 140ms + 150ms); }
+  .ip-anim.ip-in .ip-row { opacity: 1; transform: none; }
+
+  @media (max-width: 620px) {
+    .ip-row { grid-template-columns: 1fr; }
+    .ip-rows { padding: 4px 16px 16px; }
+    .ip-mast { padding: 14px 16px; }
+  }
+</style>
