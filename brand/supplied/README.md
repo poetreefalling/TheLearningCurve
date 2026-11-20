@@ -7,9 +7,9 @@ before generating (CLAUDE.md step 6). When it uses an image it moves it to
 
 **Photo credits.** Some images here are licensed photographs, not generated ones. When a line's
 Notes give a credit (for example `hero.credit: "Photo: RDNE Stock project / Pexels"`), set
-`hero.credit` to exactly that in the article's frontmatter. The site shows it under the hero, where it
-replaces the default note that documentary images are AI-generated. Lines with no credit are
-generated images and get no `hero.credit`.
+`hero.credit` to exactly that in the article's frontmatter. The site shows it under the hero
+(documentary heroes otherwise show no credit). Lines with no credit are generated images and get no
+`hero.credit`.
 
 | File | Backlog row | Style | Scene | Alt text (starting point) | Notes |
 |---|---|---|---|---|---|
