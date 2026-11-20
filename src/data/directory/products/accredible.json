@@ -128,5 +128,11 @@
       "field": "security (assurance)",
       "note": "Vendor states GDPR and SOC 2 Type II compliance and describes security audits. Obtain current report/certificate and scope."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/accredible/logo.webp",
+      "alt": "Accredible logo"
+    }
+  }
 }

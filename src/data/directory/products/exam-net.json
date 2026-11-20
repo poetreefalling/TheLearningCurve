@@ -96,5 +96,20 @@
       "field": "security (assurance)",
       "note": "Vendor describes security levels, browser lockdown and anti-cheating controls. Obtain security certifications, data processing terms and retention details."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/exam-net/logo.webp",
+      "alt": "Exam.net logo"
+    },
+    "screenshots": [
+      {
+        "src": "/images/directory/exam-net/screenshot-1.webp",
+        "alt": "The Exam.net teacher dashboard: an All exams list showing each exam's name, exam key, creation date, type and open or closed status, with folders such as Spanish 2 and Biology in the left sidebar",
+        "caption": "The teacher's exam list, where exams are sorted into folders and opened or closed for students.",
+        "credit": "Image: Exam.net",
+        "width": 1280
+      }
+    ]
+  }
 }

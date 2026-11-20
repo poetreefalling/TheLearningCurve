@@ -115,5 +115,11 @@
       "field": "security (assurance)",
       "note": "Vendor states ISO certifications and GDPR compliance; obtain current certificate names, scope and validity, SOC 2 status, DPA and subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/credly/logo.webp",
+      "alt": "Credly by Pearson logo"
+    }
+  }
 }
