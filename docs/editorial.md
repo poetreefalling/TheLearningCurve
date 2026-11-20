@@ -283,8 +283,8 @@ Reject and regenerate once if it has: a logo, logomark or brand name (on a scree
 or anything else), large or prominent words (a headline, sign or caption you can read at a glance;
 small interface text and handwriting in the background of a screen or page are fine), malformed hands or
 extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
-subject that doesn't match the article. If the second attempt also fails, stop and report;
-don't publish a weak image.
+subject that doesn't match the article. If the second attempt also fails, don't publish a weak
+image: use a flagged placeholder for Jim to replace before merging (CLAUDE.md step 6).
 
 Never reuse an image. Each article has its own hero; reusing another article's (even as a
 placeholder) makes the site look templated, and the build now fails when two published articles
