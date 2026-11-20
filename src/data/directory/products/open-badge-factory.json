@@ -98,5 +98,11 @@
       "field": "security (assurance)",
       "note": "Request security certificates, hosting regions, DPA, encryption, backup and subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/open-badge-factory/logo.webp",
+      "alt": "Open Badge Factory logo"
+    }
+  }
 }

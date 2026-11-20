@@ -96,5 +96,11 @@
       "field": "security (assurance)",
       "note": "Vendor provides a Data Security resource; request SOC 2/ISO reports, DPA, hosting and backup locations, subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/pebblepad/logo.webp",
+      "alt": "PebblePad logo"
+    }
+  }
 }

@@ -97,5 +97,11 @@
       "field": "security (assurance)",
       "note": "Request current Instructure/Parchment trust-centre evidence, SOC 2/ISO scope, DPA and data residency."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/parchment-digital-badges/logo.webp",
+      "alt": "Parchment Digital Badges logo"
+    }
+  }
 }

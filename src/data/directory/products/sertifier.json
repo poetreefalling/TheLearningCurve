@@ -112,5 +112,11 @@
       "field": "security (assurance)",
       "note": "Vendor describes independent certifications and a trust centre; obtain exact SOC/ISO certificate, scope, dates and DPA."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/sertifier/logo.webp",
+      "alt": "Sertifier logo"
+    }
+  }
 }

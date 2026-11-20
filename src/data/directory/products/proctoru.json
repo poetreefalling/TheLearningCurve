@@ -92,5 +92,11 @@
       "field": "security (assurance)",
       "note": "Sensitive identity, video and exam data. Request current SOC 2/ISO, DPA, data-flow diagrams, retention and subcontractor information."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/proctoru/logo.webp",
+      "alt": "ProctorU logo"
+    }
+  }
 }

@@ -100,5 +100,11 @@
       "field": "security (assurance)",
       "note": "Video and device activity are sensitive student data. Obtain privacy impact assessment, DPA, security reports, retention controls and incident procedures."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/respondus-monitor/logo.webp",
+      "alt": "Respondus logo"
+    }
+  }
 }

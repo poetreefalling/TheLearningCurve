@@ -111,5 +111,11 @@
       "field": "security (assurance)",
       "note": "Request hosting architecture, penetration-test summary, SOC 2/ISO evidence, DPA and incident-response policy."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/tao-testing/logo.webp",
+      "alt": "TAO logo"
+    }
+  }
 }

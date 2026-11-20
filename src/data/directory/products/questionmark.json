@@ -122,5 +122,11 @@
       "field": "security (assurance)",
       "note": "Vendor states ISO 27001 certification and GDPR compliance. Obtain certificate scope, current validity, SOC 2 status, DPA and subprocessor list."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/questionmark/logo.webp",
+      "alt": "Questionmark logo"
+    }
+  }
 }
