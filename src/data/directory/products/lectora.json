@@ -1,0 +1,60 @@
+{
+  "name": "Lectora",
+  "vendor": "elb-learning",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://products.elblearning.com/create-learning/lectora",
+  "summary": "Long-running eLearning authoring tool from ELB Learning, available as desktop and online editions, for building interactive, accessible courses with branching.",
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "No prices on the Lectora product page; links to custom pricing. Free trial offered."
+    },
+    "source": "https://products.elblearning.com/create-learning/lectora",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "trial": true
+    },
+    "source": "https://products.elblearning.com/create-learning/lectora",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Re-open the Lectora product page in a browser to verify standards, editions, AI Course Wizard and HQ address before recording them."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Product page lists SCORM, AICC, cmi5 and xAPI export, but only a summary of the truncated page was read; confirm."
+    },
+    {
+      "field": "deployment",
+      "note": "Desktop (Windows) and Lectora Online editions read from a page summary; confirm."
+    },
+    {
+      "field": "pricing",
+      "note": "Lectora pricing page could not be opened."
+    },
+    {
+      "field": "accessibility",
+      "note": "Meta description calls it WCAG-compliant; no VPAT found."
+    },
+    {
+      "field": "security",
+      "note": "ELB states SOC 2 Type II for other products, not Lectora."
+    }
+  ]
+}

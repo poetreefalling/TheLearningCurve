@@ -1,0 +1,113 @@
+{
+  "name": "BranchTrack",
+  "vendor": "branchtrack",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+  "summary": "Browser-based, no-code tool for branching simulations and scenario-based training, used by L&D teams to build decision practice without coding.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Sales, leadership and compliance scenarios",
+      "Classroom sessions with a live scoreboard",
+      "Sims embedded in existing courses",
+      "SME playtesting"
+    ],
+    "source": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Visual branching editor",
+      "AI Co-Pilot for choices and scenarios",
+      "Trackable links and SCORM download",
+      "Team projects and change tracking",
+      "Learner behaviour analytics"
+    ],
+    "source": "https://www.branchtrack.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Articulate Storyline",
+      "Articulate Rise",
+      "Adobe Captivate",
+      "Lectora",
+      "Zoom",
+      "Webex"
+    ],
+    "source": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm",
+      "xapi"
+    ],
+    "source": "https://www.branchtrack.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "$83 a month (Professional, billed annually, 10 simulations)",
+      "notes": "Free plan with 1 simulation; Team from $299 a month; Enterprise by quote. Currency shown as $."
+    },
+    "source": "https://www.branchtrack.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": true
+    },
+    "source": "https://www.branchtrack.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Vendor says simulations comply with current WCAG standards (level not stated)"
+    },
+    "source": "https://www.branchtrack.com/platform/no-code-authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "security",
+      "note": "No certifications named."
+    }
+  ]
+}

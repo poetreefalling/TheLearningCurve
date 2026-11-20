@@ -3,7 +3,8 @@
   "vendor": "colossyan",
   "category": "video-interactive",
   "secondaryCategories": [
-    "ai-for-learning"
+    "ai-for-learning",
+    "authoring-tools"
   ],
   "website": "https://www.colossyan.com/features/ai-video-generator/",
   "summary": "AI video platform for training and enablement, with avatars, translations, interactive learning and SCORM export.",
@@ -89,13 +90,10 @@
   "researchTasks": [
     "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor feature and SCORM documentation reviewed.",
     "AI: Generative video planning, avatar video, voices, translation and interactive video features. Models: Underlying model providers not specified in reviewed feature page. Training: Vendor states it does not train foundation models on customer content. Retention: Retention/deletion terms not verified. Subprocessors: Vendor states agreements with AI vendors prohibit training on customer data; identify vendors and subprocessors.",
-    "Vendor outreach (Medium priority): Request list of foundation models/subprocessors, retention schedule, DPA, SOC 2/ISO, data residency, VPAT, SCORM completion semantics and pricing in AUD."
+    "Vendor outreach (Medium priority): Request list of foundation models/subprocessors, retention schedule, DPA, SOC 2/ISO, data residency, VPAT, SCORM completion semantics and pricing in AUD.",
+    "21 Nov 2026: added to Authoring Tools as a secondary category (authoring tools expansion workbook); filled pricingModel from the vendor's own pages. Colossyan pricing page also states SCORM 1.2 and 2004 compatibility (existing standards field kept)."
   ],
   "dataGaps": [
-    {
-      "field": "pricing basis",
-      "note": "Not stated in the reviewed pages. Free tier offered."
-    },
     {
       "field": "deployment",
       "note": "Not recorded in the dataset."
@@ -115,5 +113,15 @@
       "alt": "Colossyan logo",
       "source": "https://www.colossyan.com/"
     }
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": true,
+      "trial": true
+    },
+    "source": "https://www.colossyan.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
   }
 }

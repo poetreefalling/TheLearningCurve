@@ -1,0 +1,85 @@
+{
+  "name": "Adapt",
+  "vendor": "adapt-learning",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.adaptlearning.org/",
+  "summary": "Free, open-source HTML5 framework for responsive eLearning, with an authoring tool for non-programmers; suits teams with developer support who want extensible courses.",
+  "useCases": {
+    "value": [
+      "Responsive courses across devices",
+      "Course building without programming via the authoring tool",
+      "Delivery from a web server or a SCORM LMS"
+    ],
+    "source": "https://www.adaptlearning.org/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Single responsive HTML5 output",
+      "Assessments with question banks and randomisation",
+      "Bookmarking and completion tracking",
+      "Localisation including right-to-left",
+      "Plug-in architecture"
+    ],
+    "source": "https://www.adaptlearning.org/index.php/adapt-framework/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://www.adaptlearning.org/index.php/adapt-framework/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true
+    },
+    "source": "https://www.adaptlearning.org/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted"
+    ],
+    "source": "https://www.adaptlearning.org/index.php/adapt-framework/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WAI AA (vendor claim)"
+    },
+    "source": "https://www.adaptlearning.org/index.php/adapt-framework/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Check the Adapt GitHub repositories for the current framework and authoring-tool releases."
+  ],
+  "dataGaps": [
+    {
+      "field": "status",
+      "note": "Pages reviewed are dated (framework status line 2017, authoring-tool page a 2019 release post); confirm current release and maintenance."
+    },
+    {
+      "field": "standards",
+      "note": "xAPI listed as future work on the framework page."
+    }
+  ]
+}

@@ -2,7 +2,9 @@
   "name": "Camtasia",
   "vendor": "techsmith",
   "category": "video-interactive",
-  "secondaryCategories": [],
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
   "website": "https://www.techsmith.com/store/camtasia",
   "summary": "Screen recording and video editing suite for software demonstrations, tutorials, presentations and how-to learning content.",
   "primaryMarket": {
@@ -68,21 +70,10 @@
   "researchTasks": [
     "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: TechSmith pricing page reviewed; independent security/accessibility evidence not inspected.",
     "AI: AI-assisted text-based video editing, noise removal, background removal and image-based SOP features by plan. Models: Specific models/providers not identified in reviewed pricing page. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
-    "Vendor outreach (High priority): Request AI feature/model list, whether media is uploaded to cloud services, training/retention terms, subprocessors, SOC 2/ISO, VPAT, institutional licensing and data residency."
+    "Vendor outreach (High priority): Request AI feature/model list, whether media is uploaded to cloud services, training/retention terms, subprocessors, SOC 2/ISO, VPAT, institutional licensing and data residency.",
+    "21 Nov 2026: added to Authoring Tools as a secondary category (authoring tools expansion workbook); filled standards, pricingModel, deployment from the vendor's own pages. Camtasia exports quiz results with SCORM (edition not named); free editor watermarks exports; individual annual plans from US$39."
   ],
   "dataGaps": [
-    {
-      "field": "standards",
-      "note": "Primarily MP4/video output; SCORM/xAPI not verified."
-    },
-    {
-      "field": "pricing basis",
-      "note": "Not stated in the reviewed pages."
-    },
-    {
-      "field": "deployment",
-      "note": "Not recorded in the dataset."
-    },
     {
       "field": "accessibility",
       "note": "Captioning and editing workflow need VPAT and manual testing."
@@ -97,5 +88,30 @@
       "src": "/images/directory/camtasia/logo.webp",
       "alt": "Camtasia logo"
     }
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://support.techsmith.com/hc/en-us/articles/41262572834829-How-do-I-Make-a-Video-With-Camtasia-Editor",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": true
+    },
+    "source": "https://www.techsmith.com/store/camtasia",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted"
+    ],
+    "source": "https://www.techsmith.com/camtasia/",
+    "checked": "2026-11-21",
+    "origin": "verified"
   }
 }

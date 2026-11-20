@@ -1,0 +1,98 @@
+{
+  "name": "Kotobee Author",
+  "vendor": "vijua",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.kotobee.com/demos.html/products/author",
+  "summary": "Desktop software for building interactive ebooks and EPUBs and publishing them as apps, web readers or LMS packages, used in schools, universities, training and publishing.",
+  "primaryMarket": {
+    "value": [
+      "schools",
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.kotobee.com/demos.html/products/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Interactive ebooks with video, audio and questions",
+      "Converting PDF, Word or EPUB into interactive ebooks",
+      "Ebooks delivered inside an LMS",
+      "Branded mobile ebook apps"
+    ],
+    "source": "https://www.kotobee.com/demos.html/products/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Export to 12+ ebook formats",
+      "Branded reader apps",
+      "Preview on 40+ devices",
+      "Optional hosting on Kotobee Cloud"
+    ],
+    "source": "https://www.kotobee.com/demos.html/products/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Moodle",
+      "Blackboard",
+      "D2L Brightspace",
+      "Schoology"
+    ],
+    "source": "https://www.kotobee.com/demos.html/products/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://www.kotobee.com/demos.html/products/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Free licence plus Basic, Premium and Institutional plans; prices did not render in the fetched page."
+    },
+    "source": "https://www.kotobee.com/en/pricing/author",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted",
+      "cloud"
+    ],
+    "source": "https://www.kotobee.com/en/products/author/versions",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Also names LTI (version not stated) and Tin Can."
+    },
+    {
+      "field": "pricing",
+      "note": "Plan prices not readable; check in a browser."
+    }
+  ]
+}
