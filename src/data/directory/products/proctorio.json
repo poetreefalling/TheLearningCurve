@@ -92,5 +92,11 @@
       "field": "security (assurance)",
       "note": "Highly sensitive video, audio, identity and device data. Request security certifications, DPA, privacy impact materials, encryption and data location."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/proctorio/logo.webp",
+      "alt": "Proctorio logo"
+    }
+  }
 }

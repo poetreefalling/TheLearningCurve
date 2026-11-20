@@ -80,5 +80,11 @@
       "field": "security (assurance)",
       "note": "Request Pearson VUE privacy notice, security certifications, data-flow and retention schedules, subprocessors and regional processing details."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/pearson-vue-onvue/logo.webp",
+      "alt": "Pearson VUE logo"
+    }
+  }
 }
