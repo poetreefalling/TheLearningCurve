@@ -2,7 +2,9 @@
   "name": "Vyond",
   "vendor": "vyond",
   "category": "video-interactive",
-  "secondaryCategories": [],
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
   "website": "https://www.vyond.com/plans/",
   "summary": "Visual video creation platform for animated explainers, scenario videos, screen recordings and AI-assisted video production.",
   "primaryMarket": {
@@ -68,16 +70,13 @@
   "researchTasks": [
     "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor pricing page reviewed; prices are vendor-published and may change.",
     "AI: AI avatars, text-to-video, text-to-speech, script/document/URL to video and translation. Models: Model providers not disclosed in reviewed pricing page. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
-    "Vendor outreach (High priority): Request AI provider/model list, training and retention terms, subprocessors, DPA, SOC 2/ISO, data residency, VPAT and LMS/SCORM roadmap."
+    "Vendor outreach (High priority): Request AI provider/model list, training and retention terms, subprocessors, DPA, SOC 2/ISO, data residency, VPAT and LMS/SCORM roadmap.",
+    "21 Nov 2026: added to Authoring Tools as a secondary category (authoring tools expansion workbook); filled pricingModel from the vendor's own pages. Vyond help says interactivity can't be added in Vyond (MP4 export); a SCORM export row on the plans page was not confirmed in the text read."
   ],
   "dataGaps": [
     {
       "field": "standards",
       "note": "MP4/video delivery; SCORM export not verified."
-    },
-    {
-      "field": "pricing basis",
-      "note": "Not stated in the reviewed pages."
     },
     {
       "field": "deployment",
@@ -98,5 +97,14 @@
       "alt": "Vyond logo",
       "source": "https://www.vyond.com/"
     }
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "trial": true
+    },
+    "source": "https://www.vyond.com/plans/",
+    "checked": "2026-11-21",
+    "origin": "verified"
   }
 }

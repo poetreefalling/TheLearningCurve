@@ -3,7 +3,8 @@
   "vendor": "thinglink",
   "category": "video-interactive",
   "secondaryCategories": [
-    "emerging-technologies"
+    "emerging-technologies",
+    "authoring-tools"
   ],
   "website": "https://www.thinglink.com/",
   "summary": "Authoring platform for interactive images, video, 360° media, 3D models, virtual tours and scenario-based immersive learning.",
@@ -86,16 +87,13 @@
   "researchTasks": [
     "Imported from the CredentialCraft video & interactive learning tools dataset (research snapshot 15 Nov 2026). Evidence status: Vendor support pricing article updated July 2026; pricing and features are vendor-published.",
     "AI: AI-powered creation features are advertised; exact model/provider and AI feature scope require confirmation. Models: Not verified. Training: Not verified. Retention: Not verified. Subprocessors: Not verified.",
-    "Vendor outreach (High priority): Request AI model/provider and training policy, data retention, subprocessors, DPA, VPAT, LTI/xAPI version matrix, hosting regions and education pricing in AUD."
+    "Vendor outreach (High priority): Request AI model/provider and training policy, data retention, subprocessors, DPA, VPAT, LTI/xAPI version matrix, hosting regions and education pricing in AUD.",
+    "21 Nov 2026: added to Authoring Tools as a secondary category (authoring tools expansion workbook); filled pricingModel from the vendor's own pages. ThingLink higher-education plans state LTI 1.3 and xAPI for major LMSs (existing standards field kept)."
   ],
   "dataGaps": [
     {
       "field": "standards (detail)",
       "note": "LTI/xAPI listed for Business tier; confirm exact version and tracking depth."
-    },
-    {
-      "field": "pricing basis",
-      "note": "Not stated in the reviewed pages."
     },
     {
       "field": "deployment",
@@ -116,5 +114,14 @@
       "alt": "ThingLink logo",
       "source": "https://www.thinglink.com/"
     }
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "trial": true
+    },
+    "source": "https://www.thinglink.com/plans/higher-education",
+    "checked": "2026-11-21",
+    "origin": "verified"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "name": "Adapt Learning (open-source project)",
+  "website": "https://www.adaptlearning.org/",
+  "ownership": {
+    "value": "open-source",
+    "source": "https://www.adaptlearning.org/index.php/adapt-framework/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "founded",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "size",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    }
+  ]
+}

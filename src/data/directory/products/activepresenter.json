@@ -1,0 +1,110 @@
+{
+  "name": "ActivePresenter",
+  "vendor": "atomi-systems",
+  "category": "authoring-tools",
+  "secondaryCategories": [
+    "video-interactive"
+  ],
+  "website": "https://atomisystems.com/activepresenter/",
+  "summary": "Windows and macOS desktop app combining screen recording, video editing and eLearning authoring, for software walkthroughs, interactive slide courses and quizzes.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "schools",
+      "nonprofit"
+    ],
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Software simulations and walkthroughs",
+      "Interactive slide courses with quizzes",
+      "Branching scenarios",
+      "Training video production"
+    ],
+    "source": "https://atomisystems.com/activepresenter/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Screen, webcam and audio recording with editing",
+      "14 question types, variables and conditions",
+      "PowerPoint import",
+      "AI captions, translation and noise removal (credits)",
+      "Export to video, HTML5, SCORM and xAPI"
+    ],
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "uPresenter LMS"
+    ],
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi"
+    ],
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$249 one-time (Standard, per computer)",
+      "notes": "Pro US$499 one-time; Pro EDU US$249 for eligible education and non-profit buyers. Free edition watermarks exports."
+    },
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": true,
+      "trial": true
+    },
+    "source": "https://atomisystems.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted"
+    ],
+    "source": "https://atomisystems.com/activepresenter/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "accessibility",
+      "note": "Not stated."
+    },
+    {
+      "field": "security",
+      "note": "Not stated."
+    }
+  ]
+}

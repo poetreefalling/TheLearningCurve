@@ -1,0 +1,87 @@
+{
+  "name": "Lumi",
+  "vendor": "lumi-education",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://lumi.education/",
+  "summary": "Tool for creating H5P interactive content, with a free open-source desktop editor and a cloud service for hosting, sharing and learner reports.",
+  "useCases": {
+    "value": [
+      "Quizzes with instant feedback",
+      "Interactive video and drag-and-drop activities",
+      "Sharing by link, embed or QR code",
+      "Offline editing on the desktop"
+    ],
+    "source": "https://lumi.education/en/lumi-h5p-cloud/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "60+ H5P content types",
+      "Learner reports with individual answers",
+      "Export to HTML, SCORM or .h5p",
+      "Free desktop editor for Windows, macOS and Linux"
+    ],
+    "source": "https://lumi.education/en/lumi-h5p-cloud/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Moodle",
+      "WordPress",
+      "Drupal"
+    ],
+    "source": "https://lumi.education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://lumi.education/en/lumi-h5p-cloud/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Lumi Free; Lumi Pro shown as 10 monthly or 100 yearly (currency not shown in the page text). Desktop editor free."
+    },
+    "source": "https://lumi.education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://lumi.education/en/lumi-h5p-offline-desktop-editor/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Currency for Lumi Pro not confirmed."
+    },
+    {
+      "field": "pricing basis",
+      "note": "Not stated."
+    }
+  ]
+}

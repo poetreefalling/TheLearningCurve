@@ -1,0 +1,36 @@
+{
+  "name": "Confirm (Learning Pool Limited)",
+  "website": "https://www.confirm.com/",
+  "headquarters": {
+    "value": "Derry, Northern Ireland, and Brighton, England (UK headquarters); US offices in Claymont, Delaware and San Francisco",
+    "source": "https://www.confirm.com/company/about-us",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "legalEntity": "Learning Pool Limited, trading as Confirm",
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Confirm describes itself as what Learning Pool grows into; confirm ownership and the relationship between the Learning Pool and Confirm brands."
+  ],
+  "dataGaps": [
+    {
+      "field": "founded",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "size",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "ownership",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "funding",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    }
+  ]
+}

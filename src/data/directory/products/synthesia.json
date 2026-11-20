@@ -4,7 +4,8 @@
   "category": "ai-for-learning",
   "secondaryCategories": [
     "ai-for-learning",
-    "video-interactive"
+    "video-interactive",
+    "authoring-tools"
   ],
   "website": "https://www.synthesia.io/",
   "summary": "AI video platform for creating presenter-led training and instructional videos using avatars, scripts and media.",
@@ -173,17 +174,10 @@
     "Ask vendor (Answers from your own course content): Can the AI answer from customer-provided course content or institutional knowledge? Can this be restricted to approved content?",
     "Ask vendor (Shows its sources): Does the AI show citations or source references for answers grounded in uploaded/course content?",
     "Ask vendor (Who owns what the AI produces): Who owns generated courses, questions, feedback, assessments and learner outputs? What licence does your company retain?",
-    "Researcher note (outputOwnership), not shown until sourced: Included as a high-profile learning media tool, although it is a content-production component rather than a tutor or complete learning platform. Need privacy/age/ownership/provider review."
+    "Researcher note (outputOwnership), not shown until sourced: Included as a high-profile learning media tool, although it is a content-production component rather than a tutor or complete learning platform. Need privacy/age/ownership/provider review.",
+    "21 Nov 2026: added to Authoring Tools as a secondary category (authoring tools expansion workbook); filled standards, pricingModel from the vendor's own pages. Synthesia homepage: publish as link, embed or SCORM (edition not named)."
   ],
   "dataGaps": [
-    {
-      "field": "standards",
-      "note": "Workbook: SCORM/export capabilities vary by plan; verify"
-    },
-    {
-      "field": "pricing basis",
-      "note": "Free and paid plans; enterprise pricing available"
-    },
     {
       "field": "price from",
       "note": "Not in workbook"
@@ -219,5 +213,23 @@
       "alt": "Synthesia logo",
       "source": "https://www.synthesia.io/"
     }
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://www.synthesia.io/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "usage",
+      "freeTier": true,
+      "trial": true
+    },
+    "source": "https://www.synthesia.io/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
   }
 }

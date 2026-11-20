@@ -1,0 +1,96 @@
+{
+  "name": "Raptivity",
+  "vendor": "harbinger-systems",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.raptivity.com/",
+  "summary": "Cloud builder for ready-made eLearning interactions such as quizzes, games and interactive displays, used on their own or inside other authoring tools.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "higher-education"
+    ],
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Quizzes with feedback",
+      "Gamified reinforcement",
+      "Microlearning interactions",
+      "Interactive displays"
+    ],
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Library of interaction templates",
+      "Works standalone or within other authoring tools",
+      "Logo and colour branding",
+      "Mobile-ready, multi-language output"
+    ],
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "xapi"
+    ],
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Monthly, quarterly and annual plans and a 14-day trial are listed, but the offers shown are dated 2021–2022; current prices unconfirmed."
+    },
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": false,
+      "trial": true
+    },
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.raptivity.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Pricing on the site appears out of date."
+    },
+    {
+      "field": "status",
+      "note": "Live site; confirm the product is still sold and maintained."
+    }
+  ]
+}

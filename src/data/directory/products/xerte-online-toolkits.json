@@ -1,0 +1,89 @@
+{
+  "name": "Xerte Online Toolkits",
+  "vendor": "xerte-project",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.xerte.org.uk/",
+  "summary": "Free, open-source browser-based suite for building accessible interactive learning objects and simple websites, used by universities, colleges and schools.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://www.xerte.org.uk/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Interactive learning objects with feedback",
+      "Multi-page course websites",
+      "Learning objects deployed through Moodle or Blackboard"
+    ],
+    "source": "https://xerte.org.uk/wiki/doku.php?id=intro_to_xerte",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Template page types for non-technical authors",
+      "JavaScript and CSS access for developers",
+      "Responsive HTML5 output",
+      "Assistants for text, tasks and image search (some AI-based)"
+    ],
+    "source": "https://xerte.org.uk/wiki/doku.php?id=start",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Moodle",
+      "Blackboard"
+    ],
+    "source": "https://xerte.org.uk/wiki/doku.php?id=intro_to_xerte",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "open-source",
+      "freeTier": true
+    },
+    "source": "https://www.xerte.org.uk/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "self-hosted"
+    ],
+    "source": "https://xerte.org.uk/wiki/doku.php?id=intro_to_xerte",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "No SCORM, xAPI or LTI support named on the pages read."
+    },
+    {
+      "field": "accessibility",
+      "note": "Strong accessibility claim; no WCAG conformance statement found."
+    },
+    {
+      "field": "ai disclosure",
+      "note": "Wiki says some Assistant features use AI; providers not named."
+    }
+  ]
+}

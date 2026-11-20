@@ -1,0 +1,115 @@
+{
+  "name": "Create (formerly Elucidat)",
+  "vendor": "confirm",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.confirm.com/frontline/products/create",
+  "summary": "Cloud authoring tool, formerly Elucidat, that turns existing PDFs and slide decks into responsive courses with AI outlines and built-in translation, aimed at enterprise and frontline L&D teams.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.confirm.com/frontline/products/create",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Compliance training built from existing material",
+      "Keeping content current across locations and languages",
+      "Onboarding and product-knowledge courses"
+    ],
+    "source": "https://www.confirm.com/frontline/products/create",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI course outlines from a topic or uploaded PDF",
+      "PowerPoint import and templates",
+      "Translation into 120+ languages with glossary control",
+      "Brand and style locking",
+      "Completion and pass-rate analytics"
+    ],
+    "source": "https://www.confirm.com/frontline/products/create",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://www.confirm.com/frontline/products/create",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": false,
+      "notes": "Listed under 'Get pricing' with no figure on Confirm's pricing page."
+    },
+    "source": "https://www.confirm.com/frontline/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.confirm.com/frontline/products/create",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO/IEC 27001:2022 (Confirm)",
+      "SOC 2 Type 2 (report on request)",
+      "Cyber Essentials"
+    ],
+    "source": "https://www.confirm.com/policies/security",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "UK",
+        "US"
+      ],
+      "notes": "AWS-hosted; whether Create is inside the certification scope isn't stated."
+    },
+    "source": "https://www.confirm.com/policies/security",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Workbook outreach: AI model/provider and no-training terms; ACR; Australian data residency; LTI/API; exact SCORM/xAPI tracking; Create pricing."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "SCORM stated without edition. The workbook's help-centre article (SCORM 1.2, 2004, xAPI) could not be opened."
+    },
+    {
+      "field": "pricing basis",
+      "note": "No public price for Create."
+    },
+    {
+      "field": "accessibility",
+      "note": "Only a general accessibility claim; no WCAG level or ACR."
+    },
+    {
+      "field": "ai disclosure",
+      "note": "AI outlines and translation stated; model provider and training policy not stated."
+    }
+  ]
+}

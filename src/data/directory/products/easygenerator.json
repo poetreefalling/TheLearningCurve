@@ -1,0 +1,142 @@
+{
+  "name": "Easygenerator",
+  "vendor": "easygenerator",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.easygenerator.com/",
+  "summary": "Browser-based authoring tool with an AI co-author, built for subject-matter experts and L&D teams creating company-specific courses without design skills.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.easygenerator.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Compliance training",
+      "Employee onboarding",
+      "Sales and customer success training",
+      "Health and safety training"
+    ],
+    "source": "https://www.easygenerator.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "EasyAI co-author in the editor (all plans)",
+      "Document and PowerPoint to draft course",
+      "Dynamic SCORM updates without re-uploading",
+      "Add-ons for AI avatar video, AI role-play and translation",
+      "Private links with password and QR code"
+    ],
+    "source": "https://www.easygenerator.com/en/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Cornerstone",
+      "LearnUpon",
+      "Degreed",
+      "HowNow",
+      "EdCast",
+      "BlendLXP",
+      "LTI 1.2 publishing"
+    ],
+    "source": "https://www.easygenerator.com/en/integrations/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004",
+      "xapi"
+    ],
+    "source": "https://www.easygenerator.com/en/features/scorm-and-xapi/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$1,499 a year (Pro, 1 author), billed annually",
+      "notes": "Team US$7,495 a year from 5 authors; Enterprise by quote. Taxes may apply. 14-day trial, then a Free plan with premium features off."
+    },
+    "source": "https://www.easygenerator.com/en/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "freeTier": true,
+      "trial": true
+    },
+    "source": "https://www.easygenerator.com/en/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.easygenerator.com/en/security-compliance/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO 27001",
+      "SOC 2 Type 2",
+      "GDPR"
+    ],
+    "source": "https://www.easygenerator.com/en/security-compliance/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "EU (Frankfurt, Germany)"
+      ],
+      "gdpr": true
+    },
+    "source": "https://www.easygenerator.com/en/security-compliance/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "OpenAI"
+      ],
+      "trainsOnCustomerData": "no",
+      "notes": "EasyAI is powered by OpenAI under an enterprise licence with a DPA."
+    },
+    "source": "https://www.easygenerator.com/en/features/easyai/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Workbook outreach: AI prompt/output retention and subprocessors; ACR; xAPI data depth; reviewer limits."
+  ],
+  "dataGaps": [
+    {
+      "field": "accessibility",
+      "note": "No WCAG level, VPAT or ACR found."
+    }
+  ]
+}

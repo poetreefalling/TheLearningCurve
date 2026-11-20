@@ -1,0 +1,100 @@
+{
+  "name": "Chameleon Creator",
+  "vendor": "chameleon-creator",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://www.chameleoncreator.com/",
+  "summary": "Design-led, no-code authoring tool with one-click hosting in a branded learner portal and analytics, aimed at L&D and HR teams.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://www.chameleoncreator.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Onboarding training",
+      "Compliance training",
+      "Leadership training",
+      "Presentations and product explainers"
+    ],
+    "source": "https://www.chameleoncreator.com/authoring",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "25+ interactions and branching",
+      "Branded templates and global theming",
+      "In-app stakeholder review",
+      "Hosted learner portal (no LMS needed)",
+      "Engagement and drop-off analytics"
+    ],
+    "source": "https://www.chameleoncreator.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004"
+    ],
+    "source": "https://www.chameleoncreator.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$2,880 a year (Starter, 2 creator seats)",
+      "notes": "Professional US$5,300 a year; Enterprise by quote. Analytics and hosting add-ons priced by learners. 14-day trial."
+    },
+    "source": "https://www.chameleoncreator.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "trial": true
+    },
+    "source": "https://www.chameleoncreator.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.chameleoncreator.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "accessibility",
+      "note": "General claim only; no WCAG level or ACR."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "ai disclosure",
+      "note": "No AI feature found on the pages reviewed."
+    }
+  ]
+}

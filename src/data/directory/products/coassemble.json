@@ -1,0 +1,143 @@
+{
+  "name": "Coassemble",
+  "vendor": "coassemble",
+  "category": "authoring-tools",
+  "secondaryCategories": [],
+  "website": "https://coassemble.com/",
+  "summary": "API-first training platform for authoring courses with AI and embedding the learner experience in your own product or Slack, suited to product, HR-tech and customer-education teams.",
+  "primaryMarket": {
+    "value": [
+      "corporate"
+    ],
+    "source": "https://coassemble.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Customer-education academies",
+      "Internal onboarding and compliance linked to HRIS or Slack",
+      "Agencies delivering branded training",
+      "Turning handbooks and decks into courses"
+    ],
+    "source": "https://coassemble.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "AI course generation from documents or a brief",
+      "Embeddable builder, player and analytics with REST API and webhooks",
+      "SCORM export and import",
+      "MCP server for AI assistants",
+      "Course Coach quality and accessibility review"
+    ],
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Slack",
+      "Moodle",
+      "OneDrive",
+      "Google Drive",
+      "Loom",
+      "Notion",
+      "Confluence"
+    ],
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm-1.2",
+      "scorm-2004"
+    ],
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$2,500 a year (Build, annual; 600 identified recipients)",
+      "notes": "Scale US$5,000 a year; Partner from US$20,000 a year. Unlimited creators; free sandbox."
+    },
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "usage",
+      "freeTier": true
+    },
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "standard": "WCAG 2.2 AA (vendor badge)"
+    },
+    "source": "https://coassemble.com/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "security": {
+    "value": [
+      "SOC 2 Type 2"
+    ],
+    "source": "https://coassemble.com/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "US",
+        "EU",
+        "UK",
+        "Australia"
+      ],
+      "notes": "Region-locked environments on the Partner plan."
+    },
+    "source": "https://coassemble.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "No-train policy for third-party models; providers not named."
+    },
+    "source": "https://coassemble.com/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's authoring tools expansion workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Pages disagree on SCORM export ('export' vs 'import only, export soon') and on SOC 2 Type 1/Type 2; confirm."
+  ],
+  "dataGaps": []
+}
