@@ -107,5 +107,11 @@
       "field": "security (assurance)",
       "note": "Security depends partly on deployment, hosting and local configuration. Request host-specific security evidence and patching/support arrangements."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/mahara/logo.webp",
+      "alt": "Mahara logo"
+    }
+  }
 }

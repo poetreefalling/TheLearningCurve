@@ -92,5 +92,11 @@
       "field": "security (assurance)",
       "note": "Request SOC 2/ISO, DPA, data residency, encryption and subprocessors."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/kritik/logo.webp",
+      "alt": "Kritik logo"
+    }
+  }
 }
