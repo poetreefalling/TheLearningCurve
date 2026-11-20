@@ -93,5 +93,11 @@
       "field": "security (assurance)",
       "note": "Request SOC 2/ISO evidence, DPA, encryption details, data residency and subprocessor list."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/crowdmark/logo.webp",
+      "alt": "Crowdmark logo"
+    }
+  }
 }
