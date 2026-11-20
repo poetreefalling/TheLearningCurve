@@ -137,8 +137,18 @@ empty slot is better than a weak article.
    `python3 scripts/images.py brand/originals/<slug>.webp <slug> --style <style>`.
    Every article gets its own image: never reuse or copy another article's hero, a sample's, or
    a reference image as a placeholder. The build fails if two published articles share a hero
-   (it compares image fingerprints, so re-encoded copies are caught). If you can't produce a new
-   image that passes, open no PR.
+   (it compares image fingerprints, so re-encoded copies are caught). Check the Artlist balance
+   before generating.
+   **No image? Use a placeholder, don't skip the slot.** If there's no supplied hero and Artlist
+   has too few credits, is unavailable, or gives no image that passes after one regeneration, Jim
+   uploads the hero himself before merging. Draw a unique placeholder with Pillow (a plain abstract
+   pattern on off-white, seeded with the slug so no two match; no words or logos), save it as
+   `brand/originals/<slug>.webp` and run `images.py` on it. Set `hero.alt` to say it's a placeholder,
+   and set `hero.caption` to `[JIM: upload the hero image (<style>, <one-line scene suggestion>).
+   This one is a placeholder.]`. That flag fails the production check, so a placeholder can never
+   go live. Make the image the first item of the PR checklist, with the scene suggestion and how to
+   swap it (drop it in `brand/supplied/<slug>.webp` on the branch, or replace the original and rerun
+   `images.py`, then update `hero.alt` and delete the caption flag).
 7. **Update `docs/backlog.md`.** Mark the row `in PR` with the slot, and mark the next `todo`
    row `next`.
 8. **Build.** Run `npm ci && npm run build`. Fix anything that fails. (Flags don't fail this
@@ -157,7 +167,7 @@ empty slot is better than a weak article.
      - the reader check: quiz or poll, and why that kind (the previous article's kind)
    - Never push to `main`, and never merge.
 10. **If anything blocks you** (build won't pass, a connector is down, no `next` row, nothing
-    citable for a research claim, no image that passes after one regeneration), open no PR and
+    citable for a research claim), open no PR and
     report what happened and which slot is now empty.
 
 ## Library re-checks (first run of each month)
