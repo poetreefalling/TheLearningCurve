@@ -7,3 +7,4 @@ before generating (CLAUDE.md step 6). When it uses an image it moves it to
 
 | File | Backlog row | Style | Scene | Alt text (starting point) | Notes |
 |---|---|---|---|---|---|
+| principles-of-learning-science.webp | 51 (Principles of Learning Science Every Course Builder Should Know) | documentary | Learners taking a course: a university library | A young man with dark curly hair, glasses and a white earbud, in a green hoodie, writes notes in a spiral notebook while a video lesson plays on a tablet propped on a timber table, with a black drink bottle, shelves of books and trailing plants in a sunlit library | Supplied by Jim, 21 Nov 2026. If the article's slug differs, use it anyway for row 51 and rename on the move. |
