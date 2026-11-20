@@ -113,5 +113,11 @@
       "field": "security (assurance)",
       "note": "Security controls include configurable browser/integrity modes and optional proctoring. Obtain current security certifications, DPA and hosting schedule."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/inspera-assessment/logo.webp",
+      "alt": "Inspera logo"
+    }
+  }
 }

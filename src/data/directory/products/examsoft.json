@@ -103,5 +103,11 @@
       "field": "security (assurance)",
       "note": "Vendor describes encryption, lockdown and optional identity/proctoring controls. Obtain SOC 2/ISO evidence, DPA and data-flow diagrams."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/examsoft/logo.webp",
+      "alt": "ExamSoft by Turnitin logo"
+    }
+  }
 }

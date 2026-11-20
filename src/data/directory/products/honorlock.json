@@ -105,5 +105,11 @@
       "field": "security (assurance)",
       "note": "Vendor privacy page describes collection based on exam settings and retention according to institutional policy. Obtain SOC 2/ISO, DPA and technical security pack."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/honorlock/logo.webp",
+      "alt": "Honorlock logo"
+    }
+  }
 }

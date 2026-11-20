@@ -91,5 +91,11 @@
       "field": "security (assurance)",
       "note": "Request trust-centre pack, SOC 2/ISO evidence, DPA, subprocessor register and data residency."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/feedbackfruits/logo.webp",
+      "alt": "FeedbackFruits logo"
+    }
+  }
 }
