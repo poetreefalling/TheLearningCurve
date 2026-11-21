@@ -179,6 +179,13 @@ empty slot is better than a weak article.
 10. **If anything blocks you** (build won't pass, a connector is down, no `next` row, nothing
     citable for a research claim), open no PR and
     report what happened and which slot is now empty.
+11. **After Jim edits the PR.** When Jim pushes to the article PR (review-desk edits, resolved
+    flags), give his changes a flow pass in the same PR without being asked: merge what now
+    repeats, smooth transitions, move a passage where it reads better, fix typos and spelling, and
+    put his `[JIM:]` passages in first-person singular so "we" stays the publication's voice. Keep
+    his meaning and his facts. Don't add new claims; where a number he removed or a fact he wrote
+    looks wrong, keep his version and ask in one PR comment. Run `npm run build:production` before
+    pushing, and list the changes in that comment.
 
 ## Library re-checks (first run of each month)
 
