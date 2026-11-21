@@ -2,11 +2,16 @@
   "name": "AhaNow",
   "vendor": "fluxvita",
   "category": "video-interactive",
-  "secondaryCategories": ["ai-for-learning"],
+  "secondaryCategories": [
+    "ai-for-learning"
+  ],
   "website": "https://ahanow.ai/ai-explainer-video-generator",
   "summary": "Browser-based AI studio that turns a topic, script or source files into a narrated, presenter-free explainer video. You review the script and scene plan before it renders an MP4 for use in a course.",
   "primaryMarket": {
-    "value": ["creators", "corporate"],
+    "value": [
+      "creators",
+      "corporate"
+    ],
     "source": "https://ahanow.ai/ai-explainer-video-generator",
     "checked": "2026-11-21",
     "origin": "vendor-supplied"
@@ -50,20 +55,27 @@
     "origin": "vendor-supplied"
   },
   "pricingModel": {
-    "value": { "basis": "usage", "freeTier": false },
+    "value": {
+      "basis": "usage",
+      "freeTier": false
+    },
     "source": "https://ahanow.ai/pricing",
     "checked": "2026-11-21",
     "origin": "vendor-supplied"
   },
   "deployment": {
-    "value": ["cloud"],
+    "value": [
+      "cloud"
+    ],
     "source": "https://ahanow.ai/ai-explainer-video-generator",
     "checked": "2026-11-21",
     "origin": "vendor-supplied"
   },
   "dataPrivacy": {
     "value": {
-      "dataResidency": ["Hong Kong"],
+      "dataResidency": [
+        "Hong Kong"
+      ],
       "gdpr": true,
       "notes": "Primary storage in Hong Kong, with some processing in the US and elsewhere. The privacy policy sets out GDPR legal bases and uses SCCs and the UK addendum for transfers. Private content is removed from active systems about 30 days after deletion and from backups about 90 days later. Users must be 18 or over."
     },
@@ -73,7 +85,12 @@
   },
   "aiDisclosure": {
     "value": {
-      "models": ["Opus 5.5", "DeepSeek V4.1", "Seedance 2.5", "MiniMax H3"],
+      "models": [
+        "Opus 5.5",
+        "DeepSeek V4.1",
+        "Seedance 2.5",
+        "MiniMax H3"
+      ],
       "trainsOnCustomerData": "opt-out",
       "notes": "By default the vendor uses user content, generated content and voice data to train and fine-tune its models. Users can opt out in Settings, but only for future content. Voice data in the EEA, UK and Switzerland needs opt-in, and business content excluded by contract isn't used. Third-party model providers are contractually barred from training on it. Per the pricing page, high-quality mode uses Opus 5.5, standard mode DeepSeek V4.1, and video clips Seedance 2.5 and MiniMax H3."
     },
@@ -82,8 +99,15 @@
     "origin": "vendor-supplied"
   },
   "evidence": [],
-  "alternatives": ["colossyan", "heygen", "synthesia", "vyond"],
-  "commercialRelationship": { "kind": "none" },
+  "alternatives": [
+    "colossyan",
+    "heygen",
+    "synthesia",
+    "vyond"
+  ],
+  "commercialRelationship": {
+    "kind": "none"
+  },
   "status": "active",
   "lastVerified": "2026-11-21",
   "draft": false,
@@ -92,10 +116,31 @@
     "Vendor follow-up sent: LMS/SCORM export plans, caption and transcript export for user videos, languages, security certifications and sub-processor list, DPA for business customers (contractual training exclusion), data residency options outside Hong Kong, accessibility (VPAT/WCAG), trial terms, company details."
   ],
   "dataGaps": [
-    { "field": "standards", "note": "No SCORM, xAPI or LTI on the vendor's pages; video files only." },
-    { "field": "integrations", "note": "No LMS or other integrations stated." },
-    { "field": "accessibility", "note": "Captions and transcript appear on the vendor's example; whether user videos export captions or transcripts, and any WCAG claim, not stated." },
-    { "field": "security", "note": "Encryption in transit and at rest 'where supported'; no certifications or sub-processor list stated." },
-    { "field": "geographicAvailability", "note": "Not stated." }
-  ]
+    {
+      "field": "standards",
+      "note": "No SCORM, xAPI or LTI on the vendor's pages; video files only."
+    },
+    {
+      "field": "integrations",
+      "note": "No LMS or other integrations stated."
+    },
+    {
+      "field": "accessibility",
+      "note": "Captions and transcript appear on the vendor's example; whether user videos export captions or transcripts, and any WCAG claim, not stated."
+    },
+    {
+      "field": "security",
+      "note": "Encryption in transit and at rest 'where supported'; no certifications or sub-processor list stated."
+    },
+    {
+      "field": "geographicAvailability",
+      "note": "Not stated."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/ahanow/logo.webp",
+      "alt": "AhaNow logo"
+    }
+  }
 }
