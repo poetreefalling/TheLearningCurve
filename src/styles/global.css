@@ -1530,3 +1530,14 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 }
 /* The home rectangle in the rail: its own band between hairlines, like the other rail boxes. */
 .sb-ad { padding: 28px 0; border-bottom: 1px solid var(--rule-strong); }
+
+/* Discover: the house promo card. Same size as a directory card, but an ink top bar instead of
+   marigold (ads never use the brand colour), and its rollover fills with ink. */
+.cat-live > li.cat-ad > a { border-top-color: var(--ink); }
+.cat-live > li.cat-ad > a:hover { border-top-color: var(--ink); }
+.cat-ad-head { font: 800 2rem/1.05 var(--display) !important; letter-spacing: -0.02em; margin-top: 6px !important; }
+.roll-ink .roll-fill::before { background: var(--ink); }
+@media (hover: hover) and (pointer: fine) {
+  .roll-ink:hover .roll-fill > *, .roll-ink:hover .roll-fill b { color: var(--paper); }
+}
+.roll-ink:focus-visible .roll-fill > *, .roll-ink:focus-visible .roll-fill b { color: var(--paper); }
