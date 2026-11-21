@@ -256,5 +256,11 @@
       "field": "dataPrivacy",
       "note": "No storage location or hosting provider named."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/active-dictionary/logo.webp",
+      "alt": "Active Dictionary logo"
+    }
+  }
 }
