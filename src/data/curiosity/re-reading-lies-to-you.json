@@ -1,0 +1,44 @@
+{
+  "title": "Re-reading lies to you",
+  "series": "Memory Lab",
+  "published": "2026-11-26T12:00:00+11:00",
+  "teaser": "Students who practised recalling a passage remembered 61% a week later. Students who re-read it remembered 40%, and felt more confident.",
+  "slides": [
+    {
+      "alt": "Cover: Re-reading lies to you. It feels like learning. A week later, the people who tested themselves remembered far more."
+    },
+    {
+      "alt": "The experiment: students read a short science passage. Group one read it once, then wrote down what they remembered, three times. Group two just kept re-reading it."
+    },
+    {
+      "alt": "The twist: the re-readers felt more confident they would remember it."
+    },
+    {
+      "alt": "Bar chart: one week later, the group that wrote down what they remembered recalled 61% of the passage; the re-read group recalled 40%. Source: Roediger and Karpicke, 2006, Experiment 2."
+    },
+    {
+      "alt": "The re-readers had read the passage about 14 times on average; the recall group about 3.4 times. Less reading, more remembering."
+    },
+    {
+      "alt": "Try it tonight: close the book, write down everything you remember, then open it and check what you missed. Retrieval feels harder; that's why it works."
+    },
+    {
+      "alt": "For teachers and designers: build quick, low-stakes recall into every lesson, not just a test at the end."
+    }
+  ],
+  "body": [
+    "Re-reading feels like learning. It mostly isn't.",
+    "In a well-known experiment, students who read a passage once and then practised recalling it remembered 61% of it a week later. Students who simply re-read it, about 14 times in total, remembered 40%. And the re-readers were the more confident group.",
+    "The effort of pulling something out of memory is what makes it stick. Close the book, write down what you remember, then check what you missed."
+  ],
+  "forDesigners": "Build quick, low-stakes recall into every lesson, not just a test at the end.",
+  "sources": [
+    {
+      "label": "Roediger, H.L. & Karpicke, J.D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science, 17(3), 249–255.",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    }
+  ],
+  "related": [
+    "/library/retrieval-practice/"
+  ]
+}

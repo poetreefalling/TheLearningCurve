@@ -1,0 +1,33 @@
+{
+  "title": "Your brain is the strangest thing you own",
+  "series": "Hello, brain",
+  "published": "2026-11-21T12:00:00+11:00",
+  "teaser": "Count the Fs in one sentence, then meet the column: puzzles that fool your brain and the science of how it learns.",
+  "slides": [
+    {
+      "alt": "Cover: Your brain is the strangest thing you own. Every week: puzzles that fool it, facts that explain it, and the science of how it learns."
+    },
+    {
+      "alt": "Count the Fs in this sentence: FINISHED FILES ARE THE RESULT OF YEARS OF SCIENTIFIC STUDY COMBINED WITH THE EXPERIENCE OF YEARS."
+    },
+    {
+      "alt": "The answer: six. Missed some? Check every 'of'. Fluent readers skim short, familiar words, and 'of' sounds like it has a v in it."
+    },
+    {
+      "alt": "What's coming: Monday, Can You Solve It?; Wednesday, Brain Glitch; Thursday, Memory Lab; Saturday, Brain Fact or Myth or Fact?; daily, a riddle in Stories."
+    },
+    {
+      "alt": "For teachers and designers: everything here comes with its source, so you can use it."
+    }
+  ],
+  "body": [
+    "Your brain is the strangest thing you own. It fills gaps you didn't know were there, forgets on schedule, and does some of its best work while you're asleep.",
+    "Curiosity Corner is where we explore it: puzzles that fool it, facts that explain it, and the science of how it learns and remembers. Every fact comes with a source.",
+    "So, how many Fs did you count? There are six. If you got three, check every 'of': fluent readers skim short, familiar words, and 'of' sounds as though it has a v in it."
+  ],
+  "forDesigners": "Everything here comes with its source, so you can use it.",
+  "sources": [],
+  "related": [
+    "/library/principles-of-learning-science/"
+  ]
+}

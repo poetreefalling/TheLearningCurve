@@ -625,4 +625,25 @@ const evidence = defineCollection({
     }),
 });
 
-export const collections = { platforms, charts, articles, myths, stories, timelines, evidence, categories, vendors, products, evaluations };
+
+// Curiosity Corner (src/data/curiosity/<slug>.json): short puzzles, curiosities and brain facts, the web
+// home of the Instagram carousels. Slides live in public/images/curiosity/<slug>/01.jpg, 02.jpg… and
+// double as the images Instagram publishes. Every factual claim names a source the routine opened.
+const curiosity = defineCollection({
+  loader: glob({ pattern: '*.json', base: './src/data/curiosity' }),
+  schema: z.object({
+    title: z.string().max(90),
+    series: z.enum(['Can You Solve It?', 'Brain Glitch', 'Memory Lab', 'Myth or Fact?', 'Brain Fact', 'Hello, brain', 'Ripped from the research']),
+    published: z.coerce.date(),
+    draft: z.boolean().default(false),
+    teaser: z.string().max(220), // one line for cards and meta descriptions
+    slides: z.array(z.object({ alt: z.string().min(10).max(400) })).min(1).max(10), // in order: 01.jpg, 02.jpg…
+    body: z.array(z.string().max(700)).min(1), // the caption, paragraph by paragraph
+    forDesigners: z.string().max(240), // the end-card line for teachers and designers
+    sources: z.array(z.object({ label: z.string(), url: z.string().url() })).default([]),
+    instagram: z.string().url().optional(), // the post's permalink, once published
+    related: z.array(z.string()).default([]), // article paths to read next, e.g. /library/retrieval-practice/
+  }),
+});
+
+export const collections = { curiosity, platforms, charts, articles, myths, stories, timelines, evidence, categories, vendors, products, evaluations };

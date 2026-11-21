@@ -1,0 +1,26 @@
+{
+  "title": "What happens when we forget?",
+  "series": "Ripped from the research",
+  "published": "2026-11-21T12:00:00+11:00",
+  "teaser": "Hermann Ebbinghaus charted how memory fades in 1880. In 2015, two researchers repeated his experiment to see if his forgetting curve still held.",
+  "slides": [
+    {
+      "alt": "A torn photocopy of the first page of Murre and Dros (2015), Replication and Analysis of Ebbinghaus' Forgetting Curve, with the sentence 'We conclude that the Ebbinghaus forgetting curve has indeed been replicated' marked in yellow highlighter. Below: What happens when we forget? It was discovered in 1880, and verified in 2015."
+    }
+  ],
+  "body": [
+    "In 1880, Hermann Ebbinghaus set out to measure forgetting. He learned lists of nonsense syllables, then timed how long it took to relearn them after intervals from 20 minutes to 31 days. The result was the forgetting curve: memory fades fast at first, then more slowly.",
+    "In 2015, Jaap Murre and Joeri Dros at the University of Amsterdam repeated the experiment. One person spent 70 hours learning and relearning lists, and the curve came out much like Ebbinghaus's original.",
+    "Their one surprise: the curve isn't perfectly smooth. In the authors' words, it most probably shows a jump upwards starting at the 24-hour data point."
+  ],
+  "forDesigners": "Forgetting is predictable, so plan for it. Bring key ideas back after a day, then a few days, then a week.",
+  "sources": [
+    {
+      "label": "Murre, J.M.J. & Dros, J. (2015). Replication and analysis of Ebbinghaus' forgetting curve. PLOS ONE, 10(7), e0120644. Page reproduced under the article's Creative Commons Attribution licence.",
+      "url": "https://doi.org/10.1371/journal.pone.0120644"
+    }
+  ],
+  "related": [
+    "/library/retrieval-practice/"
+  ]
+}

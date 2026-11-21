@@ -1,0 +1,36 @@
+{
+  "title": "The bat-and-ball puzzle",
+  "series": "Can You Solve It?",
+  "published": "2026-11-30T12:00:00+11:00",
+  "teaser": "A bat and a ball cost $1.10. The bat costs $1.00 more than the ball. How much is the ball? Your first answer is probably wrong.",
+  "slides": [
+    {
+      "alt": "Puzzle: A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much is the ball?"
+    },
+    {
+      "alt": "A hint: if your answer arrived instantly, check it. Got 10 cents? Then the bat would cost $1.10, and the total would be $1.20."
+    },
+    {
+      "alt": "The answer: 5 cents. Ball, 5 cents; bat, $1.05; total, $1.10."
+    },
+    {
+      "alt": "Why your brain jumps: the fast answer feels right, so you never check it. Source: Frederick, 2005."
+    },
+    {
+      "alt": "For teachers and designers: the answer that feels obvious is the one learners stop checking. Build in a pause."
+    }
+  ],
+  "body": [
+    "A bat and a ball cost $1.10 in total. The bat costs $1.00 more than the ball. How much is the ball?",
+    "The answer is 5 cents: the bat is $1.05. If you said 10 cents, add it up: the bat would then cost $1.10, and the total would be $1.20.",
+    "This is one of three questions from the Cognitive Reflection Test, designed to catch the gap between the answer that pops into your head and the one you'd get if you stopped to check."
+  ],
+  "forDesigners": "The answer that feels obvious is the one learners stop checking. Build in a pause.",
+  "sources": [
+    {
+      "label": "Frederick, S. (2005). Cognitive reflection and decision making. Journal of Economic Perspectives, 19(4), 25–42.",
+      "url": "https://doi.org/10.1257/089533005775196732"
+    }
+  ],
+  "related": []
+}

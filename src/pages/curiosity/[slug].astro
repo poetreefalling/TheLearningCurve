@@ -1,0 +1,137 @@
+---
+// One Curiosity Corner post: the carousel, then the caption, the line for teachers and designers, and sources.
+import Base from '../../layouts/Base.astro';
+import { getCuriosities, curiosityUrl, slideSrc, CORNER } from '../../lib/curiosity';
+import { SITE } from '../../site.config';
+import type { Curiosity } from '../../lib/curiosity';
+
+export async function getStaticPaths() {
+  const items = await getCuriosities();
+  return items.map((c, i) => ({ params: { slug: c.id }, props: { c, newer: items[i - 1] ?? null, older: items[i + 1] ?? null } }));
+}
+interface Props { c: Curiosity; newer: Curiosity | null; older: Curiosity | null }
+const { c, newer, older } = Astro.props;
+const d = c.data;
+const n = d.slides.length;
+const fmt = (x: Date) => x.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: SITE.timezone });
+const jsonLd = [{
+  '@context': 'https://schema.org', '@type': 'Article', headline: d.title, description: d.teaser,
+  datePublished: d.published.toISOString(), image: `${SITE.url}${slideSrc(c, 0)}`,
+  author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  isPartOf: { '@type': 'CreativeWorkSeries', name: CORNER.name, url: `${SITE.url}/curiosity/` },
+}];
+---
+<Base title={d.title} description={d.teaser} ogImage={slideSrc(c, 0)} ogType="article" jsonLd={jsonLd} current="insights">
+  <article class="wrap cc-post">
+    <header class="measure cc-post-head">
+      <p class="kicker"><a href="/curiosity/">{CORNER.name}</a> · {d.series}</p>
+      <h1>{d.title}</h1>
+      <p class="cc-meta">{fmt(d.published)}</p>
+    </header>
+
+    <section class="cc-carousel" aria-roledescription="carousel" aria-label={`${d.title}, ${n} slides`} data-carousel>
+      <div class="cc-track" tabindex="0" data-track>
+        {d.slides.map((s, i) => (
+          <figure class="cc-slide" aria-roledescription="slide" aria-label={`${i + 1} of ${n}`}>
+            <img src={slideSrc(c, i)} alt={s.alt} width="1080" height="1350" loading={i === 0 ? 'eager' : 'lazy'} decoding="async" />
+          </figure>
+        ))}
+      </div>
+      {n > 1 && (
+        <div class="cc-controls">
+          <button type="button" class="cc-btn" data-prev aria-label="Previous slide">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M12.5 4 6.5 10l6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+          <span class="cc-count" aria-live="polite"><span data-index>1</span> / {n}</span>
+          <button type="button" class="cc-btn" data-next aria-label="Next slide">
+            <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="m7.5 4 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+          </button>
+        </div>
+      )}
+    </section>
+
+    <div class="measure cc-body">
+      {d.body.map((p) => <p>{p}</p>)}
+      <aside class="cc-designers">
+        <p class="cc-designers-label">For teachers and designers</p>
+        <p>{d.forDesigners}</p>
+      </aside>
+      {d.related.length > 0 && (
+        <p class="cc-related">Go deeper: {d.related.map((r, i) => <>{i > 0 && ', '}<a href={r}>{r.split('/').filter(Boolean).pop()!.replace(/-/g, ' ')}</a></>)}</p>
+      )}
+      {d.sources.length > 0 && (
+        <section class="cc-sources" aria-labelledby="src-h">
+          <h2 id="src-h">Sources</h2>
+          <ol>{d.sources.map((s) => <li><a href={s.url} rel="noopener">{s.label}</a></li>)}</ol>
+        </section>
+      )}
+      {d.instagram && <p class="cc-insta"><a href={d.instagram} rel="noopener">See this post on Instagram</a></p>}
+      <nav class="cc-nav" aria-label="More from Curiosity Corner">
+        {older ? <a href={curiosityUrl(older)}>← {older.data.title}</a> : <span></span>}
+        {newer ? <a href={curiosityUrl(newer)}>{newer.data.title} →</a> : <a href="/curiosity/">All of Curiosity Corner →</a>}
+      </nav>
+    </div>
+  </article>
+</Base>
+
+<script>
+  for (const root of document.querySelectorAll<HTMLElement>('[data-carousel]')) {
+    const track = root.querySelector<HTMLElement>('[data-track]')!;
+    const slides = Array.from(track.children) as HTMLElement[];
+    const out = root.querySelector('[data-index]');
+    const prev = root.querySelector<HTMLButtonElement>('[data-prev]');
+    const next = root.querySelector<HTMLButtonElement>('[data-next]');
+    const current = () => Math.round(track.scrollLeft / (slides[0]?.offsetWidth || 1));
+    const go = (i: number) => {
+      const k = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[k].offsetLeft - track.offsetLeft, behavior: 'smooth' });
+    };
+    const sync = () => {
+      const i = current();
+      if (out) out.textContent = String(i + 1);
+      if (prev) prev.disabled = i === 0;
+      if (next) next.disabled = i === slides.length - 1;
+    };
+    prev?.addEventListener('click', () => go(current() - 1));
+    next?.addEventListener('click', () => go(current() + 1));
+    track.addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
+    track.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(current() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(current() - 1); }
+    });
+    sync();
+  }
+</script>
+
+<style>
+  .cc-post-head { padding: 48px 0 24px; }
+  .cc-post-head .kicker a { color: inherit; text-decoration: none; }
+  .cc-post-head h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); font-variation-settings: 'opsz' 96; margin: 8px 0 8px; }
+  .cc-meta { font: 400 13px/1.4 var(--sans); color: var(--muted); margin: 0; }
+  .cc-carousel { max-width: 560px; margin: 0 auto 40px; }
+  .cc-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; border-radius: 2px; }
+  .cc-track::-webkit-scrollbar { display: none; }
+  .cc-track:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .cc-slide { flex: 0 0 100%; margin: 0; scroll-snap-align: start; }
+  .cc-slide img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; }
+  .cc-controls { display: flex; align-items: center; justify-content: center; gap: 24px; padding-top: 16px; }
+  .cc-btn { width: 44px; height: 44px; border-radius: 999px; border: 1px solid var(--rule-strong); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+  .cc-btn:hover:not(:disabled) { background: var(--band); color: var(--band-ink); border-color: var(--band); }
+  .cc-btn:disabled { opacity: 0.35; cursor: default; }
+  .cc-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .cc-count { font: 600 14px/1 var(--sans); font-variant-numeric: tabular-nums; min-width: 4em; text-align: center; }
+  .cc-body { padding-bottom: 72px; }
+  .cc-body > p { font-family: var(--serif); font-size: 18px; line-height: 1.6; }
+  .cc-designers { margin: 32px 0; padding: 24px; background: var(--band); color: var(--band-ink); }
+  .cc-designers p { margin: 0; font-family: var(--display); font-weight: 700; font-size: 1.3rem; line-height: 1.25; }
+  .cc-designers .cc-designers-label { font: 800 12px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+  .cc-related { font: 400 15px/1.5 var(--sans); }
+  .cc-related a { text-transform: capitalize; }
+  .cc-sources { border-top: 2px dotted var(--rule-strong); margin-top: 32px; padding-top: 16px; }
+  .cc-sources h2 { font: 800 13px/1 var(--label); letter-spacing: 0.09em; text-transform: uppercase; margin: 0 0 12px; }
+  .cc-sources ol { font: 400 13px/1.5 var(--sans); color: var(--muted); padding-left: 20px; }
+  .cc-insta { font: 600 15px/1.4 var(--sans); }
+  .cc-nav { display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid var(--rule); margin-top: 40px; padding-top: 20px; font: 500 15px/1.4 var(--sans); }
+  .cc-nav a { color: var(--accent); text-decoration: none; }
+  .cc-nav a:hover { text-decoration: underline; }
+</style>
