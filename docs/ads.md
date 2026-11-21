@@ -47,6 +47,7 @@ and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the
 - Never on reviews or comparisons, like every other slot.
 - To add or change one, edit the file (kicker, headline, text, button label, link, which slots).
   The build checks the lengths.
+- **Discover card.** The Discover hub (`/discover/`) carries one more house promo, "Your Ad Could Be Here", shaped like a directory card in the fifth cell (the end of the top row on wide screens). It links to `/advertising/`, has an ink top bar instead of marigold, and its clicks count as "House promo: discover-advertise". It lives in `src/components/DiscoverAdCard.astro`.
 - **Targeted promos** list `pages` (article paths such as `/library/retrieval-practice/`). They show
   only on those pages, in the in-article slot (the rectangle after the fifth paragraph, or the half
   page that takes its place on wide screens), and never in the general rotation. The billboard at

@@ -1,5 +1,6 @@
 ---
 import SectionAbout from '../../components/SectionAbout.astro';
+import AdCard from '../../components/DiscoverAdCard.astro';
 // Discover hub: the technology directory, by category (docs/directory.md). A category with live
 // profiles is a card under "Live directories" (count, logos, last checked); the rest sit under
 // "In research", muted, so it is obvious at a glance which directories have entries.
@@ -17,13 +18,17 @@ const cats = [...categories].sort((a, b) => a.order - b.order).map((c) => {
 });
 const live = cats.filter((c) => c.n > 0);
 const soon = cats.filter((c) => c.n === 0);
+// House promo card for the advertise page, the same size as a directory card. It takes the fifth
+// cell, the end of the top row on wide screens (docs/ads.md: house promos).
+const AD_AT = Math.min(4, live.length);
 ---
 <Base title={nav.label} description={`${nav.note}: an independent directory of learning technology, with provenance on every fact.`} current="discover">
   <div class="wrap">
     <header class="page-head"><h1>{nav.label}</h1><p>{nav.note}. An independent directory of learning technology, with a source for every fact and our own words, never the vendor's.</p></header>
     <section aria-labelledby="cat-h">
       <div class="section-head" style="margin-top:0"><h2 id="cat-h">Live directories</h2><span class="meta">{products.length} profiles so far</span></div>
-      <ul class="cat-live">{live.map((c) => (
+      <ul class="cat-live">{live.map((c, i) => (<>
+        {i === AD_AT && <AdCard />}
         <li>
           <a class="roll" href={categoryUrl(c.id)}>
             <span class="cat-top roll-fill">
@@ -35,7 +40,7 @@ const soon = cats.filter((c) => c.n === 0);
             <span class="cat-foot">{c.checked && <span class="meta">Checked {c.checked.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Sydney' })}</span>}<em>Browse →</em></span>
           </a>
         </li>
-      ))}</ul>
+      </>))}{AD_AT === live.length && <AdCard />}</ul>
     </section>
     {soon.length > 0 && (
       <section aria-labelledby="soon-h">
