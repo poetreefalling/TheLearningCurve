@@ -1,0 +1,29 @@
+{
+  "title": "The most-named tool, presentation software, appeared in only 38% of 1,030 instructional design job ads",
+  "subtitle": "Share of US job announcements naming knowledge of each kind of software, collected September to October 2019",
+  "type": "bar",
+  "unit": "% of job announcements",
+  "highlight": "Presentation software (PowerPoint)",
+  "series": [
+    { "label": "Presentation software (PowerPoint)", "value": 37.96 },
+    { "label": "Learning management system", "value": 37.28 },
+    { "label": "Word processing (Word)", "value": 34.85 },
+    { "label": "Spreadsheets (Excel)", "value": 34.47 },
+    { "label": "Video software (Premiere)", "value": 33.88 },
+    { "label": "Educational authoring (Articulate, Lectora)", "value": 33.4 },
+    { "label": "Authoring tools (Captivate)", "value": 32.91 },
+    { "label": "Image editing (Photoshop)", "value": 23.59 },
+    { "label": "Screen recording (Camtasia)", "value": 20.58 },
+    { "label": "Audio software (Audacity)", "value": 20.39 },
+    { "label": "Project management software", "value": 15.63 },
+    { "label": "Markup languages (HTML, XML)", "value": 9.9 }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Wang, X., Chen, Y., Ritzhaupt, A. D., & Martin, F.",
+    "year": 2021,
+    "doi": "10.1111/ijtd.12209",
+    "url": "https://ibstpi.org/wp-content/uploads/2021/11/75_IJTD2021_ExaminingCompetenciesInstructionalDesignProfessional.pdf",
+    "figureOrTable": "Table A"
+  }
+}
