@@ -13,7 +13,7 @@ const S = fs.mkdtempSync(path.join(os.tmpdir(), 'tg-banner-'));
 const OUT = `${R}/public/images/reports/classroom-to-instructional-design`;
 const b64 = (p) => fs.readFileSync(p).toString('base64');
 const img = (n) => `data:image/webp;base64,${b64(`${R}/public/images/reports/classroom-to-instructional-design/${n}.webp`)}`;
-const logo = fs.readFileSync(R + '/brand/logo-wordmark.svg', 'utf8');
+const logo = fs.readFileSync(R + '/brand/logo-wordmark-nested.svg', 'utf8');
 
 // Four rows of the guide's own table (page 6), copied from src/data/reports/classroom-to-instructional-design.ts.
 const ROWS = [
@@ -36,7 +36,7 @@ body{background:#f6c847;color:#16181d;font-family:N;position:relative}
 .k{font:700 ${m ? 30 : 17}px/1.2 IT;letter-spacing:.12em;text-transform:uppercase}
 .h{font-family:F;font-weight:800;letter-spacing:-.02em;line-height:1.02}
 .pill{display:inline-block;font:800 ${m ? 30 : 22}px/1 IT;letter-spacing:.08em;text-transform:uppercase;padding:${m ? '24px 32px' : '18px 24px'};border-radius:999px;background:#16181d;color:#f6c847;white-space:nowrap}
-.logo svg{height:${m ? 44 : 32}px;width:auto;display:block}
+.logo svg{height:${m ? 40 : 22}px;width:auto;display:block}
 .card{position:absolute;background:#f7f4ee;border:3px solid #16181d;box-shadow:10px 10px 0 #16181d}
 .row{position:absolute;inset:0;padding:${m ? '40px 44px' : '26px 30px'};opacity:0;animation:row ${LOOP}s linear infinite}
 .lab{font:700 ${m ? 22 : 16}px/1 IT;letter-spacing:.12em;text-transform:uppercase;color:#3a3c42}
@@ -87,6 +87,7 @@ const wide = () => `<div style="position:absolute;inset:0;transform:scale(1.5);t
   <div style="position:absolute;left:44px;bottom:40px"><span class="pill">Get the free guide →</span></div>
   <div class="card" style="left:470px;top:40px;width:450px;height:296px">${rows()}</div>
   <div class="dots" style="left:470px;top:356px">${dots()}</div>
+  <div class="logo" style="position:absolute;right:${1200 - 920}px;top:352px">${logo}</div>
   ${fan(985, 80)}
 </div>`;
 
