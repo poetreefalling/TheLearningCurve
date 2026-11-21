@@ -633,7 +633,7 @@ const curiosity = defineCollection({
   loader: glob({ pattern: '*.json', base: './src/data/curiosity' }),
   schema: z.object({
     title: z.string().max(90),
-    series: z.enum(['Can You Solve It?', 'Brain Glitch', 'Memory Lab', 'Myth or Fact?', 'Brain Fact', 'Hello, brain']),
+    series: z.enum(['Can You Solve It?', 'Brain Glitch', 'Memory Lab', 'Myth or Fact?', 'Brain Fact', 'Hello, brain', 'Ripped from the research']),
     published: z.coerce.date(),
     draft: z.boolean().default(false),
     teaser: z.string().max(220), // one line for cards and meta descriptions
