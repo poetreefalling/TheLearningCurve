@@ -93,6 +93,15 @@ const housePromo = z.object({
   url: z.string().startsWith('/'),
   slots: z.array(z.enum(['billboard', 'rectangle', 'halfpage'])).min(1),
   style: z.enum(['band', 'plain']).default('plain'),
+  // Optional picture promo: the image replaces the text card (the text still describes it). `still`
+  // is the frame shown under "reduce motion" when `src` is animated.
+  image: z.object({
+    src: z.string().startsWith('/'),
+    still: z.string().startsWith('/').optional(),
+    alt: z.string().min(20),
+    width: z.number().int().positive(),
+    height: z.number().int().positive(),
+  }).optional(),
   // Targeted promos: shown only on these pages (article paths, e.g. "/library/retrieval-practice/"),
   // in the in-article slot (the rectangle, or the half page that replaces it on wide screens).
   // Promos without `pages` rotate everywhere else, including the end-of-article billboard.
