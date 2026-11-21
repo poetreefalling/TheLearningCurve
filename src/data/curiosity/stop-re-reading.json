@@ -1,0 +1,26 @@
+{
+  "title": "Stop re-reading your notes",
+  "series": "Memory Lab",
+  "published": "2026-11-24T12:00:00+11:00",
+  "teaser": "A week after studying, students who re-read remembered 40%. Students who tested themselves remembered 61%. A 20-second reel.",
+  "slides": [
+    {
+      "alt": "Frame from the reel: two bars showing that a week later, students who re-read a passage remembered 40% and students who tested themselves remembered 61%."
+    }
+  ],
+  "body": [
+    "Stop re-reading your notes.",
+    "In one study, students who re-read a passage remembered 40% of it a week later. Students who tested themselves remembered 61%. And the re-readers felt more confident.",
+    "Close the book. Try to recall. Then check what you missed."
+  ],
+  "forDesigners": "Swap a re-read for a quick recall prompt. It feels harder, and that's why it works.",
+  "sources": [
+    {
+      "label": "Roediger, H.L. & Karpicke, J.D. (2006). Test-enhanced learning: Taking memory tests improves long-term retention. Psychological Science, 17(3), 249–255. Experiment 2.",
+      "url": "https://doi.org/10.1111/j.1467-9280.2006.01693.x"
+    }
+  ],
+  "related": [
+    "/library/retrieval-practice/"
+  ]
+}
