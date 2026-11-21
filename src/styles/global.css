@@ -976,6 +976,9 @@ a.ad-label:hover, a.ad-label:focus-visible { color: var(--ink); text-decoration:
 .house-halfpage { min-height: 360px; justify-content: center; padding: 28px 24px; }
 .house-halfpage .house-headline { font-size: 1.6rem; }
 .house-billboard { --house-w: 970px; }
+/* Picture promo (house-ads.json `image`): the image is the whole card, ink border, no padding */
+.prose .house-image, .house-image, .house-halfpage.house-image { padding: 0; min-height: 0; gap: 0; border: 2px solid var(--ink); background: var(--band); }
+.house-image img { display: block; width: 100%; height: auto; }
 @media (min-width: 720px) {
   .house-billboard { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 32px; align-items: center; padding: 24px 28px; }
   .house-billboard .house-kicker, .house-billboard .house-headline, .house-billboard .house-text { grid-column: 1; }

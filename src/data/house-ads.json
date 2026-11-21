@@ -176,6 +176,34 @@
         "/library/learning-pyramid/",
         "/library/self-determination-theory/"
       ]
+    },
+    {
+      "id": "teacher-guide",
+      "kicker": "Free career guide",
+      "headline": "From classroom to instructional design",
+      "text": "For teachers moving into instructional design: what employers ask for, what already transfers, and a six-step plan.",
+      "cta": "Get the free guide",
+      "url": "/reports/classroom-to-instructional-design/",
+      "slots": [
+        "rectangle",
+        "halfpage"
+      ],
+      "image": {
+        "src": "/images/reports/classroom-to-instructional-design/banner-tall.webp",
+        "still": "/images/reports/classroom-to-instructional-design/banner-tall-still.webp",
+        "alt": "Free career guide for teachers: From classroom to instructional design. Classroom work renamed in employers' words, such as planned units and sequences of lessons becoming course mapping and sequencing. Get the free guide.",
+        "width": 900,
+        "height": 1125
+      },
+      "pages": [
+        "/guides/instructional-design-jobs-for-former-teachers/",
+        "/guides/entry-level-instructional-design-jobs/",
+        "/guides/instructional-design-jobs/",
+        "/guides/instructional-design-portfolio-examples/",
+        "/guides/instructional-design-internship/",
+        "/guides/instructional-designer-salary/",
+        "/guides/instructional-design-tools/"
+      ]
     }
   ]
 }

@@ -56,6 +56,16 @@ and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the
   the articles whose topic matches a kit template: retrieval practice, objectives, storyboards and
   scripts, the course audit, mixed audiences and the evidence cards. To place the kit on another
   article, add its path to the promo that fits best.
+- **Picture promos.** A promo can carry an `image` (`src`, optional `still`, `alt`, `width`,
+  `height`) instead of showing its text: the image is the whole card, with an ink border. `still`
+  is the frame shown to readers who set "reduce motion" when `src` is animated. The text fields
+  stay filled in, so the file still says what the promo is.
+- **The teacher guide promo** (`teacher-guide`) is the animated 4:5 banner for the free career guide
+  *From classroom to instructional design* (`/reports/classroom-to-instructional-design/`). It is
+  targeted at the career articles where teachers moving into the field land: jobs for former
+  teachers, entry-level jobs, instructional design jobs, portfolio examples, internships, salary
+  and tools. Add a path there to show it on another career article. The banner is made by
+  `scripts/teacher-guide-banner.cjs`.
 
 How it works: AdSense marks each unit `data-ad-status="filled"` or `"unfilled"` once it has
 decided. The stylesheet keeps the unit at zero height and shows the promo until it is filled.
