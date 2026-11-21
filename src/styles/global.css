@@ -1433,6 +1433,56 @@ main > .ink-band:first-child, main > .hwe-band:first-child { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   .rl-page, .rl-job, .rl-method li, .rl-check li, .rl-stakes-bar span, .rl-sticky, .rf-button { transition: none !important; }
 }
+/* Teacher career guide landing page (/reports/classroom-to-instructional-design/): translate cards and the four gaps */
+.tg-switch { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 16px; }
+.tg-switch { display: none; } .tg-live .tg-switch { display: flex; }
+.tg-cards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.tg-cards li { transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s; transition-delay: calc(var(--i) * 60ms); }
+.rl-js .tg-cards:not(.in) li { opacity: 0; transform: translateY(16px); }
+.tg-card { position: relative; display: block; width: 100%; min-height: 172px; padding: 0; border: 0; background: none; text-align: left; cursor: pointer; perspective: 900px; color: var(--ink); font: inherit; }
+.tg-face { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 8px; padding: 16px 16px 14px; border-radius: 10px; border: 1px solid var(--rule); backface-visibility: hidden; transition: transform 0.55s cubic-bezier(0.2, 0.7, 0.2, 1); }
+.tg-front { background: var(--surface); border-top: 4px solid var(--rule-strong); }
+.tg-back { background: var(--band); border-color: var(--band); color: #16181d; transform: rotateY(180deg); }
+.tg-card[aria-pressed='true'] .tg-front { transform: rotateY(-180deg); }
+.tg-card[aria-pressed='true'] .tg-back { transform: rotateY(0); }
+.tg-face em { font: 700 10.5px/1.2 var(--label); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.tg-back em { color: #16181d; opacity: 0.75; }
+.tg-face b { font: 400 1.08rem/1.35 var(--serif); }
+.tg-back b { font: 800 1.15rem/1.2 var(--display); }
+.tg-face small { margin-top: auto; font: 400 13px/1.4 var(--sans); color: var(--ink-2); }
+.tg-back small { color: #16181d; } .tg-back small span { font-weight: 700; }
+.tg-front small { font: 700 10.5px/1.2 var(--label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); }
+.tg-card:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 10px; }
+/* Without JavaScript the cards show both sides as a plain list */
+html:not(.rl-js) .tg-card { min-height: 0; cursor: default; }
+html:not(.rl-js) .tg-face { position: static; transform: none; backface-visibility: visible; }
+html:not(.rl-js) .tg-front small { display: none; }
+html:not(.rl-js) .tg-back { margin-top: 6px; }
+@media (max-width: 1000px) { .tg-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 520px) { .tg-cards { grid-template-columns: 1fr; } .tg-card { min-height: 150px; } }
+.tg-gaps { list-style: none; margin: 22px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.tg-gaps li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 12px; padding: 18px 18px 16px; background: var(--surface); border: 1px solid var(--rule); border-left: 5px solid var(--kicker); border-radius: 0 10px 10px 0; transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1), opacity 0.6s; transition-delay: calc(var(--i) * 100ms); }
+.tg-gaps b { display: block; font: 800 1.1rem/1.25 var(--display); margin-bottom: 6px; }
+.tg-gaps p { font: 400 14.5px/1.5 var(--sans); color: var(--ink-2); margin: 0; }
+.rl-js .tg-gaps:not(.in) li { opacity: 0; transform: translateX(-14px); }
+@media (max-width: 760px) { .tg-gaps { grid-template-columns: 1fr; } }
+.tg-steps li { grid-template-columns: 70px minmax(0, 1fr) minmax(0, 1.2fr); }
+.tg-steps .rl-step-q span { font: 800 1.15rem/1.3 var(--display); }
+@media (max-width: 760px) { .tg-steps li { grid-template-columns: 52px 1fr; } }
+.tg-big { margin: 14px 0 18px; }
+.tg-big p { font: 400 1.05rem/1.5 var(--serif); margin: 0 0 10px; }
+.tg-big b { font: 800 1.6rem/1 var(--display); margin-right: 6px; }
+.tg-big small { display: block; font: 400 13px/1.5 var(--sans); color: var(--muted); }
+.tg-ws p { margin: 8px 0 0; }
+.tg-ws-note { font: 400 14px/1.45 var(--sans) !important; color: var(--ink-2); }
+.tg-mistakes { max-width: var(--measure); margin: 28px 0 0; padding: 18px 20px; border: 1px dashed var(--rule-strong); border-radius: 10px; }
+.tg-mistakes p { font: 400 1rem/1.55 var(--serif); margin: 8px 0 0; }
+.tg-faq details { border-bottom: 1px solid var(--rule); padding: 12px 0; }
+.tg-faq summary { cursor: pointer; font: 700 15px/1.4 var(--sans); color: var(--ink); }
+.tg-faq details p { margin: 8px 0 0; }
+@media (prefers-reduced-motion: reduce) { .tg-cards li, .tg-face, .tg-gaps li { transition: none !important; } }
+/* Phone visitors (mostly from social ads) should reach the form fast: a smaller fan */
+@media (max-width: 900px) { .tg .rl-fan { max-width: 190px; } .tg .rl-hero { padding-top: 20px; } }
 /* Home page feature card for a free report: the guide's pages fanned on marigold */
 .rc-fan { position: relative; aspect-ratio: 3 / 2; border-radius: 2px; background: var(--band); overflow: hidden; }
 .rc-page { position: absolute; left: 50%; top: 9%; height: 104%; width: auto !important; aspect-ratio: 640 / 905 !important; object-fit: cover; border-radius: 2px !important; background: #ffffff; box-shadow: 0 10px 24px rgba(22, 24, 29, 0.25); transform-origin: 50% 100%; transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1); }

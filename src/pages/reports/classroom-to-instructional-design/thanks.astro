@@ -1,0 +1,11 @@
+---
+// Where the career guide form lands without JavaScript (functions/api/subscribe.ts redirects here).
+import Page from '../../../layouts/Page.astro';
+import { REPORT } from '../../../data/reports/classroom-to-instructional-design';
+---
+<Page title="Your guide is ready" description="Download From classroom to instructional design, the free career guide for teachers." noindex>
+  <p>Thanks for signing up. Here's your copy of <i>{REPORT.title}</i>. A copy is on its way to your inbox too.</p>
+  <p><a class="rf-download" href={REPORT.pdf} download>Download the guide (PDF, {REPORT.pages} pages)</a></p>
+  <p>Start with worksheet 2 on page 17: open twenty job ads in the sector you want, copy every duty and tool, and mark each one you could already show evidence for. The unmarked items are your plan.</p>
+  <p>Then read <a href="/guides/instructional-design-jobs-for-former-teachers/">Instructional design jobs for former teachers</a> and <a href="/guides/instructional-design-portfolio-examples/">Instructional design portfolio examples</a>.</p>
+</Page>

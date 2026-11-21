@@ -5,19 +5,21 @@ import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import ReportCard from '../components/report/ReportCard.astro';
 import KitCard from '../components/kit/KitCard.astro';
+import { REPORT as TEACHER } from '../data/reports/classroom-to-instructional-design';
 import { NAV, SECTIONS } from '../site.config';
 import { getArticles } from '../lib/articles';
 const nav = NAV.find((n) => n.key === 'resources')!;
 const library = await getArticles('library');
 const guides = await getArticles('guides');
+const teacherGuide = { slug: TEACHER.slug, pages: TEACHER.pages, kicker: 'Free career guide', title: 'From classroom to instructional design', blurb: 'For teachers moving into instructional design: what employers ask for, what already transfers, and a six-step plan.', images: ['page-plan', 'page-translate', 'page-evidence', 'cover'] as [string, string, string, string] };
 ---
 <Base title={nav.label} description={`${nav.note}: practical course design and the research on how people learn.`} current="resources">
   <div class="wrap">
     <header class="page-head"><h1>{nav.label}</h1><p>{nav.note}: practical course design, and the research on how people learn.</p></header>
     <section aria-labelledby="r-h">
       <div class="section-head" style="margin-top:0"><h2 id="r-h">Free field guides and toolkits</h2></div>
-      <p class="hub-blurb">In-depth, downloadable guides and templates for learning designers, L&amp;D leaders and educators. Free, with every source listed.</p>
-      <div class="grid-3"><KitCard /><ReportCard wide /></div>
+      <p class="hub-blurb">In-depth, downloadable guides and templates for learning designers, L&amp;D leaders, educators and people moving into the field. Free, with every source listed.</p>
+      <div class="grid-3"><KitCard /><ReportCard wide /><ReportCard wide guide={teacherGuide} /></div>
     </section>
     <section aria-labelledby="g-h">
       <div class="section-head"><h2 id="g-h">{SECTIONS.guides.label}</h2><a href="/guides/">All guides →</a></div>

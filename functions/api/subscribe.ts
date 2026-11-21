@@ -10,6 +10,7 @@
 // Accepts JSON (from the site's script) or a normal form post (no-JavaScript fallback).
 
 import { kitEmail } from '../../emails/kit-delivery';
+import { guideEmail } from '../../emails/teacher-guide-delivery';
 import { ROLES } from '../../src/data/kit';
 
 interface Env {
@@ -19,17 +20,19 @@ interface Env {
   KIT_FROM?: string;
 }
 
-const MAGNETS: Record<string, string> = { 'ai-report': 'AI report', 'course-design-kit': 'Course design kit' };
+const MAGNETS: Record<string, string> = { 'ai-report': 'AI report', 'course-design-kit': 'Course design kit', 'teacher-guide': 'Teacher career guide' };
 // The Beehiiv automation that delivers each lead magnet. Its sign-up trigger only fires for new
 // subscribers, so the site also enrols every requester through the automation's API trigger;
 // that way people already on the list get the email too. Enrolment is "limited" (once per
 // person), so a new subscriber caught by both triggers still gets one email.
 const MAGNET_AUTOMATIONS: Record<string, string> = { 'ai-report': 'aut_c21b98cc-5af3-40a5-8cbc-46f8f1cc5399' };
 // Lead magnets delivered by the site itself through Resend (no Beehiiv automation needed).
-const RESEND_MAGNETS = new Set(['course-design-kit']);
-const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/', '/kit/thanks/']);
+const RESEND_MAGNETS = new Set(['course-design-kit', 'teacher-guide']);
+const NEXT = new Set(['/reports/ai-tools-for-learning-design/thanks/', '/kit/thanks/', '/reports/classroom-to-instructional-design/thanks/']);
 
 const EMAIL = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+// UTM values from the client: letters, digits and - _ . + only, 50 characters at most.
+const tag = (v?: string) => (v ?? '').replace(/[^\w.+-]/g, '').slice(0, 50);
 
 export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   const isJson = (request.headers.get('content-type') ?? '').includes('application/json');
@@ -75,9 +78,10 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
         email,
         reactivate_existing: false,
         send_welcome_email: true,
-        utm_source: 'thelearningcurve.net',
-        utm_medium: 'website',
-        utm_campaign: (data.placement ?? 'site').slice(0, 50),
+        // Campaign tags from the landing URL (e.g. a Meta ad) when present, else the form placement.
+        utm_source: tag(data.utm_source) || 'thelearningcurve.net',
+        utm_medium: tag(data.utm_medium) || 'website',
+        utm_campaign: tag(data.utm_campaign) || (data.placement ?? 'site').slice(0, 50),
         referring_site: page ? `https://thelearningcurve.net${page}` : 'https://thelearningcurve.net/',
         custom_fields,
       }),
@@ -104,7 +108,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
   if (magnet && RESEND_MAGNETS.has(data.magnet ?? '')) {
     // Send the kit by email. Never fail the sign-up over this: the PDF is already on the page.
     if (env.RESEND_API_KEY) {
-      const mail = kitEmail(firstName);
+      const mail = data.magnet === 'teacher-guide' ? guideEmail(firstName) : kitEmail(firstName);
       const sent = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: { Authorization: `Bearer ${env.RESEND_API_KEY}`, 'Content-Type': 'application/json' },
@@ -122,7 +126,7 @@ export const onRequestPost: PagesFunction<Env> = async ({ request, env }) => {
     } else {
       console.log('RESEND_API_KEY not set: kit email not sent');
     }
-    return reply(isJson, 200, 'Thanks. Check your inbox for the kit.', next);
+    return reply(isJson, 200, data.magnet === 'teacher-guide' ? 'Thanks. Your guide is ready, and a copy is on its way to your inbox.' : 'Thanks. Check your inbox for the kit.', next);
   }
   if (magnet) {
     const automation = MAGNET_AUTOMATIONS[data.magnet ?? ''];
