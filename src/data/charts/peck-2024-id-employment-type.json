@@ -1,0 +1,19 @@
+{
+  "title": "Eight in ten surveyed instructional designers were full-time employees; one in ten did client work on the side",
+  "subtitle": "Employment type of 1,075 instructional designers in Devlin Peck's 2023 industry survey (self-selected online sample). The survey had no part-time category.",
+  "type": "bar",
+  "unit": "% of respondents",
+  "highlight": "Full-time job plus client work on the side",
+  "series": [
+    { "label": "Full-time employee", "value": 79.4 },
+    { "label": "Full-time job plus client work on the side", "value": 10.5 },
+    { "label": "Full-time freelancer or contractor", "value": 10.0 }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Peck, D.",
+    "year": 2024,
+    "url": "https://www.devlinpeck.com/content/instructional-designer-salary",
+    "figureOrTable": "Employment type section (\"How do instructional designers make money?\")"
+  }
+}
