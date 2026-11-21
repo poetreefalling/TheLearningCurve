@@ -1,0 +1,118 @@
+{
+  "name": "Uptale",
+  "vendor": "uptale",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://www.uptale.io/en/education/features/",
+  "summary": "No-code studio for turning 360-degree media into interactive VR learning, with AI generation features, analytics and SCORM export, for schools, universities and companies.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "schools",
+      "corporate"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Virtual field trips",
+      "Technical skills training",
+      "Soft skills and AI role-play",
+      "Career guidance"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "No-code 360-degree scenario studio",
+      "50+ interaction types including voice",
+      "AI image, experience and avatar generation (beta)",
+      "Learner analytics with export",
+      "Runs on headsets, computers and mobile"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Moodle",
+      "Microsoft Azure (hosting)"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm",
+      "xapi"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "€15,000 a year (Premium: 5 key users, 500 learners)",
+      "notes": "Ultimate from €30,000 and Ultimate+ from €50,000 a year."
+    },
+    "source": "https://www.uptale.io/en/education/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat"
+    },
+    "source": "https://www.uptale.io/en/education/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed"
+    },
+    "source": "https://www.uptale.io/en/education/features/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "security",
+      "note": "Trust centre linked but not reviewed."
+    },
+    {
+      "field": "standards",
+      "note": "LTI named without a version."
+    }
+  ]
+}

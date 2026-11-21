@@ -1,0 +1,72 @@
+{
+  "name": "GigXR",
+  "vendor": "gigxr",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.gigxr.com/",
+  "summary": "Mixed-reality clinical training with holographic patients, full-body anatomy and AI patient conversations, across headsets, mobile and browsers, for health-professions programmes and defence medicine.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government"
+    ],
+    "source": "https://www.gigxr.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Nursing clinical reasoning",
+      "Anatomy teaching",
+      "Combat-casualty training",
+      "History-taking practice with AI patients"
+    ],
+    "source": "https://www.gigxr.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Holographic standardised patients",
+      "Anatomy with 12 body systems",
+      "Browser-based AI patient conversations",
+      "Multi-user, cross-device sessions",
+      "Meta Quest 3/3S, mobile and browser (HoloLens 2 support to 31 Dec 2026)"
+    ],
+    "source": "https://www.gigxr.com/integration",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "ArborXR",
+      "ManageXR",
+      "Meta for Work",
+      "Microsoft Intune"
+    ],
+    "source": "https://www.gigxr.com/integration",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Not published."
+    },
+    {
+      "field": "standards",
+      "note": "Not stated."
+    }
+  ]
+}

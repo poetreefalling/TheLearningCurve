@@ -1,0 +1,80 @@
+{
+  "name": "UNI·SIM",
+  "vendor": "unisim",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.unisim.co.uk/",
+  "summary": "UK maker of haptic VR and hardware simulators for dental, medical and surgical training, and an NHS supplier, with a separate workplace-assessment software suite.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://www.unisim.co.uk/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Dental and medical skills training",
+      "Teaching labs and skills suites",
+      "Portable outreach training",
+      "Workplace risk and compliance assessments"
+    ],
+    "source": "https://www.unisim.co.uk/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Haptic force-feedback simulators (portable and desktop)",
+      "Modular builds mixing display, haptics and VR",
+      "Assess suite for workplace assessments",
+      "Free open-source web apps (AGPL-3.0)"
+    ],
+    "source": "https://www.unisim.co.uk/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "£5,000 a year (Assess Enterprise), then £2,500 per extra seat",
+      "notes": "Simulator hardware prices not on the pages reviewed."
+    },
+    "source": "https://www.unisim.co.uk/subscription",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://www.unisim.co.uk/subscription",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "pricing",
+      "note": "Simulator hardware pricing not reviewed."
+    }
+  ]
+}

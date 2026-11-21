@@ -1,0 +1,62 @@
+{
+  "name": "Odysi",
+  "vendor": "odysi",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://odysi.io/",
+  "summary": "Browser-based platform, in beta, for building, delivering and sharing interactive VR lessons with no installs, aimed at schools and workplace trainers.",
+  "primaryMarket": {
+    "value": [
+      "schools",
+      "corporate"
+    ],
+    "source": "https://odysi.io/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Virtual field trips",
+      "Technical training walkthroughs",
+      "Customer service simulations",
+      "Safety drills"
+    ],
+    "source": "https://odysi.io/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "No-code lesson studio",
+      "Portal to deliver guided lessons and track progress",
+      "Marketplace for sharing lessons",
+      "Runs in a browser, with or without a headset"
+    ],
+    "source": "https://odysi.io/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "beta",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "status",
+      "note": "Beta waitlist only; launch date not stated."
+    },
+    {
+      "field": "pricing",
+      "note": "Not published."
+    }
+  ]
+}

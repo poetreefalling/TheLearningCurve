@@ -1,0 +1,69 @@
+{
+  "name": "Oxford Medical Simulation",
+  "vendor": "oxford-medical-simulation",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://oxfordmedicalsimulation.com/en-gb/platform/",
+  "summary": "Healthcare simulation platform with VR and screen-based clinical scenarios, AI-driven patient interactions, debriefs and scoring, for nursing and medical schools and health systems.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://oxfordmedicalsimulation.com/en-gb/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Clinical reasoning practice for students",
+      "Allied health programmes",
+      "Onboarding new clinicians",
+      "Quality and safety training for health systems"
+    ],
+    "source": "https://oxfordmedicalsimulation.com/en-gb/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "VR and screen-based scenarios (Mac and Windows)",
+      "AI-driven patient and team communication",
+      "Integrated debriefs and objective scoring",
+      "Cohort and individual dashboards",
+      "OMS Create for adapting or building scenarios"
+    ],
+    "source": "https://oxfordmedicalsimulation.com/en-gb/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "ISO 27001"
+    ],
+    "source": "https://oxfordmedicalsimulation.com/en-gb/platform/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Not shown on the platform page."
+    },
+    {
+      "field": "standards",
+      "note": "LMS integration stated without naming standards."
+    }
+  ]
+}

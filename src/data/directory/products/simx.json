@@ -1,0 +1,78 @@
+{
+  "name": "SimX",
+  "vendor": "simx",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.simxvr.com/platform/",
+  "summary": "Multiplayer VR medical simulation for team-based clinical training, with a scenario editor, moderator tools and an AI assistant, for nursing, EMS, medical and military programmes.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government"
+    ],
+    "source": "https://www.simxvr.com/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Interprofessional team training",
+      "Nursing exam preparation",
+      "EMS and pre-hospital training",
+      "Military clinical training"
+    ],
+    "source": "https://www.simxvr.com/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Multiplayer for co-located and remote learners",
+      "Scenario editor and encounter marketplace",
+      "AI assistant for patient dialogue, with faculty override",
+      "Timestamped assessment and playback"
+    ],
+    "source": "https://www.simxvr.com/platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.simxvr.com/get-started/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "Vendor says the assistant is not open-ended generative AI."
+    },
+    "source": "https://www.simxvr.com/platform/ai-assistant/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    }
+  ]
+}

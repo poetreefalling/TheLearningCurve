@@ -1,0 +1,57 @@
+{
+  "name": "Fundamental Surgery Orbis MSICS VR",
+  "vendor": "fundamental-surgery",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://orbis.fundamentalvr.com/home",
+  "summary": "Haptic VR simulator for novice surgeons learning manual small-incision cataract surgery, used to prepare trainees for wet-lab practice.",
+  "useCases": {
+    "value": [
+      "Pre-wet-lab cataract surgery practice",
+      "Self-paced instrument handling",
+      "Scored step-by-step assessment",
+      "Educator review of results"
+    ],
+    "source": "https://orbis.fundamentalvr.com/simulation-essentials/faqs",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "3D Touch haptic arms",
+      "Scored steps with adverse-event penalties",
+      "Offline mode",
+      "Online results dashboard",
+      "Rift S and Quest Pro with a gaming laptop"
+    ],
+    "source": "https://orbis.fundamentalvr.com/simulation-essentials/faqs",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Only the Orbis programme support site was reviewed; check fundamentalsurgery.com for the wider product range."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Not stated."
+    },
+    {
+      "field": "status",
+      "note": "Support pages undated; confirm current version."
+    },
+    {
+      "field": "accessibility",
+      "note": "Built for right-handed users; hand dominance can't be changed."
+    }
+  ]
+}
