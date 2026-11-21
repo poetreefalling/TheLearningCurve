@@ -1,0 +1,18 @@
+{
+  "title": "Collaboration was named in 77% of instructional design job ads, more than any other skill",
+  "subtitle": "Share of 1,030 US instructional design job announcements naming each skill, collected September to October 2019",
+  "type": "bar",
+  "format": "percent",
+  "yMax": 100,
+  "categories": ["Collaboration", "Content development", "Oral and written communication", "Video production", "Project management", "Interpersonal communication"],
+  "series": [{ "id": "share", "label": "Job ads naming the skill", "values": [77.18, 65.92, 56.41, 33.88, 30.29, 29.51] }],
+  "views": { "collab": { "focus": [0] } },
+  "notes": ["US ads from one month in 2019; LinkedIn listings weren't included. The ratios are a fair guide to what employers value; tool names will have moved on."],
+  "sources": [
+    {
+      "label": "Wang, Chen, Ritzhaupt & Martin (2021), International Journal of Training and Development",
+      "url": "https://ibstpi.org/wp-content/uploads/2021/11/75_IJTD2021_ExaminingCompetenciesInstructionalDesignProfessional.pdf",
+      "figureOrTable": "Table B"
+    }
+  ]
+}

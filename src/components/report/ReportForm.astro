@@ -4,13 +4,16 @@
 // and `placement`, so each form on the page is measured separately. With JavaScript the download
 // appears in place; without it, the API redirects to the thank-you page.
 import { SITE } from '../../site.config';
-import { REPORT } from '../../data/reports/ai-tools-for-learning-design';
-interface Props { placement: string; button?: string; tone?: 'band' | 'page' }
-const { placement, button = 'Get the free guide', tone = 'page' } = Astro.props;
+import { REPORT as AI_REPORT } from '../../data/reports/ai-tools-for-learning-design';
+// Which guide this form delivers (defaults to the AI field guide). Any report data object with these fields works.
+type Report = { slug: string; pdf: string; pages: number; magnet: string; event?: string };
+interface Props { placement: string; button?: string; tone?: 'band' | 'page'; report?: Report; note?: string }
+const { placement, button = 'Get the free guide', tone = 'page', report = AI_REPORT as Report, note } = Astro.props;
+const REPORT = report;
 const on = SITE.newsletter !== null;
 const id = `rf-${placement}`;
 ---
-<form class:list={['rf', `rf-${tone}`]} method="post" action="/api/subscribe" data-report-form>
+<form class:list={['rf', `rf-${tone}`]} method="post" action="/api/subscribe" data-report-form data-event={REPORT.event ?? 'Field guide signup'}>
   <input type="hidden" name="placement" value={placement} />
   <input type="hidden" name="page" value={Astro.url.pathname} />
   <input type="hidden" name="magnet" value={REPORT.magnet} />
@@ -23,7 +26,7 @@ const id = `rf-${placement}`;
     <input id={`${id}-email`} name="email" type="email" placeholder="Your email address" autocomplete="email" required disabled={!on} />
     <button class="rf-button" type="submit" disabled={!on}>{on ? button : 'Coming soon'}</button>
   </div>
-  <p class="rf-note" role="status" aria-live="polite">Free PDF, {REPORT.pages} pages. You'll also get our monthly newsletter; unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</p>
+  <p class="rf-note" role="status" aria-live="polite">{note ?? `Free PDF, ${REPORT.pages} pages.`} You'll also get our monthly newsletter; unsubscribe whenever you like. <a href="/disclosure/#email">How we handle your email</a>.</p>
   <p class="rf-done" hidden>
     <a class="rf-download" href={REPORT.pdf} download>Download the guide (PDF)</a>
   </p>
@@ -38,7 +41,10 @@ const id = `rf-${placement}`;
       const note = form.querySelector<HTMLElement>('.rf-note')!;
       const done = form.querySelector<HTMLElement>('.rf-done')!;
       const button = form.querySelector<HTMLButtonElement>('button')!;
-      const body = Object.fromEntries(new FormData(form).entries());
+      const body: Record<string, unknown> = Object.fromEntries(new FormData(form).entries());
+      // Pass campaign tags from the landing URL (e.g. Meta ads) through to Beehiiv's UTM fields.
+      const qs = new URLSearchParams(location.search);
+      for (const k of ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content']) { const v = qs.get(k); if (v) body[k] = v; }
       button.disabled = true;
       note.textContent = 'Sending…';
       try {
@@ -46,7 +52,7 @@ const id = `rf-${placement}`;
         const json = await res.json();
         note.textContent = json.message;
         if (res.ok) {
-          (window as any).tlcTrack?.('Field guide signup');
+          (window as any).tlcTrack?.(form.dataset.event ?? 'Field guide signup');
           form.classList.add('is-done');
           done.hidden = false;
           done.querySelector('a')?.focus();

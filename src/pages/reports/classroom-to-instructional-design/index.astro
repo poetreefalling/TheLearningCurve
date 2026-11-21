@@ -1,0 +1,256 @@
+---
+// Landing page for the free career guide "From classroom to instructional design" (lead magnet for
+// the newsletter, aimed at teachers considering the move). Every figure is the guide's own, from the
+// study it cites, with the source linked. Animations reveal on scroll and stop under
+// prefers-reduced-motion; without JavaScript everything is visible and the forms still work.
+// Built on the report landing page pattern (/reports/ai-tools-for-learning-design/). Design: docs/design.md.
+import Base from '../../../layouts/Base.astro';
+import ReportForm from '../../../components/report/ReportForm.astro';
+import StatGrid from '../../../components/story/StatGrid.astro';
+import Stat from '../../../components/story/Stat.astro';
+import DataChart from '../../../components/story/DataChart.astro';
+import { REPORT, SOURCES, TRANSLATE, GAPS, STEPS, WORKSHEETS, MISTAKES } from '../../../data/reports/classroom-to-instructional-design';
+
+const img = (name: string) => `/images/reports/${REPORT.slug}/${name}.webp`;
+const FAQ = [
+  { q: 'Who is the guide for?', a: 'Primary, secondary, tertiary and vocational teachers thinking about moving into instructional design, whether you are still teaching and exploring, applying now, or have recently left the classroom.' },
+  { q: 'Do I need a master’s degree to become an instructional designer?', a: 'Usually not. In an analysis of 1,030 US instructional design job ads, more than 60 per cent asked only for a bachelor’s degree and fewer than 8 per cent asked for a master’s (Wang et al., 2021). The guide explains where a master’s is more often expected.' },
+  { q: 'Is it really free?', a: 'Yes. The guide is a free PDF. You’ll also get The Learning Curve’s monthly newsletter, which you can leave at any time. We don’t sell courses or certificates in the guide.' },
+  { q: 'Does it cover Australia?', a: 'Yes, where the evidence allows. The job-ad studies are from the US, and the guide says so. It covers Australian and New Zealand job titles, and flags that reliable Australian pay data is still being researched.' },
+];
+const jsonLd = [
+  {
+    '@context': 'https://schema.org', '@type': 'Report', name: REPORT.title,
+    description: 'A free career guide for teachers moving into instructional design: what employers ask for, what already transfers from the classroom, and a six-step plan.',
+    datePublished: '2026-11-21', inLanguage: 'en-AU', isAccessibleForFree: true, numberOfPages: REPORT.pages,
+    publisher: { '@type': 'Organization', name: 'The Learning Curve', url: 'https://thelearningcurve.net/' },
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'FAQPage',
+    mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+  },
+];
+const formNote = `Free PDF, ${REPORT.pages} pages and ${REPORT.worksheets} printable worksheets.`;
+---
+<Base
+  title="Free guide: from classroom to instructional design"
+  description="A free 20-page career guide for teachers moving into instructional design: what employers ask for, what already transfers, and a six-step plan. Built on research."
+  ogImage={`/images/reports/${REPORT.slug}/og.jpg`}
+  jsonLd={jsonLd}
+  current="resources"
+>
+  <div class="rl tg">
+    <!-- 1. Hero -->
+    <section class="band rl-hero" aria-labelledby="tg-h">
+      <div class="wrap rl-hero-grid">
+        <div class="rl-hero-copy">
+          <p class="kicker">Free career guide for teachers · November 2026</p>
+          <h1 id="tg-h">From classroom to instructional design</h1>
+          <p class="rl-stand">You already do most of the work. Employers can't see it yet. Here's what they actually ask for, what already transfers from your classroom, and a plan to close the gaps.</p>
+          <ul class="rl-ticks">
+            <li><b>What 1,030 job ads ask for</b>, and where the jobs really are</li>
+            <li><b>Your teaching, in their language</b>: a translation table and CV rewrites</li>
+            <li><b>The four gaps</b> that stop teachers getting hired, and a six-step plan to close them</li>
+            <li><b>Three printable worksheets</b> to turn reading into a plan</li>
+          </ul>
+          <div id="get" class="rl-form-anchor"><ReportForm report={REPORT} placement="teacher-hero" tone="band" note={formNote} /></div>
+        </div>
+        <div class="rl-fan" aria-hidden="true">
+          <img class="rl-page rl-page-3" src={img('page-plan')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-page-2" src={img('page-translate')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-page-1" src={img('page-evidence')} alt="" width="640" height="905" loading="eager" />
+          <img class="rl-page rl-cover" src={img('cover')} alt="" width="640" height="905" loading="eager" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <ul class="rl-trust">
+        <li>Built on published research</li>
+        <li>Every source listed</li>
+        <li>No course to sell you</li>
+        <li>Honest about the limits</li>
+      </ul>
+
+      <!-- 2. The evidence -->
+      <section class="rl-sec" aria-labelledby="ev-h">
+        <div class="section-head"><h2 id="ev-h">What employers actually ask for</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">The job ads are kinder to teachers than you might expect.</h3>
+          <p>One study read 1,030 US instructional design job ads and coded every skill they named. A newer study of 130 ads shows where the jobs are. Here's what they found.</p>
+        </div>
+        <StatGrid>
+          <Stat value="77" suffix="%" label="of 1,030 job ads named collaboration, more than any other skill" source={SOURCES.wang.label} href={SOURCES.wang.url} />
+          <Stat value="10" suffix="%" label="named face-to-face teaching. The ads want what teachers do, not teaching itself" source={SOURCES.wang.label} href={SOURCES.wang.url} />
+          <Stat value="8" prefix="<" suffix="%" label="required a master's degree; more than 60% asked only for a bachelor's" source={SOURCES.wang.label} href={SOURCES.wang.url} />
+          <Stat value="2.3" suffix="%" label="of 130 jobs were in schools. Six in ten were in corporate learning teams" source={SOURCES.weber.label} href={SOURCES.weber.url} />
+        </StatGrid>
+        <div class="rl-chart-row">
+          <DataChart id="wang-id-job-skills" />
+          <aside class="rl-pull">
+            <p>“Your teaching experience matters less as teaching and more as evidence that you can analyse learners, write objectives, design assessment and sequence content.”</p>
+            <span>The Learning Curve view, page 2</span>
+          </aside>
+        </div>
+      </section>
+
+      <!-- 3. Translate yourself (interactive) -->
+      <section class="rl-sec" aria-labelledby="tr-h" data-translate>
+        <div class="section-head"><h2 id="tr-h">Say it in their language</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">A hiring manager may not recognise “unit planning” as course design.</h3>
+          <p>Most of your core work maps onto what job ads ask for. Tap a card to see what an instructional designer calls it, and what to show as evidence.</p>
+        </div>
+        <div class="tg-switch" role="group" aria-label="Show the cards as">
+          <button type="button" class="rl-role" aria-pressed="true" data-side="teacher">What you did as a teacher</button>
+          <button type="button" class="rl-role" aria-pressed="false" data-side="designer">What a designer calls it</button>
+        </div>
+        <ul class="tg-cards">
+          {TRANSLATE.map((t, i) => (
+            <li style={`--i:${i}`}>
+              <button type="button" class="tg-card" aria-pressed="false" aria-label={`${t.did}: ${t.term}. What to show: ${t.show}`}>
+                <span class="tg-face tg-front" aria-hidden="true"><em>As a teacher</em><b>{t.did}</b><small>Tap to translate</small></span>
+                <span class="tg-face tg-back" aria-hidden="true"><em>Instructional designers call it</em><b>{t.term}</b><small><span>What to show:</span> {t.show}</small></span>
+              </button>
+            </li>
+          ))}
+        </ul>
+        <p class="rl-small">From the translation table on page 6. Every row corresponds to an ability the job ads ask for (<a href={SOURCES.wang.url} rel="noopener">Wang et al., 2021</a>). The guide also rewrites a teaching CV, line by line, as a design CV.</p>
+      </section>
+
+      <!-- 4. The four gaps -->
+      <section class="rl-sec" aria-labelledby="gap-h">
+        <div class="section-head"><h2 id="gap-h">The four gaps that stop teachers getting hired</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">They're rarely about learning.</h3>
+          <p>The guide is honest about the distance. These are the gaps hiring managers notice, and each one has a step in the plan.</p>
+        </div>
+        <ol class="tg-gaps">
+          {GAPS.map((g, i) => <li style={`--i:${i}`}><span class="rl-step-n">{String(i + 1).padStart(2, '0')}</span><div><b>{g.title}</b><p>{g.body}</p></div></li>)}
+        </ol>
+      </section>
+
+      <section class="rl-mid" aria-label="Get the guide">
+        <img src={img('cover')} alt="" width="160" height="226" loading="lazy" />
+        <div>
+          <p class="rl-mid-h">The evidence, the translation table, the plan and three worksheets. Free.</p>
+          <a class="rl-mid-btn" href="#get">Get the free guide</a>
+        </div>
+      </section>
+
+      <!-- 5. The plan -->
+      <section class="rl-sec" aria-labelledby="plan-h">
+        <div class="section-head"><h2 id="plan-h">Six steps from classroom to first design role</h2></div>
+        <div class="rl-lead">
+          <h3 class="rl-h3">Follow one secondary science teacher through the plan.</h3>
+          <p>An invented but typical example: eight years in the classroom, aiming for a corporate learning team.</p>
+        </div>
+        <ol class="rl-method tg-steps">
+          {STEPS.map((s, i) => (
+            <li style={`--i:${i}`}>
+              <span class="rl-step-n">{String(i + 1).padStart(2, '0')}</span>
+              <div class="rl-step-q"><span>{s.step}</span></div>
+              <div class="rl-step-ai"><em>Our science teacher</em>{s.eg}</div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <!-- 6. The portfolio -->
+      <section class="rl-sec" aria-labelledby="pf-h">
+        <div class="section-head"><h2 id="pf-h">Hiring managers look at portfolios</h2></div>
+        <div class="rl-profile">
+          <div class="rl-profile-shot"><img src={img('page-portfolio')} alt="Page 12 of the guide: hiring-manager survey figures and a table setting out the six parts of a portfolio case write-up." width="640" height="905" loading="lazy" /></div>
+          <div class="rl-profile-copy">
+            <p class="kicker">From page 12</p>
+            <h3 class="rl-h3">They look for problem-solving, not polish.</h3>
+            <div class="tg-big">
+              <p><b>72.3%</b> of 101 hiring managers ranked the portfolio among their top three hiring considerations.</p>
+              <p><b>43 of 101</b> ranked “ability to solve real-world problems” first, ahead of any other portfolio quality.</p>
+              <small>Source: <a href={SOURCES.peck.url} rel="noopener">Peck, 2023</a>, a survey run by a course provider. Its author says 101 responses are likely not enough to generalise; treat it as a strong signal, not a census.</small>
+            </div>
+            <ul class="rl-ticks rl-ticks-ink">
+              <li>The six-part case write-up hiring managers want to see</li>
+              <li>How many projects, and what to do under confidentiality</li>
+              <li>The one move that matters most: a design rationale for every major choice</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Worksheets and mistakes -->
+      <section class="rl-sec" aria-labelledby="ws-h">
+        <div class="section-head"><h2 id="ws-h">Three worksheets, built to print</h2></div>
+        <ol class="rl-check tg-ws">
+          {WORKSHEETS.map((w, i) => <li style={`--i:${i}`}><span>Worksheet {w.n}</span><p><b>{w.title}</b></p><p class="tg-ws-note">{w.note}</p></li>)}
+        </ol>
+        <div class="tg-mistakes">
+          <p class="kicker">Two of the five mistakes that slow the switch</p>
+          {MISTAKES.map((m) => <p><b>{m.title}.</b> {m.body}</p>)}
+        </div>
+      </section>
+    </div>
+
+    <!-- 8. Final call to action -->
+    <section class="band rl-final" aria-labelledby="final-h">
+      <div class="wrap rl-final-grid">
+        <img src={img('cover')} alt="Cover of the career guide: From classroom to instructional design. How teachers get hired." width="300" height="424" loading="lazy" />
+        <div>
+          <h2 id="final-h">Get the career guide</h2>
+          <p>What employers ask for, what already transfers, the four gaps, a six-step plan, what the job pays and three worksheets. {REPORT.pages} pages, free.</p>
+          <ReportForm report={REPORT} placement="teacher-footer" tone="band" button="Send me the guide" note={formNote} />
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <section class="rl-about tg-faq" aria-labelledby="faq-h">
+        <h2 id="faq-h">Questions teachers ask</h2>
+        {FAQ.map((f) => <details><summary>{f.q}</summary><p>{f.a}</p></details>)}
+      </section>
+      <section class="rl-about" aria-labelledby="about-h">
+        <h2 id="about-h">About this guide</h2>
+        <p>Written by The Learning Curve and checked in {REPORT.researched}. Figures come from <a href={SOURCES.wang.url} rel="noopener">Wang, Chen, Ritzhaupt and Martin (2021)</a>, <a href={SOURCES.weber.url} rel="noopener">Weber, McCarthy, Campbell and Bauer (2024)</a>, the US Bureau of Labor Statistics and the <a href={SOURCES.peck.url} rel="noopener">Peck (2023)</a> surveys; the job-ad studies are of US ads and apply to those samples. Every source is listed in the guide.</p>
+        <p>Want the long read first? <a href="/guides/instructional-design-jobs-for-former-teachers/">Instructional design jobs for former teachers</a> · <a href="/guides/instructional-design-portfolio-examples/">Portfolio examples</a> · <a href="/disclosure/">How we're funded</a></p>
+      </section>
+    </div>
+
+    <a class="rl-sticky" href="#get" data-sticky>Get the free guide</a>
+  </div>
+</Base>
+
+<script>
+  // Reveal sections as they scroll into view (CSS does the motion; none under reduced motion).
+  document.documentElement.classList.add('rl-js');
+  const els = document.querySelectorAll<HTMLElement>('.rl-fan, .tg-cards, .tg-gaps, .rl-method, .rl-check');
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    els.forEach((el) => io.observe(el));
+  } else els.forEach((el) => el.classList.add('in'));
+
+  // Translate cards: tap one to flip it, or switch every card at once.
+  const box = document.querySelector<HTMLElement>('[data-translate]');
+  if (box) {
+    box.classList.add('tg-live');
+    const cards = [...box.querySelectorAll<HTMLButtonElement>('.tg-card')];
+    cards.forEach((c) => c.addEventListener('click', () => c.setAttribute('aria-pressed', String(c.getAttribute('aria-pressed') !== 'true'))));
+    box.querySelectorAll<HTMLButtonElement>('.tg-switch button').forEach((b) => b.addEventListener('click', () => {
+      const designer = b.dataset.side === 'designer';
+      box.querySelectorAll('.tg-switch button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+      cards.forEach((c) => c.setAttribute('aria-pressed', String(designer)));
+    }));
+  }
+
+  // Sticky phone button: hidden while a sign-up form is on screen.
+  const sticky = document.querySelector<HTMLElement>('[data-sticky]');
+  if (sticky && 'IntersectionObserver' in window) {
+    const visible = new Set<Element>();
+    const so = new IntersectionObserver((entries) => {
+      entries.forEach((e) => (e.isIntersecting ? visible.add(e.target) : visible.delete(e.target)));
+      sticky.classList.toggle('hide', visible.size > 0);
+    });
+    document.querySelectorAll('form[data-report-form]').forEach((f) => so.observe(f));
+  }
+</script>

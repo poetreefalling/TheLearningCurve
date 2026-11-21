@@ -1,23 +1,32 @@
 ---
-// Home page feature card for the free field guide: sits in an article slot, styled like an
-// article card, with the guide's pages fanned on marigold. They splay out on hover (mouse only,
-// not under reduced motion). Our own offer, so it's labelled "Free field guide", never "Sponsored".
+// Feature card for a free guide: sits in an article slot, styled like an article card, with the
+// guide's pages fanned on marigold. They splay out on hover (mouse only, not under reduced motion).
+// Our own offer, so it's labelled "Free field guide" or "Free career guide", never "Sponsored".
+// Defaults to the AI field guide (home page); pass `guide` for another report.
 import { REPORT } from '../../data/reports/ai-tools-for-learning-design';
-interface Props { wide?: boolean } // wide: a 16:9 fan, to sit beside the kit card on /resources/
-const { wide = false } = Astro.props;
-const img = (name: string) => `/images/reports/${REPORT.slug}/${name}.webp`;
+type Guide = { slug: string; pages: number; kicker: string; title: string; blurb: string; images: [string, string, string, string] };
+const AI: Guide = {
+  slug: REPORT.slug, pages: REPORT.pages, kicker: 'Free field guide',
+  title: '25 AI tools for learning design, and how to use them well',
+  blurb: 'Which tool for which job, a prompt to try for each, five role starting kits and a buying checklist.',
+  images: ['page-checklist', 'page-roles', 'page-evidence', 'cover'],
+};
+interface Props { wide?: boolean; guide?: Guide } // wide: a 16:9 fan, to sit beside the kit card on /resources/
+const { wide = false, guide = AI } = Astro.props;
+const img = (name: string) => `/images/reports/${guide.slug}/${name}.webp`;
+const [p3, p2, p1, cover] = guide.images;
 ---
-<a class:list={['card card-standard rc', { 'rc-wide': wide }]} href={`/reports/${REPORT.slug}/`}>
+<a class:list={['card card-standard rc', { 'rc-wide': wide }]} href={`/reports/${guide.slug}/`}>
   <div class="rc-fan" aria-hidden="true">
-    <img class="rc-page rc-p3" src={img('page-checklist')} alt="" width="640" height="905" loading="lazy" decoding="async" />
-    <img class="rc-page rc-p2" src={img('page-roles')} alt="" width="640" height="905" loading="lazy" decoding="async" />
-    <img class="rc-page rc-p1" src={img('page-evidence')} alt="" width="640" height="905" loading="lazy" decoding="async" />
-    <img class="rc-page rc-cover" src={img('cover')} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-p3" src={img(p3)} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-p2" src={img(p2)} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-p1" src={img(p1)} alt="" width="640" height="905" loading="lazy" decoding="async" />
+    <img class="rc-page rc-cover" src={img(cover)} alt="" width="640" height="905" loading="lazy" decoding="async" />
   </div>
   <div class="card-body">
-    <span class="kicker">Free field guide</span>
-    <h3>25 AI tools for learning design, and how to use them well</h3>
-    <p>Which tool for which job, a prompt to try for each, five role starting kits and a buying checklist.</p>
-    <div class="meta">{REPORT.pages}-page PDF · <span class="rc-cta">Get the free guide →</span></div>
+    <span class="kicker">{guide.kicker}</span>
+    <h3>{guide.title}</h3>
+    <p>{guide.blurb}</p>
+    <div class="meta">{guide.pages}-page PDF · <span class="rc-cta">Get the free guide →</span></div>
   </div>
 </a>
