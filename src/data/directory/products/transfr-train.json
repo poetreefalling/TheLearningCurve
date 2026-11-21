@@ -1,0 +1,80 @@
+{
+  "name": "Transfr Train",
+  "vendor": "transfr",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://transfrinc.com/products/skills-training",
+  "summary": "Library of 330+ VR skills simulations across eight trade industries with pre-employment programmes, for schools, colleges and workforce programmes.",
+  "primaryMarket": {
+    "value": [
+      "schools",
+      "higher-education",
+      "vet",
+      "nonprofit"
+    ],
+    "source": "https://transfrinc.com/faq",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Trade skills training (automotive, construction, health sciences and more)",
+      "20-hour pre-employment programmes",
+      "CTE classroom programmes",
+      "Workforce programmes"
+    ],
+    "source": "https://transfrinc.com/products/skills-training",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "330+ VR simulations with a digital coach",
+      "Digital badges and microcredentials",
+      "Instructor dashboards",
+      "Kiosk mode on managed headsets"
+    ],
+    "source": "https://transfrinc.com/products/skills-training",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Clever",
+      "ClassLink",
+      "ManageXR"
+    ],
+    "source": "https://transfrinc.com/faq",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://transfrinc.com/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "FAQ says simulations can't be accessed through an LMS."
+    },
+    {
+      "field": "authoring",
+      "note": "No customer authoring stated."
+    }
+  ]
+}

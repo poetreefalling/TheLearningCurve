@@ -1,0 +1,34 @@
+{
+  "name": "SimX, Inc.",
+  "website": "https://www.simxvr.com/",
+  "legalEntity": "SimX, Inc.",
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Formerly SimX AR (About page)."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "founded",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "size",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "ownership",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "funding",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    }
+  ]
+}

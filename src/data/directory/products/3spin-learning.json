@@ -1,0 +1,96 @@
+{
+  "name": "3spin Learning",
+  "vendor": "3spin-learning",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://www.3spin-learning.com/en/vr-ai-platform/authoring-tool",
+  "summary": "No-code platform for building and running VR, AR and 360-degree training with AI dialogs and 3D characters, for L&D teams, schools and universities.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://www.3spin-learning.com/en/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Soft-skills training for HR, sales and service teams",
+      "Laboratory and pharma training",
+      "Aviation, energy and healthcare training",
+      "In-house immersive course creation"
+    ],
+    "source": "https://www.3spin-learning.com/en/vr-ai-platform/authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Drag-and-drop browser authoring",
+      "AI dialogs and AI-driven 3D characters",
+      "Multi-user courses",
+      "Runs on Meta Quest, Pico, VIVE and in a browser",
+      "xAPI LMS integration"
+    ],
+    "source": "https://www.3spin-learning.com/en/vr-ai-platform/authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://www.3spin-learning.com/en/vr-ai-platform/authoring-tool",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "€249 a month (Starter, 25 learners, 12-month term, plus VAT)",
+      "notes": "Pro from €830 a month (150 learners); Flatrate on request; education discounts."
+    },
+    "source": "https://www.3spin-learning.com/en/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-learner",
+      "trial": true
+    },
+    "source": "https://www.3spin-learning.com/en/pricing",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://helpcenter.3spin-learning.com/en/docs/the-3spin-dream-platform",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "security",
+      "note": "GDPR claimed; no certifications named."
+    }
+  ]
+}

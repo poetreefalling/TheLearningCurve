@@ -1,0 +1,88 @@
+{
+  "name": "Edify",
+  "vendor": "edify",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://www.edify.ac/product",
+  "summary": "Immersive learning platform where trainers build VR lessons without code and host them for learners in headsets or on desktop, including through Zoom or Teams; suits universities and enterprise training.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.edify.ac/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Hands-on practice with 3D objects and equipment",
+      "Remote VR lessons streamed to Zoom or Teams",
+      "Team role-play and soft-skills sessions",
+      "Teaching with imported 3D, anatomy, DICOM or GIS data"
+    ],
+    "source": "https://www.edify.ac/product",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "No-code lesson editor and marketplace",
+      "Multiplayer host and learner sessions",
+      "Desktop and mobile access without a headset",
+      "Branching experience builder with performance reporting",
+      "Imports of Autodesk, Zygote anatomy, DICOM and GIS content"
+    ],
+    "source": "https://www.edify.ac/product",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Zoom",
+      "Microsoft Teams"
+    ],
+    "source": "https://www.edify.ac/product",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Conformance reviewed against the W3C XR Accessibility User Requirements (report v1, June 2021)"
+    },
+    "source": "https://www.edify.ac/accessibility",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Pricing page returned an error."
+    },
+    {
+      "field": "standards",
+      "note": "No e-learning standards stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "status",
+      "note": "Newest dated pages are from 2021–22; confirm current development."
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "name": "VRpatients",
+  "vendor": "ves-vrpatients",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://vrpatients.com/",
+  "summary": "No-code clinical simulation platform where instructors build patient cases that run on the web, in VR or mixed reality, with AI dialogue and debriefing, for nursing, EMS and military training.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government"
+    ],
+    "source": "https://vrpatients.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Nursing case practice",
+      "EMS scenario training",
+      "Military training",
+      "AI-assisted debriefing"
+    ],
+    "source": "https://vrpatients.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "No-code case logic for physiological responses",
+      "Web, VR and mixed-reality delivery",
+      "50+ modifiable cases",
+      "Instructor and student modes with rubrics",
+      "Meta Quest 3/3S and VIVE XR Elite"
+    ],
+    "source": "https://vrpatients.com/faqs/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://vrpatients.com/faqs/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://vrpatients.com/faqs/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    }
+  ]
+}

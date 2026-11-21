@@ -1,0 +1,91 @@
+{
+  "name": "VictoryXR",
+  "vendor": "victoryxr",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.victoryxr.com/higher-education/",
+  "summary": "VR labs, digital twin campuses and an AI tutor (HoloTutor) for colleges and universities, with faculty tools for building scenarios.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate"
+    ],
+    "source": "https://www.victoryxr.com/higher-education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Ready-made simulations for nursing, law, business and physics",
+      "Digital twin campuses",
+      "Faculty-built VR simulators",
+      "AI role-play scenarios"
+    ],
+    "source": "https://www.victoryxr.com/higher-education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Multiplayer VR labs and field trips",
+      "HoloTutor AI tutor in any browser",
+      "No-code AI Creator Studio",
+      "Digital twin campus builds",
+      "Meta Quest, Pico, VIVE, Windows and Mac"
+    ],
+    "source": "https://www.victoryxr.com/higher-education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "$12 a month (VXRLabs subscription)",
+      "notes": "Higher-education bundles from $22,175 (25 Quest 3S headsets with 3-year licences); HoloTutor free to start."
+    },
+    "source": "https://www.victoryxr.com/higher-education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "accessibility": {
+    "value": {
+      "evidence": "Accessibility statement; vendor says it can't yet provide an ACR or VPAT"
+    },
+    "source": "https://www.victoryxr.com/accessibility-awareness/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [
+        "OpenAI"
+      ],
+      "trainsOnCustomerData": "not-disclosed",
+      "notes": "OpenAI named for the AI classroom teaching simulator."
+    },
+    "source": "https://www.victoryxr.com/higher-education/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "security",
+      "note": "Not stated."
+    }
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "name": "Interplay Learning",
+  "vendor": "interplay-learning",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.interplaylearning.com/training/career-development-platform/",
+  "summary": "Online and VR training for skilled trades such as HVAC, plumbing and electrical work, with video courses, 3D simulations and assessments, for employers, trade schools and workforce programmes.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "higher-education",
+      "schools"
+    ],
+    "source": "https://www.interplaylearning.com/pricing-education-and-workforce-development/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Upskilling technicians",
+      "Trade-school instruction alongside an LMS",
+      "Job-readiness pathways",
+      "Certification prep (NATE, EPA 608, OSHA)"
+    ],
+    "source": "https://www.interplaylearning.com/training/career-development-platform/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "500+ hours of video and 3D simulations",
+      "Learning paths and skills assessments",
+      "Manager dashboards and reporting",
+      "VR, desktop and mobile access"
+    ],
+    "source": "https://www.interplaylearning.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "Blackboard",
+      "Canvas",
+      "Moodle",
+      "D2L",
+      "Schoology"
+    ],
+    "source": "https://www.interplaylearning.com/pricing-education-and-workforce-development/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "scorm"
+    ],
+    "source": "https://www.interplaylearning.com/pricing-education-and-workforce-development/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "$54 per user a month (Solo)",
+      "notes": "Team, Enterprise and education plans by quote."
+    },
+    "source": "https://www.interplaylearning.com/pricing-education-and-workforce-development/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-learner"
+    },
+    "source": "https://www.interplaylearning.com/pricing-education-and-workforce-development/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "United States (student data)"
+      ]
+    },
+    "source": "https://www.interplaylearning.com/privacy/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "security",
+      "note": "Encryption and audits described; no certification named."
+    }
+  ]
+}

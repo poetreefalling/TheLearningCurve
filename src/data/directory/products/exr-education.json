@@ -1,0 +1,98 @@
+{
+  "name": "ExR",
+  "vendor": "exr-solutions",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://exr.education/",
+  "summary": "Cloud library of 360-degree films and 6DoF medical VR simulations, free for eligible NHS and UK academic users, viewable in a headset or a browser.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://exr.education/uses/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Remote access to mandatory NHS training",
+      "Medical device training for MedTech",
+      "Surgical and ENT procedure practice",
+      "Anaesthetics and intensive care scenarios"
+    ],
+    "source": "https://exr.education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "360-degree and 8K video",
+      "6DoF VR simulations with hand interaction",
+      "Browser viewing without a headset",
+      "Runs on Meta Quest, Pico and VIVE headsets",
+      "CPD-approved content (Royal College of Surgeons of Edinburgh)"
+    ],
+    "source": "https://exr.education/faq/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "integrations": {
+    "value": [
+      "ArborXR",
+      "ManageXR",
+      "SyncVR",
+      "NHSmail single sign-on"
+    ],
+    "source": "https://exr.education/faq/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "free",
+      "freeTier": true
+    },
+    "source": "https://exr.education/faq/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://exr.education/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "security": {
+    "value": [
+      "Cyber Essentials Plus"
+    ],
+    "source": "https://exr.education/faq/",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "authoring",
+      "note": "Content is made with clinicians by ExR; no self-service authoring."
+    }
+  ]
+}

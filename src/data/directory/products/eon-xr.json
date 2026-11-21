@@ -1,0 +1,84 @@
+{
+  "name": "EON XR",
+  "vendor": "eon-reality",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://eonreality.com/products/",
+  "summary": "EON Reality's XR product line for AI-assisted learning, training and on-the-job guidance, including no-code tools that turn documents into narrated 3D lessons for AR, mobile VR or desktop.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "government",
+      "corporate"
+    ],
+    "source": "https://eonreality.com/products/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Bringing real places and equipment into lessons",
+      "Scored simulations and team practice",
+      "AR guidance for field work through smart glasses",
+      "Skills assessment against a defined standard"
+    ],
+    "source": "https://eonreality.com/products/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "No-code XR creation from documents and SOPs",
+      "Course generation from an uploaded document or video",
+      "Lessons in AR, mobile VR or on desktop",
+      "AI assistant and AI mentor features"
+    ],
+    "source": "https://eonreality.com/products/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "US$36 per user a month (Education)",
+      "notes": "Enterprise from US$124 per user a month on the products page; the pricing page lists 'EON XR Infinite' and 'EON Classic' at US$36. Other products priced per user or quoted by site."
+    },
+    "source": "https://eonreality.com/product-pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat"
+    },
+    "source": "https://eonreality.com/product-pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026.",
+    "Products page and pricing page use different product names for the same price; confirm."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "Not stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "data residency",
+      "note": "US storage read only from a summary of the privacy policy."
+    }
+  ]
+}

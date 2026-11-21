@@ -1,0 +1,76 @@
+{
+  "name": "Osso VR",
+  "vendor": "osso-vr",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.ossovr.com/",
+  "summary": "VR procedural-skills training and assessment, led by Osso Nurse Training for health systems, plus custom modules for medical device and pharma companies.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "higher-education"
+    ],
+    "source": "https://www.ossovr.com/about",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Nurse onboarding and competency checks",
+      "Guided practice of procedures",
+      "Educator-led group sessions",
+      "Custom VR modules for device companies"
+    ],
+    "source": "https://www.ossovr.com/health-systems",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Scored test mode and guided practice mode",
+      "Multiuser sessions",
+      "Web companion with prebriefs and dashboards",
+      "Meta Quest, Windows and Apple Vision Pro"
+    ],
+    "source": "https://www.ossovr.com/health-systems",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote"
+    },
+    "source": "https://www.ossovr.com/health-systems",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://www.ossovr.com/privacy-policy",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "LMS integration with 'select' platforms; standards not stated."
+    },
+    {
+      "field": "security",
+      "note": "No certifications named."
+    }
+  ]
+}

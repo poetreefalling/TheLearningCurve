@@ -1,0 +1,37 @@
+{
+  "name": "Osso VR, Inc.",
+  "website": "https://www.ossovr.com/",
+  "headquarters": {
+    "value": "San Francisco (primary place of business); offices in the US and Canada",
+    "source": "https://www.ossovr.com/privacy-policy",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "founded": {
+    "value": 2016,
+    "source": "https://www.ossovr.com/about",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "legalEntity": "Osso VR, Inc.",
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "size",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "ownership",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    },
+    {
+      "field": "funding",
+      "note": "Not stated on the vendor pages reviewed on 21 Nov 2026."
+    }
+  ]
+}

@@ -1,0 +1,98 @@
+{
+  "name": "MirageXR",
+  "vendor": "wekit-ecs",
+  "category": "emerging-technologies",
+  "secondaryCategories": [
+    "authoring-tools"
+  ],
+  "website": "https://wekit-ecs.com/miragexr/",
+  "summary": "Mobile and smart-glasses XR platform, launched with The Open University, for authoring step-by-step AR training in the workplace, with a free open-source community edition for educators.",
+  "primaryMarket": {
+    "value": [
+      "corporate",
+      "higher-education"
+    ],
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Procedure training for maintenance and manufacturing",
+      "Remote expert assistance",
+      "Site inductions and digital-twin walkthroughs",
+      "Capturing expert knowledge"
+    ],
+    "source": "https://wekit-ecs.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "In-situ authoring without code",
+      "Spatial 3D step-by-step guidance",
+      "AI virtual instructor with knowledge-base retrieval (enterprise tiers)",
+      "xAPI analytics export",
+      "Mobile apps and Apple Vision Pro"
+    ],
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "standards": {
+    "value": [
+      "xapi"
+    ],
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "notes": "Community Edition free and open source; Standard and Premium Enterprise by quote."
+    },
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "quote",
+      "freeTier": true
+    },
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud",
+      "self-hosted"
+    ],
+    "source": "https://wekit-ecs.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "security",
+      "note": "No certifications named."
+    },
+    {
+      "field": "licence",
+      "note": "Community edition described as open source; licence not named."
+    }
+  ]
+}

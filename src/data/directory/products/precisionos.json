@@ -1,0 +1,83 @@
+{
+  "name": "PrecisionOS",
+  "vendor": "precisionos",
+  "category": "emerging-technologies",
+  "secondaryCategories": [],
+  "website": "https://www.precisionostech.com/",
+  "summary": "Subscription VR surgical rehearsal for orthopaedic trainees on Meta Quest, with a mobile app and an AI assistant that recommends practice cases.",
+  "primaryMarket": {
+    "value": [
+      "higher-education"
+    ],
+    "source": "https://www.precisionostech.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "useCases": {
+    "value": [
+      "Rehearsing orthopaedic procedures before theatre",
+      "At-home resident practice",
+      "Programme reporting for competency committees"
+    ],
+    "source": "https://www.precisionostech.com/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "keyFeatures": {
+    "value": [
+      "Orthopaedic procedure library",
+      "Delphi AI assistant",
+      "Mobile app to queue cases and review results",
+      "Meta Quest 3 or 3S"
+    ],
+    "source": "https://www.precisionostech.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "$199 a month or $1,999 a year (Individual)",
+      "notes": "The same page's FAQ says $99 a month; institutions by quote; 5-day free trial. Currency shown as $."
+    },
+    "source": "https://www.precisionostech.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "per-seat",
+      "trial": true
+    },
+    "source": "https://www.precisionostech.com/pricing/",
+    "checked": "2026-11-21",
+    "origin": "verified"
+  },
+  "aiDisclosure": {
+    "value": {
+      "models": [],
+      "trainsOnCustomerData": "no",
+      "notes": "Delphi chats not used to train or fine-tune AI models."
+    },
+    "source": "https://www.precisionostech.com/privacy-policy",
+    "checked": "2026-11-21",
+    "origin": "vendor-supplied"
+  },
+  "alternatives": [],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-21",
+  "draft": false,
+  "researchTasks": [
+    "Added from Jim's emerging technologies workbook (research snapshot 21 Nov 2026); every recorded fact re-checked against the vendor's own pages on 21 Nov 2026."
+  ],
+  "dataGaps": [
+    {
+      "field": "pricing",
+      "note": "Two different Individual prices on one page."
+    }
+  ]
+}
