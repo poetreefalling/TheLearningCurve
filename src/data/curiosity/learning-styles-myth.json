@@ -1,0 +1,29 @@
+{
+  "title": "\"I'm a visual learner\": myth or fact?",
+  "series": "Myth or Fact?",
+  "published": "2026-11-22T07:00:00+11:00",
+  "teaser": "Most educators believe teaching should match a learner's style. The fair test was spelled out in 2008, and the idea hasn't passed it.",
+  "slides": [
+    { "alt": "Cover: Myth or Fact? No. 01. 'I'm a visual learner.' Teach to my style and I'll learn more. Myth or fact? Make your call, then swipe. A giant marigold question mark fills the right of the frame." },
+    { "alt": "The claim: people learn best when teaching matches their style: visual, auditory or kinaesthetic. 89.1% of educators said they believe it, across 37 studies. Source: Newton and Salvi (2020), weighted percentage." },
+    { "alt": "The fair test: in 2008, four psychologists spelled out how to test it. One, sort learners by style. Two, randomly give each group different teaching methods. Three, same test for everyone; each style should win with its own match. Very few studies had even used that design, and several that did flatly contradicted the idea." },
+    { "alt": "The verdict: Myth. 'There is no adequate evidence base to justify incorporating learning-styles assessments into general educational practice.' Pashler, McDaniel, Rohrer and Bjork (2008)." },
+    { "alt": "The 2024 check: a meta-analysis pooled 21 studies. Only 26% of outcome measures showed the pattern the theory needs. Their verdict on matching: benefits too small and too infrequent to warrant widespread adoption. Source: Clinton-Lisell and Litzinger (2024)." },
+    { "alt": "Do this instead: match the format to the content, not the learner's label. A map for where places are. Audio for how a word sounds. A demonstration for tying a knot." },
+    { "alt": "For teachers and designers: skip separate versions of a lesson for each 'style'. Put that time into practice and feedback. Send this to someone who swears they're a visual learner." }
+  ],
+  "body": [
+    "\"I'm a visual learner.\" Most of us have said it. In a review of 37 studies, 89.1% of educators said they believed teaching should match a learner's style.",
+    "In 2008, four psychologists spelled out what a fair test would look like: sort learners by style, randomly give each group different teaching methods, and check whether each style does best with its own match. Very few studies had even used that design, and several that did flatly contradicted the idea.",
+    "A 2024 meta-analysis of 21 studies found the pattern the theory needs in only 26% of outcome measures, and judged the benefits of matching too small and too infrequent to warrant widespread adoption. Verdict: myth. Choose the format for what's being learned, not for the learner's label."
+  ],
+  "forDesigners": "Skip separate versions of a lesson for each 'style'. Put that time into practice and feedback.",
+  "sources": [
+    { "label": "Pashler, H., McDaniel, M., Rohrer, D. & Bjork, R. (2008). Learning styles: Concepts and evidence. Psychological Science in the Public Interest, 9(3), 105–119.", "url": "https://doi.org/10.1111/j.1539-6053.2009.01038.x" },
+    { "label": "Clinton-Lisell, V. & Litzinger, C. (2024). Is it really a neuromyth? A meta-analysis of the learning styles matching hypothesis. Frontiers in Psychology, 15, 1428732.", "url": "https://doi.org/10.3389/fpsyg.2024.1428732" },
+    { "label": "Newton, P.M. & Salvi, A. (2020). How common is belief in the learning styles neuromyth, and does it matter? A pragmatic systematic review. Frontiers in Education, 5, 602451.", "url": "https://doi.org/10.3389/feduc.2020.602451" }
+  ],
+  "related": [
+    "/library/learning-styles/"
+  ]
+}
