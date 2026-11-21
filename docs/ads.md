@@ -36,7 +36,7 @@ section bands, under Start here, so it is never placed right under the billboard
 ## House promos (our own billboards)
 
 `src/data/house-ads.json` holds promos for our own pages: the newsletter, the evidence map, the
-course design checklist, the directory and the course design kit. A slot shows one while AdSense hasn't filled (for
+course design checklist, the directory, the course design kit and Curiosity Corner. A slot shows one while AdSense hasn't filled (for
 example while the AdSense account is still under review, or when Google has no ad for the page),
 and keeps it if AdSense never fills. When AdSense does fill, the ad replaces the promo.
 

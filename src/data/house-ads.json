@@ -68,6 +68,19 @@
       ]
     },
     {
+      "id": "curiosity-corner",
+      "kicker": "Curiosity Corner",
+      "headline": "Puzzles that fool your brain, and the science of why",
+      "text": "Short puzzles, curiosities and brain facts: how your brain learns, remembers and gets fooled. Every fact with its source.",
+      "cta": "Visit Curiosity Corner",
+      "url": "/curiosity/",
+      "slots": [
+        "billboard",
+        "rectangle",
+        "halfpage"
+      ]
+    },
+    {
       "id": "kit-retrieval",
       "kicker": "Free: Retrieval Practice Kit",
       "headline": "Plan where every key idea gets recalled again",
