@@ -5,6 +5,8 @@ import Base from '../layouts/Base.astro';
 import ArticleCard from '../components/ArticleCard.astro';
 import { NAV, SECTIONS } from '../site.config';
 import { getArticles } from '../lib/articles';
+import { getCuriosities, curiosityUrl, slideSrc, CORNER } from '../lib/curiosity';
+const corner = (await getCuriosities()).slice(0, 4);
 const nav = NAV.find((n) => n.key === 'insights')!;
 const items = await getArticles('trends');
 const [lead, ...rest] = items;
@@ -25,6 +27,26 @@ const [lead, ...rest] = items;
         <ul class="river">{rest.slice(3, 23).map((a) => <li><ArticleCard article={a} variant="river" /></li>)}</ul>
       </section>
     )}
+    <section class="cc-band" aria-labelledby="cc-band-h">
+      <div class="section-head"><h2 id="cc-band-h">{CORNER.name}</h2><a href="/curiosity/">All of {CORNER.name} →</a></div>
+      <p class="cc-band-blurb">{CORNER.blurb}</p>
+      {corner.length > 0 ? (
+        <ul class="cc-band-grid">{corner.map((c) => (
+          <li><a href={curiosityUrl(c)}><img src={slideSrc(c, 0)} alt="" width="1080" height="1350" loading="lazy" decoding="async" /><span class="cc-band-series">{c.data.series}</span><span class="cc-band-title">{c.data.title}</span></a></li>
+        ))}</ul>
+      ) : <p class="cc-band-soon">The first puzzle lands soon. <a href="/curiosity/">Take a look</a>.</p>}
+    </section>
     <SectionAbout page="insights" />
   </div>
 </Base>
+<style>
+  .cc-band { margin: 48px 0; }
+  .cc-band-blurb { font-family: var(--serif); color: var(--ink-2); max-width: 640px; margin: 0 0 20px; }
+  .cc-band-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; }
+  .cc-band-grid a { display: flex; flex-direction: column; gap: 6px; color: var(--ink); text-decoration: none; }
+  .cc-band-grid img { width: 100%; height: auto; aspect-ratio: 4 / 5; border-radius: 2px; margin-bottom: 6px; }
+  .cc-band-series { font: 700 11.5px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); }
+  .cc-band-title { font-family: var(--display); font-weight: 750; font-size: 1.1rem; line-height: 1.2; }
+  .cc-band-grid a:hover .cc-band-title { text-decoration: underline; }
+  .cc-band-soon { font: 400 15px/1.5 var(--sans); }
+</style>

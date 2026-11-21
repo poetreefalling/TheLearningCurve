@@ -1,0 +1,51 @@
+---
+// /curiosity/: the Curiosity Corner column. Each post is the web home of an Instagram carousel.
+import Base from '../../layouts/Base.astro';
+import { getCuriosities, curiosityUrl, slideSrc, CORNER, isLiveCuriosity } from '../../lib/curiosity';
+import { SITE } from '../../site.config';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+const items = await getCuriosities();
+const fmt = (d: Date) => d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: SITE.timezone });
+---
+<Base title={CORNER.name} description={CORNER.blurb} current="insights">
+  <div class="wrap">
+    <header class="page-head cc-head">
+      <p class="kicker">A column from The Learning Curve</p>
+      <h1>{CORNER.name}</h1>
+      <p>{CORNER.blurb}</p>
+    </header>
+    {items.length === 0 && <div class="empty"><h2>Coming soon</h2><p>The first puzzle is on its way.</p></div>}
+    <ul class="cc-grid">
+      {items.map((c, i) => (
+        <li>
+          <a class="cc-card" href={curiosityUrl(c)}>
+            <img src={slideSrc(c, 0)} alt="" width="1080" height="1350" loading={i < 3 ? 'eager' : 'lazy'} decoding="async" />
+            <span class="cc-series">{c.data.series}{!isLiveCuriosity(c) && ' · unpublished'}</span>
+            <span class="cc-title">{c.data.title}</span>
+            <span class="cc-teaser">{c.data.teaser}</span>
+            <span class="cc-date">{fmt(c.data.published)}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <section class="cc-signup" aria-labelledby="cc-signup-h">
+      <h2 id="cc-signup-h">Get the best of Curiosity Corner by email</h2>
+      <p>One email a month: the puzzles, the science behind them, and what it means for how we learn.</p>
+      <NewsletterForm placement="curiosity" />
+    </section>
+  </div>
+</Base>
+<style>
+  .cc-signup { border-top: 2px solid var(--rule-strong); padding: 32px 0 72px; max-width: 680px; }
+  .cc-signup h2 { font-size: 1.6rem; margin: 0 0 8px; }
+  .cc-signup p { font-family: var(--serif); color: var(--ink-2); margin: 0 0 16px; }
+  .cc-head .kicker { margin: 0 0 8px; }
+  .cc-grid { list-style: none; padding: 0; margin: 0 0 56px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 40px 24px; }
+  .cc-card { display: flex; flex-direction: column; gap: 8px; color: var(--ink); text-decoration: none; border-top: 2px solid var(--rule-strong); padding-top: 16px; }
+  .cc-card img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 2px; margin-bottom: 8px; }
+  .cc-series { font: 700 11.5px/1.2 var(--label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--kicker); }
+  .cc-title { font-family: var(--display); font-weight: 750; font-size: 1.35rem; line-height: 1.16; letter-spacing: -0.01em; }
+  .cc-card:hover .cc-title { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 3px; }
+  .cc-teaser { font-family: var(--serif); color: var(--ink-2); font-size: 1rem; line-height: 1.45; }
+  .cc-date { font: 400 13px/1.4 var(--sans); color: var(--muted); }
+</style>
