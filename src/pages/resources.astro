@@ -20,6 +20,14 @@ const teacherGuide = { slug: TEACHER.slug, pages: TEACHER.pages, kicker: 'Free c
       <div class="section-head" style="margin-top:0"><h2 id="r-h">Free field guides and toolkits</h2></div>
       <p class="hub-blurb">In-depth, downloadable guides and templates for learning designers, L&amp;D leaders, educators and people moving into the field. Free, with every source listed.</p>
       <div class="grid-3"><KitCard /><ReportCard wide /><ReportCard wide guide={teacherGuide} /></div>
+      <a class="tg-banner" href={`/reports/${TEACHER.slug}/`}>
+        <picture>
+          <source media="(prefers-reduced-motion: reduce) and (max-width: 640px)" srcset="/images/reports/classroom-to-instructional-design/banner-tall-still.webp" width="900" height="1125" />
+          <source media="(prefers-reduced-motion: reduce)" srcset="/images/reports/classroom-to-instructional-design/banner-wide-still.webp" />
+          <source media="(max-width: 640px)" srcset="/images/reports/classroom-to-instructional-design/banner-tall.webp" width="900" height="1125" />
+          <img src="/images/reports/classroom-to-instructional-design/banner-wide.webp" width="1800" height="600" loading="lazy" decoding="async" alt="Free career guide for teachers: From classroom to instructional design. Classroom work renamed in employers' words, such as planned units and sequences of lessons becoming course mapping and sequencing. Get the free guide." />
+        </picture>
+      </a>
     </section>
     <section aria-labelledby="g-h">
       <div class="section-head"><h2 id="g-h">{SECTIONS.guides.label}</h2><a href="/guides/">All guides →</a></div>
