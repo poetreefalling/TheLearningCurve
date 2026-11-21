@@ -1480,6 +1480,11 @@ html:not(.rl-js) .tg-back { margin-top: 6px; }
 .tg-faq details { border-bottom: 1px solid var(--rule); padding: 12px 0; }
 .tg-faq summary { cursor: pointer; font: 700 15px/1.4 var(--sans); color: var(--ink); }
 .tg-faq details p { margin: 8px 0 0; }
+/* /resources/ banner for the teacher guide: an animated WebP (a still under reduced motion), 3:1 on desktop, 4:5 on phones */
+.tg-banner { display: block; margin-top: 28px; border: 2px solid var(--ink); box-shadow: 6px 6px 0 var(--ink); transition: transform 0.2s, box-shadow 0.2s; }
+.tg-banner img { display: block; width: 100%; height: auto; }
+.tg-banner:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 var(--ink); }
+@media (prefers-reduced-motion: reduce) { .tg-banner, .tg-banner:hover { transition: none; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .tg-cards li, .tg-face, .tg-gaps li { transition: none !important; } }
 /* Phone visitors (mostly from social ads) should reach the form fast: a smaller fan */
 @media (max-width: 900px) { .tg .rl-fan { max-width: 190px; } .tg .rl-hero { padding-top: 20px; } }
