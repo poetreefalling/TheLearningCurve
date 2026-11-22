@@ -1,0 +1,19 @@
+{
+  "title": "Gamification's clearest effect was on learning itself (g = 0.49); motivation and behaviour gains were smaller",
+  "subtitle": "Average effect of gamified against non-gamified instruction, with 95% confidence intervals, from a meta-analysis of 19 (cognitive), 16 (motivational) and 10 (behavioural) experiments",
+  "type": "dotRange",
+  "unit": "effect size (Hedges' g)",
+  "highlight": "Cognitive outcomes (19 experiments)",
+  "series": [
+    { "label": "Cognitive outcomes (19 experiments)", "value": 0.49, "low": 0.30, "high": 0.69 },
+    { "label": "Motivational outcomes (16 experiments)", "value": 0.36, "low": 0.18, "high": 0.54 },
+    { "label": "Behavioural outcomes (10 experiments)", "value": 0.25, "low": 0.04, "high": 0.46 }
+  ],
+  "source": {
+    "authors": "Sailer, M., & Homner, L.",
+    "year": 2020,
+    "doi": "10.1007/s10648-019-09498-w",
+    "url": "https://opus.bibliothek.uni-augsburg.de/opus4/files/109056/109056.pdf",
+    "figureOrTable": "Tables 2, 3 and 4 (summary effects, random-effects model)"
+  }
+}
