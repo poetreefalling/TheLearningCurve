@@ -35,8 +35,10 @@ The voice is a working learning designer who reads the research, writing for a c
 
 ## 3. Headlines, standfirsts, descriptions
 
-- Headline ≤ 70 characters, contains the target keyword naturally, makes a specific promise.
-  Good: "Worked Examples: How to Teach a Complex Skill Online". Bad: "The Ultimate Guide to
+- Headline: aim for 60 characters or fewer, so search results show it in full (Google cuts titles
+  off at roughly 55–65 characters). Go up to 70 only when the hook needs the room, and keep the
+  keyword and the core of the hook in the first 60, so a cut never lands mid-hook. It contains the
+  target keyword naturally and makes a specific promise. Good: "Worked Examples: How to Teach a Complex Skill Online". Bad: "The Ultimate Guide to
   Worked Examples".
 - **Lead with the hook: interest bait, not clickbait.** Our keywords mirror what people search,
   and searches are plain and informational. Keep the keyword first, then give the reader a reason
