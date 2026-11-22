@@ -34,6 +34,8 @@ const jsonLd = [
 ---
 
 <Base title={SITE.name} description={SITE.description} jsonLd={jsonLd} ads>
+  {/* The masthead wordmark and motto are the page's visible title; this gives them a heading for search engines and screen readers. */}
+  <h1 class="visually-hidden">{SITE.name}: {SITE.motto.replace(/\.$/, '')}</h1>
   {lead && (
     <section class="band band-lead" aria-label="Top story">
       <div class="wrap"><ArticleCard article={lead} variant="feature" eager /></div>
