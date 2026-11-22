@@ -84,5 +84,11 @@
       "field": "status",
       "note": "Newest dated pages are from 2021–22; confirm current development."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/edify/logo.webp",
+      "alt": "Edify logo"
+    }
+  }
 }

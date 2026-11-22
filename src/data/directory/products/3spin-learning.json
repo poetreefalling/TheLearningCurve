@@ -92,5 +92,11 @@
       "field": "security",
       "note": "GDPR claimed; no certifications named."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/3spin-learning/logo.webp",
+      "alt": "3spin Learning logo"
+    }
+  }
 }

@@ -112,5 +112,11 @@
       "field": "data residency",
       "note": "Hosted on Google Cloud; region not stated."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/arborxr/logo.webp",
+      "alt": "ArborXR logo"
+    }
+  }
 }
