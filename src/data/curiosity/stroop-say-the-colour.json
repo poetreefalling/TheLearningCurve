@@ -1,0 +1,25 @@
+{
+  "title": "Say the colour, not the word",
+  "series": "Brain Glitch",
+  "published": "2026-11-25T12:00:00+11:00",
+  "teaser": "Name the ink colour of five colour words, as fast as you can. In 1935, students took 63 seconds to name 100 colours, and 110 when the colours were clashing words.",
+  "slides": [
+    {
+      "alt": "Reel cover: Brain Glitch. The word BLUE printed in brown ink. Say the colour. Not the word."
+    }
+  ],
+  "body": [
+    "Say the colour of the ink, not the word. Out loud, and fast.",
+    "In 1935, J. Ridley Stroop timed 100 students naming 100 colours. Plain colour patches took them 63.3 seconds on average. When the colours were printed as the names of other colours (the word red in blue ink, say), it took 110.3 seconds: 74% longer.",
+    "Stroop's explanation was practice. You've spent far more of your life reading words than naming colours, so the word arrives first and gets in the way.",
+    "Send this to someone and watch them stumble."
+  ],
+  "forDesigners": "Well-practised habits fire first. If a screen asks learners to ignore something they read automatically, expect slips.",
+  "sources": [
+    {
+      "label": "Stroop, J.R. (1935). Studies of interference in serial verbal reactions. Journal of Experimental Psychology, 18(6), 643–662. Experiment 2, Table III.",
+      "url": "https://doi.org/10.1037/h0054651"
+    }
+  ],
+  "related": []
+}

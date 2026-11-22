@@ -1,0 +1,40 @@
+{
+  "title": "\"I'm right-brained\": myth or fact?",
+  "series": "Myth or Fact?",
+  "published": "2026-11-28T12:00:00+11:00",
+  "teaser": "Creative people use the right side of the brain, logical people the left? A 2013 study of 1,011 brain scans looked for left- and right-brained people.",
+  "slides": [
+    {
+      "alt": "Cover: Myth or Fact? No. 02. 'I'm right-brained.' Creative people run on the right side of the brain, logical people on the left. Myth or fact? Make your call, then swipe. A giant marigold question mark fills the top right."
+    },
+    {
+      "alt": "The claim: each of us has a dominant side of the brain, and it shapes how we think. 'Left-brained': logical, analytical, detail-minded. 'Right-brained': creative, intuitive, big-picture."
+    },
+    {
+      "alt": "The test: in 2013, researchers went looking for left- and right-brained people. They mapped connections across each brain and asked whether anyone had a whole left or right network that was more strongly connected. 1,011 people aged 7 to 29, from public brain-scan data. Source: Nielsen and colleagues, 2013, PLOS ONE."
+    },
+    {
+      "alt": "The verdict: Myth. '…our data are not consistent with a whole-brain phenotype of greater left-brained or greater right-brained network strength across individuals.' Nielsen and colleagues, 2013."
+    },
+    {
+      "alt": "What is true: some connections lean one way; whole people don't. The scans found hubs where connections lean left (9) or right (11), but lateralisation looked like a local rather than global property of brain networks."
+    },
+    {
+      "alt": "For teachers and designers: retire 'left-brained' and 'right-brained' labels. The scans found no such people. Send this to someone who swears they're right-brained."
+    }
+  ],
+  "body": [
+    "\"I'm right-brained.\" The idea: creative people run on the right side of the brain, logical people on the left.",
+    "In 2013, researchers analysed resting brain scans from 1,011 people aged 7 to 29, looking for anyone whose whole left or right network was more strongly connected. They didn't find them: the data were \"not consistent with a whole-brain phenotype of greater 'left-brained' or greater 'right-brained' network strength across individuals.\"",
+    "What they did find: particular hubs where connections lean left or right. Lateralisation looked like a local property of brain networks, not a type of person. Verdict: myth.",
+    "Send this to someone who swears they're right-brained."
+  ],
+  "forDesigners": "Retire 'left-brained' and 'right-brained' labels. The scans found no such people.",
+  "sources": [
+    {
+      "label": "Nielsen, J.A., Zielinski, B.A., Ferguson, M.A., Lainhart, J.E. & Anderson, J.S. (2013). An evaluation of the left-brain vs. right-brain hypothesis with resting state functional connectivity magnetic resonance imaging. PLOS ONE, 8(8), e71275.",
+      "url": "https://doi.org/10.1371/journal.pone.0071275"
+    }
+  ],
+  "related": []
+}
