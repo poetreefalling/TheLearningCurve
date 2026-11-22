@@ -75,7 +75,25 @@ const liveCats = categories
   .filter((c) => allProducts.some((x) => x.data.category.id === c.id || x.data.secondaryCategories.some((s) => s.id === c.id)))
   .sort((x, y) => (x.order ?? 99) - (y.order ?? 99));
 
-const title = p ? `${d!.name}: profile` : `${category!.name}: directory`;
+// Search titles say what the page holds, and only that: a part is named only when the profile shows
+// it. Long names drop parts so the title (before the site name) stays within 44 characters, and the full title with " | The Learning Curve" within 65.
+const profileTitle = () => {
+  const parts = [
+    d!.keyFeatures ? 'Features' : '',
+    d!.pricing || d!.pricingModel ? 'Pricing' : '',
+    alternatives.length ? 'Alternatives' : '',
+  ].filter(Boolean);
+  const join = (xs: string[]) => (xs.length > 1 ? `${xs.slice(0, -1).join(', ')} and ${xs[xs.length - 1]}` : xs[0]);
+  for (let n = parts.length; n > 0; n--) {
+    // Keep the later parts first (pricing and alternatives), as they're what searchers add to a name.
+    const t = `${d!.name}: ${join(parts.slice(parts.length - n))}`;
+    if (t.length <= 44) return t;
+  }
+  return `${d!.name}: Profile`;
+};
+const title = p
+  ? profileTitle()
+  : ((s) => (`${category!.name}: ${list.length} Independent ${s}`.length <= 44 ? `${category!.name}: ${list.length} Independent ${s}` : `${category!.name}: ${list.length} ${s}`))(list.length === 1 ? 'Profile' : 'Profiles');
 const description = p
   ? `${d!.name} by ${v?.data.name ?? ''}: markets, pricing model, standards, security, data residency and AI, each with its source.`.slice(0, 160)
   : `${list.length} ${category!.name.toLowerCase()} profiled independently, with a source for every fact. ${category!.description}`.slice(0, 160);
