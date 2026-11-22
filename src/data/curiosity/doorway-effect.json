@@ -1,0 +1,25 @@
+{
+  "title": "Why you forget what you came in for",
+  "series": "Brain Glitch",
+  "published": "2026-11-27T12:00:00+11:00",
+  "teaser": "Walked into a room and forgot why? In a 2011 study, walking through a doorway made people more likely to forget an object they had just handled.",
+  "slides": [
+    {
+      "alt": "Reel cover: Brain Glitch. Walked into a room and forgot why? Blame the doorway."
+    }
+  ],
+  "body": [
+    "Walked into a room and forgot why? Blame the doorway.",
+    "In a 2011 study, 55 people moved objects from table to table through a set of virtual rooms. Asked about an object they had just carried or set down, they got it wrong 12% of the time after crossing one large room, and 19% of the time just after walking through a doorway, over the same distance.",
+    "The researchers' explanation: a doorway is an event boundary. Your brain updates its model of what's going on, and the last event gets harder to reach. In a later experiment, walking back into the first room didn't help.",
+    "Send this to someone who always forgets why they came in."
+  ],
+  "forDesigners": "Breaks between screens and sections work like doorways. Restate the goal on the far side of one.",
+  "sources": [
+    {
+      "label": "Radvansky, G.A., Krawietz, S.A. & Tamplin, A.K. (2011). Walking through doorways causes forgetting: Further explorations. Quarterly Journal of Experimental Psychology, 64(8), 1632–1645. Experiment 1, Table 1; Experiment 3.",
+      "url": "https://doi.org/10.1080/17470218.2011.571267"
+    }
+  ],
+  "related": []
+}

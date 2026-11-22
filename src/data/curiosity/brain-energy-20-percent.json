@@ -1,0 +1,24 @@
+{
+  "title": "Your brain is 2% of you and burns 20% of your energy",
+  "series": "Brain Fact",
+  "published": "2026-11-29T12:00:00+11:00",
+  "teaser": "Your brain is about 2% of your body weight but accounts for about 20% of the oxygen, and so the calories, your body uses. And hard thinking barely changes the total.",
+  "slides": [
+    {
+      "alt": "Reel cover: Brain Fact. A giant 20%. Of your body's oxygen goes to your brain. It's 2% of your weight."
+    }
+  ],
+  "body": [
+    "Your brain is about 2% of your body weight. It accounts for about 20% of the oxygen, and so the calories, your body uses. That's around ten times what its weight alone would predict.",
+    "Here's the twist: thinking harder barely changes the total. Attempts to measure whole-brain changes in energy use during intense mental activity have failed to find any. Most of the energy goes on the brain's constant, ongoing signalling.",
+    "Your brain is never off. Send this to someone who says they're resting their brain."
+  ],
+  "forDesigners": "A hard lesson doesn't drain a learner's brain the way a run drains muscles. Plan breaks for attention and practice, not to refuel.",
+  "sources": [
+    {
+      "label": "Raichle, M.E. & Gusnard, D.A. (2002). Appraising the brain's energy budget. Proceedings of the National Academy of Sciences, 99(16), 10237–10239.",
+      "url": "https://doi.org/10.1073/pnas.172399499"
+    }
+  ],
+  "related": []
+}

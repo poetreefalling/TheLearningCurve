@@ -1,0 +1,40 @@
+{
+  "title": "The surgeon riddle",
+  "series": "Can You Solve It?",
+  "published": "2026-11-30T12:00:00+11:00",
+  "teaser": "A father and son are in a car crash. The surgeon says, 'I can't operate. He's my son.' How? In a 2021 study, fewer than a third of students said the surgeon could be a woman.",
+  "slides": [
+    {
+      "alt": "Puzzle No. 02: A father and son are in a car crash. The father dies. At the hospital, the surgeon looks at the boy and says, 'I can't operate. He's my son.' How? Comment your answer before you swipe."
+    },
+    {
+      "alt": "A hint: picture the surgeon. Who did you see? Read it again. Nothing in it says who the surgeon is."
+    },
+    {
+      "alt": "The answer: his mum. The surgeon is the boy's mother. Also right: his other dad, in a family with two fathers."
+    },
+    {
+      "alt": "How many get it: researchers gave the riddle to 152 US university students. 30% said the surgeon could be a woman. 36% said the surgeon could be a second father. Source: Belle and colleagues, 2021, Sex Roles."
+    },
+    {
+      "alt": "Why your brain stalls: your brain fills the gap with a default picture, called a schema. The riddle only works because the right answer breaks that picture."
+    },
+    {
+      "alt": "For teachers and designers: learners fill gaps with defaults too. When an example breaks the usual picture, say so out loud. Send this to someone and see who gets it first."
+    }
+  ],
+  "body": [
+    "A father and son are in a car crash. The father dies. At the hospital, the surgeon looks at the boy and says, \"I can't operate. He's my son.\" How?",
+    "The surgeon is his mother. (His other dad works too.)",
+    "In a 2021 study, researchers gave the riddle to 152 US university students. Fewer than a third (30%) said the surgeon could be a woman. More (36%) said the surgeon could be a second father in a same-sex marriage.",
+    "The riddle is hard because your brain fills the gap with its default picture of a surgeon, a schema, and the answer breaks it. Send this to someone and see who gets it first."
+  ],
+  "forDesigners": "Learners fill gaps with defaults too. When an example breaks the usual picture, say so out loud.",
+  "sources": [
+    {
+      "label": "Belle, D., Tartarilla, A.B., Wapman, M. et al. (2021). \"I can't operate, that boy is my son!\": Gender schemas and a classic riddle. Sex Roles, 85, 161–171.",
+      "url": "https://doi.org/10.1007/s11199-020-01211-4"
+    }
+  ],
+  "related": []
+}
