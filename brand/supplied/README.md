@@ -19,7 +19,6 @@ Notes give a credit (for example `hero.credit: "Photo: RDNE Stock project / Pexe
 
 | File | Backlog row | Style | Scene | Alt text (starting point) | Notes |
 |---|---|---|---|---|---|
-| row-59-instructional-design-contract-work.webp | 59 (Instructional Design Contract Work) | documentary (supplied photograph) | Course builder at work | "A woman with long light-brown hair and round glasses, in a denim shirt over a striped T-shirt, smiles as she types on a laptop at a timber desk, in a studio office with a painted brick wall, shelves of folders and a pegboard" | Jim approved this photo as is and holds the rights: don't apply the face check, use it. Set `hero.credit: "Photo: silverkblack / Pexels"`. Landscape 16:9; images.py crops it to 3:2 from the centre, which keeps her in frame. |
 
 ## Pool
 
