@@ -1,0 +1,25 @@
+{
+  "title": "Want it to stick? Say it out loud",
+  "series": "Memory Lab",
+  "published": "2026-11-27T12:00:00+11:00",
+  "teaser": "In a 2010 study, students recognised 76% of the words they had read aloud and 60% of the ones they had read silently. The catch: it only worked when some words stayed silent.",
+  "slides": [
+    {
+      "alt": "Reel cover: Memory Lab. Want it to stick? Say it out loud."
+    }
+  ],
+  "body": [
+    "Want it to stick? Say it out loud.",
+    "In a 2010 study, 44 students read one list of words: blue words aloud, white words silently. On a recognition test afterwards, they said yes to 76% of the words they had read aloud and 60% of the ones they had read silently.",
+    "The researchers' explanation is distinctiveness: saying a word gives it something extra to remember, which a silent word doesn't have. That's also the catch. When one group read every word aloud and another read every word silently, the advantage on the same kind of test disappeared.",
+    "Send this to someone studying tonight."
+  ],
+  "forDesigners": "Ask learners to say, not just read, the one or two lines that matter most. Make everything loud and nothing stands out.",
+  "sources": [
+    {
+      "label": "MacLeod, C.M., Gopie, N., Hourihan, K.L., Neary, K.R. & Ozubko, J.D. (2010). The production effect: Delineation of a phenomenon. Journal of Experimental Psychology: Learning, Memory, and Cognition, 36(3), 671–685. Experiments 1A and 1B, Table 1; Experiment 2.",
+      "url": "https://doi.org/10.1037/a0018785"
+    }
+  ],
+  "related": []
+}
