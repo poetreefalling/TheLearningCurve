@@ -120,8 +120,8 @@ don't use a queue row.
 | 57 | Instructional Design Examples, Annotated (published as "Instructional Design Examples: Doing or Watching?") | instructional design examples (secondary: instructional design example 210 · 34, instructional design example projects 30 · 21, instructional design examples in education 10 · 6; AU 10 · 20; checked 23 Nov 2026) | 170 · 21 | guide | in PR (Thu 26 Nov 00:00) |
 | 58 | LearnWorlds Pricing Explained | learnworlds price | 320 · 20 | review | todo |
 | 59 | Instructional Design Contract Work: How Freelance Projects Run (published as "Instructional Design Contract Work: Unsigned, the Course Is Yours") | instructional design contract work (secondary: instructional design contract jobs 260 · 21, freelance instructional design work 170 · 25, freelance instructional design 70 · 25, instructional design contract 40 · 15, instructional design contract rates 10 · 5; AU 10 · 9; checked 24 Nov 2026) | 260 · 12 | guide | in PR (Fri 27 Nov 00:00) |
-| 60 | The Kemp Model of Instructional Design, Explained | kemp model instructional design | 70 · 6 | guide | next |
-| 61 | Over-Scaffolding: When Support Gets in the Way | over scaffolding in education | 30 · 27 | library | todo |
+| 60 | The Kemp Model of Instructional Design, Explained (published as "Kemp Model of Instructional Design: Start Anywhere, in Theory") | kemp model instructional design (secondary: kemp model of instructional design 50 · 32, kemp instructional design model 50 · 32, kemp model 50 · 25, addie model vs kemp model 10 · 5; AU 10 · 5; checked 24 Nov 2026) | 70 · 6 | guide | in PR (Fri 27 Nov 12:00) |
+| 61 | Over-Scaffolding: When Support Gets in the Way | over scaffolding in education | 30 · 27 | library | next |
 | 62 | Corporate Instructional Design Jobs: What Changes From Education | corporate instructional design jobs | 140 · 23 | guide | todo |
 | 63 | AI Tools for Instructional Design: What Shipped This Month | ai tools for instructional design | 70 · 10 | trends | todo |
 | 64 | Agile Instructional Design: Running a Course Build in Sprints | agile instructional design | 70 · 24 | guide | todo |
