@@ -256,8 +256,8 @@ Use with `brand/documentary-reference.webp`. Fill the brackets; keep the rest wo
 > space. [ONE PERSON OR TWO PEOPLE, everyday or smart-casual clothes, any age and background]
 > [DOING THE SPECIFIC ACTIVITY, e.g. working through a course lesson on a tablet] in [A REAL,
 > ASPIRATIONAL PLACE, e.g. a light-filled university library with timber and plants]. Faces
-> turned away, in profile or softly out of focus; hands and the device or paper are the
-> sharpest part of the frame. Natural daylight, clean true-to-life colour with gentle warmth,
+> may be visible and in focus, caught mid-task and absorbed in the work, never looking at the
+> camera; an editorial moment, not a portrait. Natural daylight, clean true-to-life colour with gentle warmth,
 > soft shadows. 35mm film look, light fine grain, slightly imperfect framing, shallow depth of
 > field. Screens show a natural, realistic lesson or video layout, in whatever focus the depth of
 > field gives them. Use the reference image for photographic style only, not its people, room or
@@ -284,7 +284,7 @@ Credit: "Illustration: The Learning Curve".
 Reject and regenerate once if it has: a logo, logomark or brand name (on a screen, a device, clothing
 or anything else), large or prominent words (a headline, sign or caption you can read at a glance;
 small interface text and handwriting in the background of a screen or page are fine), malformed hands or
-extra fingers, a sharp, centred face looking at the camera, a glossy commercial look, or a
+extra fingers, anyone looking straight at the camera, a posed or glossy commercial look, or a
 subject that doesn't match the article. If the second attempt also fails, don't publish a weak
 image: use a pool image that fits, or a flagged placeholder for Jim to replace before merging
 (CLAUDE.md step 6).
