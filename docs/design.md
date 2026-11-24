@@ -183,13 +183,13 @@ charts or logos in generated images: those are built by the site from source dat
 
 | Style | When | Look |
 | --- | --- | --- |
-| **Documentary** (about 80%) | Anything with a human situation | Candid, observed, bright contemporary spaces (campus libraries, modern offices, a learner on a phone at a café window). Natural daylight, true colour with gentle warmth, 35mm look, light grain, shallow depth of field. Faces turned away or soft; hands and devices are the sharpest part. Reference: `brand/documentary-reference.webp` |
+| **Documentary** (about 80%) | Anything with a human situation | Candid, observed, bright contemporary spaces (campus libraries, modern offices, a learner on a phone at a café window). Natural daylight, true colour with gentle warmth, 35mm look, light grain, shallow depth of field. Faces can show and be in focus, but people are absorbed in the task, never looking at the camera: candid and editorial, not posed. Reference: `brand/documentary-reference.webp` |
 | **Risograph** (about 20%) | Ideas you can't photograph: a memory effect, a design model | Two inks, deep navy and ochre, on warm off-white. Grain, slight misregistration, halftone. One simple visual metaphor, generous empty space |
 | **Screenshot** | Reviews and directory profiles | The product's real interface, credited ("Image: Vendor" or "Screenshot: The Learning Curve"), framed with a thin border and soft shadow |
 
 Generated with Artlist (Nano Banana 2, image-to-image, 2K, 3:2) from the reference images and the
 prompt templates in `docs/editorial.md` section 10. Rejected if they show text, logos, malformed
-hands, a sharp face looking at the camera, or a glossy stock look.
+hands, anyone looking straight at the camera, or a posed or glossy stock look.
 
 **Directory logos** sit on a white rounded tile so dark marks read in both themes.
 

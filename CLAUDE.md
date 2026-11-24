@@ -147,9 +147,10 @@ empty slot is better than a weak article.
 
    **Image rules** (for generated, supplied and pool images): reject an image with a logo,
    logomark or brand name, large or prominent words (small screen text and handwriting are fine),
-   extra or malformed fingers, a face in sharp focus, a glossy stock-photo look, or the wrong
-   subject. Jim can approve an image as is in its README Notes (for example a licensed photo
-   where a face may show); then skip those checks. Look at every image before using it.
+   extra or malformed fingers, anyone looking straight at the camera, a posed or glossy
+   stock-photo look, or the wrong subject. Faces in focus are fine when the moment is candid and
+   editorial: people absorbed in what they're doing, not posing. Jim can approve an image as is in
+   its README Notes; then skip those checks. Look at every image before using it.
 
    **Every source ends the same way.** `git mv` a supplied or pool image (so it can't be used
    twice) or save a generated or placeholder image as `brand/originals/<slug>.webp` (quality 92),
