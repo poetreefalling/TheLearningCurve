@@ -94,8 +94,7 @@
     "Platforms: iOS app (iOS 15 or later) and a browser demo at https://voltlab.club/?section=law-demo&preset=series-circuit-law. Check Android and desktop availability.",
     "Asked for a Pro reviewer code; reviewer access is demo only until then, so it stays profiled, not evaluated.",
     "Ask: teacher access terms, whether teachers can see student progress, privacy policy and under-13 use, languages.",
-    "Deployment is our reading (a downloadable app plus web demo; works offline); confirm.",
-    "Logo: not captured; ask the developer or take it from the App Store icon with credit."
+    "Deployment is our reading (a downloadable app plus web demo; works offline); confirm."
   ],
   "dataGaps": [
     {
@@ -114,5 +113,12 @@
       "field": "data residency",
       "note": "Not stated."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/voltlab/logo.webp",
+      "alt": "VoltLab logo",
+      "source": "https://voltlab.club/"
+    }
+  }
 }

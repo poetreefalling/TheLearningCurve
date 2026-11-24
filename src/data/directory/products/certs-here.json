@@ -107,7 +107,6 @@
     "Standards: no Open Badges, W3C Verifiable Credentials, LTI or API claims on the site (24 Nov 2026). Asked the vendor; record the answer in `standards`.",
     "Continuity: the terms say 'We do not promise uninterrupted access or a fixed lifetime for a link'; links stay checkable for the retention period an issuer chooses, and closing an account offers a secure export or deletion. Ask what export format is used.",
     "Read /data-processing (provider list), /help and /moodle-certificate-archive, not opened on 24 Nov 2026.",
-    "Logo: https://certs.here/images/brand/ribbon-check.svg (vendor's own). Couldn't download it from this environment; add as media.logo.",
     "Geographic availability is our reading of the terms (English law, UK company); confirm whether it serves issuers outside the UK.",
     "Hands-on test planned with a free issuer account (vendor's suggested workflow: issue, verify signed out, withdraw, re-check, CSV import)."
   ],
@@ -124,5 +123,12 @@
       "field": "security",
       "note": "No certifications claimed."
     }
-  ]
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/certs-here/logo.webp",
+      "alt": "certs.here logo",
+      "source": "https://certs.here/"
+    }
+  }
 }
