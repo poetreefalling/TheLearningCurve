@@ -58,7 +58,7 @@ const out=x=>1-Math.pow(1-x,3); const back=x=>{const c=1.9;return 1+(c+1)*Math.p
 function show(id,on){$(id).style.opacity=on?1:0}
 function rise(id,t,s,d=.45,dist=60){const k=out(p(t,s,d));$(id).style.opacity=k;$(id).style.transform=`translateY(${(1-k)*dist}px)`}
 const W0=0.5, WD=1.1;
-window.renderAt=function(t){
+const _renderAt=function(t){
  ['s1','s2','s3','s4','s5'].forEach(s=>show(s,false));
  if(t<3.0){show('s1',1);
    rise('k1',t,0.0,.35,30);
@@ -86,5 +86,15 @@ window.renderAt=function(t){
  } else {show('s5',1); const u=t-16.4;
    rise('h5a',u,0,.45); rise('h5c',u,0.9,.45,30); rise('wm',u,1.4,.5,20);
  }
+};
+
+// Voice-over timing: s3 and s4 hold on their last frame so the VO lines fit, s5 starts later.
+window.renderAt=function(t){
+ let o;
+ if(t<9.2) o=t;
+ else if(t<14.6) o=9.2+Math.min(t-9.2,4.39);
+ else if(t<18.4) o=13.6+Math.min(t-14.6,2.79);
+ else o=16.4+(t-18.4);
+ _renderAt(o);
 };
 </script></body></html>
