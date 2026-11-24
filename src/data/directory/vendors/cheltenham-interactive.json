@@ -1,0 +1,42 @@
+{
+  "name": "Cheltenham Interactive",
+  "website": "https://www.cheltenhaminteractive.com/",
+  "headquarters": {
+    "value": "Cheltenham, United Kingdom",
+    "source": "https://certs.here/terms",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "founded": {
+    "value": 2023,
+    "source": "https://corpsignals.uk/companies/uk/cheltenham-interactive-ltd-14887160.html",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "size": {
+    "value": "1 employee",
+    "source": "https://corpsignals.uk/companies/uk/cheltenham-interactive-ltd-14887160.html",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "ownership": {
+    "value": "independent",
+    "source": "https://corpsignals.uk/companies/uk/cheltenham-interactive-ltd-14887160.html",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "legalEntity": "Cheltenham Interactive Ltd (company number 14887160, England and Wales)",
+  "status": "active",
+  "lastVerified": "2026-11-24",
+  "draft": false,
+  "researchTasks": [
+    "Founded, size and ownership come from a third-party company-data site (corpsignals.uk), so they are marked estimated. Confirm against the Companies House register (company 14887160) and upgrade to verified.",
+    "Submitted to /submit on 24 Nov 2026 by Dan McCluskey (founder and developer). Accepted for review; questions sent by email (standards, continuity and export, data, pricing)."
+  ],
+  "dataGaps": [
+    {
+      "field": "funding",
+      "note": "Not published; ask in outreach."
+    }
+  ]
+}

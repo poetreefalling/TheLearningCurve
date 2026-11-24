@@ -1,0 +1,41 @@
+{
+  "name": "VoltLab",
+  "website": "https://voltlab.club/",
+  "ownership": {
+    "value": "independent",
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "ownershipDetail": {
+    "value": "Published on the App Store by an individual developer, Denis Gladkii",
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-24",
+  "draft": false,
+  "researchTasks": [
+    "voltlab.club renders with JavaScript and couldn't be read by our tools on 24 Nov 2026; facts come from the developer's App Store listing. Re-check the website (pricing, teacher access, privacy) in a browser.",
+    "Submitted to /submit on 23 Nov 2026 by Denis Gladkiy (independent developer; App Store spells it Gladkii). Accepted for review; asked for a Pro reviewer code and about teacher access, progress data and privacy."
+  ],
+  "dataGaps": [
+    {
+      "field": "headquarters",
+      "note": "Not shown on the App Store listing."
+    },
+    {
+      "field": "founded",
+      "note": "Not shown."
+    },
+    {
+      "field": "size",
+      "note": "Independent developer; headcount not stated."
+    },
+    {
+      "field": "funding",
+      "note": "Not stated."
+    }
+  ]
+}

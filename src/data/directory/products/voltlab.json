@@ -1,0 +1,118 @@
+{
+  "name": "VoltLab",
+  "vendor": "voltlab",
+  "category": "video-interactive",
+  "secondaryCategories": [],
+  "website": "https://voltlab.club/",
+  "summary": "An interactive electricity lab for school and university physics. Students build and vary circuits, follow narrated lessons and answer quizzes with worked solutions. Free content plus a paid Pro upgrade; there's also a free browser demo.",
+  "primaryMarket": {
+    "value": [
+      "schools",
+      "higher-education"
+    ],
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Classroom demonstrations of circuits",
+      "Students investigating circuits independently",
+      "Self-study of electricity with lessons and quizzes"
+    ],
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Interactive circuit experiments",
+      "AI-narrated lessons",
+      "Quizzes with worked solutions",
+      "Works offline",
+      "No ads"
+    ],
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Free; VoltLab Pro from US$3.99 a month (App Store)",
+      "notes": "App Store in-app purchases (US store, 24 Nov 2026): VoltLab Pro US$39.99; Pro one year US$19.99 or US$6.99; Pro one month US$3.99. The developer says teachers can use all educational material free; how that works is being confirmed."
+    },
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "flat",
+      "freeTier": true
+    },
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [],
+      "notes": "App Store privacy label: Data Not Collected (developer's own declaration)."
+    },
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "geographicAvailability": {
+    "value": [
+      "Worldwide"
+    ],
+    "source": "https://apps.apple.com/us/app/voltlab-interactive-physics/id1461701360",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "alternatives": [
+    "labster"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-24",
+  "draft": false,
+  "researchTasks": [
+    "Platforms: iOS app (iOS 15 or later) and a browser demo at https://voltlab.club/?section=law-demo&preset=series-circuit-law. Check Android and desktop availability.",
+    "Asked for a Pro reviewer code; reviewer access is demo only until then, so it stays profiled, not evaluated.",
+    "Ask: teacher access terms, whether teachers can see student progress, privacy policy and under-13 use, languages.",
+    "Deployment is our reading (a downloadable app plus web demo; works offline); confirm.",
+    "Logo: not captured; ask the developer or take it from the App Store icon with credit."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "No LTI, SCORM or classroom integrations stated."
+    },
+    {
+      "field": "accessibility",
+      "note": "No accessibility statement found."
+    },
+    {
+      "field": "security",
+      "note": "Not stated."
+    },
+    {
+      "field": "data residency",
+      "note": "Not stated."
+    }
+  ]
+}
