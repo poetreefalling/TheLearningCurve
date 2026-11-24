@@ -121,8 +121,8 @@ don't use a queue row.
 | 58 | LearnWorlds Pricing Explained | learnworlds price | 320 · 20 | review | todo |
 | 59 | Instructional Design Contract Work: How Freelance Projects Run (published as "Instructional Design Contract Work: Unsigned, the Course Is Yours") | instructional design contract work (secondary: instructional design contract jobs 260 · 21, freelance instructional design work 170 · 25, freelance instructional design 70 · 25, instructional design contract 40 · 15, instructional design contract rates 10 · 5; AU 10 · 9; checked 24 Nov 2026) | 260 · 12 | guide | in PR (Fri 27 Nov 00:00) |
 | 60 | The Kemp Model of Instructional Design, Explained (published as "Kemp Model of Instructional Design: Start Anywhere, in Theory") | kemp model instructional design (secondary: kemp model of instructional design 50 · 32, kemp instructional design model 50 · 32, kemp model 50 · 25, addie model vs kemp model 10 · 5; AU 10 · 5; checked 24 Nov 2026) | 70 · 6 | guide | in PR (Fri 27 Nov 12:00) |
-| 61 | Over-Scaffolding: When Support Gets in the Way | over scaffolding in education | 30 · 27 | library | next |
-| 62 | Corporate Instructional Design Jobs: What Changes From Education | corporate instructional design jobs | 140 · 23 | guide | todo |
+| 61 | Over-Scaffolding: When Support Gets in the Way (published as "Over-Scaffolding in Education: Better Practice, Worse Exams") | over scaffolding in education (secondary: over scaffolding, fading scaffolding 10 · 18, scaffolding without over scaffolding 0 · 4, assistance dilemma; AU 10 · 5; checked 25 Nov 2026) | 30 · 27 | library | in PR (Sat 28 Nov 00:00) |
+| 62 | Corporate Instructional Design Jobs: What Changes From Education | corporate instructional design jobs | 140 · 23 | guide | next |
 | 63 | AI Tools for Instructional Design: What Shipped This Month | ai tools for instructional design | 70 · 10 | trends | todo |
 | 64 | Agile Instructional Design: Running a Course Build in Sprints | agile instructional design | 70 · 24 | guide | todo |
 | 65 | How to Create a Course on Teachable, Step by Step | how to create a course on teachable | 50 · 24 | guide | todo |
