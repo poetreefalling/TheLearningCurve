@@ -1,0 +1,134 @@
+{
+  "name": "certs.here",
+  "vendor": "cheltenham-interactive",
+  "category": "assessment-credentialing",
+  "secondaryCategories": [],
+  "website": "https://certs.here/",
+  "summary": "A certificate register and verification service. Training providers issue new certificates or import old ones (including from a retired Moodle site) and each gets a link that works without the original learning platform; learners keep awards from several providers in a private wallet.",
+  "primaryMarket": {
+    "value": [
+      "higher-education",
+      "corporate",
+      "vet"
+    ],
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "useCases": {
+    "value": [
+      "Keeping past course certificates checkable after a Moodle site closes",
+      "Issuing and verifying course completion certificates",
+      "Letting employers check an award without signing in"
+    ],
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "keyFeatures": {
+    "value": [
+      "Import past awards from a CSV file",
+      "Certificate design and individual or bulk issuing",
+      "Expiry dates, corrections and withdrawal at the same link",
+      "Private learner wallet across providers, sharing one certificate at a time",
+      "Public verification page showing issuer, issue date and status",
+      "Verified issuer domain and verified organisation badges"
+    ],
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "integrations": {
+    "value": [
+      "Moodle (certificate import)"
+    ],
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "vendor-supplied"
+  },
+  "pricing": {
+    "value": {
+      "public": true,
+      "from": "Free for the first 1,000 certificates; then £12 a year up to 10,000",
+      "notes": "Published tiers (GBP, per year): up to 1,000 free; 1,001–10,000 £12; 10,001–100,000 £49; unlimited £200. Issued and imported certificates count once across all courses and years. The terms call these proposed prices: a paid plan needs a separate agreement on price, billing and cancellation."
+    },
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "pricingModel": {
+    "value": {
+      "basis": "usage",
+      "freeTier": true
+    },
+    "source": "https://certs.here/",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "deployment": {
+    "value": [
+      "cloud"
+    ],
+    "source": "https://certs.here/privacy",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "dataPrivacy": {
+    "value": {
+      "dataResidency": [
+        "Germany"
+      ],
+      "notes": "Web server and primary database hosted by netcup GmbH in Nuremberg, Germany; administered from the UK. Microsoft 365 handles email and backups (last 30 nightly backups in OneDrive). The issuer controls learner records."
+    },
+    "source": "https://certs.here/privacy",
+    "checked": "2026-11-24",
+    "origin": "verified"
+  },
+  "geographicAvailability": {
+    "value": [
+      "United Kingdom"
+    ],
+    "source": "https://certs.here/terms",
+    "checked": "2026-11-24",
+    "origin": "estimated"
+  },
+  "alternatives": [
+    "accredible",
+    "credly"
+  ],
+  "evidence": [],
+  "commercialRelationship": {
+    "kind": "none"
+  },
+  "status": "active",
+  "lastVerified": "2026-11-24",
+  "draft": false,
+  "researchTasks": [
+    "Standards: no Open Badges, W3C Verifiable Credentials, LTI or API claims on the site (24 Nov 2026). Asked the vendor; record the answer in `standards`.",
+    "Continuity: the terms say 'We do not promise uninterrupted access or a fixed lifetime for a link'; links stay checkable for the retention period an issuer chooses, and closing an account offers a secure export or deletion. Ask what export format is used.",
+    "Read /data-processing (provider list), /help and /moodle-certificate-archive, not opened on 24 Nov 2026.",
+    "Geographic availability is our reading of the terms (English law, UK company); confirm whether it serves issuers outside the UK.",
+    "Hands-on test planned with a free issuer account (vendor's suggested workflow: issue, verify signed out, withdraw, re-check, CSV import)."
+  ],
+  "dataGaps": [
+    {
+      "field": "standards",
+      "note": "None claimed on the vendor's pages; asked."
+    },
+    {
+      "field": "accessibility",
+      "note": "No accessibility statement found."
+    },
+    {
+      "field": "security",
+      "note": "No certifications claimed."
+    }
+  ],
+  "media": {
+    "logo": {
+      "src": "/images/directory/certs-here/logo.webp",
+      "alt": "certs.here logo",
+      "source": "https://certs.here/"
+    }
+  }
+}
