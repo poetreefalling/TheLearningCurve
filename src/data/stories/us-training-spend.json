@@ -1,0 +1,87 @@
+{
+  "title": "US training spend passed US$100B in 2022 and has barely moved since",
+  "subtitle": "Total US training expenditure, US$ billions, nominal (not adjusted for inflation)",
+  "type": "column",
+  "format": "usd-billions",
+  "categories": [
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "spend",
+      "label": "Training expenditure",
+      "values": [
+        83,
+        82.5,
+        92.3,
+        101.6,
+        101.8,
+        98,
+        102.8
+      ]
+    }
+  ],
+  "views": {
+    "rise": {
+      "upTo": 3,
+      "focus": [
+        3
+      ]
+    },
+    "flat": {
+      "focus": [
+        3,
+        4,
+        5,
+        6
+      ]
+    }
+  },
+  "notes": [
+    "Each year is a separate survey projected to the US company universe, so small moves partly reflect who answered.",
+    "Includes payroll for training staff, outside products and services, and travel and facilities."
+  ],
+  "sources": [
+    {
+      "label": "Training magazine, 2019 Training Industry Report",
+      "url": "https://trainingmag.com/2019-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2020 Training Industry Report",
+      "url": "https://trainingmag.com/2020-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2021 Training Industry Report",
+      "url": "https://trainingmag.com/2021-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2022 Training Industry Report",
+      "url": "https://trainingmag.com/2022-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2023 Training Industry Report",
+      "url": "https://trainingmag.com/2023-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2024 Training Industry Report",
+      "url": "https://trainingmag.com/2024-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    },
+    {
+      "label": "Training magazine, 2025 Training Industry Report",
+      "url": "https://trainingmag.com/2025-training-industry-report/",
+      "figureOrTable": "Total US training expenditures"
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "title": "What creators sell through Thinkific has been flat at about US$460M for three years",
+  "subtitle": "Gross merchandise volume (sales by creators on Thinkific), US$ millions",
+  "type": "column",
+  "format": "millions",
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "gmv",
+      "label": "GMV",
+      "values": [
+        276.4,
+        414.8,
+        409.8,
+        445,
+        459.1,
+        460.0
+      ]
+    }
+  ],
+  "views": {
+    "spike": {
+      "upTo": 1,
+      "focus": [
+        1
+      ]
+    },
+    "plateau": {
+      "focus": [
+        3,
+        4,
+        5
+      ]
+    }
+  },
+  "notes": [
+    "GMV is the value of course and membership sales creators made on the platform, not Thinkific's own revenue."
+  ],
+  "sources": [
+    {
+      "label": "Thinkific Q4 and full-year 2021 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2021-financial-results-and-provides-first-quarter-2022-outlook-806299511.html",
+      "figureOrTable": "Key performance indicators"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2022 results",
+      "url": "https://newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-year-end-2022-financial-results-and-provides-first-quarter-2023-outlook-814476102.html",
+      "figureOrTable": "Key performance indicators"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2023 results",
+      "url": "https://investors.thinkific.com/2024-03-04-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2023-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2024 results",
+      "url": "https://www.newswire.ca/news-releases/thinkific-announces-fourth-quarter-and-full-year-2024-financial-results-824981852.html",
+      "figureOrTable": "Full-year highlights"
+    },
+    {
+      "label": "Thinkific Q4 and full-year 2025 results",
+      "url": "https://investors.thinkific.com/2026-03-05-Thinkific-Announces-Fourth-Quarter-and-Full-Year-2025-Financial-Results",
+      "figureOrTable": "Full-year highlights"
+    }
+  ]
+}
