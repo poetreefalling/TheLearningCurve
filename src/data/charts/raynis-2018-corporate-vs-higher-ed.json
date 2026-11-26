@@ -1,0 +1,20 @@
+{
+  "title": "Corporate instructional design ads asked least often for formal education and most often for authoring software",
+  "subtitle": "Share of 2016 US instructional design job postings mentioning each requirement: corporate (34 postings) and higher education (15 postings)",
+  "type": "groupedBar",
+  "unit": "% of job postings",
+  "highlight": "Corporate",
+  "series": [
+    { "label": "Formal education requirement", "values": { "Corporate": 67.6, "Higher education": 93.3 } },
+    { "label": "eLearning authoring software", "values": { "Corporate": 58.8, "Higher education": 33.3 } },
+    { "label": "LMS, LCMS or CMS skills", "values": { "Corporate": 41.2, "Higher education": 73.3 } },
+    { "label": "Teaching or training as a responsibility", "values": { "Corporate": 35.3, "Higher education": 80 } }
+  ],
+  "yMax": 100,
+  "source": {
+    "authors": "Raynis, M.",
+    "year": 2018,
+    "url": "https://scholarworks.umb.edu/ciee/vol4/iss1/9",
+    "figureOrTable": "Text, pp. 184–187 (Figure 5b.1 for education); Table 3 for postings by industry"
+  }
+}
