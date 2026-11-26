@@ -1,0 +1,85 @@
+{
+  "title": "Udemy's business sales overtook its course store in 2023, and the gap keeps widening",
+  "subtitle": "Udemy revenue by segment, US$ millions",
+  "type": "line",
+  "format": "millions",
+  "categories": [
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "consumer",
+      "label": "Consumer (course marketplace)",
+      "values": [
+        328.7,
+        315.1,
+        308.3,
+        292.1,
+        265.8
+      ]
+    },
+    {
+      "id": "enterprise",
+      "label": "Enterprise (Udemy Business)",
+      "values": [
+        187.0,
+        314.0,
+        420.6,
+        494.5,
+        524.1
+      ]
+    }
+  ],
+  "views": {
+    "start": {
+      "upTo": 0
+    },
+    "cross": {
+      "upTo": 1,
+      "annotations": [
+        {
+          "at": 1,
+          "text": "Roughly level in 2022"
+        }
+      ]
+    },
+    "gap": {
+      "highlight": [
+        "consumer"
+      ],
+      "annotations": [
+        {
+          "at": 4,
+          "series": "consumer",
+          "text": "Down 19% since 2021"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "2021 is shown as restated in the 2022 results (US$2.5 million lower than first reported).",
+    "Udemy merged into Coursera on 11 May 2026, so there are no separate Udemy full-year figures after 2025.",
+    "The 19% fall is calculated from the figures shown."
+  ],
+  "sources": [
+    {
+      "label": "Udemy Q4 and full-year 2022 results",
+      "url": "https://investors.udemy.com/news-releases/news-release-details/udemy-reports-fourth-quarter-and-full-year-2022-results",
+      "figureOrTable": "Key Operating Data"
+    },
+    {
+      "label": "Udemy Q4 and full-year 2023 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1607939/000160793924000010/q42023pressrelease.htm",
+      "figureOrTable": "Segment revenue"
+    },
+    {
+      "label": "Udemy Q4 and full-year 2025 results",
+      "url": "https://www.businesswire.com/news/home/20260204247314/en/Udemy-Reports-Fourth-Quarter-and-Full-Year-2025-Results",
+      "figureOrTable": "Segment revenue"
+    }
+  ]
+}

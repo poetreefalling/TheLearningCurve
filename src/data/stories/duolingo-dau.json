@@ -1,0 +1,58 @@
+{
+  "title": "Duolingo's daily users rose more than sixfold in five years, to 52.7M",
+  "subtitle": "Duolingo daily active users in the fourth quarter of each year, millions",
+  "type": "column",
+  "format": "millions",
+  "categories": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+  ],
+  "series": [
+    {
+      "id": "dau",
+      "label": "Daily active users",
+      "values": [
+        8.4,
+        10.1,
+        16.3,
+        26.9,
+        40.5,
+        52.7
+      ]
+    }
+  ],
+  "notes": [
+    "Fourth-quarter averages. Duolingo reported 58.7M in Q2 2026."
+  ],
+  "sources": [
+    {
+      "label": "Duolingo Q4 and full-year 2021 results",
+      "url": "https://www.sec.gov/Archives/edgar/data/1562088/000156208822000033/q4fy21pressrelease.htm",
+      "figureOrTable": "DAUs, 2020 and 2021"
+    },
+    {
+      "label": "Duolingo Q4 and full-year 2022 results",
+      "url": "https://investors.duolingo.com/news-releases/news-release-details/duolingo-reports-62-dau-growth-record-bookings-and-revenue",
+      "figureOrTable": "DAUs"
+    },
+    {
+      "label": "Duolingo Q4 and full-year 2023 results",
+      "url": "https://investors.duolingo.com/news-releases/news-release-details/duolingo-reports-65-dau-growth-45-revenue-growth-and-record",
+      "figureOrTable": "DAUs"
+    },
+    {
+      "label": "Duolingo Q4 2024 shareholder letter",
+      "url": "https://investors.duolingo.com/static-files/d0adccff-bfe0-4d10-a5bc-f116d746afd2",
+      "figureOrTable": "Summary table"
+    },
+    {
+      "label": "Duolingo Q4 2025 shareholder letter",
+      "url": "https://www.sec.gov/Archives/edgar/data/1562088/000162828026012246/q4fy25duolingo12-31x25shar.htm",
+      "figureOrTable": "Summary table"
+    }
+  ]
+}
