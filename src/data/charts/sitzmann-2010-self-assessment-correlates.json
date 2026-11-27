@@ -1,0 +1,20 @@
+{
+  "title": "Learners' ratings of their own learning tracked motivation (.59) and satisfaction (.51) more closely than test scores (.34)",
+  "subtitle": "Mean corrected correlation between self-assessed knowledge and each outcome, from a meta-analysis of 222 samples and 41,237 learners",
+  "type": "bar",
+  "unit": "mean corrected correlation with self-assessed knowledge",
+  "highlight": "Motivation",
+  "yMax": 1,
+  "series": [
+    { "label": "Motivation", "value": 0.59 },
+    { "label": "Reactions (satisfaction)", "value": 0.51 },
+    { "label": "Self-efficacy", "value": 0.43 },
+    { "label": "Cognitive learning (tests)", "value": 0.34 }
+  ],
+  "source": {
+    "authors": "Sitzmann, T., Ely, K., Brown, K. G., & Bauer, K. N.",
+    "year": 2010,
+    "url": "https://gwern.net/doc/psychology/cognitive-bias/illusion-of-depth/2010-sitzmann.pdf",
+    "figureOrTable": "Table 1"
+  }
+}
